@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Durva Thakkar — Coming Soon</title>
+  <meta name="description" content="Something new is on the way. This site is currently under development.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6f3ee;
+      --fg: #1c1a17;
+      --muted: #6f685e;
+      --accent: #b0643c;
+      --line: #e2dcd2;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #141311;
+        --fg: #f1ece4;
+        --muted: #a39b8f;
+        --accent: #e0915f;
+        --line: #2a2723;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: "Inter", system-ui, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding: 32px 24px;
+    }
+    header, footer {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 720px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 28px;
+    }
+    .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.35; transform: scale(0.8); }
+    }
+    h1 {
+      font-family: "Fraunces", Georgia, serif;
+      font-weight: 400;
+      font-size: clamp(44px, 9vw, 88px);
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+    }
+    h1 em { font-style: italic; color: var(--accent); }
+    p.lede {
+      margin-top: 28px;
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--muted);
+      max-width: 480px;
+    }
+    .bar {
+      margin-top: 44px;
+      height: 2px;
+      width: 100%;
+      max-width: 320px;
+      background: var(--line);
+      position: relative;
+      overflow: hidden;
+      border-radius: 2px;
+    }
+    .bar::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      width: 40%;
+      background: var(--accent);
+      animation: load 2.4s ease-in-out infinite;
+    }
+    @keyframes load {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(250%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .dot, .bar::after { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <span>durvathakkar.com</span>
+    <span id="year"></span>
+  </header>
+
+  <main>
+    <div class="status"><span class="dot"></span> Under development</div>
+    <h1>Something good is <em>in the works.</em></h1>
+    <p class="lede">This site is still being built. Check back soon to see what's coming.</p>
+    <div class="bar" aria-hidden="true"></div>
+  </main>
+
+  <footer>
+    <span>Durva Thakkar</span>
+    <span>Coming soon</span>
+  </footer>
+
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
