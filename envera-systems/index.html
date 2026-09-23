@@ -612,6 +612,31 @@
     .clear-msg { font-family: var(--pixel); font-size: 12px; color: var(--brand); margin-bottom: 14px; opacity: 0; transition: opacity .6s .9s; }
     .flagpole.down + .clear-msg { opacity: 1; }
 
+
+    /* ---------- scroll cameos ---------- */
+    .cameo { position: fixed; left: 16px; bottom: 16px; z-index: 60; width: 216px; pointer-events: none; opacity: 0; transform: translateY(8px); transition: opacity .3s, transform .3s; }
+    .cameo.on { opacity: 1; transform: none; }
+    .cam-stage { display: block; width: 216px; height: 114px; image-rendering: pixelated; filter: drop-shadow(0 3px 0 rgba(10,26,64,.18)); }
+    .cam-bubble { position: absolute; left: 0; bottom: 112px; width: max-content; max-width: min(320px, calc(100vw - 32px)); background: #fff; border: 3px solid var(--night); border-radius: 8px; padding: 10px 12px; font-family: var(--pixel); font-size: 10px; line-height: 1.7; color: var(--ink); box-shadow: 4px 4px 0 rgba(10,26,64,.2); }
+    .cam-bubble::after { content: ""; position: absolute; left: var(--tx, 30px); bottom: -11px; width: 14px; height: 14px; background: #fff; border-right: 3px solid var(--night); border-bottom: 3px solid var(--night); transform: rotate(45deg); }
+    .cam-name.C { color: var(--gold-dk); } .cam-name.D { color: var(--brand); }
+    .cam-x { pointer-events: auto; position: absolute; left: 196px; bottom: 6px; width: 22px; height: 22px; border-radius: 50%; border: 0; background: rgba(10,26,64,.75); color: #fff; font-size: 14px; line-height: 1; cursor: pointer; opacity: 0; transition: opacity .2s; }
+    .cameo.on .cam-x { opacity: 1; }
+    @media (max-width: 560px) { .cameo { left: 8px; bottom: 8px; } .cam-bubble { font-size: 9px; } }
+    @media (prefers-reduced-motion: reduce) { .cameo { transition: none; } }
+
+    /* ---------- finale ---------- */
+    .finale { max-width: 760px; margin: 0 auto 44px; border-radius: 16px; overflow: hidden; background: var(--night); box-shadow: 0 24px 60px -30px rgba(10,26,64,.6), 0 0 0 4px #fff, 0 0 0 6px var(--night); }
+    #finale { display: block; width: 100%; aspect-ratio: 200 / 90; image-rendering: pixelated; }
+    .dialog { background: #000; color: #fff; border-top: 4px solid #fff; padding: 18px 22px 20px; text-align: left; font-family: var(--pixel); font-size: clamp(10px, 1.6vw, 13px); line-height: 1.9; min-height: 132px; }
+    .dialog b { color: var(--gold); }
+    .contact .dialog p { margin: 0; max-width: none; color: #fff; }
+    .choices { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px 30px; }
+    .choice { font-family: var(--pixel); font-size: inherit; color: #fff; background: none; border: 0; padding: 6px 2px; cursor: pointer; }
+    .choice:hover, .choice:focus-visible { color: var(--gold); outline: none; }
+    .choice:first-child { animation: blink 1.1s steps(2, start) infinite; }
+    .toast { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 20px); opacity: 0; z-index: 90; background: var(--night); color: #fff; font-family: var(--pixel); font-size: 10px; padding: 12px 16px; border-radius: 8px; transition: opacity .3s, transform .3s; max-width: calc(100vw - 32px); }
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
     footer { border-top: 1px solid var(--line); padding: 24px 0 36px; font-size: 13px; color: var(--muted); }
     footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 
@@ -1664,7 +1689,12 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>`;
   }
   function contact(it) {
-    return `<div class="contact" id="contact"><div class="flagpole" id="flag"><span class="ball"></span><span class="pole"></span><span class="cloth"></span><span class="base"></span></div><div class="clear-msg">COURSE CLEAR!</div><h2>${rich(it.headline)}</h2><p>${rich(it.text)}</p><div class="row">${it.buttons.map((b, i) => `<a class="btn${i ? ' ghost' : ''}" href="${esc(b.href)}"${/^https?:/.test(b.href) ? ' target="_blank" rel="noopener"' : ''}>${rich(b.label)}</a>`).join('')}</div></div>`;
+    const F = DATA.finale || {};
+    return `<div class="contact" id="contact">
+      <div class="finale"><canvas id="finale" width="200" height="90" role="img" aria-label="Pixel scene: Colleen and Durva stand by a castle and a flagpole."></canvas>
+        <div class="dialog"><p><b>DURVA:</b> <span id="dLine"></span></p><div class="choices"><button type="button" class="choice">${esc(F.yes || '▶ YES')}</button><button type="button" class="choice" data-alt="${esc(F.maybeHover || '▶ OK FINE, YES')}">${esc(F.maybe || '▶ MAYBE LATER')}</button></div></div>
+      </div>
+      <h2>${rich(it.headline)}</h2><p>${rich(it.text)}</p><div class="row">${it.buttons.map((b, i) => `<a class="btn${i ? ' ghost' : ''}" href="${esc(b.href)}"${/^https?:/.test(b.href) ? ' target="_blank" rel="noopener"' : ''}>${rich(b.label)}</a>`).join('')}</div></div>`;
   }
 
   /* ---------- item wrapper (content-calendar meta + "why it works") ---------- */
@@ -1787,7 +1817,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (el.id === 'flag') el.classList.add('down');
   }), { threshold: 0, rootMargin: '0px 0px -12% 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-  const flag = document.getElementById('flag'); if (flag) io.observe(flag);
 
   let target = 0, current = 0, lastScroll = 0;
   function onScroll() {
@@ -1813,6 +1842,174 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.PixelKit) window.PixelKit.draw(rctx, 'D', 1, 30, pose, now / 1000, 1);
     requestAnimationFrame(drawRunner);
   })(performance.now());
+
+  /* ---------- scroll cameos: pixel Colleen reacts, pixel Durva replies ---------- */
+  const CAMEOS = DATA.cameos || {};
+  const cam = document.createElement('div');
+  cam.className = 'cameo';
+  cam.setAttribute('aria-live', 'polite');
+  cam.innerHTML = '<div class="cam-bubble" hidden><b class="cam-name"></b> <span class="cam-text"></span></div><canvas class="cam-stage" width="72" height="38" aria-hidden="true"></canvas><button class="cam-x" type="button" aria-label="Hide Colleen and Durva">×</button>';
+  document.body.appendChild(cam);
+  const camCtx = cam.querySelector('canvas').getContext('2d'); camCtx.imageSmoothingEnabled = false;
+  const bubbleEl = cam.querySelector('.cam-bubble'), nameEl = cam.querySelector('.cam-name'), textEl = cam.querySelector('.cam-text');
+  const NAMES = { C: 'COLLEEN:', D: 'DURVA:' };
+  let camOff = false, scene = null, pending = null;
+  cam.querySelector('.cam-x').addEventListener('click', () => { camOff = true; scene = null; pending = null; cam.classList.remove('on'); });
+
+  // build a timeline for one cameo: C walks in, says line 1; D runs in, says line 2; both run off
+  function makeScene(lines) {
+    const beats = []; let t = 0.7;
+    const dur = s => Math.max(2.4, Array.from(s).length / 28 + 1.6);
+    lines.forEach(([who, text]) => { beats.push({ who, text, from: t, to: t + dur(text) }); t += dur(text) + 0.15; });
+    const dEnter = (beats.find(b => b.who === 'D') || { from: 99 }).from - 0.6;
+    return { start: performance.now(), beats, dEnter, end: t + 0.9 };
+  }
+  function playCameo(key) {
+    if (camOff || !CAMEOS[key] || !window.PixelKit) return;
+    if (scene) { pending = key; return; }
+    scene = makeScene(CAMEOS[key]); cam.classList.add('on');
+    requestAnimationFrame(camFrame);
+  }
+  function camFrame(now) {
+    if (!scene) return;
+    const t = (now - scene.start) / 1000, run = Math.floor(now / 110) % 2 ? 'runA' : 'runB';
+    const beat = scene.beats.find(b => t >= b.from && t < b.to);
+    const leaving = t >= scene.end - 0.9;
+    const u = leaving ? (t - (scene.end - 0.9)) / 0.9 : 0;
+    camCtx.clearRect(0, 0, 72, 38);
+    camCtx.fillStyle = '#c8773a'; camCtx.fillRect(0, 34, 72, 4); camCtx.fillStyle = '#e0935a'; camCtx.fillRect(0, 34, 72, 1);
+    camCtx.fillStyle = '#8f4a1c'; for (let x = 0; x < 72; x += 6) camCtx.fillRect(x, 35, 1, 3);
+    // Colleen
+    let cx = t < 0.7 ? -16 + 22 * (t / 0.7) : 6;
+    cx += u * 80;
+    const cPose = (t < 0.7 || leaving) ? run : (beat && beat.who === 'C' ? 'wave' : 'stand');
+    window.PixelKit.draw(camCtx, 'C', cx, 34, cPose, now / 1000, 1);
+    // Durva
+    if (t >= scene.dEnter) {
+      const k = Math.min(1, (t - scene.dEnter) / 0.6);
+      let dx = -16 + 48 * k + u * 80;
+      const hop = (k < 1) ? -Math.abs(Math.sin(k * Math.PI)) * 4 : 0;
+      const dPose = (k < 1 || leaving) ? run : (beat && beat.who === 'D' ? 'wave' : 'stand');
+      window.PixelKit.draw(camCtx, 'D', dx, 34 + hop, dPose, now / 1000, 1);
+    }
+    if (beat && !leaving) {
+      bubbleEl.hidden = false;
+      nameEl.textContent = NAMES[beat.who] || beat.who;
+      nameEl.className = 'cam-name ' + beat.who;
+      const chars = Array.from(beat.text);
+      textEl.textContent = chars.slice(0, Math.floor((t - beat.from) * 30)).join('');
+      bubbleEl.style.setProperty('--tx', (beat.who === 'C' ? 30 : 108) + 'px');
+    } else bubbleEl.hidden = true;
+    if (t >= scene.end) {
+      scene = null; bubbleEl.hidden = true; cam.classList.remove('on');
+      if (pending) { const p = pending; pending = null; setTimeout(() => playCameo(p), 500); }
+      return;
+    }
+    requestAnimationFrame(camFrame);
+  }
+  const camIO = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    camIO.unobserve(e.target);
+    playCameo(e.target.closest('.world').id);
+  }), { rootMargin: '0px 0px -40% 0px' });
+  sections.forEach(s => { if (CAMEOS[s.id]) camIO.observe(s.querySelector('.world-head')); });
+
+  /* ---------- finale: Mario-style dialog asking for a meeting ---------- */
+  const fcv = document.getElementById('finale');
+  if (fcv && window.PixelKit) {
+    const F = DATA.finale || {};
+    const fx = fcv.getContext('2d'); fx.imageSmoothingEnabled = false;
+    const lineEl = document.getElementById('dLine');
+    const lineChars = Array.from(F.line || '');
+    let visible = false, typedAt = 0, party = 0, audio = null;
+    new IntersectionObserver(es => es.forEach(e => { visible = e.isIntersecting; if (visible && !typedAt) typedAt = performance.now(); }), { threshold: 0.35 }).observe(fcv);
+    const P = (x, y, w, h, c) => { fx.fillStyle = c; fx.fillRect(Math.round(x), Math.round(y), w, h); };
+    const STARS = Array.from({ length: 22 }, (_, i) => [(i * 53) % 200, (i * 29) % 40 + 2]);
+    function bricks(x, y, w, h) {
+      P(x, y, w, h, '#c8773a');
+      for (let yy = y; yy < y + h; yy += 5) { P(x, yy, w, 1, '#8f4a1c'); for (let xx = x + ((yy - y) / 5 % 2 ? 5 : 0); xx < x + w; xx += 10) P(xx, yy, 1, 5, '#8f4a1c'); }
+      P(x, y, w, 1, '#e0935a');
+    }
+    function blip(f, d, when = 0) {
+      try {
+        audio = audio || new (window.AudioContext || window.webkitAudioContext)();
+        const o = audio.createOscillator(), g = audio.createGain(), t0 = audio.currentTime + when;
+        o.type = 'square'; o.frequency.value = f; g.gain.setValueAtTime(0.05, t0); g.gain.exponentialRampToValueAtTime(0.0001, t0 + d);
+        o.connect(g).connect(audio.destination); o.start(t0); o.stop(t0 + d + 0.02);
+      } catch (e) {}
+    }
+    function drawFinale(now) {
+      const t = now / 1000, pu = party ? (now - party) / 1000 : -1;
+      const sky = fx.createLinearGradient(0, 0, 0, 74); sky.addColorStop(0, '#060f28'); sky.addColorStop(1, '#1b2f74');
+      fx.fillStyle = sky; fx.fillRect(0, 0, 200, 90);
+      STARS.forEach(([x, y], i) => { if ((Math.floor(t * 2) + i) % 5) P(x, y, 1, 1, i % 3 ? '#8fb0ff' : '#ffffff'); });
+      // castle
+      bricks(158, 44, 38, 30); for (let i = 0; i < 4; i++) bricks(158 + i * 10, 38, 6, 6);
+      P(171, 58, 12, 16, '#0a0a0a'); P(173, 56, 8, 2, '#0a0a0a');
+      P(176, 26, 1, 12, '#dcdcdc'); P(177, 26, 7, 5, '#FFBD00');
+      // flagpole: flag slides down once she says yes
+      P(138, 16, 2, 58, '#3fa34d'); P(137, 13, 4, 4, '#3fa34d'); P(135, 70, 8, 4, '#8f4a1c');
+      const fy = pu < 0 ? 18 : Math.min(62, 18 + pu * 60);
+      P(128, fy, 10, 8, '#0038F5'); P(131, fy + 2, 4, 4, '#ffffff');
+      // ? block
+      const bump = pu >= 0.25 && pu < 0.45 ? -3 : 0;
+      P(66, 30 + bump, 12, 12, '#3a2408');
+      P(67, 31 + bump, 10, 10, pu >= 0.3 ? '#9a6a34' : (Math.floor(t * 3) % 3 ? '#FFBD00' : '#ffd35a'));
+      if (pu < 0.3) { fx.fillStyle = '#7a4a10'; fx.font = '8px "Press Start 2P"'; fx.fillText('?', 69, 40 + bump); }
+      // ground
+      bricks(0, 74, 200, 16);
+      // characters
+      let dy = 0, dPose = 'stand', cPose = 'stand';
+      const typing = typedAt && (now - typedAt) / 1000 * 28 < lineChars.length + 4;
+      if (pu >= 0) {
+        if (pu < 0.6) { dy = -Math.sin(pu / 0.6 * Math.PI) * 16; dPose = 'jump'; } else dPose = 'cheer';
+        cPose = pu > 0.3 ? 'cheer' : 'stand';
+        if (pu > 0.6) { dy = -Math.abs(Math.sin(pu * 7)) * 4; }
+      } else if (typing) dPose = 'wave';
+      window.PixelKit.draw(fx, 'C', 42, 74 + (cPose === 'cheer' ? -Math.abs(Math.sin(pu * 7 + 1)) * 4 : 0), cPose, t, 1);
+      window.PixelKit.draw(fx, 'D', 65, 74 + dy, dPose, t, 1);
+      // celebration
+      if (pu >= 0.3) {
+        const cu = Math.min(1, (pu - 0.3) / 0.7);
+        if (cu < 1) { const w = [6, 4, 2, 4][Math.floor(now / 70) % 4]; P(72 - w / 2, 26 - cu * 22, w, 8, '#FFBD00'); }
+        fx.font = '8px "Press Start 2P"'; fx.fillStyle = '#5dff8f'; if (pu < 1.1) fx.fillText('1-UP', 84, 28 - Math.min(6, pu * 6));
+        [[40, 20, 0.5], [110, 14, 0.9], [90, 34, 1.3], [20, 36, 1.7]].forEach(([x, y, d]) => {
+          const v = (pu - d) / 0.9; if (v < 0 || v > 1) return;
+          for (let k = 0; k < 10; k++) { const a = k * Math.PI / 5; P(x + Math.cos(a) * v * 14, y + Math.sin(a) * v * 14 + v * v * 4, 1, 1, ['#FFBD00', '#ffffff', '#8fb0ff'][k % 3]); }
+        });
+        if (pu > 1.1) { fx.font = '8px "Press Start 2P"'; fx.fillStyle = '#ffffff'; fx.fillText('COURSE CLEAR!', 46, 12); }
+      }
+    }
+    (function loop(now) {
+      if (visible) {
+        drawFinale(now);
+        if (typedAt) lineEl.textContent = lineChars.slice(0, Math.floor((now - typedAt) / 1000 * 28)).join('');
+      }
+      requestAnimationFrame(loop);
+    })(performance.now());
+    drawFinale(performance.now());
+
+    const toast = msg => {
+      const el = document.createElement('div'); el.className = 'toast'; el.textContent = msg; document.body.appendChild(el);
+      setTimeout(() => el.classList.add('show'), 10); setTimeout(() => { el.classList.remove('show'); setTimeout(() => el.remove(), 400); }, 3200);
+    };
+    document.querySelectorAll('.choice').forEach(btn => {
+      if (btn.dataset.alt) {
+        const turn = () => { btn.textContent = btn.dataset.alt; };
+        btn.addEventListener('mouseenter', turn); btn.addEventListener('focus', turn);
+      }
+      btn.addEventListener('click', () => {
+        party = performance.now();
+        blip(988, 0.08); blip(1319, 0.3, 0.08); [523, 659, 784, 1047].forEach((f, i) => blip(f, 0.12, 0.45 + i * 0.1));
+        const url = F.scheduleUrl || '';
+        setTimeout(() => {
+          if (!url || /^\[/.test(url)) toast(F.placeholderToast || 'Add your scheduling link to the content block.');
+          else if (/^mailto:/.test(url)) location.href = url;
+          else window.open(url, '_blank', 'noopener');
+        }, 1700);
+      });
+    });
+  }
 });
 </script>
 
@@ -3183,7 +3380,127 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       ]
     }
-  ]
+  ],
+  "cameos": {
+    "approach": [
+      [
+        "C",
+        "A 90-day plan already?"
+      ],
+      [
+        "D",
+        "Plus a calendar. Want the tour over coffee? ☕"
+      ]
+    ],
+    "linkedin-strategy": [
+      [
+        "C",
+        "Pillars AND percentages?"
+      ],
+      [
+        "D",
+        "I like a plan with numbers in it."
+      ]
+    ],
+    "company-linkedin": [
+      [
+        "C",
+        "These look like real posts!"
+      ],
+      [
+        "D",
+        "They could be real by Monday. Just saying."
+      ]
+    ],
+    "colleen-linkedin": [
+      [
+        "C",
+        "Wait… these are MY posts?!"
+      ],
+      [
+        "D",
+        "Drafts! Your voice, my typing. Edit away."
+      ]
+    ],
+    "exec-linkedin": [
+      [
+        "C",
+        "Even the CEO has a post?"
+      ],
+      [
+        "D",
+        "15 minutes with each exec and I'll nail their voice."
+      ]
+    ],
+    "instagram": [
+      [
+        "C",
+        "Swipe, swipe, swipe…"
+      ],
+      [
+        "D",
+        "Carousel #1 of many 🎠"
+      ]
+    ],
+    "blog": [
+      [
+        "C",
+        "Full articles, too?"
+      ],
+      [
+        "D",
+        "Boards love a checklist. So do I."
+      ]
+    ],
+    "case-studies": [
+      [
+        "C",
+        "Palm Hollow isn't real, right?"
+      ],
+      [
+        "D",
+        "Not yet. Introduce me to a customer and it will be."
+      ]
+    ],
+    "trade-show": [
+      [
+        "C",
+        "A whole campaign!"
+      ],
+      [
+        "D",
+        "Booth [#000] is waiting. So is my calendar 👀"
+      ]
+    ],
+    "hubspot": [
+      [
+        "C",
+        "She knows HubSpot?!"
+      ],
+      [
+        "D",
+        "Workflows are my love language."
+      ]
+    ],
+    "about": [
+      [
+        "C",
+        "So who IS Player 2?"
+      ],
+      [
+        "D",
+        "Keep scrolling. There's a question for you at the end!"
+      ]
+    ]
+  },
+  "finale": {
+    "line": "Colleen! Thanks for playing all the way to the castle. Will you schedule a 20-minute chat with Player 2?",
+    "yes": "▶ YES, LET'S TALK!",
+    "maybe": "▶ MAYBE LATER",
+    "maybeHover": "▶ OK FINE, YES 😄",
+    "scheduleUrl": "[your-calendly-or-mailto-link]",
+    "placeholderToast": "Almost! Add Durva's scheduling link in the content block."
+  }
 }
 </script>
 </body>
