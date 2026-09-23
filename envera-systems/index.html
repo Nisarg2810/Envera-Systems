@@ -52,11 +52,13 @@
     .bar .to { display: flex; align-items: center; gap: 8px; }
     .bar .to img { height: 14px; width: auto; }
 
-    /* ---------- hero / her post ---------- */
+    /* ---------- hero / your post ---------- */
     .hero { padding-block: 28px 72px; }
     .hero h1 { font-size: clamp(30px, 4.6vw, 52px); line-height: 1.1; letter-spacing: -0.03em; font-weight: 800; max-width: 860px; }
-    .hero h1 .hl { color: var(--brand); }
+    .hero h1 .hl { color: var(--brand); display: block; }
     .hero .sub { margin-top: 16px; color: var(--muted); max-width: 640px; font-size: 18px; }
+    .hero-stage { margin-top: 26px; max-width: 960px; border-radius: 14px; overflow: hidden; background: linear-gradient(180deg, #dfe8ff 0%, #f4f7ff 100%); box-shadow: inset 0 0 0 1px var(--line); }
+    #heroStage { display: block; width: 100%; aspect-ratio: 3 / 1; image-rendering: pixelated; }
     .post {
       margin-top: 40px; background: var(--card); border: 1px solid var(--line); border-radius: 18px; overflow: hidden;
       display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
@@ -671,13 +673,13 @@
     <span class="to">For Colleen · <img src="envera-logo.svg" alt="Envera Systems"></span>
   </header>
 
-  <!-- Her post -->
+  <!-- Your post -->
   <section class="hero wrap">
     <div class="eyebrow">Hi Colleen 👋</div>
-    <h1>You started week one by throwing axes. <span class="hl">I'd like to be the Player&nbsp;2 who shows up with more.</span></h1>
-    <p class="sub">A small, scrappy application for your early-career marketing role. It starts with the post that made me want to work with you. After that comes a full content workspace I drafted for Envera.</p>
+    <h1>I Could Tell You. <span class="hl">Or I Could Show You.</span></h1>
+    <div class="hero-stage"><canvas id="heroStage" width="240" height="80" role="img" aria-label="Pixel scene: you throw axes at a target while I jump to hit question blocks that pop out a blog, an email, a reel and more, then we high-five."></canvas></div>
 
-    <article class="post" aria-label="Colleen's week-one post">
+    <article class="post" aria-label="Your week-one post">
       <figure>
         <img src="colleen-axe.jpg" alt="Colleen mid-swing with an axe at an axe-throwing lane, smiling back at the camera" width="1152" height="1536">
         <figcaption>WEEK 1 · TEAM BONDING</figcaption>
@@ -689,7 +691,7 @@
             <div class="name">Colleen</div>
             <div class="role">VP of Marketing · Envera Systems</div>
           </div>
-          <span class="tag">Her post</span>
+          <span class="tag">Your post</span>
         </div>
         <div class="caption">
           <p class="big">I start new jobs by throwing axes. 🪓</p>
@@ -714,7 +716,7 @@
       <div class="screen">
         <div class="game-wrap" id="gameWrap">
           <canvas id="game" width="320" height="180" role="img"
-            aria-label="Pixel-art animation: photos of Colleen and Durva turn into 8-bit characters. Colleen throws axes at a wall of marketing tasks. The tasks keep coming, so Durva joins as Player 2, grabs an AI power-up, and together they clear every target and ring the bell."></canvas>
+            aria-label="Pixel-art animation: your photo and mine turn into 8-bit characters. You throw axes at a wall of marketing tasks. The tasks keep coming, so I join as Player 2, grab an AI power-up, and together we clear every target and ring the bell."></canvas>
           <canvas id="gameHi" width="1280" height="720" aria-hidden="true"></canvas>
         </div>
         <button class="btn start" id="start" type="button">▶ PRESS START</button>
@@ -727,12 +729,12 @@
       <details class="transcript">
         <summary>Read the story instead</summary>
         <ol>
-          <li>Hi Colleen! Her photo and Durva's slowly pixelate into 8-bit players.</li>
-          <li>World 1-1: Colleen, VP of Marketing, steps into the Envera lane.</li>
-          <li>She knocks out Blogs and Emails, and two new tasks (Events, Figma) drop right back in.</li>
+          <li>Hi Colleen! Your photo and mine slowly pixelate into 8-bit players.</li>
+          <li>World 1-1: you step into the Envera lane as VP of Marketing.</li>
+          <li>You knock out Blogs and Emails, and two new tasks (Events, Figma) drop right back in.</li>
           <li>“So many tasks… I need a right hand!”</li>
-          <li>Player 2 joins: Durva runs in, hits a ? block and grabs an AI power-up.</li>
-          <li>They trade throws and clear Blogs, Emails, Case studies, Social, HubSpot and Canva.</li>
+          <li>Player 2 joins: I run in, hit a ? block and grab an AI power-up.</li>
+          <li>We trade throws and clear Blogs, Emails, Case studies, Social, HubSpot and Canva.</li>
           <li>The bell rings. Course clear. “Your right hand is not in another castle. She’s right here.”</li>
         </ol>
       </details>
@@ -751,7 +753,7 @@
 
   <footer>
     <div class="wrap">
-      <span>Made for Colleen and the Envera Systems marketing team by Durva Thakkar.</span>
+      <span>Made for you, Colleen, and the Envera Systems marketing team. Durva Thakkar</span>
       <span>Everything in the workspace is a draft concept, not published by Envera Systems. Customer names and metrics are illustrative.</span>
     </div>
   </footer>
@@ -1421,7 +1423,8 @@
     requestAnimationFrame(loop);
   }
   window.PixelKit = {
-    draw(ctx, who, x, feetY, pose, t, sc) { const keep = g; g = ctx; drawActor(PAL[who], x, feetY - FLOOR, pose, false, t, sc); g = keep; }
+    draw(ctx, who, x, feetY, pose, t, sc, hold = false) { const keep = g; g = ctx; drawActor(PAL[who], x, feetY - FLOOR, pose, hold, t, sc); g = keep; },
+    axe(ctx, x, y, ang) { const keep = g; g = ctx; drawAxe(x, y, ang); g = keep; }
   };
   requestAnimationFrame(loop);
 
@@ -1646,7 +1649,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="panel span-2"><h3>Audiences</h3><div class="cards">${it.audiences.map(x => `<div class="mini"><b>${rich(x.name)}</b><span>${rich(x.need)}</span></div>`).join('')}</div></div>
       <div class="panel"><h3>Frequency</h3><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Channel</th><th>How often</th><th>Mix</th></tr></thead><tbody>${it.cadence.map(c => `<tr><td>${rich(c.channel)}</td><td>${rich(c.freq)}</td><td>${rich(c.mix)}</td></tr>`).join('')}</tbody></table></div></div>
       <div class="panel"><h3>Formats</h3><div class="chips">${it.formats.map(f => `<span>${rich(f)}</span>`).join('')}</div><h3 style="margin-top:20px">What we measure</h3><div class="chips">${it.kpis.map(f => `<span>${rich(f)}</span>`).join('')}</div></div>
-      <div class="panel span-2"><h3>Company page vs. executives</h3><div class="split2"><div class="co"><b>Envera company page</b><ul>${it.split.company.map(x => `<li>${rich(x)}</li>`).join('')}</ul></div><div class="pe"><b>Colleen + executives</b><ul>${it.split.people.map(x => `<li>${rich(x)}</li>`).join('')}</ul></div></div><p class="rule">${rich(it.split.rule)}</p></div>
+      <div class="panel span-2"><h3>Company page vs. executives</h3><div class="split2"><div class="co"><b>Envera company page</b><ul>${it.split.company.map(x => `<li>${rich(x)}</li>`).join('')}</ul></div><div class="pe"><b>You + our executives</b><ul>${it.split.people.map(x => `<li>${rich(x)}</li>`).join('')}</ul></div></div><p class="rule">${rich(it.split.rule)}</p></div>
       <div class="panel"><h3>Repurposing</h3><div class="repurpose"><div class="src"><small>1 PIECE</small>${rich(it.repurpose.source)}</div><div class="outs">${it.repurpose.outputs.map(o => `<span>${rich(o)}</span>`).join('')}</div></div></div>
       <div class="panel"><h3>Engagement</h3><ol class="olist">${it.engagement.map(x => `<li>${rich(x)}</li>`).join('')}</ol></div>
     </div>`;
@@ -1842,6 +1845,74 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.PixelKit) window.PixelKit.draw(rctx, 'D', 1, 30, pose, now / 1000, 1);
     requestAnimationFrame(drawRunner);
   })(performance.now());
+
+
+  /* ---------- hero stage: you throw, I pop out content, we high-five ---------- */
+  const hcv = document.getElementById('heroStage');
+  if (hcv && window.PixelKit) {
+    const hx = hcv.getContext('2d'); hx.imageSmoothingEnabled = false;
+    const P = (x, y, w, h, c) => { hx.fillStyle = c; hx.fillRect(Math.round(x), Math.round(y), w, h); };
+    const disc = (cx, cy, r, c) => { hx.fillStyle = c; for (let y = -r; y <= r; y++) { const w = Math.floor(Math.sqrt(r * r - y * y + r * 0.8)); hx.fillRect(Math.round(cx - w), Math.round(cy + y), w * 2 + 1, 1); } };
+    const TAGS = ['BLOG', 'EMAIL', 'REEL', 'HUBSPOT', 'CAMPAIGN', 'CASE STUDY', 'CAROUSEL', 'NEWSLETTER'];
+    const LOOP = 8, GROUND = 70, CX = 30, DX = 78, TX = 206, TY = 44;
+    const THROWS = [0.8, 3.4], JUMPS = [1.5, 3.9];
+    let heroVis = true;
+    new IntersectionObserver(es => es.forEach(e => { heroVis = e.isIntersecting; })).observe(hcv);
+    function cloud(x, y) { P(x + 4, y, 12, 4, '#fff'); P(x, y + 3, 22, 5, '#fff'); P(x + 2, y + 7, 18, 2, '#e8eeff'); }
+    function bricks() {
+      P(0, GROUND, 240, 10, '#c8773a'); P(0, GROUND, 240, 1, '#e0935a');
+      for (let y = GROUND + 1; y < 80; y += 5) { P(0, y + 4, 240, 1, '#8f4a1c'); for (let x = (y - GROUND) % 10 ? 5 : 0; x < 240; x += 10) P(x, y, 1, 4, '#8f4a1c'); }
+    }
+    function draw(now) {
+      const T = now / 1000, t = T % LOOP, cycle = Math.floor(T / LOOP);
+      hx.clearRect(0, 0, 240, 80);
+      cloud((T * 4) % 280 - 30, 8); cloud((T * 3 + 150) % 280 - 30, 18);
+      // pipe
+      P(130, 52, 18, 18, '#2fa84f'); P(128, 48, 22, 6, '#3fc463'); P(131, 55, 3, 15, '#7fe39a'); P(130, 48, 22, 1, '#1d7a38');
+      // target on a stand
+      P(TX - 1, TY + 10, 3, GROUND - TY - 10, '#8a5a2e');
+      P(TX - 13, TY - 13, 26, 26, '#b88450'); disc(TX, TY, 10, '#0A1A40'); disc(TX, TY, 8, '#fff'); disc(TX, TY, 6, '#0038F5'); disc(TX, TY, 4, '#fff'); disc(TX, TY, 2, '#e0473c');
+      // ? block
+      const lastJump = JUMPS.filter(j => t >= j).pop();
+      const bump = lastJump !== undefined && t - lastJump > 0.2 && t - lastJump < 0.35 ? -3 : 0;
+      P(DX + 1, 22 + bump, 12, 12, '#3a2408'); P(DX + 2, 23 + bump, 10, 10, Math.floor(T * 3) % 3 ? '#FFBD00' : '#ffd35a');
+      hx.fillStyle = '#7a4a10'; hx.font = '8px "Press Start 2P"'; hx.fillText('?', DX + 4, 32 + bump);
+      bricks();
+      // characters
+      let cPose = 'stand', hold = false, dPose = 'stand', dy = 0;
+      THROWS.forEach(th => { if (t >= th - 0.4 && t < th) { cPose = 'windup'; hold = true; } else if (t >= th && t < th + 0.3) cPose = 'throw'; });
+      JUMPS.forEach(j => { if (t >= j && t < j + 0.5) { dy = -Math.sin((t - j) / 0.5 * Math.PI) * 9; dPose = 'jump'; } });
+      const five = t >= 5.2 && t < 6.6;
+      if (five) { cPose = 'cheer'; dPose = 'cheer'; dy = -Math.abs(Math.sin((t - 5.2) * 6)) * 3; }
+      else if (t >= 6.6) dPose = 'wave';
+      window.PixelKit.draw(hx, 'C', CX, GROUND + (five ? -Math.abs(Math.sin((t - 5.2) * 6 + 1)) * 3 : 0), cPose, T, 1, hold);
+      window.PixelKit.draw(hx, 'D', DX, GROUND + dy, dPose, T, 1);
+      if (five && Math.floor(T * 8) % 2) { P(CX + 42, 36, 1, 5, '#FFBD00'); P(CX + 40, 38, 5, 1, '#FFBD00'); hx.fillStyle = '#0038F5'; hx.fillText('TEAM!', 38, 22); }
+      // axes: flying, then stuck in the target
+      THROWS.forEach((th, i) => {
+        const u = (t - th) / 0.55;
+        if (u >= 0 && u < 1) {
+          const fx = CX + 15, fy = GROUND - 28 + 9, ex = TX - 9, ey = TY;
+          window.PixelKit.axe(hx, fx + (ex - fx) * u, fy + (ey - fy) * u - Math.sin(Math.PI * u) * 26, -2.3 + u * (4 * Math.PI + 2.3 + (i ? 0.2 : -0.2)));
+        } else if (u >= 1) window.PixelKit.axe(hx, TX - 9, TY + (i ? 3 : -3), i ? 0.2 : -0.2);
+        if (u >= 1 && u < 2.2) { const v = (u - 1) / 1.2; hx.fillStyle = '#0A1A40'; hx.fillText('+100', TX - 14, TY - 16 - v * 8); const w = [6, 4, 2, 4][Math.floor(T * 16) % 4]; P(TX - w / 2 + 24, TY - 24 - v * 12, w, 8, '#FFBD00'); }
+      });
+      // content popping out of the ? block
+      JUMPS.forEach((j, i) => {
+        const v = (t - j - 0.25) / 1.6; if (v < 0 || v > 1) return;
+        const label = TAGS[(cycle * 2 + i) % TAGS.length];
+        hx.font = '6px "Press Start 2P"';
+        const w = Math.ceil(hx.measureText(label).width) + 8, x = DX + 7 - w / 2, y = 14 - v * 12;
+        if (v > 0.75 && Math.floor(T * 12) % 2) return;
+        P(x, y, w, 10, '#0038F5'); P(x + 1, y + 1, w - 2, 8, '#fff'); hx.fillStyle = '#0038F5'; hx.fillText(label, x + 4, y + 8);
+      });
+      // score
+      hx.font = '6px "Press Start 2P"'; hx.fillStyle = '#0A1A40';
+      hx.fillText('SHOW ' + String(cycle * 4 + THROWS.filter(th => t >= th + 0.55).length + JUMPS.filter(j => t >= j + 0.25).length).padStart(3, '0'), 4, 10);
+      hx.fillText('TELL 000', 190, 10);
+    }
+    (function loop(now) { if (heroVis) draw(now); requestAnimationFrame(loop); })(performance.now());
+  }
 
   /* ---------- scroll cameos: pixel Colleen reacts, pixel Durva replies ---------- */
   const CAMEOS = DATA.cameos || {};
@@ -2199,7 +2270,7 @@ document.addEventListener('DOMContentLoaded', () => {
               "mix": "Proof, education, culture, events"
             },
             {
-              "channel": "Colleen",
+              "channel": "You (Colleen)",
               "freq": "2 posts a week",
               "mix": "Opinions, marketing behind the scenes, industry takes"
             },
@@ -2394,9 +2465,9 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       "id": "colleen-linkedin",
-      "short": "Colleen's LinkedIn",
-      "title": "Colleen's LinkedIn",
-      "intro": "Three posts in three different tones, plus a content plan for her next quarter.",
+      "short": "Your LinkedIn",
+      "title": "Your LinkedIn",
+      "intro": "Three posts in three different tones, plus a content plan for your next quarter.",
       "layout": "stack",
       "items": [
         {
@@ -2412,7 +2483,7 @@ document.addEventListener('DOMContentLoaded', () => {
               "reactions": 238,
               "comments": 54,
               "reposts": 12,
-              "why": "A clear opinion and an open question at the end. That brings in comments from marketers and security people, which is her two networks at once."
+              "why": "A clear opinion and an open question at the end. That brings in comments from marketers and security people, which are both of your networks at once."
             },
             {
               "type": "linkedin",
@@ -2435,7 +2506,7 @@ document.addEventListener('DOMContentLoaded', () => {
               "reactions": 512,
               "comments": 38,
               "reposts": 71,
-              "why": "It teaches something people can save, backs it with her 20 years, and makes a promise to share results, which gives her a reason for a follow-up post."
+              "why": "It teaches something people can save, backs it with your 20 years, and promises to share results, which gives you a reason for a follow-up post."
             },
             {
               "type": "linkedin",
@@ -2446,7 +2517,7 @@ document.addEventListener('DOMContentLoaded', () => {
               "body": "Week 6 at Envera: I spent a night shift at our central station.\n\nWhat I didn't expect:\n🌙 How calm it is. Calm is the product.\n🚗 How many “small” calls there are: a lost gate code, a late delivery, a teenager who forgot their fob.\n🗣️ How much of the job is kindness. The team talks to hundreds of people a night and treats every one like a neighbor.\n\nMarketing lesson: the best stories were never in our brochures. They were on the night shift.\n\nSo we're starting a series: one real moment each month from the people who keep our communities safe.\n\nEpisode 1 drops next week. 🎬",
               "graphic": {
                 "style": "photo",
-                "note": "Real photo: Colleen at the central station",
+                "note": "Real photo: you at the central station",
                 "title": "The night shift",
                 "sub": "Episode 1 of a new series",
                 "ratio": "1.2 / 1"
@@ -2454,13 +2525,13 @@ document.addEventListener('DOMContentLoaded', () => {
               "reactions": 689,
               "comments": 92,
               "reposts": 17,
-              "why": "It's in her own voice, it's personal, and it sets up a series. That trains people to come back for the next episode."
+              "why": "It's in your own voice, it's personal, and it sets up a series. That trains people to come back for the next episode."
             }
           ]
         },
         {
           "type": "ideas",
-          "title": "Colleen's content plan · next quarter",
+          "title": "Your content plan · next quarter",
           "list": [
             {
               "tone": "Behind the scenes",
@@ -3475,7 +3546,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "hubspot": [
       [
         "C",
-        "She knows HubSpot?!"
+        "You know HubSpot?!"
       ],
       [
         "D",
@@ -3499,7 +3570,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "maybe": "▶ MAYBE LATER",
     "maybeHover": "▶ OK FINE, YES 😄",
     "scheduleUrl": "[your-calendly-or-mailto-link]",
-    "placeholderToast": "Almost! Add Durva's scheduling link in the content block."
+    "placeholderToast": "Calendar link coming soon! Email me in the meantime 👇"
   }
 }
 </script>
