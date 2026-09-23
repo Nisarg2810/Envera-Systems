@@ -144,6 +144,11 @@
       image-rendering: pixelated; image-rendering: crisp-edges;
       border-radius: 8px; background: #000;
     }
+    .game-wrap { position: relative; }
+    #gameHi {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      pointer-events: none; border-radius: 8px;
+    }
     .start {
       position: absolute; left: 50%; top: 58%; transform: translate(-50%, -50%);
       font-size: clamp(10px, 1.6vw, 14px);
@@ -219,10 +224,9 @@
       transition: opacity .7s ease;
     }
     .intro.out { opacity: 0; pointer-events: none; }
-    .intro #game {
-      width: min(100vw, calc(100vh * 16 / 9)); height: auto;
-      border-radius: 0; cursor: pointer;
-    }
+    .intro .game-wrap { width: min(100vw, calc(100vh * 16 / 9)); }
+    .intro #game, .intro #gameHi { border-radius: 0; }
+    .intro #game { cursor: pointer; }
     .intro-ui {
       position: absolute; left: 0; right: 0; bottom: max(16px, env(safe-area-inset-bottom));
       display: flex; justify-content: space-between; gap: 12px; padding: 0 16px;
@@ -308,11 +312,14 @@
     <div class="wrap">
       <div class="eyebrow">World 1-1 · Envera Systems</div>
       <h2>Player 2 has entered the lane.</h2>
-      <p class="lede">A 30-second, 8-bit replay of your week one, now with backup. Turn the sound on for the full effect.</p>
+      <p class="lede">A one-minute, 8-bit replay of your week one, now with backup. Turn the sound on for the full effect.</p>
 
       <div class="screen">
+        <div class="game-wrap" id="gameWrap">
         <canvas id="game" width="320" height="180" role="img"
-          aria-label="Pixel-art animation: Colleen throws axes at a wall of marketing tasks. The tasks keep coming, so Durva joins as Player 2, grabs an AI power-up, and together they clear every target and ring the bell."></canvas>
+          aria-label="Pixel-art animation: photos of Colleen and Durva turn into 8-bit characters. Colleen throws axes at a wall of marketing tasks. The tasks keep coming, so Durva joins as Player 2, grabs an AI power-up, and together they clear every target and ring the bell."></canvas>
+        <canvas id="gameHi" width="1280" height="720" aria-hidden="true"></canvas>
+        </div>
         <button class="btn start" id="start" type="button">▶ PRESS START</button>
       </div>
       <div class="controls">
@@ -324,6 +331,7 @@
       <details class="transcript">
         <summary>Read the story instead</summary>
         <ol>
+          <li>Hi Colleen! Her photo and Durva's slowly pixelate into 8-bit players.</li>
           <li>World 1-1: Colleen, VP of Marketing, steps into the Envera lane.</li>
           <li>She knocks out Blogs and Emails, and two new tasks (Events, Figma) drop right back in.</li>
           <li>“So many tasks… I need a right hand!”</li>
@@ -408,7 +416,8 @@
 
 <script>
 (() => {
-  const W = 320, H = 180, FLOOR = 146, SH = 28, END = 29.5;
+  const W = 320, H = 180, FLOOR = 146, SH = 28;
+  const INTRO = 13.2, SPEED = 0.72, END = INTRO + 29.5 / SPEED; // game plays at 72% speed after the photo intro
   const cv = document.getElementById('game');
   const g = cv.getContext('2d');
   g.imageSmoothingEnabled = false;
@@ -865,10 +874,84 @@
     text('A WEEK-ONE REPLAY FOR COLLEEN', 160, 66, '#5dffc5', 1, 'c');
   }
 
-  function render(t) {
+  function renderGame(t) {
     if (t < 3.2) titleScreen(t);
     else if (t < ENDCARD) { lane(Math.min(t, DLG + 0.01)); if (t >= DLG) dialog(t); }
     else endCard(t);
+  }
+
+  /* ---------- intro: real photos slowly turn into 8-bit players ---------- */
+  const hi = document.getElementById('gameHi'), hx = hi.getContext('2d');
+  const tmp = document.createElement('canvas'), tx = tmp.getContext('2d');
+  const photo = src => { const im = new Image(); im.src = src; return im; };
+  const PHOTOS = [
+    { img: photo('colleen-axe.jpg'), crop: [20, 420, 720, 960], frame: [36, 22, 94, 125], pal: 'C', t0: 2.4, name: 'COLLEEN', sub: 'VP OF MARKETING' },
+    { img: photo('durva.jpg'), crop: [193, 487, 534, 712], frame: [190, 22, 94, 125], pal: 'D', t0: 6.8, name: 'DURVA', sub: 'PLAYER 2' },
+  ];
+  const MORPH = 1.3, PIXEL_END = 3.6, FADE = 1.0;
+  let hiDirty = false;
+  const clamp01 = v => Math.max(0, Math.min(1, v));
+
+  function drawPhoto(p, b, alpha) {
+    if (alpha <= 0 || !p.img.complete || !p.img.naturalWidth) return;
+    const [fx, fy, fw, fh] = p.frame.map(v => v * 4);
+    const w = Math.max(1, Math.round(fw / b)), h = Math.max(1, Math.round(fh / b));
+    tmp.width = w; tmp.height = h;
+    tx.imageSmoothingEnabled = true;
+    tx.drawImage(p.img, p.crop[0], p.crop[1], p.crop[2], p.crop[3], 0, 0, w, h);
+    hx.imageSmoothingEnabled = false;
+    hx.globalAlpha = alpha;
+    hx.drawImage(tmp, 0, 0, w, h, fx, fy, fw, fh);
+    hx.globalAlpha = 1;
+  }
+
+  function introScene(t) {
+    R(0, 0, W, H, '#000');
+    hx.clearRect(0, 0, hi.width, hi.height); hiDirty = true;
+    if (t < PHOTOS[0].t0) {
+      const msg = 'HI COLLEEN!', n = Math.floor(t * 8);
+      text(msg.slice(0, n), 160 - (msg.length * 12 - 3) / 2, 66, '#ffffff', 3);
+      if (t > 1.5) text('MEET THE PLAYERS', 160, 98, '#5dffc5', 1, 'c');
+      return;
+    }
+    text('MEET THE PLAYERS', 160, 8, '#7f9cae', 1, 'c');
+    for (const p of PHOTOS) {
+      const lt = t - p.t0;
+      if (lt < 0) continue;
+      const [fx, fy, fw, fh] = p.frame;
+      R(fx - 2, fy - 2, fw + 4, fh + 4, COL.navy); R(fx - 1, fy - 1, fw + 2, fh + 2, '#1d4a69'); R(fx, fy, fw, fh, '#06131d');
+      // the 8-bit version sits under the photo and shows through as it fades
+      if (lt >= PIXEL_END - 0.2) {
+        const cheer = t >= 11.2;
+        const hop = cheer ? -Math.abs(Math.sin((t - 11.2) * 5 + (p.pal === 'D' ? 1 : 0))) * 6 : 0;
+        drawActor(PAL[p.pal], fx + (fw - 56) / 2, fy + fh - 3 - FLOOR + hop, cheer ? 'cheer' : 'stand', false, t, 4);
+      }
+      // photo: fade in, pixelate slowly, then dissolve into the sprite
+      const b = 1 + 31 * Math.pow(clamp01((lt - MORPH) / (PIXEL_END - MORPH)), 2);
+      const alpha = lt < 0.6 ? lt / 0.6 : 1 - clamp01((lt - PIXEL_END) / FADE);
+      drawPhoto(p, b, alpha);
+      // transformation sparkle
+      if (lt >= PIXEL_END && lt < PIXEL_END + 0.8) {
+        const u = (lt - PIXEL_END) / 0.8, cx = fx + fw / 2, cy = fy + fh / 2;
+        for (let k = 0; k < 16; k++) {
+          const a = k * Math.PI / 8 + u;
+          if ((k + Math.floor(t * 12)) % 3 === 0) continue;
+          R(cx + Math.cos(a) * (20 + u * 40), cy + Math.sin(a) * (26 + u * 50), 2, 2, k % 2 ? '#5dffc5' : '#ffffff');
+        }
+      }
+      text(p.name, fx + fw / 2, fy + fh + 6, '#ffffff', 1, 'c');
+      text(p.sub, fx + fw / 2, fy + fh + 14, '#5dffc5', 1, 'c');
+    }
+    if (t >= 11.2) {
+      if (t < 12.4) { if (Math.floor(t * 4) % 2) text('READY?', 160, 76, '#ffffff', 2, 'c'); }
+      else text('GO!', 160, 76, '#5dffc5', 3, 'c');
+    }
+  }
+
+  function render(t) {
+    if (t < INTRO) { introScene(t); return; }
+    if (hiDirty) { hx.clearRect(0, 0, hi.width, hi.height); hiDirty = false; }
+    renderGame((t - INTRO) * SPEED);
   }
 
   /* ---------- sound ---------- */
@@ -910,7 +993,15 @@
     end: () => seq([784, 659, 523, 659, 784, 1047], 0.12, 'triangle', 0.08),
   };
   const SFX = [];
-  const at = (t, f) => SFX.push({ t, f });
+  const at = (t, f) => SFX.push({ t: INTRO + t / SPEED, f });
+  // intro sounds, in real time
+  SFX.push({ t: 0.2, f: () => seq([523, 659, 784], 0.12, 'square', 0.04) });
+  PHOTOS.forEach(p => {
+    SFX.push({ t: p.t0 + MORPH, f: () => tone(900, PIXEL_END - MORPH, 'triangle', 0.04, 0, 180) });
+    SFX.push({ t: p.t0 + PIXEL_END, f: () => S.collect() });
+  });
+  SFX.push({ t: 11.2, f: () => S.join() });
+  SFX.push({ t: 12.4, f: () => tone(1047, 0.25, 'square', 0.05) });
   at(0.15, S.jingle);
   THROWS.forEach(th => { at(th.t, S.whoosh); at(th.hit, () => { S.thunk(); S.coin(); }); });
   at(REFILL, S.drop); at(JOIN, S.join); at(12.0, S.jump); at(12.3, S.bump); at(12.33, S.sprout); at(AI_T, S.collect);
@@ -947,6 +1038,7 @@
   const intro = document.getElementById('intro');
   const introSound = document.getElementById('introSound');
   const screenEl = document.querySelector('.screen');
+  const gameWrap = document.getElementById('gameWrap');
   let introOpen = false;
   function soundOn() {
     audioOn(); setMuted(false);
@@ -958,7 +1050,7 @@
     intro.classList.add('out');
     document.body.classList.remove('intro-open');
     setTimeout(() => {
-      screenEl.insertBefore(cv, startBtn);
+      screenEl.insertBefore(gameWrap, startBtn);
       intro.remove();
       if (playing) { playing = false; t = END; }
     }, 700);
@@ -966,7 +1058,7 @@
   function openIntro() {
     introOpen = true;
     document.body.classList.add('intro-open');
-    document.getElementById('introStage').appendChild(cv);
+    document.getElementById('introStage').appendChild(gameWrap);
     setMuted(true);
     t = 0; prev = -0.001; playing = true; started = true; startBtn.hidden = true;
     introSound.addEventListener('click', e => { e.stopPropagation(); soundOn(); });
