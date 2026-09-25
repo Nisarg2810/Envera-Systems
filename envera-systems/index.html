@@ -12,7 +12,7 @@
   <link rel="icon" href="envera-mark.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
     :root {
       /* Envera Systems brand: electric blue + charcoal, yellow accent */
@@ -619,6 +619,23 @@
     .idea .chip { margin-bottom: 8px; }
     .idea b { display: block; font-size: 15px; line-height: 1.35; }
     .idea span { display: block; font-size: 13px; color: var(--muted); margin-top: 6px; }
+
+    /* handwritten letter */
+    .letter { display: grid; place-items: center; padding: 26px 0 10px; }
+    .letter-frame { position: relative; width: min(100%, 640px); transform: rotate(-1.2deg); transition: transform .35s ease; }
+    .letter-frame:hover { transform: rotate(0deg) scale(1.01); }
+    .letter-frame .tape { position: absolute; z-index: 2; width: 120px; height: 34px; background: rgba(255,224,0,.55); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+    .letter-frame .tape.t1 { top: -14px; left: 12%; transform: rotate(-6deg); }
+    .letter-frame .tape.t2 { top: -12px; right: 10%; transform: rotate(5deg); }
+    .letter-photo { display: block; border-radius: 4px; overflow: hidden; background: #fff; padding: 12px; box-shadow: 0 30px 60px -28px rgba(10,26,64,.45), 0 2px 6px rgba(0,0,0,.08); }
+    .letter-photo img { width: 100%; height: auto; display: block; border-radius: 2px; }
+    .letter-paper { display: none; background: #fffdf6; border-radius: 4px; padding: 56px 56px 60px 76px; min-height: 520px; box-shadow: 0 30px 60px -28px rgba(10,26,64,.45), 0 2px 6px rgba(0,0,0,.08);
+      background-image: linear-gradient(90deg, transparent 58px, rgba(224,71,60,.45) 58px, rgba(224,71,60,.45) 60px, transparent 60px), repeating-linear-gradient(#fffdf6 0 33px, #c9d6f2 33px 34px);
+      font-family: "Caveat", cursive; font-size: 30px; line-height: 34px; color: #1b2a6b; white-space: pre-line; }
+    .letter-frame.empty .letter-photo { display: none; }
+    .letter-frame.empty .letter-paper { display: block; }
+    .letter-cap { margin-top: 22px; text-align: center; color: var(--muted); font-size: 15px; }
+    @media (max-width: 560px) { .letter-paper { padding: 40px 22px 40px 50px; font-size: 24px; line-height: 30px; min-height: 420px; background-image: linear-gradient(90deg, transparent 36px, rgba(224,71,60,.45) 36px, rgba(224,71,60,.45) 38px, transparent 38px), repeating-linear-gradient(#fffdf6 0 29px, #c9d6f2 29px 30px); } }
 
     /* video */
     .video { position: relative; aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden; background: var(--night); box-shadow: 0 20px 50px -25px rgba(10,26,64,.5); }
@@ -1828,7 +1845,13 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---------- item wrapper (content-calendar meta + "why it works") ---------- */
   const _row = (it, ctx) => `<div class="grid-posts">${it.items.map(x => renderItem(x, ctx)).join('')}</div>`;
   const _col = (it, ctx) => `<div class="stack">${it.items.map(x => renderItem(x, ctx)).join('')}</div>`;
-  const R = { _row, _col, linkedin, instagram, instagram_carousel, blog, case_study, email, landing_page, campaign_timeline, video, approach, strategy, ideas, hubspot_workflow, hubspot_scoring, hubspot_dashboard, hubspot_setup, about, contact };
+  function letter(it) {
+    return `<div class="letter"><div class="letter-frame" id="letterFrame"><span class="tape t1"></span><span class="tape t2"></span>
+      <a class="letter-photo" href="${esc(it.photo)}" target="_blank" rel="noopener"><img src="${esc(it.photo)}" alt="${esc(it.alt || '')}"></a>
+      <div class="letter-paper">${esc(it.placeholder || '')}</div></div>
+      <p class="letter-cap">${rich(it.caption || '')}</p></div>`;
+  }
+  const R = { _row, _col, letter, linkedin, instagram, instagram_carousel, blog, case_study, email, landing_page, campaign_timeline, video, approach, strategy, ideas, hubspot_workflow, hubspot_scoring, hubspot_dashboard, hubspot_setup, about, contact };
   const WRAPPED = new Set(['linkedin', 'instagram', 'instagram_carousel', 'email', 'landing_page']);
   function renderItem(it, ctx) {
     const fn = R[it.type];
@@ -1907,6 +1930,13 @@ document.addEventListener('DOMContentLoaded', () => {
     btns.forEach(b => b.addEventListener('click', () => show(+b.dataset.pv.split('-').pop(), b)));
     if (btns[0]) show(0, btns[0]);
   });
+  // letter: show the lined-paper placeholder until the real photo exists
+  const lf = document.getElementById('letterFrame');
+  if (lf) {
+    const im = lf.querySelector('.letter-photo img');
+    const empty = () => lf.classList.add('empty');
+    if (!im.getAttribute('src')) empty(); else if (im.complete && im.naturalWidth === 0) empty(); else im.addEventListener('error', empty);
+  }
   // avatars: hide an image that fails so the initials show instead
   document.querySelectorAll('.av img').forEach(img => {
     const hide = () => img.remove();
@@ -2268,19 +2298,18 @@ document.addEventListener('DOMContentLoaded', () => {
   },
   "sections": [
     {
-      "id": "intro-video",
-      "short": "Intro",
-      "title": "Hi Colleen, I'm Durva.",
-      "intro": "A short introduction video about me.",
+      "id": "letter",
+      "short": "A letter",
+      "title": "A letter, by hand.",
+      "intro": "Some things are better said the old-fashioned way. Pen, paper, and a little bit of nerve.",
       "layout": "stack",
       "items": [
         {
-          "type": "video",
-          "youtubeId": "REPLACE_WITH_YOUTUBE_ID",
-          "title": "",
-          "caption": "",
-          "placeholderTitle": "VIDEO COMING SOON",
-          "placeholderNote": "Paste the YouTube video ID into \"youtubeId\" in the content block and it plays here."
+          "type": "letter",
+          "photo": "img/letter.jpg",
+          "alt": "Handwritten letter from Durva to Colleen",
+          "caption": "Written by hand, for you, Colleen. Tap the letter to read it full size.",
+          "placeholder": "Dear Colleen,\n\nThis page is where my handwritten letter will live. Pen's out, paper's ready…\n\nMore soon,\nDurva"
         }
       ]
     },
