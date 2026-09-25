@@ -56,6 +56,7 @@
     .reel-head p { color: var(--muted); font-size: 16px; }
     .screen { border-radius: 18px; overflow: hidden; border: 4px solid var(--ink); box-shadow: 8px 8px 0 var(--orange); background: #5c7cff; position: relative; }
     #reel { display: block; width: 100%; aspect-ratio: 2 / 1; image-rendering: pixelated; }
+    #reelHi { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
     .screen .rec { position: absolute; top: 12px; left: 12px; font-family: var(--pixel); font-size: 9px; color: #fff; background: rgba(0,0,0,.45); padding: 6px 8px; border-radius: 6px; }
     .screen .rec::before { content: "●"; color: #ff4d4d; margin-right: 6px; animation: blink 1s steps(2, start) infinite; }
     @keyframes blink { 50% { opacity: 0; } }
@@ -106,9 +107,9 @@
     <section class="wrap reel">
       <div class="reel-head">
         <div><div class="kick">NOW SHOWING</div><h2>When the tasks pile up…</h2></div>
-        <p>A 10-second story, starring you (and me as backup).</p>
+        <p>A 20-second story, starring you (and me as backup).</p>
       </div>
-      <div class="screen"><canvas id="reel" width="320" height="160" role="img" aria-label="Pixel animation: Kaila is swarmed by task monsters, Durva runs in saying I got you, clears the tasks, and they cheer together."></canvas><span class="rec">REPLAY</span></div>
+      <div class="screen"><canvas id="reel" width="320" height="160" role="img" aria-label="Pixel animation: photos of Kaila and Durva are introduced by name and turn into 8-bit characters. Then Kaila is swarmed by task monsters, Durva runs in saying I got you, clears the tasks, and they cheer together."></canvas><canvas id="reelHi" width="1280" height="640" aria-hidden="true"></canvas><span class="rec">REPLAY</span></div>
       <div class="under"><span>Want the playable version? It's a tiny level, and you won't play it alone 😉</span><button class="btn orange pixel" type="button" id="playNow2">▶ PLAY IT YOURSELF</button></div>
     </section>
 
@@ -240,7 +241,8 @@
   const PAL = {
     K: { top: TOP, H:'#2a1a14', S:'#f2cdb4', E:'#2f4a3a', M:'#d65a63', T:'#12695e', B:'#0c4a42', P:'#2a2a33', p:'#20202a', F:'#1a1a1a' },
     C: { top: TOP, H:'#f0cf86', S:'#f4cdb0', E:'#2b1a12', M:'#c2555a', T:'#18181d', B:'#050505', P:'#efe7d2', p:'#d4c7a6', F:'#3b2a20' },
-    D: { top: TOP_D, H:'#1c1310', h:'#3b2a22', S:'#d9a47e', G:'#0b0b0d', M:'#b0525a', W:'#f4f1ea', T:'#1f2645', t:'#151a33', P:'#2e4163', p:'#22314d', F:'#1a1a1a' },
+    // Durva's newer look: black-framed glasses, cream blazer over a black top
+    D: { top: TOP_D.map((r, i) => i === 4 ? '.HHHSGGGSGGG..' : i === 5 ? '.HHHSGEGSGEG..' : r), H:'#1c1310', h:'#3b2a22', S:'#d9a47e', G:'#111111', E:'#2a1a10', M:'#b0525a', W:'#151515', T:'#e9e1d3', t:'#cfc4b2', P:'#2a2a33', p:'#20202a', F:'#1a1a1a' },
     FLASH: { top: TOP_D, H:'#ffffff', h:'#fff8d6', S:'#ffffff', G:'#FFBD00', M:'#FFBD00', W:'#ffffff', T:'#fff3b0', t:'#ffffff', P:'#ffffff', p:'#fff8d6', F:'#ffffff' },
   };
   const LEGMAP = { stand:'stand', runA:'run1', runB:'run2', windup:'stand', throw:'run1', jump:'run2', wave:'stand', cheer:'stand' };
@@ -300,7 +302,17 @@
 /* The 10-second pixel reel: Kaila gets swarmed by tasks, Durva runs in with "I GOT YOU!", clears them, they cheer. Loops. */
 (() => {
   const cv = document.getElementById('reel'), g = cv.getContext('2d'); g.imageSmoothingEnabled = false;
-  const W = 320, H = 160, GY = 132, LOOP = 11, KX = 132, DX = 58;
+  const W = 320, H = 160, GY = 132, LOOP = 11, KX = 132, DX = 58, INTRO = 7.2;
+  const hi = document.getElementById('reelHi'), hx = hi.getContext('2d');
+  const tmp = document.createElement('canvas'), tx = tmp.getContext('2d');
+  const photo = src => { const im = new Image(); im.src = src; return im; };
+  // intro: each photo is shown with a name, pixelates, then dissolves into the 8-bit character
+  const PLAYERS = [
+    { img: photo('kaila-intro.jpg'), who: 'K', frame: [62, 18, 76, 100], t0: 0.7, name: 'KAILA', sub: 'PLAYER 1' },
+    { img: photo('durva-intro.jpg'), who: 'D', frame: [182, 18, 76, 100], t0: 2.7, name: 'DURVA', sub: 'PLAYER 2' },
+  ];
+  const PIX0 = 1.0, PIX1 = 2.2, FADE = 0.7;
+  let hiDirty = false;
   const R = (x, y, w, h, c) => { g.fillStyle = c; g.fillRect(Math.round(x), Math.round(y), w, h); };
   const txt = (s, x, y, c, size = 8, al = 'left') => { g.font = `${size}px "Press Start 2P"`; g.textAlign = al; g.fillStyle = '#000'; g.fillText(s, x + 1, y + 1); g.fillStyle = c; g.fillText(s, x, y); g.textAlign = 'left'; };
   const TASKS = [0.2, 0.6, 1.0, 1.4, 1.8].map((t0, i) => ({ t0, x0: 330 + i * 26, stop: 176 + i * 26 }));
@@ -327,8 +339,37 @@
     R(x - w / 2, y - 15, w, 16, '#1c1512'); R(x - w / 2 + 1, y - 14, w - 2, 14, '#fff'); R(x - 3, y + 1, 6, 4, '#1c1512');
     g.fillStyle = color; g.textAlign = 'center'; g.fillText(s, x, y - 4); g.textAlign = 'left';
   }
+  function introScene(t) {
+    const P = window.PixelKit;
+    R(0, 0, W, H, '#1c1a1f');
+    for (let i = 0; i < 40; i++) R((i * 73) % W, (i * 37) % H, 1, 1, i % 3 ? '#3a3640' : '#F2622E');
+    hx.clearRect(0, 0, hi.width, hi.height); hiDirty = true;
+    txt('MEET THE PLAYERS', W / 2, 12, '#FFC83D', 7, 'center');
+    for (const p of PLAYERS) {
+      const lt = t - p.t0; if (lt < 0) continue;
+      const [fx, fy, fw, fh] = p.frame;
+      R(fx - 3, fy - 3, fw + 6, fh + 6, '#F2622E'); R(fx - 1, fy - 1, fw + 2, fh + 2, '#fff'); R(fx, fy, fw, fh, '#2a2630');
+      const cheer = t >= 5.2;
+      if (lt >= PIX1 - 0.2 && P) P.draw(g, p.who, fx + (fw - 42) / 2, fy + fh - 3 + (cheer ? -Math.abs(Math.sin((t - 5.2) * 6 + (p.who === 'D' ? 1 : 0))) * 5 : 0), cheer ? 'cheer' : 'stand', t, 3);
+      const b = 1 + 30 * Math.pow(Math.min(1, Math.max(0, (lt - PIX0) / (PIX1 - PIX0))), 2);
+      const alpha = lt < 0.4 ? lt / 0.4 : 1 - Math.min(1, Math.max(0, (lt - PIX1) / FADE));
+      if (alpha > 0 && p.img.complete && p.img.naturalWidth) {
+        const [X, Y, Wd, Ht] = p.frame.map(v => v * 4);
+        const w = Math.max(1, Math.round(Wd / b)), h = Math.max(1, Math.round(Ht / b));
+        tmp.width = w; tmp.height = h; tx.imageSmoothingEnabled = true; tx.drawImage(p.img, 0, 0, w, h);
+        hx.imageSmoothingEnabled = false; hx.globalAlpha = alpha; hx.drawImage(tmp, 0, 0, w, h, X, Y, Wd, Ht); hx.globalAlpha = 1;
+      }
+      if (lt >= PIX1 && lt < PIX1 + 0.7) { const u = (lt - PIX1) / 0.7; for (let a = 0; a < 12; a++) R(fx + fw / 2 + Math.cos(a * Math.PI / 6 + u) * (18 + u * 30), fy + fh / 2 + Math.sin(a * Math.PI / 6 + u) * (24 + u * 36), 2, 2, a % 2 ? '#FFC83D' : '#fff'); }
+      txt(p.name, fx + fw / 2, fy + fh + 16, '#fff', 8, 'center');
+      txt(p.sub, fx + fw / 2, fy + fh + 27, '#F2622E', 6, 'center');
+    }
+    if (t >= 5.2) txt(t < 6.3 ? (Math.floor(t * 4) % 2 ? 'READY?' : '') : 'GO!', W / 2, 74, t < 6.3 ? '#fff' : '#FFC83D', t < 6.3 ? 9 : 14, 'center');
+  }
   function frame(T) {
-    const t = T % LOOP, P = window.PixelKit;
+    const all = T % (INTRO + LOOP);
+    if (all < INTRO) { introScene(all); return; }
+    if (hiDirty) { hx.clearRect(0, 0, hi.width, hi.height); hiDirty = false; }
+    const t = all - INTRO, P = window.PixelKit;
     bg(T);
     if (!P) return;
     // tasks march in, then get cleared one by one
@@ -381,7 +422,7 @@
   new IntersectionObserver(es => es.forEach(e => { visible = e.isIntersecting; })).observe(cv);
   const t0 = performance.now();
   (function loop(now) {
-    if (still) { frame(7.6); return; }
+    if (still) { frame(INTRO + 7.6); return; }
     if (visible) frame((now - t0) / 1000);
     requestAnimationFrame(loop);
   })(performance.now());
