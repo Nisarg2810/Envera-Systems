@@ -621,6 +621,42 @@
     .idea span { display: block; font-size: 13px; color: var(--muted); margin-top: 6px; }
     #exec-linkedin .ideas { grid-template-columns: repeat(auto-fill, minmax(min(100%, 188px), 1fr)); }
 
+    /* decision-maker persona cards */
+    .pz-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap: 16px; }
+    .pz-card { text-align: left; font: inherit; color: inherit; background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 20px; cursor: pointer; display: flex; flex-direction: column; gap: 12px; transition: transform .2s, box-shadow .2s, border-color .2s; position: relative; overflow: hidden; }
+    .pz-card::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 6px; background: var(--pz, var(--brand)); }
+    .pz-card:hover, .pz-card:focus-visible { transform: translateY(-4px); box-shadow: 0 20px 40px -24px rgba(10,26,64,.45); border-color: var(--pz, var(--brand)); outline: none; }
+    .pz-top { display: flex; gap: 12px; align-items: center; }
+    .pz-name { font-weight: 800; font-size: 17px; line-height: 1.2; }
+    .pz-role { font-size: 13px; color: var(--muted); line-height: 1.35; margin-top: 2px; }
+    .pz-meta { font-size: 12px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 10px; }
+    .pz-meta span::before { content: "• "; color: var(--pz, var(--brand)); }
+    .pz-meta span:first-child::before { content: ""; }
+    .pz-voice { align-self: flex-start; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 99px; background: var(--brand-soft); color: var(--brand); }
+    .pz-open { margin-top: auto; font-family: var(--pixel); font-size: 9px; color: var(--pz, var(--brand)); display: flex; justify-content: space-between; align-items: center; }
+    .pz-open i { font-style: normal; font-family: "Inter", sans-serif; font-size: 12px; font-weight: 700; color: var(--muted); }
+    .pz-modal { position: fixed; inset: 0; z-index: 125; background: rgba(4,10,28,.72); display: grid; place-items: center; padding: 16px; overflow-y: auto; }
+    .pz-modal[hidden] { display: none; }
+    body.pz-on .play-fab { display: none; }
+    .pz-box { background: var(--bg); border-radius: 22px; width: min(1040px, 100%); max-height: calc(100vh - 32px); overflow-y: auto; padding: 22px; position: relative; animation: pzIn .3s cubic-bezier(.2,1.2,.4,1); }
+    @keyframes pzIn { from { transform: translateY(20px) scale(.97); opacity: 0; } }
+    .pz-head { display: flex; gap: 14px; align-items: center; padding-right: 50px; }
+    .pz-head .pz-name { font-size: 22px; }
+    .pz-x { position: absolute; top: 16px; right: 16px; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: #fff; font-size: 18px; cursor: pointer; }
+    .pz-x:hover { border-color: var(--ink); }
+    .pz-body { margin-top: 18px; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+    .pz-label { font-family: var(--pixel); font-size: 9px; color: var(--muted); margin-bottom: 10px; }
+    .pz-idea { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px; border-top: 6px solid var(--gold); }
+    .pz-idea .chip { margin-bottom: 10px; }
+    .pz-idea h4 { font-size: 20px; line-height: 1.3; letter-spacing: -0.01em; }
+    .pz-idea p { font-size: 15px; color: #3a404c; margin-top: 8px; }
+    .pz-idea .pz-why { margin-top: 14px; font-size: 14px; color: var(--muted); border-top: 1px dashed var(--line); padding-top: 12px; }
+    .pz-nav { margin-top: 18px; display: flex; justify-content: space-between; gap: 10px; }
+    .pz-nav button { font: 600 14px "Inter", sans-serif; background: #fff; border: 1px solid var(--line); border-radius: 99px; padding: 9px 16px; cursor: pointer; }
+    .pz-nav button:hover { border-color: var(--brand); color: var(--brand); }
+    .pz-body > div { min-width: 0; }
+    @media (max-width: 820px) { .pz-body { grid-template-columns: minmax(0, 1fr); } .pz-box { padding: 18px 14px; overflow-x: hidden; } }
+
     /* handwritten letter */
     .letter { display: grid; place-items: center; padding: 26px 0 10px; }
     .letter-frame { position: relative; width: min(100%, 640px); transform: rotate(-1.2deg); transition: transform .35s ease; }
@@ -1852,7 +1888,14 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="letter-paper">${esc(it.placeholder || '')}</div></div>
       <p class="letter-cap">${rich(it.caption || '')}</p></div>`;
   }
-  const R = { _row, _col, letter, linkedin, instagram, instagram_carousel, blog, case_study, email, landing_page, campaign_timeline, video, approach, strategy, ideas, hubspot_workflow, hubspot_scoring, hubspot_dashboard, hubspot_setup, about, contact };
+  function personas(it) {
+    return `<div class="pz-grid">${it.people.map((pp, i) => { const a = who(pp.author); return `<button type="button" class="pz-card" data-pz="${i}" style="--pz:${esc(a.color || '#0038F5')}">
+      <div class="pz-top">${avatar(a, 52)}<div><div class="pz-name">${esc(a.name)}</div><div class="pz-role">${esc(pp.role)}</div></div></div>
+      <div class="pz-meta">${(pp.meta || []).map(m => `<span>${esc(m)}</span>`).join('')}</div>
+      <span class="pz-voice">${esc(pp.voice)}</span>
+      <div class="pz-open"><i>💡 ${esc(pp.idea.tone)}</i><span>OPEN ▸</span></div></button>`; }).join('')}</div>`;
+  }
+  const R = { _row, _col, letter, personas, linkedin, instagram, instagram_carousel, blog, case_study, email, landing_page, campaign_timeline, video, approach, strategy, ideas, hubspot_workflow, hubspot_scoring, hubspot_dashboard, hubspot_setup, about, contact };
   const WRAPPED = new Set(['linkedin', 'instagram', 'instagram_carousel', 'email', 'landing_page']);
   function renderItem(it, ctx) {
     const fn = R[it.type];
@@ -1917,6 +1960,35 @@ document.addEventListener('DOMContentLoaded', () => {
       prev.disabled = i === 0; next.disabled = i === n - 1;
     }, { passive: true });
   });
+  // decision-maker cards open a post + idea pop-up
+  const pzItem = (() => { for (const sec of DATA.sections) for (const it of sec.items) if (it.type === 'personas') return it; })();
+  if (pzItem) {
+    const modal = document.createElement('div'); modal.className = 'pz-modal'; modal.hidden = true;
+    modal.setAttribute('role', 'dialog'); modal.setAttribute('aria-modal', 'true');
+    document.body.appendChild(modal);
+    let cur = 0, lastFocus = null;
+    const openPz = i => {
+      cur = (i + pzItem.people.length) % pzItem.people.length;
+      const pp = pzItem.people[cur], a = who(pp.author);
+      const post = Object.assign({ type: 'linkedin', author: pp.author }, pp.post);
+      modal.innerHTML = `<div class="pz-box" style="--pz:${esc(a.color || '#0038F5')}"><button type="button" class="pz-x" aria-label="Close">✕</button>
+        <div class="pz-head">${avatar(a, 60)}<div><div class="pz-name">${esc(a.name)}</div><div class="pz-role">${esc(pp.role)} · ${esc(pp.voice)}</div></div></div>
+        <div class="pz-body"><div><div class="pz-label">▸ DRAFT LINKEDIN POST</div>${renderItem(post, {})}</div>
+        <div><div class="pz-label">▸ NEXT POST IDEA</div><div class="pz-idea"><span class="chip gold">${esc(pp.idea.tone)}</span><h4>${rich(pp.idea.title)}</h4><p>${rich(pp.idea.angle)}</p>${pp.why ? `<p class="pz-why"><b>Why this voice:</b> ${rich(pp.why)}</p>` : ''}</div></div></div>
+        <div class="pz-nav"><button type="button" data-d="-1">← Previous leader</button><button type="button" data-d="1">Next leader →</button></div></div>`;
+      modal.querySelectorAll('.li').forEach(li => { li.querySelector('.li-body')?.classList.remove('clamp'); li.querySelector('.li-more')?.remove(); });
+      modal.querySelectorAll('.av img').forEach(img => img.addEventListener('error', () => img.remove()));
+      modal.hidden = false; document.body.style.overflow = 'hidden'; document.body.classList.add('pz-on');
+      modal.querySelector('.pz-x').focus();
+    };
+    const closePz = () => { modal.hidden = true; document.body.style.overflow = ''; document.body.classList.remove('pz-on'); lastFocus?.focus(); };
+    document.querySelectorAll('.pz-card').forEach(c => c.addEventListener('click', () => { lastFocus = c; openPz(+c.dataset.pz); }));
+    modal.addEventListener('click', e => {
+      if (e.target === modal || e.target.closest('.pz-x')) return closePz();
+      const d = e.target.closest('[data-d]'); if (d) openPz(cur + (+d.dataset.d));
+    });
+    addEventListener('keydown', e => { if (modal.hidden) return; if (e.key === 'Escape') closePz(); if (e.key === 'ArrowRight') openPz(cur + 1); if (e.key === 'ArrowLeft') openPz(cur - 1); });
+  }
   // campaign previews
   campaigns.forEach(ctx => {
     const pv = document.getElementById('pv-' + ctx.id);
@@ -2597,7 +2669,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     "ceo": {
       "name": "Devon Watson",
-      "title": "President & CEO at Envera Systems",
+      "title": "Chief Executive Officer at Envera Systems",
       "photo": "",
       "color": "#0A1A40"
     },
@@ -2624,6 +2696,48 @@ document.addEventListener('DOMContentLoaded', () => {
       "title": "Marketing · hopefully Envera Systems",
       "photo": "durva-avatar.jpg?v=2",
       "color": "#1f2645"
+    },
+    "daniel": {
+      "name": "Daniel Babb",
+      "title": "Chief Operating Officer at Envera Systems",
+      "photo": "",
+      "color": "#1f7a4d"
+    },
+    "adam": {
+      "name": "Adam Stoila",
+      "title": "Chief Financial Officer at Envera Systems",
+      "photo": "",
+      "color": "#6b3fa0"
+    },
+    "connor": {
+      "name": "Connor Collett",
+      "title": "VP of Strategic Partnerships at Envera Systems",
+      "photo": "",
+      "color": "#c2410c"
+    },
+    "crystal": {
+      "name": "Crystal Clark",
+      "title": "VP of Revenue Operations at Envera Systems",
+      "photo": "",
+      "color": "#b88600"
+    },
+    "robert": {
+      "name": "Robert Mulvey",
+      "title": "VP of Software Engineering at Envera Systems",
+      "photo": "",
+      "color": "#0038F5"
+    },
+    "nate": {
+      "name": "Nate Charette",
+      "title": "VP of Research & Development at Envera Systems",
+      "photo": "",
+      "color": "#0e7490"
+    },
+    "colleenb": {
+      "name": "Colleen B.",
+      "title": "VP of Human Resources at Envera Systems",
+      "photo": "",
+      "color": "#be185d"
     }
   },
   "sections": [
@@ -3129,190 +3243,187 @@ document.addEventListener('DOMContentLoaded', () => {
       "id": "exec-linkedin",
       "short": "Exec LinkedIn",
       "title": "Executive LinkedIn",
-      "intro": "One post per leader, each in a different voice. Drafts for them to edit, never a script to read. Below the posts: five more ideas per leader, each picked for their role.",
+      "intro": "Eight decision makers, eight voices. Tap a card to open their draft LinkedIn post and their next post idea.",
       "layout": "stack",
       "items": [
         {
-          "type": "_row",
-          "items": [
+          "type": "personas",
+          "people": [
             {
-              "type": "linkedin",
               "author": "ceo",
-              "voice": "CEO · big picture",
-              "slot": "Mon · 7:30 AM",
-              "time": "2d",
-              "body": "Before Envera, I spent years in industries where “always on” isn't a slogan: bank ATMs, payment systems, cloud computing, self-storage access.\n\nThey taught me one thing that applies to every gate we protect:\n\n**Trust is built in the moments nobody sees.**\n\nThe 3 AM verification. The camera that's actually monitored. The gate that opens for the right person and stays shut for the wrong one, every single time.\n\nCommunity security is shifting from “a person in a booth” to “a system with people at the center.” Our job is to make that shift feel safer, not scarier, for every board and every resident.\n\nThat's the work. I'm proud to do it with this team.",
-              "reactions": 356,
-              "comments": 29,
-              "reposts": 14,
-              "why": "It uses his real background (ATMs, payments, cloud, self-storage) to explain why Envera matters. Confident and big picture, without selling anything."
-            },
-            {
-              "type": "linkedin",
-              "author": "cto",
-              "voice": "CTO · technical builder",
-              "slot": "Wed · 9:00 AM",
-              "time": "4d",
-              "body": "Uptime isn't a feature. It's the product.\n\nWhen a gate stops working at 6 PM on a Friday, nobody cares about our roadmap. They care that hundreds of families can get home.\n\nThree principles I bring from two decades in security technology:\n→ Plan for failure before it happens\n→ Monitor the monitoring\n→ Boring is beautiful: the best release is one residents never notice\n\nThe most impressive systems make everything look easy.\n\nEngineers: what's your favorite “invisible” reliability win?",
-              "graphic": {
-                "style": "quote",
-                "kicker": "FROM THE CTO",
-                "title": "Uptime isn't a feature. It's the product.",
-                "name": "Jacques Bouchard",
-                "role": "Chief Technology Officer"
+              "role": "Chief Executive Officer",
+              "meta": [
+                "Greater Cleveland",
+                "11 months in role"
+              ],
+              "voice": "Big picture · confident",
+              "post": {
+                "time": "2d",
+                "body": "Before Envera, I spent years in industries where “always on” isn't a slogan: bank ATMs, payment systems, cloud computing, self-storage access.\n\nThey taught me one thing that applies to every gate we protect:\n\n**Trust is built in the moments nobody sees.**\n\nThe 3 AM verification. The camera that's actually monitored. The gate that opens for the right person and stays shut for the wrong one, every single time.\n\nCommunity security is shifting from “a person in a booth” to “a system with people at the center.” Our job is to make that shift feel safer, not scarier, for every board and every resident.\n\nThat's the work. I'm proud to do it with this team.",
+                "reactions": 356,
+                "comments": 29,
+                "reposts": 14
               },
-              "reactions": 241,
-              "comments": 36,
-              "reposts": 19,
-              "why": "Short, principled and slightly nerdy. It gets engineers to reply, and it tells buyers that reliability is taken seriously."
+              "idea": {
+                "tone": "Lightbulb moment",
+                "title": "The moment I knew Envera was my next chapter",
+                "angle": "What made an operator from ATMs, payments and cloud say yes to community security, and how he knew he was ready."
+              },
+              "why": "The CEO sets the story. Vision posts from the top give every other exec post context."
             },
             {
-              "type": "linkedin",
-              "author": "sales",
-              "voice": "Sales · warm storyteller",
-              "slot": "Tue · 12:00 PM",
-              "time": "1w",
-              "body": "The best sales call I had this year wasn't a sale. Not at first.\n\nAn HOA board president told me: “We tried a virtual guard years ago. It didn't work. Residents hated it.”\n\nSo we didn't pitch. We listened. Then we showed her what's different now: live licensed guards, two-way audio, a resident app, and every entry logged.\n\nMonths later, she invited me to their annual meeting so she could answer residents' questions herself. I sat in the back row.\n\nIn community security, you're not selling to a board. You're earning the trust of every resident they answer to.",
-              "reactions": 418,
-              "comments": 47,
-              "reposts": 8,
-              "why": "Storytelling from the sales floor. It handles the “we tried it before” objection without sounding defensive. [Swap in a real story.]"
+              "author": "daniel",
+              "role": "Chief Operating Officer",
+              "meta": [
+                "Dallas–Fort Worth",
+                "2 yrs 9 mos in role"
+              ],
+              "voice": "Steady · operational",
+              "post": {
+                "time": "3d",
+                "body": "A gate can't have an off day.\n\nThat's the operating standard at Envera: every entry screened, every camera watched, every call answered, 24 hours a day, 365 days a year.\n\nRunning operations for an always-on service changes how you think about growth:\n→ Every new community is a promise, not just a contract\n→ Process is what lets people stay calm at 3 AM\n→ The best scaling plan is the one residents never notice\n\nAfter years leading high-growth SaaS and service teams, I've learned that operational excellence isn't a department. It's a habit the whole company shares.\n\nOps leaders: what's one habit that keeps your team steady when volume spikes?",
+                "reactions": 212,
+                "comments": 31,
+                "reposts": 9
+              },
+              "idea": {
+                "tone": "Company update",
+                "title": "Envera this month: 3 wins, 3 learnings, what's next",
+                "angle": "A monthly operations recap with one standout number in the hook: uptime, response time or new communities live."
+              },
+              "why": "COOs are trusted on execution. A steady monthly rhythm builds credibility with buyers and investors alike."
             },
             {
-              "type": "linkedin",
-              "author": "ops",
-              "voice": "Operations · proud and grateful",
-              "slot": "Fri · 5:00 PM",
-              "time": "3d",
-              "body": "Some nights, the most important thing our team does is stay calm.\n\n[Example: a storm knocked out power across part of the region.] Gates, cameras and phones all get tested at once.\n\nOur central station team did what they train for. They set priorities, kept property managers updated, and kept residents moving safely until everything was back to normal.\n\nNo one will write a headline about it. That's exactly the point.\n\nTo the overnight crew: thank you. You're the reason “always on” means something. 💙",
-              "reactions": 533,
-              "comments": 61,
-              "reposts": 22,
-              "why": "Gratitude posts from operations leaders get strong engagement and show that the service is reliable. [Swap in a real moment from the team.]"
-            }
-          ]
-        },
-        {
-          "type": "ideas",
-          "title": "Devon Watson · President & CEO: 5 post ideas",
-          "list": [
-            {
-              "tone": "Lightbulb moment",
-              "title": "Why I went from ATMs and payments to gated communities",
-              "angle": "The moment he knew he was ready to lead Envera, and what “always on” industries taught him about trust."
+              "author": "adam",
+              "role": "Chief Financial Officer",
+              "meta": [
+                "Akron, Ohio",
+                "5 months in role"
+              ],
+              "voice": "Disciplined · plain-spoken",
+              "post": {
+                "time": "4d",
+                "body": "After 18 years at Goodyear, I joined Envera five months ago. People ask what tires and gated communities have in common.\n\nMore than you'd think.\n\nBoth are about trust you can't afford to break. And both reward the same financial discipline:\n→ Predictable costs beat cheap surprises\n→ Every dollar should protect something that matters\n→ Long-term value beats this quarter's savings\n\nThat last one matters most to the HOA boards we serve. Volunteer treasurers aren't looking for the lowest bid. They're looking for a number they can defend at the annual meeting, five years from now.\n\nHelping them get there is the kind of finance I'm excited to do.",
+                "reactions": 264,
+                "comments": 22,
+                "reposts": 6
+              },
+              "idea": {
+                "tone": "What I wish I knew",
+                "title": "5 things I wish I knew before moving from manufacturing to community security",
+                "angle": "A candid outsider's view: recurring revenue, 24/7 cost structures, and how boards really make budget decisions."
+              },
+              "why": "A new CFO's outsider lens is a strong hook, and it speaks straight to budget-minded board treasurers."
             },
             {
-              "tone": "Changed my mind",
-              "title": "One thing I changed my mind on about community security this year",
-              "angle": "A belief he held walking in, the board meeting or site visit that changed it, and what Envera does differently now."
+              "author": "connor",
+              "role": "VP of Strategic Partnerships",
+              "meta": [
+                "Greater Tampa Bay",
+                "2 yrs 1 mo at Envera"
+              ],
+              "voice": "Relationship-first",
+              "post": {
+                "time": "1w",
+                "body": "The best partnership I've built in community security didn't start with a pitch.\n\nIt started with a property manager telling me what kept her up at night: overnight coverage gaps, turnover at the gate, and residents calling her cell at midnight.\n\nSo we built around her problems, not our product.\n\nThat's how I think about partnerships at Envera:\n1. Listen longer than feels comfortable\n2. Solve the partner's problem before your own\n3. Measure success by their renewals, not your signatures\n\nManagement companies, developers, CAI chapters: if you're thinking about what community security should look like in 2027, I'd love to compare notes.",
+                "reactions": 187,
+                "comments": 24,
+                "reposts": 7
+              },
+              "idea": {
+                "tone": "Best-fit partners",
+                "title": "What our best partnerships have in common",
+                "angle": "2–3 traits of the management companies and developers Envera works best with, so the right partners raise their hand."
+              },
+              "why": "Partnership leaders win on trust. A story-first post opens doors a pitch never will. [Swap in a real partner story.]"
             },
             {
-              "tone": "Prediction",
-              "title": "Community security in 2030: people at the center of the platform",
-              "angle": "A bold 5-year view on guard booths, remote screening and resident apps, with one data point to anchor it."
+              "author": "crystal",
+              "role": "VP of Revenue Operations",
+              "meta": [
+                "Boca Raton, Florida",
+                "18 yrs at Envera"
+              ],
+              "voice": "Grounded · grateful",
+              "post": {
+                "time": "5d",
+                "body": "18 years ago, I joined a small team with a big idea: that a licensed security professional didn't need to sit in a booth to protect a community.\n\nI've watched Envera grow from that small team into a 24/7 central station serving communities across the region, and I helped build our sales and marketing operations from the ground up along the way.\n\nWhat 18 years in revenue operations has taught me:\n→ Clean data is a kindness to your future self\n→ Every handoff between marketing, sales and service is a promise to a customer\n→ The best dashboard is the one people actually open on Monday\n\nGrateful for the people who've made this ride worth every year. Here's to the next 18. 💙",
+                "reactions": 402,
+                "comments": 58,
+                "reposts": 5
+              },
+              "idea": {
+                "tone": "Template giveaway",
+                "title": "The revenue ops dashboard I open every Monday (steal it)",
+                "angle": "Walk through the 5 numbers she checks weekly and why, then offer the template as a download for RevOps peers."
+              },
+              "why": "Eighteen years at one company is a rare story. Pairing nostalgia with a practical giveaway earns both love and saves."
             },
             {
-              "tone": "Momentum",
-              "title": "The stat that shows where Envera is headed",
-              "angle": "One proud number (communities protected, entries screened, new markets) plus a team photo from the central station."
+              "author": "robert",
+              "role": "VP of Software Engineering",
+              "meta": [
+                "Nokomis, Florida",
+                "7 yrs 9 mos in role"
+              ],
+              "voice": "Builder · principled",
+              "post": {
+                "time": "6d",
+                "body": "Great code is table stakes.\n\nThe harder job in engineering leadership is building the systems, teams and habits that keep great code shipping, year after year.\n\nNearly eight years leading software engineering at Envera has taught me:\n→ Reliability is designed in, not tested in at the end\n→ Small, frequent releases beat big-bang launches\n→ The best engineers always ask who's on the other side of the screen (for us, it's a guard at 3 AM and a resident at the gate)\n\nWhat's one engineering habit you'd never give up?",
+                "reactions": 231,
+                "comments": 34,
+                "reposts": 12
+              },
+              "idea": {
+                "tone": "Product pillars",
+                "title": "The 3 principles behind how we build Envera's software",
+                "angle": "Each principle, where he learned it, and one real product decision it changed."
+              },
+              "why": "Engineering leaders attract talent and reassure buyers at the same time. Principles travel well on LinkedIn."
             },
             {
-              "tone": "Leader learnings",
-              "title": "5 lessons from year one leading a 17-year-old company",
-              "angle": "What to keep, what to change, and what surprised him, each with a specific story. Humble and human."
-            }
-          ]
-        },
-        {
-          "type": "ideas",
-          "title": "Jacques Bouchard · CTO: 5 post ideas",
-          "list": [
-            {
-              "tone": "Product pillars",
-              "title": "The 3 principles behind how we build Envera's platform",
-              "angle": "Reliability, security and simplicity, plus the story of one product decision each principle changed."
+              "author": "nate",
+              "role": "VP of Research & Development",
+              "meta": [
+                "Metro Jacksonville",
+                "18 yrs 7 mos at Envera"
+              ],
+              "voice": "Curious · practical",
+              "post": {
+                "time": "1w",
+                "body": "I've been at Envera for more than 18 years. The question I get most: what keeps it interesting?\n\nR&D in community security means solving problems you can feel. A resident waiting at a gate. A manager chasing lost fobs. A guard who needs one more second of clarity on a screen.\n\nMy background is in operations and finance, so I look at every new idea with two questions:\n1. Does it make someone's day measurably easier?\n2. Can we support it reliably at scale?\n\nIf the answer to both is yes, we build. If not, we keep listening.\n\nGrowth-stage builders: what's your filter for which ideas make the cut?",
+                "reactions": 176,
+                "comments": 19,
+                "reposts": 8
+              },
+              "idea": {
+                "tone": "AI predictions",
+                "title": "What AI will change in community security, and what it won't",
+                "angle": "Where AI helps (alerts, plate reads, call triage) and why the licensed human stays at the center of every decision."
+              },
+              "why": "R&D is where the future lives. A grounded AI take stands out in a feed full of hype."
             },
             {
-              "tone": "AI predictions",
-              "title": "What AI will (and won't) change about remote visitor screening",
-              "angle": "Where AI helps the licensed guard (alerts, plate reads, triage) and why the human stays at the center."
-            },
-            {
-              "tone": "Shipping velocity",
-              "title": "Everything we shipped in the last 6 months",
-              "angle": "A 10–15 item list across MyEnvera, Smart Access Control and Active Video Surveillance, starring the features managers care about most."
-            },
-            {
-              "tone": "Integration",
-              "title": "New integration: what it means for property managers",
-              "angle": "Announce a partner or system integration: why they built it, why now, and the hours it saves each week."
-            },
-            {
-              "tone": "Underrated feature",
-              "title": "The feature nobody talks about: scheduled vendor access",
-              "angle": "A 60-second Loom walkthrough of access windows for landscapers, pool service and deliveries."
-            }
-          ]
-        },
-        {
-          "type": "ideas",
-          "title": "VP of Sales: 5 post ideas",
-          "list": [
-            {
-              "tone": "Sales FAQ",
-              "title": "The #1 question HOA boards ask before they sign",
-              "angle": "The question, the honest answer, and the data or customer story that backs it up."
-            },
-            {
-              "tone": "Sales-call trends",
-              "title": "What I'm hearing from boards and managers this month",
-              "angle": "A pattern from the last 2–3 weeks of calls (budgets, staffing, resident complaints), and what it means."
-            },
-            {
-              "tone": "Pain points",
-              "title": "5 headaches community managers face with traditional guard booths",
-              "angle": "Why each one happens (turnover, coverage gaps, paper logs) without turning into a pitch."
-            },
-            {
-              "tone": "Best-fit customers",
-              "title": "What our best-fit communities have in common",
-              "angle": "2–3 traits that make a partnership work, so the right boards raise their hand and the wrong ones self-select out."
-            },
-            {
-              "tone": "Event recap",
-              "title": "5 takeaways from the CAI Community Association Expo",
-              "angle": "Conversations that stood out, what boards are worried about this year, and booth photos."
-            }
-          ]
-        },
-        {
-          "type": "ideas",
-          "title": "Central Station Operations Lead: 5 post ideas",
-          "list": [
-            {
-              "tone": "Day in the life",
-              "title": "An overnight shift at the central station, hour by hour",
-              "angle": "10 PM to 6 AM: shift handoff, the busy hours, the quiet ones, and what calm really takes."
-            },
-            {
-              "tone": "Customer support",
-              "title": "The resident message that made our whole team's week",
-              "angle": "A real review or thank-you note (screenshot) and how the station treats every caller like a neighbor."
-            },
-            {
-              "tone": "Outstanding hire",
-              "title": "The team member who blew past every expectation",
-              "angle": "The traits that make a great remote security professional, shown through one moment on shift."
-            },
-            {
-              "tone": "Hard night, handled",
-              "title": "The toughest night we've had, and how the team pulled through",
-              "angle": "A storm, an outage or a spike in calls: what happened, what they did, and what changed after."
-            },
-            {
-              "tone": "Warning signs",
-              "title": "7 signs your community's gate security is set up to fail",
-              "angle": "Shared codes, paper logs, no overnight coverage and more, plus what to do about each one."
+              "author": "colleenb",
+              "role": "VP of Human Resources",
+              "meta": [
+                "Sarasota, Florida",
+                "10 months in role"
+              ],
+              "voice": "Warm · people-first",
+              "post": {
+                "time": "2d",
+                "body": "We hire for calm.\n\nSkills can be trained. But the people who thrive at our central station share something harder to teach: they stay steady when the calls stack up, and kind when someone's having a rough night at the gate.\n\nSince joining Envera, I've been building our people strategy around that:\n→ Hiring for temperament, then training for technique\n→ Career paths from the central station into leadership\n→ Recognition that happens on the night shift, not just at 9 AM\n\nThe best security isn't a system. It's people who care, backed by a system that works.\n\nWe're hiring → [link]",
+                "reactions": 318,
+                "comments": 41,
+                "reposts": 16
+              },
+              "idea": {
+                "tone": "Culture & core values",
+                "title": "The 3 values that define our central station culture",
+                "angle": "What each value looks like on shift, plus the most overrated and underrated parts of building culture."
+              },
+              "why": "HR posts double as recruiting. Showing the culture behind a 24/7 team makes Envera a place people want to work."
             }
           ]
         }
