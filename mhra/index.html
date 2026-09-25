@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stop. Look. Crave. — Durva for MHRA</title>
+  <meta name="description" content="Durva Thakkar's application and content plan for the Content & Social Coordinator role at MHRA Hospitality: Stacked, YLK & Batter and Holy Chuck.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Hey Danica! This is Durva.">
+  <meta property="og:description" content="A 90-day, 6-month and 12-month content plan for Stacked, YLK & Batter and Holy Chuck.">
+  <meta property="og:image" content="https://durvathakkar.com/mhra/plan/page-1.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f7f1e6;
+      --paper: #fffaf1;
+      --red: #d8281f;
+      --yellow: #f5b00d;
+      --ink: #211c1a;
+      --muted: #6b625b;
+      --sage: #8a9a6e;
+      --sage-lt: #dfe4d3;
+      --maroon: #370617;
+      --line: #e6dccb;
+      --display: "Bebas Neue", Impact, sans-serif;
+      --serif: "DM Serif Display", Georgia, serif;
+      --hand: "Caveat", cursive;
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--cream); color: var(--ink); font-family: "DM Sans", system-ui, sans-serif; font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+    .wrap { max-width: 1180px; margin: 0 auto; padding-inline: 20px; }
+    /* paper grain */
+    body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .5;
+      background-image: radial-gradient(rgba(120,90,50,.07) 1px, transparent 1px); background-size: 5px 5px; }
+    main, header, footer { position: relative; z-index: 1; }
+
+    .kicker { display: inline-block; font-weight: 800; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--red); }
+    .chip { display: inline-block; border: 2px solid var(--yellow); padding: 4px 12px; font-weight: 800; font-size: 13px; letter-spacing: .06em; background: #fff; box-shadow: 3px 3px 0 var(--yellow); }
+    h2.big { font-family: var(--display); font-weight: 400; font-size: clamp(54px, 8vw, 104px); line-height: .9; letter-spacing: .005em; }
+    h2.big .r { color: var(--red); } h2.big .y { color: var(--yellow); }
+    .lede { font-size: 19px; color: var(--muted); max-width: 640px; margin-top: 14px; }
+    .serif-i { font-family: var(--serif); font-style: italic; }
+    .rule { height: 2px; background: var(--sage); opacity: .5; margin: 18px 0; }
+    .btn { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; font-size: 16px; text-decoration: none; padding: 15px 22px; border-radius: 999px; border: 2px solid var(--ink); background: var(--ink); color: #fff; transition: transform .15s, box-shadow .15s; box-shadow: 4px 4px 0 var(--yellow); cursor: pointer; }
+    .btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--yellow); }
+    .btn.red { background: var(--red); border-color: var(--red); box-shadow: 4px 4px 0 var(--ink); }
+    .btn.ghost { background: transparent; color: var(--ink); box-shadow: 4px 4px 0 var(--sage); }
+
+    /* ---------- top bar ---------- */
+    .top { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-block: 18px; font-size: 14px; font-weight: 600; }
+    .top .brands { display: flex; align-items: center; gap: 16px; }
+    .top .brands img { height: 18px; width: auto; }
+    .top .brands .dark { background: var(--ink); padding: 5px 9px; border-radius: 6px; height: 28px; }
+
+    /* ---------- hero: the sticker moment ---------- */
+    .hero { display: grid; grid-template-columns: 1fr 1.05fr; gap: 20px; align-items: center; min-height: calc(100vh - 70px); padding-bottom: 40px; }
+    .headline { font-family: var(--display); font-weight: 400; line-height: .84; font-size: clamp(88px, 13vw, 190px); }
+    .headline span { display: block; }
+    .headline .w1 { color: var(--red); } .headline .w3 { color: var(--yellow); }
+    .hero .for { font-family: var(--serif); font-size: clamp(22px, 2.4vw, 30px); line-height: 1.25; margin-top: 18px; max-width: 520px; }
+    .hero .for em { font-style: italic; }
+    .brandline { margin-top: 18px; display: inline-block; border: 2px solid var(--sage); padding: 8px 14px; color: var(--sage); font-weight: 800; letter-spacing: .04em; font-size: 15px; }
+    .hero .cta { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .board { position: relative; aspect-ratio: 1 / 1; width: 100%; max-width: 620px; justify-self: center; }
+    .stk { position: absolute; cursor: grab; touch-action: none; user-select: none; -webkit-user-drag: none; filter: drop-shadow(0 10px 14px rgba(60,35,10,.25)) drop-shadow(0 2px 2px rgba(60,35,10,.2)); transform: translate(var(--x, 0px), var(--y, 0px)) rotate(var(--r, 0deg)); transition: filter .2s; }
+    .stk:active { cursor: grabbing; filter: drop-shadow(0 22px 24px rgba(60,35,10,.3)); }
+    .stk img { width: 100%; pointer-events: none; }
+    .stk.person { width: 44%; }
+    .stk.food { width: 23%; }
+    #sDanica { left: 4%; top: 12%; --r: -6deg; z-index: 3; }
+    #sDurva { right: 3%; top: 30%; --r: 5deg; z-index: 4; }
+    #sPancake { left: 38%; top: 0%; --r: 8deg; z-index: 2; }
+    #sBurger { left: 2%; bottom: 3%; --r: -10deg; z-index: 5; }
+    #sCinnamon { left: 42%; bottom: 0%; --r: 6deg; z-index: 2; }
+    #sWaffle { right: 0%; top: 2%; --r: -4deg; z-index: 1; }
+    .stamp svg { width: 100%; display: block; }
+    .stamp { position: absolute; right: 30%; bottom: 20%; width: 26%; z-index: 6; --r: -12deg; }
+    .bubble { position: absolute; z-index: 8; font-family: var(--hand); font-weight: 700; font-size: clamp(24px, 2.6vw, 34px); line-height: 1.05; background: #fff; border: 3px solid var(--ink); border-radius: 22px; padding: 10px 16px 12px; box-shadow: 4px 4px 0 var(--ink); white-space: nowrap; pointer-events: none; }
+    .bubble::after { content: ""; position: absolute; width: 16px; height: 16px; background: #fff; border-right: 3px solid var(--ink); border-bottom: 3px solid var(--ink); bottom: -10px; }
+    #bDanica { left: 8%; top: 1%; transform: rotate(-4deg); }
+    #bDanica::after { left: 36px; transform: rotate(45deg); }
+    #bDurva { right: 2%; top: 18%; transform: rotate(3deg); text-align: center; }
+    #bDurva::after { right: 44px; transform: rotate(45deg); }
+    #bDurva small { display: block; font-size: .72em; color: var(--red); }
+    .drag-hint { position: absolute; left: 50%; bottom: -34px; transform: translateX(-50%); font-family: var(--hand); font-size: 22px; color: var(--muted); white-space: nowrap; }
+
+    /* entrance: stickers slap on, then the headline stamps in */
+    .anim .stk, .anim .bubble, .anim .headline span, .anim .for, .anim .brandline, .anim .cta, .anim .drag-hint { opacity: 0; }
+    .go .stk { animation: slap .55s cubic-bezier(.2,1.4,.4,1) forwards; }
+    .go .bubble { animation: pop .45s cubic-bezier(.2,1.6,.4,1) forwards; }
+    .go .headline span { animation: stampIn .45s cubic-bezier(.2,1.5,.4,1) forwards; }
+    .go .for, .go .brandline, .go .cta, .go .drag-hint { animation: rise .6s ease forwards; }
+    #sDanica { animation-delay: .25s !important; } #bDanica { animation-delay: .8s !important; }
+    #sDurva { animation-delay: 1.5s !important; } #bDurva { animation-delay: 2.05s !important; }
+    #sPancake { animation-delay: 2.7s !important; } #sWaffle { animation-delay: 2.85s !important; } #sBurger { animation-delay: 3s !important; } #sCinnamon { animation-delay: 3.15s !important; } .stamp { animation-delay: 3.35s !important; }
+    .headline .w1 { animation-delay: 3.6s !important; } .headline .w2 { animation-delay: 3.85s !important; } .headline .w3 { animation-delay: 4.1s !important; }
+    .go .for { animation-delay: 4.5s; } .go .brandline { animation-delay: 4.65s; } .go .cta { animation-delay: 4.8s; } .go .drag-hint { animation-delay: 5.2s; }
+    @keyframes slap { 0% { opacity: 0; transform: translate(var(--x,0px), var(--y,0px)) rotate(calc(var(--r) + 14deg)) scale(1.7); } 60% { opacity: 1; transform: translate(var(--x,0px), var(--y,0px)) rotate(var(--r)) scale(.94); } 100% { opacity: 1; transform: translate(var(--x,0px), var(--y,0px)) rotate(var(--r)) scale(1); } }
+    @keyframes pop { 0% { opacity: 0; scale: .3; } 100% { opacity: 1; scale: 1; } }
+    @keyframes stampIn { 0% { opacity: 0; transform: scale(1.6); } 100% { opacity: 1; transform: scale(1); } }
+    @keyframes rise { 0% { opacity: 0; transform: translateY(14px); } 100% { opacity: 1; transform: none; } }
+    .settled .stk { animation: none !important; opacity: 1 !important; }
+
+    /* ---------- flipbook ---------- */
+    .section { padding-block: 90px; }
+    .plan { background: var(--paper); border-block: 2px solid var(--line); }
+    .plan-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+    .book { margin-top: 40px; position: relative; }
+    .spread { display: flex; justify-content: center; gap: 0; perspective: 2200px; min-height: 200px; }
+    .pg { width: min(46%, 500px); background: #fff; box-shadow: 0 20px 40px -18px rgba(60,35,10,.4); position: relative; transform-origin: left center; }
+    .pg img { width: 100%; height: auto; aspect-ratio: 1200 / 1553; }
+    .pg.left { transform-origin: right center; }
+    .pg.left::after { content: ""; position: absolute; inset: 0 0 0 auto; width: 40px; background: linear-gradient(90deg, transparent, rgba(0,0,0,.14)); }
+    .pg.right::after { content: ""; position: absolute; inset: 0 auto 0 0; width: 40px; background: linear-gradient(90deg, rgba(0,0,0,.12), transparent); }
+    .spread.turn-next .pg.right { animation: turnNext .5s ease-in forwards; }
+    .spread.turn-prev .pg.left { animation: turnPrev .5s ease-in forwards; }
+    @keyframes turnNext { to { transform: rotateY(-90deg); } }
+    @keyframes turnPrev { to { transform: rotateY(90deg); } }
+    .book-nav { margin-top: 26px; display: flex; justify-content: center; align-items: center; gap: 18px; }
+    .book-nav button { width: 54px; height: 54px; border-radius: 50%; border: 2px solid var(--ink); background: #fff; font-size: 22px; cursor: pointer; box-shadow: 3px 3px 0 var(--yellow); }
+    .book-nav button:disabled { opacity: .3; cursor: default; }
+    .book-nav .count { font-family: var(--display); font-size: 30px; min-width: 150px; text-align: center; }
+    .thumbs { margin-top: 22px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+    .thumbs button { width: 58px; border: 2px solid transparent; padding: 0; background: none; cursor: pointer; opacity: .6; transition: opacity .2s, transform .2s; }
+    .thumbs button.on { border-color: var(--red); opacity: 1; transform: translateY(-3px); }
+    .thumbs img { width: 100%; }
+    .book-actions { margin-top: 26px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .book-note { text-align: center; margin-top: 12px; font-size: 14px; color: var(--muted); }
+
+    /* ---------- three voices ---------- */
+    .voices { margin-top: 44px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .voice { background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 18px 40px -26px rgba(60,35,10,.5); display: flex; flex-direction: column; }
+    .voice .ph { position: relative; aspect-ratio: 4 / 5; overflow: hidden; }
+    .voice .ph img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+    .voice:hover .ph img { transform: scale(1.05); }
+    .voice .logo { position: absolute; left: 14px; top: 14px; padding: 8px 12px; border-radius: 10px; background: rgba(255,255,255,.94); }
+    .voice .logo.dark { background: rgba(20,14,12,.88); }
+    .voice .logo img { height: 20px; width: auto; max-width: 150px; object-fit: contain; }
+    .voice .tag { position: absolute; right: 14px; top: 14px; font-family: var(--hand); font-weight: 700; font-size: 22px; background: var(--yellow); color: var(--ink); padding: 2px 12px; border-radius: 99px; transform: rotate(4deg); }
+    .voice .cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 60px 18px 16px; color: #fff; background: linear-gradient(transparent, rgba(0,0,0,.72)); font-weight: 700; font-size: 18px; line-height: 1.3; }
+    .voice .cap small { display: block; font-weight: 500; font-size: 13px; opacity: .85; margin-top: 6px; }
+    .voice .body { padding: 18px 20px 22px; }
+    .voice .body h3 { font-family: var(--display); font-weight: 400; font-size: 34px; line-height: 1; }
+    .voice .body p { font-size: 15px; color: var(--muted); margin-top: 8px; }
+    .voice .words { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .voice .words span { font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; border: 1.5px solid var(--sage); color: #5d6b45; padding: 3px 9px; border-radius: 99px; }
+
+    /* ---------- JD map ---------- */
+    .jd { background: var(--maroon); color: #fbe9dc; }
+    .jd h2.big { color: #fff; }
+    .jd .lede { color: #e2c3b4; }
+    .jd-grid { margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .jd-card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); border-radius: 18px; padding: 22px; position: relative; }
+    .jd-card .n { font-family: var(--display); font-size: 44px; line-height: 1; color: var(--yellow); }
+    .jd-card .you { font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #e2a58f; margin-top: 10px; }
+    .jd-card h3 { font-size: 18px; color: #fff; margin-top: 4px; line-height: 1.3; }
+    .jd-card p { font-size: 15px; color: #f0d9cc; margin-top: 10px; }
+    .jd-card p b { color: #fff; }
+    .score { margin-top: 26px; background: #fff; color: var(--ink); border-radius: 18px; padding: 22px; overflow-x: auto; }
+    .score-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: baseline; }
+    .score-head b { font-family: var(--display); font-size: 30px; font-weight: 400; }
+    .score-head span { font-size: 13px; color: var(--muted); }
+    .score table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 15px; min-width: 620px; }
+    .score th { text-align: left; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 8px 10px; border-bottom: 2px solid var(--line); }
+    .score td { padding: 11px 10px; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+    .score td:first-child { font-weight: 800; }
+    .up { color: #2e7d32; font-weight: 800; } .down { color: var(--red); font-weight: 800; }
+    .score .boost { display: inline-block; font-size: 12px; font-weight: 800; background: var(--yellow); padding: 2px 8px; border-radius: 99px; }
+
+    /* ---------- proof ---------- */
+    .proof { display: grid; grid-template-columns: .9fr 1.1fr; gap: 40px; align-items: center; }
+    .stat { font-family: var(--display); font-size: clamp(140px, 20vw, 260px); line-height: .8; color: var(--red); }
+    .stat small { display: block; font-family: "DM Sans"; font-size: 20px; font-weight: 800; color: var(--ink); letter-spacing: .02em; margin-top: 14px; }
+    .jobs { display: grid; gap: 14px; }
+    .job { background: #fff; border-radius: 16px; padding: 20px 22px; border-left: 6px solid var(--yellow); }
+    .job b { display: block; font-size: 18px; }
+    .job span { font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--sage); }
+    .job p { font-size: 15px; color: var(--muted); margin-top: 6px; }
+    .edu { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .edu span { font-size: 14px; font-weight: 600; background: var(--sage-lt); color: #3f4a2c; padding: 6px 12px; border-radius: 99px; }
+
+    /* ---------- food strip + contact ---------- */
+    .strip { display: flex; gap: 14px; overflow: hidden; padding-block: 10px; }
+    .strip .track { display: flex; gap: 14px; animation: slide 50s linear infinite; }
+    .strip img { height: 220px; width: auto; border-radius: 16px; object-fit: cover; aspect-ratio: 4 / 5; }
+    @keyframes slide { to { transform: translateX(-50%); } }
+    .end { text-align: center; padding-block: 90px 110px; position: relative; }
+    .end .headline { font-size: clamp(64px, 10vw, 140px); }
+    .end .headline span { display: inline; }
+    .end .more { font-family: var(--serif); font-style: italic; font-size: clamp(24px, 3vw, 36px); margin-top: 10px; }
+    .end .cta { margin-top: 30px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .end .wave { width: 170px; margin: 0 auto 12px; transform: rotate(-4deg); filter: drop-shadow(0 10px 14px rgba(60,35,10,.25)); }
+    .end .sig { font-family: var(--hand); font-size: 34px; margin-top: 26px; }
+    footer { border-top: 2px solid var(--line); padding: 22px 0 36px; font-size: 13px; color: var(--muted); }
+    footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    @media (max-width: 940px) {
+      .hero { grid-template-columns: 1fr; min-height: 0; padding-top: 10px; }
+      .board { order: -1; max-width: 520px; }
+      .voices, .jd-grid { grid-template-columns: 1fr; }
+      .voices { max-width: 520px; margin-inline: auto; }
+      .proof { grid-template-columns: 1fr; }
+      .pg { width: min(92%, 520px); }
+      .pg.left::after, .pg.right::after { display: none; }
+    }
+    @media (max-width: 560px) {
+      .top { font-size: 13px; }
+      .top .brands { gap: 8px; }
+      .top .brands img { height: 11px; }
+      .top .brands .dark { height: 20px; padding: 4px 6px; }
+      .bubble { font-size: 22px; padding: 8px 12px 10px; }
+      #bDurva { top: 9%; right: 0; }
+      #bDanica { top: -2%; }
+      .drag-hint { font-size: 18px; bottom: -30px; }
+      .strip img { height: 160px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .anim .stk, .anim .bubble, .anim .headline span, .anim .for, .anim .brandline, .anim .cta, .anim .drag-hint { opacity: 1; animation: none !important; }
+      .reveal { opacity: 1; transform: none; }
+      .strip .track { animation: none; }
+      .spread.turn-next .pg.right, .spread.turn-prev .pg.left { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap top">
+    <span>Durva Thakkar</span>
+    <span class="brands" aria-label="MHRA brands">
+      <img src="img/logo-stacked.png" alt="Stacked">
+      <img src="img/logo-ylk.png" alt="YLK & Batter">
+      <img class="dark" src="img/logo-holychuck.png" alt="Holy Chuck">
+    </span>
+  </header>
+
+  <main>
+    <!-- The sticker moment -->
+    <section class="wrap hero anim" id="hero">
+      <div>
+        <h1 class="headline" aria-label="Stop. Look. Crave."><span class="w1">Stop.</span><span class="w2">Look.</span><span class="w3">Crave.</span></h1>
+        <p class="for">Hey Danica, I made you a content plan for the <em>Content &amp; Social Coordinator</em> role. It's a 90-day, 6-month and 12-month plan to grow all three brands.</p>
+        <div class="brandline">STACKED • YLK &amp; BATTER • HOLY CHUCK</div>
+        <div class="cta">
+          <a class="btn red" href="#plan">Flip through my plan ↓</a>
+          <a class="btn ghost" href="durva-thakkar-mhra-content-plan.pdf" download>Download the PDF</a>
+        </div>
+      </div>
+
+      <div class="board" id="board" aria-label="Sticker board: Danica and Durva with food stickers from Stacked, YLK & Batter and Holy Chuck">
+        <div class="stk food" id="sWaffle"><img src="img/stk-waffle.png" alt="YLK & Batter waffles sticker"></div>
+        <div class="stk food" id="sPancake"><img src="img/stk-pancakes.png" alt="Stacked pancakes sticker"></div>
+        <div class="stk person" id="sDanica"><img src="img/danica-sticker.png" alt="Danica sticker"></div>
+        <div class="bubble" id="bDanica">Hey Danica! 👋</div>
+        <div class="stk person" id="sDurva"><img src="img/durva-sticker.png" alt="Durva sticker"></div>
+        <div class="bubble" id="bDurva">This is Durva.<small>I made you something ↓</small></div>
+        <div class="stk food" id="sBurger"><img src="img/stk-burger.png" alt="Holy Chuck burger sticker"></div>
+        <div class="stk food" id="sCinnamon"><img src="img/stk-cinnamon.png" alt="YLK & Batter cinnamon roll sticker"></div>
+        <div class="stk stamp" id="sStamp" aria-hidden="true">
+          <svg viewBox="0 0 200 200"><defs><path id="ring" d="M100,100 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0"/></defs>
+            <circle cx="100" cy="100" r="96" fill="#fffaf1"/><circle cx="100" cy="100" r="92" fill="none" stroke="#d8281f" stroke-width="3"/><circle cx="100" cy="100" r="58" fill="none" stroke="#d8281f" stroke-width="1.5"/>
+            <text font-family="DM Sans" font-weight="800" font-size="17" letter-spacing="3" fill="#d8281f"><textPath href="#ring" startOffset="2%">MADE IN BARRIE • MADE TO CRAVE •</textPath></text>
+            <text x="100" y="112" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="44" fill="#d8281f">Barrie</text></svg>
+        </div>
+        <div class="drag-hint">psst… the stickers peel. drag them around ✋</div>
+      </div>
+    </section>
+
+    <!-- The plan (PDF as a flipbook) -->
+    <section class="section plan" id="plan">
+      <div class="wrap">
+        <div class="plan-head reveal">
+          <div>
+            <span class="chip">7 PAGES</span>
+            <h2 class="big" style="margin-top:16px">The plan, <span class="r">page</span> <span class="y">by page.</span></h2>
+            <p class="lede">The Barrie story that connects all three brands, a 90-day roadmap, the 6–12 month content engine, and proof of work. Flip through it here or grab the PDF.</p>
+          </div>
+        </div>
+        <div class="book reveal" id="book">
+          <div class="spread" id="spread"></div>
+          <div class="book-nav">
+            <button type="button" id="prev" aria-label="Previous page">←</button>
+            <span class="count" id="count">COVER</span>
+            <button type="button" id="next" aria-label="Next page">→</button>
+          </div>
+          <div class="thumbs" id="thumbs"></div>
+          <div class="book-actions">
+            <a class="btn" href="durva-thakkar-mhra-content-plan.pdf" download>Download the PDF</a>
+            <a class="btn ghost" href="durva-thakkar-mhra-content-plan.pdf" target="_blank" rel="noopener">Open full screen ↗</a>
+          </div>
+          <p class="book-note">Tip: use ← → keys, or swipe on your phone.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Three voices -->
+    <section class="section wrap" id="voices">
+      <div class="reveal">
+        <span class="kicker">Three brands, one house style</span>
+        <h2 class="big" style="margin-top:10px">Same Monday. <span class="r">Three</span> <span class="y">voices.</span></h2>
+        <p class="lede">The job asks for a writer who can switch tone across brands. So here's one moment, a Monday morning, written the way each brand would say it.</p>
+      </div>
+      <div class="voices">
+        <article class="voice reveal">
+          <div class="ph"><img src="img/stacked-table.jpg" alt="Stacked pancakes, waffles and a sandwich on a wooden table" loading="lazy"><span class="logo"><img src="img/logo-stacked.png" alt="Stacked"></span><span class="tag">comfort</span>
+            <div class="cap">“Monday called. We answered with a stack. 🥞 Tag who you're sharing a table with.”<small>Stacked · Reel + carousel</small></div></div>
+          <div class="body"><h3>Stacked</h3><p>Comfort, community and momentum. A brand opening a new store almost every week, so every post should feel like a hometown table.</p><div class="words"><span>Warm</span><span>Community</span><span>Growth</span></div></div>
+        </article>
+        <article class="voice reveal">
+          <div class="ph"><img src="img/ylk-pour.jpg" alt="Syrup pouring over YLK & Batter pancakes" loading="lazy" style="object-position:center 30%"><span class="logo"><img src="img/logo-ylk.png" alt="YLK & Batter"></span><span class="tag">discovery</span>
+            <div class="cap">“Slow pour. Golden edges. Your week deserves a brunch like this. ✨ What are you ordering first?”<small>YLK &amp; Batter · slow-mo Reel</small></div></div>
+          <div class="body"><h3>YLK &amp; Batter</h3><p>Visual food and discovery. The newest, most local brand, still building its identity, so we lead with the plate and the pour.</p><div class="words"><span>Visual</span><span>Brunch</span><span>Barrie-born</span></div></div>
+        </article>
+        <article class="voice reveal">
+          <div class="ph"><img src="img/hc-bite.jpg" alt="Woman biting into a Holy Chuck burger" loading="lazy"><span class="logo dark"><img src="img/logo-holychuck.png" alt="Holy Chuck"></span><span class="tag">attitude</span>
+            <div class="cap">“Diets start Tuesday. 🍔 Holy Chuck, it's Monday.”<small>Holy Chuck · TikTok + Reel</small></div></div>
+          <div class="body"><h3>Holy Chuck</h3><p>Attitude and cravings. In a big transition, so the job is continuity: protect the voice fans already love while it grows beyond the GTA.</p><div class="words"><span>Bold</span><span>Cravings</span><span>Continuity</span></div></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- The JD, answered -->
+    <section class="section jd" id="jd">
+      <div class="wrap">
+        <div class="reveal">
+          <span class="kicker" style="color:#f5b00d">Your job description, my first 90 days</span>
+          <h2 class="big" style="margin-top:10px">You wrote the list. <span class="y">Here's how I'd run it.</span></h2>
+        </div>
+        <div class="jd-grid">
+          <div class="jd-card reveal"><div class="n">01</div><div class="you">Creative meetings</div><h3>Lead bi-weekly MHRA creative meetings</h3><p>A one-page agenda sent 24 hours before: <b>last two weeks' numbers, three ideas per brand, one decision needed</b>. Every meeting ends with owners and dates.</p></div>
+          <div class="jd-card reveal"><div class="n">02</div><div class="you">Content plans + calendars</div><h3>Monthly calendars for all three brands</h3><p>Each brand gets <b>its own pillars, tone and recurring formats</b>, built from the audit, not assumptions. Calendars live in Asana, reviewed before the month starts.</p></div>
+          <div class="jd-card reveal"><div class="n">03</div><div class="you">Shoots</div><h3>Plan and lead organic content shoots</h3><p>Shot lists that squeeze <b>several usable pieces out of every shoot</b>: hero photos, Reels, TikToks, behind-the-scenes and Stories, not just one post.</p></div>
+          <div class="jd-card reveal"><div class="n">04</div><div class="you">Reporting</div><h3>Weekly KPI scoreboard + monthly deck</h3><p>Reach, engagement, saves, follower growth and watch time, <b>live from week one</b>. The monthly deck says what worked, why, what didn't, and what's next.</p></div>
+          <div class="jd-card reveal"><div class="n">05</div><div class="you">Boosting</div><h3>Recommend boosts, manage weekly budgets</h3><p>Paid support only goes behind <b>organic posts with proven signals</b> (saves, shares, watch time). No guesswork.</p></div>
+          <div class="jd-card reveal"><div class="n">06</div><div class="you">Influencers + community</div><h3>Influencer strategy and a daily community pulse</h3><p>Creators picked for <b>genuine audience fit</b>. Comments and DMs double as research: what people ask for feeds menu, promo and content ideas.</p></div>
+        </div>
+        <div class="score reveal">
+          <div class="score-head"><b>Weekly KPI scoreboard · sample</b><span>What you'd get every Monday · illustrative numbers</span></div>
+          <table>
+            <thead><tr><th>Brand</th><th>Reach</th><th>Engagement</th><th>Saves</th><th>Followers</th><th>Avg. watch time</th><th>Boost?</th></tr></thead>
+            <tbody>
+              <tr><td>Stacked</td><td>184K <span class="up">▲ 12%</span></td><td>4.1% <span class="up">▲</span></td><td>2,310</td><td>+640</td><td>7.8s</td><td><span class="boost">Yes · pancake Reel</span></td></tr>
+              <tr><td>YLK &amp; Batter</td><td>41K <span class="up">▲ 22%</span></td><td>6.3% <span class="up">▲</span></td><td>980</td><td>+215</td><td>9.2s</td><td><span class="boost">Yes · slow pour</span></td></tr>
+              <tr><td>Holy Chuck</td><td>96K <span class="down">▼ 4%</span></td><td>5.0% <span class="up">▲</span></td><td>1,120</td><td>+390</td><td>6.1s</td><td>Test new hook first</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proof -->
+    <section class="section wrap" id="proof">
+      <div class="proof">
+        <div class="reveal">
+          <span class="kicker">Proof of work</span>
+          <div class="stat" style="margin-top:14px">73%<small>increase in inquiries</small></div>
+          <p class="lede">Content needs a purpose before it needs a caption.</p>
+        </div>
+        <div class="jobs reveal">
+          <div class="job"><span>Content Writer</span><b>Missive Digital</b><p>Wrote content for a UK trade-show booth design company where the brief was “generate inquiries,” not just “make good posts.” Result: a 73% increase in inquiries.</p></div>
+          <div class="job"><span>Sales &amp; Marketing Intern</span><b>Rewynd Snacks</b><p>Worked the distribution and sales side of a consumer brand: who's buying, why, where they found it, and what brings them back. The same lens a restaurant group's social needs.</p></div>
+          <div class="job"><span>Education</span><b>Creative half + numbers half</b>
+            <div class="edu"><span>BBA · GLS University</span><span>Digital &amp; Content Marketing · York University</span><span>Information Systems Business Analysis · George Brown College</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Food strip -->
+    <div class="strip" aria-hidden="true"><div class="track" id="track">
+      <img src="img/group-brunch.jpg" alt=""><img src="img/hc-combo.jpg" alt=""><img src="img/ylk-waffles.jpg" alt=""><img src="img/hc-sip.jpg" alt=""><img src="img/ylk-benny.jpg" alt=""><img src="img/stacked-pancake.jpg" alt=""><img src="img/hc-dip.jpg" alt=""><img src="img/ylk-drinks.jpg" alt=""><img src="img/ylk-cinnamon.jpg" alt=""><img src="img/ylk-dessert.jpg" alt="">
+    </div></div>
+
+    <!-- Contact -->
+    <section class="wrap end reveal" id="contact">
+      <img class="wave" src="img/durva-sticker.png" alt="Durva">
+      <h2 class="headline"><span class="w1">Stop.</span> <span class="w2">Look.</span> <span class="w3">Crave.</span></h2>
+      <p class="more">Visit. Come back. Let's make people do all five.</p>
+      <div class="cta">
+        <a class="btn red" href="mailto:durvathakker7@gmail.com?subject=Content%20%26%20Social%20Coordinator%20%E2%80%94%20let's%20chat">✉ Email me</a>
+        <a class="btn" href="https://linkedin.com/in/durvathakkar" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn ghost" href="durva-thakkar-mhra-content-plan.pdf" download>Download the plan</a>
+      </div>
+      <p class="sig">The first 90 days is my starting point, not my end point. — Durva</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>Made for Danica and the MHRA Hospitality team by Durva Thakkar · Barrie, ON</span>
+      <span>Food photography and logos belong to Stacked, YLK &amp; Batter and Holy Chuck, used here only for this application.</span>
+    </div>
+  </footer>
+
+<script>
+(() => {
+  /* ---------- sticker entrance ---------- */
+  const hero = document.getElementById('hero');
+  requestAnimationFrame(() => hero.classList.add('go'));
+  setTimeout(() => hero.classList.add('settled'), 6200);
+
+  /* ---------- peel-and-stick dragging ---------- */
+  let top = 20;
+  document.querySelectorAll('.stk').forEach(el => {
+    let sx = 0, sy = 0, ox = 0, oy = 0, dragging = false;
+    el.addEventListener('pointerdown', e => {
+      dragging = true; el.setPointerCapture(e.pointerId);
+      hero.classList.add('settled');
+      sx = e.clientX; sy = e.clientY;
+      ox = parseFloat(el.style.getPropertyValue('--x')) || 0; oy = parseFloat(el.style.getPropertyValue('--y')) || 0;
+      el.style.zIndex = ++top;
+    });
+    el.addEventListener('pointermove', e => {
+      if (!dragging) return;
+      el.style.setProperty('--x', ox + e.clientX - sx + 'px');
+      el.style.setProperty('--y', oy + e.clientY - sy + 'px');
+    });
+    const end = () => { dragging = false; };
+    el.addEventListener('pointerup', end); el.addEventListener('pointercancel', end);
+  });
+
+  /* ---------- flipbook ---------- */
+  const PAGES = [1, 2, 3, 4, 5, 6, 7].map(n => `plan/page-${n}.jpg`);
+  const spread = document.getElementById('spread'), count = document.getElementById('count');
+  const prevB = document.getElementById('prev'), nextB = document.getElementById('next'), thumbs = document.getElementById('thumbs');
+  const wide = () => matchMedia('(min-width: 941px)').matches;
+  // wide: [cover] [2,3] [4,5] [6,7]; narrow: one page at a time
+  const views = () => wide() ? [[0], [1, 2], [3, 4], [5, 6]] : PAGES.map((_, i) => [i]);
+  let v = 0, busy = false;
+  PAGES.forEach((src, i) => {
+    const b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', 'Page ' + (i + 1));
+    b.innerHTML = `<img src="${src}" alt="" loading="lazy">`;
+    b.addEventListener('click', () => { const vs = views(); v = vs.findIndex(x => x.includes(i)); render(); });
+    thumbs.appendChild(b);
+  });
+  function render() {
+    const vs = views(); v = Math.max(0, Math.min(v, vs.length - 1));
+    const cur = vs[v];
+    spread.innerHTML = cur.map((i, k) => `<div class="pg ${cur.length === 1 ? 'right' : (k ? 'right' : 'left')}"><img src="${PAGES[i]}" alt="Plan page ${i + 1} of 7"></div>`).join('');
+    count.textContent = cur.length === 1 ? (cur[0] === 0 ? 'COVER' : `PAGE ${cur[0] + 1} / 7`) : `PAGES ${cur[0] + 1}–${cur[1] + 1} / 7`;
+    prevB.disabled = v === 0; nextB.disabled = v === vs.length - 1;
+    [...thumbs.children].forEach((b, i) => b.classList.toggle('on', cur.includes(i)));
+    // warm the next spread
+    (vs[v + 1] || []).forEach(i => { const im = new Image(); im.src = PAGES[i]; });
+  }
+  function go(d) {
+    const vs = views(); if (busy || v + d < 0 || v + d >= vs.length) return;
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) { v += d; render(); return; }
+    busy = true; spread.classList.add(d > 0 ? 'turn-next' : 'turn-prev');
+    setTimeout(() => { spread.classList.remove('turn-next', 'turn-prev'); v += d; render(); busy = false; }, 420);
+  }
+  prevB.addEventListener('click', () => go(-1)); nextB.addEventListener('click', () => go(1));
+  addEventListener('keydown', e => {
+    const r = document.getElementById('book').getBoundingClientRect();
+    if (r.top > innerHeight || r.bottom < 0) return;
+    if (e.key === 'ArrowRight') go(1); if (e.key === 'ArrowLeft') go(-1);
+  });
+  let tx = null;
+  spread.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+  spread.addEventListener('touchend', e => { if (tx === null) return; const dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1); tx = null; });
+  let wasWide = wide();
+  addEventListener('resize', () => { if (wide() !== wasWide) { wasWide = wide(); v = 0; render(); } });
+  render();
+
+  /* ---------- reveal on scroll + endless food strip ---------- */
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -10% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  const track = document.getElementById('track'); track.innerHTML += track.innerHTML;
+})();
+</script>
+</body>
+</html>
