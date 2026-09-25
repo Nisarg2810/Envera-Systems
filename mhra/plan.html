@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRAVE — The MHRA Edition · Durva Thakkar</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Caveat:wght@700&family=DM+Serif+Display:ital@0;1&family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    @page { size: 8.5in 11in; margin: 0; }
+    :root {
+      --cream: #f6efe3; --paper: #fbf6ec; --red: #d8281f; --yellow: #f5b00d; --butter: #ffe497;
+      --ink: #1c1512; --maroon: #370617; --sage: #7f9063; --muted: #6d6259;
+      --display: "Big Shoulders Display", Impact, sans-serif; --serif: "DM Serif Display", Georgia, serif; --hand: "Caveat", cursive;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { background: #2a221e; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { font-family: "Jost", sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
+    .page { width: 8.5in; height: 11in; position: relative; overflow: hidden; background: var(--cream); margin: 28px auto; box-shadow: 0 30px 60px -20px rgba(0,0,0,.6); page-break-after: always; break-after: page; }
+    @media print { html { background: none; } .page { margin: 0; box-shadow: none; } }
+    img { display: block; }
+    .grain::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .35; background-image: radial-gradient(rgba(90,60,30,.12) 1px, transparent 1px); background-size: 4px 4px; mix-blend-mode: multiply; }
+    .folio { position: absolute; left: 48px; right: 48px; bottom: 26px; display: flex; justify-content: space-between; font-size: 9.5px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; z-index: 5; }
+    .folio b { font-weight: 700; }
+    .kicker { font-size: 11px; font-weight: 700; letter-spacing: .26em; text-transform: uppercase; }
+    .disp { font-family: var(--display); font-weight: 900; line-height: .82; letter-spacing: -.01em; text-transform: uppercase; }
+    .r { color: var(--red); } .y { color: var(--yellow); }
+    .stamp { position: absolute; width: 118px; }
+    .stamp svg { width: 100%; }
+
+    /* ---------- 1 · cover ---------- */
+    .cover { background: #ece6dc; color: #fff; }
+    .cover .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 58%; }
+    .cover .shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,21,18,.08) 0%, rgba(28,21,18,0) 28%, rgba(28,21,18,.45) 48%, rgba(28,21,18,.86) 64%, rgba(28,21,18,.97) 100%); }
+    .cover .issue { position: absolute; top: 34px; left: 48px; right: 48px; display: flex; justify-content: space-between; color: var(--ink); font-size: 10px; font-weight: 700; letter-spacing: .24em; z-index: 2; }
+    .cover .mast { position: absolute; top: 50px; left: 38px; font-family: var(--display); font-weight: 900; font-size: 262px; line-height: .8; color: var(--red); letter-spacing: -.02em; z-index: 1; text-shadow: 0 2px 0 rgba(0,0,0,.05); }
+    .cover .mast small { display: block; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 30px; color: var(--ink); letter-spacing: 0; text-transform: none; margin: 6px 0 0 6px; }
+    .cover .lines { position: absolute; right: 48px; top: 88px; width: 176px; z-index: 2; display: grid; gap: 16px; color: var(--ink); }
+    .cover .lines div { border-top: 2px solid var(--ink); padding-top: 7px; font-size: 12.5px; line-height: 1.3; }
+    .cover .lines b { display: block; font-family: var(--display); font-weight: 900; font-size: 25px; line-height: .95; text-transform: uppercase; }
+    .cover .lines .hot b { color: var(--red); font-size: 40px; }
+    .cover .stack { position: absolute; left: 44px; bottom: 150px; font-family: var(--display); font-weight: 900; font-size: 128px; line-height: .8; text-transform: uppercase; z-index: 2; }
+    .cover .stack span { display: block; }
+    .cover .stack .w1 { color: var(--red); } .cover .stack .w2 { color: #fff; } .cover .stack .w3 { color: var(--yellow); }
+    .cover .deck { position: absolute; left: 48px; bottom: 82px; width: 470px; font-family: var(--serif); font-style: italic; font-size: 24px; line-height: 1.2; z-index: 2; }
+    .cover .by { position: absolute; left: 48px; right: 48px; bottom: 30px; display: flex; justify-content: space-between; align-items: center; font-size: 10px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; z-index: 2; border-top: 1px solid rgba(255,255,255,.35); padding-top: 12px; }
+    .cover .brands { display: flex; gap: 14px; align-items: center; }
+    .cover .brands img { height: 13px; width: auto; filter: brightness(0) invert(1); }
+    .cover .stamp { right: 40px; bottom: 96px; transform: rotate(-12deg); z-index: 3; }
+    .cover .barcode { position: absolute; right: 48px; top: 400px; z-index: 2; }
+
+    /* ---------- 2 · note ---------- */
+    .note { background: var(--paper); }
+    .note .top { position: absolute; left: 48px; right: 48px; top: 42px; display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2px solid var(--ink); padding-bottom: 10px; }
+    .note .top .kicker { color: var(--red); }
+    .note h2 { position: absolute; left: 48px; top: 82px; width: 640px; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 72px; line-height: .98; letter-spacing: -.02em; }
+    .note h2 em { color: var(--red); }
+    .note .cols { position: absolute; left: 48px; top: 318px; width: 470px; columns: 2; column-gap: 26px; font-size: 11.6px; line-height: 1.62; color: #3a302a; }
+    .note .cols p + p { margin-top: 9px; }
+    .note .cols p:first-child::first-letter { float: left; font-family: var(--display); font-weight: 900; font-size: 64px; line-height: .78; margin: 4px 7px 0 0; color: var(--red); }
+    .note .side { position: absolute; right: 48px; top: 318px; width: 196px; }
+    .note .pull { font-family: var(--display); font-weight: 800; font-size: 34px; line-height: .95; text-transform: uppercase; }
+    .note .pull::before { content: "“"; display: block; font-family: var(--serif); font-size: 80px; line-height: .6; color: var(--yellow); height: 34px; }
+    .note .edu { margin-top: 26px; border-top: 2px solid var(--ink); }
+    .note .edu div { padding: 9px 0; border-bottom: 1px solid #d8ccb8; font-size: 11px; line-height: 1.35; }
+    .note .edu b { display: block; font-size: 12.5px; }
+    .note .photo { position: absolute; left: 40px; bottom: 58px; width: 250px; height: 230px; border-radius: 10px; overflow: hidden; }
+    .note .photo img { width: 100%; height: 100%; object-fit: cover; }
+    .note .me { position: absolute; left: 318px; bottom: 60px; width: 150px; transform: rotate(4deg); filter: drop-shadow(0 8px 10px rgba(60,35,10,.3)); }
+    .note .sig { position: absolute; left: 488px; bottom: 120px; font-family: var(--hand); font-size: 44px; line-height: .9; transform: rotate(-4deg); }
+    .note .sig small { display: block; font-family: "Jost"; font-size: 10px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); transform: none; margin-top: 8px; }
+
+    /* ---------- 3 · proof ---------- */
+    .proof { background: var(--maroon); color: var(--cream); }
+    .proof .kicker { position: absolute; left: 48px; top: 44px; color: var(--butter); }
+    .proof h2 { position: absolute; left: 44px; top: 66px; font-size: 104px; color: var(--cream); }
+    .proof .stat { position: absolute; left: 36px; top: 272px; font-family: var(--display); font-weight: 900; font-size: 280px; line-height: .78; color: var(--yellow); letter-spacing: -.03em; }
+    .proof .stat-cap { position: absolute; left: 48px; top: 510px; width: 400px; font-family: var(--serif); font-style: italic; font-size: 28px; line-height: 1.12; }
+    .proof .ph { position: absolute; right: 48px; top: 66px; width: 250px; height: 560px; border-radius: 14px; overflow: hidden; }
+    .proof .ph img { width: 100%; height: 100%; object-fit: cover; object-position: 40% center; }
+    .proof .ph span { position: absolute; left: 12px; bottom: 12px; font-size: 9px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; background: var(--yellow); color: var(--ink); padding: 5px 8px; border-radius: 4px; }
+    .proof .cards { position: absolute; left: 48px; right: 48px; top: 670px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .proof .card { background: var(--cream); color: var(--ink); border-radius: 12px; padding: 20px 22px 22px; position: relative; }
+    .proof .card .n { font-family: var(--display); font-weight: 900; font-size: 58px; line-height: .8; color: var(--red); }
+    .proof .card .role { margin-top: 10px; font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--sage); }
+    .proof .card h3 { font-family: var(--display); font-weight: 900; font-size: 30px; line-height: .95; text-transform: uppercase; margin-top: 3px; }
+    .proof .card p { font-size: 11.6px; line-height: 1.55; margin-top: 9px; color: #3a302a; }
+    .proof .card .res { margin-top: 10px; font-weight: 700; font-size: 11.6px; color: var(--red); }
+    .proof .line { position: absolute; left: 48px; right: 48px; bottom: 62px; font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--butter); text-align: center; }
+
+    /* ---------- 4 · MHRA now ---------- */
+    .now { background: var(--cream); }
+    .now .kicker { position: absolute; left: 48px; top: 44px; color: var(--red); }
+    .now h2 { position: absolute; left: 44px; top: 64px; font-size: 96px; }
+    .now .intro { position: absolute; right: 48px; top: 70px; width: 250px; font-size: 11.6px; line-height: 1.55; color: #3a302a; }
+    .now .timeline { position: absolute; left: 48px; right: 48px; top: 262px; display: grid; grid-template-columns: repeat(5, 1fr); border-top: 3px solid var(--ink); }
+    .now .timeline div { padding: 12px 10px 0 0; position: relative; }
+    .now .timeline div::before { content: ""; position: absolute; top: -9px; left: 0; width: 15px; height: 15px; border-radius: 50%; background: var(--yellow); border: 3px solid var(--ink); }
+    .now .timeline b { display: block; font-family: var(--display); font-weight: 900; font-size: 34px; line-height: .9; margin-top: 6px; }
+    .now .timeline span { font-size: 10.6px; line-height: 1.4; color: #3a302a; display: block; margin-top: 4px; }
+    .now .timeline div:last-child b { color: var(--red); }
+    .now .brands { position: absolute; left: 48px; right: 48px; top: 408px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .now .brand { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 24px -16px rgba(60,35,10,.5); }
+    .now .brand .ph { height: 232px; position: relative; }
+    .now .brand .ph img { width: 100%; height: 100%; object-fit: cover; }
+    .now .brand .num { position: absolute; left: 10px; top: 10px; width: 30px; height: 30px; border-radius: 50%; background: var(--ink); color: var(--yellow); display: grid; place-items: center; font-family: var(--display); font-weight: 900; font-size: 18px; }
+    .now .brand .lg { height: 50px; display: flex; align-items: center; padding: 0 16px; border-bottom: 1px solid #eadfcd; }
+    .now .brand .lg img { height: 18px; width: auto; max-width: 170px; }
+    .now .brand .lg.dark { background: var(--ink); }
+    .now .brand .bd { padding: 12px 16px 16px; }
+    .now .brand .vibe { font-family: var(--display); font-weight: 900; font-size: 22px; line-height: .95; text-transform: uppercase; }
+    .now .brand p { font-size: 10.8px; line-height: 1.5; color: #4a3f38; margin-top: 7px; }
+    .now .home { position: absolute; left: 48px; right: 48px; bottom: 58px; height: 120px; background: var(--maroon); color: var(--cream); border-radius: 12px; display: grid; grid-template-columns: 170px 1fr 1fr; gap: 24px; align-items: center; padding: 0 26px; }
+    .now .home .disp { font-size: 34px; color: var(--yellow); }
+    .now .home p { font-size: 11px; line-height: 1.5; }
+    .now .home b { color: var(--butter); display: block; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 4px; }
+
+    /* ---------- 5 · 90 days ---------- */
+    .ninety { background: var(--yellow); }
+    .ninety .kicker { position: absolute; left: 48px; top: 44px; }
+    .ninety h2 { position: absolute; left: 42px; top: 64px; font-size: 128px; line-height: .8; }
+    .ninety .sub { position: absolute; right: 48px; top: 70px; width: 210px; font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 1.15; }
+    .ninety .stages { position: absolute; left: 48px; right: 48px; top: 318px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 3px solid var(--ink); }
+    .ninety .stage { padding: 16px 18px 0 0; }
+    .ninety .stage + .stage { padding-left: 18px; border-left: 2px solid rgba(28,21,18,.25); }
+    .ninety .stage .n { font-family: var(--display); font-weight: 900; font-size: 110px; line-height: .8; color: transparent; -webkit-text-stroke: 2.5px var(--ink); }
+    .ninety .stage .days { margin-top: 12px; font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+    .ninety .stage h3 { font-family: var(--display); font-weight: 900; font-size: 40px; line-height: .9; text-transform: uppercase; margin-top: 4px; }
+    .ninety .stage ul { list-style: none; margin-top: 12px; }
+    .ninety .stage li { font-size: 12.2px; line-height: 1.45; padding: 7px 0 7px 16px; border-top: 1px solid rgba(28,21,18,.2); position: relative; }
+    .ninety .stage li::before { content: ""; position: absolute; left: 0; top: 12px; width: 7px; height: 7px; background: var(--red); border-radius: 50%; }
+    .ninety .play { position: absolute; left: 0; right: 0; bottom: 0; height: 230px; background: var(--ink); color: var(--cream); padding: 30px 48px 0; }
+    .ninety .play .disp { font-size: 50px; color: var(--yellow); }
+    .ninety .play p { font-size: 12px; margin-top: 8px; color: #d9cbb8; }
+    .ninety .chips { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .ninety .chips span { font-size: 11px; font-weight: 600; border: 1.5px solid rgba(246,239,227,.5); padding: 5px 11px; border-radius: 99px; }
+    .ninety .sticker { position: absolute; right: 60px; top: 170px; width: 132px; transform: rotate(10deg); filter: drop-shadow(0 8px 10px rgba(60,35,10,.35)); }
+    .ninety .folio { color: var(--cream); }
+
+    /* ---------- 6 · engine ---------- */
+    .engine { background: var(--ink); color: var(--cream); }
+    .engine .kicker { position: absolute; left: 48px; top: 44px; color: var(--yellow); }
+    .engine h2 { position: absolute; left: 44px; top: 64px; font-size: 92px; color: var(--cream); }
+    .engine h2 span { color: var(--yellow); }
+    .engine .wheel { position: absolute; left: 24px; top: 280px; width: 430px; }
+    .engine .txt { position: absolute; right: 48px; top: 290px; width: 310px; }
+    .engine .txt p { font-size: 12.6px; line-height: 1.6; color: #d9cbb8; }
+    .engine .txt p + p { margin-top: 12px; }
+    .engine .txt b { color: var(--cream); }
+    .engine .txt h4 { font-family: var(--display); font-weight: 900; font-size: 26px; line-height: .95; text-transform: uppercase; color: var(--yellow); margin: 18px 0 6px; }
+    .engine .miles { position: absolute; left: 48px; right: 48px; bottom: 62px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .engine .mile { border: 1.5px solid rgba(246,239,227,.3); border-radius: 12px; padding: 16px 18px; }
+    .engine .mile .disp { font-size: 48px; color: var(--yellow); }
+    .engine .mile p { font-size: 13px; line-height: 1.5; color: #d9cbb8; margin-top: 6px; }
+
+    /* ---------- 7 · close ---------- */
+    .close { background: var(--paper); }
+    .close .ph { position: absolute; left: 0; right: 0; top: 0; height: 430px; }
+    .close .ph img { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; }
+    .close .ph::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,21,18,0) 45%, rgba(251,246,236,1) 100%); }
+    .close .kicker { position: absolute; left: 48px; top: 36px; color: var(--ink); }
+    .close .words { position: absolute; left: 44px; top: 340px; font-family: var(--display); font-weight: 900; font-size: 84px; line-height: .8; text-transform: uppercase; }
+    .close .words span { display: block; }
+    .close .words .a { color: var(--red); } .close .words .b { color: var(--ink); } .close .words .c { color: var(--yellow); } .close .words .d { color: var(--sage); } .close .words .e { color: var(--maroon); }
+    .close .letter { position: absolute; right: 48px; top: 470px; width: 300px; }
+    .close .letter h3 { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 34px; line-height: 1.02; }
+    .close .letter p { font-size: 11.8px; line-height: 1.6; color: #3a302a; margin-top: 12px; }
+    .close .letter .end { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--red); margin-top: 14px; }
+    .close .contact { position: absolute; left: 48px; right: 48px; bottom: 58px; border-top: 2px solid var(--ink); padding-top: 14px; display: flex; justify-content: space-between; align-items: flex-end; }
+    .close .contact .name { font-family: var(--hand); font-size: 50px; line-height: .8; }
+    .close .contact .info { text-align: right; font-size: 11px; line-height: 1.7; font-weight: 500; }
+    .close .me { position: absolute; left: 300px; bottom: 112px; width: 120px; transform: rotate(-5deg); filter: drop-shadow(0 8px 10px rgba(60,35,10,.3)); }
+    .close .stamp { right: 60px; top: 330px; transform: rotate(12deg); }
+  </style>
+</head>
+<body>
+
+<!-- Barrie stamp (reused) -->
+<svg width="0" height="0" style="position:absolute"><defs><path id="ring" d="M100,100 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0"/></defs>
+  <symbol id="stamp" viewBox="0 0 200 200"><circle cx="100" cy="100" r="96" fill="#fbf6ec"/><circle cx="100" cy="100" r="92" fill="none" stroke="#d8281f" stroke-width="3"/><circle cx="100" cy="100" r="58" fill="none" stroke="#d8281f" stroke-width="1.5"/><text font-family="Jost" font-weight="700" font-size="17" letter-spacing="3.4" fill="#d8281f"><textPath href="#ring" startOffset="2%">MADE IN BARRIE • MADE TO CRAVE •</textPath></text><text x="100" y="113" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="46" fill="#d8281f">Barrie</text></symbol></svg>
+
+<!-- 1 · COVER -->
+<section class="page cover">
+  <img class="bg" src="img/ylk-pour.jpg" alt="">
+  <div class="shade"></div>
+  <div class="issue"><span>Issue 01</span><span>September 2026</span><span>$0.00 · Priceless</span></div>
+  <div class="mast">Crave<small>The MHRA Edition</small></div>
+  <div class="lines">
+    <div><b>The Barrie story</b>that connects all three brands</div>
+    <div><b>90 days</b>a roadmap built on what MHRA already does</div>
+    <div class="hot"><b>73%</b>proof it works: the inquiry lift</div>
+  </div>
+  <div class="stack"><span class="w1">Stop.</span><span class="w2">Look.</span><span class="w3">Crave.</span></div>
+  <p class="deck">A 90-day, 6-month and 12-month plan to grow Stacked, YLK &amp; Batter and Holy Chuck.</p>
+  <div class="stamp"><svg><use href="#stamp"/></svg></div>
+  <div class="by"><span>Content &amp; Social Coordinator · Durva Thakkar</span><span class="brands"><img src="img/logo-stacked.png" alt=""><img src="img/logo-ylk.png" alt=""><img src="img/logo-holychuck.png" alt=""></span></div>
+</section>
+
+<!-- 2 · A NOTE FROM ME -->
+<section class="page note grain">
+  <div class="top"><span class="kicker">A note from me / why me</span><span class="kicker">Crave · 02</span></div>
+  <h2>“Build around <em>what already</em> works.”</h2>
+  <div class="cols">
+    <p>When I think about what the Social and Content Coordinator role could look like, I don't picture “running social media.” I picture telling the story of a company that started with one family restaurant in Barrie and is now three brands wide and growing by the week.</p>
+    <p>MHRA didn't get here by accident. Stacked scaled from one franchise to a hundred stores. Holy Chuck was brought in because it already had a following worth protecting. YLK &amp; Batter is the newest chapter, and it's still being written. One philosophy runs through all three: build around what already works.</p>
+    <p>That's what I'd bring to social: create better content, understand what performs, learn from the audience, and do more of what works.</p>
+    <p>My BBA and my postgraduate certificate in Digital and Content Marketing give me the creative, customer-facing half. My postgraduate certificate in Information Systems Business Analysis gives me the other half: reading the numbers, spotting the pattern, and turning what we learn into the next decision.</p>
+    <p>I've worked across content, social, outreach, sales and customer acquisition, and I've sat on the side of marketing that asks a harder question than “does this look good?” The real question is “did this do anything for the business?”</p>
+  </div>
+  <div class="side">
+    <div class="pull">Every piece of content should have a job before it gets a caption.</div>
+    <div class="edu">
+      <div><b>BBA</b>GLS University</div>
+      <div><b>PG Cert · Digital &amp; Content Marketing</b>York University</div>
+      <div><b>PG Cert · Info Systems Business Analysis</b>George Brown College</div>
+    </div>
+  </div>
+  <div class="photo"><img src="img/group-brunch.jpg" alt=""></div>
+  <img class="me" src="img/durva-sticker.png" alt="">
+  <div class="sig">Durva<small>Barrie, Ontario</small></div>
+  <div class="folio"><span><b>Crave</b> — The MHRA Edition</span><span>02 / 07</span></div>
+</section>
+
+<!-- 3 · PROOF -->
+<section class="page proof">
+  <span class="kicker">Real work · real impact</span>
+  <h2 class="disp">Proof of<br>work.</h2>
+  <div class="stat">73%</div>
+  <div class="stat-cap">increase in inquiries, from content with one job: make the phone ring.</div>
+  <div class="ph"><img src="img/hc-bite.jpg" alt=""><span>Built on strategy</span></div>
+  <div class="cards">
+    <div class="card"><div class="n">01</div><div class="role">Content Writer</div><h3>Missive Digital</h3><p>Wrote content for a UK trade-show booth design company where the brief was “generate inquiries,” not just “make good posts.”</p><div class="res">Result: a 73% increase in inquiries.</div></div>
+    <div class="card"><div class="n">02</div><div class="role">Sales &amp; Marketing Intern</div><h3>Rewynd Snacks</h3><p>Working distribution and sales for a consumer brand taught me that getting a product in front of people is step one. The real questions: who's buying, why, where they found it, and what brings them back.</p></div>
+  </div>
+  <div class="line">Content needs a purpose before it needs a caption.</div>
+  <div class="folio"><span><b>Crave</b> — The MHRA Edition</span><span>03 / 07</span></div>
+</section>
+
+<!-- 4 · UNDERSTANDING MHRA -->
+<section class="page now grain">
+  <span class="kicker">Understanding MHRA, right now</span>
+  <h2 class="disp">Hometown<br><span class="r">to national.</span></h2>
+  <p class="intro">Stacked Pancake &amp; Breakfast House began as the Country Kettle Family Restaurant in Barrie, later reimagined by the Mehra family. Today it's one of three brands, all pointed at the same goal: becoming Canada's favourite breakfast spot, coast to coast.</p>
+  <div class="timeline">
+    <div><b>1980s</b><span>Country Kettle opens in Barrie</span></div>
+    <div><b>2018</b><span>Franchising starts in Orangeville</span></div>
+    <div><b>2023</b><span>65 Stacked stores</span></div>
+    <div><b>2024</b><span>The 100th store opens</span></div>
+    <div><b>2026</b><span>New HQ, a test kitchen, and a new store a week</span></div>
+  </div>
+  <div class="brands">
+    <div class="brand"><div class="ph"><img src="img/stacked-table.jpg" alt=""><span class="num">1</span></div><div class="lg"><img src="img/logo-stacked.png" alt="Stacked"></div><div class="bd"><div class="vibe">Comfort · community · momentum</div><p>The flagship, scaling fast. Social keeps every new town feeling like a hometown table.</p></div></div>
+    <div class="brand"><div class="ph"><img src="img/ylk-benny.jpg" alt=""><span class="num">2</span></div><div class="lg"><img src="img/logo-ylk.png" alt="YLK & Batter"></div><div class="bd"><div class="vibe">Visual food · discovery</div><p>The newest and most local: a Barrie brunch concept with elevated comfort food. An identity still being built.</p></div></div>
+    <div class="brand"><div class="ph"><img src="img/hc-combo.jpg" alt=""><span class="num">3</span></div><div class="lg dark"><img src="img/logo-holychuck.png" alt="Holy Chuck"></div><div class="bd"><div class="vibe">Attitude · cravings</div><p>Founded 2011, now part of the family. The job right now is continuity: protect the voice fans love while it grows.</p></div></div>
+  </div>
+  <div class="home">
+    <div class="disp">A hometown heart.</div>
+    <p><b>Why it's personal</b>Barrie isn't a footnote in this story, and it isn't one in mine either. I live here. It's where Stacked started and where YLK &amp; Batter calls home.</p>
+    <p><b>Three brands, one house style</b>Different personalities, one standard: content that makes people stop, look, crave, and come back.</p>
+  </div>
+  <div class="folio"><span><b>Crave</b> — The MHRA Edition</span><span>04 / 07</span></div>
+</section>
+
+<!-- 5 · FIRST 90 DAYS -->
+<section class="page ninety">
+  <span class="kicker">A three-stage roadmap to build, test and grow</span>
+  <h2 class="disp">The first<br>90 days.</h2>
+  <p class="sub">Built on insight. Fuelled by creative. Measured from week one.</p>
+  <img class="sticker" src="img/stk-pancakes.png" alt="">
+  <div class="stages">
+    <div class="stage"><div class="n">01</div><div class="days">Days 1–30</div><h3>Listen, learn, audit.</h3><ul><li>A full social audit across all three brands: top and bottom performers, formats, posting patterns.</li><li>Comments and DMs read as research, plus a lightweight competitor watch.</li><li>A weekly KPI scoreboard goes live right away: reach, engagement, saves, follower growth, watch time.</li></ul></div>
+    <div class="stage"><div class="n">02</div><div class="days">Days 31–60</div><h3>Build, test, create.</h3><ul><li>Each brand gets its own content system: pillars, tone and recurring formats built from the audit, not assumptions.</li><li>Test short-form hooks and video lengths.</li><li>Build an influencer list on genuine audience fit, and run shoots that produce several pieces each.</li></ul></div>
+    <div class="stage"><div class="n">03</div><div class="days">Days 61–90</div><h3>Optimize, scale, grow.</h3><ul><li>Winning formats become series.</li><li>Paid support goes behind organic posts with proven signals, not guesswork.</li><li>A monthly review keeps the team honest: what worked, why, what didn't, what's next.</li></ul></div>
+  </div>
+  <div class="play">
+    <div class="disp">By day 90: a real playbook.</div>
+    <p>Not just a filled calendar. MHRA walks into the next quarter with:</p>
+    <div class="chips"><span>Pillars</span><span>Voice</span><span>Formats</span><span>Shoot process</span><span>Influencer pipeline</span><span>KPI scoreboard</span><span>Next-quarter roadmap</span></div>
+  </div>
+  <div class="folio"><span><b>Crave</b> — The MHRA Edition</span><span>05 / 07</span></div>
+</section>
+
+<!-- 6 · CONTENT ENGINE -->
+<section class="page engine">
+  <span class="kicker">Months 4 to 12 · scale and build</span>
+  <h2 class="disp">The content<br><span>engine.</span></h2>
+  <svg class="wheel" viewBox="0 0 400 400" aria-hidden="true">
+    <defs><marker id="ar" markerWidth="10" markerHeight="10" refX="6" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#f5b00d"/></marker></defs>
+    <circle cx="200" cy="200" r="132" fill="none" stroke="#3b302a" stroke-width="30"/>
+    <path d="M200,68 A132,132 0 0,1 332,200" fill="none" stroke="#f5b00d" stroke-width="4" marker-end="url(#ar)"/>
+    <path d="M332,200 A132,132 0 0,1 200,332" fill="none" stroke="#f5b00d" stroke-width="4" marker-end="url(#ar)"/>
+    <path d="M200,332 A132,132 0 0,1 68,200" fill="none" stroke="#f5b00d" stroke-width="4" marker-end="url(#ar)"/>
+    <path d="M68,200 A132,132 0 0,1 200,68" fill="none" stroke="#f5b00d" stroke-width="4" marker-end="url(#ar)"/>
+    <circle cx="200" cy="200" r="78" fill="#d8281f"/>
+    <text x="200" y="190" text-anchor="middle" font-family="Big Shoulders Display" font-weight="900" font-size="34" fill="#f6efe3">THE</text>
+    <text x="200" y="224" text-anchor="middle" font-family="Big Shoulders Display" font-weight="900" font-size="34" fill="#f6efe3">ENGINE</text>
+    <g font-family="Big Shoulders Display" font-weight="900" font-size="26" fill="#1c1512" text-anchor="middle">
+      <rect x="140" y="46" width="120" height="44" rx="22" fill="#f6efe3"/><text x="200" y="77">INSIGHT</text>
+      <rect x="300" y="178" width="96" height="44" rx="22" fill="#f6efe3"/><text x="348" y="209">IDEA</text>
+      <rect x="146" y="310" width="108" height="44" rx="22" fill="#f6efe3"/><text x="200" y="341">SHOOT</text>
+      <rect x="0" y="178" width="136" height="44" rx="22" fill="#ffe497"/><text x="68" y="209">RESULTS</text>
+    </g>
+  </svg>
+  <div class="txt">
+    <p>With real data in hand, the focus becomes <b>more of what works</b>, and smarter tests around what could. Ideas move from insight to shoot to performance to the next idea, building on what's been learned instead of starting from zero.</p>
+    <h4>A new-store playbook</h4>
+    <p>With a new store opening almost every week, content needs a repeatable launch kit: <b>countdown content, opening-day coverage and local outreach</b>, so growth never outruns the content that supports it. If Holy Chuck franchising lands, social becomes a recruitment tool too.</p>
+    <h4>Social as customer insight</h4>
+    <p>What people ask for and what keeps surfacing in the comments feeds <b>menu decisions, promotions and future marketing</b>, not just posts. And the portfolio becomes an advantage: a Stacked regular discovering Holy Chuck, a YLK &amp; Batter fan hearing about the next Barrie opening.</p>
+  </div>
+  <div class="miles">
+    <div class="mile"><div class="disp">By month 6</div><p>Three brands, three personalities, one content engine.</p></div>
+    <div class="mile"><div class="disp">By year one</div><p>A recognizable identity across all three brands, a real creator network, and a content library built from a year of shoots.</p></div>
+  </div>
+  <div class="folio"><span><b>Crave</b> — The MHRA Edition</span><span>06 / 07</span></div>
+</section>
+
+<!-- 7 · WHY I WANT IN -->
+<section class="page close">
+  <div class="ph"><img src="img/ylk-drinks.jpg" alt=""></div>
+  <span class="kicker">Why I want to be part of this</span>
+  <div class="words"><span class="a">Stop.</span><span class="b">Look.</span><span class="c">Crave.</span><span class="d">Visit.</span><span class="e">Come back.</span></div>
+  <div class="stamp"><svg><use href="#stamp"/></svg></div>
+  <div class="letter">
+    <h3>I don't want to be handed a calendar. I want to help write it.</h3>
+    <p>I want to understand these brands well enough to contribute ideas, be close enough to the numbers to know what's working, and close enough to customers to know what they actually want.</p>
+    <p>MHRA has spent a decade proving that growth built on discipline, not just ambition, compounds. I'd want my first 90 days to prove I can bring that same discipline to content.</p>
+    <p class="end">The first 90 days is my starting point. Not my end point.</p>
+  </div>
+  <img class="me" src="img/durva-sticker.png" alt="">
+  <div class="contact"><div class="name">Durva Thakkar</div><div class="info">durvathakker7@gmail.com<br>437-734-2203<br>linkedin.com/in/durvathakkar</div></div>
+  <div class="folio"><span><b>Crave</b> — The MHRA Edition</span><span>07 / 07</span></div>
+</section>
+
+</body>
+</html>

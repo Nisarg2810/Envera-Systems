@@ -11,7 +11,7 @@
   <meta property="og:image" content="https://durvathakkar.com/mhra/plan/page-1.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Caveat:wght@600;700&family=DM+Serif+Display:ital@0;1&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <style>
     :root {
       --cream: #f7f1e6;
@@ -24,14 +24,14 @@
       --sage-lt: #dfe4d3;
       --maroon: #370617;
       --line: #e6dccb;
-      --display: "Bebas Neue", Impact, sans-serif;
+      --display: "Big Shoulders Display", Impact, sans-serif;
       --serif: "DM Serif Display", Georgia, serif;
       --hand: "Caveat", cursive;
       color-scheme: light;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { background: var(--cream); color: var(--ink); font-family: "DM Sans", system-ui, sans-serif; font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    body { background: var(--cream); color: var(--ink); font-family: "Jost", system-ui, sans-serif; font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
     a { color: inherit; }
     img { max-width: 100%; display: block; }
     .wrap { max-width: 1180px; margin: 0 auto; padding-inline: 20px; }
@@ -42,7 +42,7 @@
 
     .kicker { display: inline-block; font-weight: 800; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--red); }
     .chip { display: inline-block; border: 2px solid var(--yellow); padding: 4px 12px; font-weight: 800; font-size: 13px; letter-spacing: .06em; background: #fff; box-shadow: 3px 3px 0 var(--yellow); }
-    h2.big { font-family: var(--display); font-weight: 400; font-size: clamp(54px, 8vw, 104px); line-height: .9; letter-spacing: .005em; }
+    h2.big { font-family: var(--display); font-weight: 900; font-size: clamp(54px, 8vw, 108px); line-height: .86; letter-spacing: -.01em; text-transform: uppercase; }
     h2.big .r { color: var(--red); } h2.big .y { color: var(--yellow); }
     .lede { font-size: 19px; color: var(--muted); max-width: 640px; margin-top: 14px; }
     .serif-i { font-family: var(--serif); font-style: italic; }
@@ -60,7 +60,7 @@
 
     /* ---------- hero: the sticker moment ---------- */
     .hero { display: grid; grid-template-columns: 1fr 1.05fr; gap: 20px; align-items: center; min-height: calc(100vh - 70px); padding-bottom: 40px; }
-    .headline { font-family: var(--display); font-weight: 400; line-height: .84; font-size: clamp(88px, 13vw, 190px); }
+    .headline { font-family: var(--display); font-weight: 900; line-height: .8; letter-spacing: -.015em; text-transform: uppercase; font-size: clamp(90px, 13vw, 196px); }
     .headline span { display: block; }
     .headline .w1 { color: var(--red); } .headline .w3 { color: var(--yellow); }
     .hero .for { font-family: var(--serif); font-size: clamp(22px, 2.4vw, 30px); line-height: 1.25; margin-top: 18px; max-width: 520px; }
@@ -126,7 +126,7 @@
     .book-nav { margin-top: 26px; display: flex; justify-content: center; align-items: center; gap: 18px; }
     .book-nav button { width: 54px; height: 54px; border-radius: 50%; border: 2px solid var(--ink); background: #fff; font-size: 22px; cursor: pointer; box-shadow: 3px 3px 0 var(--yellow); }
     .book-nav button:disabled { opacity: .3; cursor: default; }
-    .book-nav .count { font-family: var(--display); font-size: 30px; min-width: 150px; text-align: center; }
+    .book-nav .count { font-family: var(--display); font-weight: 900; font-size: 30px; min-width: 150px; text-align: center; }
     .thumbs { margin-top: 22px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
     .thumbs button { width: 58px; border: 2px solid transparent; padding: 0; background: none; cursor: pointer; opacity: .6; transition: opacity .2s, transform .2s; }
     .thumbs button.on { border-color: var(--red); opacity: 1; transform: translateY(-3px); }
@@ -147,7 +147,7 @@
     .voice .cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 60px 18px 16px; color: #fff; background: linear-gradient(transparent, rgba(0,0,0,.72)); font-weight: 700; font-size: 18px; line-height: 1.3; }
     .voice .cap small { display: block; font-weight: 500; font-size: 13px; opacity: .85; margin-top: 6px; }
     .voice .body { padding: 18px 20px 22px; }
-    .voice .body h3 { font-family: var(--display); font-weight: 400; font-size: 34px; line-height: 1; }
+    .voice .body h3 { font-family: var(--display); font-weight: 900; font-size: 38px; line-height: .95; text-transform: uppercase; }
     .voice .body p { font-size: 15px; color: var(--muted); margin-top: 8px; }
     .voice .words { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
     .voice .words span { font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; border: 1.5px solid var(--sage); color: #5d6b45; padding: 3px 9px; border-radius: 99px; }
@@ -158,14 +158,14 @@
     .jd .lede { color: #e2c3b4; }
     .jd-grid { margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .jd-card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); border-radius: 18px; padding: 22px; position: relative; }
-    .jd-card .n { font-family: var(--display); font-size: 44px; line-height: 1; color: var(--yellow); }
+    .jd-card .n { font-family: var(--display); font-weight: 900; font-size: 48px; line-height: 1; color: var(--yellow); }
     .jd-card .you { font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #e2a58f; margin-top: 10px; }
     .jd-card h3 { font-size: 18px; color: #fff; margin-top: 4px; line-height: 1.3; }
     .jd-card p { font-size: 15px; color: #f0d9cc; margin-top: 10px; }
     .jd-card p b { color: #fff; }
     .score { margin-top: 26px; background: #fff; color: var(--ink); border-radius: 18px; padding: 22px; overflow-x: auto; }
     .score-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: baseline; }
-    .score-head b { font-family: var(--display); font-size: 30px; font-weight: 400; }
+    .score-head b { font-family: var(--display); font-size: 32px; font-weight: 900; text-transform: uppercase; }
     .score-head span { font-size: 13px; color: var(--muted); }
     .score table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 15px; min-width: 620px; }
     .score th { text-align: left; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 8px 10px; border-bottom: 2px solid var(--line); }
@@ -176,8 +176,8 @@
 
     /* ---------- proof ---------- */
     .proof { display: grid; grid-template-columns: .9fr 1.1fr; gap: 40px; align-items: center; }
-    .stat { font-family: var(--display); font-size: clamp(140px, 20vw, 260px); line-height: .8; color: var(--red); }
-    .stat small { display: block; font-family: "DM Sans"; font-size: 20px; font-weight: 800; color: var(--ink); letter-spacing: .02em; margin-top: 14px; }
+    .stat { font-family: var(--display); font-weight: 900; font-size: clamp(140px, 20vw, 270px); line-height: .8; color: var(--red); letter-spacing: -.03em; }
+    .stat small { display: block; font-family: "Jost"; letter-spacing: 0 !important; font-size: 20px; font-weight: 800; color: var(--ink); letter-spacing: .02em; margin-top: 14px; }
     .jobs { display: grid; gap: 14px; }
     .job { background: #fff; border-radius: 16px; padding: 20px 22px; border-left: 6px solid var(--yellow); }
     .job b { display: block; font-size: 18px; }
@@ -200,6 +200,38 @@
     .end .sig { font-family: var(--hand); font-size: 34px; margin-top: 26px; }
     footer { border-top: 2px solid var(--line); padding: 22px 0 36px; font-size: 13px; color: var(--muted); }
     footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+
+    /* ---------- motion ---------- */
+    .board { perspective: 1200px; }
+    .board-in { position: absolute; inset: 0; transform-style: preserve-3d; transition: transform .25s ease-out; }
+    .settled .stk:not(.dragging) { animation: bob var(--bob, 5s) ease-in-out infinite !important; animation-delay: var(--bd, 0s) !important; }
+    @keyframes bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -9px; } }
+    .settled .bubble { animation: wiggle 3.6s ease-in-out infinite !important; opacity: 1; }
+    @keyframes wiggle { 0%, 100% { rotate: 0deg; } 50% { rotate: 2deg; } }
+    .ticker { position: relative; height: 170px; overflow: hidden; margin-top: 10px; }
+    .tape { position: absolute; left: -5%; right: -5%; top: 50%; white-space: nowrap; overflow: hidden; padding: 14px 0; font-family: var(--display); font-weight: 900; font-size: 38px; text-transform: uppercase; letter-spacing: .02em; }
+    .tape .run { display: inline-block; animation: run 28s linear infinite; }
+    .tape.a { background: var(--ink); color: var(--yellow); transform: translateY(-50%) rotate(-3deg); z-index: 2; }
+    .tape.b { background: var(--red); color: #fff; transform: translateY(-50%) rotate(2.5deg); }
+    .tape.b .run { animation-direction: reverse; animation-duration: 34s; }
+    .tape i { font-style: normal; margin: 0 22px; }
+    @keyframes run { to { transform: translateX(-50%); } }
+    .drip { position: relative; height: 26px; background: linear-gradient(180deg, #b5650b, #d9860f); z-index: 2; }
+    .drip span { position: absolute; top: 100%; width: var(--w, 18px); height: 0; background: linear-gradient(180deg, #d9860f, #e89b1b); border-radius: 0 0 99px 99px; transition: height 1.6s cubic-bezier(.3,.7,.3,1); transition-delay: var(--d, 0s); }
+    .drip span::after { content: ""; position: absolute; left: 22%; top: 30%; width: 22%; height: 34%; border-radius: 99px; background: rgba(255,255,255,.35); }
+    .drip.in span { height: var(--h, 40px); }
+    .plan { border-top: 0; }
+    .voice { transform-style: preserve-3d; transition: transform .2s ease-out, box-shadow .2s; will-change: transform; }
+    .voice:hover { box-shadow: 0 30px 50px -26px rgba(60,35,10,.6); }
+    .split-in { display: inline-block; overflow: hidden; vertical-align: top; }
+    .split-in > span { display: inline-block; transform: translateY(105%); transition: transform .8s cubic-bezier(.2,.8,.2,1); transition-delay: var(--d, 0s); }
+    .reveal.in .split-in > span, .in .split-in > span { transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .settled .stk, .settled .bubble, .tape .run { animation: none !important; }
+      .drip span { transition: none; height: var(--h, 40px); }
+      .split-in > span { transform: none; transition: none; }
+    }
 
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
     .reveal.in { opacity: 1; transform: none; }
@@ -256,7 +288,7 @@
         </div>
       </div>
 
-      <div class="board" id="board" aria-label="Sticker board: Danica and Durva with food stickers from Stacked, YLK & Batter and Holy Chuck">
+      <div class="board" id="board" aria-label="Sticker board: Danica and Durva with food stickers from Stacked, YLK & Batter and Holy Chuck"><div class="board-in" id="boardIn">
         <div class="stk food" id="sWaffle"><img src="img/stk-waffle.png" alt="YLK & Batter waffles sticker"></div>
         <div class="stk food" id="sPancake"><img src="img/stk-pancakes.png" alt="Stacked pancakes sticker"></div>
         <div class="stk person" id="sDanica"><img src="img/danica-sticker.png" alt="Danica sticker"></div>
@@ -268,21 +300,27 @@
         <div class="stk stamp" id="sStamp" aria-hidden="true">
           <svg viewBox="0 0 200 200"><defs><path id="ring" d="M100,100 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0"/></defs>
             <circle cx="100" cy="100" r="96" fill="#fffaf1"/><circle cx="100" cy="100" r="92" fill="none" stroke="#d8281f" stroke-width="3"/><circle cx="100" cy="100" r="58" fill="none" stroke="#d8281f" stroke-width="1.5"/>
-            <text font-family="DM Sans" font-weight="800" font-size="17" letter-spacing="3" fill="#d8281f"><textPath href="#ring" startOffset="2%">MADE IN BARRIE • MADE TO CRAVE •</textPath></text>
+            <text font-family="Jost" font-weight="700" font-size="17" letter-spacing="3.4" fill="#d8281f"><textPath href="#ring" startOffset="2%">MADE IN BARRIE • MADE TO CRAVE •</textPath></text>
             <text x="100" y="112" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="44" fill="#d8281f">Barrie</text></svg>
         </div>
         <div class="drag-hint">psst… the stickers peel. drag them around ✋</div>
-      </div>
+      </div></div>
     </section>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="tape b"><span class="run"><i>Stop</i>·<i>Look</i>·<i>Crave</i>·<i>🥞</i>·<i>Visit</i>·<i>Come back</i>·<i>🍔</i>·<i>Stacked</i>·<i>YLK &amp; Batter</i>·<i>Holy Chuck</i>·<i>🧇</i>·<i>Stop</i>·<i>Look</i>·<i>Crave</i>·<i>🥞</i>·<i>Visit</i>·<i>Come back</i>·<i>🍔</i>·<i>Stacked</i>·<i>YLK &amp; Batter</i>·<i>Holy Chuck</i>·<i>🧇</i>·<i>Stop</i>·<i>Look</i>·<i>Crave</i>·<i>🥞</i>·<i>Visit</i>·<i>Come back</i>·<i>🍔</i>·<i>Stacked</i>·<i>YLK &amp; Batter</i>·<i>Holy Chuck</i>·<i>🧇</i>·<i>Stop</i>·<i>Look</i>·<i>Crave</i>·<i>🥞</i>·<i>Visit</i>·<i>Come back</i>·<i>🍔</i>·<i>Stacked</i>·<i>YLK &amp; Batter</i>·<i>Holy Chuck</i>·<i>🧇</i>·</span></div>
+      <div class="tape a"><span class="run"><i>Stop</i>·<i>Look</i>·<i>Crave</i>·<i>🥞</i>·<i>Visit</i>·<i>Come back</i>·<i>🍔</i>·<i>Stacked</i>·<i>YLK &amp; Batter</i>·<i>Holy Chuck</i>·<i>🧇</i>·<i>Stop</i>·<i>Look</i>·<i>Crave</i>·<i>🥞</i>·<i>Visit</i>·<i>Come back</i>·<i>🍔</i>·<i>Stacked</i>·<i>YLK &amp; Batter</i>·<i>Holy Chuck</i>·<i>🧇</i>·<i>Stop</i>·<i>Look</i>·<i>Crave</i>·<i>🥞</i>·<i>Visit</i>·<i>Come back</i>·<i>🍔</i>·<i>Stacked</i>·<i>YLK &amp; Batter</i>·<i>Holy Chuck</i>·<i>🧇</i>·<i>Stop</i>·<i>Look</i>·<i>Crave</i>·<i>🥞</i>·<i>Visit</i>·<i>Come back</i>·<i>🍔</i>·<i>Stacked</i>·<i>YLK &amp; Batter</i>·<i>Holy Chuck</i>·<i>🧇</i>·</span></div>
+    </div>
+    <div class="drip" id="drip" aria-hidden="true"></div>
 
     <!-- The plan (PDF as a flipbook) -->
     <section class="section plan" id="plan">
       <div class="wrap">
         <div class="plan-head reveal">
           <div>
-            <span class="chip">7 PAGES</span>
+            <span class="chip">CRAVE · THE MHRA EDITION · 7 PAGES</span>
             <h2 class="big" style="margin-top:16px">The plan, <span class="r">page</span> <span class="y">by page.</span></h2>
-            <p class="lede">The Barrie story that connects all three brands, a 90-day roadmap, the 6–12 month content engine, and proof of work. Flip through it here or grab the PDF.</p>
+            <p class="lede">I designed my plan as a magazine: the Barrie story that connects all three brands, a 90-day roadmap, the 6–12 month content engine, and proof of work. Flip through it here, read it as a web page, or grab the PDF.</p>
           </div>
         </div>
         <div class="book reveal" id="book">
@@ -295,7 +333,7 @@
           <div class="thumbs" id="thumbs"></div>
           <div class="book-actions">
             <a class="btn" href="durva-thakkar-mhra-content-plan.pdf" download>Download the PDF</a>
-            <a class="btn ghost" href="durva-thakkar-mhra-content-plan.pdf" target="_blank" rel="noopener">Open full screen ↗</a>
+            <a class="btn ghost" href="plan.html" target="_blank" rel="noopener">Read it as a web page ↗</a>
           </div>
           <p class="book-note">Tip: use ← → keys, or swipe on your phone.</p>
         </div>
@@ -362,7 +400,7 @@
       <div class="proof">
         <div class="reveal">
           <span class="kicker">Proof of work</span>
-          <div class="stat" style="margin-top:14px">73%<small>increase in inquiries</small></div>
+          <div class="stat" style="margin-top:14px"><span id="count73">73</span>%<small>increase in inquiries</small></div>
           <p class="lede">Content needs a purpose before it needs a caption.</p>
         </div>
         <div class="jobs reveal">
@@ -469,6 +507,68 @@
   let wasWide = wide();
   addEventListener('resize', () => { if (wide() !== wasWide) { wasWide = wide(); v = 0; render(); } });
   render();
+
+
+  /* ---------- motion: board tilt, sticker bob, drips, tilt cards, count-up, split headings ---------- */
+  const boardIn = document.getElementById('boardIn'), board = document.getElementById('board');
+  const fine = matchMedia('(pointer: fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.stk').forEach((el, i) => { el.style.setProperty('--bob', (4.2 + (i % 4) * 0.7) + 's'); el.style.setProperty('--bd', (-i * 0.6) + 's'); });
+  if (fine) {
+    board.addEventListener('mousemove', e => {
+      const r = board.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+      boardIn.style.transform = `rotateY(${x * 10}deg) rotateX(${-y * 10}deg)`;
+    });
+    board.addEventListener('mouseleave', () => { boardIn.style.transform = ''; });
+    document.querySelectorAll('.voice').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+        card.style.transform = `perspective(900px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) translateY(-4px)`;
+      });
+      card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+    });
+  }
+  document.querySelectorAll('.stk').forEach(el => {
+    el.addEventListener('pointerdown', () => el.classList.add('dragging'));
+    el.addEventListener('pointerup', () => el.classList.remove('dragging'));
+  });
+  // syrup drips of random widths and lengths
+  const drip = document.getElementById('drip');
+  for (let i = 0; i < 26; i++) {
+    const d = document.createElement('span');
+    d.style.left = (i / 26 * 100 + Math.random() * 2) + '%';
+    d.style.setProperty('--w', (10 + Math.random() * 18) + 'px');
+    d.style.setProperty('--h', (14 + Math.random() * 70) + 'px');
+    d.style.setProperty('--d', (Math.random() * .8) + 's');
+    drip.appendChild(d);
+  }
+  new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { drip.classList.add('in'); o.disconnect(); } }), { threshold: .2 }).observe(drip);
+  // headline words rise in
+  document.querySelectorAll('h2.big').forEach(h => {
+    let k = 0;
+    const wrap = node => {
+      [...node.childNodes].forEach(n => {
+        if (n.nodeType === 3) {
+          const frag = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(w => {
+            if (!w.trim()) { frag.appendChild(document.createTextNode(w)); return; }
+            const o = document.createElement('span'); o.className = 'split-in';
+            const i = document.createElement('span'); i.textContent = w; i.style.setProperty('--d', (k++ * 0.07) + 's');
+            o.appendChild(i); frag.appendChild(o);
+          });
+          n.replaceWith(frag);
+        } else if (n.nodeType === 1) wrap(n);
+      });
+    };
+    wrap(h);
+    if (!h.closest('.reveal')) h.classList.add('reveal');
+  });
+  // 73% counts up
+  const c73 = document.getElementById('count73');
+  new IntersectionObserver((es, o) => es.forEach(e => {
+    if (!e.isIntersecting) return; o.disconnect();
+    const t0 = performance.now();
+    (function tick(now) { const u = Math.min(1, (now - t0) / 1400); c73.textContent = Math.round(73 * (1 - Math.pow(1 - u, 3))); if (u < 1) requestAnimationFrame(tick); })(t0);
+  }), { threshold: .5 }).observe(c73);
 
   /* ---------- reveal on scroll + endless food strip ---------- */
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -10% 0px' });
