@@ -6,7 +6,7 @@
   <title>Durva × Colleen</title>
   <meta name="description" content="A content workspace and application for the early-career marketing role at Envera Systems, made for Colleen by Durva Thakkar.">
   <meta name="robots" content="noindex, nofollow">
-  <meta property="og:title" content="Player 2 has entered the lane">
+  <meta property="og:title" content="Durva × Colleen">
   <meta property="og:description" content="For Colleen and the Envera Systems marketing team, from Durva Thakkar.">
   <meta property="og:image" content="https://durvathakkar.com/envera-systems/colleen-axe.jpg">
   <link rel="icon" href="envera-mark.svg">
@@ -646,11 +646,13 @@
     .pz-x:hover { border-color: var(--ink); }
     .pz-body { margin-top: 18px; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 20px; align-items: start; }
     .pz-label { font-family: var(--pixel); font-size: 9px; color: var(--muted); margin-bottom: 10px; }
-    .pz-idea { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px; border-top: 6px solid var(--gold); }
-    .pz-idea .chip { margin-bottom: 10px; }
-    .pz-idea h4 { font-size: 20px; line-height: 1.3; letter-spacing: -0.01em; }
-    .pz-idea p { font-size: 15px; color: #3a404c; margin-top: 8px; }
-    .pz-idea .pz-why { margin-top: 14px; font-size: 14px; color: var(--muted); border-top: 1px dashed var(--line); padding-top: 12px; }
+    .pz-ideas { display: grid; gap: 10px; }
+    .pz-idea { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; border-left: 5px solid var(--gold); display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start; }
+    .pz-n { font-family: var(--pixel); font-size: 10px; width: 26px; height: 26px; display: grid; place-items: center; border-radius: 6px; background: var(--night); color: var(--gold); }
+    .pz-idea .chip { margin-bottom: 6px; }
+    .pz-idea h4 { font-size: 16px; line-height: 1.3; letter-spacing: -0.01em; }
+    .pz-idea p { font-size: 14px; color: #3a404c; margin-top: 4px; }
+    .pz-why { margin-top: 12px; font-size: 14px; color: var(--muted); background: #fff; border: 1px dashed var(--line); border-radius: 12px; padding: 10px 12px; }
     .pz-nav { margin-top: 18px; display: flex; justify-content: space-between; gap: 10px; }
     .pz-nav button { font: 600 14px "Inter", sans-serif; background: #fff; border: 1px solid var(--line); border-radius: 99px; padding: 9px 16px; cursor: pointer; }
     .pz-nav button:hover { border-color: var(--brand); color: var(--brand); }
@@ -1893,7 +1895,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="pz-top">${avatar(a, 52)}<div><div class="pz-name">${esc(a.name)}</div><div class="pz-role">${esc(pp.role)}</div></div></div>
       <div class="pz-meta">${(pp.meta || []).map(m => `<span>${esc(m)}</span>`).join('')}</div>
       <span class="pz-voice">${esc(pp.voice)}</span>
-      <div class="pz-open"><i>💡 ${esc(pp.idea.tone)}</i><span>OPEN ▸</span></div></button>`; }).join('')}</div>`;
+      <div class="pz-open"><i>💡 1 draft post + ${pp.ideas.length} ideas</i><span>OPEN ▸</span></div></button>`; }).join('')}</div>`;
   }
   const R = { _row, _col, letter, personas, linkedin, instagram, instagram_carousel, blog, case_study, email, landing_page, campaign_timeline, video, approach, strategy, ideas, hubspot_workflow, hubspot_scoring, hubspot_dashboard, hubspot_setup, about, contact };
   const WRAPPED = new Set(['linkedin', 'instagram', 'instagram_carousel', 'email', 'landing_page']);
@@ -1974,7 +1976,7 @@ document.addEventListener('DOMContentLoaded', () => {
       modal.innerHTML = `<div class="pz-box" style="--pz:${esc(a.color || '#0038F5')}"><button type="button" class="pz-x" aria-label="Close">✕</button>
         <div class="pz-head">${avatar(a, 60)}<div><div class="pz-name">${esc(a.name)}</div><div class="pz-role">${esc(pp.role)} · ${esc(pp.voice)}</div></div></div>
         <div class="pz-body"><div><div class="pz-label">▸ DRAFT LINKEDIN POST</div>${renderItem(post, {})}</div>
-        <div><div class="pz-label">▸ NEXT POST IDEA</div><div class="pz-idea"><span class="chip gold">${esc(pp.idea.tone)}</span><h4>${rich(pp.idea.title)}</h4><p>${rich(pp.idea.angle)}</p>${pp.why ? `<p class="pz-why"><b>Why this voice:</b> ${rich(pp.why)}</p>` : ''}</div></div></div>
+        <div><div class="pz-label">▸ ${pp.ideas.length} MORE POST IDEAS</div><div class="pz-ideas">${pp.ideas.map((x, k) => `<div class="pz-idea"><div class="pz-n">${k + 1}</div><div><span class="chip gold">${esc(x.tone)}</span><h4>${rich(x.title)}</h4><p>${rich(x.angle)}</p></div></div>`).join('')}</div>${pp.why ? `<p class="pz-why"><b>Why this voice:</b> ${rich(pp.why)}</p>` : ''}</div></div>
         <div class="pz-nav"><button type="button" data-d="-1">← Previous leader</button><button type="button" data-d="1">Next leader →</button></div></div>`;
       modal.querySelectorAll('.li').forEach(li => { li.querySelector('.li-body')?.classList.remove('clamp'); li.querySelector('.li-more')?.remove(); });
       modal.querySelectorAll('.av img').forEach(img => img.addEventListener('error', () => img.remove()));
@@ -3242,7 +3244,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "id": "exec-linkedin",
       "short": "Exec LinkedIn",
       "title": "Executive LinkedIn",
-      "intro": "Nine decision makers, nine voices. Tap a card to open their draft LinkedIn post and their next posts ideas.",
+      "intro": "Nine decision makers, nine voices. Tap a card to open their draft LinkedIn post and five more post ideas made for their role.",
       "layout": "stack",
       "items": [
         {
@@ -3263,12 +3265,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 "comments": 29,
                 "reposts": 14
               },
-              "idea": {
-                "tone": "Lightbulb moment",
-                "title": "The moment I knew Envera was my next chapter",
-                "angle": "What made an operator from ATMs, payments and cloud say yes to community security, and how he knew he was ready."
-              },
-              "why": "The CEO sets the story. Vision posts from the top give every other exec post context."
+              "why": "The CEO sets the story. Vision posts from the top give every other exec post context.",
+              "ideas": [
+                {
+                  "tone": "Lightbulb moment",
+                  "title": "The moment I knew Envera was my next chapter",
+                  "angle": "What made an operator from ATMs, payments and cloud say yes to community security, and how he knew he was ready."
+                },
+                {
+                  "tone": "Changed my mind",
+                  "title": "One thing I changed my mind on about community security this year",
+                  "angle": "A belief he walked in with, the site visit or board meeting that changed it, and what Envera does differently now."
+                },
+                {
+                  "tone": "Industry prediction",
+                  "title": "Community security in 2030: people at the center of the platform",
+                  "angle": "A bold 5-year view on guard booths, remote screening and resident apps, anchored by one data point."
+                },
+                {
+                  "tone": "Company momentum",
+                  "title": "The number that shows where Envera is headed",
+                  "angle": "One proud milestone (communities protected, entries screened, new markets) with a team photo from the central station."
+                },
+                {
+                  "tone": "Leadership learnings",
+                  "title": "5 lessons from my first year leading a 17-year-old company",
+                  "angle": "What to keep, what to change and what surprised him, each backed by a specific story."
+                }
+              ]
             },
             {
               "author": "daniel",
@@ -3285,12 +3309,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 "comments": 31,
                 "reposts": 9
               },
-              "idea": {
-                "tone": "Company update",
-                "title": "Envera this month: 3 wins, 3 learnings, what's next",
-                "angle": "A monthly operations recap with one standout number in the hook: uptime, response time or new communities live."
-              },
-              "why": "COOs are trusted on execution. A steady monthly rhythm builds credibility with buyers and investors alike."
+              "why": "COOs are trusted on execution. A steady monthly rhythm builds credibility with buyers and investors alike.",
+              "ideas": [
+                {
+                  "tone": "Company update",
+                  "title": "Envera this month: 3 wins, 3 learnings, what's next",
+                  "angle": "A monthly operations recap with one standout number in the hook: uptime, response time or new communities live."
+                },
+                {
+                  "tone": "Overcoming adversity",
+                  "title": "The day everything went wrong at once, and what we built after",
+                  "angle": "A storm, an outage or a staffing crunch, how the team got through it, and the process that came out of it."
+                },
+                {
+                  "tone": "Team growth",
+                  "title": "How growing the team changed the way I lead operations",
+                  "angle": "What broke, what scaled, and the habits that kept a 24/7 operation steady as headcount grew."
+                },
+                {
+                  "tone": "Off-site recap",
+                  "title": "What we learned when the leadership team stepped away for two days",
+                  "angle": "The biggest surprise, the decisions made, and how to run an off-site that actually changes Monday."
+                },
+                {
+                  "tone": "Start from scratch",
+                  "title": "If I had to build a 24/7 central station from zero tomorrow",
+                  "angle": "The first hires, the first systems and the first mistakes to avoid, in order."
+                }
+              ]
             },
             {
               "author": "adam",
@@ -3307,12 +3353,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 "comments": 22,
                 "reposts": 6
               },
-              "idea": {
-                "tone": "What I wish I knew",
-                "title": "5 things I wish I knew before moving from manufacturing to community security",
-                "angle": "A candid outsider's view: recurring revenue, 24/7 cost structures, and how boards really make budget decisions."
-              },
-              "why": "A new CFO's outsider lens is a strong hook, and it speaks straight to budget-minded board treasurers."
+              "why": "A new CFO's outsider lens is a strong hook, and it speaks straight to budget-minded board treasurers.",
+              "ideas": [
+                {
+                  "tone": "What I wish I knew",
+                  "title": "5 things I wish I knew before moving from manufacturing to community security",
+                  "angle": "A candid outsider's view: recurring revenue, 24/7 cost structures, and how boards really make budget decisions."
+                },
+                {
+                  "tone": "Industry lies",
+                  "title": "5 money myths about community security",
+                  "angle": "The talking points that drive a CFO nuts, like \"guards are always cheaper\", and what the numbers actually say."
+                },
+                {
+                  "tone": "Book that shaped me",
+                  "title": "The one book that changed how I think about finance",
+                  "angle": "Borrow credibility from a well-known title, then tie its lesson to a real decision at Envera."
+                },
+                {
+                  "tone": "Challenge assumptions",
+                  "title": "What boards think security costs vs. what it really costs",
+                  "angle": "Line-item myths vs. the true 5-year picture, in plain language a volunteer treasurer can use."
+                },
+                {
+                  "tone": "Life outside work",
+                  "title": "What life outside the spreadsheet taught me about leading finance",
+                  "angle": "A hobby or passion and the unexpected lesson it brings to budgets and teams. [Ask Adam for his.]"
+                }
+              ]
             },
             {
               "author": "nicky",
@@ -3329,12 +3397,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 "comments": 27,
                 "reposts": 11
               },
-              "idea": {
-                "tone": "Right vs. wrong way",
-                "title": "The right way (and the wrong way) for an HOA board to budget for security",
-                "angle": "Contrast the lowest-bid approach with a 5-year total-cost view, in board-friendly language."
-              },
-              "why": "A CFO speaking to volunteer board treasurers in their own language builds trust before sales ever calls."
+              "why": "A CFO speaking to volunteer board treasurers in their own language builds trust before sales ever calls.",
+              "ideas": [
+                {
+                  "tone": "Right vs. wrong way",
+                  "title": "The right way (and the wrong way) for an HOA board to budget for security",
+                  "angle": "Contrast the lowest-bid approach with a 5-year total-cost view, in board-friendly language."
+                },
+                {
+                  "tone": "Handy template",
+                  "title": "The 5-year security budget template I'd give every HOA treasurer",
+                  "angle": "Walk through each line and offer the template as a free download."
+                },
+                {
+                  "tone": "Easy wins",
+                  "title": "3 easy ways to cut security costs without cutting coverage",
+                  "angle": "Quick, practical steps a board can take this quarter, building trust before any sales conversation."
+                },
+                {
+                  "tone": "Outdated practice",
+                  "title": "Why annual lowest-bid renewals hurt communities",
+                  "angle": "The hidden costs of switching vendors every year, and what smarter procurement looks like."
+                },
+                {
+                  "tone": "Overrated advice",
+                  "title": "\"Always take the cheapest bid\" is the most overrated advice in HOA finance",
+                  "angle": "Her actual belief, and a story of when the cheapest option cost a community more."
+                }
+              ]
             },
             {
               "author": "connor",
@@ -3351,12 +3441,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 "comments": 24,
                 "reposts": 7
               },
-              "idea": {
-                "tone": "Best-fit partners",
-                "title": "What our best partnerships have in common",
-                "angle": "2–3 traits of the management companies and developers Envera works best with, so the right partners raise their hand."
-              },
-              "why": "Partnership leaders win on trust. A story-first post opens doors a pitch never will. [Swap in a real partner story.]"
+              "why": "Partnership leaders win on trust. A story-first post opens doors a pitch never will. [Swap in a real partner story.]",
+              "ideas": [
+                {
+                  "tone": "Best-fit partners",
+                  "title": "What our best partnerships have in common",
+                  "angle": "2–3 traits of the management companies and developers Envera works best with, so the right partners raise their hand."
+                },
+                {
+                  "tone": "Partner highlight",
+                  "title": "A management company doing resident experience right",
+                  "angle": "Break down one partner's strategy he admires. Middle of funnel, not a pitch."
+                },
+                {
+                  "tone": "Event recap",
+                  "title": "5 takeaways from the CAI Community Association Expo",
+                  "angle": "The conversations that stood out, what boards are worried about this year, and photos from the floor."
+                },
+                {
+                  "tone": "Industry examples",
+                  "title": "5 communities doing security the smart way",
+                  "angle": "A listicle of great approaches in the industry, tagging the teams behind them."
+                },
+                {
+                  "tone": "Overcoming objections",
+                  "title": "\"We tried a virtual guard once and it didn't work\"",
+                  "angle": "The objection he hears most, and the customer story that turns it around."
+                }
+              ]
             },
             {
               "author": "crystal",
@@ -3373,12 +3485,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 "comments": 58,
                 "reposts": 5
               },
-              "idea": {
-                "tone": "Template giveaway",
-                "title": "The revenue ops dashboard I open every Monday (steal it)",
-                "angle": "Walk through the 5 numbers she checks weekly and why, then offer the template as a download for RevOps peers."
-              },
-              "why": "Eighteen years at one company is a rare story. Pairing nostalgia with a practical giveaway earns both love and saves."
+              "why": "Eighteen years at one company is a rare story. Pairing nostalgia with a practical giveaway earns both love and saves.",
+              "ideas": [
+                {
+                  "tone": "Template giveaway",
+                  "title": "The revenue ops dashboard I open every Monday (steal it)",
+                  "angle": "The 5 numbers she checks weekly and why, with the template as a download for RevOps peers."
+                },
+                {
+                  "tone": "Tech stack",
+                  "title": "The RevOps tech stack that runs Envera's revenue engine",
+                  "angle": "Every tool from CRM to reporting, and why each one earned its place."
+                },
+                {
+                  "tone": "What's working",
+                  "title": "3 things working in our pipeline right now",
+                  "angle": "Trends from the data: channels, timing and messages that are converting, with real numbers."
+                },
+                {
+                  "tone": "Trend in the data",
+                  "title": "The shift I'm seeing in how communities buy security",
+                  "angle": "One pattern from 18 years of pipeline data, and what it means for sales and marketing."
+                },
+                {
+                  "tone": "Her framework",
+                  "title": "The lead scoring framework we built, step by step",
+                  "angle": "How fit and engagement combine into one score, with an example of it working."
+                }
+              ]
             },
             {
               "author": "robert",
@@ -3395,12 +3529,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 "comments": 34,
                 "reposts": 12
               },
-              "idea": {
-                "tone": "Product pillars",
-                "title": "The 3 principles behind how we build Envera's software",
-                "angle": "Each principle, where he learned it, and one real product decision it changed."
-              },
-              "why": "Engineering leaders attract talent and reassure buyers at the same time. Principles travel well on LinkedIn."
+              "why": "Engineering leaders attract talent and reassure buyers at the same time. Principles travel well on LinkedIn.",
+              "ideas": [
+                {
+                  "tone": "Product pillars",
+                  "title": "The 3 principles behind how we build Envera's software",
+                  "angle": "Each principle, where he learned it, and one real product decision it changed."
+                },
+                {
+                  "tone": "Shipping velocity",
+                  "title": "Everything our engineering team shipped in the last 6 months",
+                  "angle": "A 10–15 item list across MyEnvera, Smart Access Control and Active Video Surveillance."
+                },
+                {
+                  "tone": "Feature walkthrough",
+                  "title": "How a gate screening works behind the scenes",
+                  "angle": "A short Loom walkthrough of the most-used workflow, from car at the gate to entry logged."
+                },
+                {
+                  "tone": "We use it too",
+                  "title": "What building for our own central station taught us",
+                  "angle": "Dog-fooding lessons: what the guards asked for and what changed because of it."
+                },
+                {
+                  "tone": "Hiring traits",
+                  "title": "The one trait I look for in every engineer I hire",
+                  "angle": "Why it matters for an always-on product, and a teammate who embodies it."
+                }
+              ]
             },
             {
               "author": "nate",
@@ -3417,12 +3573,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 "comments": 19,
                 "reposts": 8
               },
-              "idea": {
-                "tone": "AI predictions",
-                "title": "What AI will change in community security, and what it won't",
-                "angle": "Where AI helps (alerts, plate reads, call triage) and why the licensed human stays at the center of every decision."
-              },
-              "why": "R&D is where the future lives. A grounded AI take stands out in a feed full of hype."
+              "why": "R&D is where the future lives. A grounded AI take stands out in a feed full of hype.",
+              "ideas": [
+                {
+                  "tone": "AI predictions",
+                  "title": "What AI will change in community security, and what it won't",
+                  "angle": "Where AI helps (alerts, plate reads, call triage) and why the licensed human stays at the center."
+                },
+                {
+                  "tone": "2030 predictions",
+                  "title": "3 predictions for community access control by 2030",
+                  "angle": "Each prediction as its own short post, backed by what R&D is seeing today."
+                },
+                {
+                  "tone": "Underrated feature",
+                  "title": "The feature I wish more managers knew about",
+                  "angle": "One capability that saves hours, with a quick example from a real community."
+                },
+                {
+                  "tone": "New integration",
+                  "title": "Our newest integration and why we built it now",
+                  "angle": "What it means for managers and residents, and the problem it finally solves."
+                },
+                {
+                  "tone": "Trend-jacking",
+                  "title": "The access control news everyone's talking about, and my take",
+                  "angle": "React to a recent industry development and what it means for HOAs."
+                }
+              ]
             },
             {
               "author": "colleenb",
@@ -3439,12 +3617,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 "comments": 41,
                 "reposts": 16
               },
-              "idea": {
-                "tone": "Culture & core values",
-                "title": "The 3 values that define our central station culture",
-                "angle": "What each value looks like on shift, plus the most overrated and underrated parts of building culture."
-              },
-              "why": "HR posts double as recruiting. Showing the culture behind a 24/7 team makes Envera a place people want to work."
+              "why": "HR posts double as recruiting. Showing the culture behind a 24/7 team makes Envera a place people want to work.",
+              "ideas": [
+                {
+                  "tone": "Culture & core values",
+                  "title": "The 3 values that define our central station culture",
+                  "angle": "What each value looks like on shift, plus the most overrated and underrated parts of building culture."
+                },
+                {
+                  "tone": "Hiring philosophy",
+                  "title": "How we hire for a job that never sleeps",
+                  "angle": "What Envera looks for in a remote security professional, and a few recent hires who fit."
+                },
+                {
+                  "tone": "Outstanding hire",
+                  "title": "The team member who blew past every expectation",
+                  "angle": "The traits that made them stand out, shown through one moment on shift."
+                },
+                {
+                  "tone": "Where we work",
+                  "title": "How we build culture across a 24/7 central station",
+                  "angle": "In-office vs. remote, day vs. night shift, and keeping one team feeling like one team."
+                },
+                {
+                  "tone": "Now hiring",
+                  "title": "The roles we're hiring for right now",
+                  "angle": "A curated list of open roles at Envera with who each one is perfect for, tagging the hiring managers."
+                }
+              ]
             }
           ]
         }
