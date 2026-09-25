@@ -1831,7 +1831,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return `<div class="about">
       <div class="panel"><div class="me">${avatar(a, 72)}<div><div class="name">${esc(a.name)}</div><div class="role">${rich(it.role)}</div></div></div><div class="md" style="margin-top:0">${md(it.intro)}</div><h3 style="margin-top:22px;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)">My journey so far</h3><ul class="journey">${it.journey.map(j => `<li><span class="when">${rich(j.when)}</span><b>${rich(j.title)}</b><span>${rich(j.desc)}</span></li>`).join('')}</ul></div>
       <div class="panel">${set(it.skills.technicalTitle, it.skills.technical)}${set(it.skills.softTitle, it.skills.soft)}${set(it.skills.bonusTitle, it.skills.bonus, 'bonus')}</div>
-      <div class="panel span-2" style="grid-column:1/-1"><h3>${rich(it.checklistTitle)}</h3><div class="checkmap">${it.checklist.map(c => `<div><b>${rich(c.ask)}</b><span>${rich(c.answer)}</span></div>`).join('')}</div></div>
+      ${(it.checklist || []).length ? `<div class="panel span-2" style="grid-column:1/-1"><h3>${rich(it.checklistTitle)}</h3><div class="checkmap">${it.checklist.map(c => `<div><b>${rich(c.ask)}</b><span>${rich(c.answer)}</span></div>`).join('')}</div></div>` : ''}
     </div>`;
   }
   function contact(it) {
@@ -2534,12 +2534,12 @@ document.addEventListener('DOMContentLoaded', () => {
     card(`<img src="durva-avatar.jpg?v=2" alt=""><h3>OH NO! 😅</h3><p>Don't worry, <b>I got you.</b><br>I'm with you. <b>Let's win together!</b></p><div class="row"><button class="go" data-a="coop">▶ PLAY WITH PLAYER 2</button><button data-a="close">Back to site</button></div>`);
   }
   function showWin() {
-    card(`<img src="durva-avatar.jpg?v=2" alt=""><h3>WE DID IT! 🎉</h3><p>See? <b>Better together.</b> Now let's do it for real at Envera.</p><div class="row"><button class="blue" data-a="chat">📅 LET'S CHAT</button><button class="go" data-a="coop">↺ AGAIN</button><button data-a="close">Back to site</button></div>`);
+    card(`<img src="durva-avatar.jpg?v=2" alt=""><h3>WE DID IT! 🎉</h3><p>See? <b>Better together.</b> Now let's do it for real at Envera.</p><div class="row"><button class="blue" data-a="chat">💬 LET'S CHAT ON LINKEDIN</button><button class="go" data-a="coop">↺ AGAIN</button><button data-a="close">Back to site</button></div>`);
   }
   pop.addEventListener('click', e => {
     const a = e.target.closest('button')?.dataset.a; if (!a) return;
     if (a === 'close') return closeGame();
-    if (a === 'chat') { closeGame(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); return; }
+    if (a === 'chat') { window.open('https://www.linkedin.com/in/durvathakkar/', '_blank', 'noopener'); return; }
     reset(a === 'coop'); S.playing = true; pop.hidden = true; beep(523, .08); cv.focus?.();
   });
 
@@ -4098,26 +4098,7 @@ document.addEventListener('DOMContentLoaded', () => {
               "Photography",
               "[A fun fact about you]"
             ]
-          },
-          "checklistTitle": "Your checklist, answered",
-          "checklist": [
-            {
-              "ask": "Thrives with ambiguity and shifting priorities",
-              "answer": "[One real example of priorities changing and what you did]"
-            },
-            {
-              "ask": "Takes the ball and runs with it",
-              "answer": "This page. Nobody asked for a content workspace, a campaign and a game. I built them anyway."
-            },
-            {
-              "ask": "Uses AI daily and can show how",
-              "answer": "Research, first drafts, image ideas and this site's code, always edited by me for voice and accuracy."
-            },
-            {
-              "ask": "2–4 years of experience and a portfolio",
-              "answer": "[Years + roles] · [portfolio link]"
-            }
-          ]
+          }
         }
       ]
     },
@@ -4134,19 +4115,11 @@ document.addEventListener('DOMContentLoaded', () => {
           "buttons": [
             {
               "label": "✉ Email me",
-              "href": "mailto:[your-email]"
+              "href": "mailto:durvathakker7@gmail.com"
             },
             {
               "label": "LinkedIn",
-              "href": "[linkedin-url]"
-            },
-            {
-              "label": "Portfolio",
-              "href": "[portfolio-url]"
-            },
-            {
-              "label": "Résumé",
-              "href": "[resume-url]"
+              "href": "https://www.linkedin.com/in/durvathakkar/"
             }
           ]
         }
@@ -4270,7 +4243,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "yes": "▶ YES, LET'S TALK!",
     "maybe": "▶ MAYBE LATER",
     "maybeHover": "▶ OK FINE, YES 😄",
-    "scheduleUrl": "[your-calendly-or-mailto-link]",
+    "scheduleUrl": "https://www.linkedin.com/in/durvathakkar/",
     "placeholderToast": "Calendar link coming soon! Email me in the meantime 👇"
   }
 }
