@@ -1828,7 +1828,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="panel span-2"><h3>Audiences</h3><div class="cards">${it.audiences.map(x => `<div class="mini"><b>${rich(x.name)}</b><span>${rich(x.need)}</span></div>`).join('')}</div></div>
       <div class="panel"><h3>Frequency</h3><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Channel</th><th>How often</th><th>Mix</th></tr></thead><tbody>${it.cadence.map(c => `<tr><td>${rich(c.channel)}</td><td>${rich(c.freq)}</td><td>${rich(c.mix)}</td></tr>`).join('')}</tbody></table></div></div>
       <div class="panel"><h3>Formats</h3><div class="chips">${it.formats.map(f => `<span>${rich(f)}</span>`).join('')}</div><h3 style="margin-top:20px">What we measure</h3><div class="chips">${it.kpis.map(f => `<span>${rich(f)}</span>`).join('')}</div></div>
-      <div class="panel span-2"><h3>Company page vs. executives</h3><div class="split2"><div class="co"><b>Envera company page</b><ul>${it.split.company.map(x => `<li>${rich(x)}</li>`).join('')}</ul></div><div class="pe"><b>You + our executives</b><ul>${it.split.people.map(x => `<li>${rich(x)}</li>`).join('')}</ul></div></div><p class="rule">${rich(it.split.rule)}</p></div>
+      <div class="panel span-2"><h3>Company page vs. executives</h3><div class="split2"><div class="co"><b>2 posts a weeke</b><ul>${it.split.company.map(x => `<li>${rich(x)}</li>`).join('')}</ul></div><div class="pe"><b>You + our executives</b><ul>${it.split.people.map(x => `<li>${rich(x)}</li>`).join('')}</ul></div></div><p class="rule">${rich(it.split.rule)}</p></div>
       <div class="panel"><h3>Repurposing</h3><div class="repurpose"><div class="src"><small>1 PIECE</small>${rich(it.repurpose.source)}</div><div class="outs">${it.repurpose.outputs.map(o => `<span>${rich(o)}</span>`).join('')}</div></div></div>
       <div class="panel"><h3>Engagement</h3><ol class="olist">${it.engagement.map(x => `<li>${rich(x)}</li>`).join('')}</ol></div>
     </div>`;
@@ -2648,8 +2648,8 @@ document.addEventListener('DOMContentLoaded', () => {
   "_how_to_edit": "Edit any text below and save. Each item's \"type\" picks how it looks. [Square brackets] show up highlighted as placeholders. **bold**, #hashtags and {{merge_tags}} are styled automatically. To add the intro video, paste the 11-character YouTube ID into \"youtubeId\".",
   "workspace": {
     "title": "Sample work of what I can do for Envera.",
-    "lede": "A tour through the content I'd build: strategy, posts, blogs, case studies, a trade-show campaign and the HubSpot plumbing behind it.",
-    "note": ""
+    "lede": "",
+    "note": "A tour through the content I'd build: strategy, posts, blogs, case studies, a trade-show campaign and the HubSpot plumbing behind it."
   },
   "authors": {
     "envera": {
@@ -2750,15 +2750,15 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       "id": "letter",
       "short": "A letter",
-      "title": "A letter, by hand.",
-      "intro": "Some things are better said the old-fashioned way. Pen, paper, and a little bit of nerve.",
+      "title": "A personal note.",
+      "intro": "",
       "layout": "stack",
       "items": [
         {
           "type": "letter",
           "photo": "img/letter.jpg",
           "alt": "Handwritten letter from Durva to Colleen",
-          "caption": "Written by hand, for you, Colleen. Tap the letter to read it full size.",
+          "caption": "Tap the letter to read it full size.",
           "placeholder": "Dear Colleen,\n\nThis page is where my handwritten letter will live. Pen's out, paper's ready…\n\nMore soon,\nDurva"
         }
       ]
@@ -2775,19 +2775,19 @@ document.addEventListener('DOMContentLoaded', () => {
           "headline": "Make Envera the name HOA boards *trust first*, and make sure every piece of content gives people a clear next step.",
           "phases": [
             {
-              "level": "DAYS 1–30",
+              "level": "PHASE 1",
               "title": "Listen and audit",
               "body": "Sit in on sales calls and a night at the central station. Audit LinkedIn, Instagram, the blog, email and HubSpot. Map what boards, managers and developers actually ask before they buy.",
               "output": "Content audit + persona one-pagers"
             },
             {
-              "level": "DAYS 31–60",
+              "level": "PHASE 2",
               "title": "Build the engine",
               "body": "A 90-day content calendar, Canva/Figma templates in the Envera look, a repurposing system, and clean HubSpot lists, properties and UTMs.",
               "output": "Calendar, template kit, HubSpot clean-up"
             },
             {
-              "level": "DAYS 61–90",
+              "level": "PHASE 3",
               "title": "Ship and measure",
               "body": "A steady posting rhythm across company and exec channels, one full trade-show campaign, and a monthly dashboard that ties content to demos.",
               "output": "Live campaign + first monthly report"
@@ -2812,7 +2812,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "items": [
         {
           "type": "strategy",
-          "goal": "Make LinkedIn Envera's best source of *proof* for HOA boards, community managers and developers, and a steady source of demo requests.",
+          "goal": "Make LinkedIn Envera's source of *proof* for HOA boards, community managers and developers, and a source of demo requests.",
           "pillars": [
             {
               "name": "Proof and outcomes",
@@ -2836,7 +2836,7 @@ document.addEventListener('DOMContentLoaded', () => {
               "name": "Community and events",
               "pct": 15,
               "desc": "CAI expos, trade shows, community outreach, customer celebrations.",
-              "eg": "“Meet us at booth [#000]”"
+              "eg": "“Meet us at booth [#123]”"
             },
             {
               "name": "Product news",
@@ -2870,27 +2870,27 @@ document.addEventListener('DOMContentLoaded', () => {
           "cadence": [
             {
               "channel": "Envera company page",
-              "freq": "3–4 posts a week",
+              "freq": "5 posts a week",
               "mix": "Proof, education, culture, events"
             },
             {
               "channel": "You (Colleen)",
-              "freq": "2 posts a week",
+              "freq": "3-5 posts a week",
               "mix": "Opinions, marketing behind the scenes, industry takes"
             },
             {
               "channel": "Executives",
-              "freq": "2–4 posts a month each",
+              "freq": "4 posts a month each(+ Ads)",
               "mix": "Leadership views in their own voice"
             },
             {
               "channel": "Employee sharing",
-              "freq": "Weekly share kit",
+              "freq": "Weekly share",
               "mix": "3 ready-to-post snippets + visuals"
             },
             {
               "channel": "Newsletter",
-              "freq": "Monthly",
+              "freq": "Monthly/Weekly",
               "mix": "“The Gatehouse”: one story, one tip, one event"
             }
           ],
@@ -2952,7 +2952,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "id": "company-linkedin",
       "short": "Envera LinkedIn",
       "title": "Envera company LinkedIn",
-      "intro": "Four posts for the first weeks, one per content pillar. Each is designed at 1080 × 1350, the portrait size that takes up the most room in a LinkedIn feed.",
+      "intro": "Few posts for the first weeks, one per content pillar. Each is designed at 1080 × 1350, the portrait size that takes up the most room in a LinkedIn feed.",
       "layout": "grid-posts",
       "items": [
         {
@@ -3075,7 +3075,7 @@ document.addEventListener('DOMContentLoaded', () => {
           "pillar": "Inside the central station",
           "size": "1080 × 1350 · 4:5",
           "time": "1w",
-          "body": "Meet the people behind the screen. 👋\n\n[Name] has spent [X] years on our overnight team, one of the licensed security professionals who keep Florida communities moving safely while everyone else sleeps.\n\nAsk what the job is really about and you get a simple answer:\n“Every ‘access granted’ is someone getting home safe.”\n\nOur central station runs 24/7/365 because people like [Name] show up for every shift. Thank you. 💙\n\nWant to work with people like this? We're hiring → [link]\n\n#EmployeeSpotlight #LifeAtEnvera #SecurityCareers",
+          "body": "Meet the people behind the screen. 👋\n\n[Name] Three posts [X] years on our overnight team, one of the licensed security professionals who keep Florida communities moving safely while everyone else sleeps.\n\nAsk what the job is really about and you get a simple answer:\n“Every ‘access granted’ is someone getting home safe.”\n\nOur central station runs 24/7/365 because people like [Name] show up for every shift. Thank you. 💙\n\nWant to work with people like this? We're hiring → [link]\n\n#EmployeeSpotlight #LifeAtEnvera #SecurityCareers",
           "graphic": {
             "style": "p-spot",
             "photo": "img/control-room.jpg",
@@ -3121,7 +3121,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "id": "colleen-linkedin",
       "short": "Your LinkedIn",
       "title": "Your LinkedIn",
-      "intro": "Three posts in three different tones, plus a content plan for your next quarter.",
+      "intro": "Few sample posts. plus a content plan for your next quarter.",
       "layout": "stack",
       "items": [
         {
@@ -3249,7 +3249,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "id": "exec-linkedin",
       "short": "Exec LinkedIn",
       "title": "Executive LinkedIn",
-      "intro": "Nine decision makers, nine voices. Tap a card to open their draft LinkedIn post and their next post idea.",
+      "intro": "Nine decision makers, nine voices. Tap a card to open their draft LinkedIn post and their next posts ideas.",
       "layout": "stack",
       "items": [
         {
@@ -4249,8 +4249,8 @@ document.addEventListener('DOMContentLoaded', () => {
       "items": [
         {
           "type": "contact",
-          "headline": "Axe down. Let's go. 🚀",
-          "text": "If this made you smile, I'd love 20 minutes to talk about the role and how I can take things off your plate from week one.",
+          "headline": "Let's Talk.",
+          "text": "If this made you smile, would like to talk about the role and how I can take things off your plate",
           "buttons": [
             {
               "label": "✉ Email me",
