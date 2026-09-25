@@ -766,6 +766,7 @@
 
     /* about */
     .about { display: grid; grid-template-columns: 1.1fr 1fr; gap: 22px; align-items: start; }
+    .about.one { grid-template-columns: minmax(0, 820px); }
     @media (max-width: 880px) { .about { grid-template-columns: 1fr; } }
     .me { display: flex; gap: 16px; align-items: center; margin-bottom: 18px; }
     .me .name { font-size: 22px; font-weight: 800; letter-spacing: -0.01em; }
@@ -1887,9 +1888,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function about(it) {
     const a = who(it.author);
     const set = (title, arr, cls = '') => `<div class="skillset ${cls}"><h4>${rich(title)}</h4><div class="chips">${arr.map(s => `<span>${rich(s)}</span>`).join('')}</div></div>`;
-    return `<div class="about">
+    return `<div class="about${it.skills ? '' : ' one'}">
       <div class="panel"><div class="me">${avatar(a, 72)}<div><div class="name">${esc(a.name)}</div><div class="role">${rich(it.role)}</div></div></div><div class="md" style="margin-top:0">${md(it.intro)}</div><h3 style="margin-top:22px;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)">My journey so far</h3><ul class="journey">${it.journey.map(j => `<li><span class="when">${rich(j.when)}</span><b>${rich(j.title)}</b><span>${rich(j.desc)}</span></li>`).join('')}</ul></div>
-      <div class="panel">${set(it.skills.technicalTitle, it.skills.technical)}${set(it.skills.softTitle, it.skills.soft)}${set(it.skills.bonusTitle, it.skills.bonus, 'bonus')}</div>
+      ${it.skills ? `<div class="panel">${set(it.skills.technicalTitle, it.skills.technical)}${set(it.skills.softTitle, it.skills.soft)}${set(it.skills.bonusTitle, it.skills.bonus, 'bonus')}</div>` : ''}
       ${(it.checklist || []).length ? `<div class="panel span-2" style="grid-column:1/-1"><h3>${rich(it.checklistTitle)}</h3><div class="checkmap">${it.checklist.map(c => `<div><b>${rich(c.ask)}</b><span>${rich(c.answer)}</span></div>`).join('')}</div></div>` : ''}
     </div>`;
   }
@@ -4383,35 +4384,7 @@ document.addEventListener('DOMContentLoaded', () => {
               "title": "Built this workspace for Envera",
               "desc": "Designed the site, the 8-bit replay and every draft on this page, working with AI from idea to launch."
             }
-          ],
-          "skills": {
-            "technicalTitle": "Technical skills",
-            "technical": [
-              "HubSpot: workflows, lists, lead scoring, email",
-              "Canva",
-              "Figma",
-              "LinkedIn + Meta Business Suite",
-              "Google Analytics 4 + UTMs",
-              "WordPress / Elementor",
-              "AI: ChatGPT, Claude, Canva Magic Studio",
-              "Basic HTML/CSS (this site!)"
-            ],
-            "softTitle": "Non-technical skills",
-            "soft": [
-              "Writing for non-experts",
-              "Turning ambiguity into a plan",
-              "Project management across teams",
-              "Interviewing customers and experts",
-              "Presenting to stakeholders",
-              "Staying calm when priorities shift"
-            ],
-            "bonusTitle": "Not required, but included",
-            "bonus": [
-              "Pixel art + tiny game engines 🎮",
-              "Short-form video editing",
-              "Photography"
-            ]
-          }
+          ]
         }
       ]
     },
