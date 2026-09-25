@@ -2241,6 +2241,335 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <!-- ============ EDITABLE CONTENT ============
      All workspace text lives in this JSON block. Edit, save, reload. -->
+<!-- ============ Mini game: play as Colleen ============ -->
+<style>
+  .play-fab { position: fixed; right: 18px; bottom: 18px; z-index: 70; display: flex; align-items: center; gap: 12px; text-align: left; background: var(--gold); color: var(--ink); border: 3px solid var(--ink); border-radius: 14px; padding: 10px 16px 10px 12px; cursor: pointer; box-shadow: 0 5px 0 var(--ink), 0 14px 30px -10px rgba(0,0,0,.45); font: inherit; animation: fabHop 2.4s ease-in-out infinite; transition: transform .15s; }
+  .play-fab:hover { transform: translateY(-3px); animation-play-state: paused; }
+  .play-fab .pf-ico { font-size: 28px; line-height: 1; }
+  .play-fab b { display: block; font-family: var(--pixel); font-size: 11px; line-height: 1.5; }
+  .play-fab small { display: block; font-size: 12px; font-weight: 600; opacity: .8; }
+  .play-fab[hidden] { display: none; }
+  body.intro-open .play-fab { display: none; }
+  @keyframes fabHop { 0%, 80%, 100% { translate: 0 0; } 88% { translate: 0 -8px; } 94% { translate: 0 0; } }
+  @media (max-width: 560px) { .play-fab { right: 10px; bottom: 10px; padding: 8px 12px 8px 10px; } .play-fab small { display: none; } .play-fab .pf-ico { font-size: 22px; } }
+  @media (prefers-reduced-motion: reduce) { .play-fab { animation: none; } }
+
+  .mini { position: fixed; inset: 0; z-index: 130; background: rgba(4,10,28,.93); display: grid; place-items: center; padding: 16px; }
+  .mini[hidden] { display: none; }
+  .mini-box { width: min(980px, 100%); }
+  .mini-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 12px; color: #fff; }
+  .mini-title { font-family: var(--pixel); font-size: 11px; color: var(--gold); }
+  .mini-x { font-family: var(--pixel); font-size: 10px; color: #fff; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.35); border-radius: 8px; padding: 10px 12px; cursor: pointer; }
+  .mini-x:hover { background: rgba(255,255,255,.2); }
+  .mini-screen { position: relative; border: 4px solid #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 30px 80px -20px rgba(0,0,0,.8); }
+  #miniCv { display: block; width: 100%; aspect-ratio: 16 / 9; image-rendering: pixelated; background: #6b8cff; }
+  .mini-pop { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(4,10,28,.55); padding: 14px; }
+  .mini-pop[hidden] { display: none; }
+  .mini-card { background: #fff; color: var(--ink); border: 4px solid var(--ink); border-radius: 14px; box-shadow: 0 8px 0 var(--ink); padding: 22px 24px; max-width: 460px; text-align: center; animation: popIn .35s cubic-bezier(.2,1.5,.4,1); }
+  @keyframes popIn { from { transform: scale(.6); opacity: 0; } }
+  .mini-card img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; margin: 0 auto 10px; border: 3px solid var(--gold); }
+  .mini-card h3 { font-family: var(--pixel); font-size: 15px; line-height: 1.5; }
+  .mini-card p { margin-top: 10px; font-size: 16px; line-height: 1.5; }
+  .mini-card .row { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+  .mini-card button { font-family: var(--pixel); font-size: 10px; border-radius: 10px; padding: 12px 14px; cursor: pointer; border: 2px solid var(--ink); background: #fff; color: var(--ink); }
+  .mini-card button.go { background: var(--gold); box-shadow: 0 4px 0 var(--ink); }
+  .mini-card button.blue { background: var(--brand); color: #fff; box-shadow: 0 4px 0 var(--ink); }
+  .mini-foot { margin-top: 12px; display: flex; justify-content: space-between; align-items: center; gap: 12px; color: #aab8e0; font-size: 13px; }
+  .mini-pad { display: none; gap: 10px; }
+  .mini-pad button { font-family: var(--pixel); font-size: 14px; width: 62px; height: 56px; border-radius: 12px; border: 2px solid #fff; background: rgba(255,255,255,.12); color: #fff; touch-action: none; user-select: none; -webkit-user-select: none; }
+  .mini-pad button.j { width: 96px; background: var(--gold); color: var(--ink); border-color: var(--ink); font-size: 11px; }
+  @media (pointer: coarse) { .mini-pad { display: flex; } .mini-hint { display: none; } .mini-foot { justify-content: center; flex-direction: column; } }
+  .mini-rot { display: none; font-size: 13px; color: #aab8e0; text-align: center; }
+  @media (pointer: coarse) and (orientation: portrait) { .mini-rot { display: block; } }
+  @media (max-width: 760px) { .mini-pop { position: fixed; z-index: 140; background: rgba(4,10,28,.75); } .mini-card { padding: 18px; } .mini-card h3 { font-size: 13px; } .mini-card p { font-size: 15px; } }
+</style>
+
+<button class="play-fab" id="playFab" type="button" aria-haspopup="dialog">
+  <span class="pf-ico" aria-hidden="true">🎮</span>
+  <span><b>Play as Colleen?</b><small>a tiny Mario level, starring you</small></span>
+</button>
+
+<div class="mini" id="mini" role="dialog" aria-modal="true" aria-label="Mini game: play as Colleen" hidden>
+  <div class="mini-box">
+    <div class="mini-top"><span class="mini-title">WORLD 1-2 · COLLEEN'S LANE</span><button class="mini-x" id="miniClose" type="button">✕ Back to site</button></div>
+    <div class="mini-screen">
+      <canvas id="miniCv" width="320" height="180" aria-label="Side-scrolling game: Colleen runs, jumps and stomps task monsters on the way to a flag"></canvas>
+      <div class="mini-pop" id="miniPop"></div>
+    </div>
+    <div class="mini-foot">
+      <span class="mini-hint">← → move · SPACE / ↑ jump · stomp the tasks · reach the flag</span>
+      <span class="mini-rot">📱 Tip: turn your phone sideways for a bigger screen</span>
+      <div class="mini-pad" aria-hidden="true"><button type="button" data-k="left">◀</button><button type="button" data-k="right">▶</button><button type="button" class="j" data-k="jump">JUMP</button></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  const fab = document.getElementById('playFab'), mini = document.getElementById('mini'), pop = document.getElementById('miniPop');
+  const cv = document.getElementById('miniCv'), g = cv.getContext('2d'); g.imageSmoothingEnabled = false;
+  const W = 320, H = 180, GY = 150, LEVEL = 1260, PIT = [520, 612], PIPE = { x: 880, w: 24, h: 24 }, FLAG = 1150;
+  const BLOCKS = [{ x: 150, y: 108 }, { x: 162, y: 108, q: true }, { x: 174, y: 108 }, { x: 740, y: 108, q: true }];
+  const R = (x, y, w, h, c) => { g.fillStyle = c; g.fillRect(Math.round(x), Math.round(y), w, h); };
+  const txt = (s, x, y, c, size = 8, al = 'left') => { g.font = `${size}px "Press Start 2P"`; g.textAlign = al; g.fillStyle = '#000'; g.fillText(s, x + 1, y + 1); g.fillStyle = c; g.fillText(s, x, y); g.textAlign = 'left'; };
+
+  /* ---------- tiny sound kit ---------- */
+  let AC = null;
+  const beep = (f, d, type = 'square', v = .05, when = 0, slide) => {
+    try {
+      AC = AC || new (window.AudioContext || window.webkitAudioContext)();
+      const t0 = AC.currentTime + when, o = AC.createOscillator(), gn = AC.createGain();
+      o.type = type; o.frequency.setValueAtTime(f, t0); if (slide) o.frequency.exponentialRampToValueAtTime(slide, t0 + d);
+      gn.gain.setValueAtTime(v, t0); gn.gain.exponentialRampToValueAtTime(.0001, t0 + d); o.connect(gn).connect(AC.destination); o.start(t0); o.stop(t0 + d + .02);
+    } catch (e) {}
+  };
+  const SFX = {
+    jump: () => beep(260, .18, 'square', .045, 0, 700),
+    stomp: () => { beep(200, .06, 'square', .06); beep(120, .08, 'square', .05, .05); },
+    coin: () => { beep(988, .07, 'square', .04); beep(1319, .25, 'square', .04, .07); },
+    die: () => [660, 520, 400, 300, 200].forEach((f, i) => beep(f, .12, 'square', .05, i * .1)),
+    brick: () => beep(520, .06, 'square', .04),
+    thunk: () => beep(110, .1, 'triangle', .1, 0, 60),
+    win: () => [523, 659, 784, 1047, 784, 1047, 1319].forEach((f, i) => beep(f, .14, 'square', .045, i * .11)),
+  };
+
+  /* ---------- state ---------- */
+  let S = null, raf = 0, last = 0, acc = 0;
+  const keys = { left: false, right: false, jump: false }; let jumpEdge = false;
+  function reset(coop) {
+    S = {
+      coop, f: 0, cam: 0, score: 0, bridge: 0, bridgeT: 0, won: false, wonF: 0, over: false, overF: 0, playing: true,
+      p: { x: 36, y: GY, vx: 0, vy: 0, on: true, dead: false },
+      d: { x: 8, y: GY, vy: 0, on: true, throwF: -99 },
+      en: [260, 330, 420, 690, 800, 990, 1060].map(x => ({ x, vx: -.35, alive: true, sq: 0 })),
+      used: {}, coins: [], axes: [], pops: [], say: coop ? { t: "I'M WITH YOU!", f: 0 } : null,
+    };
+  }
+  const bridged = x => S.coop && S.bridge > 0 && x >= PIT[0] && x < PIT[0] + S.bridge * 11.5;
+  function groundAt(x) {
+    if (x > PIPE.x - 2 && x < PIPE.x + PIPE.w + 2) return GY - PIPE.h;
+    if (x >= PIT[0] && x < PIT[1] && !bridged(x)) return null;
+    return GY;
+  }
+
+  /* ---------- physics ---------- */
+  function body(o, isP) {
+    o.vy = Math.min(o.vy + .35, 6);
+    const cx = o.x + 7;
+    let ny = o.y + o.vy;
+    if (isP && o.vy < 0) {
+      for (const b of BLOCKS) {
+        if (cx > b.x - 3 && cx < b.x + 15 && o.y - 28 >= b.y + 12 && ny - 28 < b.y + 12) {
+          ny = b.y + 12 + 28; o.vy = .5;
+          if (b.q && !S.used[b.x]) { S.used[b.x] = true; S.coins.push({ x: b.x + 3, y: b.y - 4, f: 0 }); S.score += 200; SFX.coin(); }
+          else SFX.stomp();
+        }
+      }
+    }
+    o.on = false;
+    if (o.vy >= 0) {
+      const gy = groundAt(cx);
+      if (gy !== null && o.y <= gy + .5 && ny >= gy) { ny = gy; o.vy = 0; o.on = true; }
+      for (const b of BLOCKS) if (cx > b.x - 3 && cx < b.x + 15 && o.y <= b.y + .5 && ny >= b.y) { ny = b.y; o.vy = 0; o.on = true; }
+    }
+    o.y = ny;
+  }
+  function blockedByPipe(x0, x1, y) { return y > GY - PIPE.h + .5 && x1 + 11 > PIPE.x && x1 + 3 < PIPE.x + PIPE.w; }
+
+  function step() {
+    S.f++;
+    const P = S.p, D = S.d;
+    if (!P.dead && !S.won) {
+      P.vx = ((keys.right ? 1 : 0) - (keys.left ? 1 : 0)) * 1.6;
+      if (jumpEdge && P.on) { P.vy = -5.2; SFX.jump(); if (S.coop && D.on) D.jumpAt = S.f + 6; }
+      let nx = Math.max(0, Math.min(LEVEL - 20, P.x + P.vx));
+      if (blockedByPipe(P.x, nx, P.y)) nx = P.x;
+      P.x = nx;
+    } else if (S.won) { P.vx = 0; }
+    jumpEdge = false;
+    body(P, true);
+    if (!P.dead && P.y > H + 20) { if (S.coop) { P.x = PIT[0] - 40; P.y = GY; P.vy = 0; } else die(); }
+    if (P.dead) { P.vy = Math.min(P.vy + .25, 6); }
+
+    // enemies ("tasks")
+    for (const e of S.en) {
+      if (!e.alive) { e.sq++; continue; }
+      if (Math.abs(e.x - P.x) > 360) continue;
+      let nx = e.x + e.vx;
+      const ahead = e.vx < 0 ? nx : nx + 12;
+      if (groundAt(ahead) !== GY || (ahead > PIPE.x - 2 && ahead < PIPE.x + PIPE.w + 2)) { e.vx *= -1; nx = e.x; }
+      e.x = nx;
+      if (!P.dead && !S.won && P.x + 12 > e.x && P.x + 2 < e.x + 12 && P.y > GY - 13 && P.y - 26 < GY) {
+        if ((P.vy > 0 && P.y < GY - 5) || S.coop) { squash(e); P.vy = -3.6; }
+        else die();
+      }
+    }
+
+    // Player 2
+    if (S.coop) {
+      const target = S.bridge >= 8 ? P.x - 24 : Math.min(P.x - 24, PIT[0] - 16);
+      if (!S.won) D.x += (Math.max(0, target) - D.x) * .08;
+      if (D.jumpAt === S.f && D.on) { D.vy = -5.2; }
+      body(D, false);
+      if (D.y > H + 10) { D.y = GY; D.vy = 0; D.x = Math.max(0, P.x - 30); }
+      if (P.x > 400 && S.bridge < 8 && S.f - S.bridgeT > 7) { if (!S.bridge) S.say = { t: 'I GOT YOU!', f: S.f }; S.bridge++; S.bridgeT = S.f; SFX.brick(); }
+      const tgt = S.en.find(e => e.alive && e.x > P.x + 8 && e.x < P.x + 150);
+      if (tgt && !S.axes.length && S.f - D.throwF > 45) { S.axes.push({ x0: D.x + 15, y0: D.y - 19, e: tgt, f: 0 }); D.throwF = S.f; }
+      for (const a of S.axes) { a.f++; if (a.f >= 22 && a.e.alive) { squash(a.e); SFX.thunk(); } }
+      S.axes = S.axes.filter(a => a.f < 22);
+    }
+
+    // win
+    if (!S.won && P.x + 10 >= FLAG) { S.won = true; S.wonF = S.f; S.score += 5000; SFX.win(); if (S.coop) S.say = { t: 'TOGETHER!', f: S.f }; setTimeout(showWin, 1900); }
+    if (S.won) { S.wonF2 = S.f - S.wonF; }
+
+    for (const c of S.coins) c.f++;
+    S.coins = S.coins.filter(c => c.f < 40);
+    for (const p of S.pops) p.f++;
+    S.pops = S.pops.filter(p => p.f < 45);
+    S.cam += (Math.max(0, Math.min(LEVEL - W, P.x - 120)) - S.cam) * .15;
+  }
+  function squash(e) { e.alive = false; e.sq = 0; S.score += 100; S.pops.push({ x: e.x, y: GY - 18, f: 0, t: '+100' }); SFX.stomp(); }
+  function die() { const P = S.p; if (P.dead) return; P.dead = true; P.vy = -4.5; SFX.die(); setTimeout(showLose, 1500); }
+
+  /* ---------- drawing ---------- */
+  function bg() {
+    const sky = g.createLinearGradient(0, 0, 0, H); sky.addColorStop(0, '#5c7cff'); sky.addColorStop(1, '#9fb6ff');
+    g.fillStyle = sky; g.fillRect(0, 0, W, H);
+    for (let i = 0; i < 6; i++) { const x = ((i * 230 - S.cam * .3) % 1400 + 1400) % 1400 - 60, y = 22 + (i % 3) * 16; R(x + 6, y, 18, 6, '#fff'); R(x, y + 5, 30, 7, '#fff'); R(x + 3, y + 11, 24, 2, '#dfe7ff'); }
+    for (let i = 0; i < 5; i++) { const x = ((i * 310 - S.cam * .55) % 1500 + 1500) % 1500 - 80; g.fillStyle = '#3aa35a'; g.beginPath(); g.ellipse(x + 40, GY + 2, 44, 30, 0, Math.PI, 0); g.fill(); R(x + 30, GY - 16, 2, 4, '#1f6f39'); R(x + 46, GY - 20, 2, 4, '#1f6f39'); }
+  }
+  function ground() {
+    const c = S.cam;
+    for (let x = Math.floor(c / 16) * 16; x < c + W + 16; x += 16) {
+      if (x + 16 > PIT[0] && x < PIT[1]) continue;
+      const sx = x - c;
+      R(sx, GY, 16, 30, '#c8773a'); R(sx, GY, 16, 1, '#f0a868'); R(sx, GY + 7, 16, 1, '#8f4a1c'); R(sx, GY + 15, 16, 1, '#8f4a1c'); R(sx, GY + 23, 16, 1, '#8f4a1c');
+      R(sx + 7, GY + 1, 1, 6, '#8f4a1c'); R(sx + 3, GY + 8, 1, 7, '#8f4a1c'); R(sx + 11, GY + 16, 1, 7, '#8f4a1c'); R(sx + 15, GY, 1, 30, '#8f4a1c');
+    }
+    // deadline pit sign
+    const sx = PIT[0] - 30 - c;
+    R(sx + 10, GY - 26, 2, 26, '#6b4a22'); R(sx - 8, GY - 40, 40, 16, '#fff3c4'); R(sx - 8, GY - 40, 40, 1, '#6b4a22'); R(sx - 8, GY - 25, 40, 1, '#6b4a22');
+    txt('DEADLINE', sx + 12, GY - 34, '#d8281f', 5, 'center'); txt('PIT ↓', sx + 12, GY - 28, '#1c1512', 5, 'center');
+    // bridge
+    for (let i = 0; i < S.bridge; i++) { const bx = PIT[0] + i * 11.5 - c; R(bx, GY, 11.5, 11, '#ffbd00'); R(bx, GY, 11.5, 1, '#ffe38a'); R(bx + 11, GY, 1, 11, '#8a5a00'); R(bx, GY + 10, 12, 1, '#8a5a00'); }
+    // pipe
+    const px = PIPE.x - c; R(px - 2, GY - PIPE.h, PIPE.w + 4, 8, '#3fc463'); R(px, GY - PIPE.h + 8, PIPE.w, PIPE.h - 8, '#2fa84f'); R(px + 3, GY - PIPE.h + 8, 3, PIPE.h - 8, '#7fe39a'); R(px - 2, GY - PIPE.h, PIPE.w + 4, 1, '#1d7a38');
+    // blocks
+    for (const b of BLOCKS) {
+      const bx = b.x - c; const used = b.q && S.used[b.x];
+      R(bx, b.y, 12, 12, '#3a2408');
+      R(bx + 1, b.y + 1, 10, 10, b.q ? (used ? '#9a6a34' : (Math.floor(S.f / 20) % 3 ? '#ffbd00' : '#ffd35a')) : '#c8773a');
+      if (b.q && !used) txt('?', bx + 6, b.y + 10, '#7a4a10', 7, 'center');
+      if (!b.q) { R(bx + 1, b.y + 5, 10, 1, '#8f4a1c'); R(bx + 6, b.y + 1, 1, 4, '#8f4a1c'); }
+    }
+    // flag + castle
+    const fx = FLAG - c;
+    R(fx, GY - 96, 2, 96, '#3fa34d'); R(fx - 2, GY - 100, 6, 6, '#3fa34d');
+    const fy = S.won ? Math.min(GY - 16, GY - 90 + S.wonF2 * 1.4) : GY - 90;
+    R(fx - 14, fy, 14, 10, '#0038F5'); R(fx - 9, fy + 3, 4, 4, '#fff');
+    R(fx - 4, GY - 4, 10, 4, '#8f4a1c');
+    const kx = FLAG + 40 - c;
+    R(kx, GY - 40, 60, 40, '#c8773a'); for (let i = 0; i < 5; i++) R(kx + i * 13, GY - 48, 8, 8, '#c8773a');
+    R(kx + 24, GY - 22, 12, 22, '#1c1512'); R(kx + 12, GY - 34, 6, 8, '#1c1512'); R(kx + 42, GY - 34, 6, 8, '#1c1512');
+    for (let y = GY - 40; y < GY; y += 6) R(kx, y, 60, 1, '#8f4a1c');
+  }
+  function task(e) {
+    const x = e.x - S.cam, y = GY - 12;
+    if (!e.alive) { if (e.sq < 30) { R(x, GY - 4, 12, 4, '#fbfbf6'); R(x, GY - 4, 12, 1, '#999'); } return; }
+    const step = Math.floor(S.f / 10) % 2;
+    R(x, y, 12, 11, '#fbfbf6'); R(x + 8, y, 4, 4, '#cfd6e6'); R(x, y, 12, 1, '#999'); R(x, y, 1, 11, '#999'); R(x + 11, y + 3, 1, 8, '#999');
+    R(x + 2, y + 6, 8, 1, '#d8281f');
+    R(x + 3, y + 3, 2, 2, '#1c1512'); R(x + 7, y + 3, 2, 2, '#1c1512'); R(x + 2, y + 2, 3, 1, '#1c1512'); R(x + 7, y + 2, 3, 1, '#1c1512');
+    R(x + (step ? 1 : 2), GY - 1, 3, 1, '#1c1512'); R(x + (step ? 8 : 7), GY - 1, 3, 1, '#1c1512');
+  }
+  function bubble(s, x, y) {
+    g.font = '6px "Press Start 2P"'; const w = g.measureText(s).width + 10;
+    R(x - w / 2, y - 12, w, 13, '#1c1512'); R(x - w / 2 + 1, y - 11, w - 2, 11, '#fff'); R(x - 2, y + 1, 4, 3, '#1c1512');
+    g.fillStyle = '#0038F5'; g.textAlign = 'center'; g.fillText(s, x, y - 3); g.textAlign = 'left';
+  }
+  function draw() {
+    bg(); ground();
+    for (const e of S.en) if (Math.abs(e.x - S.cam - 160) < 220) task(e);
+    for (const c of S.coins) { const w = [6, 4, 2, 4][Math.floor(c.f / 4) % 4]; R(c.x - S.cam + 3 - w / 2, c.y - Math.sin(c.f / 40 * Math.PI) * 24, w, 8, '#ffbd00'); }
+    const P = S.p, D = S.d, t = S.f / 60, run = Math.floor(S.f / 7) % 2 ? 'runA' : 'runB';
+    if (S.coop) {
+      let dp = D.on ? (Math.abs((P.x - 24) - D.x) > 2 ? run : 'stand') : 'jump';
+      if (S.f - D.throwF < 10) dp = 'throw';
+      if (S.won) dp = 'cheer';
+      window.PixelKit.draw(g, 'D', D.x - S.cam, D.y, dp, t, 1);
+    }
+    let pp = P.dead ? 'jump' : !P.on ? 'jump' : P.vx ? run : 'stand';
+    if (S.won) pp = 'cheer';
+    window.PixelKit.draw(g, 'C', P.x - S.cam, P.y, pp, t, 1);
+    for (const a of S.axes) { const u = a.f / 22, tx = a.e.x + 2, ty = GY - 8; window.PixelKit.axe(g, a.x0 + (tx - a.x0) * u - S.cam, a.y0 + (ty - a.y0) * u - Math.sin(u * Math.PI) * 18, u * Math.PI * 4); }
+    for (const p of S.pops) txt(p.t, p.x - S.cam + 6, p.y - p.f * .4, '#fff', 6, 'center');
+    if (S.say && S.f - S.say.f < 110) bubble(S.say.t, D.x - S.cam + 7, D.y - 32);
+    if (!S.coop && S.f < 150) bubble('LET\'S GO!', P.x - S.cam + 7, P.y - 32);
+    // HUD
+    txt(S.coop ? 'COLLEEN + DURVA' : 'COLLEEN', 8, 14, '#fff', 7);
+    txt(String(S.score).padStart(6, '0'), 8, 25, '#fff', 7);
+    txt('WORLD', 204, 14, '#fff', 7); txt('1-2', 212, 25, '#fff', 7);
+    txt('LIVES', 262, 14, '#fff', 7); txt(S.coop ? '∞' : '×1', 270, 25, '#fff', 7);
+    if (S.won && S.wonF2 > 30) { txt('COURSE CLEAR!', W / 2, 70, Math.floor(S.f / 8) % 2 ? '#ffbd00' : '#fff', 12, 'center'); }
+    if (S.won) for (let k = 0; k < 3; k++) { const u = ((S.wonF2 - k * 25) % 70) / 70; if (u < 0 || S.wonF2 < k * 25) continue; const fx0 = 80 + k * 80, fy0 = 44 + (k % 2) * 16; for (let i = 0; i < 10; i++) { const a = i * Math.PI / 5; R(fx0 + Math.cos(a) * u * 20, fy0 + Math.sin(a) * u * 20, 2, 2, ['#ffbd00', '#fff', '#ff6b5e'][i % 3]); } }
+  }
+
+  function loop(now) {
+    if (mini.hidden) return;
+    acc += Math.min(100, now - last); last = now;
+    while (acc >= 1000 / 60) { if (S.playing) step(); acc -= 1000 / 60; }
+    draw();
+    raf = requestAnimationFrame(loop);
+  }
+
+  /* ---------- pop-ups ---------- */
+  const card = html => { pop.innerHTML = `<div class="mini-card">${html}</div>`; pop.hidden = false; };
+  function showStart() {
+    S.playing = false;
+    card(`<h3>READY, COLLEEN?</h3><p>You're the main character. Run to the flag and stomp every task in your way.</p><div class="row"><button class="go" data-a="solo">▶ START</button><button data-a="close">Back to site</button></div>`);
+  }
+  function showLose() {
+    card(`<img src="durva-avatar.jpg" alt=""><h3>OH NO! 😅</h3><p>Don't worry, <b>I got you.</b><br>I'm with you. <b>Let's win together!</b></p><div class="row"><button class="go" data-a="coop">▶ PLAY WITH PLAYER 2</button><button data-a="close">Back to site</button></div>`);
+  }
+  function showWin() {
+    card(`<img src="durva-avatar.jpg" alt=""><h3>WE DID IT! 🎉</h3><p>See? <b>Better together.</b> Now let's do it for real at Envera.</p><div class="row"><button class="blue" data-a="chat">📅 LET'S CHAT</button><button class="go" data-a="coop">↺ AGAIN</button><button data-a="close">Back to site</button></div>`);
+  }
+  pop.addEventListener('click', e => {
+    const a = e.target.closest('button')?.dataset.a; if (!a) return;
+    if (a === 'close') return closeGame();
+    if (a === 'chat') { closeGame(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); return; }
+    reset(a === 'coop'); S.playing = true; pop.hidden = true; beep(523, .08); cv.focus?.();
+  });
+
+  function openGame() {
+    mini.hidden = false; fab.hidden = true; document.body.style.overflow = 'hidden';
+    reset(false); showStart(); last = performance.now(); acc = 0;
+    cancelAnimationFrame(raf); raf = requestAnimationFrame(loop);
+  }
+  function closeGame() { mini.hidden = true; pop.hidden = true; fab.hidden = false; document.body.style.overflow = ''; cancelAnimationFrame(raf); keys.left = keys.right = false; fab.focus(); }
+  fab.addEventListener('click', openGame);
+  document.getElementById('miniClose').addEventListener('click', closeGame);
+
+  /* ---------- controls ---------- */
+  const map = { ArrowLeft: 'left', KeyA: 'left', ArrowRight: 'right', KeyD: 'right', ArrowUp: 'jump', KeyW: 'jump', Space: 'jump' };
+  addEventListener('keydown', e => {
+    if (mini.hidden) return;
+    if (e.key === 'Escape') { closeGame(); return; }
+    const k = map[e.code]; if (!k) return;
+    e.preventDefault();
+    if (k === 'jump') { if (!keys.jump) jumpEdge = true; keys.jump = true; } else keys[k] = true;
+  });
+  addEventListener('keyup', e => { const k = map[e.code]; if (k) keys[k] = false; });
+  document.querySelectorAll('.mini-pad button').forEach(b => {
+    const k = b.dataset.k;
+    const down = e => { e.preventDefault(); if (k === 'jump') jumpEdge = true; keys[k] = true; };
+    const up = e => { e.preventDefault(); keys[k] = false; };
+    b.addEventListener('pointerdown', down); b.addEventListener('pointerup', up); b.addEventListener('pointerleave', up); b.addEventListener('pointercancel', up);
+  });
+})();
+</script>
+
 <script type="application/json" id="content">
 {
   "_how_to_edit": "Edit any text below and save. Each item's \"type\" picks how it looks. [Square brackets] show up highlighted as placeholders. **bold**, #hashtags and {{merge_tags}} are styled automatically. To add the intro video, paste the 11-character YouTube ID into \"youtubeId\".",
