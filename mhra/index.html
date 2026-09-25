@@ -607,5 +607,83 @@
   const track = document.getElementById('track'); track.innerHTML += track.innerHTML;
 })();
 </script>
+<!-- ============ Visit notifications (EmailJS) ============
+     Emails Durva when this page is opened or a button is clicked.
+     Page + interaction data only: no IP, geolocation or ISP lookups.
+     Add ?notrack to the URL once to mute notifications from your own browser (?track re-enables).
+     INACTIVE until the three keys below are filled in: with empty keys nothing loads and nothing is sent. -->
+<script>
+(() => {
+  const EMAILJS_PUBLIC_KEY = "";
+  const EMAILJS_SERVICE_ID = "";
+  const EMAILJS_TEMPLATE_ID = "";
+  const configured = Boolean(EMAILJS_PUBLIC_KEY && EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID);
+
+  const qs = new URLSearchParams(location.search);
+  const store = (fn) => { try { return fn(); } catch (e) { return null; } };
+  if (qs.has('notrack')) store(() => localStorage.setItem('dt_notrack', '1'));
+  if (qs.has('track')) store(() => localStorage.removeItem('dt_notrack'));
+  const muted = store(() => localStorage.getItem('dt_notrack')) === '1';
+  const isLocal = /^(localhost|127\.0\.0\.1|)$/.test(location.hostname) || location.protocol === 'file:';
+
+  // load EmailJS only once the keys are set
+  if (configured && !isLocal) {
+    const sdk = document.createElement('script');
+    sdk.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+    sdk.onload = () => window.emailjs && emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+    document.head.appendChild(sdk);
+  }
+
+  function sendNotification(eventType, extra = {}) {
+    if (muted) return;
+    const now = new Date();
+    const params = {
+      event_type: eventType,
+      page_url: location.href,
+      page_title: document.title,
+      visit_time: now.toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' }),
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+      referrer: document.referrer || 'Direct / no referrer',
+      button_clicked: '',
+      section: '',
+      ...extra,
+    };
+    params.summary = eventType === 'Button Clicked'
+      ? `"${params.button_clicked}" clicked on ${params.page_title}${params.section ? ` (${params.section})` : ''}`
+      : `${params.page_title} was opened`;
+    // aliases so the EmailJS template can use short names too
+    Object.assign(params, { page: params.page_title, url: params.page_url, time: params.visit_time, button: params.button_clicked });
+    if (isLocal || !configured) { console.info('[visit notification · not sent: ' + (isLocal ? 'local preview' : 'keys not set') + ']', params); return; }
+    if (!window.emailjs) return;
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params).catch(() => {});
+  }
+
+  // Page opened: once per browser session per page, so refreshes don't spam the inbox
+  const openKey = 'dt_opened:' + location.pathname;
+  if (!store(() => sessionStorage.getItem(openKey))) {
+    store(() => sessionStorage.setItem(openKey, '1'));
+    sendNotification('Page Opened');
+  }
+
+  // Button / nav clicks: skip repeats of the same control within 30s, max 25 per visit
+  const recent = new Map(); let sent = 0;
+  document.addEventListener('click', e => {
+    const el = e.target.closest('button, a, summary, [role="button"], .pz-card, .lb-flag');
+    if (!el) return;
+    const label = (el.getAttribute('aria-label') || el.textContent || el.id || el.tagName)
+      .replace(/\s+/g, ' ').trim().slice(0, 80) || el.tagName;
+    const now = Date.now();
+    if (now - (recent.get(label) || 0) < 30000 || sent >= 25) return;
+    recent.set(label, now); sent++;
+    const sec = el.closest('section[id], [id].world, main, header, footer');
+    const heading = sec && sec.querySelector('h1, h2');
+    sendNotification('Button Clicked', {
+      button_clicked: label,
+      section: heading ? heading.textContent.replace(/\s+/g, ' ').trim().slice(0, 60) : (sec && sec.id) || '',
+    });
+  }, true);
+})();
+</script>
+
 </body>
 </html>
