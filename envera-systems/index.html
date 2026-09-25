@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Player 2 for Envera — Durva Thakkar</title>
+  <title>Durva × Colleen</title>
   <meta name="description" content="A content workspace and application for the early-career marketing role at Envera Systems, made for Colleen by Durva Thakkar.">
   <meta name="robots" content="noindex, nofollow">
   <meta property="og:title" content="Player 2 has entered the lane">
@@ -1817,7 +1817,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return `<div class="grid-2">
       <div class="panel span-2"><p class="big-line">${rich(it.headline)}</p></div>
       <div class="panel span-2"><h3>First 90 days</h3><div class="phase-cards">${it.phases.map(p => `<div class="pcard"><div class="lv">${esc(p.level)}</div><h4>${rich(p.title)}</h4><p>${rich(p.body)}</p><span class="out">${rich(p.output)}</span></div>`).join('')}</div></div>
-      <div class="panel span-2"><h3>How I work</h3><ul class="plist">${it.principles.map(x => `<li>${rich(x)}</li>`).join('')}</ul></div>
+      ${(it.principles || []).length ? `<div class="panel span-2"><h3>How I work</h3><ul class="plist">${it.principles.map(x => `<li>${rich(x)}</li>`).join('')}</ul></div>` : ''}
     </div>`;
   }
 
@@ -2792,13 +2792,6 @@ document.addEventListener('DOMContentLoaded', () => {
               "body": "A steady posting rhythm across company and exec channels, one full trade-show campaign, and a monthly dashboard that ties content to demos.",
               "output": "Live campaign + first monthly report"
             }
-          ],
-          "principles": [
-            "**Board-ready, not buzzwordy.** Write for the volunteer treasurer, not the security expert.",
-            "**Every post earns a next step:** a comment, a save, a click, a demo.",
-            "**Proof beats promises.** Real guards, real gates, real outcomes.",
-            "**AI for speed, people for trust.** First drafts in minutes; the judgment stays mine.",
-            "**Take the ball and run.** I bring you options and a recommendation, not a question."
           ]
         }
       ]
