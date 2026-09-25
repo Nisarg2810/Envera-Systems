@@ -619,6 +619,7 @@
     .idea .chip { margin-bottom: 8px; }
     .idea b { display: block; font-size: 15px; line-height: 1.35; }
     .idea span { display: block; font-size: 13px; color: var(--muted); margin-top: 6px; }
+    #exec-linkedin .ideas { grid-template-columns: repeat(auto-fill, minmax(min(100%, 188px), 1fr)); }
 
     /* handwritten letter */
     .letter { display: grid; place-items: center; padding: 26px 0 10px; }
@@ -2254,34 +2255,34 @@ document.addEventListener('DOMContentLoaded', () => {
   @media (max-width: 560px) { .play-fab { right: 10px; bottom: 10px; padding: 8px 12px 8px 10px; } .play-fab small { display: none; } .play-fab .pf-ico { font-size: 22px; } }
   @media (prefers-reduced-motion: reduce) { .play-fab { animation: none; } }
 
-  .mini { position: fixed; inset: 0; z-index: 130; background: rgba(4,10,28,.93); display: grid; place-items: center; padding: 16px; }
-  .mini[hidden] { display: none; }
-  .mini-box { width: min(980px, 100%); }
-  .mini-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 12px; color: #fff; }
-  .mini-title { font-family: var(--pixel); font-size: 11px; color: var(--gold); }
-  .mini-x { font-family: var(--pixel); font-size: 10px; color: #fff; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.35); border-radius: 8px; padding: 10px 12px; cursor: pointer; }
-  .mini-x:hover { background: rgba(255,255,255,.2); }
-  .mini-screen { position: relative; border: 4px solid #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 30px 80px -20px rgba(0,0,0,.8); }
+  .mg { position: fixed; inset: 0; z-index: 130; background: rgba(4,10,28,.93); display: grid; place-items: center; padding: 16px; }
+  .mg[hidden] { display: none; }
+  .mg-box { width: min(980px, 100%); }
+  .mg-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 12px; color: #fff; }
+  .mg-title { font-family: var(--pixel); font-size: 11px; color: var(--gold); }
+  .mg-x { font-family: var(--pixel); font-size: 10px; color: #fff; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.35); border-radius: 8px; padding: 10px 12px; cursor: pointer; }
+  .mg-x:hover { background: rgba(255,255,255,.2); }
+  .mg-screen { position: relative; border: 4px solid #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 30px 80px -20px rgba(0,0,0,.8); }
   #miniCv { display: block; width: 100%; aspect-ratio: 16 / 9; image-rendering: pixelated; background: #6b8cff; }
-  .mini-pop { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(4,10,28,.55); padding: 14px; }
-  .mini-pop[hidden] { display: none; }
-  .mini-card { background: #fff; color: var(--ink); border: 4px solid var(--ink); border-radius: 14px; box-shadow: 0 8px 0 var(--ink); padding: 22px 24px; max-width: 460px; text-align: center; animation: popIn .35s cubic-bezier(.2,1.5,.4,1); }
+  .mg-pop { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(4,10,28,.55); padding: 14px; }
+  .mg-pop[hidden] { display: none; }
+  .mg-card { background: #fff; color: var(--ink); border: 4px solid var(--ink); border-radius: 14px; box-shadow: 0 8px 0 var(--ink); padding: 22px 24px; max-width: 460px; text-align: center; animation: popIn .35s cubic-bezier(.2,1.5,.4,1); }
   @keyframes popIn { from { transform: scale(.6); opacity: 0; } }
-  .mini-card img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; margin: 0 auto 10px; border: 3px solid var(--gold); }
-  .mini-card h3 { font-family: var(--pixel); font-size: 15px; line-height: 1.5; }
-  .mini-card p { margin-top: 10px; font-size: 16px; line-height: 1.5; }
-  .mini-card .row { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-  .mini-card button { font-family: var(--pixel); font-size: 10px; border-radius: 10px; padding: 12px 14px; cursor: pointer; border: 2px solid var(--ink); background: #fff; color: var(--ink); }
-  .mini-card button.go { background: var(--gold); box-shadow: 0 4px 0 var(--ink); }
-  .mini-card button.blue { background: var(--brand); color: #fff; box-shadow: 0 4px 0 var(--ink); }
-  .mini-foot { margin-top: 12px; display: flex; justify-content: space-between; align-items: center; gap: 12px; color: #aab8e0; font-size: 13px; }
-  .mini-pad { display: none; gap: 10px; }
-  .mini-pad button { font-family: var(--pixel); font-size: 14px; width: 62px; height: 56px; border-radius: 12px; border: 2px solid #fff; background: rgba(255,255,255,.12); color: #fff; touch-action: none; user-select: none; -webkit-user-select: none; }
-  .mini-pad button.j { width: 96px; background: var(--gold); color: var(--ink); border-color: var(--ink); font-size: 11px; }
-  @media (pointer: coarse) { .mini-pad { display: flex; } .mini-hint { display: none; } .mini-foot { justify-content: center; flex-direction: column; } }
-  .mini-rot { display: none; font-size: 13px; color: #aab8e0; text-align: center; }
-  @media (pointer: coarse) and (orientation: portrait) { .mini-rot { display: block; } }
-  @media (max-width: 760px) { .mini-pop { position: fixed; z-index: 140; background: rgba(4,10,28,.75); } .mini-card { padding: 18px; } .mini-card h3 { font-size: 13px; } .mini-card p { font-size: 15px; } }
+  .mg-card img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; margin: 0 auto 10px; border: 3px solid var(--gold); }
+  .mg-card h3 { font-family: var(--pixel); font-size: 15px; line-height: 1.5; }
+  .mg-card p { margin-top: 10px; font-size: 16px; line-height: 1.5; }
+  .mg-card .row { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+  .mg-card button { font-family: var(--pixel); font-size: 10px; border-radius: 10px; padding: 12px 14px; cursor: pointer; border: 2px solid var(--ink); background: #fff; color: var(--ink); }
+  .mg-card button.go { background: var(--gold); box-shadow: 0 4px 0 var(--ink); }
+  .mg-card button.blue { background: var(--brand); color: #fff; box-shadow: 0 4px 0 var(--ink); }
+  .mg-foot { margin-top: 12px; display: flex; justify-content: space-between; align-items: center; gap: 12px; color: #aab8e0; font-size: 13px; }
+  .mg-pad { display: none; gap: 10px; }
+  .mg-pad button { font-family: var(--pixel); font-size: 14px; width: 62px; height: 56px; border-radius: 12px; border: 2px solid #fff; background: rgba(255,255,255,.12); color: #fff; touch-action: none; user-select: none; -webkit-user-select: none; }
+  .mg-pad button.j { width: 96px; background: var(--gold); color: var(--ink); border-color: var(--ink); font-size: 11px; }
+  @media (pointer: coarse) { .mg-pad { display: flex; } .mg-hint { display: none; } .mg-foot { justify-content: center; flex-direction: column; } }
+  .mg-rot { display: none; font-size: 13px; color: #aab8e0; text-align: center; }
+  @media (pointer: coarse) and (orientation: portrait) { .mg-rot { display: block; } }
+  @media (max-width: 760px) { .mg-pop { position: fixed; z-index: 140; background: rgba(4,10,28,.75); } .mg-card { padding: 18px; } .mg-card h3 { font-size: 13px; } .mg-card p { font-size: 15px; } }
 </style>
 
 <button class="play-fab" id="playFab" type="button" aria-haspopup="dialog">
@@ -2289,17 +2290,17 @@ document.addEventListener('DOMContentLoaded', () => {
   <span><b>Play as Colleen?</b><small>a tiny Mario level, starring you</small></span>
 </button>
 
-<div class="mini" id="mini" role="dialog" aria-modal="true" aria-label="Mini game: play as Colleen" hidden>
-  <div class="mini-box">
-    <div class="mini-top"><span class="mini-title">WORLD 1-2 · COLLEEN'S LANE</span><button class="mini-x" id="miniClose" type="button">✕ Back to site</button></div>
-    <div class="mini-screen">
+<div class="mg" id="mini" role="dialog" aria-modal="true" aria-label="Mini game: play as Colleen" hidden>
+  <div class="mg-box">
+    <div class="mg-top"><span class="mg-title">WORLD 1-2 · COLLEEN'S LANE</span><button class="mg-x" id="miniClose" type="button">✕ Back to site</button></div>
+    <div class="mg-screen">
       <canvas id="miniCv" width="320" height="180" aria-label="Side-scrolling game: Colleen runs, jumps and stomps task monsters on the way to a flag"></canvas>
-      <div class="mini-pop" id="miniPop"></div>
+      <div class="mg-pop" id="miniPop"></div>
     </div>
-    <div class="mini-foot">
-      <span class="mini-hint">← → move · SPACE / ↑ jump · stomp the tasks · reach the flag</span>
-      <span class="mini-rot">📱 Tip: turn your phone sideways for a bigger screen</span>
-      <div class="mini-pad" aria-hidden="true"><button type="button" data-k="left">◀</button><button type="button" data-k="right">▶</button><button type="button" class="j" data-k="jump">JUMP</button></div>
+    <div class="mg-foot">
+      <span class="mg-hint">← → move · SPACE / ↑ jump · stomp the tasks · reach the flag</span>
+      <span class="mg-rot">📱 Tip: turn your phone sideways for a bigger screen</span>
+      <div class="mg-pad" aria-hidden="true"><button type="button" data-k="left">◀</button><button type="button" data-k="right">▶</button><button type="button" class="j" data-k="jump">JUMP</button></div>
     </div>
   </div>
 </div>
@@ -2524,7 +2525,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ---------- pop-ups ---------- */
-  const card = html => { pop.innerHTML = `<div class="mini-card">${html}</div>`; pop.hidden = false; };
+  const card = html => { pop.innerHTML = `<div class="mg-card">${html}</div>`; pop.hidden = false; };
   function showStart() {
     S.playing = false;
     card(`<h3>READY, COLLEEN?</h3><p>You're the main character. Run to the flag and stomp every task in your way.</p><div class="row"><button class="go" data-a="solo">▶ START</button><button data-a="close">Back to site</button></div>`);
@@ -2561,7 +2562,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (k === 'jump') { if (!keys.jump) jumpEdge = true; keys.jump = true; } else keys[k] = true;
   });
   addEventListener('keyup', e => { const k = map[e.code]; if (k) keys[k] = false; });
-  document.querySelectorAll('.mini-pad button').forEach(b => {
+  document.querySelectorAll('.mg-pad button').forEach(b => {
     const k = b.dataset.k;
     const down = e => { e.preventDefault(); if (k === 'jump') jumpEdge = true; keys[k] = true; };
     const up = e => { e.preventDefault(); keys[k] = false; };
@@ -3128,63 +3129,192 @@ document.addEventListener('DOMContentLoaded', () => {
       "id": "exec-linkedin",
       "short": "Exec LinkedIn",
       "title": "Executive LinkedIn",
-      "intro": "One post per leader, each in a different voice. Drafts for them to edit, never a script to read.",
-      "layout": "grid-posts",
+      "intro": "One post per leader, each in a different voice. Drafts for them to edit, never a script to read. Below each post: five more ideas per leader, picked for their role, with no prompt used twice.",
+      "layout": "stack",
       "items": [
         {
-          "type": "linkedin",
-          "author": "ceo",
-          "voice": "CEO · big picture",
-          "slot": "Mon · 7:30 AM",
-          "time": "2d",
-          "body": "Before Envera, I spent years in industries where “always on” isn't a slogan: bank ATMs, payment systems, cloud computing, self-storage access.\n\nThey taught me one thing that applies to every gate we protect:\n\n**Trust is built in the moments nobody sees.**\n\nThe 3 AM verification. The camera that's actually monitored. The gate that opens for the right person and stays shut for the wrong one, every single time.\n\nCommunity security is shifting from “a person in a booth” to “a system with people at the center.” Our job is to make that shift feel safer, not scarier, for every board and every resident.\n\nThat's the work. I'm proud to do it with this team.",
-          "reactions": 356,
-          "comments": 29,
-          "reposts": 14,
-          "why": "It uses his real background (ATMs, payments, cloud, self-storage) to explain why Envera matters. Confident and big picture, without selling anything."
+          "type": "_row",
+          "items": [
+            {
+              "type": "linkedin",
+              "author": "ceo",
+              "voice": "CEO · big picture",
+              "slot": "Mon · 7:30 AM",
+              "time": "2d",
+              "body": "Before Envera, I spent years in industries where “always on” isn't a slogan: bank ATMs, payment systems, cloud computing, self-storage access.\n\nThey taught me one thing that applies to every gate we protect:\n\n**Trust is built in the moments nobody sees.**\n\nThe 3 AM verification. The camera that's actually monitored. The gate that opens for the right person and stays shut for the wrong one, every single time.\n\nCommunity security is shifting from “a person in a booth” to “a system with people at the center.” Our job is to make that shift feel safer, not scarier, for every board and every resident.\n\nThat's the work. I'm proud to do it with this team.",
+              "reactions": 356,
+              "comments": 29,
+              "reposts": 14,
+              "why": "It uses his real background (ATMs, payments, cloud, self-storage) to explain why Envera matters. Confident and big picture, without selling anything."
+            },
+            {
+              "type": "linkedin",
+              "author": "cto",
+              "voice": "CTO · technical builder",
+              "slot": "Wed · 9:00 AM",
+              "time": "4d",
+              "body": "Uptime isn't a feature. It's the product.\n\nWhen a gate stops working at 6 PM on a Friday, nobody cares about our roadmap. They care that hundreds of families can get home.\n\nThree principles I bring from two decades in security technology:\n→ Plan for failure before it happens\n→ Monitor the monitoring\n→ Boring is beautiful: the best release is one residents never notice\n\nThe most impressive systems make everything look easy.\n\nEngineers: what's your favorite “invisible” reliability win?",
+              "graphic": {
+                "style": "quote",
+                "kicker": "FROM THE CTO",
+                "title": "Uptime isn't a feature. It's the product.",
+                "name": "Jacques Bouchard",
+                "role": "Chief Technology Officer"
+              },
+              "reactions": 241,
+              "comments": 36,
+              "reposts": 19,
+              "why": "Short, principled and slightly nerdy. It gets engineers to reply, and it tells buyers that reliability is taken seriously."
+            },
+            {
+              "type": "linkedin",
+              "author": "sales",
+              "voice": "Sales · warm storyteller",
+              "slot": "Tue · 12:00 PM",
+              "time": "1w",
+              "body": "The best sales call I had this year wasn't a sale. Not at first.\n\nAn HOA board president told me: “We tried a virtual guard years ago. It didn't work. Residents hated it.”\n\nSo we didn't pitch. We listened. Then we showed her what's different now: live licensed guards, two-way audio, a resident app, and every entry logged.\n\nMonths later, she invited me to their annual meeting so she could answer residents' questions herself. I sat in the back row.\n\nIn community security, you're not selling to a board. You're earning the trust of every resident they answer to.",
+              "reactions": 418,
+              "comments": 47,
+              "reposts": 8,
+              "why": "Storytelling from the sales floor. It handles the “we tried it before” objection without sounding defensive. [Swap in a real story.]"
+            },
+            {
+              "type": "linkedin",
+              "author": "ops",
+              "voice": "Operations · proud and grateful",
+              "slot": "Fri · 5:00 PM",
+              "time": "3d",
+              "body": "Some nights, the most important thing our team does is stay calm.\n\n[Example: a storm knocked out power across part of the region.] Gates, cameras and phones all get tested at once.\n\nOur central station team did what they train for. They set priorities, kept property managers updated, and kept residents moving safely until everything was back to normal.\n\nNo one will write a headline about it. That's exactly the point.\n\nTo the overnight crew: thank you. You're the reason “always on” means something. 💙",
+              "reactions": 533,
+              "comments": 61,
+              "reposts": 22,
+              "why": "Gratitude posts from operations leaders get strong engagement and show that the service is reliable. [Swap in a real moment from the team.]"
+            }
+          ]
         },
         {
-          "type": "linkedin",
-          "author": "cto",
-          "voice": "CTO · technical builder",
-          "slot": "Wed · 9:00 AM",
-          "time": "4d",
-          "body": "Uptime isn't a feature. It's the product.\n\nWhen a gate stops working at 6 PM on a Friday, nobody cares about our roadmap. They care that hundreds of families can get home.\n\nThree principles I bring from two decades in security technology:\n→ Plan for failure before it happens\n→ Monitor the monitoring\n→ Boring is beautiful: the best release is one residents never notice\n\nThe most impressive systems make everything look easy.\n\nEngineers: what's your favorite “invisible” reliability win?",
-          "graphic": {
-            "style": "quote",
-            "kicker": "FROM THE CTO",
-            "title": "Uptime isn't a feature. It's the product.",
-            "name": "Jacques Bouchard",
-            "role": "Chief Technology Officer"
-          },
-          "reactions": 241,
-          "comments": 36,
-          "reposts": 19,
-          "why": "Short, principled and slightly nerdy. It gets engineers to reply, and it tells buyers that reliability is taken seriously."
+          "type": "ideas",
+          "title": "Devon Watson · President & CEO: 5 post ideas",
+          "list": [
+            {
+              "tone": "#26 Lightbulb moment",
+              "title": "Why I went from ATMs and payments to gated communities",
+              "angle": "The moment he knew he was ready to lead Envera, and what “always on” industries taught him about trust."
+            },
+            {
+              "tone": "#32 Changed my mind",
+              "title": "One thing I changed my mind on about community security this year",
+              "angle": "A belief he held walking in, the board meeting or site visit that changed it, and what Envera does differently now."
+            },
+            {
+              "tone": "#54 Prediction",
+              "title": "Community security in 2030: people at the center of the platform",
+              "angle": "A bold 5-year view on guard booths, remote screening and resident apps, with one data point to anchor it."
+            },
+            {
+              "tone": "#59 Momentum",
+              "title": "The stat that shows where Envera is headed",
+              "angle": "One proud number (communities protected, entries screened, new markets) plus a team photo from the central station."
+            },
+            {
+              "tone": "#56 Leader learnings",
+              "title": "5 lessons from year one leading a 17-year-old company",
+              "angle": "What to keep, what to change, and what surprised him, each with a specific story. Humble and human."
+            }
+          ]
         },
         {
-          "type": "linkedin",
-          "author": "sales",
-          "voice": "Sales · warm storyteller",
-          "slot": "Tue · 12:00 PM",
-          "time": "1w",
-          "body": "The best sales call I had this year wasn't a sale. Not at first.\n\nAn HOA board president told me: “We tried a virtual guard years ago. It didn't work. Residents hated it.”\n\nSo we didn't pitch. We listened. Then we showed her what's different now: live licensed guards, two-way audio, a resident app, and every entry logged.\n\nMonths later, she invited me to their annual meeting so she could answer residents' questions herself. I sat in the back row.\n\nIn community security, you're not selling to a board. You're earning the trust of every resident they answer to.",
-          "reactions": 418,
-          "comments": 47,
-          "reposts": 8,
-          "why": "Storytelling from the sales floor. It handles the “we tried it before” objection without sounding defensive. [Swap in a real story.]"
+          "type": "ideas",
+          "title": "Jacques Bouchard · CTO: 5 post ideas",
+          "list": [
+            {
+              "tone": "#38 Product pillars",
+              "title": "The 3 principles behind how we build Envera's platform",
+              "angle": "Reliability, security and simplicity, plus the story of one product decision each principle changed."
+            },
+            {
+              "tone": "#79 AI predictions",
+              "title": "What AI will (and won't) change about remote visitor screening",
+              "angle": "Where AI helps the licensed guard (alerts, plate reads, triage) and why the human stays at the center."
+            },
+            {
+              "tone": "#10 Shipping velocity",
+              "title": "Everything we shipped in the last 6 months",
+              "angle": "A 10–15 item list across MyEnvera, Smart Access Control and Active Video Surveillance, starring the features managers care about most."
+            },
+            {
+              "tone": "#60 Integration",
+              "title": "New integration: what it means for property managers",
+              "angle": "Announce a partner or system integration: why they built it, why now, and the hours it saves each week."
+            },
+            {
+              "tone": "#68 Underrated feature",
+              "title": "The feature nobody talks about: scheduled vendor access",
+              "angle": "A 60-second Loom walkthrough of access windows for landscapers, pool service and deliveries."
+            }
+          ]
         },
         {
-          "type": "linkedin",
-          "author": "ops",
-          "voice": "Operations · proud and grateful",
-          "slot": "Fri · 5:00 PM",
-          "time": "3d",
-          "body": "Some nights, the most important thing our team does is stay calm.\n\n[Example: a storm knocked out power across part of the region.] Gates, cameras and phones all get tested at once.\n\nOur central station team did what they train for. They set priorities, kept property managers updated, and kept residents moving safely until everything was back to normal.\n\nNo one will write a headline about it. That's exactly the point.\n\nTo the overnight crew: thank you. You're the reason “always on” means something. 💙",
-          "reactions": 533,
-          "comments": 61,
-          "reposts": 22,
-          "why": "Gratitude posts from operations leaders get strong engagement and show that the service is reliable. [Swap in a real moment from the team.]"
+          "type": "ideas",
+          "title": "VP of Sales: 5 post ideas",
+          "list": [
+            {
+              "tone": "#45 Sales FAQ",
+              "title": "The #1 question HOA boards ask before they sign",
+              "angle": "The question, the honest answer, and the data or customer story that backs it up."
+            },
+            {
+              "tone": "#24 Sales-call trends",
+              "title": "What I'm hearing from boards and managers this month",
+              "angle": "A pattern from the last 2–3 weeks of calls (budgets, staffing, resident complaints), and what it means."
+            },
+            {
+              "tone": "#13 Pain points",
+              "title": "5 headaches community managers face with traditional guard booths",
+              "angle": "Why each one happens (turnover, coverage gaps, paper logs) without turning into a pitch."
+            },
+            {
+              "tone": "#41 Best-fit customers",
+              "title": "What our best-fit communities have in common",
+              "angle": "2–3 traits that make a partnership work, so the right boards raise their hand and the wrong ones self-select out."
+            },
+            {
+              "tone": "#50 Event recap",
+              "title": "5 takeaways from the CAI Community Association Expo",
+              "angle": "Conversations that stood out, what boards are worried about this year, and booth photos."
+            }
+          ]
+        },
+        {
+          "type": "ideas",
+          "title": "Central Station Operations Lead: 5 post ideas",
+          "list": [
+            {
+              "tone": "#57 Day in the life",
+              "title": "An overnight shift at the central station, hour by hour",
+              "angle": "10 PM to 6 AM: shift handoff, the busy hours, the quiet ones, and what calm really takes."
+            },
+            {
+              "tone": "#43 Customer support",
+              "title": "The resident message that made our whole team's week",
+              "angle": "A real review or thank-you note (screenshot) and how the station treats every caller like a neighbor."
+            },
+            {
+              "tone": "#21 Outstanding hire",
+              "title": "The team member who blew past every expectation",
+              "angle": "The traits that make a great remote security professional, shown through one moment on shift."
+            },
+            {
+              "tone": "#19 Hard night, handled",
+              "title": "The toughest night we've had, and how the team pulled through",
+              "angle": "A storm, an outage or a spike in calls: what happened, what they did, and what changed after."
+            },
+            {
+              "tone": "#80 Warning signs",
+              "title": "7 signs your community's gate security is set up to fail",
+              "angle": "Shared codes, paper logs, no overnight coverage and more, plus what to do about each one."
+            }
+          ]
         }
       ]
     },
