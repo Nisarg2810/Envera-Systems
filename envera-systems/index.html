@@ -2343,7 +2343,7 @@ document.addEventListener('DOMContentLoaded', () => {
       p: { x: 36, y: GY, vx: 0, vy: 0, on: true, dead: false },
       d: { x: 8, y: GY, vy: 0, on: true, throwF: -99 },
       en: [260, 330, 420, 690, 800, 990, 1060].map(x => ({ x, vx: -.35, alive: true, sq: 0 })),
-      used: {}, coins: [], axes: [], pops: [], say: coop ? { t: "I'M WITH YOU!", f: 0 } : null,
+      used: {}, coins: [], axes: [], pops: [], say: coop ? { t: 'I GOT YOU!', f: 0 } : null,
     };
   }
   const bridged = x => S.coop && S.bridge > 0 && x >= PIT[0] && x < PIT[0] + S.bridge * 11.5;
@@ -2528,7 +2528,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const card = html => { pop.innerHTML = `<div class="mg-card">${html}</div>`; pop.hidden = false; };
   function showStart() {
     S.playing = false;
-    card(`<h3>READY, COLLEEN?</h3><p>You're the main character. Run to the flag and stomp every task in your way.</p><div class="row"><button class="go" data-a="solo">▶ START</button><button data-a="close">Back to site</button></div>`);
+    card(`<img src="durva-avatar.jpg?v=2" alt=""><h3>READY, COLLEEN?</h3><p>You're the main character, and <b>I've got you.</b> Run to the flag, I'll handle the tasks. Let's win this together!</p><div class="row"><button class="go" data-a="coop">▶ LET'S GO, TOGETHER</button><button data-a="close">Back to site</button></div>`);
   }
   function showLose() {
     card(`<img src="durva-avatar.jpg?v=2" alt=""><h3>OH NO! 😅</h3><p>Don't worry, <b>I got you.</b><br>I'm with you. <b>Let's win together!</b></p><div class="row"><button class="go" data-a="coop">▶ PLAY WITH PLAYER 2</button><button data-a="close">Back to site</button></div>`);
@@ -2545,7 +2545,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function openGame() {
     mini.hidden = false; fab.hidden = true; document.body.style.overflow = 'hidden';
-    reset(false); showStart(); last = performance.now(); acc = 0;
+    reset(true); showStart(); last = performance.now(); acc = 0;
     cancelAnimationFrame(raf); raf = requestAnimationFrame(loop);
   }
   function closeGame() { mini.hidden = true; pop.hidden = true; fab.hidden = false; document.body.style.overflow = ''; cancelAnimationFrame(raf); keys.left = keys.right = false; fab.focus(); }
@@ -3129,7 +3129,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "id": "exec-linkedin",
       "short": "Exec LinkedIn",
       "title": "Executive LinkedIn",
-      "intro": "One post per leader, each in a different voice. Drafts for them to edit, never a script to read. Below each post: five more ideas per leader, picked for their role, with no prompt used twice.",
+      "intro": "One post per leader, each in a different voice. Drafts for them to edit, never a script to read. Below the posts: five more ideas per leader, each picked for their role.",
       "layout": "stack",
       "items": [
         {
@@ -3197,27 +3197,27 @@ document.addEventListener('DOMContentLoaded', () => {
           "title": "Devon Watson · President & CEO: 5 post ideas",
           "list": [
             {
-              "tone": "#26 Lightbulb moment",
+              "tone": "Lightbulb moment",
               "title": "Why I went from ATMs and payments to gated communities",
               "angle": "The moment he knew he was ready to lead Envera, and what “always on” industries taught him about trust."
             },
             {
-              "tone": "#32 Changed my mind",
+              "tone": "Changed my mind",
               "title": "One thing I changed my mind on about community security this year",
               "angle": "A belief he held walking in, the board meeting or site visit that changed it, and what Envera does differently now."
             },
             {
-              "tone": "#54 Prediction",
+              "tone": "Prediction",
               "title": "Community security in 2030: people at the center of the platform",
               "angle": "A bold 5-year view on guard booths, remote screening and resident apps, with one data point to anchor it."
             },
             {
-              "tone": "#59 Momentum",
+              "tone": "Momentum",
               "title": "The stat that shows where Envera is headed",
               "angle": "One proud number (communities protected, entries screened, new markets) plus a team photo from the central station."
             },
             {
-              "tone": "#56 Leader learnings",
+              "tone": "Leader learnings",
               "title": "5 lessons from year one leading a 17-year-old company",
               "angle": "What to keep, what to change, and what surprised him, each with a specific story. Humble and human."
             }
@@ -3228,27 +3228,27 @@ document.addEventListener('DOMContentLoaded', () => {
           "title": "Jacques Bouchard · CTO: 5 post ideas",
           "list": [
             {
-              "tone": "#38 Product pillars",
+              "tone": "Product pillars",
               "title": "The 3 principles behind how we build Envera's platform",
               "angle": "Reliability, security and simplicity, plus the story of one product decision each principle changed."
             },
             {
-              "tone": "#79 AI predictions",
+              "tone": "AI predictions",
               "title": "What AI will (and won't) change about remote visitor screening",
               "angle": "Where AI helps the licensed guard (alerts, plate reads, triage) and why the human stays at the center."
             },
             {
-              "tone": "#10 Shipping velocity",
+              "tone": "Shipping velocity",
               "title": "Everything we shipped in the last 6 months",
               "angle": "A 10–15 item list across MyEnvera, Smart Access Control and Active Video Surveillance, starring the features managers care about most."
             },
             {
-              "tone": "#60 Integration",
+              "tone": "Integration",
               "title": "New integration: what it means for property managers",
               "angle": "Announce a partner or system integration: why they built it, why now, and the hours it saves each week."
             },
             {
-              "tone": "#68 Underrated feature",
+              "tone": "Underrated feature",
               "title": "The feature nobody talks about: scheduled vendor access",
               "angle": "A 60-second Loom walkthrough of access windows for landscapers, pool service and deliveries."
             }
@@ -3259,27 +3259,27 @@ document.addEventListener('DOMContentLoaded', () => {
           "title": "VP of Sales: 5 post ideas",
           "list": [
             {
-              "tone": "#45 Sales FAQ",
+              "tone": "Sales FAQ",
               "title": "The #1 question HOA boards ask before they sign",
               "angle": "The question, the honest answer, and the data or customer story that backs it up."
             },
             {
-              "tone": "#24 Sales-call trends",
+              "tone": "Sales-call trends",
               "title": "What I'm hearing from boards and managers this month",
               "angle": "A pattern from the last 2–3 weeks of calls (budgets, staffing, resident complaints), and what it means."
             },
             {
-              "tone": "#13 Pain points",
+              "tone": "Pain points",
               "title": "5 headaches community managers face with traditional guard booths",
               "angle": "Why each one happens (turnover, coverage gaps, paper logs) without turning into a pitch."
             },
             {
-              "tone": "#41 Best-fit customers",
+              "tone": "Best-fit customers",
               "title": "What our best-fit communities have in common",
               "angle": "2–3 traits that make a partnership work, so the right boards raise their hand and the wrong ones self-select out."
             },
             {
-              "tone": "#50 Event recap",
+              "tone": "Event recap",
               "title": "5 takeaways from the CAI Community Association Expo",
               "angle": "Conversations that stood out, what boards are worried about this year, and booth photos."
             }
@@ -3290,27 +3290,27 @@ document.addEventListener('DOMContentLoaded', () => {
           "title": "Central Station Operations Lead: 5 post ideas",
           "list": [
             {
-              "tone": "#57 Day in the life",
+              "tone": "Day in the life",
               "title": "An overnight shift at the central station, hour by hour",
               "angle": "10 PM to 6 AM: shift handoff, the busy hours, the quiet ones, and what calm really takes."
             },
             {
-              "tone": "#43 Customer support",
+              "tone": "Customer support",
               "title": "The resident message that made our whole team's week",
               "angle": "A real review or thank-you note (screenshot) and how the station treats every caller like a neighbor."
             },
             {
-              "tone": "#21 Outstanding hire",
+              "tone": "Outstanding hire",
               "title": "The team member who blew past every expectation",
               "angle": "The traits that make a great remote security professional, shown through one moment on shift."
             },
             {
-              "tone": "#19 Hard night, handled",
+              "tone": "Hard night, handled",
               "title": "The toughest night we've had, and how the team pulled through",
               "angle": "A storm, an outage or a spike in calls: what happened, what they did, and what changed after."
             },
             {
-              "tone": "#80 Warning signs",
+              "tone": "Warning signs",
               "title": "7 signs your community's gate security is set up to fail",
               "angle": "Shared codes, paper logs, no overnight coverage and more, plus what to do about each one."
             }
