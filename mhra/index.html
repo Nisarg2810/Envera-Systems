@@ -114,7 +114,26 @@
     .plan-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
     .book { margin-top: 40px; position: relative; }
     .spread { display: flex; justify-content: center; gap: 0; perspective: 2200px; min-height: 200px; }
-    .pg { width: min(46%, 500px); background: #fff; box-shadow: 0 20px 40px -18px rgba(60,35,10,.4); position: relative; transform-origin: left center; }
+    .stage { display: flex; justify-content: center; }
+    .bookwrap { position: relative; }
+    .side-arrow { position: absolute; top: 50%; z-index: 5; width: 58px; height: 58px; margin-top: -29px; border-radius: 50%; border: 2px solid var(--ink); background: var(--yellow); color: var(--ink); font-size: 26px; font-weight: 800; line-height: 1; cursor: pointer; box-shadow: 3px 3px 0 var(--ink); display: grid; place-items: center; transition: transform .15s, opacity .2s; }
+    .side-arrow:hover { transform: scale(1.08); }
+    .side-arrow:disabled { opacity: 0; pointer-events: none; }
+    .side-arrow.prev { left: -82px; }
+    .side-arrow.next { right: -82px; animation: nudge 1.6s ease-in-out infinite; }
+    .side-arrow.next.seen { animation: none; }
+    @keyframes nudge { 0%, 100% { translate: 0 0; } 50% { translate: 6px 0; } }
+    .side-arrow small { position: absolute; top: 100%; margin-top: 8px; left: 50%; transform: translateX(-50%); font-family: var(--hand); font-size: 20px; white-space: nowrap; font-weight: 700; }
+    .pg { cursor: pointer; }
+    .pg.right .curl { position: absolute; right: 0; bottom: 0; width: 46px; height: 46px; background: linear-gradient(135deg, rgba(0,0,0,0) 50%, #e8dcc6 50%, #fffaf1 75%); box-shadow: -3px -3px 6px rgba(0,0,0,.12); border-top-left-radius: 8px; transition: width .25s, height .25s; }
+    .pg.right:hover .curl { width: 70px; height: 70px; }
+    .pg-hint { position: absolute; right: 50px; bottom: 12px; font-family: var(--hand); font-weight: 700; font-size: 20px; color: var(--ink); background: rgba(255,250,241,.9); padding: 0 8px; border-radius: 6px; pointer-events: none; }
+    @media (max-width: 940px) {
+      .side-arrow { width: 44px; height: 44px; margin-top: -22px; font-size: 20px; }
+      .side-arrow.prev { left: 8px; } .side-arrow.next { right: 8px; }
+      .side-arrow small { display: none; }
+    }
+    .pg { width: min(40vw, 500px); background: #fff; box-shadow: 0 20px 40px -18px rgba(60,35,10,.4); position: relative; transform-origin: left center; }
     .pg img { width: 100%; height: auto; aspect-ratio: 1200 / 1553; }
     .pg.left { transform-origin: right center; }
     .pg.left::after { content: ""; position: absolute; inset: 0 0 0 auto; width: 40px; background: linear-gradient(90deg, transparent, rgba(0,0,0,.14)); }
@@ -242,7 +261,7 @@
       .voices, .jd-grid { grid-template-columns: 1fr; }
       .voices { max-width: 520px; margin-inline: auto; }
       .proof { grid-template-columns: 1fr; }
-      .pg { width: min(92%, 520px); }
+      .pg { width: min(88vw, 520px); }
       .pg.left::after, .pg.right::after { display: none; }
     }
     @media (max-width: 560px) {
@@ -324,7 +343,13 @@
           </div>
         </div>
         <div class="book reveal" id="book">
-          <div class="spread" id="spread"></div>
+          <div class="stage">
+            <div class="bookwrap">
+            <button type="button" class="side-arrow prev" id="sPrev" aria-label="Previous page">←</button>
+            <div class="spread" id="spread"></div>
+            <button type="button" class="side-arrow next" id="sNext" aria-label="Next page">→<small>turn the page</small></button>
+            </div>
+          </div>
           <div class="book-nav">
             <button type="button" id="prev" aria-label="Previous page">←</button>
             <span class="count" id="count">COVER</span>
@@ -482,9 +507,11 @@
   function render() {
     const vs = views(); v = Math.max(0, Math.min(v, vs.length - 1));
     const cur = vs[v];
-    spread.innerHTML = cur.map((i, k) => `<div class="pg ${cur.length === 1 ? 'right' : (k ? 'right' : 'left')}"><img src="${PAGES[i]}" alt="Plan page ${i + 1} of 7"></div>`).join('');
+    const last = v === vs.length - 1;
+    spread.innerHTML = cur.map((i, k) => { const side = cur.length === 1 ? 'right' : (k ? 'right' : 'left'); return `<div class="pg ${side}" data-side="${side}"><img src="${PAGES[i]}" alt="Plan page ${i + 1} of 7">${side === 'right' && !last ? `<span class="curl"></span>${v === 0 ? '<span class="pg-hint">click to open ↗</span>' : ''}` : ''}</div>`; }).join('');
     count.textContent = cur.length === 1 ? (cur[0] === 0 ? 'COVER' : `PAGE ${cur[0] + 1} / 7`) : `PAGES ${cur[0] + 1}–${cur[1] + 1} / 7`;
     prevB.disabled = v === 0; nextB.disabled = v === vs.length - 1;
+    document.getElementById('sPrev').disabled = prevB.disabled; document.getElementById('sNext').disabled = nextB.disabled;
     [...thumbs.children].forEach((b, i) => b.classList.toggle('on', cur.includes(i)));
     // warm the next spread
     (vs[v + 1] || []).forEach(i => { const im = new Image(); im.src = PAGES[i]; });
@@ -496,6 +523,10 @@
     setTimeout(() => { spread.classList.remove('turn-next', 'turn-prev'); v += d; render(); busy = false; }, 420);
   }
   prevB.addEventListener('click', () => go(-1)); nextB.addEventListener('click', () => go(1));
+  const sNext = document.getElementById('sNext');
+  document.getElementById('sPrev').addEventListener('click', () => go(-1));
+  sNext.addEventListener('click', () => { sNext.classList.add('seen'); go(1); });
+  spread.addEventListener('click', e => { const pg = e.target.closest('.pg'); if (!pg) return; sNext.classList.add('seen'); go(pg.dataset.side === 'left' && pg.parentNode.children.length > 1 ? -1 : 1); });
   addEventListener('keydown', e => {
     const r = document.getElementById('book').getBoundingClientRect();
     if (r.top > innerHeight || r.bottom < 0) return;
