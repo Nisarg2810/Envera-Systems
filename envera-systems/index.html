@@ -813,7 +813,7 @@
       </figure>
       <div class="post-body">
         <div class="who">
-          <img src="colleen-avatar.jpg" alt="">
+          <img src="colleen-avatar.jpg?v=2" alt="">
           <div>
             <div class="name">Colleen</div>
             <div class="role">VP of Marketing · Envera Systems</div>
@@ -2531,10 +2531,10 @@ document.addEventListener('DOMContentLoaded', () => {
     card(`<h3>READY, COLLEEN?</h3><p>You're the main character. Run to the flag and stomp every task in your way.</p><div class="row"><button class="go" data-a="solo">▶ START</button><button data-a="close">Back to site</button></div>`);
   }
   function showLose() {
-    card(`<img src="durva-avatar.jpg" alt=""><h3>OH NO! 😅</h3><p>Don't worry, <b>I got you.</b><br>I'm with you. <b>Let's win together!</b></p><div class="row"><button class="go" data-a="coop">▶ PLAY WITH PLAYER 2</button><button data-a="close">Back to site</button></div>`);
+    card(`<img src="durva-avatar.jpg?v=2" alt=""><h3>OH NO! 😅</h3><p>Don't worry, <b>I got you.</b><br>I'm with you. <b>Let's win together!</b></p><div class="row"><button class="go" data-a="coop">▶ PLAY WITH PLAYER 2</button><button data-a="close">Back to site</button></div>`);
   }
   function showWin() {
-    card(`<img src="durva-avatar.jpg" alt=""><h3>WE DID IT! 🎉</h3><p>See? <b>Better together.</b> Now let's do it for real at Envera.</p><div class="row"><button class="blue" data-a="chat">📅 LET'S CHAT</button><button class="go" data-a="coop">↺ AGAIN</button><button data-a="close">Back to site</button></div>`);
+    card(`<img src="durva-avatar.jpg?v=2" alt=""><h3>WE DID IT! 🎉</h3><p>See? <b>Better together.</b> Now let's do it for real at Envera.</p><div class="row"><button class="blue" data-a="chat">📅 LET'S CHAT</button><button class="go" data-a="coop">↺ AGAIN</button><button data-a="close">Back to site</button></div>`);
   }
   pop.addEventListener('click', e => {
     const a = e.target.closest('button')?.dataset.a; if (!a) return;
@@ -2592,7 +2592,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "colleen": {
       "name": "Colleen",
       "title": "VP of Marketing at Envera Systems | B2B marketing leader",
-      "photo": "colleen-avatar.jpg",
+      "photo": "colleen-avatar.jpg?v=2",
       "color": "#353535"
     },
     "ceo": {
@@ -2622,7 +2622,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "durva": {
       "name": "Durva Thakkar",
       "title": "Marketing · hopefully Envera Systems",
-      "photo": "durva-avatar.jpg",
+      "photo": "durva-avatar.jpg?v=2",
       "color": "#1f2645"
     }
   },
