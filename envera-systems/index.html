@@ -621,6 +621,27 @@
     .idea span { display: block; font-size: 13px; color: var(--muted); margin-top: 6px; }
     #exec-linkedin .ideas { grid-template-columns: repeat(auto-fill, minmax(min(100%, 188px), 1fr)); }
 
+    /* executive track */
+    .xt { display: grid; gap: 18px; margin-bottom: 34px; }
+    .xt .big-line { margin-bottom: 10px; }
+    .xt .md { margin-top: 6px; font-size: 16px; }
+    .xt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 12px; }
+    .xt-grid.r { grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); }
+    .xt-card { background: #fafbff; border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 6px; }
+    .xt-card i { font-style: normal; width: 34px; height: 34px; display: grid; place-items: center; border-radius: 10px; background: var(--night); color: var(--gold); font-size: 16px; margin-bottom: 4px; }
+    .xt-card b { font-size: 16px; line-height: 1.3; }
+    .xt-card span { font-size: 14px; color: #3a404c; line-height: 1.5; }
+    .xt-model-in { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+    .xt-model h4 { font-size: 20px; margin-bottom: 12px; }
+    .xt-stats { display: grid; gap: 10px; }
+    .xt-stats div { background: var(--night); color: #fff; border-radius: 14px; padding: 14px 16px; }
+    .xt-stats small { display: block; font-family: var(--pixel); font-size: 8px; color: var(--gold); letter-spacing: .04em; }
+    .xt-stats b { display: block; font-size: 20px; margin-top: 6px; }
+    .xt-sub { color: var(--muted); font-size: 15px; margin: -4px 0 14px; }
+    .pz-h { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 6px 0 14px; display: flex; align-items: center; gap: 8px; }
+    .pz-h::before { content: ""; width: 10px; height: 10px; background: var(--gold); border: 2px solid #6b4a00; border-radius: 2px; }
+    @media (max-width: 760px) { .xt-model-in { grid-template-columns: 1fr; } }
+
     /* decision-maker persona cards */
     .pz-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 16px; }
     .pz-card { text-align: left; font: inherit; color: inherit; background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 20px; cursor: pointer; display: flex; flex-direction: column; gap: 12px; transition: transform .2s, box-shadow .2s, border-color .2s; position: relative; overflow: hidden; }
@@ -638,15 +659,15 @@
     .pz-modal { position: fixed; inset: 0; z-index: 125; background: rgba(4,10,28,.72); display: grid; place-items: center; padding: 16px; overflow-y: auto; }
     .pz-modal[hidden] { display: none; }
     body.pz-on .play-fab { display: none; }
-    .pz-box { background: var(--bg); border-radius: 22px; width: min(1040px, 100%); max-height: calc(100vh - 32px); overflow-y: auto; padding: 22px; position: relative; animation: pzIn .3s cubic-bezier(.2,1.2,.4,1); }
+    .pz-box { background: var(--bg); border-radius: 22px; width: min(860px, 100%); max-height: calc(100vh - 32px); overflow-y: auto; padding: 22px; position: relative; animation: pzIn .3s cubic-bezier(.2,1.2,.4,1); }
     @keyframes pzIn { from { transform: translateY(20px) scale(.97); opacity: 0; } }
     .pz-head { display: flex; gap: 14px; align-items: center; padding-right: 50px; }
     .pz-head .pz-name { font-size: 22px; }
     .pz-x { position: absolute; top: 16px; right: 16px; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: #fff; font-size: 18px; cursor: pointer; }
     .pz-x:hover { border-color: var(--ink); }
-    .pz-body { margin-top: 18px; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+    .pz-body { margin-top: 18px; }
     .pz-label { font-family: var(--pixel); font-size: 9px; color: var(--muted); margin-bottom: 10px; }
-    .pz-ideas { display: grid; gap: 10px; }
+    .pz-ideas { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
     .pz-idea { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; border-left: 5px solid var(--gold); display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start; }
     .pz-n { font-family: var(--pixel); font-size: 10px; width: 26px; height: 26px; display: grid; place-items: center; border-radius: 6px; background: var(--night); color: var(--gold); }
     .pz-idea .chip { margin-bottom: 6px; }
@@ -1890,14 +1911,22 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="letter-paper">${esc(it.placeholder || '')}</div></div>
       <p class="letter-cap">${rich(it.caption || '')}</p></div>`;
   }
+  function exec_track(it) {
+    return `<div class="xt">
+      <div class="panel"><h3>${rich(it.whyTitle)}</h3><p class="big-line">${rich(it.whyLead)}</p><div class="md">${md(it.why)}</div></div>
+      <div class="panel"><h3>${rich(it.principlesTitle)}</h3><div class="xt-grid">${it.principles.map(x => `<div class="xt-card"><b>${rich(x.t)}</b><span>${rich(x.d)}</span></div>`).join('')}</div></div>
+      <div class="panel xt-model"><h3>${rich(it.modelTitle)}</h3><div class="xt-model-in"><div><h4>${rich(it.modelHead)}</h4><ul class="plist">${it.model.map(x => `<li><span>${rich(x)}</span></li>`).join('')}</ul></div><div class="xt-stats">${it.stats.map(x => `<div><small>${esc(x.l)}</small><b>${esc(x.v)}</b></div>`).join('')}</div></div></div>
+      <div class="panel"><h3>${rich(it.rhythmTitle)}</h3><p class="xt-sub">${rich(it.rhythmSub)}</p><div class="xt-grid r">${it.rhythm.map(x => `<div class="xt-card"><i>${esc(x.i)}</i><b>${rich(x.t)}</b><span>${rich(x.d)}</span></div>`).join('')}</div></div>
+    </div>`;
+  }
   function personas(it) {
-    return `<div class="pz-grid">${it.people.map((pp, i) => { const a = who(pp.author); return `<button type="button" class="pz-card" data-pz="${i}" style="--pz:${esc(a.color || '#0038F5')}">
+    return `${it.title ? `<h3 class="pz-h">${rich(it.title)}</h3>` : ''}<div class="pz-grid">${it.people.map((pp, i) => { const a = who(pp.author); return `<button type="button" class="pz-card" data-pz="${i}" style="--pz:${esc(a.color || '#0038F5')}">
       <div class="pz-top">${avatar(a, 52)}<div><div class="pz-name">${esc(a.name)}</div><div class="pz-role">${esc(pp.role)}</div></div></div>
       <div class="pz-meta">${(pp.meta || []).map(m => `<span>${esc(m)}</span>`).join('')}</div>
       <span class="pz-voice">${esc(pp.voice)}</span>
-      <div class="pz-open"><i>💡 1 draft post + ${pp.ideas.length} ideas</i><span>OPEN ▸</span></div></button>`; }).join('')}</div>`;
+      <div class="pz-open"><i>💡 ${pp.ideas.length} post ideas</i><span>OPEN ▸</span></div></button>`; }).join('')}</div>`;
   }
-  const R = { _row, _col, letter, personas, linkedin, instagram, instagram_carousel, blog, case_study, email, landing_page, campaign_timeline, video, approach, strategy, ideas, hubspot_workflow, hubspot_scoring, hubspot_dashboard, hubspot_setup, about, contact };
+  const R = { _row, _col, letter, exec_track, personas, linkedin, instagram, instagram_carousel, blog, case_study, email, landing_page, campaign_timeline, video, approach, strategy, ideas, hubspot_workflow, hubspot_scoring, hubspot_dashboard, hubspot_setup, about, contact };
   const WRAPPED = new Set(['linkedin', 'instagram', 'instagram_carousel', 'email', 'landing_page']);
   function renderItem(it, ctx) {
     const fn = R[it.type];
@@ -1972,11 +2001,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const openPz = i => {
       cur = (i + pzItem.people.length) % pzItem.people.length;
       const pp = pzItem.people[cur], a = who(pp.author);
-      const post = Object.assign({ type: 'linkedin', author: pp.author }, pp.post);
       modal.innerHTML = `<div class="pz-box" style="--pz:${esc(a.color || '#0038F5')}"><button type="button" class="pz-x" aria-label="Close">✕</button>
         <div class="pz-head">${avatar(a, 60)}<div><div class="pz-name">${esc(a.name)}</div><div class="pz-role">${esc(pp.role)} · ${esc(pp.voice)}</div></div></div>
-        <div class="pz-body"><div><div class="pz-label">▸ DRAFT LINKEDIN POST</div>${renderItem(post, {})}</div>
-        <div><div class="pz-label">▸ ${pp.ideas.length} MORE POST IDEAS</div><div class="pz-ideas">${pp.ideas.map((x, k) => `<div class="pz-idea"><div class="pz-n">${k + 1}</div><div><span class="chip gold">${esc(x.tone)}</span><h4>${rich(x.title)}</h4><p>${rich(x.angle)}</p></div></div>`).join('')}</div>${pp.why ? `<p class="pz-why"><b>Why this voice:</b> ${rich(pp.why)}</p>` : ''}</div></div>
+        <div class="pz-body"><div><div class="pz-label">▸ ${pp.ideas.length} POST IDEAS FOR ${esc(a.name.split(',')[0].toUpperCase())}</div><div class="pz-ideas">${pp.ideas.map((x, k) => `<div class="pz-idea"><div class="pz-n">${k + 1}</div><div><span class="chip gold">${esc(x.tone)}</span><h4>${rich(x.title)}</h4><p>${rich(x.angle)}</p></div></div>`).join('')}</div>${pp.why ? `<p class="pz-why"><b>Why this voice:</b> ${rich(pp.why)}</p>` : ''}</div></div>
         <div class="pz-nav"><button type="button" data-d="-1">← Previous leader</button><button type="button" data-d="1">Next leader →</button></div></div>`;
       modal.querySelectorAll('.li').forEach(li => { li.querySelector('.li-body')?.classList.remove('clamp'); li.querySelector('.li-more')?.remove(); });
       modal.querySelectorAll('.av img').forEach(img => img.addEventListener('error', () => img.remove()));
@@ -3230,9 +3257,94 @@ document.addEventListener('DOMContentLoaded', () => {
       "id": "exec-linkedin",
       "short": "Exec LinkedIn",
       "title": "Executive LinkedIn",
-      "intro": "Nine decision makers, nine voices. Tap a card to open their draft LinkedIn post and five more post ideas made for their role.",
+      "intro": "How I'd bring Envera's leadership team onto LinkedIn, plus five post ideas for each leader.",
       "layout": "stack",
       "items": [
+        {
+          "type": "exec_track",
+          "whyTitle": "Why the leadership team should post",
+          "whyLead": "The buying journey for community security now starts on the timeline, long before a board ever fills out a demo form.",
+          "why": "HOA board members, community managers and developers learn about Envera, what it does and who works there well before a sales call. Your voice builds a lot of that familiarity, and activating leaders across operations, finance, partnerships, revenue, engineering, R&D and HR multiplies it.\n\nTheir engagement also creates intent signals across functions that marketing can roll up at the account level in HubSpot and pass to sales. And as AI-generated content fills the feed, real expertise from the people doing the work becomes more valuable and easier to notice.\n\nThe result: Envera starts to feel *everywhere* in its market.",
+          "principlesTitle": "What great executive content looks like",
+          "principles": [
+            {
+              "t": "More voices, more touchpoints",
+              "d": "Every leader's profile is another credible place for boards and managers to meet Envera, instead of relying on one account."
+            },
+            {
+              "t": "Built for LinkedIn",
+              "d": "Written for how people actually read and engage on LinkedIn, not repurposed from other channels."
+            },
+            {
+              "t": "Long-form first",
+              "d": "Substantial posts that explore ideas, experiences and industry perspectives in depth: the kind people save and forward."
+            },
+            {
+              "t": "Real, not pre-crafted",
+              "d": "Drawn from each leader's journey, opinions and lessons, so it reads like a person, not a press release."
+            },
+            {
+              "t": "Selective and authority-first",
+              "d": "Leaders' names carry weight, so every post is curated around ideas that carry real authority and value."
+            },
+            {
+              "t": "A warm audience sells easier",
+              "d": "Consistent touchpoints keep boards and managers warmed up, so demos, webinars and expo invites land, and paid boosts have proven posts to amplify."
+            }
+          ],
+          "modelTitle": "Model: done for them",
+          "modelHead": "Executives: I lead, they approve",
+          "model": [
+            "**I run the working session:** a bi-weekly interview pulling angles from what's actually happening in their work that month.",
+            "**I do the research between calls:** their past posts, what's landing and relevant industry context, so interview time is spent on substance.",
+            "**I write every draft in their voice** from the interview notes, so it sounds like them, not a template with their name on it.",
+            "**I manage the calendar end to end:** what's posting when, what's in revision, and what's approved and ready.",
+            "**They review and approve.** That's it on their side: no drafting, no blank page, no calendar to manage."
+          ],
+          "stats": [
+            {
+              "l": "THEIR TIME",
+              "v": "~1–2 hrs / week"
+            },
+            {
+              "l": "CADENCE",
+              "v": "2–3 posts / week each"
+            },
+            {
+              "l": "EXECUTIVE TRACK",
+              "v": "9 leaders + you"
+            }
+          ],
+          "rhythmTitle": "Our operating rhythm",
+          "rhythmSub": "The shared cadence behind every profile, from the first interview call to the post going live.",
+          "rhythm": [
+            {
+              "i": "✎",
+              "t": "Interview cadence",
+              "d": "A recurring 45–60 minute call on a standing hold four weeks out, so it never becomes a last-minute scramble."
+            },
+            {
+              "i": "→",
+              "t": "Draft delivery",
+              "d": "Drafts land within three business days of the call, as one batch, so they can be reviewed together."
+            },
+            {
+              "i": "✓",
+              "t": "Approval turnaround",
+              "d": "Edits or a yes within 48 hours keeps the calendar on track. Nothing goes live without their OK."
+            },
+            {
+              "i": "◫",
+              "t": "Planning horizon",
+              "d": "We always work two weeks ahead. If it posts Tuesday, it was drafted and approved the Tuesday before."
+            },
+            {
+              "i": "⚡",
+              "t": "Reactive slot",
+              "d": "One flex slot each week for anything timely: a new community going live, an expo moment, fast-moving industry news."
+            }
+          ]
+        },
         {
           "type": "personas",
           "people": [
@@ -3244,13 +3356,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 "11 months in role"
               ],
               "voice": "Big picture · confident",
-              "post": {
-                "time": "2d",
-                "body": "Before Envera, I spent years in industries where “always on” isn't a slogan: bank ATMs, payment systems, cloud computing, self-storage access.\n\nThey taught me one thing that applies to every gate we protect:\n\n**Trust is built in the moments nobody sees.**\n\nThe 3 AM verification. The camera that's actually monitored. The gate that opens for the right person and stays shut for the wrong one, every single time.\n\nCommunity security is shifting from “a person in a booth” to “a system with people at the center.” Our job is to make that shift feel safer, not scarier, for every board and every resident.\n\nThat's the work. I'm proud to do it with this team.",
-                "reactions": 356,
-                "comments": 29,
-                "reposts": 14
-              },
               "why": "The CEO sets the story. Vision posts from the top give every other exec post context.",
               "ideas": [
                 {
@@ -3288,13 +3393,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 "2 yrs 9 mos in role"
               ],
               "voice": "Steady · operational",
-              "post": {
-                "time": "3d",
-                "body": "A gate can't have an off day.\n\nThat's the operating standard at Envera: every entry screened, every camera watched, every call answered, 24 hours a day, 365 days a year.\n\nRunning operations for an always-on service changes how you think about growth:\n→ Every new community is a promise, not just a contract\n→ Process is what lets people stay calm at 3 AM\n→ The best scaling plan is the one residents never notice\n\nAfter years leading high-growth SaaS and service teams, I've learned that operational excellence isn't a department. It's a habit the whole company shares.\n\nOps leaders: what's one habit that keeps your team steady when volume spikes?",
-                "reactions": 212,
-                "comments": 31,
-                "reposts": 9
-              },
               "why": "COOs are trusted on execution. A steady monthly rhythm builds credibility with buyers and investors alike.",
               "ideas": [
                 {
@@ -3332,13 +3430,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 "5 months in role"
               ],
               "voice": "Disciplined · plain-spoken",
-              "post": {
-                "time": "4d",
-                "body": "After 18 years at Goodyear, I joined Envera five months ago. People ask what tires and gated communities have in common.\n\nMore than you'd think.\n\nBoth are about trust you can't afford to break. And both reward the same financial discipline:\n→ Predictable costs beat cheap surprises\n→ Every dollar should protect something that matters\n→ Long-term value beats this quarter's savings\n\nThat last one matters most to the HOA boards we serve. Volunteer treasurers aren't looking for the lowest bid. They're looking for a number they can defend at the annual meeting, five years from now.\n\nHelping them get there is the kind of finance I'm excited to do.",
-                "reactions": 264,
-                "comments": 22,
-                "reposts": 6
-              },
               "why": "A new CFO's outsider lens is a strong hook, and it speaks straight to budget-minded board treasurers.",
               "ideas": [
                 {
@@ -3376,13 +3467,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 "1 yr 7 mos in role"
               ],
               "voice": "Analytical · approachable",
-              "post": {
-                "time": "4d",
-                "body": "Finance isn't the department of \"no.\" At its best, it's the team that makes \"yes\" possible.\n\nIn a 24/7 business like ours, every decision has a cost you can see and a cost you can't: the overnight shift, the backup systems, the training that makes a guard confident at 3 AM.\n\nWhat 15+ years in finance leadership has taught me:\n→ Numbers are a story. Learn to tell it in plain language\n→ The best forecast is built with operations, not for them\n→ Invest early in the things customers never see but always feel\n\nTo every finance pro who's ever been called \"the budget police\": you're really the growth team. Own it.",
-                "reactions": 241,
-                "comments": 27,
-                "reposts": 11
-              },
               "why": "A CFO speaking to volunteer board treasurers in their own language builds trust before sales ever calls.",
               "ideas": [
                 {
@@ -3420,13 +3504,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 "2 yrs 1 mo at Envera"
               ],
               "voice": "Relationship-first",
-              "post": {
-                "time": "1w",
-                "body": "The best partnership I've built in community security didn't start with a pitch.\n\nIt started with a property manager telling me what kept her up at night: overnight coverage gaps, turnover at the gate, and residents calling her cell at midnight.\n\nSo we built around her problems, not our product.\n\nThat's how I think about partnerships at Envera:\n1. Listen longer than feels comfortable\n2. Solve the partner's problem before your own\n3. Measure success by their renewals, not your signatures\n\nManagement companies, developers, CAI chapters: if you're thinking about what community security should look like in 2027, I'd love to compare notes.",
-                "reactions": 187,
-                "comments": 24,
-                "reposts": 7
-              },
               "why": "Partnership leaders win on trust. A story-first post opens doors a pitch never will.",
               "ideas": [
                 {
@@ -3464,13 +3541,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 "18 yrs at Envera"
               ],
               "voice": "Grounded · grateful",
-              "post": {
-                "time": "5d",
-                "body": "18 years ago, I joined a small team with a big idea: that a licensed security professional didn't need to sit in a booth to protect a community.\n\nI've watched Envera grow from that small team into a 24/7 central station serving communities across the region, and I helped build our sales and marketing operations from the ground up along the way.\n\nWhat 18 years in revenue operations has taught me:\n→ Clean data is a kindness to your future self\n→ Every handoff between marketing, sales and service is a promise to a customer\n→ The best dashboard is the one people actually open on Monday\n\nGrateful for the people who've made this ride worth every year. Here's to the next 18. 💙",
-                "reactions": 402,
-                "comments": 58,
-                "reposts": 5
-              },
               "why": "Eighteen years at one company is a rare story. Pairing nostalgia with a practical giveaway earns both love and saves.",
               "ideas": [
                 {
@@ -3508,13 +3578,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 "7 yrs 9 mos in role"
               ],
               "voice": "Builder · principled",
-              "post": {
-                "time": "6d",
-                "body": "Great code is table stakes.\n\nThe harder job in engineering leadership is building the systems, teams and habits that keep great code shipping, year after year.\n\nNearly eight years leading software engineering at Envera has taught me:\n→ Reliability is designed in, not tested in at the end\n→ Small, frequent releases beat big-bang launches\n→ The best engineers always ask who's on the other side of the screen (for us, it's a guard at 3 AM and a resident at the gate)\n\nWhat's one engineering habit you'd never give up?",
-                "reactions": 231,
-                "comments": 34,
-                "reposts": 12
-              },
               "why": "Engineering leaders attract talent and reassure buyers at the same time. Principles travel well on LinkedIn.",
               "ideas": [
                 {
@@ -3552,13 +3615,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 "18 yrs 7 mos at Envera"
               ],
               "voice": "Curious · practical",
-              "post": {
-                "time": "1w",
-                "body": "I've been at Envera for more than 18 years. The question I get most: what keeps it interesting?\n\nR&D in community security means solving problems you can feel. A resident waiting at a gate. A manager chasing lost fobs. A guard who needs one more second of clarity on a screen.\n\nMy background is in operations and finance, so I look at every new idea with two questions:\n1. Does it make someone's day measurably easier?\n2. Can we support it reliably at scale?\n\nIf the answer to both is yes, we build. If not, we keep listening.\n\nGrowth-stage builders: what's your filter for which ideas make the cut?",
-                "reactions": 176,
-                "comments": 19,
-                "reposts": 8
-              },
               "why": "R&D is where the future lives. A grounded AI take stands out in a feed full of hype.",
               "ideas": [
                 {
@@ -3596,13 +3652,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 "10 months in role"
               ],
               "voice": "Warm · people-first",
-              "post": {
-                "time": "2d",
-                "body": "We hire for calm.\n\nSkills can be trained. But the people who thrive at our central station share something harder to teach: they stay steady when the calls stack up, and kind when someone's having a rough night at the gate.\n\nSince joining Envera, I've been building our people strategy around that:\n→ Hiring for temperament, then training for technique\n→ Career paths from the central station into leadership\n→ Recognition that happens on the night shift, not just at 9 AM\n\nThe best security isn't a system. It's people who care, backed by a system that works.\n\nWe're hiring → enverasystems.com/careers",
-                "reactions": 318,
-                "comments": 41,
-                "reposts": 16
-              },
               "why": "HR posts double as recruiting. Showing the culture behind a 24/7 team makes Envera a place people want to work.",
               "ideas": [
                 {
@@ -3632,7 +3681,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
               ]
             }
-          ]
+          ],
+          "title": "The leaders · tap a card for their post ideas"
         }
       ]
     },
