@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Durva × Colleen · The Florida loop</title>
+  <meta name="description" content="Toronto → New York → Florida: how Durva and Colleen could make the monthly Florida trips a tag team.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Durva × Colleen · The Florida loop">
+  <meta property="og:description" content="Monthly Florida trips? Let's make them a tag team.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #0038F5; --blue-dk: #0026a8; --yellow: #FFBD00; --char: #353535; --ink: #121826; --muted: #5b6475;
+      --bg: #f5f7fc; --line: #e3e8f3; --ocean: #e6eeff; --land: #ffffff; --pixel: "Press Start 2P", monospace;
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Inter", system-ui, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { color: inherit; }
+    .wrap { max-width: 1200px; margin: 0 auto; padding-inline: 22px; }
+    .top { display: flex; justify-content: space-between; align-items: center; padding-block: 18px; font-size: 14px; color: var(--muted); font-weight: 600; }
+    .top b { color: var(--ink); }
+    .top a { text-decoration: none; }
+
+    /* hero */
+    .hero { padding-block: 26px 22px; display: grid; grid-template-columns: 1.3fr .7fr; gap: 30px; align-items: end; }
+    .kick { font-family: var(--pixel); font-size: 10px; color: var(--blue); letter-spacing: .04em; }
+    h1 { font-size: clamp(38px, 5.6vw, 72px); line-height: 1.02; letter-spacing: -0.04em; font-weight: 800; margin-top: 14px; }
+    h1 em { font-style: normal; color: var(--blue); }
+    h1 .hl { background: linear-gradient(transparent 62%, var(--yellow) 62%); }
+    .hero p { font-size: 19px; color: #3b4456; margin-top: 16px; max-width: 640px; }
+    .quote { background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 18px 20px; font-size: 15px; color: #3b4456; box-shadow: 0 20px 40px -30px rgba(0,40,120,.35); }
+    .quote b { display: block; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+    .quote i { font-style: normal; color: var(--ink); }
+
+    /* stage */
+    .stage { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, .95fr); gap: 18px; margin-top: 12px; }
+    .mapbox { align-self: start; position: relative; border-radius: 28px; overflow: hidden; background: radial-gradient(1200px 700px at 30% 10%, #f1f5ff, var(--ocean)); border: 1px solid var(--line); box-shadow: 0 40px 60px -40px rgba(0,40,120,.45); min-height: 0; }
+    #map { display: block; width: 100%; aspect-ratio: 1000 / 820; }
+    .loading { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--pixel); font-size: 11px; color: var(--muted); }
+    .cap { position: absolute; left: 16px; top: 16px; right: 16px; display: flex; gap: 12px; align-items: flex-start; pointer-events: none; }
+    .cap .card { background: rgba(255,255,255,.94); backdrop-filter: blur(6px); border: 1px solid var(--line); border-radius: 18px; padding: 12px 16px; max-width: 420px; box-shadow: 0 16px 30px -22px rgba(0,40,120,.5); transition: transform .35s cubic-bezier(.3,1.4,.5,1), opacity .25s; }
+    .cap .card.swap { transform: translateY(-6px); opacity: .2; }
+    .cap .n { font-family: var(--pixel); font-size: 9px; color: var(--blue); }
+    .cap h3 { font-size: 19px; letter-spacing: -0.02em; margin-top: 4px; line-height: 1.2; }
+    .cap p { font-size: 14px; color: var(--muted); margin-top: 2px; }
+    .cap .clock { margin-left: auto; background: var(--ink); color: #fff; border-radius: 14px; padding: 10px 12px; font-family: var(--pixel); font-size: 10px; line-height: 1.6; text-align: right; white-space: nowrap; }
+    .cap .clock span { color: var(--yellow); }
+    .ctrl { position: absolute; left: 16px; right: 16px; bottom: 14px; display: flex; gap: 10px; align-items: center; }
+    .ctrl button { border: 0; cursor: pointer; font: 700 13px "Inter"; padding: 10px 14px; border-radius: 12px; background: #fff; color: var(--ink); box-shadow: 0 6px 14px -8px rgba(0,0,0,.35); }
+    .ctrl button.pri { background: var(--blue); color: #fff; }
+    .scrub { flex: 1; height: 8px; border-radius: 99px; background: rgba(0,56,245,.14); position: relative; cursor: pointer; }
+    .scrub b { position: absolute; left: 0; top: 0; bottom: 0; width: 0; border-radius: inherit; background: var(--blue); }
+    .scrub i { position: absolute; top: -3px; width: 2px; height: 14px; background: rgba(0,0,0,.18); }
+
+    /* side panel */
+    .side { display: grid; gap: 14px; align-content: start; }
+    .mode { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; background: #fff; padding: 6px; border-radius: 18px; border: 1px solid var(--line); }
+    .mode button { border: 0; cursor: pointer; padding: 12px 10px; border-radius: 13px; background: transparent; font: 700 14px "Inter"; color: var(--muted); line-height: 1.25; }
+    .mode button small { display: block; font-weight: 500; font-size: 12px; margin-top: 2px; }
+    .mode button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+    .legs { list-style: none; background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 8px; }
+    .legs li { display: grid; grid-template-columns: 38px 1fr auto; gap: 10px; align-items: center; padding: 10px; border-radius: 14px; cursor: pointer; transition: background .2s; }
+    .legs li:hover { background: #f2f5fd; }
+    .legs li.on { background: #eaf0ff; }
+    .legs li.done .ic { background: var(--blue); color: #fff; }
+    .legs .ic { width: 38px; height: 38px; border-radius: 12px; display: grid; place-items: center; background: #f0f3fa; font-size: 18px; transition: background .3s; }
+    .legs b { display: block; font-size: 14.5px; letter-spacing: -0.01em; line-height: 1.25; }
+    .legs span { font-size: 12.5px; color: var(--muted); }
+    .legs em { font-style: normal; font-family: var(--pixel); font-size: 8.5px; color: var(--blue); white-space: nowrap; }
+    .note { font-size: 12.5px; color: var(--muted); padding-inline: 6px; }
+
+    /* why it works */
+    .why { padding-block: 70px 20px; }
+    .why h2 { font-size: clamp(30px, 4vw, 48px); letter-spacing: -0.035em; line-height: 1.05; font-weight: 800; }
+    .why h2 em { font-style: normal; color: var(--blue); }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+    .c { background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: 24px; display: grid; gap: 10px; align-content: start; transition: transform .3s cubic-bezier(.3,1.5,.5,1); }
+    .c:hover { transform: translateY(-5px); }
+    .c .e { width: 52px; height: 52px; border-radius: 16px; display: grid; place-items: center; font-size: 26px; background: #eaf0ff; }
+    .c:nth-child(2) .e { background: #fff4d1; } .c:nth-child(3) .e { background: #e8f7ee; }
+    .c h3 { font-size: 21px; letter-spacing: -0.02em; line-height: 1.15; }
+    .c p { font-size: 15.5px; color: #3b4456; }
+    .end { margin-block: 60px 40px; border-radius: 32px; background: var(--blue); color: #fff; padding: clamp(30px, 6vw, 70px); display: grid; grid-template-columns: 1.3fr .7fr; gap: 24px; align-items: center; overflow: hidden; position: relative; }
+    .end h2 { font-size: clamp(30px, 4.4vw, 54px); letter-spacing: -0.04em; line-height: 1.02; font-weight: 800; }
+    .end h2 span { color: var(--yellow); }
+    .end p { margin-top: 12px; font-size: 18px; opacity: .92; }
+    .end .btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .end a { text-decoration: none; font-weight: 700; font-size: 15px; padding: 14px 18px; border-radius: 14px; background: #fff; color: var(--blue); }
+    .end a.alt { background: var(--yellow); color: var(--ink); }
+    .end canvas { justify-self: center; width: min(100%, 260px); image-rendering: pixelated; }
+    footer { text-align: center; font-size: 13px; color: var(--muted); padding-bottom: 36px; }
+
+    @media (max-width: 980px) {
+      .hero, .stage, .end { grid-template-columns: 1fr; }
+      .cards { grid-template-columns: 1fr; }
+      .mapbox { min-height: 0; }
+    }
+    @media (max-width: 600px) {
+      .cap .clock { display: none; }
+      .mapbox { display: flex; flex-direction: column; }
+      .cap { position: relative; order: -1; left: auto; top: auto; right: auto; padding: 10px 10px 0; }
+      .cap .card { max-width: none; width: 100%; box-shadow: none; }
+      .cap h3 { font-size: 16px; }
+      .cap p { font-size: 12.5px; }
+      .mapbox { min-height: 0; }
+      #map { aspect-ratio: 1000 / 900; }
+      .ctrl button { padding: 9px 11px; font-size: 12px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .cap .card { transition: none; } }
+  </style>
+</head>
+<body>
+  <header class="wrap top"><b>Durva Thakkar</b><a href="/envera-systems/">← back to the Envera site</a></header>
+
+  <main>
+    <section class="wrap hero">
+      <div>
+        <div class="kick">FOR COLLEEN · A LITTLE MAP</div>
+        <h1>Florida every month? <em>Let's make it a</em> <span class="hl">tag team.</span></h1>
+        <p>You mentioned most of Envera's customers are in Florida, and that flying back and forth from New York every month can be a lot. So I mapped how it could work with me on the team. Press play.</p>
+      </div>
+      <div class="quote"><b>You said</b><i>"…it's very ideal to have someone there or close. I'm in NY so I travel back and forth every month which can be a lot."</i></div>
+    </section>
+
+    <section class="wrap stage">
+      <div class="mapbox">
+        <svg id="map" viewBox="0 0 1000 820" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Animated map. Together plan: Durva flies from Toronto Pearson to New York LaGuardia, picks up Colleen, and they fly together to Florida for customer visits, then return: Colleen is dropped home in New York and Durva flies back to Toronto. Solo plan: Durva flies Toronto to Florida directly while Colleen stays home."></svg>
+        <div class="loading" id="loading">LOADING MAP…</div>
+        <div class="cap">
+          <div class="card" id="capCard"><div class="n" id="capN">STEP 1</div><h3 id="capT">Starting in Toronto</h3><p id="capP">Bags packed, coffee in hand.</p></div>
+          <div class="clock" id="clock">TRAVEL TIME<br><span id="clockV">0h 00m</span></div>
+        </div>
+        <div class="ctrl">
+          <button class="pri" type="button" id="play">❚❚ Pause</button>
+          <div class="scrub" id="scrub" role="slider" aria-label="Timeline" tabindex="0" aria-valuemin="0" aria-valuemax="100"><b id="scrubB"></b></div>
+          <button type="button" id="again">↺ Replay</button>
+        </div>
+      </div>
+
+      <aside class="side">
+        <div class="mode" role="group" aria-label="Which trip">
+          <button type="button" data-mode="together" aria-pressed="true">✈️ Together<small>I pick you up on the way</small></button>
+          <button type="button" data-mode="solo" aria-pressed="false">🙋‍♀️ I've got this one<small>You stay home this month</small></button>
+        </div>
+        <ol class="legs" id="legs"></ol>
+      </aside>
+    </section>
+
+    <section class="wrap why">
+      <div class="kick">WHY IT WON'T BE A LOT, FOR EITHER OF US</div>
+      <h2>Partners in transit, <em>not two people commuting alone.</em></h2>
+      <div class="cards">
+        <div class="c"><div class="e">🗺️</div><h3>New York is right on my way</h3><p>Toronto to New York is a short hop, so meeting you at LaGuardia and flying down together barely adds time to my trip.</p></div>
+        <div class="c"><div class="e">📝</div><h3>The flight becomes our planning meeting</h3><p>Customer notes, the week's agenda, content ideas from the last visit. Two and a half hours to Florida is a lot of focused time together.</p></div>
+        <div class="c"><div class="e">🏠</div><h3>Some months, you stay home</h3><p>When it makes sense, I can fly straight to Florida on my own and handle the visits, so the monthly trip stops being all on you.</p></div>
+      </div>
+
+      <div class="end">
+        <div>
+          <h2>Toronto → New York → Florida. <span>Happy to make the trip.</span></h2>
+          <p>Looking forward to our chat, Colleen. Thank you again for everything! 😊</p>
+          <div class="btns"><a href="mailto:durvathakker7@gmail.com?subject=The%20Florida%20loop">✉ durvathakker7@gmail.com</a><a class="alt" href="/envera-systems/">See the Envera site</a></div>
+        </div>
+        <canvas id="duo" width="84" height="64" aria-label="Pixel Durva and Colleen waving" role="img"></canvas>
+      </div>
+    </section>
+  </main>
+  <footer>Made for Colleen by Durva Thakkar</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+<script>
+/* =====================================================================
+   Pixel sprites: the same Durva and Colleen from the Envera site
+   ===================================================================== */
+const Sprites = (() => {
+  const pad = rows => rows.map(r => r.padEnd(14, '.').slice(0, 14));
+  const TOP = pad(["....HHHHHH....", "..HHHHHHHHHH..", ".HHHHHHHHHHHH.", ".HHHHSSSSSSH..", ".HHHSSSESSES..", ".HHHSSSSSSSS..", ".HHHSSSSSMMS..", ".HHHHSSSSSS...", ".HHHHHTTTT....", ".HHHTTTTTTT...", ".HHTTTTTTTTT..", ".HHTTTTTTTTT..", ".HHTTTTTTTTT..", "..HTTTTTTTT...", "...TTTTTTTT...", "...TTTTTTTT...", "...BBBBBBBB..."]);
+  const TOP_D = pad(["...HHHhHHH....", "..HHhHHHHHHH..", ".HHHHHHHHhHHH.", ".HhHHSSSSSSHH.", ".HHHSSGGGGGG..", ".HHHSSGGSGGS..", ".HHhSSSSSMMS..", "HHHHHSSSSSSH..", "HhHHHWWWWHHhH.", "HHHTTTWWTTTHH.", ".HTTTTTWTTTTH.", "..TTTTTTTTTT..", "..TtTTTTTTtT..", "...TTTTtTTTT..", "...TTTTTTTT...", "...TTTTTTTT...", "...tttttttt..."]);
+  const LEGS = pad(["...PPPPPPPP...", "...PPPPPPPP...", "...PPPppPPP...", "..PPPPppPPPP..", "..PPPPppPPPP..", "..PPPP..PPPP..", "..PPPP..PPPP..", ".PPPPP..PPPPP.", ".PPPPP..PPPPP.", ".PPPPP..PPPPP.", "..FFF....FFF.."]);
+  const PAL = {
+    C: { top: TOP, H: '#f0cf86', S: '#f4cdb0', E: '#2b1a12', M: '#c2555a', T: '#18181d', B: '#050505', P: '#efe7d2', p: '#d4c7a6', F: '#3b2a20' },
+    D: { top: TOP_D, H: '#1c1310', h: '#3b2a22', S: '#d9a47e', G: '#0b0b0d', M: '#b0525a', W: '#f4f1ea', T: '#1f2645', t: '#151a33', P: '#2e4163', p: '#22314d', F: '#1a1a1a' },
+  };
+  const HANDS = { stand: [[9, 17]], wave: [[13, 0]], wave2: [[14, -2]], cheer: [[14, -4], [-1, -3]] };
+  function draw(g, who, pose, ox = 0, oy = 0) {
+    const pal = PAL[who], R = (x, y, c) => { g.fillStyle = c; g.fillRect(ox + x, oy + y, 1, 1); };
+    const hands = HANDS[pose], sh = [[9, 10], [3, 10]];
+    const arms = () => hands.forEach(([hx, hy], i) => { const [sx, sy] = sh[i]; const n = Math.max(Math.abs(hx - sx), Math.abs(hy - sy)); for (let k = 0; k <= n; k++) { const x = Math.round(sx + (hx - sx) * k / n), y = Math.round(sy + (hy - sy) * k / n); R(x, y, pal.T); R(x + 1, y, pal.T); } R(hx, hy, pal.S); R(hx + 1, hy, pal.S); R(hx, hy + 1, pal.S); R(hx + 1, hy + 1, pal.S); });
+    const behind = hands[0][1] < 8;
+    if (behind) arms();
+    pal.top.forEach((row, r) => { for (let i = 0; i < 14; i++) { const ch = row[i]; if (ch !== '.') R(i, r, pal[ch]); } });
+    LEGS.forEach((row, r) => { for (let i = 0; i < 14; i++) { const ch = row[i]; if (ch !== '.') R(i, 17 + r, pal[ch]); } });
+    if (!behind) arms();
+  }
+  const cache = {};
+  function url(who, pose) { // 18×30 px sprite, drawn at 1px, scaled up by the SVG
+    const k = who + pose; if (cache[k]) return cache[k];
+    const c = document.createElement('canvas'); c.width = 18; c.height = 30; const g = c.getContext('2d'); draw(g, who, pose, 2, 2);
+    return cache[k] = c.toDataURL();
+  }
+  return { draw, url };
+})();
+
+/* =====================================================================
+   The map + the trip
+   ===================================================================== */
+(async () => {
+  const svg = d3.select('#map'), W = 1000, H = 820;
+  const P = {
+    yyz: { name: 'Toronto', sub: 'YYZ · Durva', ll: [-79.6248, 43.6777] },
+    lga: { name: 'New York', sub: 'LGA · Colleen', ll: [-73.874, 40.7769] },
+    tpa: { name: 'Tampa', sub: 'TPA · Florida customers', ll: [-82.5332, 27.9755] },
+  };
+  const VISITS = [[-82.53, 27.34], [-81.38, 28.54], [-80.18, 26.25], [-82.46, 27.95]];
+  const proj = d3.geoConicConformal().parallels([29, 45]).rotate([78, 0]);
+  proj.fitExtent([[70, 150], [W - 60, H - 90]], { type: 'MultiPoint', coordinates: [[-84.6, 25.2], [-72.2, 45.6], [-79.6, 45.4], [-82.8, 24.6]] });
+  const xy = ll => proj(ll);
+
+  const gLand = svg.append('g'), gLakes = svg.append('g'), gRoutes = svg.append('g'), gPins = svg.append('g'), gFx = svg.append('g'), gMove = svg.append('g');
+  // map data (country + state outlines). If the CDN is slow, the trip still plays on a plain background.
+  try {
+    const [world, us] = await Promise.all([
+      d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json'),
+      d3.json('https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json'),
+    ]);
+    const path = d3.geoPath(proj);
+    const countries = topojson.feature(world, world.objects.countries).features.filter(f => ['124', '840', '484', '192', '044'].includes(f.id));
+    gLand.selectAll('path').data(countries).join('path').attr('d', path).attr('fill', d => d.id === '840' ? '#ffffff' : '#f7f9fe').attr('stroke', '#c9d4ee').attr('stroke-width', 1.2);
+    gLand.append('path').attr('d', path(topojson.mesh(us, us.objects.states, (a, b) => a !== b))).attr('fill', 'none').attr('stroke', '#dfe6f5').attr('stroke-width', 1);
+    // Florida gets a soft highlight: it's where the customers are
+    const fl = topojson.feature(us, us.objects.states).features.find(f => f.properties.name === 'Florida');
+    if (fl) gLand.append('path').attr('d', path(fl)).attr('fill', 'rgba(255,189,0,.16)').attr('stroke', 'rgba(255,170,0,.55)').attr('stroke-width', 1.4);
+    const ny = topojson.feature(us, us.objects.states).features.find(f => f.properties.name === 'New York');
+    if (ny) gLand.append('path').attr('d', path(ny)).attr('fill', 'rgba(0,56,245,.05)');
+  } catch (e) { /* plain background */ }
+  // Great Lakes (+ Lake Simcoe by Barrie), simplified
+  const LAKES = [
+    [[-79.8, 43.3], [-79.2, 43.2], [-78.5, 43.35], [-77.6, 43.28], [-76.8, 43.3], [-76.2, 43.55], [-76.3, 44.0], [-76.9, 43.95], [-77.6, 44.0], [-78.4, 43.95], [-79.1, 43.8], [-79.5, 43.65]],
+    [[-83.5, 41.7], [-82.7, 41.45], [-81.7, 41.5], [-80.6, 41.95], [-79.8, 42.25], [-78.9, 42.8], [-79.4, 42.85], [-80.2, 42.6], [-81.2, 42.65], [-82.0, 42.25], [-82.9, 42.0]],
+    [[-82.45, 43.0], [-82.2, 43.6], [-81.7, 44.3], [-81.6, 45.1], [-81.3, 44.9], [-80.9, 44.5], [-80.1, 44.5], [-79.9, 44.8], [-80.2, 45.3], [-80.6, 45.8], [-81.2, 45.95], [-82.5, 45.9], [-83.5, 46.0], [-84.0, 45.9], [-84.5, 45.7], [-84.2, 45.4], [-83.4, 45.0], [-83.3, 44.4], [-83.9, 43.9], [-83.5, 43.7], [-82.6, 43.1]],
+    [[-87.8, 41.7], [-87.5, 41.65], [-86.8, 42.0], [-86.3, 42.8], [-86.4, 43.6], [-86.2, 44.5], [-85.6, 45.2], [-85.0, 45.8], [-84.8, 46.0], [-85.6, 45.9], [-86.6, 45.7], [-87.2, 45.3], [-87.6, 44.7], [-87.8, 44.0], [-87.9, 43.2], [-87.8, 42.4]],
+    [[-79.62, 44.3], [-79.3, 44.25], [-79.2, 44.45], [-79.35, 44.56], [-79.52, 44.5], [-79.66, 44.39]],
+  ];
+  const line = d3.line().curve(d3.curveCatmullRomClosed.alpha(.5));
+  LAKES.forEach(l => gLakes.append('path').attr('d', line(l.map(xy))).attr('fill', '#dbe6ff').attr('stroke', '#c3d3f5').attr('stroke-width', 1));
+  document.getElementById('loading').remove();
+
+  // city labels for context
+  [['Ottawa', [-75.7, 45.42], 0, -10], ['Washington', [-77.04, 38.9], 0, -10], ['Atlanta', [-84.39, 33.75], 0, -10], ['Miami', [-80.19, 25.76], 0, 18]].forEach(([n, ll, dx, dy]) => {
+    const [x, y] = xy(ll); gPins.append('circle').attr('cx', x).attr('cy', y).attr('r', 2.5).attr('fill', '#b7c3de');
+    gPins.append('text').attr('x', x + dx).attr('y', y + dy).attr('text-anchor', 'middle').attr('font-size', 12).attr('fill', '#8a96b3').attr('font-weight', 600).text(n);
+  });
+
+  // routes: flights follow the great circle and lift into a gentle arc; drives are straight
+  function legPath(a, b, kind) {
+    const A = xy(P[a].ll), B = xy(P[b].ll);
+    if (kind === 'drive') return `M${A}L${B}`;
+    const gi = d3.geoInterpolate(P[a].ll, P[b].ll), pts = d3.range(0, 1.0001, .02).map(t => xy(gi(t)));
+    const [dx, dy] = [B[0] - A[0], B[1] - A[1]], len = Math.hypot(dx, dy), nx = -dy / len, ny = dx / len, lift = Math.min(90, len * .16) * (dx >= 0 ? -1 : 1);
+    return d3.line().curve(d3.curveBasis)(pts.map(([x, y], i) => { const t = i / (pts.length - 1), k = Math.sin(t * Math.PI) * lift; return [x + nx * k, y + ny * k]; }));
+  }
+
+  // pins
+  const pin = (key, color, labelSide = 1, dy = -2) => {
+    const [x, y] = xy(P[key].ll), g = gPins.append('g').attr('transform', `translate(${x},${y})`);
+    g.append('circle').attr('r', 16).attr('fill', color).attr('opacity', .16).attr('class', 'pulse');
+    g.append('circle').attr('r', 7).attr('fill', color).attr('stroke', '#fff').attr('stroke-width', 3);
+    const tx = g.append('g').attr('transform', `translate(${labelSide * 16},${dy})`);
+    tx.append('text').attr('text-anchor', labelSide > 0 ? 'start' : 'end').attr('font-size', 16).attr('font-weight', 800).attr('fill', '#121826').text(P[key].name);
+    tx.append('text').attr('y', 17).attr('text-anchor', labelSide > 0 ? 'start' : 'end').attr('font-size', 12).attr('font-weight', 600).attr('fill', '#5b6475').text(P[key].sub);
+  };
+  pin('yyz', '#0038F5', 1, 12); pin('lga', '#e14d8a', 1, 26); pin('tpa', '#f0a500', -1, 22);
+
+  // people standing at pins (pixel sprites, scaled crisp)
+  const person = (who, pose) => { const g = gMove.append('g').attr('opacity', 0); g.append('image').attr('href', Sprites.url(who, pose)).attr('width', 48).attr('height', 80).attr('x', -24).attr('y', -80).style('image-rendering', 'pixelated'); return g; };
+  const setPose = (g, who, pose) => g.select('image').attr('href', Sprites.url(who, pose));
+  const durva = person('D', 'stand'), colleen = person('C', 'stand');
+
+  // vehicle: plane or car, plus a "passenger window" chip that shows who's on board
+  const veh = gMove.append('g').attr('opacity', 0);
+  const plane = veh.append('g');
+  plane.append('circle').attr('r', 20).attr('fill', '#0038F5').attr('stroke', '#fff').attr('stroke-width', 3);
+  plane.append('path').attr('d', 'M-9,-1 L-2,-2 L3,-10 L6,-10 L3,-2 L9,-2 L11,-5 L13,-5 L12,0 L13,5 L11,5 L9,2 L3,2 L6,10 L3,10 L-2,2 L-9,1 Z').attr('fill', '#fff');
+  const car = veh.append('g').attr('opacity', 0);
+  car.append('circle').attr('r', 18).attr('fill', '#121826').attr('stroke', '#fff').attr('stroke-width', 3);
+  car.append('text').attr('text-anchor', 'middle').attr('y', 6).attr('font-size', 16).text('🚗');
+  const chip = gMove.append('g').attr('opacity', 0);
+  const chipBg = chip.append('rect').attr('rx', 14).attr('fill', '#fff').attr('stroke', '#dbe3f5');
+  const chipD = chip.append('image').attr('href', Sprites.url('D', 'stand')).attr('width', 36).attr('height', 60).style('image-rendering', 'pixelated');
+  const chipC = chip.append('image').attr('href', Sprites.url('C', 'stand')).attr('width', 36).attr('height', 60).style('image-rendering', 'pixelated');
+  const chipT = chip.append('text').attr('font-size', 15).attr('font-weight', 700).attr('fill', '#121826');
+
+  // Florida visit markers
+  const visits = VISITS.map(ll => { const [x, y] = xy(ll), g = gFx.append('g').attr('transform', `translate(${x},${y})`).attr('opacity', 0); g.append('circle').attr('r', 15).attr('fill', '#fff').attr('stroke', '#f0a500').attr('stroke-width', 3); g.append('text').attr('text-anchor', 'middle').attr('y', 6).attr('font-size', 15).text('🏘️'); const ok = g.append('g').attr('transform', 'translate(12,-12)').attr('opacity', 0); ok.append('circle').attr('r', 8).attr('fill', '#1faa59'); ok.append('text').attr('text-anchor', 'middle').attr('y', 4).attr('font-size', 11).attr('fill', '#fff').attr('font-weight', 800).text('✓'); return { g, ok }; });
+
+  /* ---------------- the two plans ---------------- */
+  const PLANS = {
+    together: [
+      { kind: 'hold', at: 'yyz', dur: 2, n: 'STEP 1', t: 'Starting in Toronto', p: 'Bags packed, coffee in hand.', ic: '🧳', li: ['Leave from Toronto', 'Toronto Pearson · YYZ'], time: '', who: ['D'] },
+      { kind: 'fly', a: 'yyz', b: 'lga', dur: 3.8, n: 'STEP 2', t: 'Toronto → New York', p: 'A quick hop to LaGuardia.', ic: '✈️', li: ['Fly to New York', 'YYZ → LGA'], time: '≈ 1h 30m', mins: 90, who: ['D'] },
+      { kind: 'pickup', at: 'lga', dur: 2.4, n: 'STEP 3', t: 'Picking you up in New York 👋', p: 'You board with me, and we fly down together.', ic: '🤝', li: ['Meet Colleen at LGA', 'Same gate, same flight'], time: '', who: ['D', 'C'] },
+      { kind: 'fly', a: 'lga', b: 'tpa', dur: 4.6, n: 'STEP 4', t: 'New York → Florida, together', p: 'Our in-flight planning meeting: customers, agenda, ideas.', ic: '📝', li: ['Fly to Florida together', 'LGA → TPA · plan on board'], time: '≈ 2h 45m', mins: 165, who: ['D', 'C'] },
+      { kind: 'visits', at: 'tpa', dur: 4, n: 'STEP 5', t: 'Customer visits in Florida', p: 'Two of us on the ground, so we cover more in less time.', ic: '🏘️', li: ['Florida customer visits', 'Wherever the customers are'], time: '', who: ['D', 'C'] },
+      { kind: 'fly', a: 'tpa', b: 'lga', dur: 4.2, n: 'STEP 6', t: 'Florida → New York', p: 'You\'re home for dinner.', ic: '🗽', li: ['Fly back to New York', 'TPA → LGA · you\'re home'], time: '≈ 2h 35m', mins: 155, who: ['D', 'C'], drop: true },
+      { kind: 'fly', a: 'lga', b: 'yyz', dur: 3.4, n: 'STEP 7', t: 'New York → Toronto', p: 'One smooth loop. See you next month!', ic: '✈️', li: ['Fly back to Toronto', 'LGA → YYZ'], time: '≈ 1h 30m', mins: 90, who: ['D'] },
+    ],
+    solo: [
+      { kind: 'hold', at: 'yyz', dur: 2, n: 'STEP 1', t: 'This month, I\'ve got it', p: 'You stay home in New York. I head south.', ic: '🧳', li: ['Leave from Toronto', 'Toronto Pearson · YYZ'], time: '', who: ['D'] },
+      { kind: 'fly', a: 'yyz', b: 'tpa', dur: 5.4, n: 'STEP 2', t: 'Toronto → Florida, direct', p: 'You get the month off from the airport.', ic: '✈️', li: ['Fly straight to Florida', 'YYZ → TPA'], time: '≈ 3h', mins: 180, who: ['D'] },
+      { kind: 'visits', at: 'tpa', dur: 4, n: 'STEP 3', t: 'Customer visits in Florida', p: 'I send you notes and photos after every visit.', ic: '🏘️', li: ['Florida customer visits', 'Updates to you after each one'], time: '', who: ['D'] },
+      { kind: 'fly', a: 'tpa', b: 'yyz', dur: 5, n: 'STEP 4', t: 'Florida → Toronto', p: 'And you never left New York. ☕', ic: '✈️', li: ['Fly back to Toronto', 'TPA → YYZ'], time: '≈ 2h 50m', mins: 170, who: ['D'] },
+    ],
+  };
+
+  let mode = 'together', legs = [], total = 0, clock = 0, playing = !matchMedia('(prefers-reduced-motion: reduce)').matches, last = performance.now(), stepIdx = -1;
+  const routeEls = [];
+  function build() {
+    gRoutes.selectAll('*').remove(); routeEls.length = 0;
+    legs = PLANS[mode]; total = 0;
+    legs.forEach(l => { l.t0 = total; total += l.dur; l.t1 = total; });
+    total += 2.2; // end pause
+    legs.forEach(l => {
+      if (!l.a) return routeEls.push(null);
+      const d = legPath(l.a, l.b, l.kind);
+      gRoutes.append('path').attr('d', d).attr('fill', 'none').attr('stroke', '#b9c6e6').attr('stroke-width', 2.5).attr('stroke-dasharray', l.kind === 'drive' ? '3 7' : '7 8').attr('stroke-linecap', 'round');
+      const p = gRoutes.append('path').attr('d', d).attr('fill', 'none').attr('stroke', l.kind === 'drive' ? '#121826' : (l.who.includes('C') ? '#e14d8a' : '#0038F5')).attr('stroke-width', 4.5).attr('stroke-linecap', 'round');
+      const len = p.node().getTotalLength(); p.attr('stroke-dasharray', `${len} ${len}`).attr('stroke-dashoffset', len);
+      routeEls.push({ el: p.node(), len });
+    });
+    // itinerary list
+    const ol = document.getElementById('legs');
+    ol.innerHTML = legs.map((l, i) => `<li data-i="${i}"><span class="ic">${l.ic}</span><div><b>${l.li[0]}</b><span>${l.li[1]}</span></div><em>${l.time}</em></li>`).join('');
+    ol.querySelectorAll('li').forEach(li => li.addEventListener('click', () => { clock = legs[+li.dataset.i].t0 + .01; render(); }));
+    const sc = document.getElementById('scrub'); sc.querySelectorAll('i').forEach(x => x.remove());
+    legs.forEach(l => { const m = document.createElement('i'); m.style.left = (l.t0 / total * 100) + '%'; sc.appendChild(m); });
+    stepIdx = -1; clock = 0; render();
+  }
+
+  const ease = u => u < .5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2;
+  const at = key => xy(P[key].ll);
+  function placeChip(x, y, who, label) {
+    chip.attr('opacity', 1).attr('transform', `translate(${x},${y - 34})`);
+    const n = who.length, w = 18 + n * 38 + (label ? label.length * 8.6 + 8 : 0);
+    chipBg.attr('x', -w / 2).attr('y', -70).attr('width', w).attr('height', 72);
+    chipD.attr('x', -w / 2 + 9).attr('y', -66);
+    chipC.attr('x', -w / 2 + 47).attr('y', -66).attr('opacity', who.includes('C') ? 1 : 0);
+    chipT.attr('x', -w / 2 + 14 + n * 38).attr('y', -28).text(label || '');
+  }
+  function mins(t) { let m = 0; for (const l of legs) { if (!l.mins) continue; if (t >= l.t1) m += l.mins; else if (t > l.t0) m += l.mins * (t - l.t0) / l.dur; } return Math.round(m); }
+
+  function render() {
+    const t = Math.min(clock, total - .001);
+    let i = legs.findIndex(l => t < l.t1); if (i < 0) i = legs.length - 1;
+    const l = legs[i], u = Math.max(0, Math.min(1, (t - l.t0) / l.dur)), wave = Math.floor(t * 4) % 2;
+    // routes
+    legs.forEach((L, k) => { const r = routeEls[k]; if (!r) return; const f = k < i ? 1 : k > i ? 0 : ease(u); r.el.setAttribute('stroke-dashoffset', r.len * (1 - (t >= L.t1 ? 1 : f))); });
+    // steps + caption
+    if (i !== stepIdx) {
+      stepIdx = i; const card = document.getElementById('capCard'); card.classList.add('swap');
+      setTimeout(() => { document.getElementById('capN').textContent = l.n; document.getElementById('capT').textContent = l.t; document.getElementById('capP').textContent = l.p; card.classList.remove('swap'); }, 160);
+      document.querySelectorAll('#legs li').forEach((li, k) => { li.classList.toggle('on', k === i); li.classList.toggle('done', k < i); });
+    }
+    const m = mins(t); document.getElementById('clockV').textContent = `${Math.floor(m / 60)}h ${String(m % 60).padStart(2, '0')}m`;
+    document.getElementById('scrubB').style.width = (t / total * 100) + '%';
+
+    // Colleen: home in New York unless she's travelling with Durva
+    const withC = l.who.includes('C') && !(l.drop && u > .98);
+    const [lx, ly] = at('lga');
+    colleen.attr('opacity', withC && l.kind !== 'pickup' && l.kind !== 'visits' ? 0 : 1).attr('transform', `translate(${lx + 24},${ly - 8})`);
+    setPose(colleen, 'C', (l.kind === 'pickup' && u < .6) || (mode === 'solo') || (!withC && t > 1) ? (wave ? 'wave' : 'wave2') : 'stand');
+    if (mode === 'solo') colleen.attr('opacity', 1);
+    // travelling
+    veh.attr('opacity', 0); chip.attr('opacity', 0); durva.attr('opacity', 0);
+    visits.forEach(v => { v.g.attr('opacity', 0); v.ok.attr('opacity', 0); });
+    const showVisits = (upto, k) => visits.forEach((v, j) => { const on = upto > j / visits.length; v.g.attr('opacity', on ? 1 : 0); v.ok.attr('opacity', upto > (j + .6) / visits.length ? 1 : 0); });
+    if (t > legs.find(L => L.kind === 'visits').t1) showVisits(1);
+
+    if (l.kind === 'hold') { const [x, y] = at(l.at); durva.attr('opacity', 1).attr('transform', `translate(${x - 22},${y - 10})`); setPose(durva, 'D', wave ? 'wave' : 'wave2'); }
+    if (l.kind === 'pickup') {
+      const [x, y] = at('lga'); veh.attr('opacity', 1).attr('transform', `translate(${x},${y})`); plane.attr('opacity', 1); car.attr('opacity', 0);
+      durva.attr('opacity', 1).attr('transform', `translate(${x - 22},${y - 10})`); setPose(durva, 'D', 'wave');
+      if (u > .55) { colleen.attr('opacity', 0); placeChip(x, y, ['D', 'C'], 'Hi Colleen! 👋'); durva.attr('opacity', 0); }
+      else { const k = u / .55; colleen.attr('transform', `translate(${lx + 24 - k * 24},${ly - 8 - Math.sin(k * Math.PI) * 30})`); }
+    }
+    if (l.kind === 'visits') {
+      const [x, y] = at('tpa'); durva.attr('opacity', 1).attr('transform', `translate(${x - 22},${y - 10})`); setPose(durva, 'D', wave ? 'cheer' : 'stand');
+      if (l.who.includes('C')) { colleen.attr('opacity', 1).attr('transform', `translate(${x + 24},${y - 10})`); setPose(colleen, 'C', wave ? 'stand' : 'cheer'); }
+      showVisits(u * 1.15);
+    }
+    if (l.kind === 'fly' || l.kind === 'drive') {
+      const r = routeEls[i], pt = r.el.getPointAtLength(r.len * ease(u)), pt2 = r.el.getPointAtLength(Math.min(r.len, r.len * ease(u) + 2));
+      const ang = Math.atan2(pt2.y - pt.y, pt2.x - pt.x) * 180 / Math.PI;
+      veh.attr('opacity', 1).attr('transform', `translate(${pt.x},${pt.y})`);
+      plane.attr('opacity', l.kind === 'fly' ? 1 : 0).attr('transform', `rotate(${ang})`); car.attr('opacity', l.kind === 'drive' ? 1 : 0);
+      const both = l.who.includes('C') && !(l.drop && u > .98);
+      placeChip(pt.x, pt.y, both ? ['D', 'C'] : ['D'], l.kind === 'fly' && both ? (l.drop ? 'heading home' : 'planning ✍️') : '');
+    }
+    if (l.drop && u > .98) { const [x, y] = at('lga'); colleen.attr('opacity', 1).attr('transform', `translate(${x + 24},${y - 8})`); }
+    // end: Durva home
+    if (clock >= legs[legs.length - 1].t1) { const [x, y] = at('yyz'); veh.attr('opacity', 0); chip.attr('opacity', 0); durva.attr('opacity', 1).attr('transform', `translate(${x - 22},${y - 10})`); setPose(durva, 'D', wave ? 'wave' : 'stand'); }
+  }
+
+  // pulse the pins
+  d3.selectAll('.pulse').each(function (_, k) { const c = d3.select(this); (function p() { c.attr('r', 10).attr('opacity', .3).transition().delay(k * 250).duration(1600).attr('r', 24).attr('opacity', 0).on('end', p); })(); });
+
+  // controls
+  const playBtn = document.getElementById('play');
+  const setPlay = v => { playing = v; playBtn.textContent = v ? '❚❚ Pause' : '▶ Play'; };
+  setPlay(playing);
+  playBtn.addEventListener('click', () => { if (clock >= total) clock = 0; setPlay(!playing); });
+  document.getElementById('again').addEventListener('click', () => { clock = 0; setPlay(true); });
+  const sc = document.getElementById('scrub');
+  const seek = e => { const r = sc.getBoundingClientRect(); clock = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)) * total; render(); };
+  sc.addEventListener('pointerdown', e => { seek(e); sc.setPointerCapture(e.pointerId); sc.onpointermove = seek; });
+  sc.addEventListener('pointerup', () => sc.onpointermove = null);
+  sc.addEventListener('keydown', e => { if (e.key === 'ArrowRight') clock = Math.min(total, clock + 1); if (e.key === 'ArrowLeft') clock = Math.max(0, clock - 1); render(); });
+  document.querySelectorAll('.mode button').forEach(b => b.addEventListener('click', () => { document.querySelectorAll('.mode button').forEach(x => x.setAttribute('aria-pressed', x === b)); mode = b.dataset.mode; build(); setPlay(true); }));
+
+  let visible = true;
+  new IntersectionObserver(es => es.forEach(e => visible = e.isIntersecting)).observe(document.querySelector('.mapbox'));
+  build();
+  const qt = parseFloat(new URLSearchParams(location.search).get('t'));
+  if (qt >= 0) { clock = qt; playing = false; render(); setPlay(false); }
+  else if (!playing) { clock = legs[3] ? legs[3].t0 + 2 : 0; render(); }
+  (function loop(now) {
+    const dt = Math.min(.1, (now - last) / 1000); last = now;
+    if (playing && visible) { clock += dt; if (clock > total) clock = 0; render(); }
+    requestAnimationFrame(loop);
+  })(last);
+})();
+
+/* the little waving duo at the bottom */
+(() => {
+  const c = document.getElementById('duo'), g = c.getContext('2d'); g.imageSmoothingEnabled = false;
+  let f = 0;
+  const draw = () => { g.clearRect(0, 0, 84, 64); g.save(); g.scale(2, 2); Sprites.draw(g, 'D', f % 2 ? 'wave' : 'wave2', 4, 2); Sprites.draw(g, 'C', f % 2 ? 'wave2' : 'wave', 22, 2); g.restore(); f++; };
+  draw(); if (!matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(draw, 400);
+})();
+</script>
+</body>
+</html>
