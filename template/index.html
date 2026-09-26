@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Durva × Company</title>
+  <meta name="description" content="">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Durva × Company">
+  <meta property="og:image" content="https://durvathakkar.com/assets/durva-avatar.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="/assets/durva-look-sprite.jpg">
+  <link rel="stylesheet" href="/template/engine.css">
+</head>
+<body>
+  <div id="app"></div>
+
+  <!-- =====================================================================
+       ✏️  EDIT ONLY THIS BLOCK FOR A NEW COMPANY
+       The 3 parts marked REQUIRED are enough for a complete site.
+       Everything under OPTIONAL overrides the smart defaults.
+       Use {company} {short} {first} {full} {role} {industry} {audience} {city}
+       anywhere in text and they fill themselves in.
+       ===================================================================== -->
+  <script>
+  window.SITE = {
+    /* ---------- REQUIRED ---------- */
+    company: {
+      name: 'Maple Grove Coffee Co.',   // full name
+      short: 'Maple Grove',             // used in headlines + nav
+      industry: 'specialty coffee',     // "…a key moment in {industry}"
+      audience: 'coffee lovers',        // who they sell to
+      city: 'Toronto',
+      colors: { primary: '#1f5c4a', secondary: '#f2b134' },  // from their logo / website
+      logo: '',                         // optional: '/acme/logo.png' (initials used if empty)
+    },
+    contact: {
+      first: 'Alex',
+      full: 'Alex Morgan',
+      photo: '',                        // '/acme/alex.jpg' (save it in the folder: LinkedIn links expire)
+      pixel: { hair: '#5a3a24', skin: '#f0c8a8', hairStyle: 'long' },  // their 8-bit twin; top = brand colour
+    },
+    role: {
+      title: 'Marketing Coordinator',
+      url: '',                          // link to the job post (optional)
+    },
+
+    /* ---------- OPTIONAL ---------- */
+    meeting: { url: '', label: 'Message me on LinkedIn' },  // e.g. a Calendly link + 'Book 20 minutes'
+    // note: ['First paragraph after "Hey {first} 👋"', 'Second paragraph'],
+    // headline: ['I could tell you.', 'Or I could', 'show you.'],
+    // noticed: [['💬', 'Title', 'Text', '#dfe7ff'], …],
+    // fit: [['Label', 'What the role needs', '<b>What I bring.</b> Proof.'], …],
+    // plan: [{ days: 'Days 1–30', title: '…', text: '…', items: [['Step', 'Detail'], …] }, …],
+    // ideas: [{ ch: 'LinkedIn', e: '🎤', title: '…', text: '…', why: '…', measure: '…', c: '#dfe7ff' }, …],
+    // samples: { linkedin: {…}, instagram: {…}, email: {…}, blog: {…} },
+    people: [
+      { name: 'Jordan Lee', role: 'Founder & CEO', photo: '', ideas: [['The first bag we ever sold', 'The origin story, told as a short, honest post.'], ['What I look for in a hire', 'A post that doubles as recruiting.'], ['One lesson from year one', 'A carousel with five slides of real mistakes.']] },
+      { name: 'Priya Shah', role: 'Head of Sales', photo: '', ideas: [['The question every cafe owner asks', 'Turn a real sales conversation into advice.'], ['Behind a partnership', 'How a new wholesale partner came on board.']] },
+      { name: 'Sam Rivera', role: 'Head Roaster', photo: '', ideas: [['Roast day, in 60 seconds', 'A reel from the roastery floor.'], ['Why this bean?', 'A short explainer for curious coffee lovers.']] },
+    ],
+    voices: [
+      { name: 'For customers', sample: 'Your new favourite morning is one sip away.', text: 'Warm, short, sensory. Talks like a friend at the counter.', c: '#fff1c9' },
+      { name: 'For cafe partners', sample: 'Consistent beans, on time, every time. Here is how we do it.', text: 'Clear and reliable. Leads with proof and practical details.', c: '#dfe7ff' },
+      { name: 'For future hires', sample: 'We take coffee seriously. Ourselves, not so much.', text: 'Human and a little playful. Shows the people and the culture.', c: '#e3f3d9' },
+    ],
+    sections: { reel: true, noticed: true, fit: true, plan: true, ideas: true, samples: true, process: true, about: true },
+    intro: true,                        // the "Hey {first}, I made you something" splash
+    tracking: { publicKey: '', serviceId: '', templateId: '' },  // EmailJS: stays off until all 3 are filled
+
+    /* demo only: shows the "How to use this template" button. Delete this line on real sites. */
+    guide: `
+      <p>This page is a template. Every section is generated from one small <code>SITE</code> block, so a brand-new, fully personalised site takes a few minutes.</p>
+      <h4>1 · Copy the folder</h4>
+      <pre>template/index.html  →  acme/index.html</pre>
+      <p>The new site lives at <b>durvathakkar.com/acme/</b>. The design and code load from <code>/template/</code>, so fixes there update every site.</p>
+      <h4>2 · Change the required parts</h4>
+      <ol>
+        <li><b>company</b>: name, short name, industry, audience, city and two brand colours (grab them from their logo).</li>
+        <li><b>contact</b>: first + full name and a photo saved next to the page (<code>/acme/alex.jpg</code>).</li>
+        <li><b>role</b>: the job title (and job post link if you have one).</li>
+      </ol>
+      <p>That's it: hero, 8-bit reel, the "why you" cards, role map, 90-day plan, ideas, LinkedIn / Instagram / email / blog mockups in their colours, process, about me and the final ask all fill themselves in.</p>
+      <h4>3 · Make it sing (optional)</h4>
+      <ol>
+        <li>Write a real <b>note</b> for the hero (two short paragraphs).</li>
+        <li>Swap in <b>ideas</b> and <b>fit</b> rows from the actual job post.</li>
+        <li>Add <b>people</b> (leaders with photos) and <b>voices</b> if it fits the company, or remove them.</li>
+        <li>Turn any section off with <code>sections: { reel: false }</code>.</li>
+      </ol>
+      <h4>Before sending</h4>
+      <ol>
+        <li>Delete the <code>guide</code> line.</li>
+        <li>Open the page on your phone once.</li>
+        <li>Send it with a short note: <i>"Hi {first}, I made something for {company}: durvathakkar.com/acme/"</i></li>
+      </ol>`,
+  };
+  </script>
+  <script src="/template/engine.js"></script>
+</body>
+</html>
