@@ -189,7 +189,24 @@
     .takeaways { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 24px 0 28px; }
     .takeaways div { background: #fff; border-radius: 20px; padding: 16px; font-size: 15px; line-height: 1.35; font-weight: 500; }
     .takeaways b { display: block; font-family: var(--mono); font-size: 11px; letter-spacing: .08em; color: var(--peach-ink); margin-bottom: 6px; }
-    .more-soon { margin-top: 18px; text-align: center; color: var(--muted); font-size: 16px; }
+    .posts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 18px; }
+    .post { border-radius: var(--radius); padding: 28px; display: flex; flex-direction: column; gap: 14px; text-align: left; font: inherit; color: inherit; border: 0; cursor: pointer; background: var(--pb); transition: transform .4s cubic-bezier(.3,1.5,.5,1); }
+    .post:hover { transform: translateY(-6px) rotate(-.5deg); }
+    .post:nth-child(even):hover { transform: translateY(-6px) rotate(.5deg); }
+    .post .pt { display: flex; flex-wrap: wrap; gap: 8px; position: relative; z-index: 3; }
+    .post .pt span { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; background: rgba(255,255,255,.8); padding: 6px 10px; border-radius: 999px; }
+    .post .pt .new { background: var(--ink); color: #fff; }
+    .post h3 { font-size: clamp(24px, 2.4vw, 32px); line-height: 1.06; letter-spacing: -0.035em; font-weight: 500; position: relative; z-index: 3; }
+    .post h3 span { color: var(--pc); }
+    .post p { color: #4a463f; font-size: 16px; position: relative; z-index: 3; }
+    .post .go { margin-top: auto; font-weight: 600; font-size: 15px; display: inline-flex; gap: 8px; align-items: center; position: relative; z-index: 3; }
+    .post .go i { font-style: normal; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--ink); color: #fff; transition: transform .3s; }
+    .post:hover .go i { transform: translateX(4px) rotate(-45deg); }
+    .post.with-img { display: grid; grid-template-columns: minmax(0, 1fr) 150px; align-items: start; }
+    .post.with-img > div { display: flex; flex-direction: column; gap: 14px; height: 100%; }
+    .post.with-img img { width: 150px; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 18px; transform: rotate(3deg); box-shadow: 0 16px 24px -14px rgba(0,0,0,.45); position: relative; z-index: 3; }
+    .read-in figure img { border-radius: 18px; margin: 4px 0 20px; max-height: 420px; width: auto; }
+    .more-soon { margin-top: 26px; text-align: center; color: var(--muted); font-size: 16px; }
     .more-soon a { font-weight: 600; }
 
     dialog.read { border: 0; border-radius: 32px; padding: 0; width: min(680px, calc(100% - 24px)); max-height: min(88vh, 900px); margin: auto; background: #fff; color: var(--ink); box-shadow: 0 40px 80px -30px rgba(0,0,0,.5); }
@@ -237,6 +254,9 @@
       .tool { border-radius: 22px; gap: 6px; }
       .tool span { font-size: 11.5px; }
       .takeaways { grid-template-columns: 1fr; }
+      .posts { grid-template-columns: 1fr; }
+      .post.with-img { grid-template-columns: minmax(0, 1fr) 96px; }
+      .post.with-img img { width: 96px; }
       .f-pencil, .f-heart { display: none; }
       .f-cup { top: 12%; left: 4%; } .f-plane { top: 10%; }
       .job { position: relative; top: 0; border-radius: 30px; }
@@ -345,7 +365,7 @@
           <span class="ln"><span class="hi" style="--d:.3s">I make brands</span></span>
           <span class="ln"><span class="hi" style="--d:.45s">feel human.</span></span>
         </h1>
-        <p class="sub">Marketer, storyteller, and professional yes-sayer to coffee chats. I write the content, start the conversations, and listen to the customers, and now I'm learning to speak fluent data too.</p>
+        <p class="sub">Marketer, storyteller, and professional yes-sayer to coffee chats. I write the content, start the conversations, and listen to the customers. Fresh grad, and looking for what's next in Canada.</p>
         <div class="cta">
           <a class="btn white" href="#say-hi">Say hi 👋</a>
           <a class="btn lime" href="#journey">See my journey <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v10M3 8l5 5 5-5"/></svg></a>
@@ -396,7 +416,7 @@
         </article>
         <article class="hi-card c-mint clay rv" style="--d:.32s">
           <div class="emo">📊</div>
-          <div><h3>Now: marketing × data</h3><p>Studying Information Systems Business Analysis so my ideas come with numbers attached.</p></div>
+          <div><h3>Marketing × data</h3><p>Just wrapped a postgrad in Information Systems Business Analysis, so my ideas come with numbers attached.</p></div>
         </article>
       </div>
     </section>
@@ -485,11 +505,11 @@
       <div class="edu">
         <article class="school clay rv" style="--c: #d9f0c2">
           <div class="cap">📊</div>
-          <span class="now">Final stretch</span>
+          <span class="now">Just graduated 🎓</span>
           <p class="yrs">Sep 2025 – Sep 2026</p>
           <h3>George Brown Polytechnic</h3>
           <p>Postgraduate Degree, Information Systems Business Analysis</p>
-          <div class="prog" aria-hidden="true"><b style="--w: 94%"></b></div>
+          <div class="prog" aria-hidden="true"><b style="--w: 100%"></b></div>
         </article>
         <article class="school clay rv" style="--c: #dfe6ff; --d:.1s">
           <div class="cap">📣</div>
@@ -546,14 +566,42 @@
             <div><b>02</b>Authenticity is a superpower.</div>
             <div><b>03</b>Presence creates impact.</div>
           </div>
-          <button class="btn dark" type="button" id="openStory">Read the whole story →</button>
+          <button class="btn dark" type="button" data-story="jake">Read the whole story →</button>
         </div>
       </article>
-      <p class="more-soon rv">More stories coming soon. Until then, find them on <a href="https://www.linkedin.com/in/durvathakkar/" target="_blank" rel="noopener">LinkedIn</a>.</p>
 
-      <dialog class="read" id="storyDlg" aria-labelledby="storyTitle">
-        <div class="read-top"><b id="storyTitle">I met Jake Karls ☕</b><button class="x" type="button" data-close aria-label="Close">×</button></div>
-        <div class="read-in">
+      <div class="posts">
+        <button class="post clay rv" type="button" data-story="canada" style="--pb: var(--mint); --pc: var(--mint-ink)">
+          <div class="pt"><span class="new">Latest</span><span>Personal</span><span>2 min read</span></div>
+          <h3>Two years ago, I arrived in Canada with <span>a bag and too many plans.</span></h3>
+          <p>York, George Brown, part-time jobs, freelance projects, and building a life from scratch. Today that chapter ends. On to the next.</p>
+          <span class="go"><i>→</i>Read the post</span>
+        </button>
+        <button class="post clay rv" type="button" data-story="jargon" style="--pb: var(--blue); --pc: var(--blue-ink); --d:.08s">
+          <div class="pt"><span>Copywriting</span><span>2 min read</span></div>
+          <h3>Trying to sound smart <span>makes us sound boring.</span></h3>
+          <p>Three quick filters for writing people actually read: the Coffee Shop check, the So What? test, and talking about the headache first.</p>
+          <span class="go"><i>→</i>Read the post</span>
+        </button>
+        <button class="post with-img clay rv" type="button" data-story="clutch" style="--pb: var(--pink); --pc: var(--pink-ink)">
+          <div>
+            <div class="pt"><span>Ad breakdown</span><span>2 min read</span></div>
+            <h3>The best copy says what a brand <span>won't do.</span></h3>
+            <p>A Clutch billboard that turns the biggest fear in used-car buying into a promise.</p>
+            <span class="go"><i>→</i>Read the post</span>
+          </div>
+          <img src="assets/story-clutch.jpg" alt="" width="800" height="1066" loading="lazy">
+        </button>
+        <button class="post clay rv" type="button" data-story="india" style="--pb: var(--butter); --pc: var(--butter-ink); --d:.08s">
+          <div class="pt"><span>Culture</span><span>2 min read</span></div>
+          <h3>India grabs attention. <span>Canada earns trust.</span></h3>
+          <p>What marketing in two very different countries taught me about spectacle, skepticism, and keeping your word.</p>
+          <span class="go"><i>→</i>Read the post</span>
+        </button>
+      </div>
+      <p class="more-soon rv">More on <a href="https://www.linkedin.com/in/durvathakkar/" target="_blank" rel="noopener">LinkedIn</a>, where I post about marketing, ads I notice, and life in Canada.</p>
+
+      <template id="st-jake" data-title="I met Jake Karls ☕">
           <p>So yesterday, I met Jake Karls, Forbes 30 Under 30 and Co-Founder &amp; Rainmaker of Mid-Day Squares.</p>
           <p>While I was grabbing a coffee, I overheard someone casually asking, "How was your evening?"</p>
           <p>It was Jake, genuinely engaging with me and the people around him.</p>
@@ -579,7 +627,59 @@
           <p>You never know, someone you admire might be standing right next to you.</p>
           <p>You might say, "Durva, you're just lucky." Maybe I am.</p>
           <p class="pull">But there's only one way to win the lottery: buy more tickets. 🎟️</p>
-        </div>
+      </template>
+      <template id="st-canada" data-title="On to the next 🎓">
+          <p>Two years ago, I arrived in Canada with a bag and more plans than I could fit inside it.</p>
+          <p>Back home, I finished my Bachelor's degree in Business Administration, along with three marketing internships during my undergraduate years. I've always been interested in talking to people, learning from them, and working alongside others, and those experiences gave me a great foundation.</p>
+          <p>I always had a plan to come to Canada for further studies, so I started preparing early. I came here first for a postgraduate program in Digital and Content Marketing at York University, and then pursued a postgraduate program in Information Systems Business Analysis at George Brown College.</p>
+          <p>And today, that chapter comes to an end.</p>
+          <p>The programs were the smallest part of it. In between, I worked part-time, took on freelance content marketing projects, and figured out how to build a life in a country where I didn't know a lot of things.</p>
+          <p>Some weeks, that felt exciting. Some weeks, it meant getting up and doing the next thing without knowing what comes after it.</p>
+          <p class="pull">A bit of fear is just what it costs to want something.</p>
+          <p>I'm still the same person who packed that bag. Same drive, slightly bigger version of the same fear.</p>
+          <p>Classmates who turned into lifelong friends. Professors who pushed me, helped me, and guided me whenever I needed it. The family I made here, and my family back home, who supported me from a distance and continued to believe in me throughout this journey.</p>
+          <p>I'm grateful for everyone I've met and everything this country has given me.</p>
+          <p>And now, I'm looking for what's next: somewhere in marketing, business, or content, in Canada.</p>
+          <p>If you know people doing great work in these spaces, I'd appreciate an intro. I'd like to meet, have a chat, and see if and how I can add value to the team.</p>
+          <p><b>On to the next.</b></p>
+      </template>
+      <template id="st-jargon" data-title="Stop sounding smart ☕">
+          <p>We've all landed on a company's website, read the entire homepage, and still had absolutely no idea what they actually sell.</p>
+          <p>Or opened a LinkedIn DM that starts with, "I hope this finds you well in today's fast-paced digital era..."</p>
+          <p>The second we read those overly polished sentences, our brains shut off. We know a machine wrote it, or if a human did, they were trying way too hard to sound "professional."</p>
+          <p class="pull">In marketing, trying to sound smart usually just makes us sound boring.</p>
+          <p>If you want your writing (a LinkedIn post, a website headline, or a simple email) to actually get read, try these three quick filters:</p>
+          <p><b>The "Coffee Shop" Check:</b> Read your draft out loud. If you wouldn't say those exact words to a friend over coffee, delete them. "Leveraging strategic synergy" is out. "We help you fix this specific problem" is in.</p>
+          <p><b>The "So What?" Test:</b> Read your main pitch. If a normal person would read it and think, "Okay, so what?", you haven't found the actual benefit yet. Keep editing until you hit the real payoff.</p>
+          <p><b>Talk about the headache first:</b> People don't actually care about your product yet. They care about their own problems. Mirror their exact frustration back to them before you try to sell them the cure.</p>
+          <p>The best marketing doesn't feel like marketing. It just feels like a normal conversation.</p>
+          <p>What is the most confusing corporate jargon you've seen on a website or in your inbox lately?</p>
+      </template>
+      <template id="st-clutch" data-title="&quot;We won't sell it.&quot; 🚗">
+          <figure><img src="assets/story-clutch.jpg" alt="Clutch billboard: If a car doesn't pass our 210-point inspection. We won't sell it." width="800" height="1066" loading="lazy"></figure>
+          <p>Great copywriting doesn't always have to tell people what a brand will do. Sometimes, it's way more powerful to just tell them what the brand won't do.</p>
+          <p>I saw a billboard from Clutch the other day that perfectly nails this. It just says:</p>
+          <p class="pull">"If a car doesn't pass our 210-point inspection. We won't sell it."</p>
+          <p>When you think about it, buying a used car is easily one of the lowest-trust experiences out there. Everyone is terrified of getting ripped off or stuck with a lemon.</p>
+          <p>Clutch isn't trying to be flashy or emotional here, and they aren't trying to look cool. They just took the exact fear their customers have and set a hard boundary around it.</p>
+          <p>Saying something generic like "we inspect every vehicle" is just boring corporate speak that people block out. But saying "we won't sell it" actually means something. It shows they're willing to walk away from a sale to protect their reputation, which instantly makes you breathe a sigh of relief.</p>
+          <p>It's just a great reminder that good marketing isn't about shouting the loudest. It's about making your audience feel safe.</p>
+          <p>But it makes me wonder where the line is. When a brand sets a standard this high right out of the gate, does it make you trust them instantly, or does it actually make you look for the catch?</p>
+          <p>Does this kind of blunt, transparent copy actually work on you, or are you naturally skeptical of big promises?</p>
+      </template>
+      <template id="st-india" data-title="India vs Canada marketing 🌏">
+          <p>There's a massive difference between catching someone's eye and actually earning their trust, and it really stands out when you compare marketing in India versus Canada.</p>
+          <p>In India, marketing is a total spectacle. Everything is high-energy, visual, and emotional because the competition for attention is just crazy. If a brand wants to stand out, it has to look incredibly attractive and grab you instantly, or it's just invisible.</p>
+          <p>But in Canada, that loud approach usually backfires.</p>
+          <p>People here are a lot more reserved and naturally skeptical of anything that feels too flashy or over-promised. Canadian consumers care way more about quiet reliability and the actual experience they have with a brand. It's less about who shouts the loudest and more about who is consistent and keeps their word.</p>
+          <p class="pull">India teaches you how to get attention in a crowded room. Canada teaches you how to keep it.</p>
+          <p>Good marketing isn't a one-size-fits-all thing. When you can balance both, you get the best of both worlds: something that looks great and actually backs it up with an amazing experience.</p>
+          <p>I'm curious to hear from other marketers who have worked across different cultures. Have you ever had to completely tone down a campaign that worked overseas just to make it fit the Canadian market? Or vice versa?</p>
+      </template>
+
+      <dialog class="read" id="storyDlg" aria-labelledby="storyTitle">
+        <div class="read-top"><b id="storyTitle"></b><button class="x" type="button" data-close aria-label="Close">×</button></div>
+        <div class="read-in" id="storyBody"></div>
       </dialog>
     </section>
 
@@ -591,7 +691,7 @@
         <span class="orb clay" aria-hidden="true" style="--t:5s; width:120px; height:120px; right:5%; bottom:-30px; background:#ffb07a"></span>
         <span class="orb clay" aria-hidden="true" style="--t:8s; width:70px; height:70px; left:12%; bottom:10%; background:#fff"></span>
         <h2>Buy a ticket. <br>Say hi <span class="hand">👋</span></h2>
-        <p>Coffee chat, collab, or just a hello: my inbox is open, and I always say yes to the coffee.</p>
+        <p>I'm looking for what's next in marketing, business, or content, in Canada. If you know people doing great work in these spaces, I'd love an intro. And I always say yes to the coffee.</p>
         <div class="cta">
           <a class="btn dark" href="https://www.linkedin.com/in/durvathakkar/" target="_blank" rel="noopener">Connect on LinkedIn</a>
           <a class="btn white" href="mailto:durvathakker7@gmail.com?subject=Hi%20Durva%20%F0%9F%91%8B">durvathakker7@gmail.com</a>
@@ -653,7 +753,13 @@
 
   /* ---------- story dialog ---------- */
   const dlg = document.getElementById('storyDlg');
-  document.getElementById('openStory').addEventListener('click', () => dlg.showModal());
+  document.addEventListener('click', e => {
+    const b = e.target.closest('[data-story]'); if (!b) return;
+    const t = document.getElementById('st-' + b.dataset.story);
+    document.getElementById('storyTitle').textContent = t.dataset.title;
+    const body = document.getElementById('storyBody'); body.replaceChildren(t.content.cloneNode(true));
+    dlg.showModal(); body.parentElement.scrollTop = 0; dlg.scrollTop = 0;
+  });
   dlg.addEventListener('click', e => { if (e.target === dlg || e.target.closest('[data-close]')) dlg.close(); });
 
   /* ---------- portrait that follows the cursor ----------
