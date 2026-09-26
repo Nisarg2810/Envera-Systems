@@ -42,6 +42,7 @@
     industry: C.industry || 'your industry',
     audience: C.audience || 'your customers',
     city: C.city || 'Canada',
+    tasks: String((S.proof || []).reduce((k, g) => k + g.items.length, 0)),
   };
   const fill = s => String(s ?? '').replace(/\{(\w+)\}/g, (m, k) => (k in tok ? tok[k] : m));
   // fill tokens, then tidy: no "Co.." when a name ends in a period, and titles start with a capital
@@ -192,7 +193,7 @@
         <p class="lead fade" style="--d:.8s"><b>Hey ${t('{first}')} 👋</b> ${t(note[0])}</p>
         ${note.slice(1).map((n, i) => `<p class="lead fade" style="--d:${.9 + i * .1}s">${t(n)}</p>`).join('')}
         <div class="cta fade" style="--d:1.1s">
-          <a class="t-btn brand" href="#plan">See the plan ↓</a>
+          ${S.proof?.length ? `<a class="t-btn brand" href="#proof">See the ${tok.tasks} tasks ↓</a>` : '<a class="t-btn brand" href="#plan">See the plan ↓</a>'}
           <a class="t-btn white" href="#chat">Let's chat ☕</a>
         </div>
       </div>
@@ -231,6 +232,47 @@
       ${R.pitch ? head('What I bring', 'What a growing team like {short} needs. <span class="hl">What I bring.</span>', 'No job post needed: the work a marketing team does every week, matched to things I have actually done.', 'var(--lime)') : head('The role, mapped', 'What the {role} role needs. <span class="hl">What I bring.</span>', R.url ? `Straight from <a href="${R.url}" target="_blank" rel="noopener">the job post</a>, matched to things I have actually done.` : 'Straight from the job post, matched to things I have actually done.', 'var(--lime)')}
       <div class="t-rows">${pick('fit').map(([k, need, how], i) => `<div class="t-row rv" style="--d:${i * .05}s"><div class="need"><small>${t(k)}</small>${t(need)}</div><span class="arrow">→</span><div class="how">${t(how)}</div></div>`).join('')}</div>
     </div></section>`);
+  }
+
+  // proof of work (optional): real sample tasks, grouped by the job description's areas
+  if (S.proof?.length) {
+    NAV.push(['proof', 'The work']);
+    const esc = x => String(x);
+    const gfx2 = (k, h, f, cls = '') => `<div class="gfx ${cls}"><span class="g-blob" style="width:46cqi;height:46cqi;right:-12cqi;top:-10cqi"></span><span class="g-blob" style="width:18cqi;height:18cqi;right:22cqi;top:26cqi;opacity:.6"></span><div class="g-in"><div class="g-k">${t(k)}</div><div class="g-h">${t(h)}</div><div class="g-f"><span>${t('{company}')}</span><span>${t(f || '{short} →')}</span></div></div></div>`;
+    const slide2 = (x, i) => x.list
+      ? `<div class="gfx paper"><div class="g-in"><div class="g-k">${t(x.k)}</div><div class="g-list">${x.list.map((q, j) => `<div><i>${j + 1}</i>${t(q)}</div>`).join('')}</div><div class="g-f"><span>@${handle}</span><span>${t(x.f || 'Save 📌')}</span></div></div></div>`
+      : gfx2(x.k, x.h, x.f || (i === 0 ? 'Swipe →' : '{short} →'), x.alt ? 'alt' : '');
+    const table = (head, rows) => `<div class="pw-tw"><table class="pw-table">${head ? `<thead><tr>${head.map(h => `<th>${t(h)}</th>`).join('')}</tr></thead>` : ''}<tbody>${rows.map(r => `<tr>${r.map(c => `<td>${t(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+    const RENDER = {
+      brief: a => `<dl class="pw-brief">${a.rows.map(([k, v]) => `<div><dt>${t(k)}</dt><dd>${t(v)}</dd></div>`).join('')}</dl>`,
+      table: a => table(a.head, a.rows),
+      board: a => `<div class="pw-board">${a.cols.map(c => `<div class="pw-col"><b>${t(c.name)} <i>${c.cards.length}</i></b>${c.cards.map(k => `<div class="pw-kard"><span>${t(k[0])}</span><em>${t(k[1] || '')}</em></div>`).join('')}</div>`).join('')}</div>`,
+      checklist: a => `<ul class="pw-check">${a.items.map(x => `<li><label><input type="checkbox"><span>${t(x)}</span></label></li>`).join('')}</ul><p class="pw-count"></p>`,
+      email: a => `<div class="t-mock pw-mail"><div class="em-top"><i></i><i></i><i></i></div><div class="em-head"><b>${t(a.subject)}</b><span>From: ${t(a.from || '{company}')} · ${t(a.preview)}</span></div><div class="em-body"><div class="em-hero"><small>${t(a.kicker || '{company}')}</small><h4>${t(a.headline)}</h4></div>${a.body.map(p => `<p>${t(p)}</p>`).join('')}${a.list ? `<ol>${a.list.map(l => `<li>${t(l)}</li>`).join('')}</ol>` : ''}${a.cta ? `<a class="em-cta" href="#proof" onclick="return false">${t(a.cta)} →</a>` : ''}${a.ps ? `<p class="pw-ps">${t(a.ps)}</p>` : ''}</div></div>${a.tests ? `<div class="pw-tests"><b>A/B subject lines</b>${a.tests.map(x => `<span>${t(x)}</span>`).join('')}</div>` : ''}`,
+      journey: a => `<ol class="pw-journey">${a.steps.map(([w, n, g]) => `<li><em>${t(w)}</em><b>${t(n)}</b><span>${t(g)}</span></li>`).join('')}</ol>`,
+      social: a => `<div class="t-mock pw-ig"><div class="ig-top"><div class="lg">${logo()}</div><b>${handle}</b></div><div class="ig-slides"><div class="ig-track">${a.slides.map(slide2).join('')}</div>${a.slides.length > 1 ? '<button class="ig-nav p" type="button" aria-label="Previous slide">‹</button><button class="ig-nav n" type="button" aria-label="Next slide">›</button>' : ''}</div><div class="ig-dots">${a.slides.map((_, i) => `<i class="${i ? '' : 'on'}"></i>`).join('')}</div><p class="ig-cap"><b>${handle}</b>${t(a.caption)}</p></div>`,
+      calendar: a => `<div class="pw-cal"><div class="pw-cal-h">${['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(d => `<span>${d}</span>`).join('')}</div><div class="pw-cal-g">${Array.from({ length: a.start }, () => '<span class="x"></span>').join('')}${Array.from({ length: a.days }, (_, i) => { const e = a.items[i + 1]; return `<span class="${e ? 'on' : ''}" style="${e ? `--cc:${(a.colors || {})[e[1]] || 'var(--brand-soft)'}` : ''}"><i>${i + 1}</i>${e ? `<b>${t(e[0])}</b><em>${t(e[1])}</em>` : ''}</span>`; }).join('')}</div>${a.colors ? `<div class="pw-legend">${Object.entries(a.colors).map(([k, c]) => `<span><i style="background:${c}"></i>${k}</span>`).join('')}</div>` : ''}</div>`,
+      dm: a => `<div class="pw-dm"><div class="to">To: ${t(a.to)}</div>${a.msgs.map(m => `<p class="${m[0]}">${t(m[1])}</p>`).join('')}</div>`,
+      replies: a => `<div class="pw-replies">${a.items.map(([q, r]) => `<div class="q"><b>Member comment</b>${t(q)}</div><div class="r"><b>@${handle}</b>${t(r)}</div>`).join('')}</div>`,
+      ads: a => `<div class="pw-ads">${a.items.map(x => `<div class="pw-ad"><div class="h"><span class="lg">${logo()}</span><b>${t('{company}')}</b><em>Sponsored</em></div><p>${t(x.p)}</p>${gfx2(x.k || 'Wild · Canadian · Traceable', x.h, x.f || 'Learn more')}<div class="f"><span>${t(x.hl)}</span><button type="button">${t(x.cta || 'Learn more')}</button></div></div>`).join('')}</div>`,
+      report: a => `<div class="pw-report"><span class="pw-demo">${t(a.label || 'Illustrative numbers, not real data')}</span><div class="pw-kpis">${a.kpis.map(([k, v, d, up]) => `<div><small>${t(k)}</small><b>${t(v)}</b><em class="${up === false ? 'dn' : 'up'}">${t(d)}</em></div>`).join('')}</div>${a.bars ? `<div class="pw-bars"><small>${t(a.bars.title)}</small>${a.bars.rows.map(([k, v]) => `<div><span>${t(k)}</span><i style="--v:${v}%"></i><em>${v}%</em></div>`).join('')}</div>` : ''}<ul class="pw-notes">${a.notes.map(n => `<li>${t(n)}</li>`).join('')}</ul></div>`,
+      list: a => `<ul class="pw-list">${a.items.map(x => `<li>${t(x)}</li>`).join('')}</ul>`,
+      text: a => a.paras.map(p => `<p class="pw-p">${t(p)}</p>`).join(''),
+      tree: a => `<pre class="pw-tree">${esc(a.text)}</pre>`,
+    };
+    let n = 0;
+    const total = S.proof.reduce((k, g) => k + g.items.length, 0);
+    out.push(`<section class="t-sec wrap" id="proof">
+      ${head(S.proofHead?.tag || 'The work', S.proofHead?.title || `I didn't just read the job post. <span class="hl">I did ${total} tasks from it.</span>`, S.proofHead?.text || 'Every card is a sample I made for this application, labelled with the line of the job description it answers. Pick an area to explore.', 'var(--brand)')}
+      <div class="pw-wrap">
+        <div class="pw-tabs rv" role="tablist">${S.proof.map((g, i) => `<button role="tab" type="button" aria-selected="${i === 0}" data-area="${i}"><span>${g.e || '•'}</span>${t(g.area)}<i>${g.items.length}</i></button>`).join('')}</div>
+        <div>${S.proof.map((g, gi) => `<div class="pw-panel" data-area="${gi}" ${gi ? 'hidden' : ''}>
+          <div class="pw-intro"><h3>${g.e || ''} ${t(g.area)}</h3>${g.text ? `<p>${t(g.text)}</p>` : ''}</div>
+          <div class="pw-grid">${g.items.map(a => { n++; return `<article class="pw-card rv ${a.wide ? 'wide' : ''}"><header><span class="pw-n">Task ${String(n).padStart(2, '0')}</span><b>${t(a.title)}</b>${a.jd ? `<span class="pw-jd"><i>JD</i>${t(a.jd)}</span>` : ''}</header><div class="pw-body">${(RENDER[a.type] || RENDER.text)(a)}</div>${a.note ? `<p class="pw-note">💡 ${t(a.note)}</p>` : ''}</article>`; }).join('')}</div>
+        </div>`).join('')}</div>
+      </div>
+      <p class="pw-foot rv">${t(S.proofFoot || 'All samples were made for this application, using only public information about {company}. Names in brackets are placeholders, and any numbers are illustrative.')}</p>
+    </section>`);
   }
 
   // plan
@@ -286,8 +328,8 @@
         <div class="rv" style="--d:.08s"><p class="t-mock-label"><i style="background:linear-gradient(45deg,#feda75,#d62976,#4f5bd5)">◎</i>Instagram · carousel</p>
           <article class="t-mock">
             <div class="ig-top"><div class="lg">${logo()}</div><b>${handle}</b></div>
-            <div class="ig-slides"><div class="ig-track" id="igTrack">${ig.slides.map(slide).join('')}</div><button class="ig-nav p" type="button" aria-label="Previous slide">‹</button><button class="ig-nav n" type="button" aria-label="Next slide">›</button></div>
-            <div class="ig-dots" id="igDots">${ig.slides.map((_, i) => `<i class="${i ? '' : 'on'}"></i>`).join('')}</div>
+            <div class="ig-slides"><div class="ig-track">${ig.slides.map(slide).join('')}</div><button class="ig-nav p" type="button" aria-label="Previous slide">‹</button><button class="ig-nav n" type="button" aria-label="Next slide">›</button></div>
+            <div class="ig-dots">${ig.slides.map((_, i) => `<i class="${i ? '' : 'on'}"></i>`).join('')}</div>
             <div class="ig-icons">♡ 💬 ➤</div>
             <p class="ig-cap"><b>${handle}</b>${t(ig.caption)}</p>
           </article>
@@ -425,14 +467,23 @@
   /* linkedin see more */
   $('#liMore')?.addEventListener('click', e => { $('#liText').classList.remove('short'); e.target.remove(); });
 
-  /* instagram carousel */
-  const track = $('#igTrack');
-  if (track) {
+  /* instagram carousels (any number on the page) */
+  $$('.ig-slides').forEach(box => {
+    const track = box.querySelector('.ig-track'), dots = [...(box.parentElement.querySelector('.ig-dots')?.children || [])];
     let i = 0; const n = track.children.length;
-    const go = d => { i = (i + d + n) % n; track.style.transform = `translateX(${-i * 100}%)`; $$('#igDots i').forEach((dot, k) => dot.classList.toggle('on', k === i)); };
-    $('.ig-nav.p').addEventListener('click', () => go(-1)); $('.ig-nav.n').addEventListener('click', () => go(1));
+    const go = d => { i = (i + d + n) % n; track.style.transform = `translateX(${-i * 100}%)`; dots.forEach((dot, k) => dot.classList.toggle('on', k === i)); };
+    box.querySelector('.ig-nav.p')?.addEventListener('click', e => { e.stopPropagation(); go(-1); });
+    box.querySelector('.ig-nav.n')?.addEventListener('click', e => { e.stopPropagation(); go(1); });
     let sx = null; track.addEventListener('pointerdown', e => sx = e.clientX); track.addEventListener('pointerup', e => { if (sx !== null && Math.abs(e.clientX - sx) > 40) go(e.clientX < sx ? 1 : -1); sx = null; });
-  }
+  });
+
+  /* proof of work: tabs + checklists */
+  $$('.pw-tabs button').forEach(b => b.addEventListener('click', () => {
+    $$('.pw-tabs button').forEach(x => x.setAttribute('aria-selected', x === b));
+    $$('.pw-panel').forEach(p => { const on = p.dataset.area === b.dataset.area; p.hidden = !on; if (on) p.querySelectorAll('.rv').forEach(el => el.classList.add('in')); });
+    const top = $('#proof').getBoundingClientRect().top + scrollY - 80; if (scrollY > top + 200) scrollTo({ top, behavior: 'smooth' });
+  }));
+  $$('.pw-check').forEach(ul => { const out = ul.nextElementSibling; const upd = () => { const b = ul.querySelectorAll('input'), c = ul.querySelectorAll('input:checked').length; out.textContent = c === b.length ? `All ${b.length} checked · ready to send ✅` : `${c} / ${b.length} checked`; }; ul.addEventListener('change', upd); upd(); });
 
   /* people */
   $$('[data-person]').forEach(b => b.addEventListener('click', () => {
