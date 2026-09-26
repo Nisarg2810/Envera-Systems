@@ -5,6 +5,7 @@
    default written with {tokens}, so it reads personal out of the box;
    add your own array/object for any section to override it.
    Tokens: {company} {short} {first} {full} {role} {industry} {audience} {city}
+   role.pitch: true = no open job; wording becomes a proactive pitch.
    ===================================================================== */
 (() => {
   const S = window.SITE || {};
@@ -70,7 +71,8 @@
   const DEF = {
     note: [
       "I came across {company} and couldn't stop thinking about what I'd do with a brand like yours. A regular cover letter felt way too boring for that, so I built you this instead.",
-      "It's a small preview of how I'd show up for the {role} role: the plan, the ideas, and some sample work in your colours. You're the main character.",
+      R.pitch ? "It's a small preview of how I'd show up on your marketing team: the plan, the ideas, and some sample work in your colours. You're the main character."
+        : "It's a small preview of how I'd show up for the {role} role: the plan, the ideas, and some sample work in your colours. You're the main character.",
     ],
     noticed: [
       ['💬', 'Your story deserves a louder mic', "{company} already has a clear point of view. I'd make sure it sounds the same on LinkedIn, Instagram, email and in person, every single week.", '#dfe7ff'],
@@ -144,7 +146,7 @@
       },
     },
     process: [
-      ['☕', '20-minute chat', "We talk about {company}'s goals and what the {role} role needs to deliver.", 'Week 0'],
+      ['☕', '20-minute chat', R.pitch ? "We talk about {company}'s goals and where an extra marketer would help most." : "We talk about {company}'s goals and what the {role} role needs to deliver.", 'Week 0'],
       ['🔍', 'Quick look-around', 'I review your channels and come back with three things I would do first.', 'Week 1'],
       ['🗺️', 'A clear plan', 'We agree on a 90-day plan, the rhythm, and how we will measure it.', 'Week 2'],
       ['🚀', 'Ship & measure', 'Content goes out, we learn what works, and we do more of it every month.', 'Ongoing'],
@@ -224,9 +226,9 @@
 
   // fit
   if (on('fit')) {
-    NAV.push(['fit', 'The role']);
+    NAV.push(['fit', R.pitch ? 'What I bring' : 'The role']);
     out.push(`<section class="t-sec wrap" id="fit"><div class="t-fit"><div class="glow"></div>
-      ${head('The role, mapped', 'What the {role} role needs. <span class="hl">What I bring.</span>', R.url ? `Straight from <a href="${R.url}" target="_blank" rel="noopener">the job post</a>, matched to things I have actually done.` : 'Straight from the job post, matched to things I have actually done.', 'var(--lime)')}
+      ${R.pitch ? head('What I bring', 'What a growing team like {short} needs. <span class="hl">What I bring.</span>', 'No job post needed: the work a marketing team does every week, matched to things I have actually done.', 'var(--lime)') : head('The role, mapped', 'What the {role} role needs. <span class="hl">What I bring.</span>', R.url ? `Straight from <a href="${R.url}" target="_blank" rel="noopener">the job post</a>, matched to things I have actually done.` : 'Straight from the job post, matched to things I have actually done.', 'var(--lime)')}
       <div class="t-rows">${pick('fit').map(([k, need, how], i) => `<div class="t-row rv" style="--d:${i * .05}s"><div class="need"><small>${t(k)}</small>${t(need)}</div><span class="arrow">→</span><div class="how">${t(how)}</div></div>`).join('')}</div>
     </div></section>`);
   }

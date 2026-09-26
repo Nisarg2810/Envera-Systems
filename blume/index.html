@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="/assets/durva-look-sprite.jpg">
-  <link rel="stylesheet" href="/template/engine.css">
+  <link rel="stylesheet" href="/template/engine.css?v=2">
 </head>
 <body>
   <div id="app"></div>
@@ -39,17 +39,17 @@
     contact: {
       first: 'Katie',
       full: 'Katie Drechsel',
-      photo: '',                     // add '/blume/katie.jpg' once her photo is saved in this folder
-      pixel: { hair: '#6b4a32', skin: '#f2cdb4', hairStyle: 'long' },
+      photo: '/blume/katie.jpg',
+      pixel: { hair: '#d9b878', skin: '#f4d2bc', hairStyle: 'long', top: '#f4f1ec' },
     },
-    role: { title: 'Marketing Coordinator', url: '' },
+    role: { title: 'marketing', pitch: true },   // no open role: pitch mode
     kicker: 'Made for Katie · VP Marketing, Blume',
     description: 'A kinder hello for Katie at Blume, from Durva Thakkar: a 90-day plan, ideas and sample work in Blume plum.',
     meeting: { url: '', label: 'Message me on LinkedIn' },
 
     note: [
       "I've been sipping my way through the Blume story: a women-owned, proudly Canadian brand that made wellness feel kind instead of preachy. \"Progress over perfection\" is exactly the kind of brand I want to help grow, so instead of a cover letter, I built you this.",
-      "It's a small preview of how I'd show up on your marketing team: a 90-day plan, ideas for SuperBelly and the Superfood Lattes, and sample posts in Blume plum. And since you've led marketing and customer experience together before, I think you'll like that I come from the customer side too.",
+      "I know Blume isn't hiring right now, and that's okay. This is simply a preview of how I'd show up on your marketing team whenever the time is right: a 90-day plan, ideas for SuperBelly and the Superfood Lattes, and sample posts in Blume plum. And since you've led marketing and customer experience together before, I think you'll like that I come from the customer side too.",
     ],
 
     noticed: [
@@ -134,12 +134,12 @@
       { name: 'For future hires', sample: 'We take wellness seriously. Ourselves, not so much.', text: 'Human and a little cheeky. Shows the team and the mission.', c: '#efe3f7' },
     ],
 
-    closing: "Would love 20 minutes to hear what's next for Blume and how I could help. The Matcha Coconut Latte is on me 🍵",
+    closing: "No open role needed. I'd just love 20 minutes to hear what's next for Blume and where an extra marketer could help, now or down the road. The Matcha Coconut Latte is on me 🍵",
     aboutLine: "Content, outreach and customer experience across India and Canada, a CPG start at Rewynd Snacks, and a fresh postgrad in Information Systems Business Analysis. I write like people talk, I say yes to the coffee chat (or the latte), and I care about the customer on the other side.",
     intro: true,
     tracking: { publicKey: '', serviceId: '', templateId: '' },
   };
   </script>
-  <script src="/template/engine.js"></script>
+  <script src="/template/engine.js?v=2"></script>
 </body>
 </html>
