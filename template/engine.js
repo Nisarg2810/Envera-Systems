@@ -274,7 +274,7 @@
       <div class="t-work">
         <div class="rv"><p class="t-mock-label"><i style="background:#0A66C2">in</i>LinkedIn · company page</p>
           <article class="t-mock">
-            <div class="li-top"><div class="lg">${logo()}</div><div><b>${t('{company}')}</b><span>${(C.followers || '12,480') + ' followers'}</span><span>Now · 🌐</span></div></div>
+            <div class="li-top"><div class="lg">${logo()}</div><div><b>${t('{company}')}</b><span>${C.followers ? C.followers + ' followers' : cap('{industry}') + ' · ' + t('{city}')}</span><span>Now · 🌐</span></div></div>
             <div class="li-text short" id="liText">${t(li.text)}</div><div class="li-text" style="padding-top:0"><span class="more" id="liMore">…see more</span></div>
             ${gfx(li.kicker, li.headline, li.foot)}
             <div class="li-stats"><span>👍❤️👏 248</span><span>31 comments · 12 reposts</span></div>
