@@ -133,7 +133,7 @@
     }
     .levelbar.show { transform: none; }
     .lb-left, .lb-right { font-family: var(--pixel); font-size: 9px; white-space: nowrap; display: flex; align-items: center; gap: 8px; }
-    .lb-coin { width: 12px; height: 14px; border-radius: 50%; background: var(--gold); box-shadow: inset -2px 0 0 var(--gold-dk); display: inline-block; }
+    .lb-coin { width: 12px; height: 12px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff 0 35%, #d9d4de 100%); display: inline-block; }
     .lb-track { position: relative; flex: 1; height: 100%; min-width: 0; }
     .lb-ground { position: absolute; left: 0; right: 0; bottom: 8px; height: 6px; border-radius: 2px;
       background: repeating-linear-gradient(90deg, #5ea957 0 10px, #68b560 10px 20px); box-shadow: inset 0 1px 0 #8fdc7f; }
@@ -166,15 +166,19 @@
     .world { padding-top: 34px; scroll-margin-top: 70px; }
     .world-head { margin-bottom: 28px; max-width: 820px; }
     .world-tag { display: flex; align-items: center; gap: 12px; font-family: var(--pixel); font-size: 10px; color: var(--brand); margin-bottom: 14px; position: relative; }
+    /* golf balls instead of ? blocks: each section's ball drops into the cup as you reach it */
     .qb {
-      width: 30px; height: 30px; flex: none; position: relative; display: grid; place-items: center;
-      background: var(--gold); border: 2px solid #6b4a00; box-shadow: inset -3px -3px 0 var(--gold-dk), inset 3px 3px 0 var(--gold-lt);
-      font-family: var(--pixel); font-size: 11px; color: #6b4a00; border-radius: 3px;
+      width: 26px; height: 26px; flex: none; position: relative; display: grid; place-items: center; border-radius: 50%; font-size: 14px;
+      background: radial-gradient(circle at 35% 30%, #fff 0 30%, #eceaf0 60%, #cfc9d6 100%);
+      box-shadow: inset -2px -3px 0 rgba(40,3,47,.12), 0 2px 0 rgba(40,3,47,.18);
     }
-    .qb.hit { animation: bump .35s ease-out; background: #b0763a; border-color: #5a3510; box-shadow: inset -3px -3px 0 #7f4f22, inset 3px 3px 0 #c98e55; color: transparent; }
-    @keyframes bump { 40% { transform: translateY(-8px); } }
-    .coin-pop { position: absolute; left: 7px; top: -4px; width: 14px; height: 18px; border-radius: 50%; background: var(--gold); box-shadow: inset -3px 0 0 var(--gold-dk); animation: coin .8s ease-out forwards; pointer-events: none; }
-    @keyframes coin { 0% { transform: translateY(0) scaleX(1); opacity: 1; } 50% { transform: translateY(-38px) scaleX(.3); } 100% { transform: translateY(-54px) scaleX(1); opacity: 0; } }
+    .qb::before { content: ""; position: absolute; inset: 5px; border-radius: 50%; background-image: radial-gradient(rgba(40,3,47,.16) 1px, transparent 1.4px); background-size: 5px 5px; }
+    .ws-banner .qb::before { display: none; }
+    .qb.hit { animation: sink .5s ease-in forwards; }
+    @keyframes sink { 40% { transform: translateY(-9px); } 100% { transform: translateY(0) scale(.92); box-shadow: inset -2px -3px 0 rgba(40,3,47,.12), 0 0 0 4px #1a1a1a22; } }
+    .coin-pop { position: absolute; left: 30px; top: -12px; font: 700 10px var(--pixel); color: var(--brand); white-space: nowrap; animation: coin 1s ease-out forwards; pointer-events: none; }
+    .coin-pop::after { content: "BIRDIE!"; }
+    @keyframes coin { 0% { transform: translateY(6px); opacity: 0; } 25% { opacity: 1; } 100% { transform: translateY(-18px); opacity: 0; } }
     .world-head h2 { font-size: clamp(28px, 3.8vw, 42px); letter-spacing: -0.025em; line-height: 1.12; font-weight: 800; }
     .world-intro { margin-top: 10px; color: var(--muted); font-size: 17px; }
     .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
@@ -861,7 +865,7 @@
   <section class="hero wrap">
     <div class="eyebrow">Hi Andrew 👋 ⛳</div>
     <h1>I Could Tell You. <span class="hl">Or I Could Show You.</span></h1>
-    <div class="hero-stage"><canvas id="heroStage" width="240" height="80" role="img" aria-label="Pixel scene: you drive golf balls at a range target while I jump to hit question blocks that pop out posts, webinars, case studies and more, then we high-five."></canvas></div>
+    <div class="hero-stage"><canvas id="heroStage" width="240" height="80" role="img" aria-label="Pixel scene: you chip golf balls onto the green while I caddie, handing you posts, webinars, case studies and more from the bag, then we high-five."></canvas></div>
 
     <article class="post" aria-label="In your words">
       <figure>
@@ -918,7 +922,7 @@
     <div class="eyebrow">Holes 7–18 · The content workspace</div>
     <h2 id="wsTitle"></h2>
     <p class="lede" id="wsLede"></p>
-    <div class="ws-banner"><span class="qb">?</span><div id="wsNote"></div></div>
+    <div class="ws-banner"><span class="qb">⛳</span><div id="wsNote"></div></div>
     <nav class="toc" id="toc" aria-label="Sections"></nav>
   </section>
   <main class="wrap" id="worlds"></main>
@@ -1009,12 +1013,12 @@
     "...TTTTTTTT...",
     "...BBBBBBBB...",
   ]);
-  // Andrew: plum Acre cap, short hair, white golf polo
+  // Andrew, from his photo: short black hair swept up, navy quarter-zip over a light-blue gingham collar
   const TOP_A = pad([
     "..............",
-    "...KKKKKKK....",
-    "..KKKKKKKKK...",
-    "..KKKKKKKKKKK.",
+    "...HHHHHHH....",
+    "..HHHHHHHHH...",
+    "..HHHHHHHHH...",
     "..HHSSSSSS....",
     "..HSSSESSES...",
     "..HSSSSSSSS...",
@@ -1067,7 +1071,7 @@
     ]),
   };
   const PAL = {
-    C: { top: TOP_A, K:'#4a1356', H:'#5a3b26', S:'#f1c9a8', E:'#2b1a12', M:'#b85a5a', T:'#f5f3f7', W:'#cfc4d8', B:'#2a2a2a', P:'#c9b48a', p:'#a8946c', F:'#f2f2f2' },
+    C: { top: TOP_A, H:'#1b1512', S:'#efc6a4', E:'#2b1a12', M:'#f4f1ea', T:'#1f2a4d', W:'#a9c6e8', B:'#161d38', P:'#c9b48a', p:'#a8946c', F:'#5a3b26' },
     D: { top: TOP_D, H:'#1c1310', h:'#3b2a22', S:'#d9a47e', G:'#0b0b0d', M:'#b0525a', W:'#f4f1ea', T:'#1f2645', t:'#151a33', P:'#2e4163', p:'#22314d', F:'#1a1a1a' },
     FLASH: { top: TOP_D, H:'#ffffff', h:'#fff8d6', S:'#ffffff', G:'#FFBD00', M:'#FFBD00', W:'#ffffff', T:'#fff3b0', t:'#ffffff', P:'#ffffff', p:'#fff8d6', F:'#ffffff' },
   };
@@ -1123,40 +1127,56 @@
   }
   function axeAt(x, y, ang, sc) { g.save(); g.translate(Math.round(x), Math.round(y)); g.scale(sc, sc); drawBall(0, 0); g.restore(); }
 
-  /* ---------- background (cached) ---------- */
+  /* ---------- background (cached): a championship hole at golden hour ---------- */
+  const HZ = 58; // horizon
+  const PINS = [[196, 82], [246, 78], [294, 86], [180, 120], [236, 116], [290, 124]];
+  const persp = y => 0.6 + (y - HZ) / (150 - HZ) * 0.8;
+  function ell(b, cx, cy, rx, ry, col) {
+    b.fillStyle = col;
+    for (let y = -ry; y <= ry; y++) { const w = Math.round(rx * Math.sqrt(Math.max(0, 1 - (y * y) / (ry * ry)))); b.fillRect(Math.round(cx - w), Math.round(cy + y), w * 2 + 1, 1); }
+  }
   const BG = document.createElement('canvas'); BG.width = W; BG.height = H;
   (function buildBG() {
     const b = BG.getContext('2d');
-    let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
-    // a driving range: sky, treeline, striped fairway
-    const SKY = ['#8fc4e6', '#9accea', '#a6d4ee', '#b3dcf2', '#c4e5f5'];
-    SKY.forEach((c, i) => R(0, i * 8, W, 8, c, b));
-    for (const [cx, cy] of [[40, 8], [238, 14], [300, 5]]) { R(cx + 4, cy, 14, 3, '#fff', b); R(cx, cy + 3, 22, 4, '#fff', b); R(cx + 2, cy + 7, 18, 1, '#e3f1f8', b); }
-    R(0, 36, W, 13, '#2f6a3c', b);
-    for (let x = 0; x < W; x += 5) { const h = 4 + Math.floor(rnd() * 9); R(x, 40 - h, 6, h, rnd() < .5 ? '#2a5f36' : '#357a44', b); R(x + 1, 40 - h, 2, 1, '#4c9357', b); }
-    R(0, 49, W, 97, '#5ea957', b);
-    for (let y = 49; y < 146; y++) for (let x = -120; x < W; x += 28) R(x + Math.round((y - 49) * 0.7), y, 14, 1, '#68b560', b);
-    for (let i = 0; i < 700; i++) R(Math.floor(rnd() * W), 49 + Math.floor(rnd() * 97), 1, 1, rnd() < .5 ? '#539b4c' : '#78c46d', b);
-    for (const y of [104, 138]) R(0, y, W, 1, 'rgba(255,255,255,.28)', b);
-    // yardage markers
-    for (const [x, y, t] of [[26, 100, '#ffffff'], [26, 134, '#e0473c']]) { R(x, y, 3, 4, t, b); }
-    // golf bag with clubs
-    R(4, 108, 10, 38, '#28032F', b); R(4, 108, 10, 2, '#4a1356', b); R(5, 118, 8, 1, '#7A3A8A', b); R(5, 132, 8, 1, '#7A3A8A', b);
-    R(5, 100, 2, 9, '#c9ccd2', b); R(9, 97, 2, 12, '#c9ccd2', b); R(12, 102, 2, 7, '#c9ccd2', b); R(4, 97, 4, 3, '#1c1c1c', b); R(8, 94, 4, 3, '#1c1c1c', b); R(12, 99, 3, 3, '#1c1c1c', b);
-    // tee box turf in front
-    R(0, 146, W, 34, '#3f8a45', b); R(0, 146, W, 1, '#2d6b35', b);
-    for (let i = 0; i < 260; i++) R(Math.floor(rnd() * W), 148 + Math.floor(rnd() * 32), 1, 2, rnd() < .5 ? '#357a3b' : '#4b9a50', b);
-    for (const x of [118, 196]) { R(x, 150, 5, 4, '#ffffff', b); R(x, 153, 5, 1, '#cfcfcf', b); }
-    // clipboard scoreboard
-    R(150, 84, 16, 20, '#8a5a2e', b); R(152, 87, 12, 16, '#fbfbf6', b); R(155, 83, 6, 3, '#555', b);
-    for (let y = 90; y < 102; y += 3) R(154, y, 8, 1, '#b9c2cc', b);
+    let seed = 11; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+    // golden-hour sky in pixel bands, low sun, streaky clouds
+    ['#5d7fb6', '#6c8cbf', '#7f9bc8', '#96add0', '#b0bfd6', '#cccbd3', '#e3d0c4', '#f2d4b4', '#f8dcae'].forEach((c, i) => R(0, i * 5, W, 5, c, b));
+    R(0, 45, W, HZ - 45, '#f8dcae', b);
+    ell(b, 252, 42, 10, 10, '#ffe6b8'); ell(b, 252, 42, 7, 7, '#fff6e2');
+    for (const [x, y, w] of [[18, 9, 44], [96, 17, 26], [176, 7, 54], [284, 21, 30]]) { R(x, y, w, 2, 'rgba(255,255,255,.6)', b); R(x + 7, y - 1, w - 16, 1, 'rgba(255,255,255,.45)', b); }
+    // two ranges of mountains, then a pine treeline
+    for (let x = 0; x < W; x++) { const h = 12 + Math.round(6 * Math.sin(x / 23) + 4 * Math.sin(x / 9 + 1)); R(x, 50 - h, 1, h, '#9a9cbc', b); }
+    for (let x = 0; x < W; x++) { const h = 7 + Math.round(4 * Math.sin(x / 17 + 2) + 2 * Math.sin(x / 7)); R(x, 53 - h, 1, h, '#7c84a8', b); }
+    for (let x = -3; x < W; x += 4) { const h = 5 + Math.floor(rnd() * 9); for (let k = 0; k < h; k++) { const w = Math.round(k / h * 3); R(x + 2 - w, HZ - h + k, w * 2 + 1, 1, k % 3 ? '#26492f' : '#2f5a3a', b); } }
+    // the clubhouse on the ridge
+    R(6, 44, 36, 3, '#4a1356', b); R(8, 41, 32, 3, '#28032F', b); R(8, 47, 32, 11, '#f3efe8', b); R(21, 50, 6, 8, '#28032F', b);
+    R(11, 50, 6, 4, '#b9a3c6', b); R(31, 50, 6, 4, '#b9a3c6', b); R(23, 33, 1, 8, '#dddddd', b); R(24, 33, 5, 3, '#FFBD00', b);
+    // rough, then a fairway that narrows to the horizon, with mowing bands
+    R(0, HZ, W, H - HZ, '#3f7d3c', b);
+    for (let y = HZ; y < 150; y++) {
+      const p = (y - HZ) / (150 - HZ), cx = 222 - p * 90, half = 34 + p * 160;
+      R(cx - half, y, half * 2, 1, Math.floor(Math.pow(p, .55) * 10) % 2 ? '#6db95b' : '#5fab50', b);
+      R(cx - half - 2, y, 2, 1, '#4f9546', b); R(cx + half, y, 2, 1, '#4f9546', b);
+    }
+    for (let i = 0; i < 700; i++) R(Math.floor(rnd() * W), HZ + Math.floor(rnd() * (H - HZ)), 1, 1, rnd() < .5 ? '#4f8f47' : '#7cc768', b);
+    // pond, bunkers and a green under every pin
+    ell(b, 128, 78, 28, 6, '#2c6aa3'); ell(b, 128, 77, 25, 4, '#4d92cf'); R(114, 76, 7, 1, '#d6ecfa', b); R(133, 79, 5, 1, '#d6ecfa', b);
+    ell(b, 270, 104, 14, 4, '#e2cf98'); ell(b, 270, 103, 12, 2, '#f3e6bb');
+    ell(b, 206, 140, 16, 5, '#e2cf98'); ell(b, 206, 139, 13, 3, '#f3e6bb');
+    for (const [x, y] of PINS) { const s = persp(y); ell(b, x, y, Math.round(16 * s), Math.round(4 * s), '#86cf72'); ell(b, x, y, Math.round(12 * s), Math.round(3 * s), '#9be285'); }
+    // cart path
+    for (let y = HZ + 6; y < H; y++) { const p = (y - HZ) / (H - HZ); R(26 + p * 22 + Math.sin(p * 4) * 5, y, 2 + Math.round(p * 5), 1, '#d3cab7', b); }
+    // tee box with plum markers
+    R(38, 139, 116, 8, '#7fcf6f', b); R(38, 139, 116, 1, '#a3e68f', b); R(38, 146, 116, 1, '#4f9a4a', b);
+    for (const x of [44, 146]) { R(x, 140, 4, 3, '#28032F', b); R(x + 1, 140, 2, 1, '#9a5aab', b); }
+    // foreground rough
+    R(0, 148, W, 32, '#356b33', b);
+    for (let i = 0; i < 320; i++) R(Math.floor(rnd() * W), 148 + Math.floor(rnd() * 32), 1, 2, rnd() < .5 ? '#2c5a2b' : '#467f41', b);
   })();
 
   /* ---------- script ---------- */
-  const SLOTS = [[222, 76], [258, 76], [294, 76], [222, 116], [258, 116], [294, 116]];
-  const TILT = [-0.2, 0.15, -0.1, 0.2, -0.15, 0.1];
   const L0 = ['LINKEDIN', 'WEBINAR', 'CASES', 'EMAIL', 'EVENTS', 'VIDEO'], L1 = ['BRIDGE', 'GSX'];
-  const FLY = 0.45, REFILL = 7.3, JOIN = 10.8, AI_T = 13.0, BELL = 20.1, DLG = 22.6, ENDCARD = 26.6;
+  const FLY = 0.7, REFILL = 7.3, JOIN = 10.8, AI_T = 13.0, BELL = 20.1, DLG = 22.6, ENDCARD = 26.6;
   const THROWS = [
     { who: 'C', t: 5.0, slot: 0 }, { who: 'C', t: 6.3, slot: 1 },
     { who: 'D', t: 16.6, slot: 0 }, { who: 'C', t: 17.15, slot: 1 }, { who: 'D', t: 17.7, slot: 2 },
@@ -1164,12 +1184,16 @@
   ];
   THROWS.forEach(th => th.hit = th.t + FLY);
   const HOME = { C: 84, D: 45 };
+  const CALLS = ['BIRDIE!', 'EAGLE!', 'BIRDIE!', 'IN THE CUP!', 'BIRDIE!', 'EAGLE!', 'BIRDIE!', 'ACE!'];
+  const YARDS = [168, 214, 256, 102, 147, 189];
 
   function slotState(i, t) {
     const second = i < 2 && t >= REFILL;
     const hits = THROWS.filter(th => th.slot === i && th.hit <= t && (i >= 2 || (second ? th.hit >= REFILL : th.hit < REFILL)));
     return { label: second ? L1[i] : L0[i], done: hits.length > 0, hit: hits[0] };
   }
+  const under = (t, who) => THROWS.filter(th => th.hit <= t && (!who || th.who === who)).length;
+  const scoreTxt = n => n ? '-' + n : 'E';
 
   function actor(who, t) {
     let x, yo = 0, pose = 'stand';
@@ -1180,7 +1204,11 @@
     } else {
       if (t < 11.2) return null;
       if (t < 12.0) { x = -30 + 75 * ((t - 11.2) / 0.8); pose = run; }
-      else { x = HOME.D; if (t < 12.6) { yo = -22 * Math.sin(Math.PI * (t - 12.0) / 0.6); pose = 'jump'; } }
+      else {
+        x = HOME.D;
+        if (t >= 12.25 && t < 12.9) pose = 'wave';
+        if (t >= AI_T && t < AI_T + 0.5) { yo = -10 * Math.sin(Math.PI * (t - AI_T) / 0.5); pose = 'jump'; }
+      }
     }
     let hold = false;
     for (const th of THROWS) if (th.who === who) {
@@ -1188,98 +1216,84 @@
       else if (t >= th.t && t < th.t + 0.3) pose = 'throw';
     }
     if (who === 'D' && t >= 14.0 && t < 16.1) pose = 'wave';
-    if (t >= BELL) { pose = 'cheer'; if (t < 21.6) yo = -Math.abs(Math.sin((t - BELL) * 7 + (who === 'D' ? 1 : 0))) * 6; }
+    if (t >= BELL) { pose = 'cheer'; hold = false; if (t < 21.6) yo = -Math.abs(Math.sin((t - BELL) * 7 + (who === 'D' ? 1 : 0))) * 6; }
     return { x, yo, pose, hold };
   }
 
-  function score(t) {
-    let s = THROWS.filter(th => th.hit <= t).length * 100;
-    if (t >= AI_T) s += 1000;
-    if (t >= BELL) s += 1000;
-    return s;
-  }
-
   /* ---------- scene pieces ---------- */
-  function neon(t) {
-    const on = !(Math.floor(t * 10) % 41 === 0 || Math.floor(t * 10) % 41 === 2);
-    R(128, 20, 64, 1, COL.blue); R(128, 44, 64, 1, COL.blue); R(128, 20, 1, 25, COL.blue); R(191, 20, 1, 25, COL.blue);
-    R(129, 21, 62, 23, '#28032F'); R(140, 44, 2, 5, '#5a3b26'); R(178, 44, 2, 5, '#5a3b26');
-    if (on) { text('ACRE', 161, 25, 'rgba(185,163,198,.45)', 2, 'c'); text('ACRE', 159, 23, 'rgba(185,163,198,.45)', 2, 'c'); }
-    text('ACRE', 160, 24, on ? '#e9dcf0' : '#4a1356', 2, 'c');
-    text('SECURITY', 160, 37, on ? '#FFBD00' : '#4a1356', 1, 'c');
-  }
-
-  function bell(t) {
-    const x = 196, y = 52;
-    let a = 0;
-    if (t >= BELL && t < BELL + 1.6) a = Math.sin((t - BELL) * 18) * (1 - (t - BELL) / 1.6) * 3;
-    // flagstick: the flag flutters when the last putt drops
-    R(x - 4, y + 22, 9, 2, '#2d6b35'); R(x - 2, y + 22, 5, 1, '#111');
-    R(x, y - 4, 1, 26, '#f4f4f4');
-    const wv = Math.round(a) + (Math.floor(t * 4) % 2);
-    R(x + 1, y - 4, 10, 7, COL.navy); R(x + 11, y - 3 + wv, 1, 5, COL.navy); R(x + 3, y - 2, 4, 3, '#b9a3c6');
-    if (t >= BELL && t < BELL + 1.2) { stext('IN!', x + 14, y + 2, COL.gold); stext('+1000', x + 14, y + 10 - (t - BELL) * 6, '#fff'); }
-  }
-
-  function board(i, t) {
-    const [cx, baseY] = SLOTS[i];
-    const st = slotState(i, t);
-    let cy = baseY;
-    if (i < 2 && t >= REFILL && t < REFILL + 0.45) {
-      const u = (t - REFILL) / 0.45;
-      cy = baseY - 70 * (1 - u) * (1 - u) + (u > 0.8 ? -Math.sin((u - 0.8) / 0.2 * Math.PI) * 3 : 0);
+  function birds(t) {
+    for (let k = 0; k < 3; k++) {
+      const x = ((t * 14 + k * 110) % 380) - 30, y = 14 + k * 5 + Math.sin(t * 2 + k) * 2, f = Math.floor(t * 6 + k) % 2;
+      R(x, y, 1, 1, '#3a3350'); R(x - 1, y - f, 1, 1, '#3a3350'); R(x + 1, y - f, 1, 1, '#3a3350'); R(x - 2, y - 1 + f, 1, 1, '#3a3350'); R(x + 2, y - 1 + f, 1, 1, '#3a3350');
     }
-    let sx = 0;
-    if (st.hit && t - st.hit.hit < 0.14) sx = (Math.floor(t * 60) % 2 ? 1 : -1);
-    const x = cx + sx;
-    R(x - 13, cy - 13, 26, 26, '#b88450'); R(x - 13, cy - 13, 26, 1, '#d9a86e');
-    R(x - 13, cy + 12, 26, 1, '#7a5230'); R(x - 13, cy - 13, 1, 26, '#7a5230'); R(x + 12, cy - 13, 1, 26, '#7a5230');
-    disc(x, cy, 10, COL.navy); disc(x, cy, 8, '#ffffff'); disc(x, cy, 6, COL.blue); disc(x, cy, 4, '#ffffff'); disc(x, cy, 2, COL.red);
+    const s = Math.floor(t * 5) % 12; R(106 + s * 3, 75 + (s % 3), 3, 1, '#e9f5fd');
+  }
+
+  function leaderboard(t) {
+    const x = 118, y = 18, w = 84;
+    R(x + 8, y + 30, 2, HZ - y - 30, '#3b2a1c'); R(x + w - 10, y + 30, 2, HZ - y - 30, '#3b2a1c');
+    R(x - 1, y - 1, w + 2, 32, '#1a0220'); R(x, y, w, 30, '#f7f5ef'); R(x, y, w, 8, COL.navy);
+    const champ = t >= BELL && Math.floor(t * 4) % 2;
+    text(champ ? 'CHAMPIONS!' : 'LEADERBOARD', x + w / 2, y + 2, champ ? '#FFE14D' : '#ffffff', 1, 'c');
+    text('1 ANDREW', x + 3, y + 11, COL.navy); text(scoreTxt(under(t, 'C')), x + w - 3, y + 11, '#c8261d', 1, 'r');
+    R(x + 2, y + 18, w - 4, 1, '#e3dde6');
+    if (t >= JOIN) { text('2 DURVA', x + 3, y + 21, COL.navy); text(scoreTxt(under(t, 'D')), x + w - 3, y + 21, '#c8261d', 1, 'r'); }
+    else text('2 ---', x + 3, y + 21, '#b9b3bd');
+  }
+
+  function pin(i, t) {
+    const [x, y] = PINS[i], st = slotState(i, t), s = persp(y);
+    let rise = 0;
+    if (i < 2 && t >= REFILL && t < REFILL + 0.45) rise = 1 - (t - REFILL) / 0.45;
+    const ph = Math.round(20 * s), top = y - Math.round(ph * (1 - rise));
+    R(x - 1, y - 1, 3, 2, '#141414');
+    if (rise < 1) {
+      R(x, top, 1, y - top, '#f4f4f4');
+      const fw = Math.round(7 * s) + 3, fh = Math.round(4 * s) + 2, hot = st.hit && t - st.hit.hit < 0.6;
+      const wv = Math.floor(t * (hot ? 14 : 5) + i) % 2, col = st.done ? '#FFBD00' : COL.navy;
+      R(x + 1, top, fw, fh, col); R(x + 1 + fw, top + wv, 1, fh - 1, col);
+      if (st.done) { R(x + 3, top + 2, 1, 1, COL.navy); R(x + 4, top + 3, 1, 1, COL.navy); R(x + 5, top + 2, 1, 1, COL.navy); R(x + 6, top + 1, 1, 1, COL.navy); }
+    }
     const w = st.label.length * 4 + 3, lx = Math.round(x - w / 2);
-    R(lx, cy + 15, w, 8, st.done ? COL.green : '#fbfbf6');
-    R(lx, cy + 22, w, 1, 'rgba(0,0,0,.25)');
-    text(st.label, lx + 2, cy + 16, COL.navy);
-    if (st.done) {
-      R(x + 6, cy - 16, 9, 8, COL.green);
-      R(x + 8, cy - 12, 1, 1, COL.navy); R(x + 9, cy - 11, 1, 1, COL.navy); R(x + 10, cy - 12, 1, 1, COL.navy); R(x + 11, cy - 13, 1, 1, COL.navy); R(x + 12, cy - 14, 1, 1, COL.navy);
-      drawBall(x + Math.round(TILT[i] * 10), cy + 1);
-    }
-    // poof when old tasks are swapped out
+    R(lx, y + 4, w, 8, st.done ? '#FFBD00' : '#fbfbf6'); R(lx, y + 11, w, 1, 'rgba(0,0,0,.25)');
+    text(st.label, lx + 2, y + 5, COL.navy);
     if (i < 2 && t >= REFILL && t < REFILL + 0.3) {
       const u = (t - REFILL) / 0.3;
-      for (let k = 0; k < 8; k++) { const a = k * Math.PI / 4; R(cx + Math.cos(a) * 16 * u, baseY + Math.sin(a) * 16 * u, 2, 2, '#fff'); }
+      for (let k = 0; k < 8; k++) { const a = k * Math.PI / 4; R(x + Math.cos(a) * 14 * u, y - 8 + Math.sin(a) * 10 * u, 2, 2, '#fff'); }
     }
   }
 
-  function qblock(t) {
-    const x = 53, y = 56;
-    let by = y;
-    if (t >= 12.75) {
-      if (t < 13.3) { const u = (t - 12.75) / 0.55; for (let k = 0; k < 4; k++) R(x + 3 + (k % 2 ? 8 : -2) * (1 + u * 2), y + 4 - Math.sin(u * Math.PI) * 10 + u * u * 30 + (k > 1 ? 6 : 0), 3, 3, '#9a6a34'); }
-      if (t >= 12.3 && t < AI_T) chip(x + 2 + 1, y - 10 + (146 - 58 - 10 - (y - 10)) * Math.pow((t - 12.6) / (AI_T - 12.6), 2), t);
-      return;
-    }
-    if (t >= 12.3 && t < 12.45) by = y - Math.sin((t - 12.3) / 0.15 * Math.PI) * 4;
-    // power-up (drawn first so it emerges from behind the block)
-    if (t >= 12.3 && t < AI_T) {
-      let px, py;
-      if (t < 12.6) { const u = (t - 12.3) / 0.3; px = x + 1; py = y - 10 * u; }
-      else { const u = (t - 12.6) / (AI_T - 12.6); px = x + 2; py = y - 10 + (146 - 58 - 10 - (y - 10)) * u * u; }
-      chip(px, py, t);
-    }
-    const used = t >= 12.3;
-    R(x, by, 12, 12, '#3a2408');
-    R(x + 1, by + 1, 10, 10, used ? '#9a6a34' : (Math.floor(t * 3) % 3 === 0 ? '#ffd35a' : COL.gold));
-    R(x + 1, by + 1, 10, 1, used ? '#b48450' : '#ffe39a');
-    if (!used) text('?', x + 5, by + 4, '#7a4a10');
-    else { R(x + 2, by + 2, 1, 1, '#3a2408'); R(x + 9, by + 2, 1, 1, '#3a2408'); R(x + 2, by + 9, 1, 1, '#3a2408'); R(x + 9, by + 9, 1, 1, '#3a2408'); }
+  // Durva's golf bag (she is the caddie)
+  function bag(x) {
+    x = Math.round(x); const y = FLOOR;
+    R(x + 8, y - 6, 1, 6, '#555'); R(x + 10, y - 5, 1, 5, '#555');
+    R(x, y - 24, 9, 24, COL.navy); R(x, y - 24, 9, 2, '#4a1356'); R(x + 1, y - 16, 7, 1, '#b9a3c6'); R(x + 1, y - 7, 7, 1, '#b9a3c6'); R(x + 2, y - 13, 5, 3, '#f3efe8');
+    R(x + 1, y - 30, 1, 6, '#c9ccd2'); R(x + 4, y - 33, 1, 9, '#c9ccd2'); R(x + 7, y - 29, 1, 5, '#c9ccd2');
+    R(x, y - 32, 3, 2, '#1c1c1c'); R(x + 3, y - 35, 3, 2, '#1c1c1c'); R(x + 6, y - 31, 3, 2, '#FFBD00');
   }
-  function chip(x, y, t) {
+  // the AI rangefinder power-up (a nod to Acre Intelligence)
+  function finder(x, y, t) {
     x = Math.round(x); y = Math.round(y);
-    for (let k = 0; k < 3; k++) { R(x - 2, y + 2 + k * 3, 2, 1, '#9aa5ad'); R(x + 10, y + 2 + k * 3, 2, 1, '#9aa5ad'); }
-    R(x, y, 10, 10, Math.floor(t * 8) % 2 ? '#FFE14D' : COL.green);
-    R(x + 1, y + 1, 8, 8, COL.navy);
-    text('AI', x + 2, y + 3, '#FFE14D');
+    R(x - 1, y - 1, 16, 10, '#000'); R(x, y, 14, 8, Math.floor(t * 8) % 2 ? '#FFE14D' : COL.green); R(x + 1, y + 1, 12, 6, COL.navy);
+    text('AI', x + 3, y + 2, '#FFE14D'); R(x + 14, y + 2, 2, 4, '#777');
+  }
+  function aiFinder(t) {
+    const bx = HOME.D - 14 + 1, by = FLOOR - 36;
+    if (t >= 12.3 && t < AI_T) {
+      let x, y;
+      if (t < 12.6) { const u = (t - 12.3) / 0.3; x = bx; y = by - 16 * u; }
+      else { const u = (t - 12.6) / (AI_T - 12.6); x = bx + (HOME.D + 16 - bx) * u; y = by - 16 + (FLOOR - 40 - (by - 16)) * u * u; }
+      finder(x, y, t);
+    }
+    if (t >= AI_T && t < AI_T + 2.4) {
+      const sx = HOME.D + 26, sy = FLOOR - 40;
+      PINS.forEach(([px, py], i) => {
+        if (slotState(i, t).done) return;
+        const top = py - Math.round(20 * persp(py));
+        for (let k = 0; k < 24; k++) { if ((k + Math.floor(t * 16)) % 3) continue; const u = k / 24; R(sx + (px - sx) * u, sy + (top - sy) * u, 1, 1, '#ff5a4a'); }
+        stext(YARDS[i] + 'Y', px + Math.round(7 * persp(py)) + 7, top + 1, '#FFE14D');
+      });
+    }
   }
 
   function sparkles(t, ax) {
@@ -1300,13 +1314,32 @@
     lines.forEach((l, i) => text(l, x + 4, top + 3 + i * 7, COL.navy));
   }
 
-  function coinPop(cx, cy, t0, t) {
-    const u = (t - t0) / 0.7;
-    if (u < 0 || u > 1) return;
-    const y = cy - 16 - Math.sin(u * Math.PI) * 18;
-    const f = Math.floor(t * 16) % 4, cw = [6, 4, 2, 4][f];
-    R(cx - cw / 2, y - 4, cw, 8, COL.gold); R(cx - cw / 2, y - 4, Math.max(1, cw - 2), 1, '#ffe39a');
-    if (Math.floor(t * 20) % 2 || u < 0.6) stext('+100', cx, cy - 24 - u * 10, '#ffffff', 1, 'c');
+  // a ball waits on its tee before every swing
+  function teeBalls(t) {
+    for (const who of ['C', 'D']) {
+      const next = THROWS.find(th => th.who === who && th.t >= t);
+      if (!next || next.t - t > 0.9) continue;
+      if (who === 'C' && t < 4.2) continue;
+      const bx = HOME[who] + 30;
+      R(bx, FLOOR - 2, 1, 2, '#ffffff'); drawBall(bx, FLOOR - 4);
+    }
+  }
+  function flights(t) {
+    for (const th of THROWS) {
+      if (t < th.t || t >= th.hit) continue;
+      const u = (t - th.t) / FLY, sx = HOME[th.who] + 30, sy = FLOOR - 4, [tx, ty] = PINS[th.slot];
+      const peak = 60 + (sy - ty) * 0.45, arc = v => Math.sin(Math.PI * v) * peak;
+      const gx = sx + (tx - sx) * u, gy = sy + (ty - sy) * u;
+      R(gx - 1, gy + 2, 3, 1, 'rgba(0,0,0,.3)');
+      for (let k = 1; k <= 6; k++) { const v = u - k * 0.022; if (v < 0) break; R(sx + (tx - sx) * v, sy + (ty - sy) * v - arc(v), 1, 1, `rgba(255,255,255,${(0.6 - k * 0.09).toFixed(2)})`); }
+      axeAt(gx, gy - arc(u), 0, u < 0.3 ? 2 : 1);
+    }
+  }
+  function cupPop(i, th, t) {
+    const u = (t - th.hit) / 0.9; if (u < 0 || u > 1) return;
+    const [x, y] = PINS[th.slot];
+    for (let k = 0; k < 8; k++) { const a = k * Math.PI / 4 + u * 2; R(x + Math.cos(a) * (4 + u * 14), y - 4 + Math.sin(a) * (3 + u * 9), 1, 1, k % 2 ? '#FFE14D' : '#ffffff'); }
+    if (Math.floor(t * 20) % 2 || u < .6) stext(CALLS[i], x, y - 34 - u * 10, '#FFE14D', 1, 'c');
   }
 
   function firework(cx, cy, t0, t) {
@@ -1316,71 +1349,74 @@
     const v = (u - 0.2) / 0.8, rr = v * 20;
     if (v > 0.6 && Math.floor(t * 20) % 2) return;
     const cols = ['#FFE14D', '#ffd35a', '#ffffff', '#c9a8d6'];
-    for (let k = 0; k < 12; k++) {
-      const a = k * Math.PI / 6;
-      R(cx + Math.cos(a) * rr, cy + Math.sin(a) * rr + v * v * 6, 2, 2, cols[k % 4]);
-    }
+    for (let k = 0; k < 12; k++) { const a = k * Math.PI / 6; R(cx + Math.cos(a) * rr, cy + Math.sin(a) * rr + v * v * 6, 2, 2, cols[k % 4]); }
   }
 
   function hud(t) {
-    const tasks = [0, 1, 2, 3, 4, 5].filter(i => !slotState(i, t).done).length;
+    const pins = [0, 1, 2, 3, 4, 5].filter(i => !slotState(i, t).done).length;
     stext(t >= JOIN ? 'ANDREW+DURVA' : 'ANDREW', 6, 4, '#ffffff');
-    stext(String(score(t)).padStart(6, '0'), 6, 11, '#ffffff');
-    stext('TASKS', 76, 4, '#ffffff');
-    stext('*' + String(tasks).padStart(2, '0'), 76, 11, tasks ? '#ffffff' : '#FFE14D');
-    stext('HOLE', 214, 4, '#ffffff'); stext('  1', 214, 11, '#ffffff');
-    stext('TIME', 272, 4, '#ffffff');
-    stext(String(Math.max(0, 400 - Math.floor((Math.min(t, BELL) - 3.2) * 8))).padStart(3, ' '), 272, 11, '#ffffff');
+    stext('SCORE ' + scoreTxt(under(t)), 6, 11, under(t) ? '#FFE14D' : '#ffffff');
+    stext('PINS', 76, 4, '#ffffff');
+    stext('*' + String(pins).padStart(2, '0'), 76, 11, pins ? '#ffffff' : '#FFE14D');
+    stext('HOLE 1', 214, 4, '#ffffff'); stext('PAR 4', 214, 11, '#ffffff');
+    stext('WIND', 274, 4, '#ffffff'); stext('3', 274, 11, '#ffffff');
+    const wv = Math.floor(t * 3) % 2; R(282, 13, 9, 1, '#fff'); R(289 + wv, 12, 1, 3, '#fff'); R(290 + wv, 13, 1, 1, '#fff');
   }
 
   /* ---------- screens ---------- */
   function titleScreen(t) {
     R(0, 0, W, H, '#000');
-    text('HOLE 1  PAR 4', 160, 38, '#ffffff', 2, 'c');
-    text('ACRE SECURITY', 160, 58, COL.green, 1, 'c');
-    drawActor(PAL.C, 124, -24, 'stand', false, t);
-    text('* 1', 162, 92, '#ffffff', 2);
-    text('CMO: ANDREW', 160, 136, '#cfd8de', 1, 'c');
-    text('FIRST TEE. BIG SEASON.', 160, 150, '#b9a3c6', 1, 'c');
+    // a yardage-book hole card
+    const mx = 178, my = 14, mw = 124, mh = 152;
+    R(mx - 3, my - 3, mw + 6, mh + 6, '#f3efe8'); R(mx, my, mw, mh, '#2f6a3c');
+    g.save(); g.beginPath(); g.rect(mx, my, mw, mh); g.clip();
+    for (let k = 0; k <= 40; k++) { const u = k / 40; disc(mx + 62 + Math.sin(u * 2.8) * 22 - u * 6, my + mh - 16 - u * 112, 9 + Math.round(4 * Math.sin(u * 3)), '#6db95b'); }
+    disc(mx + 36, my + 74, 8, '#4d92cf'); disc(mx + 92, my + 40, 4, '#f3e6bb'); disc(mx + 44, my + 24, 3, '#f3e6bb');
+    disc(mx + 64, my + 28, 12, '#9be285');
+    R(mx + 55, my + mh - 14, 16, 7, '#a3e68f');
+    for (let k = 0; k <= 16; k++) { const u = k / 16, x = (1 - u) * (1 - u) * (mx + 63) + 2 * u * (1 - u) * (mx + 104) + u * u * (mx + 64), y = (1 - u) * (1 - u) * (my + mh - 11) + 2 * u * (1 - u) * (my + 84) + u * u * (my + 30); if (k % 2 === 0) R(x, y, 1, 1, '#ffffff'); }
+    R(mx + 64, my + 16, 1, 13, '#ffffff'); R(mx + 65, my + 16, 6, 4, '#FFBD00'); R(mx + 63, my + 29, 3, 1, '#111');
+    g.restore();
+    text('412 YDS', mx + mw / 2, my + mh + 5, '#f3efe8', 1, 'c');
+    text('HOLE 1', 18, 22, '#ffffff', 3);
+    text('PAR 4', 18, 46, COL.green, 2);
+    text('ACRE NATIONAL', 18, 64, '#b9a3c6', 1);
+    drawActor(PAL.C, 44, -30, 'stand', false, t);
+    text('CMO: ANDREW', 18, 132, '#cfd8de', 1);
+    text('FIRST TEE. BIG SEASON.', 18, 142, '#b9a3c6', 1);
   }
 
   function lane(t) {
     g.drawImage(BG, 0, 0);
-    neon(t);
-    bell(t);
-    for (let i = 0; i < 6; i++) board(i, t);
-    qblock(t);
+    birds(t);
+    leaderboard(t);
+    for (let i = 0; i < 6; i++) pin(i, t);
 
     const c = actor('C', t), d = actor('D', t);
     if (d) {
+      bag(t < 12.0 ? d.x - 14 : HOME.D - 14);
       const flash = t >= AI_T && t < AI_T + 0.6 && Math.floor(t * 12) % 2;
       drawActor(flash ? PAL.FLASH : PAL.D, d.x, d.yo, d.pose, d.hold, t);
       if (t >= AI_T) sparkles(t, d.x);
     }
     if (c) drawActor(PAL.C, c.x, c.yo, c.pose, c.hold, t);
+    teeBalls(t);
+    aiFinder(t);
+    flights(t);
+    THROWS.forEach((th, i) => cupPop(i, th, t));
 
-    // flying axes
-    for (const th of THROWS) {
-      if (t < th.t || t >= th.hit) continue;
-      const u = (t - th.t) / FLY;
-      const fx = HOME[th.who] + 30, fy = FLOOR - 2 * SH + 18;
-      const [cx, cy] = SLOTS[th.slot], tx = cx + Math.round(TILT[th.slot] * 10), ty = cy + 1;
-      axeAt(fx + (tx - fx) * u, fy + (ty - fy) * u - Math.sin(Math.PI * u) * 16, -2.3 + u * (4 * Math.PI + 2.3 + TILT[th.slot]), u < 0.55 ? 2 : 1);
-    }
-    for (const th of THROWS) coinPop(SLOTS[th.slot][0], SLOTS[th.slot][1], th.hit, t);
-
-    if (t >= REFILL && t < REFILL + 1.1 && Math.floor(t * 10) % 3) stext('+2 TASKS!', 240, 56, '#ff6b5e', 1, 'c');
-    if (t >= 8.0 && t < 10.6) bubble(HOME.C + 30, 64, ['SO MANY HOLES TO PLAY...', 'I NEED A CADDIE!'], HOME.C + 18, 88);
+    if (t >= REFILL && t < REFILL + 1.1 && Math.floor(t * 10) % 3) stext('+2 PINS!', 240, 56, '#ff6b5e', 1, 'c');
+    if (t >= 8.0 && t < 10.6) bubble(HOME.C + 30, 70, ['SO MANY PINS TO HIT...', 'I NEED A CADDIE!'], HOME.C + 18, 94);
     if (t >= JOIN && t < JOIN + 1.1) {
       if (t < JOIN + 0.08) R(0, 0, W, H, '#ffffff');
-      R(0, 54, W, 20, 'rgba(0,38,62,.9)');
-      text('PLAYER 2 HAS JOINED!', 160, 59, Math.floor(t * 8) % 2 ? '#FFE14D' : '#ffffff', 2, 'c');
+      R(0, 54, W, 20, 'rgba(40,3,47,.9)');
+      text('YOUR CADDIE HAS ARRIVED!', 160, 59, Math.floor(t * 8) % 2 ? '#FFE14D' : '#ffffff', 2, 'c');
     }
-    if (t >= AI_T && t < AI_T + 1.2) stext('AI POWER-UP!', 59, 70, '#FFE14D', 1, 'c');
-    if (t >= 14.0 && t < 16.1) bubble(HOME.D + 20, 64, ["HI ANDREW! I'M DURVA.", "YOUR CADDIE. LET'S PLAY."], HOME.D + 16, 88);
+    if (t >= AI_T && t < AI_T + 1.2) stext('AI RANGEFINDER!', 66, 82, '#FFE14D', 1, 'c');
+    if (t >= 14.0 && t < 16.1) bubble(HOME.D + 20, 70, ["HI ANDREW! I'M DURVA.", "YOUR CADDIE. LET'S PLAY."], HOME.D + 16, 94);
     if (t >= BELL + 0.2) {
-      stext('HOLE IN ONE!', 112, 62, Math.floor(t * 6) % 2 ? '#ffffff' : '#ffd35a', 2, 'c');
-      firework(90, 40, BELL + 0.3, t); firework(150, 30, BELL + 0.7, t); firework(60, 70, BELL + 1.1, t); firework(130, 80, BELL + 1.5, t);
+      stext('WHAT A ROUND!', 100, 64, Math.floor(t * 6) % 2 ? '#ffffff' : '#ffd35a', 2, 'c');
+      firework(60, 36, BELL + 0.3, t); firework(230, 60, BELL + 0.7, t); firework(40, 80, BELL + 1.1, t); firework(270, 40, BELL + 1.5, t);
     }
     hud(t);
   }
@@ -1398,11 +1434,13 @@
 
   function endCard(t) {
     R(0, 0, W, H, '#000');
-    text('FORE!', 160, 22, '#ffffff', 3, 'c');
+    text('WHAT A ROUND.', 160, 22, '#ffffff', 3, 'c');
     text("LET'S GO!", 160, 44, '#FFE14D', 3, 'c');
     const hop = k => -Math.abs(Math.sin(t * 5 + k)) * 4;
-    drawActor(PAL.C, 128, -16 + hop(0), 'cheer', false, t);
-    drawActor(PAL.D, 166, -16 + hop(1), 'cheer', false, t);
+    // a trophy between the champions
+    R(154, 108, 12, 3, '#c98a1a'); R(157, 111, 6, 6, '#f5b72a'); R(152, 96, 16, 12, '#ffd35a'); R(150, 98, 2, 6, '#f5b72a'); R(168, 98, 2, 6, '#f5b72a'); R(155, 99, 3, 6, '#fff3c4'); R(153, 117, 14, 3, COL.navy);
+    drawActor(PAL.C, 118, -16 + hop(0), 'cheer', false, t);
+    drawActor(PAL.D, 174, -16 + hop(1), 'cheer', false, t);
     text('ANDREW + DURVA', 160, 138, '#ffffff', 1, 'c');
     text('NEXT: HOLE 2  THE INTERVIEW', 160, 151, '#b9a3c6', 1, 'c');
     if (!playing && Math.floor(performance.now() / 500) % 2) text('PRESS REPLAY TO PLAY AGAIN', 160, 167, '#cfd8de', 1, 'c');
@@ -1411,12 +1449,10 @@
   function idle() {
     const t = performance.now() / 1000;
     g.drawImage(BG, 0, 0);
-    neon(t);
-    bell(0);
-    for (let i = 0; i < 6; i++) board(i, 0);
-    qblock(0);
-    R(0, 0, W, H, 'rgba(0,20,34,.62)');
-    text('PLAYER 2: READY?', 160, 46, '#ffffff', 2, 'c');
+    birds(t); leaderboard(0);
+    for (let i = 0; i < 6; i++) pin(i, 0);
+    R(0, 0, W, H, 'rgba(18,1,24,.5)');
+    text('READY TO TEE OFF?', 160, 46, '#ffffff', 2, 'c');
     text('A ROUND OF GOLF FOR ANDREW', 160, 66, '#FFE14D', 1, 'c');
   }
 
@@ -1431,8 +1467,8 @@
   const tmp = document.createElement('canvas'), tx = tmp.getContext('2d');
   const photo = src => { const im = new Image(); im.src = src; return im; };
   const PHOTOS = [
-    { img: photo('andrew.jpg'), crop: [0, 0, 600, 800], frame: [36, 22, 94, 125], pal: 'C', t0: 2.4, name: 'ANDREW', sub: 'ACRE CMO' },
-    { img: photo('/envera-systems/durva.jpg'), crop: [193, 487, 534, 712], frame: [190, 22, 94, 125], pal: 'D', t0: 6.8, name: 'DURVA', sub: 'PLAYER 2' },
+    { img: photo('andrew.jpg'), crop: [100, 0, 600, 800], frame: [36, 22, 94, 125], pal: 'C', t0: 2.4, name: 'ANDREW', sub: 'ACRE CMO' },
+    { img: photo('/envera-systems/durva.jpg'), crop: [193, 487, 534, 712], frame: [190, 22, 94, 125], pal: 'D', t0: 6.8, name: 'DURVA', sub: 'YOUR CADDIE' },
   ];
   const MORPH = 1.3, PIXEL_END = 3.6, FADE = 1.0;
   let hiDirty = false;
@@ -1457,10 +1493,10 @@
     if (t < PHOTOS[0].t0) {
       const msg = 'HI ANDREW!', n = Math.floor(t * 8);
       text(msg.slice(0, n), 160 - (msg.length * 12 - 3) / 2, 66, '#ffffff', 3);
-      if (t > 1.5) text('MEET THE PLAYERS', 160, 98, '#FFE14D', 1, 'c');
+      if (t > 1.5) text('MEET THE PLAYER AND THE CADDIE', 160, 98, '#FFE14D', 1, 'c');
       return;
     }
-    text('MEET THE PLAYERS', 160, 8, '#a99ab0', 1, 'c');
+    text('THE PLAYER AND THE CADDIE', 160, 8, '#a99ab0', 1, 'c');
     for (const p of PHOTOS) {
       const lt = t - p.t0;
       if (lt < 0) continue;
@@ -1489,8 +1525,8 @@
       text(p.sub, fx + fw / 2, fy + fh + 14, '#FFE14D', 1, 'c');
     }
     if (t >= 11.2) {
-      if (t < 12.4) { if (Math.floor(t * 4) % 2) text('READY?', 160, 76, '#ffffff', 2, 'c'); }
-      else text('GO!', 160, 76, '#FFE14D', 3, 'c');
+      if (t < 12.4) { if (Math.floor(t * 4) % 2) text('TEE TIME?', 160, 76, '#ffffff', 2, 'c'); }
+      else text('FORE!', 160, 76, '#FFE14D', 3, 'c');
     }
   }
 
@@ -1525,6 +1561,9 @@
     jingle: () => seq([523, 659, 784, 659, 1047], 0.11),
     whoosh: () => noise(0.18, 0.05, 2400, 'highpass'),
     thunk: () => { noise(0.07, 0.14, 500, 'lowpass'); tone(120, 0.1, 'triangle', 0.14, 0, 60); },
+    thwack: () => { noise(0.06, 0.14, 3200, 'highpass'); tone(1500, 0.05, 'square', 0.03); },
+    cup: () => { [0, 0.07, 0.14].forEach((w, i) => tone(620 - i * 90, 0.06, 'triangle', 0.1, w)); tone(988, 0.07, 'square', 0.035, 0.22); tone(1319, 0.28, 'square', 0.035, 0.29); },
+    crowd: () => { noise(1.6, 0.07, 1500); [0, 0.12, 0.24, 0.36, 0.5, 0.62].forEach(w => noise(0.05, 0.09, 4000, 'highpass', w)); },
     coin: () => { tone(988, 0.07, 'square', 0.035); tone(1319, 0.28, 'square', 0.035, 0.07); },
     drop: () => seq([700, 560, 420, 330], 0.07),
     join: () => seq([392, 523, 659, 784, 0, 659, 784], 0.09),
@@ -1549,9 +1588,9 @@
   SFX.push({ t: 11.2, f: () => S.join() });
   SFX.push({ t: 12.4, f: () => tone(1047, 0.25, 'square', 0.05) });
   at(0.15, S.jingle);
-  THROWS.forEach(th => { at(th.t, S.whoosh); at(th.hit, () => { S.thunk(); S.coin(); }); });
-  at(REFILL, S.drop); at(JOIN, S.join); at(12.0, S.jump); at(12.3, S.bump); at(12.33, S.sprout); at(AI_T, S.collect);
-  at(BELL, S.bell); at(BELL + 0.25, S.clear);
+  THROWS.forEach(th => { at(th.t, S.thwack); at(th.t + 0.05, S.whoosh); at(th.hit, S.cup); });
+  at(REFILL, S.drop); at(JOIN, S.join); at(12.3, S.sprout); at(AI_T, S.collect);
+  at(BELL, S.crowd); at(BELL + 0.25, S.clear);
   [0.5, 0.9, 1.3, 1.7].forEach(k => at(BELL + k, S.pop));
   for (let k = 0; k < 36; k++) at(DLG + 0.25 + k * 0.08, S.blip);
   at(ENDCARD, S.end);
@@ -1971,7 +2010,7 @@ document.addEventListener('DOMContentLoaded', () => {
     sec.dataset.world = world;
     sec.dataset.label = num;
     sec.innerHTML = `<div class="bricks" aria-hidden="true"></div>
-      <header class="world-head reveal"><div class="world-tag"><span class="qb" aria-hidden="true">?</span><span>HOLE ${world} · PAR ${par}</span></div><h2>${rich(s.title)}</h2>${s.intro ? `<p class="world-intro">${rich(s.intro)}</p>` : ''}</header>
+      <header class="world-head reveal"><div class="world-tag"><span class="qb" aria-hidden="true"></span><span>HOLE ${world} · PAR ${par}</span></div><h2>${rich(s.title)}</h2>${s.intro ? `<p class="world-intro">${rich(s.intro)}</p>` : ''}</header>
       <div class="${esc(s.layout || 'stack')} reveal">${items}</div>`;
     worlds.appendChild(sec);
     toc.insertAdjacentHTML('beforeend', `<a href="#${esc(s.id)}"><span>${num}</span>${esc(s.short || s.title)}</a>`);
@@ -2052,7 +2091,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (img.complete && img.naturalWidth === 0 && img.src) hide(); else img.addEventListener('error', hide);
   });
 
-  /* ---------- Mario layer: ? blocks, coins, level map, flagpole ---------- */
+  /* ---------- golf layer: balls in the cup, the round map, the pin ---------- */
   const sections = [...document.querySelectorAll('.world')];
   const track = document.getElementById('lbTrack');
   const bar = document.getElementById('levelbar');
@@ -2122,57 +2161,61 @@ document.addEventListener('DOMContentLoaded', () => {
     const THROWS = [0.8, 3.4], JUMPS = [1.5, 3.9];
     let heroVis = true;
     new IntersectionObserver(es => es.forEach(e => { heroVis = e.isIntersecting; })).observe(hcv);
-    function cloud(x, y) { P(x + 4, y, 12, 4, '#fff'); P(x, y + 3, 22, 5, '#fff'); P(x + 2, y + 7, 18, 2, '#e8eeff'); }
-    function bricks() {
-      P(0, GROUND, 240, 10, '#5ea957'); P(0, GROUND, 240, 1, '#7fcf6f');
-      for (let x = 0; x < 240; x += 16) P(x, GROUND + 1, 8, 9, '#68b560');
+    function cloud(x, y) { P(x + 4, y, 12, 4, '#fff'); P(x, y + 3, 22, 5, '#fff'); P(x + 2, y + 7, 18, 2, '#eef6fb'); }
+    const PX = 206, BAGX = DX - 13;
+    function course(T) {
+      for (let x = 0; x < 240; x += 3) { const h = 4 + ((x * 7) % 9); P(x, 52 - h, 3, h, x % 6 ? '#3f7d4a' : '#356b40'); }
+      P(0, 52, 240, 18, '#5fab50'); for (let x = 0; x < 240; x += 24) P(x, 52, 12, 18, '#6db95b');
+      P(150, 64, 18, 3, '#e2cf98'); P(152, 63, 14, 1, '#f3e6bb');
+      P(172, 63, 68, 7, '#8fd67a'); P(178, 62, 56, 1, '#9be285'); P(176, 64, 60, 5, '#9be285');
+      P(0, GROUND, 240, 10, '#4f9a4a'); P(0, GROUND, 240, 1, '#7fcf6f'); for (let x = 0; x < 240; x += 8) P(x, GROUND + 2, 1, 2, '#3f8a45');
+      P(PX, 36, 1, 30, '#f4f4f4'); P(PX + 1, 36, 11, 7, '#28032F'); P(PX + 12, 37 + Math.floor(T * 5) % 2, 1, 5, '#28032F'); P(PX + 4, 38, 4, 3, '#b9a3c6'); P(PX - 1, 66, 3, 1, '#111');
+    }
+    function golfBag(x) {
+      P(x, GROUND - 17, 7, 17, '#28032F'); P(x, GROUND - 17, 7, 2, '#4a1356'); P(x + 1, GROUND - 11, 5, 1, '#b9a3c6'); P(x + 1, GROUND - 5, 5, 1, '#b9a3c6');
+      P(x + 1, GROUND - 22, 1, 5, '#c9ccd2'); P(x + 3, GROUND - 24, 1, 7, '#c9ccd2'); P(x + 5, GROUND - 21, 1, 4, '#c9ccd2');
+      P(x, GROUND - 23, 3, 2, '#1c1c1c'); P(x + 2, GROUND - 25, 3, 2, '#1c1c1c'); P(x + 5, GROUND - 22, 2, 2, '#FFBD00');
     }
     function draw(now) {
       const T = now / 1000, t = T % LOOP, cycle = Math.floor(T / LOOP);
       hx.clearRect(0, 0, 240, 80);
-      cloud((T * 4) % 280 - 30, 8); cloud((T * 3 + 150) % 280 - 30, 18);
-      // pipe
-      P(139, 36, 1, 34, '#f4f4f4'); P(140, 36, 11, 7, '#28032F'); P(142, 38, 4, 3, '#b9a3c6'); P(135, 69, 9, 1, '#2d6b35');
-      // target on a stand
-      P(TX - 1, TY + 10, 3, GROUND - TY - 10, '#8a5a2e');
-      P(TX - 13, TY - 13, 26, 26, '#b88450'); disc(TX, TY, 10, '#28032F'); disc(TX, TY, 8, '#fff'); disc(TX, TY, 6, '#6B2A7A'); disc(TX, TY, 4, '#fff'); disc(TX, TY, 2, '#e0473c');
-      // ? block
-      const lastJump = JUMPS.filter(j => t >= j).pop();
-      const bump = lastJump !== undefined && t - lastJump > 0.2 && t - lastJump < 0.35 ? -3 : 0;
-      P(DX + 1, 22 + bump, 12, 12, '#3a2408'); P(DX + 2, 23 + bump, 10, 10, Math.floor(T * 3) % 3 ? '#FFBD00' : '#ffd35a');
-      hx.fillStyle = '#7a4a10'; hx.font = '8px "Press Start 2P"'; hx.fillText('?', DX + 4, 32 + bump);
-      bricks();
+      cloud((T * 4) % 280 - 30, 6); cloud((T * 3 + 150) % 280 - 30, 16);
+      course(T);
+      golfBag(BAGX);
       // characters
-      let cPose = 'stand', hold = false, dPose = 'stand', dy = 0;
+      let cPose = 'stand', hold = false, dPose = 'stand';
       THROWS.forEach(th => { if (t >= th - 0.4 && t < th) { cPose = 'windup'; hold = true; } else if (t >= th && t < th + 0.3) cPose = 'throw'; });
-      JUMPS.forEach(j => { if (t >= j && t < j + 0.5) { dy = -Math.sin((t - j) / 0.5 * Math.PI) * 9; dPose = 'jump'; } });
+      JUMPS.forEach(j => { if (t >= j && t < j + 0.6) dPose = 'wave'; });
       const five = t >= 5.2 && t < 6.6;
-      if (five) { cPose = 'cheer'; dPose = 'cheer'; dy = -Math.abs(Math.sin((t - 5.2) * 6)) * 3; }
+      if (five) { cPose = 'cheer'; dPose = 'cheer'; hold = false; }
       else if (t >= 6.6) dPose = 'wave';
       window.PixelKit.draw(hx, 'C', CX, GROUND + (five ? -Math.abs(Math.sin((t - 5.2) * 6 + 1)) * 3 : 0), cPose, T, 1, hold);
-      window.PixelKit.draw(hx, 'D', DX, GROUND + dy, dPose, T, 1);
-      if (five && Math.floor(T * 8) % 2) { P(CX + 42, 36, 1, 5, '#FFBD00'); P(CX + 40, 38, 5, 1, '#FFBD00'); hx.fillStyle = '#6B2A7A'; hx.fillText('TEAM!', 38, 22); }
-      // axes: flying, then stuck in the target
+      window.PixelKit.draw(hx, 'D', DX, GROUND + (five ? -Math.abs(Math.sin((t - 5.2) * 6)) * 3 : 0), dPose, T, 1);
+      if (five && Math.floor(T * 8) % 2) { hx.font = '6px "Press Start 2P"'; hx.fillStyle = '#6B2A7A'; hx.fillText('TEAM!', 38, 22); }
+      // golf balls: teed up, flying onto the green, dropping in the cup
       THROWS.forEach((th, i) => {
-        const u = (t - th) / 0.55;
+        const u = (t - th) / 0.9, sx = CX + 17, sy = GROUND - 3, ex = PX, ey = GROUND - 4;
+        if (t < th && t > th - 1.2) { P(sx, GROUND - 2, 1, 2, '#fff'); window.PixelKit.axe(hx, sx, sy, 0); }
         if (u >= 0 && u < 1) {
-          const fx = CX + 15, fy = GROUND - 28 + 9, ex = TX + (i ? 3 : -3), ey = TY + (i ? 2 : -2);
-          window.PixelKit.axe(hx, fx + (ex - fx) * u, fy + (ey - fy) * u - Math.sin(Math.PI * u) * 26, -2.3 + u * (4 * Math.PI + 2.3 + (i ? 0.2 : -0.2)));
-        } else if (u >= 1) window.PixelKit.axe(hx, TX + (i ? 3 : -3), TY + (i ? 2 : -2), 0);
-        if (u >= 1 && u < 2.2) { const v = (u - 1) / 1.2; hx.fillStyle = '#28032F'; hx.fillText('+100', TX - 14, TY - 16 - v * 8); const w = [6, 4, 2, 4][Math.floor(T * 16) % 4]; P(TX - w / 2 + 24, TY - 24 - v * 12, w, 8, '#FFBD00'); }
+          const bx = sx + (ex - sx) * u, by = sy + (ey - sy) * u - Math.sin(Math.PI * u) * 34;
+          P(bx - 1, u < .8 ? 64 : GROUND - 2, 3, 1, 'rgba(0,0,0,.25)');
+          for (let k = 1; k < 5; k++) { const v = u - k * 0.03; if (v < 0) break; P(sx + (ex - sx) * v, sy + (ey - sy) * v - Math.sin(Math.PI * v) * 34, 1, 1, 'rgba(255,255,255,.7)'); }
+          window.PixelKit.axe(hx, bx, by, 0);
+        }
+        if (u >= 1 && u < 2.3) { const v = (u - 1) / 1.3; hx.font = '6px "Press Start 2P"'; hx.fillStyle = '#28032F'; hx.fillText(i ? 'EAGLE!' : 'BIRDIE!', PX - 22, 30 - v * 8); }
       });
-      // content popping out of the ? block
+      // the caddie hands over the right content, straight from the bag
       JUMPS.forEach((j, i) => {
-        const v = (t - j - 0.25) / 1.6; if (v < 0 || v > 1) return;
+        const v = (t - j - 0.15) / 1.6; if (v < 0 || v > 1) return;
         const label = TAGS[(cycle * 2 + i) % TAGS.length];
         hx.font = '6px "Press Start 2P"';
-        const w = Math.ceil(hx.measureText(label).width) + 8, x = DX + 7 - w / 2, y = 14 - v * 12;
+        const w = Math.ceil(hx.measureText(label).width) + 8, x = Math.max(2, BAGX + 3 - w / 2), y = 34 - v * 22;
         if (v > 0.75 && Math.floor(T * 12) % 2) return;
         P(x, y, w, 10, '#6B2A7A'); P(x + 1, y + 1, w - 2, 8, '#fff'); hx.fillStyle = '#6B2A7A'; hx.fillText(label, x + 4, y + 8);
       });
       // score
       hx.font = '6px "Press Start 2P"'; hx.fillStyle = '#28032F';
-      hx.fillText('SHOW ' + String(cycle * 4 + THROWS.filter(th => t >= th + 0.55).length + JUMPS.filter(j => t >= j + 0.25).length).padStart(3, '0'), 4, 10);
+      hx.fillText('SHOW ' + String(cycle * 4 + THROWS.filter(th => t >= th + 0.9).length + JUMPS.filter(j => t >= j + 0.15).length).padStart(3, '0'), 4, 10);
       hx.fillText('TELL 000', 190, 10);
     }
     (function loop(now) { if (heroVis) draw(now); requestAnimationFrame(loop); })(performance.now());
@@ -2283,37 +2326,33 @@ document.addEventListener('DOMContentLoaded', () => {
       P(150, 40, 48, 6, '#4a1356'); P(154, 36, 40, 4, '#28032F'); P(154, 46, 40, 28, '#f3efe8'); P(154, 46, 40, 1, '#d8d0c6');
       P(169, 58, 12, 16, '#28032F'); P(158, 52, 7, 6, '#b9a3c6'); P(185, 52, 7, 6, '#b9a3c6');
       P(176, 22, 1, 14, '#dcdcdc'); P(177, 22, 7, 5, '#FFBD00');
-      // flagpole: flag slides down once she says yes
-      P(138, 16, 2, 58, '#f2f2f2'); P(137, 13, 4, 4, '#f2f2f2'); P(134, 73, 10, 1, '#111');
-      const fy = pu < 0 ? 18 : Math.min(62, 18 + pu * 60);
-      P(128, fy, 10, 8, '#6B2A7A'); P(131, fy + 2, 4, 4, '#ffffff');
-      // ? block
-      const bump = pu >= 0.25 && pu < 0.45 ? -3 : 0;
-      P(66, 30 + bump, 12, 12, '#3a2408');
-      P(67, 31 + bump, 10, 10, pu >= 0.3 ? '#9a6a34' : (Math.floor(t * 3) % 3 ? '#FFBD00' : '#ffd35a'));
-      if (pu < 0.3) { fx.fillStyle = '#7a4a10'; fx.font = '8px "Press Start 2P"'; fx.fillText('?', 69, 40 + bump); }
+      // the green and the pin
+      P(84, 72, 80, 3, '#9be285');
+      P(138, 22, 1, 52, '#f2f2f2'); P(136, 73, 5, 1, '#111');
+      const wv = Math.floor(t * (pu >= 0 ? 10 : 3)) % 2;
+      P(139, 22, 14, 9, '#6B2A7A'); P(153, 23 + wv, 1, 7, '#6B2A7A'); P(143, 24, 5, 4, '#ffffff');
+      // the putt: once you say yes, the ball rolls in
+      const roll = pu < 0.15 ? 0 : Math.min(1, (pu - 0.15) / 0.7), ease = 1 - Math.pow(1 - roll, 2);
+      if (roll < 1) { const bx = 88 + (138 - 88) * ease; P(bx - 1, 71, 3, 3, '#ffffff'); P(bx, 70, 1, 1, '#ffffff'); P(bx + 1, 73, 1, 1, '#c9ccd2'); }
       // ground
       P(0, 74, 200, 16, '#4f9a4a'); P(0, 74, 200, 2, '#7fcf6f'); for (let x = 0; x < 200; x += 14) P(x, 76, 7, 14, '#58a652');
       // characters
       let dy = 0, dPose = 'stand', cPose = 'stand';
       const typing = typedAt && (now - typedAt) / 1000 * 28 < lineChars.length + 4;
       if (pu >= 0) {
-        if (pu < 0.6) { dy = -Math.sin(pu / 0.6 * Math.PI) * 16; dPose = 'jump'; } else dPose = 'cheer';
-        cPose = pu > 0.3 ? 'cheer' : 'stand';
-        if (pu > 0.6) { dy = -Math.abs(Math.sin(pu * 7)) * 4; }
+        if (pu < 0.15) dPose = 'throw'; else if (pu < 0.85) dPose = 'stand'; else { dPose = 'cheer'; dy = -Math.abs(Math.sin(pu * 7)) * 4; }
+        cPose = pu > 0.85 ? 'cheer' : 'stand';
       } else if (typing) dPose = 'wave';
       window.PixelKit.draw(fx, 'C', 42, 74 + (cPose === 'cheer' ? -Math.abs(Math.sin(pu * 7 + 1)) * 4 : 0), cPose, t, 1);
-      window.PixelKit.draw(fx, 'D', 65, 74 + dy, dPose, t, 1);
+      window.PixelKit.draw(fx, 'D', 65, 74 + dy, dPose, t, 1, pu >= 0 && pu < 0.15);
       // celebration
-      if (pu >= 0.3) {
-        const cu = Math.min(1, (pu - 0.3) / 0.7);
-        if (cu < 1) { const w = [6, 4, 2, 4][Math.floor(now / 70) % 4]; P(72 - w / 2, 26 - cu * 22, w, 8, '#FFBD00'); }
-        fx.font = '8px "Press Start 2P"'; fx.fillStyle = '#5dff8f'; if (pu < 1.1) fx.fillText('1-UP', 84, 28 - Math.min(6, pu * 6));
-        [[40, 20, 0.5], [110, 14, 0.9], [90, 34, 1.3], [20, 36, 1.7]].forEach(([x, y, d]) => {
+      if (pu >= 0.85) {
+        fx.font = '8px "Press Start 2P"'; fx.fillStyle = '#FFE14D'; if (pu < 2.2) fx.fillText('IN THE CUP!', 52, 28 - Math.min(6, (pu - 0.85) * 6));
+        [[40, 20, 1.0], [110, 14, 1.3], [90, 34, 1.6], [20, 36, 1.9]].forEach(([x, y, d]) => {
           const v = (pu - d) / 0.9; if (v < 0 || v > 1) return;
           for (let k = 0; k < 10; k++) { const a = k * Math.PI / 5; P(x + Math.cos(a) * v * 14, y + Math.sin(a) * v * 14 + v * v * 4, 1, 1, ['#FFBD00', '#ffffff', '#c9a8d6'][k % 3]); }
         });
-        if (pu > 1.1) { fx.font = '8px "Press Start 2P"'; fx.fillStyle = '#ffffff'; fx.fillText('ROUND COMPLETE!', 40, 12); }
+        if (pu > 2.2) { fx.font = '8px "Press Start 2P"'; fx.fillStyle = '#ffffff'; fx.fillText('ROUND COMPLETE!', 40, 12); }
       }
     }
     (function loop(now) {
@@ -2372,7 +2411,7 @@ document.addEventListener('DOMContentLoaded', () => {
   .mg-x { font-family: var(--pixel); font-size: 10px; color: #fff; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.35); border-radius: 8px; padding: 10px 12px; cursor: pointer; }
   .mg-x:hover { background: rgba(255,255,255,.2); }
   .mg-screen { position: relative; border: 4px solid #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 30px 80px -20px rgba(0,0,0,.8); }
-  #miniCv { display: block; width: 100%; aspect-ratio: 16 / 9; image-rendering: pixelated; background: #6b8cff; }
+  #miniCv { display: block; width: 100%; aspect-ratio: 16 / 9; image-rendering: pixelated; background: #9fb4d6; cursor: pointer; }
   .mg-pop { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(18,1,24,.55); padding: 14px; }
   .mg-pop[hidden] { display: none; }
   .mg-card { background: #fff; color: var(--ink); border: 4px solid var(--ink); border-radius: 14px; box-shadow: 0 8px 0 var(--ink); padding: 22px 24px; max-width: 460px; text-align: center; animation: popIn .35s cubic-bezier(.2,1.5,.4,1); }
@@ -2395,236 +2434,313 @@ document.addEventListener('DOMContentLoaded', () => {
 </style>
 
 <button class="play-fab" id="playFab" type="button" aria-haspopup="dialog">
-  <span class="pf-ico" aria-hidden="true">🎮</span>
-  <span><b>Play as Andrew?</b><small>a tiny golf level, starring you</small></span>
+  <span class="pf-ico" aria-hidden="true">⛳</span>
+  <span><b>Play as Andrew?</b><small>the 18th hole, with me on the bag</small></span>
 </button>
 
 <div class="mg" id="mini" role="dialog" aria-modal="true" aria-label="Mini game: play as Andrew" hidden>
   <div class="mg-box">
-    <div class="mg-top"><span class="mg-title">HOLE 2 · ANDREW'S FAIRWAY</span><button class="mg-x" id="miniClose" type="button">✕ Back to site</button></div>
+    <div class="mg-top"><span class="mg-title">HOLE 18 · ACRE NATIONAL</span><button class="mg-x" id="miniClose" type="button">✕ Back to site</button></div>
     <div class="mg-screen">
-      <canvas id="miniCv" width="320" height="180" aria-label="Side-scrolling game: Andrew runs, jumps and stomps task monsters on the way to the pin"></canvas>
+      <canvas id="miniCv" width="320" height="180" aria-label="Golf game: Andrew plays the 18th hole with a two-press swing meter while Durva caddies"></canvas>
       <div class="mg-pop" id="miniPop"></div>
     </div>
     <div class="mg-foot">
-      <span class="mg-hint">← → move · SPACE / ↑ jump · stomp the tasks · reach the pin</span>
+      <span class="mg-hint">SPACE or click: start the swing · again: set the power · the gold tick is my AI read</span>
       <span class="mg-rot">📱 Tip: turn your phone sideways for a bigger screen</span>
-      <div class="mg-pad" aria-hidden="true"><button type="button" data-k="left">◀</button><button type="button" data-k="right">▶</button><button type="button" class="j" data-k="jump">JUMP</button></div>
+      <div class="mg-pad" aria-hidden="true"><button type="button" class="j" data-k="swing" style="width:180px">⛳ SWING</button></div>
     </div>
   </div>
 </div>
 
 <script>
 (() => {
+  // Play as Andrew: the 18th at Acre National. A real little golf game: two-press swing meter,
+  // clubs picked by distance, ball physics per surface, and Durva on the bag with an AI read.
   const fab = document.getElementById('playFab'), mini = document.getElementById('mini'), pop = document.getElementById('miniPop');
   const cv = document.getElementById('miniCv'), g = cv.getContext('2d'); g.imageSmoothingEnabled = false;
-  const W = 320, H = 180, GY = 150, LEVEL = 1260, PIT = [520, 612], PIPE = { x: 880, w: 24, h: 24 }, FLAG = 1150;
-  const BLOCKS = [{ x: 150, y: 108 }, { x: 162, y: 108, q: true }, { x: 174, y: 108 }, { x: 740, y: 108, q: true }];
+  const W = 320, H = 180, LEN = 1420, TEE = 60, CUP = 1222, PAR = 4, YPX = 412 / (CUP - TEE);
   const R = (x, y, w, h, c) => { g.fillStyle = c; g.fillRect(Math.round(x), Math.round(y), w, h); };
   const txt = (s, x, y, c, size = 8, al = 'left') => { g.font = `${size}px "Press Start 2P"`; g.textAlign = al; g.fillStyle = '#000'; g.fillText(s, x + 1, y + 1); g.fillStyle = c; g.fillText(s, x, y); g.textAlign = 'left'; };
 
-  /* ---------- tiny sound kit ---------- */
+  /* ---------- the hole ---------- */
+  const ZONES = [[0, 100, 'tee'], [100, 220, 'rough'], [220, 560, 'fair'], [560, 690, 'water'], [690, 960, 'fair'], [960, 1040, 'sand'], [1040, 1080, 'fair'], [1080, 1320, 'green'], [1320, LEN, 'rough']];
+  const surf = x => (ZONES.find(z => x >= z[0] && x < z[1]) || [0, 0, 'rough'])[2];
+  function gy(x) {
+    let y = 146 - 7 * Math.sin(x / 130) - 3 * Math.sin(x / 53 + 1);
+    if (x >= 1060 && x < 1330) { const k = Math.max(0, Math.min(1, (x - 1060) / 24, (1330 - x) / 24)); y = y * (1 - k) + 141 * k; }
+    if (x >= 960 && x < 1040) y += 6 * Math.sin((x - 960) / 80 * Math.PI);
+    if (x >= 560 && x < 690) y = 158;
+    return y - 14;
+  }
+  const FRICTION = { tee: .95, fair: .95, rough: .86, green: .972, sand: 0 };
+  const BOUNCE = { tee: [.3, .6], fair: [.3, .6], rough: [.12, .35], green: [.18, .55], sand: [0, 0] };
+  function club(b) {
+    const d = Math.abs(CUP - b.x), s = surf(b.x);
+    if (s === 'green') return { n: 'PUTTER', a: 0, v: 4.4 };
+    const k = s === 'sand' ? .82 : s === 'rough' ? .88 : 1;
+    if (d > 560) return { n: 'DRIVER', a: .48, v: 8.2 * k };
+    if (d > 300) return { n: '5 IRON', a: .62, v: 6.8 * k };
+    if (d > 130) return { n: '9 IRON', a: .86, v: 5.6 * k };
+    return { n: s === 'sand' ? 'SAND WEDGE' : 'WEDGE', a: 1.05, v: 4.4 * k };
+  }
+
+  /* ---------- ball physics (shared by play and the AI read) ---------- */
+  function launch(b, cl, p, dir) {
+    if (cl.a === 0) { b.st = 'roll'; b.vx = dir * cl.v * p; b.vy = 0; }
+    else { b.st = 'air'; b.vx = dir * cl.v * p * Math.cos(cl.a); b.vy = -cl.v * p * Math.sin(cl.a); }
+  }
+  function stepBall(b) {
+    if (b.st === 'air') {
+      b.vy += .12; b.x += b.vx; b.y += b.vy;
+      if (b.x < 4 || b.x > LEN - 4) { b.vx *= -.4; b.x = Math.max(4, Math.min(LEN - 4, b.x)); }
+      const gyy = gy(b.x);
+      if (b.y >= gyy && b.vy > 0) {
+        const s = surf(b.x); b.y = gyy;
+        if (s === 'water') { b.st = 'water'; return; }
+        if (s === 'green' && Math.abs(b.x - CUP) < 3 && b.vy < 6) { b.st = 'cup'; b.x = CUP; return; }
+        if (s === 'sand') { b.st = 'rest'; b.vx = 0; b.vy = 0; b.land = 'sand'; return; }
+        const [bv, bx] = BOUNCE[s];
+        b.vx *= bx; b.vy = -b.vy * bv; b.land = s;
+        if (Math.abs(b.vy) < 1.1) { b.st = 'roll'; b.vy = 0; }
+      }
+    } else if (b.st === 'roll') {
+      const s = surf(b.x);
+      if (s === 'water') { b.st = 'water'; return; }
+      if (s === 'sand') { b.st = 'rest'; b.vx = 0; return; }
+      b.vx += (gy(b.x - 1) - gy(b.x + 1)) * .02;
+      b.vx *= FRICTION[s];
+      const nx = b.x + b.vx;
+      if (s === 'green' && (b.x - CUP) * (nx - CUP) <= 0 && Math.abs(b.vx) < 2.6) { b.st = 'cup'; b.x = CUP; b.y = gy(CUP); return; }
+      b.x = Math.max(4, Math.min(LEN - 4, nx)); b.y = gy(b.x);
+      if (Math.abs(b.vx) < .04) { b.st = 'rest'; b.vx = 0; }
+    }
+  }
+  // the caddie's AI read: simulate every power level, pick the one that finishes nearest the pin
+  function aiRead(b0) {
+    const cl = club(b0), dir = CUP >= b0.x ? 1 : -1;
+    let best = .7, bestD = 1e9;
+    for (let p = .15; p <= 1.001; p += .01) {
+      const b = { x: b0.x, y: b0.y, vx: 0, vy: 0, st: '' };
+      launch(b, cl, p, dir);
+      for (let i = 0; i < 1800 && (b.st === 'air' || b.st === 'roll'); i++) stepBall(b);
+      const dd = b.st === 'cup' ? -1 : b.st === 'water' ? 1e6 : Math.abs(b.x - CUP);
+      if (dd < bestD) { bestD = dd; best = p; }
+    }
+    return best;
+  }
+
+  /* ---------- sound ---------- */
   let AC = null;
+  const ac = () => (AC = AC || new (window.AudioContext || window.webkitAudioContext)());
   const beep = (f, d, type = 'square', v = .05, when = 0, slide) => {
     try {
-      AC = AC || new (window.AudioContext || window.webkitAudioContext)();
-      const t0 = AC.currentTime + when, o = AC.createOscillator(), gn = AC.createGain();
+      const A = ac(), t0 = A.currentTime + when, o = A.createOscillator(), gn = A.createGain();
       o.type = type; o.frequency.setValueAtTime(f, t0); if (slide) o.frequency.exponentialRampToValueAtTime(slide, t0 + d);
-      gn.gain.setValueAtTime(v, t0); gn.gain.exponentialRampToValueAtTime(.0001, t0 + d); o.connect(gn).connect(AC.destination); o.start(t0); o.stop(t0 + d + .02);
+      gn.gain.setValueAtTime(v, t0); gn.gain.exponentialRampToValueAtTime(.0001, t0 + d); o.connect(gn).connect(A.destination); o.start(t0); o.stop(t0 + d + .02);
+    } catch (e) {}
+  };
+  const hiss = (d, v = .08, f = 1200, type = 'bandpass') => {
+    try {
+      const A = ac(), len = Math.floor(A.sampleRate * d), buf = A.createBuffer(1, len, A.sampleRate), ch = buf.getChannelData(0);
+      for (let i = 0; i < len; i++) ch[i] = Math.random() * 2 - 1;
+      const s = A.createBufferSource(), fl = A.createBiquadFilter(), gn = A.createGain();
+      s.buffer = buf; fl.type = type; fl.frequency.value = f; gn.gain.setValueAtTime(v, A.currentTime); gn.gain.exponentialRampToValueAtTime(.0001, A.currentTime + d);
+      s.connect(fl).connect(gn).connect(A.destination); s.start();
     } catch (e) {}
   };
   const SFX = {
-    jump: () => beep(260, .18, 'square', .045, 0, 700),
-    stomp: () => { beep(200, .06, 'square', .06); beep(120, .08, 'square', .05, .05); },
-    coin: () => { beep(988, .07, 'square', .04); beep(1319, .25, 'square', .04, .07); },
-    die: () => [660, 520, 400, 300, 200].forEach((f, i) => beep(f, .12, 'square', .05, i * .1)),
-    brick: () => beep(520, .06, 'square', .04),
-    thunk: () => beep(110, .1, 'triangle', .1, 0, 60),
-    win: () => [523, 659, 784, 1047, 784, 1047, 1319].forEach((f, i) => beep(f, .14, 'square', .045, i * .11)),
+    tick: () => beep(900, .02, 'square', .015),
+    set: () => beep(660, .06, 'square', .04),
+    thwack: () => { hiss(.06, .14, 3200, 'highpass'); beep(1500, .05, 'square', .03); },
+    tap: () => beep(420, .05, 'triangle', .08),
+    land: () => hiss(.08, .06, 500, 'lowpass'),
+    splash: () => { hiss(.5, .12, 900); beep(300, .3, 'sine', .04, 0, 120); },
+    sand: () => hiss(.18, .08, 2500),
+    cup: () => { [0, .07, .14].forEach((w, i) => beep(620 - i * 90, .06, 'triangle', .1, w)); beep(988, .07, 'square', .04, .22); beep(1319, .3, 'square', .04, .29); },
+    crowd: () => { hiss(1.6, .06, 1500); [0, .12, .24, .36, .48].forEach(w => setTimeout(() => hiss(.05, .08, 4000, 'highpass'), w * 1000)); },
+    win: () => [523, 659, 784, 1047, 784, 1047, 1319].forEach((f, i) => beep(f, .14, 'square', .045, .4 + i * .11)),
   };
 
   /* ---------- state ---------- */
   let S = null, raf = 0, last = 0, acc = 0;
-  const keys = { left: false, right: false, jump: false }; let jumpEdge = false;
-  function reset(coop) {
+  const RESULT = n => n === 1 ? 'HOLE IN ONE!' : ({ '-3': 'ALBATROSS!', '-2': 'EAGLE!', '-1': 'BIRDIE!', '0': 'PAR', '1': 'BOGEY' })[n - PAR] || 'IN THE CUP!';
+  function reset() {
+    const b = { x: TEE + 10, y: gy(TEE + 10) - 2, vx: 0, vy: 0, st: 'rest' };
     S = {
-      coop, f: 0, cam: 0, score: 0, bridge: 0, bridgeT: 0, won: false, wonF: 0, over: false, overF: 0, playing: true,
-      p: { x: 36, y: GY, vx: 0, vy: 0, on: true, dead: false },
-      d: { x: 8, y: GY, vy: 0, on: true, throwF: -99 },
-      en: [260, 330, 420, 690, 800, 990, 1060].map(x => ({ x, vx: -.35, alive: true, sq: 0 })),
-      used: {}, coins: [], axes: [], pops: [], say: coop ? { t: 'I GOT YOU!', f: 0 } : null,
+      f: 0, cam: 0, ball: b, strokes: 0, mode: 'aim', meter: 0, mdir: 1, power: 0, swingF: 0, won: false, wonF: 0, playing: true,
+      a: { x: b.x - 16 }, d: { x: b.x - 46 }, say: { t: "I'M ON THE BAG. GOLD TICK = MY AI READ", f: 0 }, trail: [], splashF: -99, pops: [],
     };
+    prepAim();
   }
-  const bridged = x => S.coop && S.bridge > 0 && x >= PIT[0] && x < PIT[0] + S.bridge * 11.5;
-  function groundAt(x) {
-    if (x > PIPE.x - 2 && x < PIPE.x + PIPE.w + 2) return GY - PIPE.h;
-    if (x >= PIT[0] && x < PIT[1] && !bridged(x)) return null;
-    return GY;
+  function prepAim() {
+    const b = S.ball;
+    S.club = club(b); S.dir = CUP >= b.x ? 1 : -1; S.read = aiRead(b); S.mode = 'aim'; S.meter = 0; S.mdir = 1;
+    const yds = Math.round(Math.abs(CUP - b.x) * YPX);
+    const tips = S.club.n === 'PUTTER' ? [`READS STRAIGHT. ${Math.round(S.read * 100)}% AND DROP IT`, 'SMOOTH STROKE. YOU GOT THIS'] : [`${yds} TO THE PIN. ${S.club.n}, ${Math.round(S.read * 100)}%`, 'TRUST THE GOLD TICK'];
+    if (S.strokes > 0) S.say = { t: tips[S.strokes % 2 ? 0 : 1] || tips[0], f: S.f };
   }
-
-  /* ---------- physics ---------- */
-  function body(o, isP) {
-    o.vy = Math.min(o.vy + .35, 6);
-    const cx = o.x + 7;
-    let ny = o.y + o.vy;
-    if (isP && o.vy < 0) {
-      for (const b of BLOCKS) {
-        if (cx > b.x - 3 && cx < b.x + 15 && o.y - 28 >= b.y + 12 && ny - 28 < b.y + 12) {
-          ny = b.y + 12 + 28; o.vy = .5;
-          if (b.q && !S.used[b.x]) { S.used[b.x] = true; S.coins.push({ x: b.x + 3, y: b.y - 4, f: 0 }); S.score += 200; SFX.coin(); }
-          else SFX.stomp();
-        }
-      }
-    }
-    o.on = false;
-    if (o.vy >= 0) {
-      const gy = groundAt(cx);
-      if (gy !== null && o.y <= gy + .5 && ny >= gy) { ny = gy; o.vy = 0; o.on = true; }
-      for (const b of BLOCKS) if (cx > b.x - 3 && cx < b.x + 15 && o.y <= b.y + .5 && ny >= b.y) { ny = b.y; o.vy = 0; o.on = true; }
-    }
-    o.y = ny;
+  function press() {
+    if (!S || !S.playing || S.won) return;
+    if (S.mode === 'aim') { S.mode = 'meter'; S.meter = 0; S.mdir = 1; SFX.set(); }
+    else if (S.mode === 'meter') { S.power = Math.max(.08, S.meter); S.mode = 'swing'; S.swingF = 0; SFX.set(); }
   }
-  function blockedByPipe(x0, x1, y) { return y > GY - PIPE.h + .5 && x1 + 11 > PIPE.x && x1 + 3 < PIPE.x + PIPE.w; }
 
   function step() {
     S.f++;
-    const P = S.p, D = S.d;
-    if (!P.dead && !S.won) {
-      P.vx = ((keys.right ? 1 : 0) - (keys.left ? 1 : 0)) * 1.6;
-      if (jumpEdge && P.on) { P.vy = -5.2; SFX.jump(); if (S.coop && D.on) D.jumpAt = S.f + 6; }
-      let nx = Math.max(0, Math.min(LEVEL - 20, P.x + P.vx));
-      if (blockedByPipe(P.x, nx, P.y)) nx = P.x;
-      P.x = nx;
-    } else if (S.won) { P.vx = 0; }
-    jumpEdge = false;
-    body(P, true);
-    if (!P.dead && P.y > H + 20) { if (S.coop) { P.x = PIT[0] - 40; P.y = GY; P.vy = 0; } else die(); }
-    if (P.dead) { P.vy = Math.min(P.vy + .25, 6); }
-
-    // enemies ("tasks")
-    for (const e of S.en) {
-      if (!e.alive) { e.sq++; continue; }
-      if (Math.abs(e.x - P.x) > 360) continue;
-      let nx = e.x + e.vx;
-      const ahead = e.vx < 0 ? nx : nx + 12;
-      if (groundAt(ahead) !== GY || (ahead > PIPE.x - 2 && ahead < PIPE.x + PIPE.w + 2)) { e.vx *= -1; nx = e.x; }
-      e.x = nx;
-      if (!P.dead && !S.won && P.x + 12 > e.x && P.x + 2 < e.x + 12 && P.y > GY - 13 && P.y - 26 < GY) {
-        if ((P.vy > 0 && P.y < GY - 5) || S.coop) { squash(e); P.vy = -3.6; }
-        else die();
+    const b = S.ball;
+    if (S.mode === 'meter') {
+      S.meter += S.mdir * .017; if (S.meter >= 1) { S.meter = 1; S.mdir = -1; } if (S.meter <= 0) { S.meter = 0; S.mdir = 1; }
+      if (S.f % 6 === 0) SFX.tick();
+    } else if (S.mode === 'swing') {
+      S.swingF++;
+      const back = S.club.a === 0 ? 8 : 14;
+      if (S.swingF === back) { launch(b, S.club, S.power, S.dir); S.strokes++; S.trail = []; S.club.a === 0 ? SFX.tap() : SFX.thwack(); S.mode = 'fly'; S.flyF = 0; }
+    } else if (S.mode === 'fly') {
+      S.flyF++;
+      const was = b.st;
+      stepBall(b);
+      if (b.st === 'air' && S.f % 2 === 0) { S.trail.push([b.x, b.y]); if (S.trail.length > 26) S.trail.shift(); }
+      if (was === 'air' && b.st !== 'air') { b.st === 'rest' && b.land === 'sand' ? SFX.sand() : SFX.land(); }
+      if (b.st === 'water') {
+        SFX.splash(); S.splashF = S.f; S.splashX = b.x;
+        b.x = 540; b.y = gy(540); b.st = 'rest'; S.mode = 'walk';
+        S.say = { t: 'I GOT YOU! FREE DROP, NO PENALTY', f: S.f };
+      } else if (b.st === 'cup') {
+        S.won = true; S.wonF = S.f; S.mode = 'done'; SFX.cup(); SFX.crowd(); SFX.win();
+        S.say = { t: S.strokes <= PAR ? 'TOGETHER! WHAT A HOLE!' : 'IN! TOGETHER!', f: S.f };
+        S.pops.push({ t: RESULT(S.strokes), f: 0 });
+        setTimeout(showWin, 2600);
+      } else if (b.st === 'rest') {
+        S.mode = 'walk';
+        if (b.land === 'sand' && surf(b.x) === 'sand') S.say = { t: 'SCOPE CREEP BUNKER. WEDGE, EASY SWING', f: S.f };
       }
+    } else if (S.mode === 'walk') {
+      const dir = CUP >= b.x ? 1 : -1, ta = b.x - 16 * dir, td = b.x - 46 * dir;
+      S.a.x += Math.max(-2.2, Math.min(2.2, ta - S.a.x)); S.d.x += Math.max(-2.2, Math.min(2.2, td - S.d.x));
+      if (Math.abs(ta - S.a.x) < .5 && Math.abs(td - S.d.x) < .5) prepAim();
     }
-
-    // Player 2
-    if (S.coop) {
-      const target = S.bridge >= 8 ? P.x - 24 : Math.min(P.x - 24, PIT[0] - 16);
-      if (!S.won) D.x += (Math.max(0, target) - D.x) * .08;
-      if (D.jumpAt === S.f && D.on) { D.vy = -5.2; }
-      body(D, false);
-      if (D.y > H + 10) { D.y = GY; D.vy = 0; D.x = Math.max(0, P.x - 30); }
-      if (P.x > 400 && S.bridge < 8 && S.f - S.bridgeT > 7) { if (!S.bridge) S.say = { t: 'I GOT YOU!', f: S.f }; S.bridge++; S.bridgeT = S.f; SFX.brick(); }
-      const tgt = S.en.find(e => e.alive && e.x > P.x + 8 && e.x < P.x + 150);
-      if (tgt && !S.axes.length && S.f - D.throwF > 45) { S.axes.push({ x0: D.x + 15, y0: D.y - 19, e: tgt, f: 0 }); D.throwF = S.f; }
-      for (const a of S.axes) { a.f++; if (a.f >= 22 && a.e.alive) { squash(a.e); SFX.thunk(); } }
-      S.axes = S.axes.filter(a => a.f < 22);
-    }
-
-    // win
-    if (!S.won && P.x + 10 >= FLAG) { S.won = true; S.wonF = S.f; S.score += 5000; SFX.win(); if (S.coop) S.say = { t: 'TOGETHER!', f: S.f }; setTimeout(showWin, 1900); }
-    if (S.won) { S.wonF2 = S.f - S.wonF; }
-
-    for (const c of S.coins) c.f++;
-    S.coins = S.coins.filter(c => c.f < 40);
     for (const p of S.pops) p.f++;
-    S.pops = S.pops.filter(p => p.f < 45);
-    S.cam += (Math.max(0, Math.min(LEVEL - W, P.x - 120)) - S.cam) * .15;
+    const focus = S.mode === 'fly' ? b.x - 150 + S.dir * 40 : Math.min(S.a.x, b.x) - 110 + (S.dir < 0 ? -60 : 0);
+    S.cam += (Math.max(0, Math.min(LEN - W, focus)) - S.cam) * (S.mode === 'fly' ? .12 : .08);
   }
-  function squash(e) { e.alive = false; e.sq = 0; S.score += 100; S.pops.push({ x: e.x, y: GY - 18, f: 0, t: '+100' }); SFX.stomp(); }
-  function die() { const P = S.p; if (P.dead) return; P.dead = true; P.vy = -4.5; SFX.die(); setTimeout(showLose, 1500); }
 
   /* ---------- drawing ---------- */
-  function bg() {
-    const sky = g.createLinearGradient(0, 0, 0, H); sky.addColorStop(0, '#5c7cff'); sky.addColorStop(1, '#9fb6ff');
-    g.fillStyle = sky; g.fillRect(0, 0, W, H);
-    for (let i = 0; i < 6; i++) { const x = ((i * 230 - S.cam * .3) % 1400 + 1400) % 1400 - 60, y = 22 + (i % 3) * 16; R(x + 6, y, 18, 6, '#fff'); R(x, y + 5, 30, 7, '#fff'); R(x + 3, y + 11, 24, 2, '#dfe7ff'); }
-    for (let i = 0; i < 5; i++) { const x = ((i * 310 - S.cam * .55) % 1500 + 1500) % 1500 - 80; g.fillStyle = '#3aa35a'; g.beginPath(); g.ellipse(x + 40, GY + 2, 44, 30, 0, Math.PI, 0); g.fill(); R(x + 30, GY - 16, 2, 4, '#1f6f39'); R(x + 46, GY - 20, 2, 4, '#1f6f39'); }
+  const PINES = [30, 150, 250, 470, 620, 740, 860, 1020, 1380];
+  function sky() {
+    const gr = g.createLinearGradient(0, 0, 0, H); gr.addColorStop(0, '#5d7fb6'); gr.addColorStop(.45, '#b9c2d6'); gr.addColorStop(.75, '#f2d4b4'); gr.addColorStop(1, '#f8dcae');
+    g.fillStyle = gr; g.fillRect(0, 0, W, H);
+    const sx = 250 - S.cam * .03; g.fillStyle = '#ffe6b8'; g.beginPath(); g.arc(sx, 56, 11, 0, 7); g.fill(); g.fillStyle = '#fff6e2'; g.beginPath(); g.arc(sx, 56, 7, 0, 7); g.fill();
+    for (let i = 0; i < 5; i++) { const x = ((i * 260 - S.cam * .15) % 1300 + 1300) % 1300 - 60, y = 16 + (i % 3) * 12; R(x, y, 48, 2, 'rgba(255,255,255,.6)'); R(x + 8, y - 1, 30, 1, 'rgba(255,255,255,.45)'); }
+    for (let x = 0; x < W; x++) { const wx = x + S.cam * .12; const h = 22 + Math.round(9 * Math.sin(wx / 31) + 5 * Math.sin(wx / 11 + 1)); R(x, 90 - h, 1, h + 20, '#9a9cbc'); }
+    for (let x = 0; x < W; x++) { const wx = x + S.cam * .25; const h = 14 + Math.round(6 * Math.sin(wx / 23 + 2) + 3 * Math.sin(wx / 8)); R(x, 98 - h, 1, h + 20, '#7c84a8'); }
+    for (let x = -4; x < W + 4; x += 4) { const wx = Math.floor((x + S.cam * .45) / 4) * 4; const h = 8 + ((wx * 7919) % 11); const sx2 = wx - S.cam * .45; for (let k = 0; k < h; k++) { const w = Math.round(k / h * 3); R(sx2 + 2 - w, 108 - h + k, w * 2 + 1, 1, k % 3 ? '#26492f' : '#2f5a3a'); } }
+    R(0, 108, W, 40, '#2c5a31');
   }
+  function stands() {
+    // grandstand + gallery behind the 18th green, leaderboard beside it
+    const x0 = 1110 - S.cam; if (x0 > W || x0 < -260) return;
+    for (let r = 0; r < 5; r++) { R(x0 + r * 4, 88 + r * 7, 190 - r * 8, 7, r % 2 ? '#3a0b44' : '#4a1356'); for (let k = 0; k < 190 - r * 8; k += 5) { const hop = S.won && (k + r + Math.floor(S.f / 6)) % 3 === 0 ? -2 : 0; R(x0 + r * 4 + k + 1, 86 + r * 7 + hop, 3, 3, ['#f1c9a8', '#d9a47e', '#8a5a3a', '#f4e2d0'][(k + r) % 4]); R(x0 + r * 4 + k + 1, 89 + r * 7 + hop, 3, 2, ['#ffffff', '#FFBD00', '#7A3A8A', '#4d92cf', '#e0473c'][(k * 3 + r) % 5]); } }
+    R(x0 + 55, 76, 80, 10, '#28032F'); txt('ACRE NATIONAL', x0 + 95, 84, '#ffffff', 5, 'center');
+    const lx = 1302 - S.cam;
+    R(lx + 6, 96, 2, 40, '#3b2a1c'); R(lx + 64, 96, 2, 40, '#3b2a1c'); R(lx - 1, 65, 74, 34, '#1a0220'); R(lx, 66, 72, 32, '#f7f5ef'); R(lx, 66, 72, 9, '#28032F');
+    txt('LEADERS', lx + 36, 73, '#ffffff', 5, 'center');
+    const sc = S.strokes && !S.won ? '...' : S.won ? (S.strokes - PAR > 0 ? '+' : S.strokes - PAR < 0 ? '' : '') + (S.strokes - PAR || 'E') : 'E';
+    g.font = '5px "Press Start 2P"'; g.fillStyle = '#28032F'; g.fillText('ANDREW', lx + 3, 85); g.fillText('DURVA', lx + 3, 94);
+    g.fillStyle = '#c8261d'; g.textAlign = 'right'; g.fillText(String(sc), lx + 69, 85); g.fillText('BAG', lx + 69, 94); g.textAlign = 'left';
+  }
+  const TOP = { tee: '#86d375', fair: null, rough: '#3f7d3c', green: '#9be285', sand: '#f3e6bb', water: '#4d92cf' };
   function ground() {
-    const c = S.cam;
-    for (let x = Math.floor(c / 16) * 16; x < c + W + 16; x += 16) {
-      if (x + 16 > PIT[0] && x < PIT[1]) continue;
-      const sx = x - c;
-      R(sx, GY, 16, 30, '#7a5a3a'); R(sx, GY, 16, 7, (Math.floor((sx + c) / 16) % 2) ? '#5ea957' : '#68b560'); R(sx, GY, 16, 1, '#8fdc7f'); R(sx, GY + 7, 16, 1, '#4b3522');
-      R(sx + 3, GY + 13, 2, 2, '#5d4329'); R(sx + 10, GY + 20, 2, 2, '#5d4329');
+    for (let x = 0; x < W; x++) {
+      const wx = x + S.cam, s = surf(wx), y = Math.round(gy(wx));
+      if (s === 'water') {
+        const bank = Math.round(Math.min(gy(559), gy(691)));
+        R(x, bank, 1, H - bank, '#2c6aa3'); R(x, y, 1, 1, (Math.floor(wx / 6 + S.f / 10) % 5) ? '#6aa9dc' : '#d6ecfa');
+        continue;
+      }
+      const top = s === 'fair' ? (Math.floor(wx / 22) % 2 ? '#6db95b' : '#5fab50') : s === 'green' ? (Math.floor(wx / 12) % 2 ? '#9be285' : '#8fd67a') : TOP[s];
+      R(x, y, 1, H - y, s === 'sand' ? '#d9c68d' : '#356b33');
+      R(x, y, 1, s === 'sand' ? 5 : 6, top); R(x, y, 1, 1, s === 'sand' ? '#fbf1d0' : '#a9ea92');
+      if (s === 'rough' && (wx * 13) % 7 === 0) R(x, y - 1, 1, 1, '#2f6a2f');
     }
-    // deadline pit sign
-    const sx = PIT[0] - 30 - c;
-    R(sx + 10, GY - 26, 2, 26, '#6b4a22'); R(sx - 8, GY - 40, 40, 16, '#fff3c4'); R(sx - 8, GY - 40, 40, 1, '#6b4a22'); R(sx - 8, GY - 25, 40, 1, '#6b4a22');
-    txt('WATER', sx + 12, GY - 34, '#1f6fb8', 5, 'center'); txt('HAZARD ↓', sx + 12, GY - 28, '#1c1512', 5, 'center');
-    R(PIT[0] - c, GY + 16, PIT[1] - PIT[0], 14, '#3d8fd1'); R(PIT[0] - c, GY + 16, PIT[1] - PIT[0], 1, '#9fd0f2');
-    // bridge
-    for (let i = 0; i < S.bridge; i++) { const bx = PIT[0] + i * 11.5 - c; R(bx, GY, 11.5, 11, '#ffbd00'); R(bx, GY, 11.5, 1, '#ffe38a'); R(bx + 11, GY, 1, 11, '#8a5a00'); R(bx, GY + 10, 12, 1, '#8a5a00'); }
-    // pipe
-    const px = PIPE.x - c; R(px - 2, GY - PIPE.h, PIPE.w + 4, 8, '#3fc463'); R(px, GY - PIPE.h + 8, PIPE.w, PIPE.h - 8, '#2fa84f'); R(px + 3, GY - PIPE.h + 8, 3, PIPE.h - 8, '#7fe39a'); R(px - 2, GY - PIPE.h, PIPE.w + 4, 1, '#1d7a38');
-    // blocks
-    for (const b of BLOCKS) {
-      const bx = b.x - c; const used = b.q && S.used[b.x];
-      R(bx, b.y, 12, 12, '#3a2408');
-      R(bx + 1, b.y + 1, 10, 10, b.q ? (used ? '#9a6a34' : (Math.floor(S.f / 20) % 3 ? '#ffbd00' : '#ffd35a')) : '#c8773a');
-      if (b.q && !used) txt('?', bx + 6, b.y + 10, '#7a4a10', 7, 'center');
-      if (!b.q) { R(bx + 1, b.y + 5, 10, 1, '#8f4a1c'); R(bx + 6, b.y + 1, 1, 4, '#8f4a1c'); }
-    }
-    // flag + castle
-    const fx = FLAG - c;
-    R(fx, GY - 96, 2, 96, '#f2f2f2'); R(fx - 2, GY - 100, 6, 6, '#f2f2f2');
-    const fy = S.won ? Math.min(GY - 16, GY - 90 + S.wonF2 * 1.4) : GY - 90;
-    R(fx - 14, fy, 14, 10, '#6B2A7A'); R(fx - 9, fy + 3, 4, 4, '#fff');
-    R(fx - 4, GY - 1, 10, 1, '#111');
-    const kx = FLAG + 40 - c;
-    // the clubhouse
-    R(kx - 6, GY - 50, 72, 8, '#4a1356'); R(kx, GY - 56, 60, 6, '#28032F'); R(kx, GY - 42, 60, 42, '#f3efe8');
-    R(kx + 24, GY - 22, 12, 22, '#28032F'); R(kx + 8, GY - 34, 10, 8, '#b9a3c6'); R(kx + 42, GY - 34, 10, 8, '#b9a3c6');
-    txt('ACRE', kx + 30, GY - 44, '#ffffff', 5, 'center');
+    // hazard + tee signs
+    const sign = (wx, a, b, col) => { const x = wx - S.cam; if (x < -40 || x > W + 40) return; const y = gy(wx); R(x, y - 22, 2, 22, '#5a3b26'); R(x - 20, y - 34, 42, 14, '#f7f5ef'); R(x - 20, y - 34, 42, 1, '#28032F'); txt(a, x + 1, y - 27, col, 5, 'center'); txt(b, x + 1, y - 21, '#28032F', 5, 'center'); };
+    sign(128, 'HOLE 18', 'PAR 4 412Y', '#7A3A8A'); sign(544, 'DEADLINE', 'LAKE', '#1f6fb8'); sign(950, 'SCOPE CREEP', 'BUNKER', '#b8862e');
+    // tee markers
+    for (const wx of [40, 92]) { const x = wx - S.cam; R(x, gy(wx) - 4, 4, 4, '#28032F'); R(x + 1, gy(wx) - 4, 2, 1, '#9a5aab'); }
+    // pines in the rough
+    for (const wx of PINES) { const x = wx - S.cam; if (x < -20 || x > W + 20 || surf(wx) === 'water') continue; const y = gy(wx); R(x, y - 6, 2, 6, '#5a3b26'); for (let k = 0; k < 26; k++) { const w = Math.round(k / 26 * 8); R(x + 1 - w, y - 32 + k, w * 2, 1, k % 4 ? '#24472d' : '#2f5a3a'); } }
+    // the pin
+    const px = CUP - S.cam, py = gy(CUP), wv = Math.floor(S.f / (S.won ? 4 : 12)) % 2;
+    R(px - 2, py, 5, 2, '#111'); R(px, py - 34, 1, 34, '#f4f4f4'); R(px + 1, py - 34, 12, 8, '#28032F'); R(px + 13, py - 33 + wv, 1, 6, '#28032F'); R(px + 4, py - 32, 5, 4, '#b9a3c6');
   }
-  function task(e) {
-    const x = e.x - S.cam, y = GY - 12;
-    if (!e.alive) { if (e.sq < 30) { R(x, GY - 4, 12, 4, '#fbfbf6'); R(x, GY - 4, 12, 1, '#999'); } return; }
-    const step = Math.floor(S.f / 10) % 2;
-    R(x, y, 12, 11, '#fbfbf6'); R(x + 8, y, 4, 4, '#cfd6e6'); R(x, y, 12, 1, '#999'); R(x, y, 1, 11, '#999'); R(x + 11, y + 3, 1, 8, '#999');
-    R(x + 2, y + 6, 8, 1, '#d8281f');
-    R(x + 3, y + 3, 2, 2, '#1c1512'); R(x + 7, y + 3, 2, 2, '#1c1512'); R(x + 2, y + 2, 3, 1, '#1c1512'); R(x + 7, y + 2, 3, 1, '#1c1512');
-    R(x + (step ? 1 : 2), GY - 1, 3, 1, '#1c1512'); R(x + (step ? 8 : 7), GY - 1, 3, 1, '#1c1512');
+  function drawGuy(who, x, y, pose, t, hold) {
+    const dir = S.dir || 1;
+    if (dir > 0) { window.PixelKit.draw(g, who, x, y, pose, t, 1, hold); return; }
+    g.save(); g.translate(2 * (x + 7), 0); g.scale(-1, 1); window.PixelKit.draw(g, who, x, y, pose, t, 1, hold); g.restore();
+  }
+  function bag(x, y) {
+    R(x + 7, y - 5, 1, 5, '#555'); R(x, y - 20, 8, 20, '#28032F'); R(x, y - 20, 8, 2, '#4a1356'); R(x + 1, y - 13, 6, 1, '#b9a3c6'); R(x + 1, y - 6, 6, 1, '#b9a3c6');
+    R(x + 1, y - 25, 1, 5, '#c9ccd2'); R(x + 4, y - 27, 1, 7, '#c9ccd2'); R(x + 6, y - 24, 1, 4, '#c9ccd2'); R(x, y - 26, 3, 2, '#1c1c1c'); R(x + 3, y - 28, 3, 2, '#1c1c1c'); R(x + 6, y - 25, 2, 2, '#FFBD00');
   }
   function bubble(s, x, y) {
-    g.font = '6px "Press Start 2P"'; const w = g.measureText(s).width + 10;
-    R(x - w / 2, y - 12, w, 13, '#1c1512'); R(x - w / 2 + 1, y - 11, w - 2, 11, '#fff'); R(x - 2, y + 1, 4, 3, '#1c1512');
-    g.fillStyle = '#6B2A7A'; g.textAlign = 'center'; g.fillText(s, x, y - 3); g.textAlign = 'left';
+    g.font = '5px "Press Start 2P"'; const w = g.measureText(s).width + 10;
+    const bx = Math.max(2, Math.min(W - 2 - w, x - w / 2));
+    R(bx, y - 12, w, 13, '#1c1512'); R(bx + 1, y - 11, w - 2, 11, '#fff'); R(x - 2, y + 1, 4, 3, '#1c1512');
+    g.fillStyle = '#28032F'; g.fillText(s, bx + 5, y - 3);
+  }
+  function meterUI() {
+    const x = 90, y = 36, w = 140;
+    R(x - 6, y - 12, w + 12, 24, 'rgba(18,1,24,.82)');
+    txt('POWER', x, y - 4, '#ffffff', 5);
+    txt(S.club.n, x + w, y - 4, '#FFE14D', 5, 'right');
+    R(x, y, w, 7, '#2a1f30');
+    const v = S.mode === 'meter' ? S.meter : S.mode === 'swing' || S.mode === 'fly' ? S.power : 0;
+    const gr = g.createLinearGradient(x, 0, x + w, 0); gr.addColorStop(0, '#6db95b'); gr.addColorStop(.7, '#FFE14D'); gr.addColorStop(1, '#e0473c');
+    g.fillStyle = gr; g.fillRect(x, y, Math.round(w * v), 7);
+    const rx = x + Math.round(w * S.read);
+    R(rx - 1, y - 2, 2, 11, '#FFBD00'); R(rx - 3, y - 4, 6, 2, '#FFBD00');
+    txt('AI', rx, y + 16, '#FFBD00', 5, 'center');
+  }
+  function preview() {
+    // dotted launch line for the first part of the shot at the current meter power
+    if (S.mode !== 'meter' || S.club.a === 0) return;
+    const b = { x: S.ball.x, y: S.ball.y, vx: 0, vy: 0, st: '' }; launch(b, S.club, Math.max(.08, S.meter), S.dir);
+    for (let i = 0; i < 40 && b.st === 'air'; i++) { stepBall(b); if (i % 4 === 0) R(b.x - S.cam, b.y, 1, 1, 'rgba(255,255,255,.8)'); }
   }
   function draw() {
-    bg(); ground();
-    for (const e of S.en) if (Math.abs(e.x - S.cam - 160) < 220) task(e);
-    for (const c of S.coins) { const w = [6, 4, 2, 4][Math.floor(c.f / 4) % 4]; R(c.x - S.cam + 3 - w / 2, c.y - Math.sin(c.f / 40 * Math.PI) * 24, w, 8, '#ffbd00'); }
-    const P = S.p, D = S.d, t = S.f / 60, run = Math.floor(S.f / 7) % 2 ? 'runA' : 'runB';
-    if (S.coop) {
-      let dp = D.on ? (Math.abs((P.x - 24) - D.x) > 2 ? run : 'stand') : 'jump';
-      if (S.f - D.throwF < 10) dp = 'throw';
-      if (S.won) dp = 'cheer';
-      window.PixelKit.draw(g, 'D', D.x - S.cam, D.y, dp, t, 1);
-    }
-    let pp = P.dead ? 'jump' : !P.on ? 'jump' : P.vx ? run : 'stand';
-    if (S.won) pp = 'cheer';
-    window.PixelKit.draw(g, 'C', P.x - S.cam, P.y, pp, t, 1);
-    for (const a of S.axes) { const u = a.f / 22, tx = a.e.x + 2, ty = GY - 8; window.PixelKit.axe(g, a.x0 + (tx - a.x0) * u - S.cam, a.y0 + (ty - a.y0) * u - Math.sin(u * Math.PI) * 18, u * Math.PI * 4); }
-    for (const p of S.pops) txt(p.t, p.x - S.cam + 6, p.y - p.f * .4, '#fff', 6, 'center');
-    if (S.say && S.f - S.say.f < 110) bubble(S.say.t, D.x - S.cam + 7, D.y - 32);
-    if (!S.coop && S.f < 150) bubble('LET\'S GO!', P.x - S.cam + 7, P.y - 32);
+    const t = S.f / 60, b = S.ball;
+    sky(); stands(); ground();
+    // players
+    const run = Math.floor(S.f / 7) % 2 ? 'runA' : 'runB';
+    const walking = S.mode === 'walk';
+    let ap = walking ? run : 'stand', hold = false;
+    if (S.mode === 'meter' || (S.mode === 'swing' && S.swingF < (S.club.a === 0 ? 8 : 14))) { ap = 'windup'; hold = true; }
+    else if ((S.mode === 'swing') || (S.mode === 'fly' && S.flyF < 14)) { ap = 'throw'; hold = true; }
+    if (S.won) { ap = 'cheer'; hold = false; }
+    const hopA = S.won ? -Math.abs(Math.sin(S.f / 7)) * 4 : 0, hopD = S.won ? -Math.abs(Math.sin(S.f / 7 + 1)) * 4 : 0;
+    bag(S.d.x + (S.dir > 0 ? -10 : 16) - S.cam, gy(S.d.x));
+    drawGuy('D', S.d.x - S.cam, gy(S.d.x + 7) + hopD, S.won ? 'cheer' : walking ? run : (S.say && S.f - S.say.f < 60 ? 'wave' : 'stand'), t, false);
+    drawGuy('C', S.a.x - S.cam, gy(S.a.x + 7) + hopA, ap, t, hold);
+    // ball, trail, shadow
+    for (const [x, y] of S.trail) R(x - S.cam, y, 1, 1, 'rgba(255,255,255,.55)');
+    if (b.st === 'air') R(b.x - S.cam - 1, gy(b.x), 3, 1, 'rgba(0,0,0,.35)');
+    if (S.strokes === 0) R(b.x - S.cam, gy(b.x) - 2, 1, 2, '#ffffff');
+    if (!S.won) window.PixelKit.axe(g, b.x - S.cam, b.y - 2, 0);
+    if (S.f - S.splashF < 40) { const u = (S.f - S.splashF) / 40; for (let k = 0; k < 8; k++) R(S.splashX - S.cam + (k - 4) * 3 * u * 2, gy(S.splashX) - Math.sin(u * Math.PI) * (6 + k % 3 * 4), 2, 2, '#d6ecfa'); }
+    preview();
+    // caddie talk
+    if (S.say && S.f - S.say.f < 200) bubble(S.say.t, S.d.x - S.cam + 7, gy(S.d.x) - 34);
     // HUD
-    txt(S.coop ? 'ANDREW + DURVA' : 'ANDREW', 8, 14, '#fff', 7);
-    txt(String(S.score).padStart(6, '0'), 8, 25, '#fff', 7);
-    txt('HOLE', 204, 14, '#fff', 7); txt('2', 220, 25, '#fff', 7);
-    txt('LIVES', 262, 14, '#fff', 7); txt(S.coop ? '∞' : '×1', 270, 25, '#fff', 7);
-    if (S.won && S.wonF2 > 30) { txt('HOLE IN ONE!', W / 2, 70, Math.floor(S.f / 8) % 2 ? '#ffbd00' : '#fff', 12, 'center'); }
-    if (S.won) for (let k = 0; k < 3; k++) { const u = ((S.wonF2 - k * 25) % 70) / 70; if (u < 0 || S.wonF2 < k * 25) continue; const fx0 = 80 + k * 80, fy0 = 44 + (k % 2) * 16; for (let i = 0; i < 10; i++) { const a = i * Math.PI / 5; R(fx0 + Math.cos(a) * u * 20, fy0 + Math.sin(a) * u * 20, 2, 2, ['#ffbd00', '#fff', '#ff6b5e'][i % 3]); } }
+    R(0, 0, W, 22, 'rgba(18,1,24,.55)');
+    txt('ANDREW + DURVA', 6, 9, '#ffffff', 6); txt('STROKE ' + (S.strokes + (S.won ? 0 : 1)), 6, 18, '#FFE14D', 6);
+    txt('HOLE 18  PAR 4', 160, 13, '#ffffff', 6, 'center');
+    txt('PIN ' + Math.round(Math.abs(CUP - b.x) * YPX) + 'Y', W - 6, 9, '#ffffff', 6, 'right'); txt(S.club.n, W - 6, 18, '#b9a3c6', 6, 'right');
+    if (!S.won && S.mode !== 'fly' && S.mode !== 'walk') meterUI();
+    if (S.mode === 'aim' && !S.won && Math.floor(S.f / 30) % 2) txt('PRESS SPACE / TAP TO SWING', 160, 70, '#ffffff', 6, 'center');
+    if (S.mode === 'meter' && Math.floor(S.f / 20) % 2) txt('AGAIN TO SET POWER', 160, 70, '#FFE14D', 6, 'center');
+    for (const p of S.pops) { txt(p.t, W / 2, 62 - Math.min(10, p.f / 4), Math.floor(S.f / 8) % 2 ? '#ffbd00' : '#fff', 12, 'center'); }
+    if (S.won) for (let k = 0; k < 4; k++) { const u = ((S.f - S.wonF - k * 22) % 70) / 70; if (S.f - S.wonF < k * 22) continue; const fx0 = 50 + k * 72, fy0 = 44 + (k % 2) * 18; for (let i = 0; i < 12; i++) { const a = i * Math.PI / 6; R(fx0 + Math.cos(a) * u * 22, fy0 + Math.sin(a) * u * 22 + u * u * 5, 2, 2, ['#ffbd00', '#fff', '#c9a8d6'][i % 3]); } }
   }
 
   function loop(now) {
@@ -2639,46 +2755,37 @@ document.addEventListener('DOMContentLoaded', () => {
   const card = html => { pop.innerHTML = `<div class="mg-card">${html}</div>`; pop.hidden = false; };
   function showStart() {
     S.playing = false;
-    card(`<img src="/assets/durva-avatar.jpg" alt=""><h3>READY, ANDREW?</h3><p>You're the main character, and <b>I've got you.</b> Run to the pin, I'll caddie the tasks. Let's win this together!</p><div class="row"><button class="go" data-a="coop">▶ LET'S GO, TOGETHER</button><button data-a="close">Back to site</button></div>`);
-  }
-  function showLose() {
-    card(`<img src="/assets/durva-avatar.jpg" alt=""><h3>OH NO! 😅</h3><p>Don't worry, <b>I got you.</b><br>I'm with you. <b>Let's win together!</b></p><div class="row"><button class="go" data-a="coop">▶ PLAY WITH PLAYER 2</button><button data-a="close">Back to site</button></div>`);
+    card(`<img src="/assets/durva-avatar.jpg" alt=""><h3>READY, ANDREW?</h3><p>The 18th at Acre National. Par 4, 412 yards. <b>I'm on the bag:</b> tap once to start your swing, tap again to set the power. The <b>gold tick</b> is my AI read.</p><div class="row"><button class="go" data-a="play">⛳ TEE IT UP</button><button data-a="close">Back to site</button></div>`);
   }
   function showWin() {
-    card(`<img src="/assets/durva-avatar.jpg" alt=""><h3>WE DID IT! 🎉</h3><p>See? <b>Better together.</b> Now let's do it for real at Acre.</p><div class="row"><button class="blue" data-a="chat">💬 LET'S CHAT ON LINKEDIN</button><button class="go" data-a="coop">↺ AGAIN</button><button data-a="close">Back to site</button></div>`);
+    const n = S.strokes, res = RESULT(n);
+    card(`<img src="/assets/durva-avatar.jpg" alt=""><h3>${res} 🏆</h3><p>In the cup in <b>${n} stroke${n > 1 ? 's' : ''}</b>. See? <b>Better with a caddie.</b> Now let's do it for real at Acre.</p><div class="row"><button class="blue" data-a="chat">💬 LET'S CHAT ON LINKEDIN</button><button class="go" data-a="play">↺ PLAY AGAIN</button><button data-a="close">Back to site</button></div>`);
   }
   pop.addEventListener('click', e => {
     const a = e.target.closest('button')?.dataset.a; if (!a) return;
     if (a === 'close') return closeGame();
     if (a === 'chat') { window.open('https://www.linkedin.com/in/durvathakkar/', '_blank', 'noopener'); return; }
-    reset(a === 'coop'); S.playing = true; pop.hidden = true; beep(523, .08); cv.focus?.();
+    reset(); S.playing = true; pop.hidden = true; beep(523, .08); cv.focus?.();
   });
 
   function openGame() {
     mini.hidden = false; fab.hidden = true; document.body.style.overflow = 'hidden';
-    reset(true); showStart(); last = performance.now(); acc = 0;
+    reset(); showStart(); last = performance.now(); acc = 0;
     cancelAnimationFrame(raf); raf = requestAnimationFrame(loop);
   }
-  function closeGame() { mini.hidden = true; pop.hidden = true; fab.hidden = false; document.body.style.overflow = ''; cancelAnimationFrame(raf); keys.left = keys.right = false; fab.focus(); }
+  function closeGame() { mini.hidden = true; pop.hidden = true; fab.hidden = false; document.body.style.overflow = ''; cancelAnimationFrame(raf); fab.focus(); }
   fab.addEventListener('click', openGame);
   document.getElementById('miniClose').addEventListener('click', closeGame);
 
-  /* ---------- controls ---------- */
-  const map = { ArrowLeft: 'left', KeyA: 'left', ArrowRight: 'right', KeyD: 'right', ArrowUp: 'jump', KeyW: 'jump', Space: 'jump' };
+  /* ---------- controls: one button does it all ---------- */
   addEventListener('keydown', e => {
     if (mini.hidden) return;
     if (e.key === 'Escape') { closeGame(); return; }
-    const k = map[e.code]; if (!k) return;
-    e.preventDefault();
-    if (k === 'jump') { if (!keys.jump) jumpEdge = true; keys.jump = true; } else keys[k] = true;
+    if (['Space', 'Enter', 'ArrowUp', 'KeyW'].includes(e.code)) { e.preventDefault(); if (!e.repeat && pop.hidden) press(); }
   });
-  addEventListener('keyup', e => { const k = map[e.code]; if (k) keys[k] = false; });
-  document.querySelectorAll('.mg-pad button').forEach(b => {
-    const k = b.dataset.k;
-    const down = e => { e.preventDefault(); if (k === 'jump') jumpEdge = true; keys[k] = true; };
-    const up = e => { e.preventDefault(); keys[k] = false; };
-    b.addEventListener('pointerdown', down); b.addEventListener('pointerup', up); b.addEventListener('pointerleave', up); b.addEventListener('pointercancel', up);
-  });
+  cv.addEventListener('pointerdown', e => { e.preventDefault(); if (pop.hidden) press(); });
+  document.querySelectorAll('.mg-pad button').forEach(b => b.addEventListener('pointerdown', e => { e.preventDefault(); if (pop.hidden) press(); }));
+  window.__golf = { get S() { return S; }, press, aiRead, reset, step, draw };
 })();
 </script>
 
@@ -2702,6 +2809,7 @@ document.addEventListener('DOMContentLoaded', () => {
   "andrew": {
    "name": "Andrew Rapsey",
    "title": "Chief Marketing Officer at Acre Security",
+   "photo": "andrew.jpg",
    "color": "#28032F"
   },
   "kumar": {
