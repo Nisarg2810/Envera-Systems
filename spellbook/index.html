@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Durva × Spellbook</title>
+  <meta name="description" content="">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Durva × Spellbook">
+  <meta property="og:image" content="https://durvathakkar.com/spellbook/meltem.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500&family=Instrument+Serif:ital@0;1&family=Gochi+Hand&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="/assets/durva-look-sprite.jpg">
+  <link rel="stylesheet" href="/template/engine.css?v=7">
+  <style>
+    /* ---- Spellbook dress: editorial serif, black & white, one redline red ---- */
+    :root { --red: #E31700; --bg: #f6f6f4; }
+    .t-hero h1, .t-h2, .t-phase .big h3, .t-final h2, .pw-intro h3, .t-me h3 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; letter-spacing: -0.02em; }
+    .t-hero h1 { font-size: clamp(54px, 7.4vw, 112px); line-height: .92; }
+    .t-hero h1 .hl, .t-h2 .hl { color: var(--red); font-style: italic; }
+    .t-fit .t-h2 .hl { color: #ff8a70; }
+    .t-hero { background: radial-gradient(900px 500px at 85% 10%, rgba(249,77,30,.10), transparent 60%), #f3f3f1; }
+    .t-final { background: #0E1315; }
+    .t-final h2 { font-size: clamp(50px, 8vw, 118px); }
+    .gfx .g-h { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; letter-spacing: -0.02em; font-size: 12cqi; }
+    .gfx .g-h s { text-decoration-color: var(--red); text-decoration-thickness: .08em; opacity: .7; }
+    .gfx.paper .g-list { font-family: "Geist", sans-serif; }
+    .replay-film { margin-left: 4px; }
+    .t-hero .t-blob { display: none; }
+
+    /* ---- the intro film: a Word doc that drafts itself ---- */
+    .sb-film { position: fixed; inset: 0; z-index: 120; background: #0E1315; display: grid; place-items: center; padding: 18px; opacity: 1; transition: opacity .6s; }
+    .sb-film.bye { opacity: 0; pointer-events: none; }
+    .sb-film .skip { position: absolute; top: 16px; right: 16px; border: 0; background: rgba(255,255,255,.1); color: #fff; font: 500 12px var(--mono); letter-spacing: .08em; padding: 10px 14px; border-radius: 999px; cursor: pointer; }
+    .word { width: min(1040px, 100%); height: min(680px, calc(100svh - 40px)); background: #f3f2f1; border-radius: 12px; overflow: hidden; display: grid; grid-template-rows: auto auto 1fr; box-shadow: 0 50px 80px -30px rgba(0,0,0,.8); }
+    .w-title { display: flex; align-items: center; gap: 10px; padding: 9px 14px; background: #185abd; color: #fff; font-size: 12.5px; }
+    .w-title i { width: 11px; height: 11px; border-radius: 50%; background: rgba(255,255,255,.35); }
+    .w-title b { margin-left: 8px; font-weight: 600; }
+    .w-title span { margin-left: auto; opacity: .85; }
+    .w-ribbon { display: flex; gap: 18px; padding: 8px 16px; background: #fff; border-bottom: 1px solid #e1dfdd; font-size: 12.5px; color: #444; overflow: hidden; white-space: nowrap; }
+    .w-ribbon .sb { color: #0E1315; font-weight: 700; border-bottom: 2px solid var(--red); padding-bottom: 2px; }
+    .w-body { display: grid; grid-template-columns: 1fr 290px; min-height: 0; }
+    .w-canvas { overflow: hidden; padding: 22px; display: grid; justify-items: center; background: #e9e8e6; }
+    .w-page { width: min(640px, 100%); background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.2); padding: 38px 46px; font-family: "Times New Roman", Georgia, serif; font-size: 15.5px; line-height: 1.55; color: #1b1b1b; overflow: hidden; }
+    .w-page h4 { font: 700 13px "Geist", sans-serif; letter-spacing: .12em; text-transform: uppercase; color: #666; margin-bottom: 14px; }
+    .w-page .ln { min-height: 1.55em; margin-bottom: 8px; }
+    .w-page .big { font-size: 30px; font-family: "Instrument Serif", Georgia, serif; }
+    .w-page del { color: var(--red); text-decoration-thickness: 2px; }
+    .w-page ins { color: var(--red); text-decoration: underline; text-decoration-color: var(--red); }
+    .w-page .cl b { font-family: "Geist", sans-serif; font-size: 13.5px; }
+    .caret::after { content: "|"; color: #185abd; animation: blinkc 1s steps(2) infinite; margin-left: 1px; }
+    @keyframes blinkc { 50% { opacity: 0; } }
+    .w-sig { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 18px; opacity: 0; transition: opacity .5s; }
+    .w-sig.on { opacity: 1; }
+    .w-sig div { display: grid; grid-template-columns: 44px 1fr; gap: 10px; align-items: end; }
+    .w-sig img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
+    .w-sig .sl { border-bottom: 1.5px solid #333; height: 44px; }
+    .w-sig .line { display: block; height: 44px; position: relative; font-family: "Mrs Saint Delafield", cursive; font-size: 34px; line-height: 44px; white-space: nowrap; overflow: hidden; clip-path: inset(0 100% 0 0); transition: clip-path 1.4s ease; }
+    .w-sig .line.signed { clip-path: inset(0 0 0 0); }
+    .w-sig small { grid-column: 2; font: 500 11px "Geist", sans-serif; color: #666; }
+    .w-stamp { position: absolute; right: 8%; bottom: 26%; transform: rotate(-12deg) scale(2); opacity: 0; border: 4px solid var(--red); color: var(--red); font: 700 20px var(--mono); letter-spacing: .12em; padding: 8px 14px; border-radius: 8px; transition: all .35s cubic-bezier(.2,1.6,.4,1); background: rgba(255,255,255,.8); }
+    .w-stamp.on { opacity: 1; transform: rotate(-12deg) scale(1); }
+    .w-panel { background: #fff; border-left: 1px solid #e1dfdd; padding: 14px; display: flex; flex-direction: column; gap: 10px; overflow: hidden; }
+    .w-panel .hd { display: flex; align-items: center; gap: 8px; font: 700 14px "Geist", sans-serif; }
+    .w-panel .hd i { width: 20px; height: 20px; border-radius: 6px; background: conic-gradient(#f94d1e, #ffbd00, #2fb3a6, #5b7cfa, #b36ae8, #f94d1e); }
+    .w-sug { border: 1px solid #ececec; border-radius: 12px; padding: 10px 12px; font: 13px/1.4 "Geist", sans-serif; opacity: 0; transform: translateY(10px); transition: all .4s cubic-bezier(.2,1.4,.4,1); }
+    .w-sug.on { opacity: 1; transform: none; }
+    .w-sug b { display: block; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--red); margin-bottom: 4px; }
+    .w-sug.ok b { color: #1f7a45; }
+    .w-go { position: absolute; left: 50%; bottom: 26px; translate: -50% 0; opacity: 0; transition: opacity .5s; }
+    .w-go.on { opacity: 1; animation: pulseb 1.6s ease-in-out infinite; }
+    @keyframes pulseb { 50% { transform: scale(1.05); } }
+    .w-canvas { position: relative; }
+
+    /* ---- the game: contracts, actually, are all around ---- */
+    .sb-game { padding-block: 110px 10px; }
+    .g-wrap { border-radius: 30px; overflow: hidden; background: #fff; border: 1px solid #e6e6e2; box-shadow: 0 40px 60px -44px rgba(0,0,0,.45); }
+    .g-hud { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center; padding: 14px 18px; border-bottom: 1px solid #eee; font: 500 13px var(--mono); letter-spacing: .04em; }
+    .g-hud b { font-size: 18px; color: var(--red); }
+    .g-hud .t-btn { padding: 10px 14px; font-size: 13px; }
+    #street { display: block; width: 100%; height: auto; background: #f3f3f1; touch-action: manipulation; }
+    #street .hs { cursor: pointer; outline: none; }
+    #street .hs:hover > .shape, #street .hs:focus-visible > .shape { filter: drop-shadow(0 0 0 #000) brightness(.96); }
+    #street .hs .glow { fill: none; stroke: var(--red); stroke-width: 4; stroke-dasharray: 8 6; opacity: 0; }
+    #street .hs.hint .glow { opacity: 1; animation: dash 1s linear infinite; }
+    #street .hs.found .glow { opacity: 1; stroke-dasharray: none; }
+    #street .hs .tick { opacity: 0; transform-box: fill-box; transform-origin: center; transition: all .35s cubic-bezier(.2,1.6,.4,1); transform: scale(0); }
+    #street .hs.found .tick { opacity: 1; transform: scale(1); }
+    @keyframes dash { to { stroke-dashoffset: -28; } }
+    .g-toast { display: flex; gap: 14px; align-items: center; padding: 14px 18px; border-top: 1px solid #eee; min-height: 74px; }
+    .g-toast .doc { flex: none; width: 44px; height: 54px; border-radius: 4px; background: #fff; border: 1.5px solid #222; position: relative; }
+    .g-toast .doc::before, .g-toast .doc::after { content: ""; position: absolute; left: 7px; right: 7px; height: 2px; background: #bbb; top: 14px; box-shadow: 0 7px 0 #bbb, 0 14px 0 #bbb; }
+    .g-toast .doc::after { top: auto; bottom: 8px; background: var(--red); box-shadow: none; right: 16px; }
+    .g-toast b { display: block; font-size: 17px; }
+    .g-toast span { color: var(--muted); font-size: 15px; }
+    .g-done { display: none; text-align: center; padding: 26px 18px 30px; border-top: 1px solid #eee; }
+    .g-done.on { display: block; animation: t-fade .5s ease; }
+    .g-done h3 { font: 400 clamp(30px, 4vw, 46px)/1.05 "Instrument Serif", serif; }
+    .g-done p { color: var(--muted); margin: 8px auto 16px; max-width: 560px; }
+    .g-credit { font-size: 13px; color: var(--muted); margin-top: 12px; text-align: center; }
+    @media (max-width: 700px) {
+      .w-body { grid-template-columns: 1fr; }
+      .w-panel { display: none; }
+      .w-page { padding: 24px 22px; font-size: 14px; }
+      .w-page .big { font-size: 24px; }
+      .w-ribbon span:nth-child(n+5) { display: none; }
+      .w-sig { grid-template-columns: 1fr; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+
+  <!-- Built from /template/. Facts about Spellbook, Meltem and the leadership team come from spellbook.com,
+       the Sept 2026 CMO announcement, Artificial Lawyer and public interviews. Every task is a sample made for this application. -->
+  <script>
+  window.SITE = {
+    company: {
+      name: "Spellbook", short: "Spellbook", industry: "legal AI", audience: "lawyers", city: "Canada", handle: "spellbooklegal",
+      colors: { primary: "#0E1315", secondary: "#F94D1E" }, logo: "",
+    },
+    contact: { first: "Meltem", full: "Meltem Kuran Berkowitz", photo: "/spellbook/meltem.jpg", pixel: { hair: "#2b1c14", skin: "#f1cbb2", hairStyle: "long", top: "#f4f1ec" } },
+    role: { title: "Social Media Lead", url: "https://jobs.ashbyhq.com/spellbook.com/a358e75b-252f-4d09-8d31-da1c6d63bbd9" },
+    title: "Durva × Spellbook",
+    kicker: "Made for Meltem · CMO, Spellbook",
+    description: "Durva Thakkar's application for Social Media Lead at Spellbook: a drafted agreement, a game, and the work.",
+    headline: ["I could tell you.", "Or I could", "show you."],
+    meeting: { url: "", label: "Message me on LinkedIn" },
+    intro: false, // Spellbook gets its own intro: the Word-doc film below
+    sections: { reel: false, samples: false },
+
+    note: [
+      "Congrats on the CMO role! Your post about contracts being all around stuck with me: the mortgage, the elevator, the late-night delivery order. So instead of a cover letter, I drafted you an agreement (in Word, obviously).",
+      "Below is how I'd build Spellbook's social presence from scratch as your first Social Media Lead: a 90-day plan, a voice guide, {tasks} pieces of real work, and five post ideas for each of your executives. Human-made and checked line by line. No AI slop.",
+    ],
+
+    noticed: [
+      ["🔌", "Contracts are the APIs of the real world", "Jean-Michel's line, and your post says the same thing: contracts are in the home, the job, the elevator and the bar. That makes a \"less visual\" product endlessly relatable on social.", "#f1f1ef"],
+      ["🧱", "A first social hire, from scratch", "No inherited playbook: voice, calendar and strategy, built with you. That's the exact kind of blank page I love, and the reason this site exists.", "#fdeae4"],
+      ["✋", "Zero AI slop, even in marketing", "Scott's zero-tolerance rule for the product, and yours for campaigns. Specific, proof-led, human content is the bar. (I build with AI as a co-pilot, and every line here was checked by me.)", "#eef0f3"],
+    ],
+
+    fit: [
+      ["Calendar", "Own the social calendar end to end, from strategy to publish", "<b>See the Strategy and Calendar tabs.</b> At Rewynd Snacks I built and ran the content calendar that kept campaigns on schedule across teams."],
+      ["Community", "Reply to comments, mentions and DMs, and build relationships", "<b>I come from front-line customer experience</b> at TD and The Home Depot: answering real people quickly and kindly is my day job. See the reply bank and outreach message."],
+      ["Voice", "Define the voice, and ghostwrite for executives", "<b>I write for a living.</b> At Missive Digital I turned client briefs into on-brand content. The voice guide and 25 exec post ideas are below."],
+      ["Growth", "Measure reach, engagement, follower growth and share of voice", "<b>A fresh postgrad in Information Systems Business Analysis.</b> I like turning numbers into a clear read. See the sample report (illustrative numbers)."],
+      ["Track record", "Grew a brand's organic reach, with specific numbers", "<b>Honest answer:</b> I don't have big-brand social numbers yet, and I won't invent any. I'd rather show you the work, and how I think."],
+      ["B2B SaaS", "Make technical, less-visual products compelling", "<b>This page is my attempt.</b> Redline-of-the-week posts, a clause game and Word-native video ideas. B2B-wise, I've done outreach and discovery calls at Bsquaree."],
+      ["Tools", "Sprout Social, Hootsuite or native analytics", "<b>I've used native LinkedIn and Meta analytics.</b> Sprout and Hootsuite are new to me, and I'd be fluent in week one."],
+      ["Side account", "Built reach on a personal account", "<b>My LinkedIn is my side project:</b> I write about marketing, ads I notice, and life in Canada, and I'm growing it one honest post at a time."],
+    ],
+
+    proofHead: { tag: "The work", title: "The job, <span class=\"hl\">already started.</span>", text: "Every card is a sample made for this application, labelled with the line of the job post it answers. Numbers in the report are illustrative." },
+    proof: [
+      { area: "Strategy", e: "🧭", text: "The plan on one page: why social, for whom, on which channels, and how we'll know it's working.", items: [
+        { type: "brief", title: "Social strategy on a page", jd: "Balance a steady drumbeat with a longer-term strategy tied to launches and pipeline.", rows: [
+          ["Mission", "Make Spellbook the brand lawyers actually want in their feed: useful, specific, a little witty."],
+          ["Audience", "Transactional lawyers, in-house legal teams and solo practitioners, plus the legal-tech community, press and investors."],
+          ["North star", "Qualified attention: reach and engagement from lawyers, and demo interest we can trace back to social."],
+          ["Drumbeat", "Daily presence on LinkedIn and X; weekly series; exec posts every week."],
+          ["Big moments", "Product launches, customer milestones, hiring, and cultural moments (holidays, trends)."],
+          ["Rule #1", "Nothing generic. Every post has a specific clause, customer, number or opinion in it."],
+        ] },
+        { type: "table", title: "Channel roles", jd: "Own the calendar across every platform we show up on.", head: ["Channel", "Its job", "Cadence", "Formats"], rows: [
+          ["LinkedIn · company", "Proof + education", "5×/week", "Carousels, redlines, customer stories"],
+          ["LinkedIn · execs", "Trust + POV", "3–5 posts/week total", "Ghostwritten text posts, opinions"],
+          ["X", "Speed + culture", "Daily", "Threads, reactions, launch posts"],
+          ["YouTube", "Depth", "2×/month", "Demos, customer interviews"],
+          ["Reels · TikTok · Shorts", "Reach test", "2×/week for 90 days", "Word screen-recordings, lawyer POVs"],
+        ] },
+        { type: "list", title: "Five content pillars", jd: "Build a strategy grounded in what drives reach and engagement.", items: [
+          "<b>Contracts are everywhere:</b> relatable, everyday contracts (your post, turned into a series).",
+          "<b>Redline craft:</b> clause-level education and before/after edits, right inside Word.",
+          "<b>Receipts:</b> customer results and milestones, with real numbers.",
+          "<b>Inside Spellbook:</b> the team across 11 cities, hiring, and how we build.",
+          "<b>Point of view:</b> exec thought leadership on AI, law and contracts.",
+        ] },
+      ] },
+      { area: "Voice & look", e: "🎙️", text: "One voice across every channel, and a visual system that makes contract work look good.", items: [
+        { type: "voice", title: "Voice principles", jd: "Define and protect Spellbook's voice across every channel.", rows: [
+          ["Precise, not stiff", "Short sentences. Exact words.", "Legalese, hedging, filler", "\"Redline an NDA in minutes. Right inside Word.\""],
+          ["Lawyer-literate", "Talks like a sharp associate", "Explaining the law to lawyers", "\"You know the auto-renewal trap. Here's the fix we see most.\""],
+          ["Confident, zero slop", "Specific claims, with proof", "\"AI is changing everything\" posts", "\"10 million contracts reviewed. Here's what we learned.\""],
+          ["Warm, a little witty", "A wink when it helps", "Jokes at clients' expense", "\"Contracts, actually, are all around.\""],
+        ] },
+        { type: "social", title: "Visual template: redline of the week", jd: "Create and adapt on-brand assets.", caption: "One clause, one fix, every week. Save it for your next draft. ✍️", slides: [
+          { k: "Redline of the week", h: "<s>shall automatically renew</s> <em>may renew by mutual written agreement</em>", f: "Save ✍️" },
+        ] },
+        { type: "list", title: "Visual rules", jd: "Keep the visual identity consistent with the broader brand.", items: [
+          "Black and white first; red only for redlines and the one thing we want you to see.",
+          "Serif headlines, sans body copy, like the website.",
+          "Real Word screen-recordings over stock photos. No robot, gavel or glowing-brain imagery. Ever.",
+          "Every carousel ends with one clear next step.",
+          "Faces of real customers and teammates whenever we can get them.",
+        ] },
+      ] },
+      { area: "LinkedIn", e: "💼", text: "Company-page posts across the five pillars, drafted and dropped into the feed.", items: [
+        { type: "linkedin", title: "Carousel: contracts, actually, are all around", jd: "Turn company thinking into content that actually gets shared.", text: "Before your first coffee, you've already relied on about six contracts.\n\nYour home. Your job. The elevator down to the lobby. The delivery app you tapped at midnight.\n\nContracts are the quiet infrastructure of everyday life. We're building the rails they run on. 👇", media: { slides: [
+          { k: "Swipe →", h: "Contracts, actually, are <em>all around.</em>" },
+          { k: "Your morning", list: ["Your home → mortgage", "Your job → employment contract", "The elevator → service contract"], f: "→" },
+          { k: "Your evening", list: ["Delivery app → terms & conditions", "Your favourite bar → lease + supplier contracts", "Your brokerage → client agreement"], f: "→" },
+          { k: "Spellbook", h: "We build the rails <em>they run on.</em>", f: "spellbook.com" },
+        ] } },
+        { type: "linkedin", title: "Series: redline of the week", jd: "Make a technical, less-visual product compelling.", text: "Redline of the week: the auto-renewal clause.\n\nIt looks harmless in the draft and costs real money a year later. Here's a common fix, and how to catch it in seconds with Spellbook, right inside Word.\n\nWhat clause should we redline next? 👇", media: { slides: [
+          { k: "Redline of the week · 01", h: "<s>shall automatically renew</s> <em>may renew by mutual written agreement</em>" },
+        ] } },
+        { type: "linkedin", title: "Receipts: a customer story", jd: "Turn customer wins into content (with approval).", text: "\"55% time saved.\" Over 90% very satisfied.\n\nThat's what AtkinsRéalis shared about their legal team's work with Spellbook. Behind those numbers: more time for the work lawyers actually trained for.\n\nThe full story →", media: { slides: [
+          { k: "Customer story", h: "<em>55%</em> time saved on contract work.", f: "AtkinsRéalis × Spellbook" },
+        ] } },
+        { type: "linkedin", title: "Milestone: 10 million contracts", jd: "Tie content to company milestones.", text: "10,000,000+ contracts reviewed with Spellbook.\n\nFrom solo practitioners to in-house teams, 5,000+ legal teams in more than 80 countries now draft, review and negotiate with us, inside the tool they already live in.\n\nThank you for trusting us with the fine print. 🙏", media: { slides: [
+          { k: "Milestone", h: "<em>10,000,000+</em> contracts reviewed.", f: "Thank you ✍️" },
+        ] } },
+        { type: "linkedin", title: "Inside Spellbook: one team, 11 cities", jd: "Hiring and culture content.", text: "One team. 11 cities. One obsession: making contracts faster and better for every lawyer who opens Word.\n\nWe're hiring across marketing, product and engineering. If you like hard problems with tangible outcomes, come build the rails for agreements with us. 👇", media: { slides: [
+          { k: "Inside Spellbook", h: "One team, <em>11 cities.</em>", f: "We're hiring →" },
+        ] } },
+      ] },
+      { area: "X & video", e: "🎬", text: "Faster, more cultural content for X, plus short-form video formats built around Word itself.", items: [
+        { type: "tweet", title: "X thread: contracts are the APIs of the real world", jd: "Turn thought leadership into content that spreads.", thread: [
+          "Contracts are the APIs of the real world. 🧵",
+          "An API says: if you send X, I'll return Y. A contract says the same thing between people and companies.",
+          "Your mortgage, your job, your phone plan. Each one is a spec for how two parties behave.",
+          "Most of them are still drafted by hand, clause by clause. That's the bottleneck we're clearing.",
+          "Spellbook works inside Word to draft, review and redline contracts up to 10x faster. The rails for agreements. →",
+        ] },
+        { type: "tweet", title: "X: a same-day cultural post", jd: "Spot and move fast on trends and cultural moments.", text: "Accepting the terms and conditions without reading them is the most universal human experience.\n\nLawyers: you read them so we don't have to. We just made it faster. ✍️" },
+        { type: "table", title: "Short video: NDA speedrun (30 sec)", jd: "Make a less-visual product compelling on social.", head: ["Time", "On screen", "Text / voice-over"], rows: [
+          ["0–2s", "Timer starts over a blank Word doc", "\"NDA review. Speedrun. Go.\""],
+          ["2–10s", "Paste NDA · Spellbook panel opens", "\"Spellbook reads it inside Word.\""],
+          ["10–20s", "Redlines appear, risky clauses highlighted", "\"Flags the risky bits. Suggests the fix.\""],
+          ["20–27s", "Accept changes · timer stops", "\"Done before your coffee cooled.\""],
+          ["27–30s", "End card", "\"Spellbook · contracts at the speed of commerce\""],
+        ] },
+        { type: "table", title: "Short video: \"POV: it's 11:48 pm and the redline is due\"", jd: "Content that actually gets shared.", head: ["Beat", "Shot", "Caption"], rows: [
+          ["1", "Lawyer at desk, 11:48 on the clock, sighs", "POV: the redline is due at midnight"],
+          ["2", "Opens Spellbook in Word", "…but you have a secret weapon"],
+          ["3", "Suggestions cascade in", "(it's not caffeine)"],
+          ["4", "Clock: 11:56. Hits send, leans back", "Home before the next episode starts"],
+        ] },
+        { type: "table", title: "Video series: lawyers rate real clauses", jd: "Build relationships with the legal community and creators.", head: ["Element", "Plan"], rows: [
+          ["Format", "Street-style: lawyers at an event rate a real (anonymized) clause from 1 to 10"],
+          ["Where", "Legal conferences and local bar events"],
+          ["Payoff", "Spellbook shows the fix in Word at the end"],
+          ["Why it works", "Faces + opinions + a reveal: made for Reels, TikTok and LinkedIn video"],
+        ] },
+      ] },
+      { area: "Executives", e: "✍️", text: "Exec posts are the biggest lever in B2B social. The five-idea plans for each leader are in the People section below.", items: [
+        { type: "linkedin", title: "Ghostwritten draft for Scott", jd: "Ghostwriting and editorial support for executive posts.", author: { name: "Scott Stevenson", role: "CEO & Co-founder, Spellbook" }, text: "Lawyers don't need another tab.\n\nWhen we started Spellbook, we made one decision that shaped everything: live inside Microsoft Word, where contracts already are.\n\nNo copy-paste. No new tool to learn. Just a copilot that drafts, reviews and redlines where the work happens.\n\nThe best AI is the one you don't have to go looking for." },
+        { type: "brief", title: "The exec ghostwriting process", jd: "Partner with the executive team on thought leadership.", rows: [
+          ["Intake", "A 15-minute voice memo or chat per week: one opinion, one story, one lesson."],
+          ["Draft", "I write in their voice, and keep a running \"voice file\" of phrases they actually use."],
+          ["Review", "One round of edits within 24 hours. Nothing posts without their OK."],
+          ["Publish", "Best time slots for each exec's network; I watch comments for the first hour."],
+          ["Repurpose", "Top posts become company carousels, X threads or video scripts."],
+        ] },
+        { type: "table", title: "Exec cadence", jd: "Keep executive voices consistent with the brand.", head: ["Leader", "Posts / week", "Lane"], rows: [
+          ["Scott Stevenson", "2", "Vision, product, AI with no slop"],
+          ["Meltem Kuran Berkowitz", "1–2", "Growth, marketing, why contracts matter"],
+          ["Jean-Michel Lemieux", "1", "Contracts as APIs, building and systems"],
+          ["Co-founders", "1 each / 2 weeks", "Customers, product craft, the early days"],
+        ] },
+      ] },
+      { area: "Calendar & community", e: "📅", text: "A month of content, and how we'd treat social as a two-way conversation.", items: [
+        { type: "calendar", title: "Sample calendar: October", jd: "Own the social calendar from ideation through publishing.", wide: true, start: 4, days: 31, colors: { Company: "#eef0f3", Series: "#fdeae4", Exec: "#e7f1ea", Video: "#efe7fb", X: "#fff3cd" }, items: {
+          1: ["Contracts are all around #1", "Series"], 2: ["Scott: why Word", "Exec"], 5: ["Launch: weekly series", "Company"], 6: ["Redline of the week", "Series"], 7: ["Thread: APIs of the real world", "X"], 8: ["Customer story", "Company"], 9: ["NDA speedrun", "Video"],
+          13: ["Redline of the week", "Series"], 14: ["Meltem: growth lesson", "Exec"], 15: ["10M contracts", "Company"], 16: ["11:48 pm POV", "Video"],
+          20: ["Redline of the week", "Series"], 21: ["JML: contracts = APIs", "Exec"], 22: ["One team, 11 cities", "Company"], 23: ["Lawyers rate clauses #1", "Video"],
+          27: ["Redline of the week", "Series"], 28: ["Spooky clause teaser 👻", "X"], 29: ["Co-founder story", "Exec"], 30: ["Scariest clauses", "Video"], 31: ["Halloween poll", "Company"] } },
+        { type: "replies", title: "Reply bank: comments and DMs", jd: "Respond to comments, mentions and DMs in a timely, on-brand way.", items: [
+          ["AI will never replace lawyers.", "Agreed! Spellbook doesn't replace lawyers, it replaces the drudgery. The judgment stays with you; the first pass on the redline doesn't have to. ✍️"],
+          ["Does this work with my existing templates?", "Great question! Spellbook works right inside Microsoft Word, so you keep working in your own documents. Want a quick walkthrough? Send us a DM."],
+          ["Tried it last year, it wasn't there yet.", "Totally fair, and thank you for trying us. A lot has shipped since. Would you be up for a fresh look? We'd love your honest feedback."],
+        ] },
+        { type: "dm", title: "Creator / journalist outreach", jd: "Build relationships with the legal-tech community, creators and journalists.", to: "[Legal-tech creator]", msgs: [
+          ["me", "Hi [name]! I'm Durva from Spellbook 👋 Your breakdown of [topic] was the clearest one I've read, and our lawyers have been sharing it around."],
+          ["me", "We're starting a \"lawyers rate real clauses\" video series and would love a guest who actually knows their stuff. Paid, low-effort, and you'd get the raw footage too. Open to a quick chat?"],
+          ["them", "Ha, I love that format. Tell me more!"],
+        ] },
+        { type: "list", title: "Community rituals", jd: "Social is a two-way conversation, not a broadcast channel.", items: [
+          "<b>Clause Clinic Thursdays:</b> lawyers drop a tricky clause in the comments; we answer the best three.",
+          "<b>Customer wins, reshared within 24 hours,</b> with a thank-you comment from the team.",
+          "<b>First-hour rule:</b> every post gets someone watching and replying for its first hour.",
+          "<b>Monthly LinkedIn Live</b> with a customer lawyer and a Spellbook exec.",
+        ] },
+      ] },
+      { area: "Moments & launches", e: "🎄", text: "Cultural moments and product launches, planned so we can move fast when they arrive.", items: [
+        { type: "cuecards", title: "Holiday campaign: \"Contracts, Actually\"", jd: "Move fast on cultural moments.", note: "Inspired by your Hugh Grant line. A cue-card video for December, starring a Spellbook teammate at a lawyer's door.", cards: [
+          "Contracts, actually… are all around. 🎄",
+          "To me, you are perfect(ly drafted).",
+          "And I know it's the holidays, but…",
+          "…your NDA auto-renews on Jan 1st.",
+          "Let Spellbook review it in Word.",
+          "Merry Christmas. (Terms & conditions apply.)",
+        ] },
+        { type: "brief", title: "Launch kit: Autonomous Contract Management", jd: "Turn product launches into stories worth sharing.", rows: [
+          ["Day −7", "Teaser: a Word doc that finishes itself, with no caption but a date."],
+          ["Day −1", "Exec hints: Scott and Meltem post \"tomorrow\" without naming it."],
+          ["Launch day", "Company LinkedIn video + carousel, X thread, founders' personal posts, and a pinned demo."],
+          ["Day +1", "Customer reactions and the best comments, reshared."],
+          ["Day +7", "Recap: what users did in week one (with real numbers from the team)."],
+          ["Assets", "Demo clip (30s, 60s), 3 carousel slides, 5 exec post drafts, reply bank for launch questions."],
+        ] },
+        { type: "table", title: "Trend playbook: moving the same day", jd: "Spot trends and move fast, rather than posting on autopilot.", head: ["Trend type", "Example", "Speed", "Guardrail"], rows: [
+          ["Meme format", "A viral template, remixed with a clause", "Same day", "Only if it's genuinely funny for lawyers"],
+          ["News moment", "A big contract dispute in the news", "Same day", "Explain, don't mock; no client names"],
+          ["Holiday", "Halloween \"scariest clauses\"", "Planned", "Keep the product the hero"],
+          ["Platform feature", "New LinkedIn format to test", "Within a week", "Measure against our baseline"],
+        ] },
+      ] },
+      { area: "Measurement", e: "📊", text: "What we'd track, why, and how it turns into next month's plan.", items: [
+        { type: "report", title: "Monthly social report", jd: "Track reach, engagement, follower growth and share of voice.", wide: true, label: "Sample report · illustrative numbers, not Spellbook data", kpis: [
+          ["Followers (all)", "+2,140", "+18% vs last month"], ["Engagement rate", "4.6%", "+0.8 pts"], ["Impressions", "1.2M", "+34%"], ["Share of voice", "22%", "+5 pts"], ["Demo clicks from social", "96", "+21%"] ],
+          bars: { title: "Where engagement came from", rows: [["Exec posts", 41], ["Company page", 27], ["Video", 17], ["X", 11], ["Other", 4]] },
+          notes: ["<b>Worked:</b> redline-of-the-week carousels saved 3× more than other posts, so we keep the weekly slot.", "<b>Flag:</b> X threads reached people but drove few clicks. Test one clear link per thread.", "<b>Next:</b> turn Scott's top post into a 45-second video and a company carousel."] },
+        { type: "table", title: "Metrics that matter", jd: "Track performance against clear metrics and keep improving.", head: ["Metric", "Why it matters", "How we'd use it"], rows: [
+          ["Reach from lawyers", "Right audience, not just any audience", "Check follower and viewer job titles monthly"],
+          ["Engagement rate", "Are we worth stopping for?", "Double down on formats above average"],
+          ["Follower growth", "Compounding distribution", "Track per channel and per exec"],
+          ["Share of voice", "Are we the name in legal AI?", "Compare mentions against peers monthly"],
+          ["Social-sourced demos", "Ties social to pipeline", "UTMs on every link, reviewed with sales"],
+        ] },
+        { type: "brief", title: "Weekly 15-minute social stand-up", jd: "Use data to keep improving the strategy.", rows: [
+          ["1. Wins", "Top three posts of the week, and why they worked."],
+          ["2. Misses", "One thing that flopped, and what we learned."],
+          ["3. This week", "Launches, moments and exec posts on deck."],
+          ["4. Asks", "Customer quotes, product clips or approvals needed."],
+        ] },
+      ] },
+    ],
+
+    plan: [
+      { days: "Days 1–30", title: "Listen & define", text: "Learn the product, the customers and the voice before building the calendar.", pct: 33, items: [
+        ["Use Spellbook daily", "Draft and redline real (dummy) contracts in Word until I can demo it in my sleep."],
+        ["Talk to lawyers", "Sit in on sales and customer calls to hear the words customers actually use."],
+        ["Audit every channel", "What has worked on LinkedIn, X and YouTube, and where competitors show up."],
+        ["Voice guide v1", "Voice principles and visual rules, agreed with you."],
+        ["Quick wins", "Start redline-of-the-week and the first exec posts in week two."],
+      ] },
+      { days: "Days 31–60", title: "Build the machine", text: "A calendar, weekly series and an exec program that run like clockwork.", pct: 66, items: [
+        ["Quarterly calendar", "Tied to launches, milestones and pipeline goals."],
+        ["Weekly series live", "Redline of the week, Contracts are all around, Clause Clinic."],
+        ["Exec program", "A regular posting rhythm for Scott, you and Jean-Michel."],
+        ["Community rituals", "First-hour replies, Clause Clinic Thursdays, customer reshares."],
+        ["Report v1", "Monthly report with a clear read on what's working."],
+      ] },
+      { days: "Days 61–90", title: "Scale reach", text: "Test video, grow share of voice and plan the first big moment.", pct: 100, items: [
+        ["Video test", "Two short videos a week for a month, then keep what works."],
+        ["Creator series", "First episodes of \"lawyers rate real clauses\"."],
+        ["Launch playbook", "Ready for the next product launch."],
+        ["Holiday moment", "\"Contracts, Actually\" in production for December."],
+      ] },
+    ],
+
+    ideas: [
+      { ch: "Series", e: "✍️", title: "Redline of the week", text: "One clause, one fix, every week, on LinkedIn and X.", why: "Useful, saveable and product-led without being salesy. It makes a less-visual product visual.", measure: "Saves, shares and profile visits from lawyers.", c: "#fdeae4" },
+      { ch: "Series", e: "🏙️", title: "Contracts are all around", text: "Your post, turned into a recurring series about everyday contracts.", why: "Relatable to anyone, and it widens Spellbook's story beyond legal teams.", measure: "Reach and non-follower impressions.", c: "#eef0f3" },
+      { ch: "Community", e: "🩺", title: "Clause Clinic", text: "Lawyers bring tricky clauses; Spellbook answers the best ones.", why: "Turns the feed into a conversation and builds a community around the brand.", measure: "Comments per post and returning commenters.", c: "#e7f1ea" },
+      { ch: "Video", e: "🎤", title: "Lawyers rate real clauses", text: "A street-style video series at legal events.", why: "Faces and opinions spread; the Word reveal at the end sells the product.", measure: "Views, completion rate and follows.", c: "#efe7fb" },
+      { ch: "Culture", e: "🎄", title: "Contracts, Actually", text: "A December cue-card campaign, inspired by your Hugh Grant line.", why: "A cultural moment with a built-in punchline, and very on-brand.", measure: "Shares and mentions during December.", c: "#fff3cd" },
+      { ch: "Proof", e: "🧾", title: "Receipts", text: "Customer results as a monthly series with real numbers.", why: "B2B buyers trust peers. Specific outcomes beat claims.", measure: "Demo clicks and sales usage of the posts.", c: "#e4eefc" },
+    ],
+
+    people: [
+      { name: "Meltem Kuran Berkowitz", role: "CMO", photo: "/spellbook/meltem.jpg", why: "Fresh CMO story, a strong personal voice, and five and a half years of growth at Deel.", ideas: [
+        ["Contracts, actually, are all around (part 2)", "A follow-up to your post: one everyday contract per week, told through your own life."],
+        ["From under $1M to $1B+ ARR: 5 growth lessons I'm bringing to Spellbook", "Specific lessons from your Deel years, applied to legal AI."],
+        ["Why I won't run AI-slop campaigns, even at an AI company", "Your stance, expanded: what \"respecting attention\" looks like in practice."],
+        ["What I'm looking for in our first Social Media Lead", "A hiring post that doubles as a brand statement."],
+        ["The marketing stack at an AI-native company", "Where AI helps your team, and where it never touches the work."],
+      ] },
+      { name: "Scott Stevenson", role: "CEO & Co-founder", why: "The founder story, the product vision and the no-slop rule.", ideas: [
+        ["Lawyers don't need another tab", "Why Spellbook lives inside Word (drafted in the Executives tab)."],
+        ["The legal bill that started Spellbook", "The slow, expensive legal experience behind the company."],
+        ["From musical instruments to legal AI", "The unusual path to founding Spellbook."],
+        ["Zero tolerance for AI slop: how we decide what ships", "A behind-the-scenes on quality bars."],
+        ["2,700 → 5,000 legal teams in a year", "What changed, and what didn't."],
+      ] },
+      { name: "Jean-Michel Lemieux", role: "Executive Individual Contributor", why: "A former Shopify CTO with a sticky idea: contracts are the APIs of the real world.", ideas: [
+        ["Contracts are the APIs of the real world", "The idea, explained for builders and lawyers alike."],
+        ["Why a former CTO chose an IC exec role", "What \"high-leverage operator\" means day to day."],
+        ["What Shopify taught me that applies to legal AI", "Lessons on building rails for commerce, applied to contracts."],
+        ["Breaking org boundaries with AI", "Product, engineering and go-to-market working as one."],
+        ["The internal system I'd automate first", "A candid look at how Spellbook uses AI on itself (if shareable)."],
+      ] },
+      { name: "Daniel Di Maria", role: "Co-founder", why: "The founding story from another seat, and years of customer conversations.", ideas: [
+        ["The early days, from the other co-founder seat", "What building Spellbook looked like before the headlines."],
+        ["What customers in 80+ countries taught us", "Surprising differences in how contract work happens globally."],
+        ["Three myths about transactional lawyers", "Busting assumptions outsiders make about legal work."],
+        ["The feature request we hear most", "And what the team did about it."],
+        ["A day in the life of a Spellbook co-founder", "Human, behind-the-scenes, and very shareable."],
+      ] },
+      { name: "Matt Mayers", role: "Co-founder", why: "Product craft and the lessons of building for lawyers.", ideas: [
+        ["Why lawyers trust tools that live where they work", "The product philosophy behind staying in Word."],
+        ["What reviewing 10M+ contracts teaches you", "Patterns and lessons (shared at a safe, aggregate level)."],
+        ["Building AI that lawyers actually adopt", "Adoption beats features: what really drives usage."],
+        ["Our first customer, in hindsight", "An honest founder story."],
+        ["What I'd tell a legal-tech founder starting today", "Advice post, made for sharing."],
+      ] },
+    ],
+
+    process: [
+      ["☕", "20-minute chat", "We talk about Spellbook's goals for social and what you'd want from your first Social Media Lead.", "This week"],
+      ["🔍", "Channel audit", "I come back with the three things I'd do first on LinkedIn and X.", "Week 1"],
+      ["🗺️", "The 90-day plan", "We agree on the voice, the calendar and the metrics.", "Week 2"],
+      ["🚀", "Ship & measure", "Series go live, exec posts start, and we learn every week.", "Ongoing"],
+    ],
+    closing: "No open question left unredlined. I'd love 20 minutes to walk you through any of this, and to hear how you're thinking about social at Spellbook.",
+    aboutLine: "Content writing, outreach and customer experience across India and Canada, and a fresh postgrad in Information Systems Business Analysis. I write like people talk, I'm honest about what I haven't done yet, and I care a lot about the person on the other side of the screen.",
+    tracking: { publicKey: "", serviceId: "", templateId: "" },
+  };
+  </script>
+  <script src="/template/engine.js?v=7"></script>
+
+  <!-- ============ Spellbook extras: the intro film + the game ============ -->
+  <script>
+  (() => {
+    const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const tasks = (window.SITE.proof || []).reduce((k, g) => k + g.items.length, 0);
+    const ideas = (window.SITE.people || []).reduce((k, p) => k + (p.ideas || []).length, 0);
+
+    /* ---------- the game, placed right after the hero ---------- */
+    const FIND = [
+      ['home', 'Mortgage agreement', 'Your home: 25 years of clauses about one front door.'],
+      ['rings', 'Marriage agreement', 'Romantic? Yes. Also a contract.'],
+      ['office', 'Employment contract', 'Your job, in writing (maybe a Social Media Lead one 👀).'],
+      ['elevator', 'Install, service & maintenance contract', 'Even the ride downstairs comes with a service contract.'],
+      ['delivery', 'Terms & conditions', 'The ones everyone accepts at checkout without reading.'],
+      ['bank', 'Brokerage client agreement', 'Before you buy one share, you sign one agreement.'],
+      ['bar', 'Lease, staff & supplier contracts', 'Your favourite bar runs on at least three.'],
+      ['phone', 'Mobile plan agreement', 'Two years, one phone, many clauses.'],
+      ['car', 'Auto lease', 'Monthly payments, mileage limits, fine print.'],
+      ['gym', 'Membership agreement', 'Cancellation policy: the plot twist.'],
+    ];
+    const tick = (x, y) => `<g class="tick" transform="translate(${x},${y})"><circle r="15" fill="#E31700"/><path d="M-7 0 L-2 5 L7 -5" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round"/></g>`;
+    const hs = (k, label, body, glow, tx, ty) => `<g class="hs" data-k="${k}" tabindex="0" role="button" aria-label="${label}">${body}${glow}${tick(tx, ty)}</g>`;
+    const S = '#0E1315';
+    const scene = `
+      <svg id="street" viewBox="0 0 1000 560" role="group" aria-label="A street full of hidden contracts. Find all ten.">
+        <rect width="1000" height="560" fill="#f3f3f1"/>
+        <g fill="#fff" stroke="#d9d9d4" stroke-width="2"><path d="M110 70 q20-26 50-10 q20-20 44 2 q26-4 26 18 h-130 z"/><path d="M700 50 q18-22 44-8 q18-16 40 2 q22-2 22 16 h-116 z"/></g>
+        <rect x="0" y="470" width="1000" height="90" fill="#2b3033"/><g stroke="#f3f3f1" stroke-width="4" stroke-dasharray="26 22"><line x1="0" y1="518" x2="1000" y2="518"/></g>
+        <rect x="0" y="458" width="1000" height="14" fill="#d9d9d4"/>
+        ${hs('home', 'House', `<g class="shape" stroke="${S}" stroke-width="3" stroke-linejoin="round"><path d="M40 330 L125 262 L210 330 Z" fill="#E31700"/><rect x="55" y="330" width="140" height="130" fill="#fff"/><rect x="108" y="392" width="34" height="68" fill="#f3f3f1"/><rect x="70" y="350" width="28" height="26" fill="#dfe8f5"/><rect x="152" y="350" width="28" height="26" fill="#dfe8f5"/><rect x="160" y="276" width="18" height="30" fill="#fff"/></g>`, `<rect class="glow" x="34" y="252" width="182" height="214" rx="12"/>`, 200, 270)}
+        ${hs('rings', 'Jewellery shop sign with two rings', `<g class="shape" stroke="${S}" stroke-width="3"><rect x="224" y="372" width="112" height="88" fill="#fff"/><path d="M218 372 h124 l-8 -22 h-108 z" fill="#fff"/><g fill="none" stroke="#E31700" stroke-width="4"><circle cx="268" cy="410" r="14"/><circle cx="288" cy="410" r="14"/></g><rect x="236" y="436" width="88" height="24" fill="#f3f3f1"/></g>`, `<rect class="glow" x="212" y="342" width="136" height="124" rx="12"/>`, 336, 350)}
+        ${hs('office', 'Office tower', `<g class="shape" stroke="${S}" stroke-width="3"><rect x="356" y="150" width="140" height="310" fill="#fff"/><g fill="#dfe8f5" stroke-width="2">${Array.from({ length: 7 }, (_, r) => Array.from({ length: 3 }, (_, c) => `<rect x="${370 + c * 42}" y="${168 + r * 38}" width="28" height="22"/>`).join('')).join('')}</g><rect x="408" y="420" width="36" height="40" fill="#f3f3f1"/><text x="426" y="143" text-anchor="middle" font-size="13" font-weight="700" stroke="none" fill="${S}" font-family="Geist, sans-serif">HQ</text></g>`, `<rect class="glow" x="350" y="140" width="152" height="326" rx="12"/>`, 490, 160)}
+        ${hs('elevator', 'Glass elevator on the side of the tower', `<g class="shape" stroke="${S}" stroke-width="3"><rect x="500" y="170" width="36" height="290" fill="#eef2f7"/><line x1="518" y1="170" x2="518" y2="300" stroke-width="1.5"/><rect x="503" y="300" width="30" height="40" fill="#fff" stroke="#E31700"><animate attributeName="y" values="300;190;410;300" dur="9s" repeatCount="indefinite"/></rect></g>`, `<rect class="glow" x="494" y="162" width="48" height="304" rx="10"/>`, 540, 176)}
+        ${hs('bank', 'Brokerage', `<g class="shape" stroke="${S}" stroke-width="3"><path d="M556 300 L630 262 L704 300 Z" fill="#fff"/><rect x="560" y="300" width="140" height="160" fill="#fff"/>${[578, 606, 634, 662].map(x => `<rect x="${x}" y="318" width="14" height="118" fill="#f3f3f1" stroke-width="2"/>`).join('')}<rect x="560" y="436" width="140" height="24" fill="#f3f3f1"/><polyline points="600,294 616,284 628,290 644,276 660,280" fill="none" stroke="#1f7a45" stroke-width="3"/></g>`, `<rect class="glow" x="550" y="252" width="160" height="214" rx="12"/>`, 704, 268)}
+        ${hs('bar', 'Your favourite bar', `<g class="shape" stroke="${S}" stroke-width="3"><rect x="720" y="330" width="130" height="130" fill="#fff"/><rect x="734" y="344" width="102" height="30" rx="6" fill="${S}"/><text x="785" y="365" text-anchor="middle" font-size="15" fill="#F94D1E" stroke="none" font-family="Instrument Serif, serif" font-style="italic">the fave bar</text><path d="M760 392 h28 l-14 18 z M774 410 v18 M764 428 h20" fill="none" stroke="#E31700"/><rect x="800" y="396" width="34" height="64" fill="#f3f3f1"/></g>`, `<rect class="glow" x="712" y="322" width="146" height="146" rx="12"/>`, 852, 334)}
+        ${hs('gym', 'Gym', `<g class="shape" stroke="${S}" stroke-width="3"><rect x="868" y="350" width="120" height="110" fill="#fff"/><g stroke-width="4"><line x1="898" y1="380" x2="958" y2="380"/><rect x="890" y="370" width="8" height="20" fill="${S}"/><rect x="958" y="370" width="8" height="20" fill="${S}"/></g><rect x="908" y="408" width="40" height="52" fill="#f3f3f1"/></g>`, `<rect class="glow" x="862" y="342" width="132" height="124" rx="12"/>`, 984, 354)}
+        ${hs('phone', 'Person scrolling on their phone', `<g class="shape" stroke="${S}" stroke-width="3"><circle cx="318" cy="486" r="10" fill="#f1cbb2"/><path d="M306 540 v-40 q12 -8 24 0 v40" fill="#5b7cfa"/><rect x="330" y="494" width="10" height="17" rx="2" fill="${S}"/><rect x="332" y="497" width="6" height="10" fill="#9fe3ff" stroke="none"/></g>`, `<rect class="glow" x="296" y="468" width="52" height="80" rx="10"/>`, 348, 474)}
+        ${hs('car', 'Leased car', `<g class="shape" stroke="${S}" stroke-width="3"><path d="M60 530 v-22 q4 -10 14 -12 l22 -18 h62 l24 18 q14 2 16 12 v22 z" fill="#E31700"/><path d="M104 482 h48 l16 14 h-78 z" fill="#dfe8f5"/><circle cx="92" cy="532" r="12" fill="${S}"/><circle cx="170" cy="532" r="12" fill="${S}"/></g>`, `<rect class="glow" x="52" y="470" width="152" height="80" rx="12"/>`, 204, 478)}
+        ${hs('delivery', 'Food delivery scooter', `<g class="shape" stroke="${S}" stroke-width="3"><g><animateTransform attributeName="transform" type="translate" values="0 0; -18 0; 0 0" dur="6s" repeatCount="indefinite"/><rect x="640" y="478" width="34" height="30" fill="#F94D1E"/><path d="M630 530 h70 l-10 -22 h-40 z" fill="#fff"/><circle cx="640" cy="534" r="10" fill="${S}"/><circle cx="696" cy="534" r="10" fill="${S}"/><circle cx="684" cy="480" r="9" fill="#f1cbb2"/><path d="M676 508 v-18 h16 v18" fill="#fff"/></g></g>`, `<rect class="glow" x="620" y="464" width="96" height="84" rx="12"/>`, 716, 470)}
+      </svg>`;
+    const game = document.createElement('section');
+    game.className = 'wrap sb-game'; game.id = 'game';
+    game.innerHTML = `
+      <div class="t-head rv"><span class="t-tag" style="--c:#E31700"><i></i>A tiny game</span>
+        <h2 class="t-h2">Contracts, actually… <span class="hl">are all around.</span></h2>
+        <p>Your post, turned into a game. Ten contracts are hiding on this street. Tap everything. How fast can you find them all?</p></div>
+      <div class="g-wrap rv">
+        <div class="g-hud"><span>FOUND <b id="gFound">0</b> / 10</span><span>⏱ <b id="gTime">0</b>s</span><span><button class="t-btn white" type="button" id="gHint">💡 Hint</button> <button class="t-btn dark" type="button" id="gReset">↺ Restart</button></span></div>
+        ${scene}
+        <div class="g-toast" id="gToast"><span class="doc" aria-hidden="true"></span><div><b id="gT">Start tapping around 👆</b><span id="gP">Houses, shops, cars, even the elevator. Contracts hide everywhere.</span></div></div>
+        <div class="g-done" id="gDone"><h3>All 10 found in <span id="gSecs">0</span> seconds. ✍️</h3><p>Every one of these runs on a contract, and Spellbook drafts, reviews and redlines them right inside Word. That's why "contracts at the speed of commerce" matters.</p><button class="t-btn dark" type="button" id="gAgain">Play again</button></div>
+      </div>
+      <p class="g-credit rv">The first seven come straight from Meltem's post. I added the last three.</p>`;
+    const hero = document.getElementById('top');
+    hero.after(game);
+    const nav = document.querySelector('.t-nav ul');
+    if (nav) nav.insertAdjacentHTML('afterbegin', '<li><a href="#game" data-nav="game">The game</a></li>');
+    // reveal the new bits too
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
+    game.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+    let found = new Set(), t0 = 0, timer = null;
+    const $ = id => document.getElementById(id);
+    const start = () => { if (!timer) { t0 = Date.now(); timer = setInterval(() => $('gTime').textContent = Math.floor((Date.now() - t0) / 1000), 250); } };
+    function hit(g) {
+      start();
+      const k = g.dataset.k, f = FIND.find(x => x[0] === k);
+      $('gT').textContent = f[1]; $('gP').textContent = f[2];
+      if (found.has(k)) return;
+      found.add(k); g.classList.add('found'); g.classList.remove('hint'); $('gFound').textContent = found.size;
+      if (found.size === FIND.length) { clearInterval(timer); timer = null; $('gSecs').textContent = Math.floor((Date.now() - t0) / 1000); $('gDone').classList.add('on'); }
+    }
+    document.querySelectorAll('#street .hs').forEach(g => { g.addEventListener('click', () => hit(g)); g.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); hit(g); } }); });
+    $('gHint').addEventListener('click', () => { const left = [...document.querySelectorAll('#street .hs:not(.found)')]; if (!left.length) return; const g = left[Math.floor(Math.random() * left.length)]; g.classList.add('hint'); setTimeout(() => g.classList.remove('hint'), 2200); });
+    const reset = () => { found.clear(); clearInterval(timer); timer = null; $('gFound').textContent = 0; $('gTime').textContent = 0; document.querySelectorAll('#street .hs').forEach(g => g.classList.remove('found', 'hint')); $('gDone').classList.remove('on'); $('gT').textContent = 'Start tapping around 👆'; $('gP').textContent = 'Houses, shops, cars, even the elevator. Contracts hide everywhere.'; };
+    $('gReset').addEventListener('click', reset); $('gAgain').addEventListener('click', reset);
+
+    /* ---------- the intro film: a Word doc that drafts itself ---------- */
+    const heroCta = document.querySelector('.t-hero .cta');
+    if (heroCta) heroCta.insertAdjacentHTML('beforeend', '<button class="t-btn white replay-film" type="button" id="replayFilm">▶ Replay the film</button>');
+    function film(auto) {
+      const el = document.createElement('div'); el.className = 'sb-film'; el.setAttribute('role', 'dialog'); el.setAttribute('aria-label', 'Intro film');
+      el.innerHTML = `<button class="skip" type="button">Skip →</button>
+        <div class="word">
+          <div class="w-title"><i></i><i></i><i></i><b>Social_Media_Lead_Agreement_DRAFT.docx</b><span>Saved · Durva Thakkar</span></div>
+          <div class="w-ribbon"><span>File</span><span>Home</span><span>Insert</span><span>Layout</span><span>Review</span><span class="sb">✨ Spellbook</span></div>
+          <div class="w-body">
+            <div class="w-canvas"><div class="w-page" id="wPage"><h4>Draft agreement · not legal advice 😄</h4></div><div class="w-stamp" id="wStamp">READY FOR REVIEW</div><button class="t-btn dark w-go" type="button" id="wGo">Open the full draft →</button></div>
+            <div class="w-panel"><div class="hd"><i></i>Spellbook</div><div id="wSug"></div></div>
+          </div>
+        </div>`;
+      document.body.appendChild(el); document.body.classList.add('t-lock');
+      const page = el.querySelector('#wPage'), sug = el.querySelector('#wSug');
+      let alive = true;
+      const close = () => { if (!alive) return; alive = false; el.classList.add('bye'); document.body.classList.remove('t-lock'); setTimeout(() => el.remove(), 650); };
+      el.querySelector('.skip').addEventListener('click', close); el.querySelector('#wGo').addEventListener('click', close);
+      addEventListener('keydown', function esc(e) { if (e.key === 'Escape') { close(); removeEventListener('keydown', esc); } });
+      const wait = ms => new Promise(r => setTimeout(r, still ? 0 : ms));
+      const line = (cls = '') => { const d = document.createElement('div'); d.className = 'ln ' + cls; page.appendChild(d); return d; };
+      async function type(node, text, speed = 28) { node.classList.add('caret'); if (still) { node.innerHTML += text; node.classList.remove('caret'); return; } for (const ch of text) { if (!alive) return; node.insertAdjacentText('beforeend', ch); await wait(speed); } node.classList.remove('caret'); }
+      const suggest = (label, text, ok) => { const d = document.createElement('div'); d.className = 'w-sug' + (ok ? ' ok' : ''); d.innerHTML = `<b>${label}</b>${text}`; sug.appendChild(d); requestAnimationFrame(() => d.classList.add('on')); while (sug.children.length > 4) sug.firstElementChild.remove(); };
+      (async () => {
+        await wait(500);
+        const hi = line('big'); await type(hi, 'Dear Hiring Manager,', 45);
+        await wait(300); suggest('Suggested edit', 'Too generic. Make it personal.');
+        await wait(900); hi.innerHTML = '<del>Dear Hiring Manager,</del> <ins>Hey Meltem 👋</ins>'; suggest('Accepted', 'Replaced greeting.', true);
+        await wait(700); await type(line(), "This isn't a cover letter. It's a draft agreement, reviewed in Word, obviously.");
+        await wait(300); const c1 = line('cl'); c1.innerHTML = '<b>1. Parties.</b> '; await type(c1, 'Spellbook (represented by Meltem Kuran Berkowitz, CMO) and Durva Thakkar, applicant for Social Media Lead.', 14);
+        const c2 = line('cl'); c2.innerHTML = '<b>2. Scope.</b> '; await type(c2, "Build Spellbook's social presence from the ground up: voice, calendar and strategy.", 14);
+        suggest('Risk: vague', 'Claims without proof. Suggest adding deliverables.');
+        await wait(800); const c3 = line('cl'); c3.innerHTML = `<b>3. Proof.</b> <ins>Attached: a 90-day plan, a voice guide, ${tasks} pieces of real work, a game, and ${ideas} executive post ideas.</ins>`; suggest('Accepted', 'Proof attached.', true);
+        await wait(900); const c4 = line('cl'); c4.innerHTML = '<b>4. No AI slop.</b> '; await type(c4, 'Every line is checked by a human (me).', 16);
+        await wait(500);
+        const sig = document.createElement('div'); sig.className = 'w-sig'; sig.innerHTML = `<div><img src="/assets/durva-avatar.jpg" alt=""><span class="sl"><span class="line" id="s1">Durva Thakkar</span></span><small>Durva Thakkar · applicant</small></div><div><img src="/spellbook/meltem.jpg" alt=""><span class="sl"><span class="line" id="s2">&nbsp;</span></span><small>Meltem Kuran Berkowitz · your turn ✍️</small></div>`;
+        page.appendChild(sig); await wait(60); sig.classList.add('on'); await wait(400); sig.querySelector('#s1').classList.add('signed');
+        await wait(1500); el.querySelector('#wStamp').classList.add('on'); suggest('All clear', 'No issues found. Ready to sign.', true);
+        await wait(700); el.querySelector('#wGo').classList.add('on');
+        if (auto) await wait(9000), close();
+      })();
+    }
+    document.getElementById('replayFilm')?.addEventListener('click', () => film(false));
+    let seen = false; try { seen = !!sessionStorage.getItem('sb_film'); sessionStorage.setItem('sb_film', '1'); } catch (e) {}
+    if (!seen && !still && !/[?&]nofilm/.test(location.search)) film(true);
+  })();
+  </script>
+</body>
+</html>

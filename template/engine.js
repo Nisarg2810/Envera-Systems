@@ -259,6 +259,19 @@
       list: a => `<ul class="pw-list">${a.items.map(x => `<li>${t(x)}</li>`).join('')}</ul>`,
       text: a => a.paras.map(p => `<p class="pw-p">${t(p)}</p>`).join(''),
       tree: a => `<pre class="pw-tree">${esc(a.text)}</pre>`,
+      linkedin: a => {
+        const au = a.author || {}, name = t(au.name || '{company}'), role = au.role ? t(au.role) : (C.followers ? C.followers + ' followers' : cap('{industry}'));
+        const av = au.photo ? `<img src="${au.photo}" alt="">` : (au.name ? `<div class="mono">${initials(au.name)}</div>` : logo());
+        const m = a.media || {}, slides = m.slides || [];
+        const media = !slides.length ? '' : slides.length === 1 ? slide2(slides[0], 0) : `<div class="ig-slides"><div class="ig-track">${slides.map(slide2).join('')}</div><button class="ig-nav p" type="button" aria-label="Previous slide">‹</button><button class="ig-nav n" type="button" aria-label="Next slide">›</button></div><div class="ig-dots">${slides.map((_, i) => `<i class="${i ? '' : 'on'}"></i>`).join('')}</div>`;
+        return `<div class="t-mock pw-li"><div class="li-top"><div class="lg ${au.name ? 'round' : ''}">${av}</div><div><b>${name}</b><span>${role}</span><span>${t(a.when || 'Now')} · 🌐</span></div></div><div class="li-text short">${t(a.text)}</div><div class="li-text more-row"><span class="more" onclick="this.parentElement.previousElementSibling.classList.remove('short');this.remove()">…see more</span></div>${media}<div class="li-stats"><span>👍💡❤️</span><span>Comment · Repost</span></div><div class="li-bar"><span>👍 Like</span><span>💬 Comment</span><span>🔁 Repost</span><span>➤ Send</span></div></div>`;
+      },
+      tweet: a => {
+        const one = (x, i) => `<div class="pw-tw1"><div class="av">${a.photo ? `<img src="${a.photo}" alt="">` : logo()}</div><div><b>${t(a.name || '{company}')}</b> <span>@${a.handle || handle} · ${i ? '' : t(a.when || 'now')}</span><p>${t(x)}</p>${i === 0 && a.media ? `<div class="pw-twm">${slide2(a.media, 0)}</div>` : ''}<div class="acts"><span>💬</span><span>🔁</span><span>♡</span><span>📊</span></div></div></div>`;
+        return `<div class="t-mock pw-x">${(a.thread || [a.text]).map(one).join('')}</div>`;
+      },
+      cuecards: a => `<div class="pw-cue" data-i="0">${a.cards.map((c, i) => `<div class="card ${i ? '' : 'on'}"><p>${t(c)}</p><small>${i + 1} / ${a.cards.length}</small></div>`).join('')}<button type="button" class="t-btn dark nextcue" onclick="const w=this.parentElement,c=[...w.querySelectorAll('.card')],i=(+w.dataset.i+1)%c.length;c.forEach((x,k)=>x.classList.toggle('on',k===i));w.dataset.i=i">Next card →</button></div>`,
+      voice: a => `<div class="pw-voice">${a.rows.map(([p, is, not, eg]) => `<div><b>${t(p)}</b><span class="is">✓ ${t(is)}</span><span class="not">✗ ${t(not)}</span>${eg ? `<em>${t(eg)}</em>` : ''}</div>`).join('')}</div>`,
     };
     let n = 0;
     const total = S.proof.reduce((k, g) => k + g.items.length, 0);
