@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Spellbook post art</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  /* Every board is a 1080 × 1350 post. ?id=<name> shows one board at 0,0 for export. */
+  :root { --ink: #0E1315; --paper: #F3F3F1; --white: #fff; --red: #E31700; --orange: #F94D1E; --muted: #6b7178; --line: #d9d9d4;
+          --serif: "Instrument Serif", Georgia, serif; --sans: "Inter", system-ui, sans-serif; --mono: "JetBrains Mono", ui-monospace, monospace; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #777; font-family: var(--sans); -webkit-font-smoothing: antialiased; display: flex; flex-wrap: wrap; gap: 40px; padding: 40px; }
+  body.one { padding: 0; gap: 0; background: transparent; }
+  body.one .art:not(.show) { display: none; }
+  .art { width: 1080px; height: 1350px; position: relative; overflow: hidden; background: var(--paper); color: var(--ink); flex: none; }
+  .art.dark { background: var(--ink); color: #fff; }
+  .pad { position: absolute; inset: 84px 88px; display: flex; flex-direction: column; }
+  .top { display: flex; justify-content: space-between; align-items: center; font: 600 22px var(--mono); letter-spacing: .14em; text-transform: uppercase; }
+  .top img { height: 40px; }
+  .foot { margin-top: auto; display: flex; justify-content: space-between; align-items: center; font: 500 22px var(--mono); letter-spacing: .08em; color: var(--muted); }
+  .dark .foot { color: #9aa1a8; }
+  .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -0.02em; }
+  .red { color: var(--red); }
+  em.i { font-style: italic; }
+  .pill, .word { align-self: flex-start; }
+  .pill { display: inline-flex; align-items: center; gap: 12px; padding: 12px 22px; border-radius: 999px; font: 600 22px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+  .grain::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .07; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); mix-blend-mode: multiply; }
+  .dark.grain::after { mix-blend-mode: screen; opacity: .05; }
+
+  /* ---------- c1: contracts are all around ---------- */
+  #c1 h1 { font-size: 150px; line-height: .92; margin-top: 70px; }
+  #c1 .idx { margin-top: 64px; display: grid; gap: 22px; }
+  #c1 .row { display: flex; align-items: baseline; gap: 18px; font-size: 38px; }
+  #c1 .row b { font-weight: 600; white-space: nowrap; }
+  #c1 .row i { flex: 1; border-bottom: 3px dotted #b9b9b2; transform: translateY(-8px); }
+  #c1 .row span { font-family: var(--serif); font-size: 44px; font-style: italic; white-space: nowrap; }
+  #c1 .note { margin-top: 44px; font: italic 44px var(--serif); color: var(--red); border-left: 5px solid var(--red); padding-left: 26px; }
+
+  /* ---------- c2: redline of the week ---------- */
+  #c2 .ttl { margin-top: 56px; font-size: 104px; line-height: .95; }
+  #c2 .doc { position: relative; margin-top: 56px; background: #fff; color: #1b1b1b; border-radius: 18px; padding: 54px 56px 56px; box-shadow: 0 50px 80px -30px rgba(0,0,0,.6); transform: rotate(-1.2deg); }
+  #c2 .doc small { font: 600 20px var(--mono); letter-spacing: .12em; color: #8a8f94; }
+  #c2 .doc p { margin-top: 18px; font: 38px/1.45 "Times New Roman", Georgia, serif; }
+  #c2 del { color: var(--red); text-decoration-thickness: 4px; }
+  #c2 ins { color: var(--red); text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 6px; }
+  #c2 .cm { position: absolute; right: -34px; bottom: -64px; width: 460px; background: var(--ink); color: #fff; border: 2px solid #2d3438; border-radius: 22px; padding: 24px 26px; font: 24px/1.4 var(--sans); transform: rotate(2.4deg); box-shadow: 0 30px 50px -20px rgba(0,0,0,.7); }
+  #c2 .cm b { display: flex; align-items: center; gap: 12px; font: 700 20px var(--mono); letter-spacing: .08em; color: #ffb3a3; margin-bottom: 8px; }
+  #c2 .cm b img { width: 30px; }
+
+  /* ---------- c3: customer receipt ---------- */
+  #c3 .big { font-size: 400px; line-height: .8; margin-top: 90px; letter-spacing: -0.05em; }
+  #c3 .big sup { font-size: 170px; vertical-align: 170px; }
+  #c3 h2 { font-size: 78px; line-height: 1; margin-top: 16px; }
+  #c3 .sub { margin-top: 44px; display: flex; gap: 22px; }
+  #c3 .sub div { flex: 1; border-top: 3px solid var(--ink); padding-top: 18px; font-size: 30px; line-height: 1.3; }
+  #c3 .sub b { display: block; font: 400 64px var(--serif); }
+  #c3 .by { margin-top: 44px; font: 600 26px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+
+  /* ---------- c4: milestone ---------- */
+  #c4 .lines { position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent 0 34px, rgba(255,255,255,.035) 34px 36px); }
+  #c4 .num { margin-top: 170px; font-size: 196px; line-height: .9; letter-spacing: -0.04em; }
+  #c4 .num span { color: var(--orange); }
+  #c4 h2 { font-size: 92px; line-height: 1; margin-top: 18px; font-style: italic; }
+  #c4 .stats { margin-top: 80px; display: flex; gap: 60px; font-size: 30px; color: #b7bdc2; }
+  #c4 .stats b { display: block; font: 400 76px var(--serif); color: #fff; }
+  #c4 .gem { position: absolute; right: 88px; bottom: 230px; width: 230px; opacity: .95; filter: drop-shadow(0 30px 60px rgba(249,77,30,.25)); }
+
+  /* ---------- c5: one team, 11 cities ---------- */
+  #c5 h1 { font-size: 170px; line-height: .9; margin-top: 60px; }
+  #c5 svg.map { position: absolute; left: 0; right: 0; bottom: 250px; width: 100%; height: 560px; }
+  #c5 .cta { position: absolute; left: 88px; bottom: 170px; }
+
+  /* ---------- m1: quote card ---------- */
+  #m1 .q { font-size: 300px; line-height: .6; color: var(--red); margin-top: 110px; }
+  #m1 blockquote { font: 400 96px/1.02 var(--serif); letter-spacing: -0.02em; margin-top: 20px; }
+  #m1 .who { margin-top: 70px; display: flex; align-items: center; gap: 26px; }
+  #m1 .who img { width: 128px; height: 128px; border-radius: 50%; object-fit: cover; border: 5px solid #fff; box-shadow: 0 10px 30px -10px rgba(0,0,0,.4); }
+  #m1 .who b { display: block; font-size: 36px; }
+  #m1 .who span { font-size: 28px; color: var(--muted); }
+
+  /* ---------- m2: Deel lessons ---------- */
+  #m2 .arr { margin-top: 120px; font-size: 210px; line-height: .86; letter-spacing: -0.04em; }
+  #m2 .arr span { color: var(--orange); }
+  #m2 h2 { margin-top: 36px; font-size: 86px; line-height: 1.02; }
+  #m2 .swipe { margin-top: 56px; background: var(--orange); color: var(--ink); }
+
+  /* ---------- IG carousel ---------- */
+  #ig1 h1 { font-size: 136px; line-height: .92; margin-top: 110px; }
+  #ig1 .stack { position: absolute; right: -60px; bottom: 150px; width: 560px; }
+  #ig1 .stack div { position: absolute; right: 0; width: 470px; height: 300px; background: #fff; border-radius: 16px; box-shadow: 0 30px 50px -24px rgba(0,0,0,.45); padding: 34px; }
+  #ig1 .stack i { display: block; height: 14px; border-radius: 7px; background: #e5e5e0; margin-bottom: 18px; }
+  #ig1 .stack i.r { background: var(--red); width: 60%; }
+  #ig2 .n { margin-top: 90px; font: 400 200px var(--serif); line-height: .8; color: var(--orange); }
+  #ig2 h2 { font-size: 104px; line-height: .95; margin-top: 22px; }
+  #ig2 .fix { margin-top: 60px; display: grid; gap: 22px; }
+  #ig2 .fix div { border-radius: 18px; padding: 26px 30px; font: 34px/1.35 "Times New Roman", Georgia, serif; }
+  #ig2 .fix .bad { background: rgba(227,23,0,.12); color: #ffb3a3; }
+  #ig2 .fix .good { background: rgba(255,255,255,.08); color: #fff; }
+  #ig2 .fix small { display: block; font: 700 18px var(--mono); letter-spacing: .12em; margin-bottom: 6px; opacity: .8; }
+  #ig3 h1 { font-size: 132px; line-height: .92; margin-top: 150px; }
+  #ig3 .word { margin-top: 70px; display: inline-flex; gap: 16px; align-items: center; background: #185abd; color: #fff; border-radius: 16px; padding: 22px 30px; font: 600 34px var(--sans); }
+
+  /* ---------- reel cover ---------- */
+  #reel .clock { margin-top: 150px; font: 600 250px var(--mono); letter-spacing: -0.04em; color: var(--orange); }
+  #reel .clock b { animation: none; }
+  #reel h1 { font-size: 118px; line-height: .95; margin-top: 30px; }
+  #reel .play { position: absolute; right: 88px; bottom: 170px; width: 170px; height: 170px; border-radius: 50%; background: #fff; display: grid; place-items: center; box-shadow: 0 20px 50px rgba(0,0,0,.4); }
+  #reel .play::after { content: ""; border-left: 58px solid var(--ink); border-top: 36px solid transparent; border-bottom: 36px solid transparent; margin-left: 12px; }
+
+  /* ---------- launch teaser ---------- */
+  #launch .gem { width: 190px; margin-top: 150px; }
+  #launch h1 { font-size: 150px; line-height: .9; margin-top: 50px; }
+  #launch .gem { margin-top: 110px !important; }
+  #launch .date { margin-top: 60px; border: 3px solid #fff; color: #fff; }
+  #launch .ghost { position: absolute; left: 88px; right: 88px; bottom: 150px; font: 26px/1.9 "Times New Roman", serif; color: rgba(255,255,255,.14); }
+  #launch .ghost u { text-decoration: none; background: linear-gradient(90deg, rgba(249,77,30,.55), rgba(249,77,30,.1)); color: rgba(255,255,255,.55); }
+</style>
+</head>
+<body>
+
+<!-- c1 · company · contracts are all around -->
+<section class="art grain" id="c1"><div class="pad">
+  <div class="top"><img src="../logo-dark.svg" alt=""><span>Everyday contracts · 01</span></div>
+  <h1 class="serif">Contracts, actually, are <em class="i red">all around.</em></h1>
+  <div class="idx">
+    <div class="row"><b>Your home</b><i></i><span>Mortgage agreement</span></div>
+    <div class="row"><b>Your job</b><i></i><span>Employment contract</span></div>
+    <div class="row"><b>The elevator</b><i></i><span>Service contract</span></div>
+    <div class="row"><b>Midnight delivery</b><i></i><span>Terms &amp; conditions</span></div>
+    <div class="row"><b>Your favourite bar</b><i></i><span>Lease + supplier contracts</span></div>
+  </div>
+  <p class="note">We build the rails they run on.</p>
+  <div class="foot"><span>spellbook.com</span><span>Swipe →</span></div>
+</div></section>
+
+<!-- c2 · company · redline of the week -->
+<section class="art dark grain" id="c2"><div class="pad">
+  <div class="top"><img src="../logo-white.svg" alt=""><span style="color:#ffb3a3">Redline of the week · No. 01</span></div>
+  <h2 class="serif ttl">The auto-renewal <em class="i" style="color:#ffb3a3">trap.</em></h2>
+  <div class="doc"><small>SECTION 12.2 · TERM AND RENEWAL</small>
+    <p>This Agreement <del>shall automatically renew for successive one-year terms</del> <ins>may be renewed for successive one-year terms by mutual written agreement of the parties</ins>, unless terminated earlier in accordance with Section 13.</p>
+    <div class="cm"><b><img src="../mark.svg" alt="">SPELLBOOK</b>Silent auto-renewal locks you in. Suggest renewal by mutual written agreement.</div>
+  </div>
+  <div class="foot" style="margin-top:auto"><span>Save for your next draft</span><span>spellbook.com</span></div>
+</div></section>
+
+<!-- c3 · company · customer receipt -->
+<section class="art grain" id="c3"><div class="pad">
+  <div class="top"><img src="../logo-dark.svg" alt=""><span>Customer receipts</span></div>
+  <div class="big serif">55<sup>%</sup></div>
+  <h2 class="serif">time saved on <em class="i red">contract work.</em></h2>
+  <div class="sub"><div><b>90%+</b>of the legal team very satisfied</div><div><b>Word</b>where the work already happens</div></div>
+  <div class="by">AtkinsRéalis legal team × Spellbook</div>
+  <div class="foot"><span>Source: spellbook.com</span><span>Read the story →</span></div>
+</div></section>
+
+<!-- c4 · company · milestone -->
+<section class="art dark grain" id="c4"><div class="lines"></div><img class="gem" src="../mark.svg" alt=""><div class="pad">
+  <div class="top"><img src="../logo-white.svg" alt=""><span style="color:#9aa1a8">Milestone</span></div>
+  <div class="num serif">10,000,000<span>+</span></div>
+  <h2 class="serif">contracts reviewed.</h2>
+  <div class="stats"><div><b>5,000+</b>legal teams</div><div><b>80+</b>countries</div></div>
+  <div class="foot"><span>Thank you for trusting us with the fine print.</span></div>
+</div></section>
+
+<!-- c5 · company · one team, 11 cities -->
+<section class="art grain" id="c5"><div class="pad">
+  <div class="top"><img src="../logo-dark.svg" alt=""><span>Inside Spellbook</span></div>
+  <h1 class="serif">One team.<br><em class="i red">11 cities.</em></h1>
+  <div class="foot"><span>spellbook.com/careers</span><span>We're hiring →</span></div>
+</div>
+<svg class="map" viewBox="0 0 1080 560" aria-hidden="true">
+  <g stroke="#0E1315" stroke-opacity=".18" stroke-width="2" fill="none">
+    <path d="M120 300 C 260 180, 380 360, 520 250 S 800 120, 960 260"/><path d="M180 420 C 320 330, 480 470, 640 380 S 860 300, 980 420"/><path d="M120 300 L 180 420 M520 250 L 640 380 M960 260 L 980 420 M300 230 L 420 330"/>
+  </g>
+  <g fill="#E31700">
+    <circle cx="120" cy="300" r="14"/><circle cx="180" cy="420" r="10"/><circle cx="300" cy="230" r="12"/><circle cx="420" cy="330" r="10"/><circle cx="520" cy="250" r="16"/><circle cx="640" cy="380" r="11"/><circle cx="720" cy="190" r="10"/><circle cx="820" cy="330" r="12"/><circle cx="880" cy="170" r="9"/><circle cx="960" cy="260" r="13"/><circle cx="980" cy="420" r="10"/>
+  </g>
+  <g fill="none" stroke="#E31700" stroke-opacity=".25" stroke-width="2"><circle cx="520" cy="250" r="34"/><circle cx="120" cy="300" r="30"/><circle cx="960" cy="260" r="30"/></g>
+</svg>
+<span class="pill cta" style="background:#0E1315;color:#fff">1 obsession: better contracts</span>
+</section>
+
+<!-- m1 · Meltem · quote card -->
+<section class="art grain" id="m1"><div class="pad">
+  <div class="top"><img src="../logo-dark.svg" alt=""><span>From the CMO</span></div>
+  <div class="q serif">“</div>
+  <blockquote>I like hard problems and products that solve for a tangible outcome. <em class="i red">Contracts are everywhere.</em></blockquote>
+  <div class="who"><img src="../meltem.jpg" alt=""><div><b>Meltem Kuran Berkowitz</b><span>Chief Marketing Officer, Spellbook</span></div></div>
+  <div class="foot"><span>spellbook.com</span></div>
+</div></section>
+
+<!-- m2 · Meltem · Deel lessons carousel cover -->
+<section class="art dark grain" id="m2"><div class="pad">
+  <div class="top"><img src="../logo-white.svg" alt=""><span style="color:#9aa1a8">Growth notes</span></div>
+  <div class="arr serif">$1M <span>→</span><br>$1B+</div>
+  <h2 class="serif">5 growth lessons I'm bringing <em class="i" style="color:#ffb3a3">to Spellbook.</em></h2>
+  <span class="pill swipe">Swipe for the lessons →</span>
+  <div class="foot"><span>Meltem Kuran Berkowitz · CMO</span></div>
+</div></section>
+
+<!-- ig1-3 · Instagram carousel -->
+<section class="art grain" id="ig1"><div class="pad">
+  <div class="top"><img src="../logo-dark.svg" alt=""><span>Redline 101</span></div>
+  <h1 class="serif">3 clauses to redline <em class="i red">before you sign.</em></h1>
+  <div class="foot"><span>@spellbooklegal</span><span>Swipe →</span></div>
+</div>
+<div class="stack"><div style="bottom:80px;transform:rotate(-6deg)"><i></i><i style="width:80%"></i><i class="r"></i><i style="width:70%"></i></div><div style="bottom:0;transform:rotate(3deg)"><i style="width:90%"></i><i class="r" style="width:45%"></i><i></i><i style="width:60%"></i></div></div>
+</section>
+<section class="art dark grain" id="ig2"><div class="pad">
+  <div class="top"><img src="../logo-white.svg" alt=""><span style="color:#9aa1a8">01 / 03</span></div>
+  <div class="n">01</div>
+  <h2 class="serif">Unlimited <em class="i" style="color:#ffb3a3">liability.</em></h2>
+  <div class="fix"><div class="bad"><small>BEFORE</small>…shall indemnify the Company for any and all losses…</div><div class="good"><small>AFTER</small>…capped at the fees paid in the 12 months before the claim.</div></div>
+  <div class="foot"><span>Save this ✍️</span><span>@spellbooklegal</span></div>
+</div></section>
+<section class="art grain" id="ig3"><div class="pad">
+  <div class="top"><img src="../logo-dark.svg" alt=""><span>03 / 03</span></div>
+  <h1 class="serif">Spellbook flags all three, <em class="i red">right inside Word.</em></h1>
+  <span class="word">W&nbsp;&nbsp;Open in Word → ✨ Spellbook</span>
+  <div class="foot"><span>Link in bio</span><span>@spellbooklegal</span></div>
+</div></section>
+
+<!-- reel cover -->
+<section class="art dark grain" id="reel"><div class="pad">
+  <div class="top"><img src="../logo-white.svg" alt=""><span style="color:#9aa1a8">Reel</span></div>
+  <div class="clock">11:48</div>
+  <h1 class="serif">POV: the redline is due <em class="i" style="color:#ffb3a3">at midnight.</em></h1>
+  <div class="foot"><span>@spellbooklegal</span></div>
+</div><span class="play" aria-hidden="true"></span></section>
+
+<!-- launch teaser -->
+<section class="art dark grain" id="launch"><div class="pad">
+  <div class="top"><img src="../logo-white.svg" alt=""><span style="color:#9aa1a8">Coming soon</span></div>
+  <img class="gem" src="../mark.svg" alt="">
+  <h1 class="serif">Contracts that <em class="i" style="color:#ffb3a3">manage themselves.</em></h1>
+  <span class="pill date">Autonomous Contract Management · [launch date]</span>
+  <div class="foot"><span>spellbook.com</span></div>
+</div>
+<p class="ghost">This Agreement is entered into by and between the parties as of the Effective Date. <u>Renewal notices, obligations and deadlines are tracked automatically</u> and surfaced to the responsible party before they are due, without manual follow-up.</p>
+</section>
+
+<script>
+  const id = new URLSearchParams(location.search).get('id');
+  if (id) { document.body.classList.add('one'); document.getElementById(id)?.classList.add('show'); }
+</script>
+</body>
+</html>
