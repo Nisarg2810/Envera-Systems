@@ -5,242 +5,278 @@
 <title>Spellbook post art</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  /* Every board is a 1080 × 1350 post. ?id=<name> shows one board at 0,0 for export. */
-  :root { --ink: #0E1315; --paper: #F3F3F1; --white: #fff; --red: #E31700; --orange: #F94D1E; --muted: #6b7178; --line: #d9d9d4;
-          --serif: "Instrument Serif", Georgia, serif; --sans: "Inter", system-ui, sans-serif; --mono: "JetBrains Mono", ui-monospace, monospace; }
+  /* Built to look like spellbook.com: light editorial serif, near-black / white / light grey,
+     one orange-red accent, thin rules, halftone dots, product UI. Each board is 1080 × 1350. ?id=<name> exports one. */
+  :root { --ink: #111618; --ink2: #1c2225; --paper: #F3F3F3; --white: #fff; --accent: #F94D1E; --muted: #5d6468; --muted2: #9aa0a4; --rule: #d9d9d9;
+          --serif: "Newsreader", Georgia, serif; --sans: "Inter", system-ui, sans-serif; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: #777; font-family: var(--sans); -webkit-font-smoothing: antialiased; display: flex; flex-wrap: wrap; gap: 40px; padding: 40px; }
   body.one { padding: 0; gap: 0; background: transparent; }
   body.one .art:not(.show) { display: none; }
-  .art { width: 1080px; height: 1350px; position: relative; overflow: hidden; background: var(--paper); color: var(--ink); flex: none; }
+  .art { width: 1080px; height: 1350px; position: relative; overflow: hidden; background: #fff; color: var(--ink); flex: none; }
   .art.dark { background: var(--ink); color: #fff; }
-  .pad { position: absolute; inset: 84px 88px; display: flex; flex-direction: column; }
-  .top { display: flex; justify-content: space-between; align-items: center; font: 600 22px var(--mono); letter-spacing: .14em; text-transform: uppercase; }
-  .top img { height: 40px; }
-  .foot { margin-top: auto; display: flex; justify-content: space-between; align-items: center; font: 500 22px var(--mono); letter-spacing: .08em; color: var(--muted); }
-  .dark .foot { color: #9aa1a8; }
-  .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -0.02em; }
-  .red { color: var(--red); }
-  em.i { font-style: italic; }
-  .pill, .word { align-self: flex-start; }
-  .pill { display: inline-flex; align-items: center; gap: 12px; padding: 12px 22px; border-radius: 999px; font: 600 22px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
-  .grain::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .07; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); mix-blend-mode: multiply; }
-  .dark.grain::after { mix-blend-mode: screen; opacity: .05; }
+  .art.grey { background: var(--paper); }
+  .pad { position: absolute; inset: 80px 84px; display: flex; flex-direction: column; }
+  .top { display: flex; justify-content: space-between; align-items: center; }
+  .top img { height: 44px; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 16px; font: 500 26px var(--sans); color: var(--muted); }
+  .eyebrow::before { content: ""; width: 2px; height: 34px; background: currentColor; opacity: .6; }
+  .dark .eyebrow { color: #c9ced1; }
+  h1, h2, .serif { font-family: var(--serif); font-weight: 300; letter-spacing: -0.015em; }
+  .foot { margin-top: auto; display: flex; justify-content: space-between; align-items: center; font: 500 24px var(--sans); color: var(--muted); }
+  .dark .foot { color: var(--muted2); }
+  .btn { display: inline-flex; align-items: center; gap: 14px; font: 500 26px var(--sans); padding: 20px 28px; background: #fff; color: var(--ink); border: 1px solid var(--ink); align-self: flex-start; }
+  .dark .btn { border-color: #fff; }
+  .btn.solid { background: var(--ink); color: #fff; }
+  .dots { position: absolute; pointer-events: none; background-image: radial-gradient(circle, rgba(17,22,24,.28) 2.2px, transparent 2.6px); background-size: 18px 18px; }
+  .dark .dots { background-image: radial-gradient(circle, rgba(255,255,255,.18) 2.2px, transparent 2.6px); }
+  .fade-l { -webkit-mask-image: linear-gradient(90deg, transparent, #000 70%); mask-image: linear-gradient(90deg, transparent, #000 70%); }
+  .fade-tr { -webkit-mask-image: radial-gradient(circle at 100% 0%, #000 10%, transparent 65%); mask-image: radial-gradient(circle at 100% 0%, #000 10%, transparent 65%); }
+  .fade-bl { -webkit-mask-image: radial-gradient(circle at 0% 100%, #000 10%, transparent 65%); mask-image: radial-gradient(circle at 0% 100%, #000 10%, transparent 65%); }
+  .acc { color: var(--accent); }
 
-  /* ---------- c1: contracts are all around ---------- */
-  #c1 h1 { font-size: 150px; line-height: .92; margin-top: 70px; }
-  #c1 .idx { margin-top: 64px; display: grid; gap: 22px; }
-  #c1 .row { display: flex; align-items: baseline; gap: 18px; font-size: 38px; }
-  #c1 .row b { font-weight: 600; white-space: nowrap; }
-  #c1 .row i { flex: 1; border-bottom: 3px dotted #b9b9b2; transform: translateY(-8px); }
-  #c1 .row span { font-family: var(--serif); font-size: 44px; font-style: italic; white-space: nowrap; }
-  #c1 .note { margin-top: 44px; font: italic 44px var(--serif); color: var(--red); border-left: 5px solid var(--red); padding-left: 26px; }
+  /* product UI pieces, drawn like the site's screenshots */
+  .win { background: #fff; border-radius: 14px; box-shadow: 0 40px 80px -30px rgba(0,0,0,.45), 0 0 0 1px rgba(0,0,0,.06); overflow: hidden; color: var(--ink); }
+  .win-bar { display: flex; gap: 22px; align-items: center; padding: 14px 22px; border-bottom: 1px solid #ececec; font: 500 17px var(--sans); color: #6b7175; }
+  .win-bar b { color: #185abd; border-bottom: 2px solid #185abd; padding-bottom: 4px; font-weight: 600; }
+  .win-bar .sb { margin-left: auto; display: flex; align-items: center; gap: 8px; color: var(--ink); font-weight: 600; }
+  .win-bar .sb img { width: 22px; }
+  .panel { background: #fff; border-radius: 14px; box-shadow: 0 30px 60px -24px rgba(0,0,0,.4), 0 0 0 1px rgba(0,0,0,.06); color: var(--ink); padding: 26px 28px; }
+  .chk { display: flex; gap: 14px; align-items: flex-start; padding: 16px 0; border-top: 1px solid #efefef; font: 500 20px/1.35 var(--sans); }
+  .chk i { flex: none; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-size: 15px; color: #fff; margin-top: 1px; }
+  .chk i.ok { background: #1f8a4c; } .chk i.no { background: #fff; border: 2px solid #e2442f; color: #e2442f; } .chk i.fb { background: #f0a020; }
+  .chk small { display: block; font-weight: 400; color: #6b7175; font-size: 17px; margin-top: 4px; }
+  .bar3 { display: flex; height: 8px; border-radius: 4px; overflow: hidden; gap: 3px; }
 
-  /* ---------- c2: redline of the week ---------- */
-  #c2 .ttl { margin-top: 56px; font-size: 104px; line-height: .95; }
-  #c2 .doc { position: relative; margin-top: 56px; background: #fff; color: #1b1b1b; border-radius: 18px; padding: 54px 56px 56px; box-shadow: 0 50px 80px -30px rgba(0,0,0,.6); transform: rotate(-1.2deg); }
-  #c2 .doc small { font: 600 20px var(--mono); letter-spacing: .12em; color: #8a8f94; }
-  #c2 .doc p { margin-top: 18px; font: 38px/1.45 "Times New Roman", Georgia, serif; }
-  #c2 del { color: var(--red); text-decoration-thickness: 4px; }
-  #c2 ins { color: var(--red); text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 6px; }
-  #c2 .cm { position: absolute; right: -34px; bottom: -64px; width: 460px; background: var(--ink); color: #fff; border: 2px solid #2d3438; border-radius: 22px; padding: 24px 26px; font: 24px/1.4 var(--sans); transform: rotate(2.4deg); box-shadow: 0 30px 50px -20px rgba(0,0,0,.7); }
-  #c2 .cm b { display: flex; align-items: center; gap: 12px; font: 700 20px var(--mono); letter-spacing: .08em; color: #ffb3a3; margin-bottom: 8px; }
-  #c2 .cm b img { width: 30px; }
+  /* ---------- c1 · contracts are all around ---------- */
+  #c1 h1 { font-size: 132px; line-height: 1.0; margin-top: 78px; }
+  #c1 .list { margin-top: 70px; border-top: 1px solid var(--rule); }
+  #c1 .row { display: grid; grid-template-columns: 1fr auto; align-items: baseline; padding: 26px 0; border-bottom: 1px solid var(--rule); }
+  #c1 .row span { font: 400 34px var(--sans); color: var(--muted); }
+  #c1 .row b { font: 300 44px var(--serif); }
+  #c1 .dots { right: -40px; top: -40px; width: 560px; height: 420px; }
 
-  /* ---------- c3: customer receipt ---------- */
-  #c3 .big { font-size: 400px; line-height: .8; margin-top: 90px; letter-spacing: -0.05em; }
-  #c3 .big sup { font-size: 170px; vertical-align: 170px; }
-  #c3 h2 { font-size: 78px; line-height: 1; margin-top: 16px; }
-  #c3 .sub { margin-top: 44px; display: flex; gap: 22px; }
-  #c3 .sub div { flex: 1; border-top: 3px solid var(--ink); padding-top: 18px; font-size: 30px; line-height: 1.3; }
-  #c3 .sub b { display: block; font: 400 64px var(--serif); }
-  #c3 .by { margin-top: 44px; font: 600 26px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  /* ---------- c2 · redline of the week ---------- */
+  #c2 h1 { font-size: 104px; line-height: 1.02; margin-top: 60px; }
+  #c2 .win { margin-top: 60px; }
+  #c2 .body2 { display: grid; grid-template-columns: 1.25fr .95fr; }
+  #c2 .page { padding: 34px 34px 40px; font: 25px/1.55 "Times New Roman", Georgia, serif; color: #222; border-right: 1px solid #ececec; }
+  #c2 .page small { display: block; font: 600 15px var(--sans); letter-spacing: .1em; color: #8a9095; margin-bottom: 12px; }
+  #c2 del { color: #e2442f; text-decoration-thickness: 2px; }
+  #c2 ins { color: #1f7a45; text-decoration: underline; text-decoration-color: #1f7a45; text-underline-offset: 4px; }
+  #c2 .side { padding: 26px 26px; background: #fafafa; }
+  #c2 .side h5 { font: 600 20px var(--sans); }
+  #c2 .side .pct { font: 300 56px var(--serif); margin-top: 12px; }
+  #c2 .side .pct small { font: 400 17px var(--sans); color: #6b7175; }
+  #c2 .dots { left: -40px; bottom: -20px; width: 520px; height: 360px; }
 
-  /* ---------- c4: milestone ---------- */
-  #c4 .lines { position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent 0 34px, rgba(255,255,255,.035) 34px 36px); }
-  #c4 .num { margin-top: 170px; font-size: 196px; line-height: .9; letter-spacing: -0.04em; }
-  #c4 .num span { color: var(--orange); }
-  #c4 h2 { font-size: 92px; line-height: 1; margin-top: 18px; font-style: italic; }
-  #c4 .stats { margin-top: 80px; display: flex; gap: 60px; font-size: 30px; color: #b7bdc2; }
-  #c4 .stats b { display: block; font: 400 76px var(--serif); color: #fff; }
-  #c4 .gem { position: absolute; right: 88px; bottom: 230px; width: 230px; opacity: .95; filter: drop-shadow(0 30px 60px rgba(249,77,30,.25)); }
+  /* ---------- c3 · customer story (site card style) ---------- */
+  #c3 { background: radial-gradient(120% 90% at 70% 40%, #6b5845 0%, #3f3327 55%, #231c16 100%); color: #fff; }
+  #c3 .cust { font: 700 44px var(--sans); letter-spacing: -0.02em; display: flex; align-items: center; gap: 14px; margin-top: 110px; }
+  #c3 .cust i { font-style: normal; width: 46px; height: 40px; border: 7px solid #fff; border-right-color: transparent; border-radius: 6px 0 0 6px; }
+  #c3 blockquote { margin-top: 56px; font: 300 76px/1.12 var(--serif); letter-spacing: -0.015em; }
+  #c3 .stats { margin-top: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid rgba(255,255,255,.3); }
+  #c3 .stats div { padding: 28px 0 0; }
+  #c3 .stats b { display: block; font: 300 96px var(--serif); line-height: 1; }
+  #c3 .stats span { font: 400 26px var(--sans); color: #e6ded6; }
+  #c3 .play { display: inline-flex; align-items: center; gap: 14px; margin-top: 46px; font: 500 24px var(--sans); }
+  #c3 .play i { width: 54px; height: 54px; border-radius: 50%; border: 2px solid #fff; display: grid; place-items: center; font-style: normal; font-size: 18px; }
 
-  /* ---------- c5: one team, 11 cities ---------- */
-  #c5 h1 { font-size: 170px; line-height: .9; margin-top: 60px; }
-  #c5 svg.map { position: absolute; left: 0; right: 0; bottom: 250px; width: 100%; height: 560px; }
-  #c5 .cta { position: absolute; left: 88px; bottom: 170px; }
+  /* ---------- c4 · milestone ---------- */
+  #c4 h1 { font-size: 220px; line-height: .95; margin-top: 150px; letter-spacing: -0.03em; }
+  #c4 h2 { font-size: 72px; margin-top: 10px; color: #d8dcde; }
+  #c4 .grid { margin-top: 90px; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(255,255,255,.22); }
+  #c4 .grid div { padding: 28px 24px 0 0; }
+  #c4 .grid b { display: block; font: 300 76px var(--serif); }
+  #c4 .grid span { font: 400 24px var(--sans); color: var(--muted2); }
+  #c4 .dots { right: -30px; top: 120px; width: 620px; height: 520px; }
 
-  /* ---------- m1: quote card ---------- */
-  #m1 .q { font-size: 300px; line-height: .6; color: var(--red); margin-top: 110px; }
-  #m1 blockquote { font: 400 96px/1.02 var(--serif); letter-spacing: -0.02em; margin-top: 20px; }
-  #m1 .who { margin-top: 70px; display: flex; align-items: center; gap: 26px; }
-  #m1 .who img { width: 128px; height: 128px; border-radius: 50%; object-fit: cover; border: 5px solid #fff; box-shadow: 0 10px 30px -10px rgba(0,0,0,.4); }
-  #m1 .who b { display: block; font-size: 36px; }
-  #m1 .who span { font-size: 28px; color: var(--muted); }
+  /* ---------- c5 · one team, 11 cities ---------- */
+  #c5 h1 { font-size: 150px; line-height: .98; margin-top: 80px; }
+  #c5 .map { position: absolute; left: 84px; right: 84px; top: 610px; height: 380px; }
+  #c5 .map i { position: absolute; width: 18px; height: 18px; border-radius: 50%; background: var(--ink); }
+  #c5 .map i.a { background: var(--accent); width: 22px; height: 22px; }
+  #c5 .map i::after { content: attr(data-n); position: absolute; left: 30px; top: -6px; font: 500 22px var(--sans); color: var(--muted); white-space: nowrap; font-style: normal; }
+  #c5 .dots { left: 0; right: 0; top: 560px; height: 480px; }
 
-  /* ---------- m2: Deel lessons ---------- */
-  #m2 .arr { margin-top: 120px; font-size: 210px; line-height: .86; letter-spacing: -0.04em; }
-  #m2 .arr span { color: var(--orange); }
-  #m2 h2 { margin-top: 36px; font-size: 86px; line-height: 1.02; }
-  #m2 .swipe { margin-top: 56px; background: var(--orange); color: var(--ink); }
+  /* ---------- m1 · Meltem quote ---------- */
+  #m1 blockquote { font: 300 88px/1.08 var(--serif); letter-spacing: -0.015em; margin-top: 110px; }
+  #m1 .who { margin-top: 70px; display: flex; align-items: center; gap: 26px; padding-top: 36px; border-top: 1px solid var(--rule); }
+  #m1 .who img { width: 118px; height: 118px; border-radius: 50%; object-fit: cover; }
+  #m1 .who b { display: block; font: 600 32px var(--sans); }
+  #m1 .who span { font: 400 26px var(--sans); color: var(--muted); }
+  #m1 .dots { right: -30px; bottom: 120px; width: 520px; height: 360px; }
+
+  /* ---------- m2 · Deel lessons ---------- */
+  #m2 .big { margin-top: 130px; font: 300 200px/.95 var(--serif); letter-spacing: -0.03em; }
+  #m2 .big span { color: var(--accent); }
+  #m2 h2 { margin-top: 40px; font-size: 76px; line-height: 1.05; color: #e6e9ea; }
+  #m2 .btn { margin-top: 60px; }
+  #m2 .dots { right: -30px; top: -20px; width: 560px; height: 480px; }
 
   /* ---------- IG carousel ---------- */
-  #ig1 h1 { font-size: 136px; line-height: .92; margin-top: 110px; }
-  #ig1 .stack { position: absolute; right: -60px; bottom: 150px; width: 560px; }
-  #ig1 .stack div { position: absolute; right: 0; width: 470px; height: 300px; background: #fff; border-radius: 16px; box-shadow: 0 30px 50px -24px rgba(0,0,0,.45); padding: 34px; }
-  #ig1 .stack i { display: block; height: 14px; border-radius: 7px; background: #e5e5e0; margin-bottom: 18px; }
-  #ig1 .stack i.r { background: var(--red); width: 60%; }
-  #ig2 .n { margin-top: 90px; font: 400 200px var(--serif); line-height: .8; color: var(--orange); }
-  #ig2 h2 { font-size: 104px; line-height: .95; margin-top: 22px; }
-  #ig2 .fix { margin-top: 60px; display: grid; gap: 22px; }
-  #ig2 .fix div { border-radius: 18px; padding: 26px 30px; font: 34px/1.35 "Times New Roman", Georgia, serif; }
-  #ig2 .fix .bad { background: rgba(227,23,0,.12); color: #ffb3a3; }
-  #ig2 .fix .good { background: rgba(255,255,255,.08); color: #fff; }
-  #ig2 .fix small { display: block; font: 700 18px var(--mono); letter-spacing: .12em; margin-bottom: 6px; opacity: .8; }
-  #ig3 h1 { font-size: 132px; line-height: .92; margin-top: 150px; }
-  #ig3 .word { margin-top: 70px; display: inline-flex; gap: 16px; align-items: center; background: #185abd; color: #fff; border-radius: 16px; padding: 22px 30px; font: 600 34px var(--sans); }
+  #ig1 h1 { font-size: 132px; line-height: 1; margin-top: 110px; }
+  #ig1 .panel { position: absolute; right: 84px; bottom: 170px; width: 620px; }
+  #ig1 .panel h5 { font: 600 24px var(--sans); }
+  #ig2 .n { margin-top: 80px; font: 500 26px var(--sans); color: var(--accent); }
+  #ig2 h2 { font-size: 118px; line-height: 1; margin-top: 18px; }
+  #ig2 .cmp { margin-top: 70px; display: grid; gap: 20px; }
+  #ig2 .cmp div { border: 1px solid rgba(255,255,255,.2); padding: 28px 30px; font: 30px/1.45 "Times New Roman", Georgia, serif; }
+  #ig2 .cmp small { display: block; font: 600 17px var(--sans); letter-spacing: .12em; margin-bottom: 10px; }
+  #ig2 .cmp .b small { color: #ff8a70; } #ig2 .cmp .a small { color: #7fd6a1; }
+  #ig2 .cmp .b { color: #c9ced1; text-decoration: line-through; text-decoration-color: #ff8a70; }
+  #ig3 h1 { font-size: 126px; line-height: 1; margin-top: 110px; }
+  #ig3 .win { margin-top: 70px; }
 
-  /* ---------- reel cover ---------- */
-  #reel .clock { margin-top: 150px; font: 600 250px var(--mono); letter-spacing: -0.04em; color: var(--orange); }
-  #reel .clock b { animation: none; }
-  #reel h1 { font-size: 118px; line-height: .95; margin-top: 30px; }
-  #reel .play { position: absolute; right: 88px; bottom: 170px; width: 170px; height: 170px; border-radius: 50%; background: #fff; display: grid; place-items: center; box-shadow: 0 20px 50px rgba(0,0,0,.4); }
-  #reel .play::after { content: ""; border-left: 58px solid var(--ink); border-top: 36px solid transparent; border-bottom: 36px solid transparent; margin-left: 12px; }
+  /* ---------- reel ---------- */
+  #reel .clock { margin-top: 170px; font: 300 196px var(--serif); white-space: nowrap; letter-spacing: -0.03em; }
+  #reel .clock span { color: var(--accent); }
+  #reel h1 { font-size: 104px; line-height: 1.02; margin-top: 10px; }
+  #reel .play { position: absolute; right: 84px; bottom: 160px; width: 150px; height: 150px; border-radius: 50%; border: 3px solid #fff; display: grid; place-items: center; }
+  #reel .play::after { content: ""; border-left: 44px solid #fff; border-top: 28px solid transparent; border-bottom: 28px solid transparent; margin-left: 10px; }
+  #reel .dots { left: -30px; bottom: -30px; width: 600px; height: 420px; }
 
-  /* ---------- launch teaser ---------- */
-  #launch .gem { width: 190px; margin-top: 150px; }
-  #launch h1 { font-size: 150px; line-height: .9; margin-top: 50px; }
-  #launch .gem { margin-top: 110px !important; }
-  #launch .date { margin-top: 60px; border: 3px solid #fff; color: #fff; }
-  #launch .ghost { position: absolute; left: 88px; right: 88px; bottom: 150px; font: 26px/1.9 "Times New Roman", serif; color: rgba(255,255,255,.14); }
-  #launch .ghost u { text-decoration: none; background: linear-gradient(90deg, rgba(249,77,30,.55), rgba(249,77,30,.1)); color: rgba(255,255,255,.55); }
+  /* ---------- launch ---------- */
+  #launch h1 { font-size: 136px; line-height: 1; margin-top: 90px; }
+  #launch .date { margin-top: 44px; font: 400 32px var(--sans); color: #c9ced1; }
+  #launch .panel { margin-top: 66px; }
+  #launch .panel .row2 { display: grid; grid-template-columns: 1fr auto; gap: 10px; padding: 16px 0; border-top: 1px solid #efefef; font: 500 21px var(--sans); }
+  #launch .panel .row2 em { font-style: normal; font-weight: 600; font-size: 17px; padding: 5px 12px; border-radius: 99px; }
+  .t-ok { background: #e6f4ec; color: #1f7a45; } .t-due { background: #fdeee9; color: #c23a18; } .t-soon { background: #fff4de; color: #9a6400; }
 </style>
 </head>
 <body>
 
-<!-- c1 · company · contracts are all around -->
-<section class="art grain" id="c1"><div class="pad">
-  <div class="top"><img src="../logo-dark.svg" alt=""><span>Everyday contracts · 01</span></div>
-  <h1 class="serif">Contracts, actually, are <em class="i red">all around.</em></h1>
-  <div class="idx">
-    <div class="row"><b>Your home</b><i></i><span>Mortgage agreement</span></div>
-    <div class="row"><b>Your job</b><i></i><span>Employment contract</span></div>
-    <div class="row"><b>The elevator</b><i></i><span>Service contract</span></div>
-    <div class="row"><b>Midnight delivery</b><i></i><span>Terms &amp; conditions</span></div>
-    <div class="row"><b>Your favourite bar</b><i></i><span>Lease + supplier contracts</span></div>
+<!-- c1 -->
+<section class="art grey" id="c1"><div class="dots fade-tr"></div><div class="pad">
+  <div class="top"><img src="../logo-dark.svg" alt=""><span class="eyebrow">Everyday contracts</span></div>
+  <h1>Contracts are all around you.</h1>
+  <div class="list">
+    <div class="row"><span>Your home</span><b>Mortgage agreement</b></div>
+    <div class="row"><span>Your job</span><b>Employment contract</b></div>
+    <div class="row"><span>The elevator</span><b>Service contract</b></div>
+    <div class="row"><span>Midnight delivery</span><b>Terms &amp; conditions</b></div>
+    <div class="row"><span>Your favourite bar</span><b>Lease + supplier contracts</b></div>
   </div>
-  <p class="note">We build the rails they run on.</p>
-  <div class="foot"><span>spellbook.com</span><span>Swipe →</span></div>
+  <div class="foot"><span>We build the rails they run on.</span><span>spellbook.com →</span></div>
 </div></section>
 
-<!-- c2 · company · redline of the week -->
-<section class="art dark grain" id="c2"><div class="pad">
-  <div class="top"><img src="../logo-white.svg" alt=""><span style="color:#ffb3a3">Redline of the week · No. 01</span></div>
-  <h2 class="serif ttl">The auto-renewal <em class="i" style="color:#ffb3a3">trap.</em></h2>
-  <div class="doc"><small>SECTION 12.2 · TERM AND RENEWAL</small>
-    <p>This Agreement <del>shall automatically renew for successive one-year terms</del> <ins>may be renewed for successive one-year terms by mutual written agreement of the parties</ins>, unless terminated earlier in accordance with Section 13.</p>
-    <div class="cm"><b><img src="../mark.svg" alt="">SPELLBOOK</b>Silent auto-renewal locks you in. Suggest renewal by mutual written agreement.</div>
+<!-- c2 -->
+<section class="art dark" id="c2"><div class="dots fade-bl"></div><div class="pad">
+  <div class="top"><img src="../logo-white.svg" alt=""><span class="eyebrow">Redline of the week · No. 01</span></div>
+  <h1>The auto-renewal clause, fixed in Word.</h1>
+  <div class="win">
+    <div class="win-bar"><b>Home</b><span>Insert</span><span>Review</span><span>Layout</span><span class="sb"><img src="../mark.svg" alt="">Spellbook</span></div>
+    <div class="body2">
+      <div class="page"><small>12.2 TERM AND RENEWAL</small>This Agreement <del>shall automatically renew for successive one-year terms</del> <ins>may be renewed for successive one-year terms by mutual written agreement</ins>, unless terminated earlier under Section 13.</div>
+      <div class="side"><h5>Playbook · MSA</h5><div class="pct">80% <small>of 66 rules passed</small></div>
+        <div class="bar3" style="margin:14px 0 6px"><i style="flex:53;background:#1f8a4c"></i><i style="flex:13;background:#e2442f"></i><i style="flex:1;background:#f0a020"></i></div>
+        <div class="chk"><i class="no">!</i><div>Term and renewal<small>Silent auto-renewal. Redline suggested.</small></div></div>
+        <div class="chk"><i class="ok">✓</i><div>Confidentiality</div></div>
+        <div class="chk"><i class="ok">✓</i><div>Governing law</div></div>
+      </div>
+    </div>
   </div>
-  <div class="foot" style="margin-top:auto"><span>Save for your next draft</span><span>spellbook.com</span></div>
+  <div class="foot"><span>Save this for your next draft.</span><span>spellbook.com</span></div>
 </div></section>
 
-<!-- c3 · company · customer receipt -->
-<section class="art grain" id="c3"><div class="pad">
-  <div class="top"><img src="../logo-dark.svg" alt=""><span>Customer receipts</span></div>
-  <div class="big serif">55<sup>%</sup></div>
-  <h2 class="serif">time saved on <em class="i red">contract work.</em></h2>
-  <div class="sub"><div><b>90%+</b>of the legal team very satisfied</div><div><b>Word</b>where the work already happens</div></div>
-  <div class="by">AtkinsRéalis legal team × Spellbook</div>
-  <div class="foot"><span>Source: spellbook.com</span><span>Read the story →</span></div>
+<!-- c3 -->
+<section class="art" id="c3"><div class="pad">
+  <div class="top"><img src="../logo-white.svg" alt=""><span class="eyebrow" style="color:#e6ded6">Customer story</span></div>
+  <div class="cust">AtkinsRéalis</div>
+  <blockquote>“We had great results from our pilot group. They quoted 55% time saved. Over 90% of people were very satisfied.”</blockquote>
+  <span class="play"><i>▶</i>Watch the story</span>
+  <div class="stats"><div><b>55%</b><span>time saved</span></div><div><b>90%+</b><span>very satisfied</span></div></div>
 </div></section>
 
-<!-- c4 · company · milestone -->
-<section class="art dark grain" id="c4"><div class="lines"></div><img class="gem" src="../mark.svg" alt=""><div class="pad">
-  <div class="top"><img src="../logo-white.svg" alt=""><span style="color:#9aa1a8">Milestone</span></div>
-  <div class="num serif">10,000,000<span>+</span></div>
-  <h2 class="serif">contracts reviewed.</h2>
-  <div class="stats"><div><b>5,000+</b>legal teams</div><div><b>80+</b>countries</div></div>
+<!-- c4 -->
+<section class="art dark" id="c4"><div class="dots fade-tr"></div><div class="pad">
+  <div class="top"><img src="../logo-white.svg" alt=""><span class="eyebrow">Milestone</span></div>
+  <h1>10M<span class="acc">+</span></h1>
+  <h2>contracts reviewed with Spellbook.</h2>
+  <div class="grid"><div><b>5,000+</b><span>legal teams</span></div><div><b>80+</b><span>countries</span></div><div><b>4.7</b><span>rating on G2</span></div></div>
   <div class="foot"><span>Thank you for trusting us with the fine print.</span></div>
 </div></section>
 
-<!-- c5 · company · one team, 11 cities -->
-<section class="art grain" id="c5"><div class="pad">
-  <div class="top"><img src="../logo-dark.svg" alt=""><span>Inside Spellbook</span></div>
-  <h1 class="serif">One team.<br><em class="i red">11 cities.</em></h1>
-  <div class="foot"><span>spellbook.com/careers</span><span>We're hiring →</span></div>
+<!-- c5 -->
+<section class="art grey" id="c5"><div class="dots fade-l"></div><div class="pad">
+  <div class="top"><img src="../logo-dark.svg" alt=""><span class="eyebrow">Inside Spellbook</span></div>
+  <h1>One team.<br>11 cities.</h1>
+  <div class="foot"><span>We're hiring across marketing, product and engineering.</span><span class="btn solid">View roles →</span></div>
 </div>
-<svg class="map" viewBox="0 0 1080 560" aria-hidden="true">
-  <g stroke="#0E1315" stroke-opacity=".18" stroke-width="2" fill="none">
-    <path d="M120 300 C 260 180, 380 360, 520 250 S 800 120, 960 260"/><path d="M180 420 C 320 330, 480 470, 640 380 S 860 300, 980 420"/><path d="M120 300 L 180 420 M520 250 L 640 380 M960 260 L 980 420 M300 230 L 420 330"/>
-  </g>
-  <g fill="#E31700">
-    <circle cx="120" cy="300" r="14"/><circle cx="180" cy="420" r="10"/><circle cx="300" cy="230" r="12"/><circle cx="420" cy="330" r="10"/><circle cx="520" cy="250" r="16"/><circle cx="640" cy="380" r="11"/><circle cx="720" cy="190" r="10"/><circle cx="820" cy="330" r="12"/><circle cx="880" cy="170" r="9"/><circle cx="960" cy="260" r="13"/><circle cx="980" cy="420" r="10"/>
-  </g>
-  <g fill="none" stroke="#E31700" stroke-opacity=".25" stroke-width="2"><circle cx="520" cy="250" r="34"/><circle cx="120" cy="300" r="30"/><circle cx="960" cy="260" r="30"/></g>
-</svg>
-<span class="pill cta" style="background:#0E1315;color:#fff">1 obsession: better contracts</span>
-</section>
+<div class="map">
+  <i style="left:6%;top:30%"></i><i style="left:16%;top:62%"></i><i style="left:26%;top:18%"></i><i class="a" style="left:36%;top:48%" data-n="Toronto"></i><i style="left:44%;top:20%"></i><i style="left:52%;top:70%"></i><i class="a" style="left:60%;top:36%" data-n="Montreal"></i><i style="left:70%;top:62%"></i><i style="left:76%;top:14%"></i><i style="left:86%;top:44%"></i><i style="left:94%;top:74%"></i>
+</div></section>
 
-<!-- m1 · Meltem · quote card -->
-<section class="art grain" id="m1"><div class="pad">
-  <div class="top"><img src="../logo-dark.svg" alt=""><span>From the CMO</span></div>
-  <div class="q serif">“</div>
-  <blockquote>I like hard problems and products that solve for a tangible outcome. <em class="i red">Contracts are everywhere.</em></blockquote>
+<!-- m1 -->
+<section class="art" id="m1"><div class="dots fade-tr" style="top:-20px;right:-30px;width:520px;height:360px;bottom:auto"></div><div class="pad">
+  <div class="top"><img src="../logo-dark.svg" alt=""><span class="eyebrow">From our CMO</span></div>
+  <blockquote>“I like hard problems and products that solve for a tangible outcome. Contracts are everywhere.”</blockquote>
   <div class="who"><img src="../meltem.jpg" alt=""><div><b>Meltem Kuran Berkowitz</b><span>Chief Marketing Officer, Spellbook</span></div></div>
   <div class="foot"><span>spellbook.com</span></div>
 </div></section>
 
-<!-- m2 · Meltem · Deel lessons carousel cover -->
-<section class="art dark grain" id="m2"><div class="pad">
-  <div class="top"><img src="../logo-white.svg" alt=""><span style="color:#9aa1a8">Growth notes</span></div>
-  <div class="arr serif">$1M <span>→</span><br>$1B+</div>
-  <h2 class="serif">5 growth lessons I'm bringing <em class="i" style="color:#ffb3a3">to Spellbook.</em></h2>
-  <span class="pill swipe">Swipe for the lessons →</span>
-  <div class="foot"><span>Meltem Kuran Berkowitz · CMO</span></div>
+<!-- m2 -->
+<section class="art dark" id="m2"><div class="dots fade-tr"></div><div class="pad">
+  <div class="top"><img src="../logo-white.svg" alt=""><span class="eyebrow">Growth notes</span></div>
+  <div class="big">$1M <span>→</span><br>$1B+ ARR</div>
+  <h2>5 growth lessons I'm bringing to Spellbook.</h2>
+  <span class="btn">Swipe for the lessons →</span>
+  <div class="foot"><span>Meltem Kuran Berkowitz, CMO</span></div>
 </div></section>
 
-<!-- ig1-3 · Instagram carousel -->
-<section class="art grain" id="ig1"><div class="pad">
-  <div class="top"><img src="../logo-dark.svg" alt=""><span>Redline 101</span></div>
-  <h1 class="serif">3 clauses to redline <em class="i red">before you sign.</em></h1>
+<!-- ig1 -->
+<section class="art grey" id="ig1"><div class="dots fade-tr"></div><div class="pad">
+  <div class="top"><img src="../logo-dark.svg" alt=""><span class="eyebrow">Redline 101</span></div>
+  <h1>3 clauses to redline before you sign.</h1>
   <div class="foot"><span>@spellbooklegal</span><span>Swipe →</span></div>
 </div>
-<div class="stack"><div style="bottom:80px;transform:rotate(-6deg)"><i></i><i style="width:80%"></i><i class="r"></i><i style="width:70%"></i></div><div style="bottom:0;transform:rotate(3deg)"><i style="width:90%"></i><i class="r" style="width:45%"></i><i></i><i style="width:60%"></i></div></div>
-</section>
-<section class="art dark grain" id="ig2"><div class="pad">
-  <div class="top"><img src="../logo-white.svg" alt=""><span style="color:#9aa1a8">01 / 03</span></div>
-  <div class="n">01</div>
-  <h2 class="serif">Unlimited <em class="i" style="color:#ffb3a3">liability.</em></h2>
-  <div class="fix"><div class="bad"><small>BEFORE</small>…shall indemnify the Company for any and all losses…</div><div class="good"><small>AFTER</small>…capped at the fees paid in the 12 months before the claim.</div></div>
-  <div class="foot"><span>Save this ✍️</span><span>@spellbooklegal</span></div>
-</div></section>
-<section class="art grain" id="ig3"><div class="pad">
-  <div class="top"><img src="../logo-dark.svg" alt=""><span>03 / 03</span></div>
-  <h1 class="serif">Spellbook flags all three, <em class="i red">right inside Word.</em></h1>
-  <span class="word">W&nbsp;&nbsp;Open in Word → ✨ Spellbook</span>
-  <div class="foot"><span>Link in bio</span><span>@spellbooklegal</span></div>
+<div class="panel"><h5>Playbook · Vendor agreement</h5>
+  <div class="chk" style="margin-top:12px"><i class="no">!</i><div>Limitation of liability<small>Uncapped. Suggest a 12-month fee cap.</small></div></div>
+  <div class="chk"><i class="no">!</i><div>Term and renewal<small>Silent auto-renewal.</small></div></div>
+  <div class="chk"><i class="fb">~</i><div>Termination for convenience<small>60 days' notice. Playbook asks for 30.</small></div></div>
 </div></section>
 
-<!-- reel cover -->
-<section class="art dark grain" id="reel"><div class="pad">
-  <div class="top"><img src="../logo-white.svg" alt=""><span style="color:#9aa1a8">Reel</span></div>
-  <div class="clock">11:48</div>
-  <h1 class="serif">POV: the redline is due <em class="i" style="color:#ffb3a3">at midnight.</em></h1>
+<!-- ig2 -->
+<section class="art dark" id="ig2"><div class="pad">
+  <div class="top"><img src="../logo-white.svg" alt=""><span class="eyebrow">01 / 03</span></div>
+  <div class="n">CLAUSE 01</div>
+  <h2>Limitation of liability.</h2>
+  <div class="cmp"><div class="b"><small>BEFORE</small>…shall indemnify the Company for any and all losses, without limitation…</div><div class="a"><small>AFTER</small>…liability capped at the fees paid in the 12 months before the claim.</div></div>
+  <div class="foot"><span>Save this for your next review.</span><span>@spellbooklegal</span></div>
+</div></section>
+
+<!-- ig3 -->
+<section class="art grey" id="ig3"><div class="pad">
+  <div class="top"><img src="../logo-dark.svg" alt=""><span class="eyebrow">03 / 03</span></div>
+  <h1>Spellbook flags all three, right in Word.</h1>
+  <div class="win"><div class="win-bar"><b>Home</b><span>Insert</span><span>Review</span><span class="sb"><img src="../mark.svg" alt="">Spellbook</span></div>
+    <div style="padding:26px 30px"><div class="chk" style="border:0"><i class="ok">✓</i><div>Review complete · 3 issues found<small>Liability, renewal, termination. Redlines ready to accept.</small></div></div></div></div>
+  <div class="foot"><span>Try it free · link in bio</span><span>@spellbooklegal</span></div>
+</div></section>
+
+<!-- reel -->
+<section class="art dark" id="reel"><div class="dots fade-bl"></div><div class="pad">
+  <div class="top"><img src="../logo-white.svg" alt=""><span class="eyebrow">Reel</span></div>
+  <div class="clock">11<span>:</span>48 pm</div>
+  <h1>POV: the redline is due at midnight.</h1>
   <div class="foot"><span>@spellbooklegal</span></div>
 </div><span class="play" aria-hidden="true"></span></section>
 
-<!-- launch teaser -->
-<section class="art dark grain" id="launch"><div class="pad">
-  <div class="top"><img src="../logo-white.svg" alt=""><span style="color:#9aa1a8">Coming soon</span></div>
-  <img class="gem" src="../mark.svg" alt="">
-  <h1 class="serif">Contracts that <em class="i" style="color:#ffb3a3">manage themselves.</em></h1>
-  <span class="pill date">Autonomous Contract Management · [launch date]</span>
-  <div class="foot"><span>spellbook.com</span></div>
-</div>
-<p class="ghost">This Agreement is entered into by and between the parties as of the Effective Date. <u>Renewal notices, obligations and deadlines are tracked automatically</u> and surfaced to the responsible party before they are due, without manual follow-up.</p>
-</section>
+<!-- launch -->
+<section class="art dark" id="launch"><div class="dots fade-tr"></div><div class="pad">
+  <div class="top"><img src="../logo-white.svg" alt=""><span class="eyebrow">Coming October 14</span></div>
+  <h1>Contracts that manage themselves.</h1>
+  <p class="date">Autonomous Contract Management 2.0</p>
+  <div class="panel"><h5 style="font:600 22px var(--sans)">Renewals &amp; obligations · this quarter</h5>
+    <div class="row2" style="margin-top:12px"><span>MSA · Northstar Systems</span><em class="t-due">Renews in 12 days</em></div>
+    <div class="row2"><span>NDA · Halcyon Health</span><em class="t-soon">Notice due Nov 3</em></div>
+    <div class="row2"><span>SaaS order form · Brightline</span><em class="t-ok">On track</em></div>
+  </div>
+  <div class="foot"><span>spellbook.com</span><span class="btn" style="font-size:22px;padding:14px 20px">Get early access →</span></div>
+</div></section>
 
 <script>
   const id = new URLSearchParams(location.search).get('id');

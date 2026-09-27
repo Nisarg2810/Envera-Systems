@@ -12,7 +12,7 @@
   <link rel="icon" href="mark.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,300;6..72,400&family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
     :root {
       /* Spellbook brand: ink black + white, one redline red; Mario gold stays for the game layer */
@@ -62,11 +62,11 @@
     .post {
       margin-top: 40px; background: var(--card); border: 1px solid var(--line); border-radius: 18px; overflow: hidden;
       display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
-      box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 18px 50px -24px rgba(10,26,64,.3);
+      box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 18px 50px -24px rgba(17,22,24,.3);
     }
     .post figure { position: relative; background: #1a1410; }
     .post img { display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 3 / 4; }
-    .post figcaption { position: absolute; left: 14px; bottom: 14px; font-family: var(--pixel); font-size: 9px; color: #fff; background: rgba(10,26,64,.85); padding: 8px 10px; border-radius: 6px; }
+    .post figcaption { position: absolute; left: 14px; bottom: 14px; font-family: var(--pixel); font-size: 9px; color: #fff; background: rgba(17,22,24,.85); padding: 8px 10px; border-radius: 6px; }
     .post-body { padding: 28px 30px 30px; display: flex; flex-direction: column; }
     .who { display: flex; align-items: center; gap: 12px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
     .who img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; }
@@ -118,7 +118,7 @@
     .intro #game, .intro #gameHi { border-radius: 0; }
     .intro #game { cursor: pointer; }
     .intro-ui { position: absolute; left: 0; right: 0; bottom: max(16px, env(safe-area-inset-bottom)); display: flex; justify-content: space-between; gap: 12px; padding: 0 16px; }
-    .intro-ui button { font-family: var(--pixel); font-size: 11px; color: #fff; cursor: pointer; background: rgba(10,26,64,.85); border: 1px solid #3a4248; border-radius: 8px; padding: 12px 14px; }
+    .intro-ui button { font-family: var(--pixel); font-size: 11px; color: #fff; cursor: pointer; background: rgba(17,22,24,.85); border: 1px solid #3a4248; border-radius: 8px; padding: 12px 14px; }
     .intro-ui button:hover { border-color: var(--gold); }
     #introSound { animation: blink 1.1s steps(2, start) infinite; }
     #introSound.on { animation: none; color: var(--gold); }
@@ -127,7 +127,7 @@
     /* ---------- level map (sticky progress) ---------- */
     .levelbar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: 62px;
-      background: rgba(10,26,64,.96); backdrop-filter: blur(8px); color: #fff;
+      background: rgba(17,22,24,.96); backdrop-filter: blur(8px); color: #fff;
       display: flex; align-items: center; gap: 14px; padding: 0 16px;
       transform: translateY(-100%); transition: transform .35s ease; box-shadow: 0 6px 20px rgba(0,0,0,.2);
     }
@@ -390,7 +390,7 @@
     .gx-pphone .scr .ok::before { content: "✓"; width: 4.4cqi; height: 4.4cqi; border-radius: 50%; background: #2ee07e; color: #fff; display: grid; place-items: center; font-size: 2.6cqi; }
     .gx-pphone .scr .b { margin-top: auto; background: var(--brand); color: #fff; text-align: center; border-radius: 2cqi; padding: 2.6cqi; font-weight: 700; }
     .gx-pphone .store { margin-top: auto; align-self: flex-start; background: #fff; color: var(--brand); font-weight: 800; font-size: 3.9cqi; padding: 2.6cqi 4cqi; border-radius: 99px; }
-    .gx-ptype .shade { background: linear-gradient(180deg, rgba(4,10,28,.35) 0%, rgba(4,10,28,.85) 60%, rgba(4,10,28,.96) 100%); }
+    .gx-ptype .shade { background: linear-gradient(180deg, rgba(8,11,12,.35) 0%, rgba(8,11,12,.85) 60%, rgba(8,11,12,.96) 100%); }
     .gx-ptype h4 { margin-top: auto; font-size: 13cqi; line-height: .95; letter-spacing: -0.045em; }
     .gx-ptype h4 span { color: var(--gold); display: block; }
     .gx-ptype .big { margin-top: 5cqi; font-family: var(--pixel); font-size: 7.4cqi; color: transparent; -webkit-text-stroke: .5cqi var(--gold); letter-spacing: .04em; }
@@ -490,7 +490,7 @@
     @media (max-width: 560px) { .cs-flow { grid-template-columns: 1fr; } .cs-step { border-right: 0; border-bottom: 1px solid var(--line); } .cs-step::after { display: none; } }
 
     /* ---------- email ---------- */
-    .mail { background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; font-family: var(--sys); box-shadow: 0 10px 30px -18px rgba(10,26,64,.35); }
+    .mail { background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; font-family: var(--sys); box-shadow: 0 10px 30px -18px rgba(17,22,24,.35); }
     .mail-bar { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: #f6f8fc; border-bottom: 1px solid var(--line); font-size: 13px; color: var(--muted); }
     .mail-bar .lights { display: flex; gap: 6px; }
     .mail-bar .lights i { width: 10px; height: 10px; border-radius: 50%; background: #e2e5ec; }
@@ -515,7 +515,7 @@
     .mail-foot { background: #f6f8fc; padding: 14px 22px; font-size: 11px; color: #8a90a0; }
 
     /* ---------- landing page ---------- */
-    .browser { background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px -18px rgba(10,26,64,.35); }
+    .browser { background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px -18px rgba(17,22,24,.35); }
     .browser-bar { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: #f1f3f8; border-bottom: 1px solid var(--line); }
     .browser-bar .lights { display: flex; gap: 6px; } .browser-bar .lights i { width: 10px; height: 10px; border-radius: 50%; background: #d9dce4; }
     .browser-bar .url { flex: 1; background: #fff; border-radius: 99px; padding: 5px 12px; font-size: 12px; color: var(--muted); border: 1px solid var(--line); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -528,7 +528,7 @@
     .lp-hero p { margin-top: 10px; color: var(--muted); font-size: 15px; }
     .lp-hero ul { list-style: none; margin-top: 14px; display: grid; gap: 8px; font-size: 15px; font-weight: 600; }
     .lp-hero li::before { content: "✓"; display: inline-grid; place-items: center; width: 20px; height: 20px; margin-right: 8px; background: var(--brand-soft); color: var(--brand); border-radius: 50%; font-size: 12px; }
-    .lp-form { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 18px; display: grid; gap: 10px; box-shadow: 0 10px 24px -16px rgba(10,26,64,.3); align-self: start; }
+    .lp-form { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 18px; display: grid; gap: 10px; box-shadow: 0 10px 24px -16px rgba(17,22,24,.3); align-self: start; }
     .lp-form b { font-size: 15px; }
     .lp-form label { font-size: 12px; color: var(--muted); display: grid; gap: 4px; }
     .lp-form .in { border: 1px solid #d5dae6; border-radius: 7px; padding: 9px 10px; font-size: 14px; color: #9aa1b1; background: #fbfcff; }
@@ -581,7 +581,7 @@
     .pillar:first-of-type { border-top: 0; }
     .pillar .nm { font-weight: 700; }
     .pillar .pbar { height: 10px; background: #eef1f7; border-radius: 99px; overflow: hidden; margin-top: 7px; }
-    .pillar .pbar i { display: block; height: 100%; background: linear-gradient(90deg, #0E1315, #E31700); border-radius: 99px; }
+    .pillar .pbar i { display: block; height: 100%; background: linear-gradient(90deg, #111618, #F94D1E); border-radius: 99px; }
     .pillar .pct { font-family: var(--pixel); font-size: 10px; color: var(--brand); }
     .pillar .ds { font-size: 14px; color: #3a404c; }
     .pillar .eg { font-size: 13px; color: var(--muted); margin-top: 3px; }
@@ -596,7 +596,7 @@
     .tbl td:first-child { font-weight: 700; }
     .tbl-wrap { overflow-x: auto; }
     .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-    .chips span { font-size: 14px; font-weight: 600; background: #f3f3f1; border: 1px solid #e4e4df; color: #0E1315; padding: 6px 11px; border-radius: 99px; }
+    .chips span { font-size: 14px; font-weight: 600; background: #f3f3f3; border: 1px solid #e4e4df; color: #111618; padding: 6px 11px; border-radius: 99px; }
     .split2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .split2 > div { border-radius: 12px; padding: 16px; }
     .split2 .co { background: var(--brand-soft); } .split2 .pe { background: #fff4cc; }
@@ -646,7 +646,7 @@
     .pz-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 16px; }
     .pz-card { text-align: left; font: inherit; color: inherit; background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 20px; cursor: pointer; display: flex; flex-direction: column; gap: 12px; transition: transform .2s, box-shadow .2s, border-color .2s; position: relative; overflow: hidden; }
     .pz-card::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 6px; background: var(--pz, var(--brand)); }
-    .pz-card:hover, .pz-card:focus-visible { transform: translateY(-4px); box-shadow: 0 20px 40px -24px rgba(10,26,64,.45); border-color: var(--pz, var(--brand)); outline: none; }
+    .pz-card:hover, .pz-card:focus-visible { transform: translateY(-4px); box-shadow: 0 20px 40px -24px rgba(17,22,24,.45); border-color: var(--pz, var(--brand)); outline: none; }
     .pz-top { display: flex; gap: 12px; align-items: center; }
     .pz-name { font-weight: 800; font-size: 17px; line-height: 1.2; }
     .pz-role { font-size: 13px; color: var(--muted); line-height: 1.35; margin-top: 2px; }
@@ -656,7 +656,7 @@
     .pz-voice { align-self: flex-start; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 99px; background: var(--brand-soft); color: var(--brand); }
     .pz-open { margin-top: auto; font-family: var(--pixel); font-size: 9px; color: var(--pz, var(--brand)); display: flex; justify-content: space-between; align-items: center; }
     .pz-open i { font-style: normal; font-family: "Inter", sans-serif; font-size: 12px; font-weight: 700; color: var(--muted); }
-    .pz-modal { position: fixed; inset: 0; z-index: 125; background: rgba(4,10,28,.72); display: grid; place-items: center; padding: 16px; overflow-y: auto; }
+    .pz-modal { position: fixed; inset: 0; z-index: 125; background: rgba(8,11,12,.72); display: grid; place-items: center; padding: 16px; overflow-y: auto; }
     .pz-modal[hidden] { display: none; }
     body.pz-on .play-fab { display: none; }
     .pz-box { background: var(--bg); border-radius: 22px; width: min(860px, 100%); max-height: calc(100vh - 32px); overflow-y: auto; padding: 22px; position: relative; animation: pzIn .3s cubic-bezier(.2,1.2,.4,1); }
@@ -681,7 +681,7 @@
     @media (max-width: 820px) { .pz-body { grid-template-columns: minmax(0, 1fr); } .pz-box { padding: 18px 14px; overflow-x: hidden; } }
 
     /* video */
-    .video { position: relative; aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden; background: var(--night); box-shadow: 0 20px 50px -25px rgba(10,26,64,.5); }
+    .video { position: relative; aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden; background: var(--night); box-shadow: 0 20px 50px -25px rgba(17,22,24,.5); }
     .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
     .video-ph { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; color: #fff; padding: 20px;
       background: radial-gradient(60% 60% at 50% 40%, #262c30, var(--night)); }
@@ -788,17 +788,17 @@
     /* ---------- scroll cameos ---------- */
     .cameo { position: fixed; left: 16px; bottom: 16px; z-index: 60; width: 216px; pointer-events: none; opacity: 0; transform: translateY(8px); transition: opacity .3s, transform .3s; }
     .cameo.on { opacity: 1; transform: none; }
-    .cam-stage { display: block; width: 216px; height: 114px; image-rendering: pixelated; filter: drop-shadow(0 3px 0 rgba(10,26,64,.18)); }
-    .cam-bubble { position: absolute; left: 0; bottom: 112px; width: max-content; max-width: min(320px, calc(100vw - 32px)); background: #fff; border: 3px solid var(--night); border-radius: 8px; padding: 10px 12px; font-family: var(--pixel); font-size: 10px; line-height: 1.7; color: var(--ink); box-shadow: 4px 4px 0 rgba(10,26,64,.2); }
+    .cam-stage { display: block; width: 216px; height: 114px; image-rendering: pixelated; filter: drop-shadow(0 3px 0 rgba(17,22,24,.18)); }
+    .cam-bubble { position: absolute; left: 0; bottom: 112px; width: max-content; max-width: min(320px, calc(100vw - 32px)); background: #fff; border: 3px solid var(--night); border-radius: 8px; padding: 10px 12px; font-family: var(--pixel); font-size: 10px; line-height: 1.7; color: var(--ink); box-shadow: 4px 4px 0 rgba(17,22,24,.2); }
     .cam-bubble::after { content: ""; position: absolute; left: var(--tx, 30px); bottom: -11px; width: 14px; height: 14px; background: #fff; border-right: 3px solid var(--night); border-bottom: 3px solid var(--night); transform: rotate(45deg); }
     .cam-name.C { color: var(--gold-dk); } .cam-name.D { color: var(--brand); }
-    .cam-x { pointer-events: auto; position: absolute; left: 196px; bottom: 6px; width: 22px; height: 22px; border-radius: 50%; border: 0; background: rgba(10,26,64,.75); color: #fff; font-size: 14px; line-height: 1; cursor: pointer; opacity: 0; transition: opacity .2s; }
+    .cam-x { pointer-events: auto; position: absolute; left: 196px; bottom: 6px; width: 22px; height: 22px; border-radius: 50%; border: 0; background: rgba(17,22,24,.75); color: #fff; font-size: 14px; line-height: 1; cursor: pointer; opacity: 0; transition: opacity .2s; }
     .cameo.on .cam-x { opacity: 1; }
     @media (max-width: 560px) { .cameo { left: 8px; bottom: 8px; } .cam-bubble { font-size: 9px; } }
     @media (prefers-reduced-motion: reduce) { .cameo { transition: none; } }
 
     /* ---------- finale ---------- */
-    .finale { max-width: 760px; margin: 0 auto 44px; border-radius: 16px; overflow: hidden; background: var(--night); box-shadow: 0 24px 60px -30px rgba(10,26,64,.6), 0 0 0 4px #fff, 0 0 0 6px var(--night); }
+    .finale { max-width: 760px; margin: 0 auto 44px; border-radius: 16px; overflow: hidden; background: var(--night); box-shadow: 0 24px 60px -30px rgba(17,22,24,.6), 0 0 0 4px #fff, 0 0 0 6px var(--night); }
     #finale { display: block; width: 100%; aspect-ratio: 200 / 90; image-rendering: pixelated; }
     .dialog { background: #000; color: #fff; border-top: 4px solid #fff; padding: 18px 22px 20px; text-align: left; font-family: var(--pixel); font-size: clamp(10px, 1.6vw, 13px); line-height: 1.9; min-height: 132px; }
     .dialog b { color: var(--gold); }
@@ -823,9 +823,9 @@
     .show-all .reveal { opacity: 1 !important; transform: none !important; }
     .idea span.ph, .pz-idea span.ph { display: inline; margin-top: 0; font-size: inherit; }
     /* ---- Spellbook dress ---- */
-    .hero h1, .world-head h2, .game h2, .contact h2, .xt .big-line, .panel .big-line { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; letter-spacing: -0.015em; }
+    .hero h1, .world-head h2, .game h2, .contact h2, .xt .big-line, .panel .big-line { font-family: "Newsreader", Georgia, serif; font-weight: 300; letter-spacing: -0.015em; }
     .hero h1 { font-size: clamp(40px, 6vw, 76px); line-height: 1.02; }
-    .hero h1 .hl { color: #E31700; font-style: italic; }
+    .hero h1 .hl { color: #F94D1E; }
     .world-head h2 { font-size: clamp(34px, 4.6vw, 56px); line-height: 1.02; }
     .bar .to img { height: 18px; }
     .gx-png { padding: 0 !important; background: #0E1315; }
@@ -2350,7 +2350,7 @@ document.addEventListener('DOMContentLoaded', () => {
   @media (max-width: 560px) { .play-fab { right: 10px; bottom: 10px; padding: 8px 12px 8px 10px; } .play-fab small { display: none; } .play-fab .pf-ico { font-size: 22px; } }
   @media (prefers-reduced-motion: reduce) { .play-fab { animation: none; } }
 
-  .mg { position: fixed; inset: 0; z-index: 130; background: rgba(4,10,28,.93); display: grid; place-items: center; padding: 16px; }
+  .mg { position: fixed; inset: 0; z-index: 130; background: rgba(8,11,12,.93); display: grid; place-items: center; padding: 16px; }
   .mg[hidden] { display: none; }
   .mg-box { width: min(980px, 100%); }
   .mg-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 12px; color: #fff; }
@@ -2359,7 +2359,7 @@ document.addEventListener('DOMContentLoaded', () => {
   .mg-x:hover { background: rgba(255,255,255,.2); }
   .mg-screen { position: relative; border: 4px solid #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 30px 80px -20px rgba(0,0,0,.8); }
   #miniCv { display: block; width: 100%; aspect-ratio: 16 / 9; image-rendering: pixelated; background: #6b8cff; }
-  .mg-pop { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(4,10,28,.55); padding: 14px; }
+  .mg-pop { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(8,11,12,.55); padding: 14px; }
   .mg-pop[hidden] { display: none; }
   .mg-card { background: #fff; color: var(--ink); border: 4px solid var(--ink); border-radius: 14px; box-shadow: 0 8px 0 var(--ink); padding: 22px 24px; max-width: 460px; text-align: center; animation: popIn .35s cubic-bezier(.2,1.5,.4,1); }
   @keyframes popIn { from { transform: scale(.6); opacity: 0; } }
@@ -2377,7 +2377,7 @@ document.addEventListener('DOMContentLoaded', () => {
   @media (pointer: coarse) { .mg-pad { display: flex; } .mg-hint { display: none; } .mg-foot { justify-content: center; flex-direction: column; } }
   .mg-rot { display: none; font-size: 13px; color: #b9c0c6; text-align: center; }
   @media (pointer: coarse) and (orientation: portrait) { .mg-rot { display: block; } }
-  @media (max-width: 760px) { .mg-pop { position: fixed; z-index: 140; background: rgba(4,10,28,.75); } .mg-card { padding: 18px; } .mg-card h3 { font-size: 13px; } .mg-card p { font-size: 15px; } }
+  @media (max-width: 760px) { .mg-pop { position: fixed; z-index: 140; background: rgba(8,11,12,.75); } .mg-card { padding: 18px; } .mg-card h3 { font-size: 13px; } .mg-card p { font-size: 15px; } }
 </style>
 
 <button class="play-fab" id="playFab" type="button" aria-haspopup="dialog">
@@ -2678,8 +2678,8 @@ document.addEventListener('DOMContentLoaded', () => {
   "spellbook": {
    "name": "Spellbook",
    "kind": "company",
-   "logo": "mark.svg",
-   "color": "#0E1315",
+   "logo": "avatar.jpg",
+   "color": "#111618",
    "followers": "Contract AI · 5,000+ legal teams",
    "handle": "spellbooklegal"
   },
@@ -2687,28 +2687,38 @@ document.addEventListener('DOMContentLoaded', () => {
    "name": "Meltem Kuran Berkowitz",
    "title": "Chief Marketing Officer at Spellbook",
    "photo": "meltem.jpg",
-   "color": "#0E1315",
+   "color": "#111618",
    "handle": "meltemkuran"
   },
   "scott": {
    "name": "Scott Stevenson",
-   "title": "Co-founder & CEO at Spellbook",
-   "color": "#E31700"
+   "title": "CEO & Co-Founder at Spellbook",
+   "photo": "team/scott.jpg",
+   "color": "#111618"
   },
-  "jml": {
-   "name": "Jean-Michel Lemieux",
-   "title": "Executive Individual Contributor at Spellbook · ex-CTO, Shopify",
+  "chris": {
+   "name": "Chris C Gardner",
+   "title": "Chief Strategy Officer at Spellbook",
+   "photo": "team/chris.jpg",
    "color": "#2f5d8a"
   },
-  "daniel": {
-   "name": "Daniel Di Maria",
-   "title": "Co-founder at Spellbook",
+  "dan": {
+   "name": "Dan Wardle",
+   "title": "VP Sales at Spellbook",
+   "photo": "team/dan.jpg",
    "color": "#F94D1E"
   },
-  "matt": {
-   "name": "Matt Mayers",
-   "title": "Co-founder at Spellbook",
+  "aman": {
+   "name": "Aman Samra, CPA",
+   "title": "VP of Finance at Spellbook",
+   "photo": "team/aman.jpg",
    "color": "#4a7a55"
+  },
+  "alex": {
+   "name": "Alex Campeau",
+   "title": "VP of Engineering at Spellbook",
+   "photo": "team/alex.jpg",
+   "color": "#7a4a2b"
   },
   "durva": {
    "name": "Durva Thakkar",
@@ -2845,7 +2855,8 @@ document.addEventListener('DOMContentLoaded', () => {
       "Quote cards",
       "Short video",
       "X threads",
-      "LinkedIn Live"
+      "LinkedIn Live",
+      "The Redline newsletter clips"
      ],
      "kpis": [
       "Reach from lawyers",
@@ -2876,7 +2887,7 @@ document.addEventListener('DOMContentLoaded', () => {
        "Exec post",
        "X thread",
        "30-sec video",
-       "Newsletter feature",
+       "The Redline feature",
        "Sales one-pager"
       ]
      },
@@ -2941,11 +2952,11 @@ document.addEventListener('DOMContentLoaded', () => {
      "pillar": "Receipts",
      "size": "1080 × 1350 · 4:5",
      "time": "1w",
-     "body": "\"55% time saved.\" Over 90% very satisfied.\n\nThat's what AtkinsRéalis shared about their legal team's work with Spellbook. Behind those numbers: more time for the work lawyers actually trained for.\n\nThe full story → [link]",
+     "body": "\"We had great results from our pilot group. They quoted 55% time saved.\"\n\nThat's what AtkinsRéalis shared about their legal team's work with Spellbook, with over 90% of people very satisfied. Behind those numbers: more time for the work lawyers actually trained for.\n\nThe full story → spellbook.com/customers",
      "graphic": {
       "style": "png",
       "src": "posts/c3.jpg",
-      "alt": "55% time saved on contract work, AtkinsRéalis legal team with Spellbook"
+      "alt": "AtkinsRéalis customer story: 55% time saved, over 90% very satisfied"
      },
      "download": "posts/c3.png",
      "reactions": 289,
@@ -2960,7 +2971,7 @@ document.addEventListener('DOMContentLoaded', () => {
      "pillar": "Receipts",
      "size": "1080 × 1350 · 4:5",
      "time": "2w",
-     "body": "10,000,000+ contracts reviewed with Spellbook.\n\nFrom solo practitioners to in-house teams, 5,000+ legal teams in 80+ countries now draft, review and negotiate with us, inside the tool they already live in.\n\nThank you for trusting us with the fine print. 🙏",
+     "body": "10,000,000+ contracts reviewed with Spellbook, and a 4.7 on G2.\n\nFrom solo practitioners to in-house teams, 5,000+ legal teams in 80+ countries now draft, review and negotiate with us, inside the tool they already live in.\n\nThank you for trusting us with the fine print. 🙏",
      "graphic": {
       "style": "png",
       "src": "posts/c4.jpg",
@@ -3026,7 +3037,7 @@ document.addEventListener('DOMContentLoaded', () => {
        "slot": "Thu · 9:00 AM",
        "tone": "Lessons",
        "time": "1w",
-       "body": "I joined Deel when it was doing under $1M in revenue, and stayed through $1B+ in ARR.\n\n5 lessons I'm bringing to Spellbook:\n\n1. [Your lesson on speed]\n2. [Your lesson on hiring the first marketers]\n3. [Your lesson on channels that compound]\n4. [Your lesson on brand vs. performance]\n5. [Your lesson on respecting attention]\n\nSwipe for the full version 👉",
+       "body": "I joined Deel when it was doing under $1M in revenue, and stayed through $1B+ in ARR.\n\n5 lessons I'm bringing to Spellbook:\n\n1. Speed is a strategy. Ship the test this week, not the plan next quarter.\n2. Your first marketers should be builders, not managers.\n3. Find the one channel that compounds, and go deep before you go wide.\n4. Brand is what makes performance cheaper.\n5. Respect attention. Every post should be worth someone's 30 seconds.\n\nSwipe for the full version 👉",
        "graphic": {
         "style": "png",
         "src": "posts/m2.jpg",
@@ -3091,14 +3102,14 @@ document.addEventListener('DOMContentLoaded', () => {
    "id": "exec-linkedin",
    "short": "Exec LinkedIn",
    "title": "Executive LinkedIn",
-   "intro": "How I'd bring Spellbook's leaders onto LinkedIn, with eight post ideas for each, built on proven formats.",
+   "intro": "How I'd bring Spellbook's leadership team onto LinkedIn: five leaders, eight post ideas each, built on proven formats.",
    "layout": "stack",
    "items": [
     {
      "type": "exec_track",
      "whyTitle": "Why the leadership team should post",
      "whyLead": "Lawyers buy from people they trust, and that trust now starts on the timeline, long before a demo request.",
-     "why": "GCs, legal ops leaders and partners get to know Spellbook, what it does and who builds it well before a sales call. Your voice builds a lot of that familiarity, and activating Scott, Jean-Michel and the co-founders multiplies it.\n\nAs AI-generated content fills the feed, real expertise from the people building the product becomes more valuable and easier to notice. That's the opposite of AI slop, and it's exactly the bar you and Scott have set.\n\nThe result: Spellbook starts to feel *everywhere* in legal tech.",
+     "why": "GCs, legal ops leaders and partners get to know Spellbook, what it does and who builds it well before a sales call. Your voice builds a lot of that familiarity, and activating Scott, Chris, Dan, Aman and Alex multiplies it.\n\nAs AI-generated content fills the feed, real expertise from the people building the product becomes more valuable and easier to notice. That's the opposite of AI slop, and it's exactly the bar you and Scott have set.\n\nThe result: Spellbook starts to feel *everywhere* in legal tech.",
      "principlesTitle": "What great executive content looks like",
      "principles": [
       {
@@ -3146,7 +3157,7 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       {
        "l": "EXECUTIVE TRACK",
-       "v": "4 leaders + you"
+       "v": "5 leaders + you"
       }
      ],
      "rhythmTitle": "Our operating rhythm",
@@ -3184,13 +3195,13 @@ document.addEventListener('DOMContentLoaded', () => {
      "people": [
       {
        "author": "scott",
-       "role": "Co-founder & CEO",
+       "role": "CEO & Co-Founder",
        "meta": [
-        "Founder",
-        "Canada"
+        "Canada",
+        "8 yrs 9 mos in role"
        ],
        "voice": "Visionary · direct",
-       "why": "The founder story and the product vision. Scott's posts set the frame for everything else.",
+       "why": "The founder story and the product vision. Scott's posts set the frame for every other voice.",
        "ideas": [
         {
          "tone": "Origin story",
@@ -3208,19 +3219,19 @@ document.addEventListener('DOMContentLoaded', () => {
          "angle": "The 2–3 principles behind the product, told through the decision to stay where lawyers already work."
         },
         {
-         "tone": "Industry prediction",
-         "title": "What transactional work looks like in 2030",
-         "angle": "One bold prediction, backed by what 10M+ reviewed contracts have taught the team."
-        },
-        {
          "tone": "Company momentum",
-         "title": "2,700 → 5,000 legal teams in a year",
-         "angle": "The stat, a team photo, and the one thing that changed most along the way."
+         "title": "4,500+ legal teams, and what changed along the way",
+         "angle": "One proud stat, a team photo, and the single thing that changed most as Spellbook scaled."
         },
         {
          "tone": "VC decision",
-         "title": "How we picked our investors",
-         "angle": "Why Khosla, Thomson Reuters Ventures and Inovia, and what each partner actually brings."
+         "title": "Why we raised our $50M Series B with Keith Rabois",
+         "angle": "How he picked Khosla, Thomson Reuters Ventures and Inovia, and what each partner actually brings."
+        },
+        {
+         "tone": "Industry prediction",
+         "title": "What transactional work looks like in 2030",
+         "angle": "One bold prediction, backed by what 10M+ reviewed contracts have taught the team."
         },
         {
          "tone": "Personal interest",
@@ -3230,121 +3241,175 @@ document.addEventListener('DOMContentLoaded', () => {
         {
          "tone": "Overcoming an objection",
          "title": "\"AI will make mistakes in my contracts\"",
-         "angle": "The objection he hears most, and the customer story or data that answers it."
+         "angle": "The objection he hears most, and the customer story that answers it."
         }
        ]
       },
       {
-       "author": "jml",
-       "role": "Executive Individual Contributor",
+       "author": "chris",
+       "role": "Chief Strategy Officer",
        "meta": [
-        "Ex-CTO, Shopify",
-        "Joined 2026"
+        "Canada",
+        "2 yrs 8 mos in role"
        ],
-       "voice": "Builder · systems thinker",
-       "why": "A former Shopify CTO choosing legal AI is a story in itself. Builders and engineers will follow.",
+       "voice": "Strategic · market-level",
+       "why": "The market narrator: where legal AI is going and why Spellbook is positioned to lead it.",
        "ideas": [
         {
-         "tone": "Industry hot take",
-         "title": "Contracts are the APIs of the real world",
-         "angle": "His own line, unpacked for builders and lawyers alike, with one everyday example."
+         "tone": "Core category beliefs",
+         "title": "5 beliefs I hold about legal AI",
+         "angle": "Five short convictions, each with the example or data point that earned it."
         },
         {
-         "tone": "Lightbulb moment",
-         "title": "Why I chose an IC exec role at Spellbook",
-         "angle": "What \"high-leverage operator\" means day to day, and when he knew he was ready."
+         "tone": "Industry deep dive",
+         "title": "Why 2026 is the year contracts became software",
+         "angle": "Borrow credibility from a notable market moment, then show what it means for legal teams."
         },
         {
-         "tone": "Borrowed credibility",
-         "title": "What Shopify taught me that applies to contracts",
-         "angle": "Lessons from building rails for commerce, applied to the rails for agreements."
+         "tone": "Competition",
+         "title": "How we think about competition in legal AI",
+         "angle": "Whether he watches competitors at all, and the one thing Spellbook refuses to copy."
         },
         {
          "tone": "Changed my mind",
-         "title": "One thing I changed my mind on about AI this year",
-         "angle": "The belief he walked in with, the moment it changed, and what he does differently now."
+         "title": "What I changed my mind on about legal AI this year",
+         "angle": "The belief he walked in with, the moment it changed, and what Spellbook does differently now."
+        },
+        {
+         "tone": "Industry predictions",
+         "title": "3 predictions for in-house legal by 2030",
+         "angle": "Three specific calls, each one expandable into its own post later."
+        },
+        {
+         "tone": "Warning signs",
+         "title": "7 signs a legal team isn't ready for AI (yet)",
+         "angle": "A practical checklist that builds trust with buyers who aren't ready to buy today."
+        },
+        {
+         "tone": "Trend-jacking",
+         "title": "What this week's AI model release means for lawyers",
+         "angle": "A fast, calm take on the news everyone's talking about, from someone who knows the market."
+        },
+        {
+         "tone": "Hypothetical scenario",
+         "title": "If I built a legal ops function from scratch today",
+         "angle": "Step by step: the people, process and tools he'd put in place in the first 90 days."
+        }
+       ]
+      },
+      {
+       "author": "dan",
+       "role": "VP Sales",
+       "meta": [
+        "Canada",
+        "1 yr 9 mos in role"
+       ],
+       "voice": "Customer-first · candid",
+       "why": "Closest to buyers every day. Sales-call insights are some of the most trusted, most shared content in B2B.",
+       "ideas": [
+        {
+         "tone": "Sales call trends",
+         "title": "What I'm hearing on every legal-team call right now",
+         "angle": "One trend from the last 2–3 weeks of calls that excites (or worries) him."
+        },
+        {
+         "tone": "Sales FAQ",
+         "title": "The question every legal team asks before signing",
+         "angle": "The most common pre-purchase question, and his honest answer."
+        },
+        {
+         "tone": "Overcoming an objection",
+         "title": "\"We already have a CLM\"",
+         "angle": "Why that objection comes up, and the customer story that shows how the two work together."
+        },
+        {
+         "tone": "Best customer traits",
+         "title": "3 things our best customers have in common",
+         "angle": "A magnet for great-fit buyers, and a polite filter for poor-fit ones."
+        },
+        {
+         "tone": "Customer story",
+         "title": "How a 6-lawyer team doubled its contract throughput",
+         "angle": "Middle-of-funnel tactics from a real rollout, not a product pitch."
+        },
+        {
+         "tone": "Difficult customer",
+         "title": "The deal that almost didn't happen",
+         "angle": "A tough customer, how the team went above and beyond, and what it changed about how they sell."
+        },
+        {
+         "tone": "Easy wins",
+         "title": "3 easy AI wins for a legal team that's still unsure",
+         "angle": "Low-risk first steps that build trust before any buying decision."
+        },
+        {
+         "tone": "Asked for advice",
+         "title": "\"How do I get my GC to say yes to AI?\"",
+         "angle": "The advice he gives most often to legal ops leaders building an internal business case."
+        }
+       ]
+      },
+      {
+       "author": "aman",
+       "role": "VP of Finance",
+       "meta": [
+        "Toronto",
+        "2 yrs 9 mos in role"
+       ],
+       "voice": "Builder · numbers with a story",
+       "why": "A 3x first finance hire who has helped companies scale from 20 to 200+ people. Founders and finance leaders will follow.",
+       "ideas": [
+        {
+         "tone": "Founder-style learnings",
+         "title": "What being the first finance hire 3 times taught me",
+         "angle": "Five specific lessons from building finance, RevOps and data from near zero."
+        },
+        {
+         "tone": "Team growth",
+         "title": "20 → 200+ people: what breaks at every stage",
+         "angle": "The systems that stop working at each size, and what he replaces them with."
+        },
+        {
+         "tone": "Tech stack curation",
+         "title": "The finance stack I'd set up at a Series B SaaS company",
+         "angle": "Every tool, why it's there, and what he'd skip. Very saveable."
         },
         {
          "tone": "Dog-fooding",
-         "title": "How Spellbook uses Spellbook on its own contracts",
-         "angle": "A candid, specific look at the team using its own product."
+         "title": "How our finance team reviews vendor contracts with Spellbook",
+         "angle": "A real internal use case that shows the product is useful beyond the legal team."
         },
         {
-         "tone": "Day in the life",
-         "title": "A week as an Executive Individual Contributor",
-         "angle": "The hour-by-hour calendar of a role most people have never heard of."
+         "tone": "Template giveaway",
+         "title": "My board-deck template for a high-growth SaaS company",
+         "angle": "The components, a story of when it saved a meeting, and the template as a lead magnet."
+        },
+        {
+         "tone": "ICP mistakes",
+         "title": "5 finance mistakes startups make before their Series B",
+         "angle": "Tactical and specific, drawn from supporting $300M+ in capital raised."
         },
         {
          "tone": "AI predictions",
-         "title": "How AI changes the way companies build internal systems",
-         "angle": "Three predictions, and what savvy teams should do to prepare."
+         "title": "How AI changes the finance team by 2030",
+         "angle": "Three predictions, and what savvy finance leaders should do now to prepare."
         },
         {
          "tone": "Hiring traits",
-         "title": "The one trait I look for in engineers building legal AI",
+         "title": "The one trait I look for in every finance hire",
          "angle": "A trait others might disagree with, and one hire who embodies it."
         }
        ]
       },
       {
-       "author": "daniel",
-       "role": "Co-founder",
+       "author": "alex",
+       "role": "VP of Engineering",
        "meta": [
-        "Co-founder"
+        "Montreal",
+        "1 yr 3 mos in role"
        ],
-       "voice": "Customer-close · practical",
-       "why": "Close to customers: the stories and lessons that make Spellbook feel human.",
-       "ideas": [
-        {
-         "tone": "Co-founder story",
-         "title": "How Scott, Matt and I started Spellbook",
-         "angle": "How the three met, what made them a fit, and one memory from the early days."
-        },
-        {
-         "tone": "Customer call anecdote",
-         "title": "What a solo practitioner told me last week",
-         "angle": "One surprising thing a customer said, and the hot take it sparked."
-        },
-        {
-         "tone": "ICP pain points",
-         "title": "5 things that slow down every contract review",
-         "angle": "The real problems lawyers hit, and why they exist in the first place."
-        },
-        {
-         "tone": "Sales FAQ",
-         "title": "The question every legal team asks before signing up",
-         "angle": "The most common pre-purchase question, and the honest answer."
-        },
-        {
-         "tone": "Underrated feature",
-         "title": "The Spellbook feature I wish more lawyers used",
-         "angle": "One overlooked capability, with a customer anecdote to prove it."
-        },
-        {
-         "tone": "Founder learnings",
-         "title": "5 lessons from building Spellbook",
-         "angle": "Specific, unique lessons, each with a short story behind it."
-        },
-        {
-         "tone": "Customer highlight",
-         "title": "How [customer] rebuilt their review process",
-         "angle": "A middle-of-funnel breakdown of a customer's strategy, not a product pitch."
-        },
-        {
-         "tone": "What I wish I knew",
-         "title": "3 things I wish I knew before building for lawyers",
-         "angle": "Honest, founder-to-founder advice that people save."
-        }
-       ]
-      },
-      {
-       "author": "matt",
-       "role": "Co-founder",
-       "meta": [
-        "Co-founder"
-       ],
-       "voice": "Product · craft",
-       "why": "Product craft and the details lawyers love. The shipping-velocity voice.",
+       "voice": "Craft · shipping velocity",
+       "why": "Engineering credibility and shipping velocity: proof that Spellbook builds fast and builds carefully.",
        "ideas": [
         {
          "tone": "Feature curation",
@@ -3352,39 +3417,39 @@ document.addEventListener('DOMContentLoaded', () => {
          "angle": "10–15 releases in one post to show shipping velocity, with the 3 most loved at the top."
         },
         {
-         "tone": "Workflow walkthrough",
-         "title": "Redline an NDA in minutes, step by step",
-         "angle": "The most popular use case, paired with a short screen-recording in Word."
-        },
-        {
-         "tone": "Underrated workflow",
-         "title": "Playbooks: encode your team's standards once",
-         "angle": "A walkthrough of a feature that deserves more love, with a real example."
-        },
-        {
-         "tone": "Checklist",
-         "title": "The 7-step checklist for a clean first-pass review",
-         "angle": "Value-dense and saveable: the steps a great review always follows."
+         "tone": "Product pillars",
+         "title": "3 engineering principles behind reliable legal AI",
+         "angle": "Where he learned them, and one product decision each principle shaped."
         },
         {
          "tone": "Right vs. wrong way",
-         "title": "The right and wrong way to use AI on a contract",
-         "angle": "Contrast the two side by side. These posts tend to spread."
+         "title": "The right and wrong way to evaluate an LLM for legal work",
+         "angle": "Contrast the two side by side. Engineers and legal ops both share these."
+        },
+        {
+         "tone": "Workflow walkthrough",
+         "title": "How a Spellbook feature goes from idea to Word",
+         "angle": "A behind-the-scenes walkthrough with a short screen-recording."
+        },
+        {
+         "tone": "Remote work philosophy",
+         "title": "Building one engineering team across 11 cities",
+         "angle": "How they keep culture, pace and quality high while distributed."
+        },
+        {
+         "tone": "Hiring traits",
+         "title": "The one trait I look for in engineers building legal AI",
+         "angle": "A trait others might disagree with, and one hire who embodies it."
         },
         {
          "tone": "Building in public",
-         "title": "This week at Spellbook",
-         "angle": "Wins, learnings, new hires and releases, with one specific metric and a photo."
+         "title": "This week in Spellbook engineering",
+         "angle": "Wins, learnings and a release, with one specific metric and a team photo."
         },
         {
-         "tone": "Industry predictions",
-         "title": "3 predictions for contract work by 2030",
-         "angle": "Three specific calls, each one expandable into its own post later."
-        },
-        {
-         "tone": "Outstanding hire",
-         "title": "The hire who blew away our expectations",
-         "angle": "What makes them a great fit, with one example of those traits in action."
+         "tone": "AI predictions",
+         "title": "How AI changes the way engineering teams work",
+         "angle": "Three predictions from someone shipping AI to lawyers every week."
         }
        ]
       }
@@ -3437,7 +3502,7 @@ document.addEventListener('DOMContentLoaded', () => {
      "slot": "Launch day · 9:00 AM",
      "pillar": "Launch",
      "time": "1d",
-     "body": "Contracts that manage themselves.\n\n[The new ACM release] is live: renewals, obligations and deadlines tracked automatically, right where your contracts already are. →",
+     "body": "Contracts that manage themselves.\n\nAutonomous Contract Management 2.0 is live: renewals, obligations and deadlines tracked automatically, right where your contracts already are. →",
      "graphic": {
       "style": "png",
       "src": "posts/launch.jpg",
@@ -3522,8 +3587,8 @@ document.addEventListener('DOMContentLoaded', () => {
    "items": [
     {
      "type": "campaign_timeline",
-     "event": "Next launch · sample: [a new Autonomous Contract Management release]",
-     "goal": "Target: the biggest share of voice of the quarter, and [X] demo requests from social in launch week, tracked with UTMs on every link.",
+     "event": "Autonomous Contract Management 2.0 · October 14 launch (sample plan)",
+     "goal": "Target: the biggest share of voice of the quarter, and 250 demo requests from social in launch week, tracked with UTMs on every link.",
      "badge": "Launch plan",
      "phases": [
       {
@@ -3538,7 +3603,7 @@ document.addEventListener('DOMContentLoaded', () => {
           "type": "linkedin",
           "author": "spellbook",
           "time": "10d",
-          "body": "Contracts that manage themselves.\n\n[launch date]. 👀",
+          "body": "Contracts that manage themselves.\n\nOctober 14. 👀",
           "graphic": {
            "style": "png",
            "src": "posts/launch.jpg",
@@ -3587,7 +3652,7 @@ document.addEventListener('DOMContentLoaded', () => {
           "time": "Mon 4:02 PM",
           "subject": "You're first: contracts that manage themselves ✍️",
           "preview": "Early access, before tomorrow's launch",
-          "body": "Hi {{first_name}},\n\nTomorrow we launch [the new ACM release], and as a Spellbook customer, you get to see it first.\n\n- Renewals and deadlines tracked automatically\n- Obligations surfaced to the right person before they're due\n- All inside the tools your team already uses\n\nWe'd love your honest feedback in week one.",
+          "body": "Hi {{first_name}},\n\nTomorrow we launch Autonomous Contract Management 2.0, and as a Spellbook customer, you get to see it first.\n\n- Renewals and deadlines tracked automatically\n- Obligations surfaced to the right person before they're due\n- All inside the tools your team already uses\n\nWe'd love your honest feedback in week one.",
           "cta": "Get early access",
           "signoff": "The Spellbook team"
          }
@@ -3606,7 +3671,7 @@ document.addEventListener('DOMContentLoaded', () => {
           "type": "x_post",
           "author": "spellbook",
           "time": "now",
-          "body": "Contracts that manage themselves.\n\n[The new ACM release] is live. →",
+          "body": "Contracts that manage themselves.\n\nAutonomous Contract Management 2.0 is live. →",
           "graphic": {
            "style": "png",
            "src": "posts/launch.jpg",
@@ -3626,7 +3691,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
          "channel": "LinkedIn",
          "title": "Exec posts",
-         "desc": "Scott, you and Jean-Michel each post your own angle on why it matters."
+         "desc": "Scott, you and Chris each post your own angle on why it matters."
         }
        ]
       },
@@ -3690,7 +3755,7 @@ document.addEventListener('DOMContentLoaded', () => {
       {
        "tone": "Creator DM",
        "title": "\"Lawyers rate real clauses\" guest",
-       "angle": "Hi [name]! Your breakdown of [topic] was the clearest one I've read. We're starting a video series where lawyers rate real clauses. Paid, low-effort, and you keep the footage. Open to a chat?"
+       "angle": "Hi Priya! Your breakdown of indemnity caps was the clearest one I've read. We're starting a video series where lawyers rate real clauses. Paid, low-effort, and you keep the footage. Open to a chat?"
       },
       {
        "tone": "Journalist",
@@ -3939,11 +4004,11 @@ document.addEventListener('DOMContentLoaded', () => {
   "exec-linkedin": [
    [
     "C",
-    "Even Scott has a plan?"
+    "All five leaders?!"
    ],
    [
     "D",
-    "30 minutes with each leader and I'll nail their voice."
+    "30 minutes each and I'll nail their voice."
    ]
   ],
   "x": [
@@ -3953,7 +4018,7 @@ document.addEventListener('DOMContentLoaded', () => {
    ],
    [
     "D",
-    "Contracts are APIs. Jean-Michel said it first. 🧵"
+    "Contracts are APIs. Great line to own. 🧵"
    ]
   ],
   "instagram": [
