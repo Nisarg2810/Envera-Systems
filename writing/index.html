@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Ghostwriting Portfolio</title>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<style>
+  :root {
+    --grad-start: #3B4FE0; --grad-end: #7C3AED; --bg: #F5F6FA;
+    --text: #171330; --muted: #6B7280;
+    --shadow-lg: 0 20px 60px rgba(20,15,60,0.18);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 32px 24px 70px; }
+
+  .hero {
+    background: linear-gradient(135deg, var(--grad-start) 0%, var(--grad-end) 100%);
+    border-radius: 24px; padding: 48px 40px; text-align: center; color: #fff;
+    position: relative; overflow: hidden; box-shadow: var(--shadow-lg); margin-bottom: 36px;
+  }
+  .hero::before { content: ""; position: absolute; top: -30%; right: -8%; width: 420px; height: 420px; background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 70%); }
+  .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.25); padding: 6px 16px; border-radius: 999px; font-size: 13px; font-weight: 500; margin-bottom: 20px; position: relative; }
+  .hero h1 { font-size: clamp(26px, 4vw, 40px); font-weight: 800; line-height: 1.15; margin: 0 0 10px; position: relative; letter-spacing: -0.01em; }
+  .hero p.sub { font-size: 15px; line-height: 1.6; max-width: 620px; margin: 0 auto; color: rgba(255,255,255,0.92); position: relative; }
+
+  .section-heading { font-size: 16px; font-weight: 800; margin: 0 0 14px; display: flex; align-items: center; gap: 8px; }
+
+  /* Fixed-column layout: real containers, not CSS columns, so expanding one card never reflows the rest */
+  .post-columns { display: flex; gap: 18px; align-items: flex-start; margin-bottom: 36px; }
+  .post-col { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+  @media (max-width: 1000px) { .post-columns[data-cols="3"] .post-col:nth-child(3) { display: none; } }
+  @media (max-width: 640px) { .post-columns[data-cols="3"] .post-col:nth-child(2),
+                              .post-columns[data-cols="3"] .post-col:nth-child(3) { display: none; } }
+
+  .li-post {
+    background: #ffffff; border: 1px solid rgba(0,0,0,0.08); border-radius: 8px;
+    margin-bottom: 18px; width: 100%;
+    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.04);
+    position: relative;
+  }
+  .featured-ribbon {
+    position: absolute; top: -8px; left: 14px; background: linear-gradient(135deg, var(--grad-start), var(--grad-end));
+    color: #fff; font-size: 10.5px; font-weight: 800; padding: 4px 10px; border-radius: 999px;
+    box-shadow: 0 3px 8px rgba(59,79,224,0.35);
+  }
+  .li-post-header { display: flex; align-items: flex-start; gap: 8px; padding: 12px 14px 0; }
+  .li-avatar { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; flex-shrink: 0; background: #ccc; }
+  .li-avatar-fallback { width: 42px; height: 42px; border-radius: 50%; display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:13px;flex-shrink:0; }
+  .li-headtext { flex: 1; min-width: 0; }
+  .li-name { font-size: 13.5px; font-weight: 700; color: rgba(0,0,0,0.9); line-height: 1.3; }
+  .li-name .li-degree { font-weight: 400; color: rgba(0,0,0,0.6); font-size: 12.5px; }
+  .li-headline { font-size: 12px; color: rgba(0,0,0,0.6); line-height: 1.35; margin-top: 1px; }
+  .li-meta { font-size: 11.5px; color: rgba(0,0,0,0.6); margin-top: 2px; }
+  .li-more { color: rgba(0,0,0,0.5); font-size: 18px; padding: 4px; cursor: pointer; flex-shrink: 0; }
+  .li-post-body { padding: 8px 14px 4px; }
+  .li-post-text { font-size: 13.5px; line-height: 1.45; color: rgba(0,0,0,0.9); white-space: pre-wrap; }
+  .li-post-text.truncated { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .li-seemore { color: rgba(0,0,0,0.6); font-weight: 600; cursor: pointer; font-size: 13px; display: block; margin-top: 2px; }
+  .li-seemore:hover { text-decoration: underline; }
+  .li-engagement { display: flex; align-items: center; justify-content: space-between; padding: 8px 14px; font-size: 12px; color: rgba(0,0,0,0.6); }
+  .li-reactions { display: flex; align-items: center; gap: 4px; }
+  .li-reaction-icons { display: flex; }
+  .li-reaction-icons span { width: 15px; height: 15px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 8px; margin-left: -4px; border: 1.5px solid #fff; }
+  .li-reaction-icons span:first-child { margin-left: 0; }
+  .li-divider { border-top: 1px solid rgba(0,0,0,0.08); margin: 0 14px; }
+  .li-actions { display: flex; padding: 4px 6px; }
+  .li-action-btn { flex: 1; display: flex; align-items: center; justify-content: center; gap: 5px; padding: 8px 4px; font-size: 12px; font-weight: 600; color: rgba(0,0,0,0.6); border-radius: 6px; }
+
+  .quote-card {
+    background: linear-gradient(135deg, var(--grad-start), var(--grad-end));
+    border-radius: 14px; padding: 30px 24px; margin-bottom: 18px; width: 100%;
+    color: #fff; text-align: center; box-shadow: var(--shadow-lg); position: relative;
+  }
+  .quote-mark { font-size: 34px; font-weight: 800; opacity: 0.5; line-height: 1; margin-bottom: 6px; }
+  .quote-text { font-size: 17px; font-weight: 700; line-height: 1.45; font-style: italic; }
+
+  .footnote { text-align: center; margin-top: 40px; font-size: 8px; color: #C3C6D4; letter-spacing: 0.01em; opacity: 0.7; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="hero-badge">✓ Writing Samples</div>
+    <h1>LinkedIn Ghostwriting Portfolio</h1>
+    <p class="sub">A collection of few LinkedIn posts</p>
+  </div>
+
+  <div id="featuredSection" style="display:none;">
+    <div class="section-heading">⭐ Featured</div>
+    <div class="post-columns" id="featuredColumns" data-cols="3"></div>
+  </div>
+
+  <div class="section-heading">All Posts</div>
+  <div class="post-columns" id="postColumns" data-cols="3">
+    <div style="text-align:center;padding:40px;color:var(--muted);">Loading posts…</div>
+  </div>
+
+  <div class="footnote">Some portfolio entries are conceptual or practice projects created for demonstration purposes and were not completed as part of an active client engagement or commercial contract. Any performance metrics (e.g., impressions, engagement, or reach) shown are illustrative interface designs only and do not represent actual campaign results.</div>
+</div>
+
+<script>
+/* ============ Visitor tracking (EmailJS) ============
+   Page and interaction data only: no IP address, geolocation or ISP lookups. */
+const EMAILJS_PUBLIC_KEY = "QX_zYoZlN7ibZXYNv";
+const EMAILJS_SERVICE_ID = "nisargmehta2810";
+const EMAILJS_TEMPLATE_ID = "template_wa24pe8";
+
+if (window.emailjs) {
+  emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+}
+
+function sendTrackingEmail(eventType, extra) {
+  extra = extra || {};
+  if (!window.emailjs) {
+    // library still loading, retry shortly
+    setTimeout(function () { sendTrackingEmail(eventType, extra); }, 500);
+    return;
+  }
+  const params = Object.assign({
+    event_type: eventType,
+    time: new Date().toLocaleString(),
+    website: window.location.href,
+    page_title: document.title,
+    user_agent: navigator.userAgent,
+    referrer: document.referrer || 'direct'
+  }, extra);
+
+  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params)
+    .catch(function (err) { console.error('EmailJS tracking error:', err); });
+}
+
+// Notify when someone opens the page
+sendTrackingEmail('Page Opened');
+
+// Notify when someone clicks any button on the page (Like/Comment/Repost/Send, ...see more, •••)
+document.addEventListener('click', function (e) {
+  const btn = e.target.closest('.li-action-btn, .li-seemore, .li-more');
+  if (btn) {
+    sendTrackingEmail('Button Clicked', { button_label: btn.textContent.trim() });
+  }
+});
+/* ============ End visitor tracking ============ */
+
+let POSTS = [];
+
+function escapeHtml(str) {
+  const d = document.createElement('div');
+  d.textContent = str || '';
+  return d.innerHTML;
+}
+function initials(name) {
+  const parts = (name || '').split(/[\s,]+/).filter(w => w && /[A-Za-z]/.test(w[0]));
+  return parts.length > 1 ? (parts[0][0] + parts[1][0]).toUpperCase() : (parts[0] || '?').slice(0,2).toUpperCase();
+}
+const AVATAR_COLORS = ['#3B4FE0','#7C3AED','#16A34A','#C4762A','#D4526E','#2F80D6','#0D9488'];
+function colorFor(name) {
+  let h = 0;
+  for (let i = 0; i < name.length; i++) h = name.charCodeAt(i) + ((h << 5) - h);
+  return AVATAR_COLORS[Math.abs(h) % AVATAR_COLORS.length];
+}
+function randInt(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+const TIMESTAMPS = ['3h', '6h', '11h', '1d', '2d', '3d', '4d', '5d', '1w', '2w', '3w'];
+
+function renderQuote(post) {
+  return `
+    <div class="quote-card">
+      ${post.featured ? '<div class="featured-ribbon">⭐ Featured</div>' : ''}
+      <div class="quote-mark">"</div>
+      <div class="quote-text">${escapeHtml(post.body)}</div>
+    </div>
+  `;
+}
+
+function renderPost(post) {
+  const color = colorFor(post.name);
+  const avatarHtml = post.photo
+    ? `<img class="li-avatar" src="${post.photo}" alt="${escapeHtml(post.name)}" referrerpolicy="no-referrer" onerror="this.outerHTML='<div class=&quot;li-avatar-fallback&quot; style=&quot;background:${color}&quot;>${initials(post.name)}</div>'">`
+    : `<div class="li-avatar-fallback" style="background:${color}">${initials(post.name)}</div>`;
+
+  const uid = 'lp_' + Math.random().toString(36).slice(2, 9);
+  const reactions = randInt(40, 220);
+  const comments = randInt(3, Math.max(4, Math.floor(reactions / 10)));
+  const reposts = randInt(1, Math.max(2, Math.floor(reactions / 22)));
+  const timestamp = TIMESTAMPS[randInt(0, TIMESTAMPS.length - 1)];
+
+  return `
+    <div class="li-post">
+      ${post.featured ? '<div class="featured-ribbon">⭐ Featured</div>' : ''}
+      <div class="li-post-header">
+        ${avatarHtml}
+        <div class="li-headtext">
+          <div class="li-name">${escapeHtml(post.name)} <span class="li-degree">· 1st</span></div>
+          <div class="li-headline">${escapeHtml(post.role)}</div>
+          <div class="li-meta">${timestamp} · 🌐</div>
+        </div>
+        <div class="li-more">•••</div>
+      </div>
+      <div class="li-post-body">
+        <div class="li-post-text truncated" id="${uid}">${escapeHtml(post.body)}</div>
+        <span class="li-seemore" data-target="${uid}">…see more</span>
+      </div>
+      <div class="li-engagement">
+        <div class="li-reactions">
+          <div class="li-reaction-icons"><span style="background:#1878C7">👍</span><span style="background:#DD4A4A">❤️</span><span style="background:#E8A33D">💡</span></div>
+          <span>${reactions}</span>
+        </div>
+        <div>${comments} comments · ${reposts} reposts</div>
+      </div>
+      <div class="li-divider"></div>
+      <div class="li-actions">
+        <div class="li-action-btn">👍 Like</div>
+        <div class="li-action-btn">💬 Comment</div>
+        <div class="li-action-btn">🔁 Repost</div>
+        <div class="li-action-btn">➤ Send</div>
+      </div>
+    </div>
+  `;
+}
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function declusterBySameName(arr) {
+  const a = [...arr];
+  for (let i = 1; i < a.length; i++) {
+    if (a[i].type === 'standard' && a[i - 1].type === 'standard' && a[i].name === a[i - 1].name) {
+      for (let j = i + 1; j < a.length; j++) {
+        if (!(a[j].type === 'standard' && a[j].name === a[i - 1].name)) {
+          [a[i], a[j]] = [a[j], a[i]];
+          break;
+        }
+      }
+    }
+  }
+  return a;
+}
+
+// KEY FIX: distribute posts into real, independent column containers
+// instead of CSS column-count, so expanding one card never reflows others.
+function renderIntoColumns(containerId, posts, numCols) {
+  const container = document.getElementById(containerId);
+  container.setAttribute('data-cols', numCols);
+  const cols = [];
+  for (let i = 0; i < numCols; i++) {
+    const col = document.createElement('div');
+    col.className = 'post-col';
+    cols.push(col);
+  }
+  posts.forEach((post, i) => {
+    const html = post.type === 'quote' ? renderQuote(post) : renderPost(post);
+    cols[i % numCols].insertAdjacentHTML('beforeend', html);
+  });
+  container.innerHTML = '';
+  cols.forEach(c => container.appendChild(c));
+
+  container.querySelectorAll('.li-seemore').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = document.getElementById(btn.dataset.target);
+      target.classList.toggle('truncated');
+      btn.textContent = target.classList.contains('truncated') ? '…see more' : 'see less';
+    });
+  });
+}
+
+function getColumnCount() {
+  const w = window.innerWidth;
+  if (w <= 640) return 1;
+  if (w <= 1000) return 2;
+  return 3;
+}
+
+function renderAll() {
+  const numCols = getColumnCount();
+
+  const featured = POSTS.filter(p => p.featured).slice(0, 5);
+  const rest = POSTS.filter(p => !p.featured);
+
+  if (featured.length > 0) {
+    document.getElementById('featuredSection').style.display = 'block';
+    renderIntoColumns('featuredColumns', featured, Math.min(numCols, featured.length) || 1);
+  } else {
+    document.getElementById('featuredSection').style.display = 'none';
+  }
+
+  const mixed = declusterBySameName(shuffle(rest));
+  renderIntoColumns('postColumns', mixed, numCols);
+}
+
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    const newCols = getColumnCount();
+    if (newCols !== parseInt(document.getElementById('postColumns').dataset.cols)) renderAll();
+  }, 250);
+});
+
+async function loadPosts() {
+  try {
+    const res = await fetch('./posts.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    POSTS = await res.json();
+    renderAll();
+  } catch (err) {
+    document.getElementById('postColumns').innerHTML = `
+      <div style="text-align:center;padding:40px;color:var(--muted);max-width:480px;margin:0 auto;">
+        Couldn't load posts.json. Make sure it's sitting in the same folder as this page, and that this page is being served over http/https (like GitHub Pages), not opened directly as a local file.
+        <br><br><span style="font-size:11px;opacity:0.7;">${escapeHtml(err.message)}</span>
+      </div>
+    `;
+  }
+}
+
+loadPosts();
+</script>
+
+</body>
+</html>
