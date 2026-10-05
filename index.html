@@ -310,6 +310,23 @@
     .pub .go i { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--pb); font-style: normal; transition: transform .25s; }
     .pub:hover .go i { transform: rotate(-30deg); }
     @media (max-width: 980px) { .pubs { grid-template-columns: 1fr; } }
+
+    .pub button.go { border: 0; background: none; padding: 0; font: inherit; font-weight: 600; cursor: pointer; text-align: left; }
+    .read-in .meta-note { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+    .li-head { margin-top: 70px; max-width: 760px; }
+    .li-head h3 { font-size: clamp(28px, 3vw, 40px); letter-spacing: -0.035em; font-weight: 600; line-height: 1.1; }
+    .li-head p { margin-top: 10px; color: var(--muted); font-size: 17px; }
+    .li-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 26px; }
+    .li-grid .post { padding: 24px; }
+    .li-grid .post h3 { font-size: 21px; line-height: 1.18; letter-spacing: -0.02em; font-weight: 600; }
+    .li-grid .post p { font-size: 15px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .li-grid .post .who { display: flex; align-items: center; gap: 10px; font-size: 13px; color: #4a463f; position: relative; z-index: 3; }
+    .li-grid .post .who i { width: 34px; height: 34px; border-radius: 50%; background: #fff; display: grid; place-items: center; font-style: normal; font-weight: 700; font-size: 12px; color: var(--pc); }
+    .li-grid .post.hide { display: none; }
+    .li-more { margin-top: 22px; display: flex; justify-content: center; }
+    .read-in .li-text p { white-space: pre-line; }
+    @media (max-width: 980px) { .li-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 640px) { .li-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -610,7 +627,7 @@
           <h3>9 things to consider while designing <span>your trade show booth.</span></h3>
           <p class="pub-ex">“Your trade show booth can make or break your presence, right? … This is not just about aesthetics; it is about creating an interactive experience for your attendees.”</p>
           <div class="pub-pts"><span>Visitor flow</span><span>Storage &amp; power</span><span>Multi-purpose furniture</span><span>Interactive elements</span><span>Accessibility</span><span>Lighting</span><span>Easy assembly</span><span>Social media</span><span>Sustainability</span></div>
-          <a class="go" href="https://usawire.com/9-things-to-consider-while-designing-your-trade-show-booth/" target="_blank" rel="noopener"><i>↗</i>Read on USA Wire</a>
+          <button class="go" type="button" data-story="booth"><i>→</i>Read the piece</button>
         </article>
         <article class="pub clay rv" style="--pb: var(--peach); --pc: var(--peach-ink); --d:.08s">
           <div class="pub-cover"><span class="pub-emo">🗓️</span><span class="pub-src">Mirror Review</span></div>
@@ -618,16 +635,22 @@
           <h3>How to plan your next <span>trade show exhibition.</span></h3>
           <p class="pub-ex">“So, you've got a trade show exhibition coming up? We all know how exhibiting at a trade show requires a lot of planning and better execution skills.”</p>
           <div class="pub-pts"><span>Clear goals</span><span>Target audience</span><span>Budget</span><span>Book space early</span><span>Booth design</span><span>Train your staff</span><span>A compelling message</span><span>Marketing plan</span><span>Fast follow-up</span></div>
-          <a class="go" href="https://www.mirrorreview.com/plan-your-next-trade-show-exhibition/" target="_blank" rel="noopener"><i>↗</i>Read on Mirror Review</a>
+          <button class="go" type="button" data-story="plan"><i>→</i>Read the piece</button>
         </article>
-        <a class="pub pub-li clay rv" href="writing/" style="--pb: var(--blue); --pc: var(--blue-ink); --d:.16s">
+        <a class="pub pub-li clay rv" href="#li-posts" style="--pb: var(--blue); --pc: var(--blue-ink); --d:.16s">
           <div class="pub-cover"><span class="pub-emo">✍️</span><span class="pub-src">LinkedIn</span></div>
           <div class="pt"><span>Ghostwriting portfolio</span><span>16 posts</span></div>
           <h3>LinkedIn posts for founders and leaders, <span>in their voice.</span></h3>
           <p class="pub-ex">B2B SaaS, cybersecurity, AI, accounting, hospitality tech and product management: long-form posts written to sound like the person posting them.</p>
-          <span class="go"><i>→</i>Browse the posts</span>
+          <span class="go"><i>↓</i>Read the posts</span>
         </a>
       </div>
+      <div class="li-head rv" id="li-posts">
+        <h3>LinkedIn ghostwriting</h3>
+        <p>Long-form posts written in founders' and leaders' voices. Industries shown, names kept private. Tap any post to read it.</p>
+      </div>
+      <div class="posts li-grid" id="liGrid"></div>
+      <div class="li-more"><button class="btn dark" type="button" id="liMore" hidden>Show all posts</button></div>
       <p class="more-soon rv">Bylines on the published pieces belong to the publications and contributors; I wrote the words.</p>
     </section>
 
@@ -764,6 +787,90 @@
           <p>I'm curious to hear from other marketers who have worked across different cultures. Have you ever had to completely tone down a campaign that worked overseas just to make it fit the Canadian market? Or vice versa?</p>
       </template>
 
+      <template id="st-booth" data-title="9 things to consider while designing your trade show booth 🏗️">
+          <p class="meta-note">Ghostwritten · published on USA Wire · June 2024</p>
+          <p>Your trade show booth can make or break your presence, right?</p>
+          <p>And when you exhibit at a trade show, there will be countless booths along with yours that attempt for attention but how do you make yours stand out?</p>
+          <p>The answer is in strategic booth design for Las Vegas trade show booths. This is not just about aesthetics; it is about creating an interactive experience for your attendees.</p>
+          <p>So, let us help you with your trade show booth design that’s both functional and unforgettable, ensuring your next show is an ultimate success.</p>
+          <h4>1.Visitors’ Flow</h4>
+          <p>Be it you or me, we want more people to visit our booth, right?</p>
+          <p>Here is a quick checklist for you to bring your target audience to your booth without going wrong:</p>
+          <ul><li>Plan layout with clear entrance/exit points, open spaces, and zones.</li><li>Position interactive stations and staff strategically.</li><li>Place important displays at eye level and ensure accessibility.</li><li>Continuously monitor and adjust based on visitor movement.</li></ul>
+          <h4>2. Storage and Electrical Needs</h4>
+          <p>Imagine this: attendees are excited to see your interactive product demo, but then the power cord doesn’t reach the designated spot, or the outlets available are not enough.</p>
+          <p>In another scenario, you have nowhere to put staff belongings or extra boxes, which will make your booth cluttered.</p>
+          <p>Isn’t it a major failure?</p>
+          <p>So, you can specify your inventory and power needs while considering your usage to design your booth effectively.</p>
+          <h4>3. Multi-purpose Furniture</h4>
+          <p>Multi-purpose furniture in trade show booth design ideas allow you to do more with less. Moreover, it also helps you utilize the booth space while avoiding spending more money on extra space and furniture.</p>
+          <p>For instance, a simple pop-up counter can be used for product demonstrations in the morning and later on, can be transformed into a comfortable meeting space in the evening for consultations.</p>
+          <h4>4. Interactive Elements</h4>
+          <p>When you have static displays and brochures at your booth, it can make your booth design boring. To avoid typical and traditional booth elements, you can try modern and interactive elements like touchscreens and interactive product demos.</p>
+          <p>Having interactive elements at your trade show booth is also an amazing way to stop visitors by your booth and invite them to talk with your sales team.</p>
+          <p>For example, if you have a clothing brand, you can offer a custom t-shirt design station with a touchscreen interface. Your attendees can choose colors and fonts and even upload their graphics to create a personalized t-shirt, ultimately making them enjoy the whole process.</p>
+          <h4>5. Accessibility Features</h4>
+          <p>Passing on a positive brand image is extremely important and it shows you care about creating a welcoming environment for everyone.</p>
+          <p>To be inclusive of the accessibility feature, you can design your booth in a way with enough space for wheelchairs and walkers to move around. You can also have your offerings displayed on lowered counters throughout the booth, allowing people in wheelchairs to easily browse your offerings</p>
+          <h4>6. Lighting Design</h4>
+          <p>Your booth’s lighting has to be accurate because if it is dull, visitors won’t be able to see anything properly, and if it is too bright, it will pinch their eyes.</p>
+          <p>To incorporate this, you have to identify the type of products you’re showcasing.Do they require bright, cool lighting to emphasize technical details, or would warmer lighting create a more inviting atmosphere?</p>
+          <p>For a food brand, picture a booth design with strategically placed task lighting that showcases fresh ingredients and the mouthwatering qualities of their food items.</p>
+          <h4>7. Ease of Assembly and Disassembly</h4>
+          <p>Visualize this: you’ve got a fantastic trade show booth design, eye-catching graphics, and incredible products. But setting it up takes hours, and dismantling it out feels like an eternity.</p>
+          <p>To avoid time and effort being wasted in dismantling, you can consider utilizing a modular system, where booth elements like walls, shelves, and counters can be easily attached and detached using simple mechanisms like interlocking panels, clips, or Velcro.</p>
+          <p>You can also hire trade show booth designing companies like Pure Exhibits to help you with your end-to-end booth requirements, starting from booth design to shipping, assembling, and dismantling at the trade show.</p>
+          <h4>8. Social Media Integration</h4>
+          <p>Incorporating social media into your booth design is an amazing way to make it engaging. It also helps you improve the attendee’s experience, generate buzz, and expand your reach beyond the booth’s physical limitations.</p>
+          <p>You can consider using a social media wall as your booth backdrop. This wall can showcase attendees’ posts using your hashtags, which ultimately helps your brand to gain more visibility.To incorporate social media integration in your booth design, you can utilize a social media wall and showcase tweets and pictures from attendees mentioning your brand along with the event hashtag.</p>
+          <h4>9. Sustainability Efforts</h4>
+          <p>When you choose to use sustainable materials and minimize waste, you contribute to a greener trade show environment.</p>
+          <p>Following are some things that you can consider for making your booth design sustainable.</p>
+          <ul><li>Use fabric banners and signage that can be rolled up and stored for future use.</li><li>Digital displays to showcase information instead of printed brochures.</li><li>Consider natural materials like bamboo for flooring, furniture, or accents.</li><li>If printed materials are necessary, use recycled paper and keep them minimal.</li></ul>
+          <h4>Make Your Booth the Shining Star of the Show, Not a Forgotten Corner.</h4>
+          <p>When considering brand presence with a trade show booth, remember that your booth is a reflection of your brand. So introduce it with personality, prioritize functionality, and don’t be afraid to get creative. Adapt these booth design tips for your next exhibition, and you will get a showstopper booth design that engages attendees, facilitates engaging conversations, and leaves a lasting impression even after the lights get dim</p>
+      </template>
+      <template id="st-plan" data-title="How to plan your next trade show exhibition 🗓️">
+          <p class="meta-note">Ghostwritten · published on Mirror Review · May 2024</p>
+          <p>So, you’ve got a trade show exhibition coming up?</p>
+          <p>We all know how exhibiting at a trade show requires a lot of planning and better execution skills. And that’s why, we have got you covered with all the aspects that will ultimately help your brand to stand out at the trade show.</p>
+          <p>Let’s get started.</p>
+          <h4>9 Essential Steps to Plan Your Next Trade Show Exhibition</h4>
+          <h4>1. Define Clear Goals</h4>
+          <p>The first important thing you should ask yourself while exhibiting at a trade show is:</p>
+          <ul><li>What are your objectives for participating in the trade show?</li><li>How is your participation going to benefit your organization?</li><li>Are you looking for lead generation?</li><li>Are you going to be there to make connections?</li></ul>
+          <p>One possible reason could be that you are participating just because your competitors are participating. But that shouldn’t be the case, you need to finalize your goals first to proceed with the further steps.</p>
+          <h4>2. Identify Your Target Audience</h4>
+          <p>Now that you have identified your objectives, you need a thorough understanding of what kind of audience you want to interact with.</p>
+          <p>Once you have a better idea about the visitors you have to check if they align with the objectives you have set.</p>
+          <p>You can check if visitors are matching with your target audience by seeing their age, gender, occupation, and location according to your company’s offerings.</p>
+          <h4>3. Plan Your Budget Thoroughly</h4>
+          <p>When exhibiting at a trade show, budget plays an important role. You can assess your budget by identifying essential expenses and areas for optimization. Having a budget helps you ensure fiscal discipline throughout your executions.</p>
+          <p>However, keep in mind that there can be some unexpected factors that can take place during the trade show so have some free hand in your budget planning.</p>
+          <h4>4. Secure Your Booth Space Early</h4>
+          <p>Since you are aware of how much you will spend on the booth space, it is advisable to book it prior to the event because initially, you might get a better space for the same amount. If you keep delaying, you might have to sacrifice your choices to stick to your budget.</p>
+          <p>And who are we kidding?</p>
+          <p>We all know that there are limited booth areas for visitors’ attraction and higher competition, so keep yourself ahead of others.</p>
+          <h4>5. Design Your Booth Strategically</h4>
+          <p>Every exhibitor wants their booths to look appealing to the audience, right? Because if they are not appealing, they can’t bring you visitors, and if there are fewer visitors, what about ROI?</p>
+          <p>Designing your exhibit booth strategically helps you attract visitors and communicate your brand message effectively to complement your offerings and persuade visitors.For example, if you are exhibiting in Las Vegas, your outsourced exhibit booth designing agency should be able to arrange the logistics within Las Vegas to maintain the costs and any last-minute changes.</p>
+          <h4>6. Train Your Booth Staff Effectively</h4>
+          <p>You can only be impactful if you train your staff to be engaging and communicative. And that, too, you cannot do that at the last minute.</p>
+          <p>To leave a lasting impression in the minds of visitors, there has to be effectiveness from your team. A well-trained team is a crucial part of your exhibition since people connect more with people irrespective of the company’s offerings.</p>
+          <p>Your team should not only understand your offerings but also need to be acquainted with your audience, their preferences, and expectations, which will eventually enable better connections.</p>
+          <h4>7. Deliver a Compelling Message</h4>
+          <p>Delivering a compelling message that aligns with your offerings at the trade show is extremely important to create buzz and persuade potential customers to engage, ultimately driving sales and business growth.</p>
+          <p>Emotions are more powerful than products and services, so focus more on delivering a message that can connect with your audience instantly.</p>
+          <h4>8. Develop a Strong Marketing Plan</h4>
+          <p>Now is the time to create an exceptional marketing plan to help your organization bring footfall to your booth during the trade show.You need to do social media, email marketing, and other engagement strategies based on your industry, to gain potential customers during the trade show.</p>
+          <p>For example, if your company deals in the B2B healthcare sector, it’s recommended to market your exhibition at local hospitals too.</p>
+          <h4>9. Follow Up on Leads Promptly</h4>
+          <p>Who doesn’t want their potential leads to turn into actual customers? To do so, it is necessary that after the trade show, you follow up with the people who visited your booth and remind them about your brand again and again in an interesting way.</p>
+          <p>But make sure you nurture them and not spam them. Aggressive and boring follow-ups would likely snatch away your leads.</p>
+          <p>It’s recommended to follow up instantly within two to three days. The more you delay, the more likely that your competitors will take over.</p>
+          <h4>Planning Your Trade Show is Not Enough, Execution is</h4>
+          <p>We hope this guide has helped you with the initial steps of planning a trade show exhibition. But as they say, it’s all in the execution so, no matter how amazing your plan is, your execution needs to be solid.For that, make sure you have a well-defined team who can turn your trade show planning into reality, and if you have outsourced any part of your execution such as booth rentals, make sure you’ve got the right one.</p>
+      </template>
       <dialog class="read" id="storyDlg" aria-labelledby="storyTitle">
         <div class="read-top"><b id="storyTitle"></b><button class="x" type="button" data-close aria-label="Close">×</button></div>
         <div class="read-in" id="storyBody"></div>
@@ -886,6 +993,40 @@
         w.classList.add('on'); sheet.innerHTML = imgs(k) + `<span class="cap">${PV[k].cap}</span>`; sheet.hidden = false;
         if (!fine) sheet.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });
+    });
+  })();
+
+  /* ---------- LinkedIn ghostwriting: cards from writing/posts.json, read in the same reader ---------- */
+  (() => {
+    const grid = document.getElementById('liGrid'), more = document.getElementById('liMore');
+    const COLS = [['var(--blue)', 'var(--blue-ink)'], ['var(--pink)', 'var(--pink-ink)'], ['var(--mint)', 'var(--mint-ink)'], ['var(--butter)', 'var(--butter-ink)'], ['var(--peach)', 'var(--peach-ink)']];
+    const esc = t => String(t).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    const SHOW = 6; let POSTS = [];
+    fetch('writing/posts.json').then(r => r.json()).then(list => {
+      POSTS = list.filter(p => p.type !== 'quote');
+      grid.innerHTML = POSTS.map((p, i) => {
+        const [bg, ink] = COLS[i % COLS.length];
+        const paras = p.body.split(/\n\s*\n/).map(x => x.trim()).filter(Boolean);
+        const first = paras[0].split('\n')[0];
+        const title = first.length > 110 ? first.slice(0, 107).replace(/\s+\S*$/, '') + '…' : first;
+        const ex = paras.slice(1).join(' ').replace(/\s+/g, ' ');
+        const ini = p.name.split(/[\s,/&]+/).filter(Boolean).slice(0, 2).map(w => w[0]).join('').toUpperCase();
+        return `<button class="post clay${i >= SHOW ? ' hide' : ''}" type="button" data-li="${i}" style="--pb: ${bg}; --pc: ${ink}">
+          <div class="pt"><span>${esc(p.name)}</span><span>Ghostwritten</span></div>
+          <h3>${esc(title)}</h3><p>${esc(ex)}</p>
+          <span class="go"><i>→</i>Read the post</span></button>`;
+      }).join('');
+      if (POSTS.length > SHOW) { more.hidden = false; more.textContent = `Show all ${POSTS.length} posts`; }
+    }).catch(() => { grid.innerHTML = '<p class="more-soon">The posts are taking a coffee break. Try again in a moment.</p>'; });
+    more.addEventListener('click', () => { grid.querySelectorAll('.post.hide').forEach(b => b.classList.remove('hide')); more.hidden = true; });
+    const dlg = document.getElementById('storyDlg');
+    grid.addEventListener('click', e => {
+      const b = e.target.closest('[data-li]'); if (!b) return;
+      const p = POSTS[+b.dataset.li];
+      document.getElementById('storyTitle').textContent = p.name + ' · LinkedIn post';
+      const body = document.getElementById('storyBody');
+      body.innerHTML = `<p class="meta-note">Ghostwritten LinkedIn post · ${esc(p.name)}</p><div class="li-text">${p.body.split(/\n\s*\n/).map(x => `<p>${esc(x.trim())}</p>`).join('')}</div>`;
+      dlg.showModal(); dlg.scrollTop = 0; body.parentElement.scrollTop = 0;
     });
   })();
   </script>
