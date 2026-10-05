@@ -270,29 +270,29 @@
       .hero .sub, .hero .cta { opacity: 1; }
     }
 
-    /* ---------- proof of work: hover the words ---------- */
-    .pw-line .nw { white-space: nowrap; }
-    .pw-line { font-size: clamp(26px, 3.6vw, 46px); line-height: 1.45; letter-spacing: -0.03em; font-weight: 600; max-width: 1100px; }
-    .pw { font: inherit; letter-spacing: inherit; color: var(--ink); cursor: pointer; border: 0; background: var(--pc); padding: 0 .28em; border-radius: .32em; box-shadow: inset 0 -.12em 0 rgba(0,0,0,.12); transition: transform .25s cubic-bezier(.3,1.6,.5,1), box-shadow .25s; display: inline-block; line-height: 1.2; }
-    .pw:hover, .pw:focus-visible, .pw.on { transform: translateY(-3px) rotate(-1.5deg); box-shadow: inset 0 -.12em 0 rgba(0,0,0,.12), 0 10px 20px -10px rgba(0,0,0,.35); outline: none; }
-    .pv-float { position: fixed; left: 0; top: 0; z-index: 80; width: 300px; height: 230px; pointer-events: none; opacity: 0; transform: translate3d(-999px, -999px, 0) scale(.85); transition: opacity .2s; }
-    .pv-float.show { opacity: 1; }
-    .pv-float img, .pv-sheet img { border-radius: 14px; border: 6px solid #fff; box-shadow: 0 30px 50px -20px rgba(10,40,20,.55); object-fit: cover; background: #fff; }
-    .pv-float img { position: absolute; width: 230px; height: 190px; left: 35px; top: 10px; transition: transform .35s cubic-bezier(.3,1.5,.5,1); }
-    .pv-float img:nth-child(1) { transform: rotate(-7deg) translate(-26px, 8px); } .pv-float img:nth-child(2) { transform: rotate(5deg) translate(22px, -4px); } .pv-float img:nth-child(3) { transform: rotate(-1deg) translate(0, -14px); }
-    .pv-float img:only-child { transform: rotate(-3deg); width: 260px; left: 20px; }
-    .pv-float .cap, .pv-sheet .cap { position: absolute; left: 10px; right: 10px; bottom: -8px; background: var(--ink); color: #fff; font-family: var(--mono); font-size: 11px; letter-spacing: .04em; padding: 8px 12px; border-radius: 999px; text-align: center; }
-    .pv-sheet { margin-top: 26px; position: relative; display: flex; gap: 14px; overflow-x: auto; padding: 8px 4px 46px; scroll-snap-type: x mandatory; }
-    .pv-sheet img { height: 220px; width: auto; max-width: 340px; flex: none; scroll-snap-align: start; }
-    .pv-sheet .cap { position: absolute; left: 4px; right: auto; bottom: 6px; }
-    .pv-strip { margin-top: 44px; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
-    .pv-track { display: flex; gap: 16px; width: max-content; animation: pvScroll 60s linear infinite; padding: 10px 0 24px; }
-    .pv-strip:hover .pv-track { animation-play-state: paused; }
-    .pv-track img { height: 180px; width: auto; border-radius: 16px; border: 6px solid #fff; box-shadow: 0 20px 30px -18px rgba(10,40,20,.5); background: #fff; }
-    .pv-track img:nth-child(odd) { transform: rotate(-1.5deg); } .pv-track img:nth-child(even) { transform: rotate(1.5deg); }
-    @keyframes pvScroll { to { transform: translateX(-50%); } }
-    .pv-note { margin-top: 10px; font-size: 14px; color: var(--muted); }
-    @media (prefers-reduced-motion: reduce) { .pv-track { animation: none; } }
+    /* ---------- my work: scroll-through page previews ---------- */
+    .wk-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+    .wk { background: #fff; border-radius: var(--radius); padding: 16px; display: flex; flex-direction: column; gap: 18px; transition: transform .35s cubic-bezier(.3,1.5,.5,1); }
+    .wk:hover { transform: translateY(-6px); }
+    .wk-shot { position: relative; display: block; border-radius: 22px; overflow: hidden; background: var(--pb); padding: 14px 14px 0; text-decoration: none; }
+    .wk-bar { display: flex; align-items: center; gap: 6px; background: #fff; border-radius: 12px 12px 0 0; padding: 9px 12px; }
+    .wk-bar i { width: 9px; height: 9px; border-radius: 50%; background: #e4e2da; } .wk-bar i:first-child { background: #ff8a7a; } .wk-bar i:nth-child(2) { background: #ffd36b; } .wk-bar i:nth-child(3) { background: #8fdc8a; }
+    .wk-bar span { margin-left: 8px; font-family: var(--mono); font-size: 11px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .wk-view { height: 340px; background-color: #fff; background-size: 100% auto; background-repeat: no-repeat; background-position: 50% 0; transition: background-position 1.2s cubic-bezier(.4,0,.2,1); box-shadow: 0 -1px 0 #eee inset; }
+    .wk-shot:hover .wk-view, .wk-shot:focus-visible .wk-view { background-position: 50% 100%; transition: background-position var(--pan, 14s) linear; }
+    .wk-hint { position: absolute; right: 24px; bottom: 14px; font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; background: var(--ink); color: #fff; padding: 7px 11px; border-radius: 999px; opacity: .9; transition: opacity .3s; }
+    .wk-shot:hover .wk-hint { opacity: 0; }
+    @media (hover: none) { .wk-hint { display: none; } .wk-view { animation: wkPan 30s ease-in-out infinite alternate; } }
+    @keyframes wkPan { to { background-position: 50% 100%; } }
+    .wk-body { padding: 0 10px 10px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+    .wk .pt { display: flex; flex-wrap: wrap; gap: 6px; } .wk .pt span { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; background: var(--pb); color: var(--pc); padding: 5px 10px; border-radius: 999px; }
+    .wk h3 { font-size: 30px; letter-spacing: -0.035em; font-weight: 600; line-height: 1.05; }
+    .wk-body > p { color: var(--muted); font-size: 16px; }
+    .wk-in { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; } .wk-in li { font-size: 13px; background: #f4f4ef; border-radius: 999px; padding: 6px 11px; }
+    .wk-cta { margin-top: auto; padding-top: 6px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .wk-link { font-weight: 600; font-size: 15px; color: var(--ink); text-decoration: none; padding: 10px 14px; border-radius: 999px; background: var(--pb); }
+    @media (max-width: 900px) { .wk-grid { grid-template-columns: 1fr; } .wk-view { height: 300px; } }
+    @media (prefers-reduced-motion: reduce) { .wk-view { animation: none !important; transition: none !important; } }
 
     /* ---------- writing ---------- */
     .pubs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
@@ -338,7 +338,7 @@
       <li><a href="#journey">Journey</a></li>
       <li><a href="#learning">Learning</a></li>
       <li><a href="#toolbox">Toolbox</a></li>
-      <li><a href="#proof">Proof</a></li>
+      <li><a href="#work">Work</a></li>
       <li><a href="#writing">Writing</a></li>
       <li><a href="#stories">Stories</a></li>
     </ul>
@@ -427,7 +427,7 @@
         <p class="sub">Marketer, storyteller, and professional yes-sayer to coffee chats. I write the content, start the conversations, and listen to the customers. Fresh grad, and looking for what's next in Canada.</p>
         <div class="cta">
           <a class="btn white" href="#say-hi">Let's grab a coffee ☕</a>
-          <a class="btn lime" href="#journey">See my journey <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v10M3 8l5 5 5-5"/></svg></a>
+          <a class="btn lime" href="#work">See my work <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v10M3 8l5 5 5-5"/></svg></a>
         </div>
       </div>
       <div class="lk-wrap" id="look">
@@ -599,18 +599,155 @@
       </div>
     </section>
 
-    <!-- ============ PROOF OF WORK ============ -->
-    <section class="block wrap" id="proof">
+    <!-- ============ MY WORK ============ -->
+    <section class="block wrap" id="work">
       <div class="sec-head rv">
-        <span class="tag" style="--c: #8fb0ff"><i></i>Proof of work</span>
-        <h2>Don't take my word for it. <span class="hl" style="--c: var(--blue-ink)">Hover over it.</span></h2>
-        <p>Every highlighted word is something I've made. Hover (or tap) to see it.</p>
+        <span class="tag" style="--c: #8fb0ff"><i></i>My work</span>
+        <h2>Don't take my word for it. <span class="hl" style="--c: var(--blue-ink)">Look at the work.</span></h2>
+        <p>Every page below is spec work: a complete pitch I researched, wrote and designed myself, to show what I can do. Hover a page to scroll through it, or open it. None of it is client work.</p>
       </div>
-      <p class="pw-line rv">Lately I've written and designed <span class="nw"><button class="pw" type="button" data-pv="linkedin" style="--pc: var(--blue)">LinkedIn posts</button>,</span> <span class="nw"><button class="pw" type="button" data-pv="instagram" style="--pc: var(--pink)">Instagram carousels</button>,</span> <span class="nw"><button class="pw" type="button" data-pv="blog" style="--pc: var(--butter)">blogs</button>,</span> <span class="nw"><button class="pw" type="button" data-pv="case" style="--pc: var(--mint)">case studies</button>,</span> <span class="nw"><button class="pw" type="button" data-pv="events" style="--pc: var(--peach)">event campaigns</button>,</span> <span class="nw"><button class="pw" type="button" data-pv="hubspot" style="--pc: var(--lime)">HubSpot workflows</button>,</span> <span class="nw"><button class="pw" type="button" data-pv="plan" style="--pc: var(--blue)">30-60-90 plans</button>,</span> <button class="pw" type="button" data-pv="ops" style="--pc: var(--mint)">ops playbooks</button> and even <span class="nw"><button class="pw" type="button" data-pv="game" style="--pc: var(--pink)">8-bit games</button>.</span> </p>
-      <div class="pv-sheet" id="pvSheet" hidden></div>
-      <div class="pv-strip rv" aria-hidden="true"><div class="pv-track" id="pvTrack"></div></div>
-      <p class="pv-note rv">All spec work: made to practise and to show what I can do. None of it is client work, and the brands you see aren't my clients.</p>
-      <div class="pv-float" id="pvFloat" aria-hidden="true"></div>
+      <div class="wk-grid">
+        <article class="wk clay rv" style="--pb: var(--blue); --pc: var(--blue-ink); --d: 0.00s">
+          <a class="wk-shot" href="envera-systems/" target="_blank" rel="noopener" aria-label="Open the Envera Systems page">
+            <div class="wk-bar"><i></i><i></i><i></i><span>durvathakkar.com/envera-systems</span></div>
+            <div class="wk-view" style="background-image: url('assets/work/envera.jpg')"></div>
+            <span class="wk-hint">hover to scroll ↓</span>
+          </a>
+          <div class="wk-body">
+            <div class="pt"><span>Spec work</span><span>Marketing role</span></div>
+            <h3>Envera Systems</h3>
+            <p>A full content workspace, opened by an 8-bit replay: strategy, posts, blog, case study, a trade-show campaign and the HubSpot plumbing behind it.</p>
+            <ul class="wk-in"><li>8-bit story + playable level</li><li>LinkedIn strategy</li><li>6 LinkedIn posts</li><li>Executive LinkedIn plan</li><li>Instagram</li><li>2 blog posts</li><li>Case study</li><li>Trade-show campaign</li><li>HubSpot workflow + scoring</li></ul>
+            <div class="wk-cta"><a class="btn dark" href="envera-systems/" target="_blank" rel="noopener">Open the page ↗</a><a class="wk-link" href="envera-systems/plan/" target="_blank" rel="noopener">30-60-90 plan ↗</a></div>
+          </div>
+        </article>
+        <article class="wk clay rv" style="--pb: var(--mint); --pc: var(--mint-ink); --d: 0.08s">
+          <a class="wk-shot" href="envera-systems/plan/" target="_blank" rel="noopener" aria-label="Open the 30-60-90 day plan page">
+            <div class="wk-bar"><i></i><i></i><i></i><span>durvathakkar.com/envera-systems/plan</span></div>
+            <div class="wk-view" style="background-image: url('assets/work/plan.jpg')"></div>
+            <span class="wk-hint">hover to scroll ↓</span>
+          </a>
+          <div class="wk-body">
+            <div class="pt"><span>Spec work</span><span>Envera Systems</span></div>
+            <h3>30-60-90 day plan</h3>
+            <p>The first 90 days, week by week: what I&#x27;d learn, build and ship, how it gets measured, and what I&#x27;d need to do it well.</p>
+            <ul class="wk-in"><li>13 weeks, 3 phases</li><li>36 trackable deliverables</li><li>Week 1, day by day</li><li>Workstream matrix</li><li>Scorecard</li><li>Risks + what I&#x27;d need</li><li>Day-90 review</li></ul>
+            <div class="wk-cta"><a class="btn dark" href="envera-systems/plan/" target="_blank" rel="noopener">Open the page ↗</a></div>
+          </div>
+        </article>
+        <article class="wk clay rv" style="--pb: var(--peach); --pc: var(--peach-ink); --d: 0.00s">
+          <a class="wk-shot" href="spellbook/" target="_blank" rel="noopener" aria-label="Open the Spellbook page">
+            <div class="wk-bar"><i></i><i></i><i></i><span>durvathakkar.com/spellbook</span></div>
+            <div class="wk-view" style="background-image: url('assets/work/spellbook.jpg')"></div>
+            <span class="wk-hint">hover to scroll ↓</span>
+          </a>
+          <div class="wk-body">
+            <div class="pt"><span>Spec work</span><span>Social Media Lead</span></div>
+            <h3>Spellbook</h3>
+            <p>A social workspace in Spellbook&#x27;s own look: designed post images, LinkedIn and X, an executive program, video, a launch and reporting.</p>
+            <ul class="wk-in"><li>12 designed post images</li><li>LinkedIn + X threads</li><li>Executive program, 5 leaders</li><li>Instagram + video</li><li>Launch campaign</li><li>Community playbook</li><li>Reporting</li></ul>
+            <div class="wk-cta"><a class="btn dark" href="spellbook/" target="_blank" rel="noopener">Open the page ↗</a></div>
+          </div>
+        </article>
+        <article class="wk clay rv" style="--pb: var(--pink); --pc: var(--pink-ink); --d: 0.08s">
+          <a class="wk-shot" href="acre/" target="_blank" rel="noopener" aria-label="Open the Acre Security page">
+            <div class="wk-bar"><i></i><i></i><i></i><span>durvathakkar.com/acre</span></div>
+            <div class="wk-view" style="background-image: url('assets/work/acre.jpg')"></div>
+            <span class="wk-hint">hover to scroll ↓</span>
+          </a>
+          <div class="wk-body">
+            <div class="pt"><span>Spec work</span><span>Marketing pitch</span></div>
+            <h3>Acre Security</h3>
+            <p>Told as a round of golf: an 8-bit course, a playable hole, and a multi-platform content plan in Acre&#x27;s plum brand.</p>
+            <ul class="wk-in"><li>8-bit golf story + playable hole</li><li>15 designed images</li><li>7 LinkedIn posts</li><li>9-leader executive plan</li><li>Instagram carousel</li><li>Migration blog</li><li>Case study</li><li>Event campaign</li><li>Scorecard</li></ul>
+            <div class="wk-cta"><a class="btn dark" href="acre/" target="_blank" rel="noopener">Open the page ↗</a></div>
+          </div>
+        </article>
+        <article class="wk clay rv" style="--pb: var(--lime); --pc: var(--ink); --d: 0.00s">
+          <a class="wk-shot" href="wellnessliving/" target="_blank" rel="noopener" aria-label="Open the WellnessLiving page">
+            <div class="wk-bar"><i></i><i></i><i></i><span>durvathakkar.com/wellnessliving</span></div>
+            <div class="wk-view" style="background-image: url('assets/work/wellnessliving.jpg')"></div>
+            <span class="wk-hint">hover to scroll ↓</span>
+          </a>
+          <div class="wk-body">
+            <div class="pt"><span>Spec work</span><span>Marketing Operations</span></div>
+            <h3>WellnessLiving</h3>
+            <p>A working sample of an ops job: how a lead travels, what gets checked before launch, and the tools, automations and docs that keep it all running.</p>
+            <ul class="wk-in"><li>Lead path</li><li>Form inventory</li><li>Launch QA checklist</li><li>UTM builder</li><li>AI workspaces + prompts</li><li>n8n + Jira automations</li><li>SaaS stack</li><li>Jira board</li><li>SOP</li></ul>
+            <div class="wk-cta"><a class="btn dark" href="wellnessliving/" target="_blank" rel="noopener">Open the page ↗</a></div>
+          </div>
+        </article>
+        <article class="wk clay rv" style="--pb: var(--blue); --pc: var(--blue-ink); --d: 0.08s">
+          <a class="wk-shot" href="skipper-otto/" target="_blank" rel="noopener" aria-label="Open the Skipper Otto page">
+            <div class="wk-bar"><i></i><i></i><i></i><span>durvathakkar.com/skipper-otto</span></div>
+            <div class="wk-view" style="background-image: url('assets/work/skipper.jpg')"></div>
+            <span class="wk-hint">hover to scroll ↓</span>
+          </a>
+          <div class="wk-body">
+            <div class="pt"><span>Spec work</span><span>Marketing Specialist</span></div>
+            <h3>Skipper Otto</h3>
+            <p>Everything a campaign needs, start to finish: brief, schedule, board, emails, social, creators, paid and the monthly report.</p>
+            <ul class="wk-in"><li>Campaign brief</li><li>Workback schedule</li><li>Project board</li><li>Email journey</li><li>Carousel + reel script</li><li>Content calendar</li><li>Creator program</li><li>Paid social</li><li>Monthly report</li></ul>
+            <div class="wk-cta"><a class="btn dark" href="skipper-otto/" target="_blank" rel="noopener">Open the page ↗</a></div>
+          </div>
+        </article>
+        <article class="wk clay rv" style="--pb: var(--butter); --pc: var(--butter-ink); --d: 0.00s">
+          <a class="wk-shot" href="mhra/" target="_blank" rel="noopener" aria-label="Open the MHRA Hospitality page">
+            <div class="wk-bar"><i></i><i></i><i></i><span>durvathakkar.com/mhra</span></div>
+            <div class="wk-view" style="background-image: url('assets/work/mhra.jpg')"></div>
+            <span class="wk-hint">hover to scroll ↓</span>
+          </a>
+          <div class="wk-body">
+            <div class="pt"><span>Spec work</span><span>Content &amp; Social Coordinator</span></div>
+            <h3>MHRA Hospitality</h3>
+            <p>A magazine-style content plan for three restaurant brands, each with its own voice, from the first 90 days to the first year.</p>
+            <ul class="wk-in"><li>7-page magazine plan</li><li>90-day, 6- and 12-month plan</li><li>Three brand voices</li><li>Job post → first 90 days</li></ul>
+            <div class="wk-cta"><a class="btn dark" href="mhra/" target="_blank" rel="noopener">Open the page ↗</a></div>
+          </div>
+        </article>
+        <article class="wk clay rv" style="--pb: var(--pink); --pc: var(--pink-ink); --d: 0.08s">
+          <a class="wk-shot" href="blume/" target="_blank" rel="noopener" aria-label="Open the Blume page">
+            <div class="wk-bar"><i></i><i></i><i></i><span>durvathakkar.com/blume</span></div>
+            <div class="wk-view" style="background-image: url('assets/work/blume.jpg')"></div>
+            <span class="wk-hint">hover to scroll ↓</span>
+          </a>
+          <div class="wk-body">
+            <div class="pt"><span>Spec work</span><span>Marketing pitch</span></div>
+            <h3>Blume</h3>
+            <p>A pitch with no job post: a pixel story, what I&#x27;d lean into, and what a growing team needs from its next marketer.</p>
+            <ul class="wk-in"><li>Pixel story</li><li>What I&#x27;d lean into</li><li>Content ideas</li><li>What I bring</li></ul>
+            <div class="wk-cta"><a class="btn dark" href="blume/" target="_blank" rel="noopener">Open the page ↗</a></div>
+          </div>
+        </article>
+        <article class="wk clay rv" style="--pb: var(--peach); --pc: var(--peach-ink); --d: 0.00s">
+          <a class="wk-shot" href="42agency/" target="_blank" rel="noopener" aria-label="Open the 42 Agency page">
+            <div class="wk-bar"><i></i><i></i><i></i><span>durvathakkar.com/42agency</span></div>
+            <div class="wk-view" style="background-image: url('assets/work/42agency.jpg')"></div>
+            <span class="wk-hint">hover to scroll ↓</span>
+          </a>
+          <div class="wk-body">
+            <div class="pt"><span>Spec work</span><span>A clay hello</span></div>
+            <h3>42 Agency</h3>
+            <p>A claymation hello with two tiny games, and a read of the agency&#x27;s own writing going back to 2013.</p>
+            <ul class="wk-in"><li>Claymation story</li><li>Two mini games</li><li>Reading their writing</li><li>The short version</li></ul>
+            <div class="wk-cta"><a class="btn dark" href="42agency/" target="_blank" rel="noopener">Open the page ↗</a></div>
+          </div>
+        </article>
+        <article class="wk clay rv" style="--pb: var(--mint); --pc: var(--mint-ink); --d: 0.08s">
+          <a class="wk-shot" href="speedwork/" target="_blank" rel="noopener" aria-label="Open the Speedwork page">
+            <div class="wk-bar"><i></i><i></i><i></i><span>durvathakkar.com/speedwork</span></div>
+            <div class="wk-view" style="background-image: url('assets/work/speedwork.jpg')"></div>
+            <span class="wk-hint">hover to scroll ↓</span>
+          </a>
+          <div class="wk-body">
+            <div class="pt"><span>Spec work</span><span>A quick hello</span></div>
+            <h3>Speedwork</h3>
+            <p>Short and fun: a 20-second pixel story and a playable level, to start a conversation.</p>
+            <ul class="wk-in"><li>20-second pixel story</li><li>Playable level</li></ul>
+            <div class="wk-cta"><a class="btn dark" href="speedwork/" target="_blank" rel="noopener">Open the page ↗</a></div>
+          </div>
+        </article>
+      </div>
     </section>
 
     <!-- ============ WRITING ============ -->
@@ -957,44 +1094,12 @@
   dlg.addEventListener('click', e => { if (e.target === dlg || e.target.closest('[data-close]')) dlg.close(); });
 
 
-  /* ---------- proof of work: previews on hover (desktop) or tap (anywhere) ---------- */
-  (() => {
-    const PV = {
-      linkedin: { imgs: ['spellbook/posts/c1.jpg', 'acre/posts/a1.jpg', 'acre/posts/a3.jpg'], cap: 'LinkedIn posts · spec work' },
-      instagram: { imgs: ['acre/posts/i1.jpg', 'spellbook/posts/ig1.jpg', 'spellbook/posts/reel.jpg'], cap: 'Instagram carousels + reel covers · spec work' },
-      blog: { imgs: ['acre/posts/blog.jpg'], cap: 'Blog cover + long-form guide · spec work' },
-      case: { imgs: ['assets/proof/case.jpg'], cap: 'Case study, sales-ready · spec work' },
-      events: { imgs: ['acre/posts/ev.jpg', 'acre/posts/a5.jpg', 'spellbook/posts/launch.jpg'], cap: 'Event + launch campaigns · spec work' },
-      hubspot: { imgs: ['assets/proof/hubspot.jpg'], cap: 'HubSpot lead-nurture workflow · spec work' },
-      plan: { imgs: ['assets/proof/plan.jpg'], cap: '30-60-90 day plan, week by week' },
-      ops: { imgs: ['assets/proof/qa.jpg', 'assets/proof/jira.jpg', 'assets/proof/utm.jpg'], cap: 'QA checklist · Jira board · UTM builder' },
-      game: { imgs: ['assets/proof/game.jpg'], cap: 'An 8-bit story, coded from scratch' },
-    };
-    const float = document.getElementById('pvFloat'), sheet = document.getElementById('pvSheet'), track = document.getElementById('pvTrack');
-    const imgs = k => PV[k].imgs.map(src => `<img src="${src}" alt="" loading="lazy">`).join('');
-    // the strip: every piece, looping
-    const all = Object.values(PV).flatMap(v => v.imgs);
-    track.innerHTML = [...all, ...all].map(src => `<img src="${src}" alt="" loading="lazy">`).join('');
-    // desktop: a fan of previews that follows the cursor
-    let tx = -999, ty = -999, x = -999, y = -999, raf = 0, active = null;
-    const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
-    function loop() { x += (tx - x) * .18; y += (ty - y) * .18; float.style.transform = `translate3d(${x}px, ${y}px, 0) scale(1)`; raf = active ? requestAnimationFrame(loop) : 0; }
-    document.querySelectorAll('.pw').forEach(w => {
-      if (fine) {
-        w.addEventListener('mouseenter', e => { active = w.dataset.pv; float.innerHTML = imgs(active) + `<span class="cap">${PV[active].cap}</span>`; x = tx = e.clientX + 330 < innerWidth ? e.clientX + 24 : e.clientX - 324; y = ty = Math.max(10, e.clientY - 250); float.classList.add('show'); if (!raf) raf = requestAnimationFrame(loop); });
-        w.addEventListener('mousemove', e => { tx = e.clientX + 330 < innerWidth ? e.clientX + 24 : e.clientX - 324; ty = Math.max(10, e.clientY - 250); });
-        w.addEventListener('mouseleave', () => { active = null; float.classList.remove('show'); });
-      }
-      // tap / click / keyboard: open the full set below the sentence
-      w.addEventListener('click', () => {
-        const k = w.dataset.pv, open = w.classList.contains('on');
-        document.querySelectorAll('.pw.on').forEach(o => o.classList.remove('on'));
-        if (open) { sheet.hidden = true; return; }
-        w.classList.add('on'); sheet.innerHTML = imgs(k) + `<span class="cap">${PV[k].cap}</span>`; sheet.hidden = false;
-        if (!fine) sheet.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      });
-    });
-  })();
+  /* ---------- my work: pan speed scales with how tall each page is ---------- */
+  document.querySelectorAll('.wk-view').forEach(v => {
+    const src = v.style.backgroundImage.slice(5, -2), im = new Image();
+    im.onload = () => { const h = im.naturalHeight / im.naturalWidth * v.clientWidth; v.style.setProperty('--pan', Math.max(3, Math.min(22, (h - v.clientHeight) / 260)).toFixed(1) + 's'); };
+    im.src = src;
+  });
 
   /* ---------- LinkedIn ghostwriting: cards from writing/posts.json, read in the same reader ---------- */
   (() => {
