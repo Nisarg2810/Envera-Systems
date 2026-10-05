@@ -12,7 +12,7 @@
   <link rel="icon" href="logo.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&family=Jost:wght@400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
     :root {
       /* Tingue brand: Tingue blue, deep navy, silver; Mario gold stays for the game layer */
@@ -868,6 +868,125 @@
     @media (max-width: 760px) { .utm-grid { grid-template-columns: 1fr 1fr; } }
     .codec pre { margin-top: 14px; background: #0e1d3d; color: #e6e9ef; border-radius: 12px; padding: 16px 18px; font: 13px/1.6 ui-monospace, Menlo, monospace; white-space: pre-wrap; }
     .codec pre b { color: #9fd3f0; font-weight: 600; }
+
+    /* ---- Tingue post graphics: same look as tingue.com ---- */
+    .tg { font-family: "Jost", "Helvetica Neue", Arial, sans-serif; padding: 0; color: #fff; }
+    .tg em { font-style: normal; color: #44C7F4; }
+    .tg h4 { font-family: "Jost", "Helvetica Neue", Arial, sans-serif; font-weight: 600; letter-spacing: -0.015em; }
+    .tg .tg-logo { height: 6cqi; width: auto; }
+    .tg-k { font: 500 2.7cqi "Jost", sans-serif; letter-spacing: .32em; color: #44C7F4; text-transform: uppercase; display: flex; align-items: center; gap: 2.4cqi; }
+    .tg-k i { display: block; width: 7cqi; height: 1px; background: #44C7F4; }
+    .tg-k.dk { color: #2e52a2; }
+    .tg-bar { position: relative; z-index: 2; background: #2F4E8D; color: #fff; font: 600 2.2cqi "Jost", sans-serif; letter-spacing: .08em; text-align: center; padding: 2cqi 3cqi; }
+    .tg-bar.lt { background: rgba(255,255,255,.12); }
+    .tg-foot { position: relative; z-index: 2; margin-top: auto; display: flex; align-items: center; justify-content: space-between; padding: 0 6cqi 5cqi; font: 500 3cqi "Jost", sans-serif; letter-spacing: .04em; color: rgba(255,255,255,.85); }
+    .tg-foot.dk { color: #67758D; }
+    .tg-light { background: #F5F6F8; color: #0e1a33; }
+    .tg-light h4 { color: #0e1a33; }
+    .tg-light em { color: #2e52a2; }
+    .tg-b1, .tg-b2, .tg-b3 { display: inline-flex; align-items: center; font: 500 3.3cqi "Jost", sans-serif; border-radius: 1cqi; padding: 2.6cqi 4.4cqi; }
+    .tg-b1 { background: #fff; color: #2F4E8D; }
+    .tg-b2 { color: #fff; }
+    .tg-b3 { background: #2F4E8D; color: #fff; font-weight: 600; }
+    /* hero: dark navy, photo on the right, like the tingue.com slider */
+    .tg-hero { background: #0a1226; }
+    .tg-hero .tg-ph { position: absolute; left: 0; right: 0; top: 0; width: 100%; height: 60%; object-fit: cover; z-index: 0; }
+    .tg-wide .tg-ph { height: 100%; left: auto; width: 62%; }
+    .tg-hero .tg-fade { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(10,18,38,0) 30%, rgba(10,18,38,.7) 50%, #0a1226 60%); }
+    .tg-hero .tg-in { position: relative; z-index: 2; margin-top: auto; padding: 0 6cqi 4cqi; }
+    .tg-hero h4 { font-size: 9cqi; line-height: 1.05; margin-top: 3cqi; }
+    .tg-hero p { margin-top: 3cqi; font-size: 3.6cqi; line-height: 1.45; opacity: .92; max-width: 92%; }
+    .tg-btns { margin-top: 4.4cqi; display: flex; gap: 3cqi; align-items: center; }
+    .tg-hero .tg-foot { margin-top: 0; }
+    .tg-wide .tg-fade { background: linear-gradient(90deg, #0a1226 0%, rgba(10,18,38,.92) 38%, rgba(10,18,38,.15) 72%); }
+    .tg-wide .tg-in { position: absolute; left: 0; top: 0; bottom: 0; width: 56%; display: flex; flex-direction: column; justify-content: center; padding: 0 4cqi; }
+    .tg-wide h4 { font-size: 4.6cqi; margin-top: 1.4cqi; }
+    .tg-wide p { font-size: 1.7cqi; margin-top: 1.4cqi; }
+    .tg-wide .tg-k { font-size: 1.3cqi; } .tg-wide .tg-k i { width: 4cqi; }
+    .tg-wide .tg-b1, .tg-wide .tg-b2 { font-size: 1.6cqi; padding: 1.2cqi 2cqi; }
+    .tg-wide .tg-btns { margin-top: 2.2cqi; }
+    .tg-wide .tg-bar, .tg-wide .tg-foot { display: none; }
+    /* product card: "What's shipping today." */
+    .tg-product { padding-top: 7cqi; }
+    .tg-product > .tg-k, .tg-product > h4, .tg-product > .tg-p { padding: 0 6cqi; }
+    .tg-product h4 { font-size: 8.4cqi; line-height: 1.05; margin-top: 2.4cqi; }
+    .tg-p { margin-top: 2.4cqi; font-size: 3.4cqi; color: #67758D; }
+    .tg-card { margin: 5cqi 6cqi 4cqi; background: #fff; border: 1px solid #e3e6ec; border-radius: 2.4cqi; overflow: hidden; display: flex; flex-direction: column; }
+    .tg-img { height: 38cqi; display: grid; place-items: center; background: #fff; position: relative; }
+    .tg-img { background: radial-gradient(60% 70% at 50% 50%, #fff 0%, #f4f6fa 100%); }
+    .tg-img img { position: relative; z-index: 1; max-height: 30cqi; max-width: 60%; object-fit: contain; }
+    .tg-cb { padding: 4cqi 4.4cqi 4.4cqi; border-top: 1px solid #eef0f4; display: grid; gap: 1.4cqi; justify-items: start; }
+    .tg-cb small { font: 500 2.3cqi "Jost"; letter-spacing: .14em; color: #2e52a2; }
+    .tg-cb b { font: 600 3.9cqi "Jost"; text-transform: uppercase; line-height: 1.2; color: #0e1a33; }
+    .tg-cb .sku { font-size: 2.9cqi; color: #67758D; }
+    .tg-cb .stock { font-size: 2.9cqi; color: #1f8a4c; }
+    .tg-cb .tg-b3 { margin-top: 1.6cqi; }
+    /* blue block: "30+ All Brands" */
+    .tg-block { background: #2e52a2; }
+    .tg-block .tg-k { padding: 6cqi 6cqi 0; }
+    .tg-block .tg-big { font: 600 30cqi/1 "Jost", sans-serif; padding: 0 6cqi; margin-top: 6cqi; letter-spacing: -0.03em; }
+    .tg-block h4 { font-size: 7.4cqi; line-height: 1.1; padding: 0 6cqi; margin-top: 2cqi; max-width: 80%; }
+    .tg-block p { padding: 0 6cqi; margin-top: 3cqi; font-size: 3.6cqi; opacity: .9; max-width: 70%; }
+    .tg-link { margin: 4cqi 6cqi 0; font: 500 3.6cqi "Jost"; color: #44C7F4; }
+    .tg-block .tg-prod { position: absolute; right: -4cqi; bottom: 12cqi; width: 46cqi; z-index: 1; filter: drop-shadow(0 3cqi 4cqi rgba(0,0,0,.3)); }
+    /* steps */
+    .tg-steps { padding-top: 7cqi; }
+    .tg-steps > .tg-k, .tg-steps > h4 { padding: 0 6cqi; max-width: 76%; }
+    .tg-steps h4 { font-size: 8cqi; line-height: 1.05; margin-top: 2.4cqi; }
+    .tg-corner { position: absolute; right: 3cqi; top: 4cqi; width: 26cqi; z-index: 1; }
+    .tg-list { margin: 5cqi 6cqi 4cqi; display: grid; gap: 2.2cqi; }
+    .tg-row { display: flex; gap: 3.4cqi; align-items: center; background: #fff; border: 1px solid #e3e6ec; border-radius: 2cqi; padding: 3cqi 3.4cqi; }
+    .tg-row i { flex: none; width: 7.4cqi; height: 7.4cqi; border-radius: 1.4cqi; background: #2F4E8D; color: #fff; display: grid; place-items: center; font: 600 3.6cqi "Jost"; font-style: normal; }
+    .tg-row span { font: 600 3.9cqi/1.2 "Jost"; color: #0e1a33; }
+    .tg-row small { display: block; font: 400 2.9cqi "Jost"; color: #67758D; margin-top: .4cqi; }
+    /* quote */
+    .tg-quote { padding-top: 7cqi; }
+    .tg-quote > * { margin-left: 6cqi; margin-right: 6cqi; }
+    .tg-qm { font: 600 30cqi/0.8 Georgia, serif; color: #44C7F4; height: 15cqi; margin-top: 5cqi; }
+    .tg-quote h4 { font-size: 7.6cqi; line-height: 1.15; margin-top: 2cqi; }
+    .tg-by { display: flex; gap: 3cqi; align-items: center; margin-top: 6cqi; }
+    .tg-by i { width: 10cqi; height: 10cqi; border-radius: 50%; background: #2F4E8D; color: #fff; display: grid; place-items: center; font: 600 3.4cqi "Jost"; font-style: normal; }
+    .tg-by b { display: block; font: 600 3.8cqi "Jost"; color: #0e1a33; } .tg-by small { font-size: 3cqi; color: #67758D; }
+    .tg-stars { margin-top: 3cqi; color: #f5b72a; font-size: 4cqi; letter-spacing: .3em; }
+    .tg-quote .tg-foot { margin-left: 0; margin-right: 0; }
+    /* compare */
+    .tg-compare { padding-top: 7cqi; }
+    .tg-compare > .tg-k, .tg-compare > h4 { padding: 0 6cqi; }
+    .tg-compare h4 { font-size: 7.6cqi; line-height: 1.08; margin-top: 2.4cqi; }
+    .tg-cols { margin: auto 6cqi 4cqi; display: grid; grid-template-columns: 1fr 1fr; gap: 3cqi; }
+    .tg-cols > div { position: relative; border-radius: 2.4cqi; padding: 5cqi 4cqi 14cqi; min-height: 56cqi; display: flex; flex-direction: column; gap: 3cqi; }
+    .tg-cols small { font: 600 2.5cqi "Jost"; letter-spacing: .16em; }
+    .tg-cols span { font: 600 4.8cqi/1.2 "Jost"; }
+    .tg-cols i { position: absolute; left: 4cqi; bottom: 4cqi; width: 8cqi; height: 8cqi; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-size: 4cqi; font-weight: 700; }
+    .tg-cols .old { background: #e9ecf1; color: #67758D; } .tg-cols .old i { background: #fff; color: #c0392b; }
+    .tg-cols .new { background: #2F4E8D; color: #fff; } .tg-cols .new small { color: #44C7F4; } .tg-cols .new i { background: #44C7F4; color: #0a1226; }
+    .tg-compare .tg-foot { margin-top: 0; }
+    /* carousel slide */
+    .tg-slide { padding-top: 7cqi; }
+    .tg-slide > * { margin-left: 6cqi; margin-right: 6cqi; }
+    .tg-top { display: flex; align-items: center; gap: 4cqi; }
+    .tg-num { font: 600 10cqi/1 "Jost"; color: #2F4E8D; }
+    .tg-prog { display: flex; gap: 1.4cqi; } .tg-prog i { width: 6cqi; height: 1.2cqi; border-radius: 1cqi; background: #d8dce3; } .tg-prog i.on { background: #44C7F4; }
+    .tg-slide .tg-corner { top: 18cqi; width: 30cqi; margin: 0; }
+    .tg-slide h4 { font-size: 8.6cqi; line-height: 1.05; margin-top: 8cqi; max-width: 60%; }
+    .tg-ans { margin-top: auto; background: #fff; border: 1px solid #e3e6ec; border-left: 1.6cqi solid #2F4E8D; border-radius: 2cqi; padding: 4.4cqi; font: 500 4.4cqi/1.35 "Jost"; color: #0e1a33; }
+    .tg-ans small { display: block; font: 600 2.5cqi "Jost"; letter-spacing: .16em; color: #2e52a2; margin-bottom: 1.6cqi; }
+    .tg-slide .tg-foot { margin: 4cqi 0 0; }
+    /* band: the diagonal blue band from tingue.com ("Parts | Repair | Relief") */
+    .tg-band { background: linear-gradient(105deg, #1b3a73 0%, #2a4f9a 58%, #3159ad 58.2%, #3a63b8 100%); }
+    .tg-band .tg-facet { position: absolute; right: 0; top: 0; width: 45%; height: 40%; background: linear-gradient(200deg, rgba(255,255,255,.12), transparent 70%); clip-path: polygon(30% 0, 100% 0, 100% 100%); }
+    .tg-band .tg-in { position: relative; z-index: 2; margin-top: auto; padding: 0 6cqi 5cqi; }
+    .tg-band h4 { font-size: 9.6cqi; line-height: 1.04; margin-top: 3cqi; }
+    .tg-band p { margin-top: 3cqi; font-size: 3.8cqi; opacity: .9; }
+    .tg-band .tg-b1 { margin-top: 4cqi; }
+    .tg-band .tg-prod { position: absolute; right: 4cqi; top: 10cqi; width: 46cqi; z-index: 1; filter: drop-shadow(0 3cqi 4cqi rgba(0,0,0,.35)); }
+    .tg-band .tg-foot { margin-top: 0; }
+    .tg-band.tg-wide .tg-in { position: absolute; left: 0; top: 0; bottom: 0; width: 60%; display: flex; flex-direction: column; justify-content: center; padding: 0 4cqi; margin: 0; }
+    .tg-band.tg-wide h4 { font-size: 4.6cqi; margin-top: 1.4cqi; }
+    .tg-band.tg-wide p { font-size: 1.7cqi; margin-top: 1.4cqi; }
+    .tg-band.tg-wide .tg-k { font-size: 1.3cqi; }
+    .tg-band.tg-wide .tg-foot { display: none; }
+    .tg-band.tg-wide .tg-prod { width: 22cqi; top: 50%; right: 8cqi; transform: translateY(-50%); }
   </style>
 </head>
 <body>
@@ -1712,6 +1831,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const logoW = '<img src="logo.svg" alt="Tingue">';
     const bg = x => x.photo ? `<img class="bg" src="${esc(x.photo)}" alt="${esc(x.alt || '')}" loading="lazy" style="object-position:${esc(x.focus || 'center')}">` : '';
     const k = g.kicker ? `<div class="k">${rich(g.kicker)}</div>` : '';
+    const TGL = '<img class="tg-logo" src="logo.svg" alt="Tingue">';
     switch (g.style) {
       case 'p-log': return `<div class="gx gx-plog">${bg(g)}<div class="shade"></div>${k}<h4 class="xl">${rich(g.title)}</h4>${g.sub ? `<p class="sub">${rich(g.sub)}</p>` : ''}<ul class="glass">${(g.rows || []).map(r => `<li><span class="dot ${esc(r.status || 'ok')}"></span><b>${rich(r.name)}</b><em>${rich(r.label)}</em><time>${esc(r.time)}</time></li>`).join('')}</ul><div class="foot"><span>${rich(g.foot || '')}</span>${logoW}</div></div>`;
       case 'p-spot': return `<div class="gx gx-pspot">${bg(g)}<div class="shade"></div><span class="pill">${esc(g.badge || 'SPOTLIGHT')}</span><div class="card"><q>${rich(g.quote)}</q><div class="who2"><div><b>${rich(g.name)}</b>${rich(g.role)}</div><img src="logo.svg" alt="Tingue"></div></div></div>`;
@@ -1733,6 +1853,14 @@ document.addEventListener('DOMContentLoaded', () => {
       case 'phone': return `<div class="gx gx-phone"><div class="txt">${k}<h4>${rich(g.title)}</h4><p>${rich(g.sub || '')}</p></div><div class="phone"><div class="scr"><div class="t">${rich(g.screenTitle || 'Add a guest')}</div>${(g.fields || []).map(f => `<div class="f"><small>${esc(f[0])}</small>${rich(f[1])}</div>`).join('')}<div class="b">${esc(g.button || 'Send pass')}</div></div></div></div>`;
       case 'flow': return `<div class="gx gx-flow gx-grid">${k}<h4>${rich(g.title)}</h4>${g.sub ? `<div class="by2">${rich(g.sub)}</div>` : ''}<div class="steps">${(g.steps || []).map((s, i) => { const [a, b] = [].concat(s); return `<div class="step"><b>${i + 1}</b><span>${rich(a)}${b ? `<small>${rich(b)}</small>` : ''}</span></div>`; }).join('')}</div><div class="foot"><span>${rich(g.foot || '')}</span>${g.logo === false ? '' : logoW}</div></div>`;
       case 'p-wide': return `<div class="gx gx-pwide">${bg(g)}<div class="shade"></div>${k}<h4>${rich(g.title)}</h4>${g.sub ? `<p>${rich(g.sub)}</p>` : ''}<img class="logo" src="logo.svg" alt="Tingue"></div>`;
+      case 'tg-hero': return `<div class="gx tg tg-hero${g.wide ? ' tg-wide' : ''}">${g.photo ? `<img class="tg-ph" src="${esc(g.photo)}" alt="${esc(g.alt || '')}" style="object-position:${esc(g.focus || 'center')}">` : ''}<div class="tg-fade"></div>${g.bar === false ? '' : `<div class="tg-bar">${esc(g.bar || 'ALL ORDERS PLACED BEFORE 3PM EST SHIP SAME DAY')}</div>`}<div class="tg-in"><div class="tg-k">${esc(g.kicker || 'SINCE 1902')}<i></i></div><h4>${rich(g.title)}</h4>${g.sub ? `<p>${rich(g.sub)}</p>` : ''}<div class="tg-btns">${g.button ? `<span class="tg-b1">${esc(g.button)} →</span>` : ''}${g.button2 ? `<span class="tg-b2">${esc(g.button2)} →</span>` : ''}</div></div><div class="tg-foot">${TGL}<span>tingue.com</span></div></div>`;
+      case 'tg-product': return `<div class="gx tg tg-light tg-product"><div class="tg-k dk">${esc(g.kicker || 'FEATURED PARTS')}</div><h4>${rich(g.title)}</h4>${g.sub ? `<p class="tg-p">${rich(g.sub)}</p>` : ''}<div class="tg-card"><div class="tg-img"><img src="${esc(g.img)}" alt="${esc(g.alt || '')}"></div><div class="tg-cb"><small>SHOP.TINGUE.COM</small><b>${esc(g.name)}</b><span class="sku">SKU: ${esc(g.sku)}</span><span class="stock">● ${esc(g.stock)}</span><span class="tg-b3">${esc(g.button || 'Login for Member Pricing')}</span></div></div><div class="tg-foot dk">${TGL}<span>${rich(g.foot || 'tingue.com')}</span></div></div>`;
+      case 'tg-block': return `<div class="gx tg tg-block">${g.bar === false ? '' : `<div class="tg-bar lt">${esc(g.bar || 'ALL ORDERS PLACED BEFORE 3PM EST SHIP SAME DAY')}</div>`}<div class="tg-k">${esc(g.kicker || '')}<i></i></div><div class="tg-big">${esc(g.big)}</div><h4>${rich(g.title)}</h4>${g.sub ? `<p>${rich(g.sub)}</p>` : ''}${g.link ? `<span class="tg-link">${esc(g.link)} →</span>` : ''}${g.img ? `<img class="tg-prod" src="${esc(g.img)}" alt="">` : ''}<div class="tg-foot">${TGL}<span>tingue.com</span></div></div>`;
+      case 'tg-steps': return `<div class="gx tg tg-light tg-steps">${g.img ? `<img class="tg-corner" src="${esc(g.img)}" alt="">` : ''}<div class="tg-k dk">${esc(g.kicker || '')}</div><h4>${rich(g.title)}</h4><div class="tg-list">${(g.steps || []).map((x, i) => { const [a, b] = [].concat(x); return `<div class="tg-row"><i>${i + 1}</i><span>${rich(a)}${b ? `<small>${rich(b)}</small>` : ''}</span></div>`; }).join('')}</div><div class="tg-foot dk">${TGL}<span>${rich(g.foot || 'tingue.com')}</span></div></div>`;
+      case 'tg-quote': return `<div class="gx tg tg-light tg-quote"><div class="tg-k dk">${esc(g.kicker || 'FROM A CUSTOMER')}</div><div class="tg-qm">“</div><h4>${rich(g.title)}</h4><div class="tg-by"><i>${esc(initials(g.name || ''))}</i><div><b>${rich(g.name || '')}</b><small>${rich(g.role || '')}</small></div></div><div class="tg-stars">★★★★★</div><div class="tg-foot dk">${TGL}<span>${rich(g.foot || 'tingue.com')}</span></div></div>`;
+      case 'tg-compare': return `<div class="gx tg tg-light tg-compare"><div class="tg-k dk">${esc(g.kicker || '')}</div><h4>${rich(g.title)}</h4><div class="tg-cols"><div class="old"><small>${esc(g.leftLabel)}</small><span>${rich(g.left)}</span><i>✕</i></div><div class="new"><small>${esc(g.rightLabel)}</small><span>${rich(g.right)}</span><i>✓</i></div></div><div class="tg-foot dk">${TGL}<span>${rich(g.foot || 'tingue.com')}</span></div></div>`;
+      case 'tg-slide': return `<div class="gx tg tg-light tg-slide"><div class="tg-top"><span class="tg-num">0${esc(g.num)}</span><span class="tg-prog">${Array.from({ length: g.of || 4 }, (_, j) => `<i class="${j < +g.num ? 'on' : ''}"></i>`).join('')}</span></div>${g.img ? `<img class="tg-corner" src="${esc(g.img)}" alt="">` : ''}<h4>${rich(g.title)}</h4><div class="tg-ans"><small>${esc(g.label || '')}</small>${rich(g.answer)}</div><div class="tg-foot dk">${TGL}<span>${n ? `${i + 1}/${n}` : ''}</span></div></div>`;
+      case 'tg-band': return `<div class="gx tg tg-band${g.wide ? ' tg-wide' : ''}"><div class="tg-facet"></div>${g.img ? `<img class="tg-prod" src="${esc(g.img)}" alt="">` : ''}<div class="tg-in"><div class="tg-k">${esc(g.kicker || '')}<i></i></div><h4>${rich(g.title)}</h4>${g.sub ? `<p>${rich(g.sub)}</p>` : ''}${g.swipe ? `<span class="tg-b1">${esc(g.swipe)}</span>` : ''}</div><div class="tg-foot">${TGL}<span>${rich(g.foot || 'tingue.com')}</span></div></div>`;
       default: return `<div class="gx gx-blue"><h4>${rich(g.title || '')}</h4></div>`;
     }
   }
@@ -1810,7 +1938,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const a = who(it.author);
     return `<div class="mail">
       <div class="mail-bar"><span class="lights"><i></i><i></i><i></i></span><span>Inbox</span></div>
-      <div class="mail-row"><b>${esc(it.fromName || a.name)}</b><span class="s">${rich(it.subject)}</span><span class="p">— ${rich(it.preview)}</span></div>
+      <div class="mail-row"><b>${esc(it.fromName || a.name)}</b><span class="s">${rich(it.subject)}</span><span class="p">· ${rich(it.preview)}</span></div>
       <div class="mail-open">
         <h4>${rich(it.subject)}</h4>
         <div class="mail-from">${avatar(a, 36, a.kind === 'company')}<div><b>${esc(it.fromName || a.name)}</b> &lt;${esc(it.fromEmail)}&gt;<div>to ${rich(it.to || 'me')}</div></div><time>${esc(it.time || '9:02 AM')}</time></div>
@@ -2748,19 +2876,19 @@ document.addEventListener('DOMContentLoaded', () => {
      "headline": "Make Tingue the *first name a plant manager thinks of* when a machine stops, with one consistent brand across *every post, page, display and catalog*.",
      "phases": [
       {
-       "level": "DAYS 1–30",
+       "level": "DAYS 1-30",
        "title": "Learn the plant",
        "body": "Ride along with a field rep, walk a commercial laundry, learn the catalog and the top OEM lines. Audit LinkedIn, Facebook, Instagram, email, print and the trade-show kit against one brand standard.",
        "output": "Brand + channel audit · customer question bank · ClickUp calendar set up"
       },
       {
-       "level": "DAYS 31–60",
+       "level": "DAYS 31-60",
        "title": "Build the kit",
        "body": "Brand standards v1, templates for posts, emails, displays and decks, a video series format, and the first newsletter and blog post out the door.",
        "output": "Brand guide · template kit · newsletter #1 · video series pilot"
       },
       {
-       "level": "DAYS 61–90",
+       "level": "DAYS 61-90",
        "title": "Run the rhythm",
        "body": "A steady weekly posting rhythm, one full campaign tied to account sign-ups and orders, a catalog clean-up sprint with Sales, and a monthly report that shows what worked.",
        "output": "Campaign live · catalog audit done · monthly report"
@@ -2934,7 +3062,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
      ],
      "formats": [
-      "Short plant-floor video (15–45s)",
+      "Short plant-floor video (15-45s)",
       "Rep interviews",
       "Document carousels (how-to)",
       "Part-number spotlights",
@@ -3003,12 +3131,15 @@ document.addEventListener('DOMContentLoaded', () => {
      "time": "2d",
      "body": "In 1902, a 24-year-old named William J. Tingue started a business in New York. 🧺\n\n124 years later, we're still family-owned (five generations now) and still doing the same job: keeping commercial laundries running.\n\nThe machines have changed. The promise hasn't.\n\nThe right part. Shipped the same day when you order before 3pm EST. From people who know your plant.\n\nHere's to the next 124. 💙\n\n#CommercialLaundry #FamilyBusiness #Since1902",
      "graphic": {
-      "style": "stat",
+      "style": "tg-hero",
+      "photo": "img/david-and-john-tingue.jpg",
+      "alt": "Two generations of the Tingue family in front of the neon Tingue sign",
+      "focus": "62% 30%",
       "kicker": "SINCE 1902",
-      "big": "124",
-      "title": "years of keeping laundries running.",
-      "sub": "Family-owned. Five generations.",
-      "foot": "tingue.com"
+      "title": "124 years. Five generations. Still *family-owned.*",
+      "sub": "The original partner to commercial laundry.",
+      "button": "Discover Our Story",
+      "button2": "Shop Parts"
      },
      "reactions": 312,
      "comments": 41,
@@ -3023,17 +3154,18 @@ document.addEventListener('DOMContentLoaded', () => {
      "time": "4d",
      "body": "A machine is down. The line is waiting. You need one part.\n\nHere's how to find it in under 3 minutes on tingue.com: 👇\n\n1️⃣ Pick your machine type\n2️⃣ Pick the manufacturer\n3️⃣ Pick the model\n4️⃣ Match the part number\n5️⃣ Order before 3pm EST → ships today\n\n23,000+ SKUs across 30+ manufacturers. One catalog, one cart, one invoice.\n\nSave this for the next breakdown. 📌\n\n#LaundryMaintenance #CommercialLaundry #PlantManager",
      "graphic": {
-      "style": "flow",
+      "style": "tg-steps",
+      "img": "img/guide-tape-spool.png",
       "kicker": "MACHINE DOWN?",
-      "title": "Find the right part in 5 steps",
+      "title": "Find the right part in *5 steps.*",
       "steps": [
        [
         "Machine type",
-        "Washer, dryer, ironer, folder…"
+        "Washer, dryer, ironer, folder"
        ],
        [
         "Manufacturer",
-        "30+ OEMs"
+        "30+ brands, one catalog"
        ],
        [
         "Model",
@@ -3048,7 +3180,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Ships the same day"
        ]
       ],
-      "foot": "tingue.com"
+      "foot": "shop.tingue.com"
      },
      "reactions": 186,
      "comments": 12,
@@ -3063,8 +3195,8 @@ document.addEventListener('DOMContentLoaded', () => {
      "time": "1w",
      "body": "We asked customers what they like about ordering online. One answer stuck with us:\n\n“It lists all my machines, allowing me to quickly find and order what I need.”\n\nThat's the whole idea. Your plant, your equipment, your part numbers, all in one place.\n\nNot set up yet? Your rep will get you an account with your contract pricing. → link in the comments\n\n#CommercialLaundry #Maintenance #Ecommerce",
      "graphic": {
-      "style": "quote",
-      "kicker": "FROM A CUSTOMER",
+      "style": "tg-quote",
+      "kicker": "WHAT CUSTOMERS SAY",
       "title": "It lists all my machines, allowing me to quickly find and order what I need.",
       "name": "Tingue customer",
       "role": "Review on tingue.com",
@@ -3081,14 +3213,16 @@ document.addEventListener('DOMContentLoaded', () => {
      "pillar": "Meet your rep",
      "size": "1080 × 1350 · 4:5",
      "time": "1w",
-     "body": "40+ field reps. 50 states. 10 provinces. 🗺️\n\nWhen you call Tingue, you don't get a ticket number. You get a person who lives in your region, knows your equipment and has probably walked your plant.\n\nThis month we're introducing them, one at a time. First up: [rep name], who covers [region] and has a story about a 3am ironer fix you'll want to hear. 🎥\n\nFind your rep → link in the comments\n\n#MeetYourRep #CommercialLaundry",
+     "body": "40+ field reps. 50 states. 10 provinces. 🗺️\n\nWhen you call Tingue, you don't get a ticket number. You get a person who lives in your region, knows your equipment and has probably walked your plant.\n\nThis month we're introducing them, one at a time. First up: Mike Sullivan, who covers Ontario and has a story about a 3am ironer fix you'll want to hear. 🎥\n\nFind your rep → link in the comments\n\n#MeetYourRep #CommercialLaundry",
      "graphic": {
-      "style": "cover",
-      "theme": "night",
+      "style": "tg-hero",
+      "photo": "img/tingue-team.jpg",
+      "alt": "The Tingue team",
+      "focus": "50% 35%",
       "kicker": "MEET YOUR REP",
-      "title": "Local hands. National reach.",
-      "sub": "40+ field reps · 50 states · 10 provinces",
-      "foot": "tingue.com · Find my rep"
+      "title": "Local hands. National *reach.*",
+      "sub": "40+ field reps across 50 states and 10 provinces.",
+      "button": "Find My Rep"
      },
      "reactions": 203,
      "comments": 17,
@@ -3114,12 +3248,13 @@ document.addEventListener('DOMContentLoaded', () => {
      "time": "3 days ago",
      "caption": "Five generations. One family. Still answering the phone when your machine stops. 💙\n\nWhich year should we dig out of the archive next? 👇\n.\n#Since1902 #FamilyBusiness #CommercialLaundry #LaundryLife",
      "graphic": {
-      "style": "stat",
+      "style": "tg-block",
       "kicker": "SINCE 1902",
-      "big": "1902",
-      "title": "Five generations. One family.",
+      "big": "5",
+      "title": "generations. *One family.*",
       "sub": "Still answering the phone when your machine stops.",
-      "foot": "tingue.com"
+      "link": "Discover our story",
+      "bar": false
      }
     },
     {
@@ -3133,12 +3268,17 @@ document.addEventListener('DOMContentLoaded', () => {
      "time": "5 days ago",
      "caption": "Order by 3pm EST. It ships today. 📦⏱️\n\nThat's the rule in our warehouse, and the team takes it personally.\n\nTag the maintenance lead who needs to know this. 👇\n.\n#CommercialLaundry #SameDayShipping #Maintenance",
      "graphic": {
-      "style": "stat",
-      "kicker": "SAME-DAY SHIPPING",
-      "big": "3PM",
-      "title": "Order by 3pm EST. It ships today.",
-      "sub": "23,000+ SKUs · 30+ manufacturers",
-      "foot": "tingue.com"
+      "style": "tg-product",
+      "kicker": "FEATURED PARTS",
+      "title": "What's shipping *today.*",
+      "sub": "Order by 3pm EST. It ships the same day.",
+      "img": "img/guide-tape-spool.png",
+      "alt": "Tape spool",
+      "name": "CD-3208-033 · Tape spools 2\" OD 1.5\"",
+      "sku": "CD-3208-033",
+      "stock": "376 ready to ship",
+      "button": "Order before 3pm EST →",
+      "foot": "shop.tingue.com"
      }
     },
     {
@@ -3150,47 +3290,52 @@ document.addEventListener('DOMContentLoaded', () => {
      "likes": "731",
      "comments": 46,
      "time": "1 week ago",
-     "caption": "Before you call the OEM, read this. 👉\n\n5 things to have ready so you get the right part the first time. Save it, send it to your maintenance team. 📌\n\nShop or find your rep → link in bio\n.\n#CommercialLaundry #Maintenance #PlantManager",
+     "caption": "Before you call the OEM, read this. 👉\n\n4 things to have ready so you get the right part the first time. Save it, send it to your maintenance team. 📌\n\nShop or find your rep → link in bio\n.\n#CommercialLaundry #Maintenance #PlantManager",
      "slides": [
       {
-       "style": "cover",
+       "style": "tg-band",
+       "img": "img/tape.png",
        "kicker": "MAINTENANCE 101",
-       "title": "Get the right part the first time",
-       "sub": "5 things to have ready before you order.",
-       "swipe": "SWIPE →",
+       "title": "Get the right part the *first time.*",
+       "sub": "4 things to have ready before you order.",
+       "swipe": "Swipe →",
        "foot": "tingue.com"
       },
       {
-       "style": "doc-q",
+       "style": "tg-slide",
        "num": "1",
        "of": 4,
+       "img": "img/Electrical.png",
        "title": "Manufacturer and model",
        "label": "WHERE TO FIND IT",
        "answer": "On the machine's serial plate. Snap a photo and keep it in your phone."
       },
       {
-       "style": "doc-q",
+       "style": "tg-slide",
        "num": "2",
        "of": 4,
+       "img": "img/guide-tape-spool.png",
        "title": "The part number",
        "label": "WHAT GOOD LOOKS LIKE",
-       "answer": "Exactly as printed: letters, dashes and all (e.g. CD-3208-033)."
+       "answer": "Exactly as printed, letters and dashes included (e.g. CD-3208-033)."
       },
       {
-       "style": "doc-q",
+       "style": "tg-slide",
        "num": "3",
        "of": 4,
+       "img": "img/Belts-1.png",
        "title": "A photo of the old part",
        "label": "WHY IT HELPS",
        "answer": "Your rep can confirm a match in seconds, even if the label is worn off."
       },
       {
-       "style": "doc-q",
+       "style": "tg-slide",
        "num": "4",
        "of": 4,
+       "img": "img/Steam.png",
        "title": "The time",
        "label": "THE 3PM RULE",
-       "answer": "Order before 3pm EST and it ships the same day."
+       "answer": "Order before 3pm EST and it ships the same business day."
       }
      ]
     }
@@ -3243,7 +3388,7 @@ document.addEventListener('DOMContentLoaded', () => {
      "type": "code_card",
      "label": "SHOT LIST",
      "title": "Rep interview · shoot plan (one morning)",
-     "code": "SERIES: 60 seconds with your rep\nREP: {{rep_name}}   REGION: {{region}}\nKIT: phone on gimbal, lapel mic, LED panel, plant safety gear\n\nSHOTS\n1. Wide: rep walking into the plant (5s)\n2. Close: hands on the machine, the part in question (10s)\n3. Interview, eye level, quiet area:\n   - \"What's the call you get most?\"\n   - \"What's one thing every plant should check weekly?\"\n   - \"Best fix you've ever made?\"\n4. B-roll: dryers turning, folder running, linen moving (20s)\n5. Close on the logo on the rep's jacket or truck (3s)\n\nEDIT: 60s vertical + 90s horizontal · captions burned in\nCHECKS: safety gear visible, no customer logos without permission, part numbers verified",
+     "code": "SERIES: 60 seconds with your rep\nREP: Mike Sullivan   REGION: Ontario\nKIT: phone on gimbal, lapel mic, LED panel, plant safety gear\n\nSHOTS\n1. Wide: rep walking into the plant (5s)\n2. Close: hands on the machine, the part in question (10s)\n3. Interview, eye level, quiet area:\n   - \"What's the call you get most?\"\n   - \"What's one thing every plant should check weekly?\"\n   - \"Best fix you've ever made?\"\n4. B-roll: dryers turning, folder running, linen moving (20s)\n5. Close on the logo on the rep's jacket or truck (3s)\n\nEDIT: 60s vertical + 90s horizontal · captions burned in\nCHECKS: safety gear visible, no customer logos without permission, part numbers verified",
      "note": "One morning of filming gives a Reel, a LinkedIn video, a Facebook cut and a newsletter feature."
     }
    ]
@@ -3259,23 +3404,23 @@ document.addEventListener('DOMContentLoaded', () => {
      "type": "blog",
      "author": "durva",
      "category": "How-to",
-     "date": "Draft for review",
-     "readTime": "4 min read",
+     "date": "October 2026",
+     "readTime": "9 min read",
      "title": "Machine Down? How to Find the Right Laundry Part the First Time",
      "graphic": {
-      "style": "cover",
-      "theme": "night",
+      "style": "tg-band",
+      "wide": true,
+      "img": "img/guide-tape-spool.png",
       "kicker": "MAINTENANCE GUIDE",
-      "title": "Find the right part the first time",
-      "sub": "5 steps, 3 minutes, before 3pm EST.",
-      "foot": "tingue.com"
+      "title": "Machine down? Find the right part the *first time.*",
+      "sub": "A routine for maintenance teams, from serial plate to same-day shipping."
      },
-     "body": "When a dryer, ironer or folder stops, the clock starts. Every minute it's down, linens stack up and the schedule slips. The fastest fix is the one where the right part arrives the first time.\n\nHere's the routine we'd recommend to every plant.\n\n## 1. Start at the serial plate\n\nEvery machine has a plate with the manufacturer, model and serial number. Take a photo of each one in your plant and keep them in a shared folder. It's the single best thing you can do before anything breaks.\n\n## 2. Search by machine, not by guess\n\nOn tingue.com, select your **type**, **manufacturer** and **model**, then drill down until the products appear. With an account, your machines are listed for you, so the next search is even faster.\n\n## 3. Match the part number exactly\n\nPart numbers carry letters and dashes for a reason. **CD-3208-033** and a near-miss are two different parts. Copy it exactly, or send a photo of the old part to your rep.\n\n## 4. Watch the clock\n\nOrders placed before **3pm EST** ship the same business day. If it's 2:40, order first, ask questions after.\n\n## 5. Keep one cart, one invoice\n\nWith 23,000+ SKUs from 30+ manufacturers, you can usually put every brand in your plant on one order, and get one invoice instead of five.\n\n> Not sure? Call your rep. Tingue has 40+ field reps across 50 states and 10 provinces, and they know the equipment.",
+     "body": "When a dryer, ironer or folder stops, the clock starts. Linens stack up at the next station, the production schedule slips, and a crew that should be finishing goods is waiting. In a commercial laundry, downtime is rarely about the repair itself. Most of the lost time is spent finding out exactly which part you need, getting it ordered, and waiting for it to arrive.\n\nThe good news: almost all of that time is in your control. Plants that recover fastest from a breakdown don't have better luck. They have a routine. Here's the one we'd recommend, step by step, with the small habits that make the difference.\n\n## 1. Build your machine list before anything breaks\n\nEvery machine in your plant has a serial plate with the manufacturer, the model and the serial number. Walk the floor once, photograph every plate, and save the photos in a shared folder named by machine and location (for example, *Dryer 3, Line 2*).\n\nIt takes one afternoon, and it pays back the first time something fails at 6am and the person on shift isn't the person who installed the machine.\n\nWhile you're there, write down:\n\n- The manufacturer and full model or series (e.g. a Chicago Dryer ironer series, a Milnor washer-extractor model)\n- The year it was installed, if you know it\n- Any parts you've already replaced more than once\n\nThat last list is gold. It tells you what to keep on the shelf.\n\n## 2. Search by machine, not by guess\n\nPart names vary. One technician says *pulley*, another says *roller*, and a third says *the white wheel on the rail*. Searching by description alone is how the wrong part gets ordered.\n\nSearch by machine instead. On tingue.com you can select the **type** of equipment, then the **manufacturer**, then the **model**, and keep drilling down until the products appear. With a Tingue account, your machines are listed for you, so the next search starts from your own plant rather than the whole catalog.\n\n## 3. Match the part number exactly\n\nPart numbers carry letters, numbers and dashes for a reason. **CD-3208-033** and a part number one character off are two different parts, and the difference might only show up when the new part doesn't fit.\n\nA few habits help:\n\n- Copy the part number from the manual or the old part, never from memory\n- Read it back character by character before you order\n- If the label is worn off, measure the old part and send a photo\n\nWhen in doubt, send the photo and the measurements to your rep. A rep who has seen hundreds of these machines can often confirm a match in seconds.\n\n## 4. Know your dimensions and materials\n\nFor wear parts like guide tape, belting, ironer pads and covers, the right part is about more than the part number. Width, length, thickness and material all matter, and so does how the part is running today.\n\nBefore you reorder, check:\n\n- **Size:** width and length, measured on the old part, not guessed\n- **Material:** cotton, blended or high-temperature, depending on the job\n- **Wear pattern:** uneven wear can point to a problem upstream (tension, alignment, temperature) that a new part alone won't fix\n\nIf the old part failed early, mention it when you order. It's a useful clue for your rep, and it can save you from replacing the same part again next month.\n\n## 5. Watch the clock\n\nOrders placed before **3pm EST** ship the same business day. If it's 2:40 and you're 90% sure, it's usually worth placing the order and confirming the details with your rep right after.\n\nTo make this easier, agree inside your team on who can place an order, and make sure that person has account access before the day you need it. Many delays come from a missing login, not a missing part.\n\n## 6. Put every brand on one order\n\nMost plants run equipment from several manufacturers. Ordering from a different supplier for each brand means more logins, more carts, more shipments and more invoices to reconcile.\n\nWith 23,000+ SKUs from 30+ manufacturers, you can usually put every brand in your plant on one order and get one invoice instead of five. Your contract pricing, order history and saved quotes are in the same place.\n\n## 7. Keep the parts that fail most on the shelf\n\nLook back at the list from step 1. The parts you've replaced more than once are the ones worth stocking. Keeping one spare of each fast-wearing part turns a two-day wait into a twenty-minute swap.\n\nA simple min/max list works well: for each part, the minimum you keep on the shelf and the quantity you reorder when you hit it. Review it every quarter with your rep, because your plant changes, and so does what wears out.\n\n## 8. Write it down for the next shift\n\nEvery repair teaches you something. Note what failed, which part fixed it, the part number and how long the machine was down. After a few months, you'll have a record that shows where your downtime really comes from, and a strong case for the preventive maintenance that avoids it.\n\n## A quick checklist for your maintenance board\n\n- Photos of every serial plate, saved and shared\n- Machines listed in your Tingue account\n- Part numbers copied exactly, read back before ordering\n- Sizes and materials checked for wear parts\n- Order placed before 3pm EST\n- Fast-wearing parts on the shelf, with a min/max list\n- Every repair logged\n\n> Not sure where to start? Call your rep. Tingue has 40+ field reps across 50 states and 10 provinces, and they know the equipment in plants like yours.",
      "cta": {
       "text": "Want your machines listed in your account?",
       "label": "Ask your rep"
      },
-     "distribution": "Blog → LinkedIn carousel (the 5 steps) → newsletter feature → a printable one-pager reps can leave at the plant. Reviewed by a rep before it goes live."
+     "distribution": "Blog → LinkedIn carousel (the checklist) → newsletter feature → a printable one-pager reps leave at the maintenance desk. Reviewed by a rep before it goes live."
     }
    ]
   },
@@ -3291,11 +3436,11 @@ document.addEventListener('DOMContentLoaded', () => {
      "author": "tingue",
      "fromName": "Tingue",
      "fromEmail": "news@tingue.com",
-     "to": "{{first_name}}",
+     "to": "Dave",
      "time": "Tue 7:30 AM",
      "subject": "The Plant Floor · October: 3 fixes, 1 rep, 124 years",
      "preview": "Your monthly read for keeping machines running",
-     "body": "Hi {{first_name}},\n\nHere's your monthly **Plant Floor**: five minutes, all useful.\n\n**🔧 This month's fix**\nMachine down? The 5-step routine to get the right part the first time.\n\n**🎥 60 seconds with your rep**\nMeet [rep name], who covers [region]: the call they get most and what every plant should check weekly.\n\n**📦 The 3pm rule**\nOrder before 3pm EST and it ships today. Every business day.\n\n**🧺 Since 1902**\nA photo from the archive, and the story of the 24-year-old who started it all.",
+     "body": "Hi Dave,\n\nHere's your monthly **Plant Floor**: five minutes, all useful.\n\n**🔧 This month's fix**\nMachine down? The 5-step routine to get the right part the first time.\n\n**🎥 60 seconds with your rep**\nMeet Mike Sullivan, who covers Ontario: the call they get most and what every plant should check weekly.\n\n**📦 The 3pm rule**\nOrder before 3pm EST and it ships today. Every business day.\n\n**🧺 Since 1902**\nA photo from the archive, and the story of the 24-year-old who started it all.",
      "cta": "Shop by machine",
      "signoff": "Keep it running,\nThe Tingue team"
     },
@@ -3304,13 +3449,13 @@ document.addEventListener('DOMContentLoaded', () => {
      "author": "tingue",
      "fromName": "Tingue",
      "fromEmail": "hello@tingue.com",
-     "to": "{{first_name}}",
+     "to": "Dave",
      "time": "Thu 10:15 AM",
-     "subject": "{{first_name}}, your machines in one place",
+     "subject": "Dave, your machines in one place",
      "preview": "Set up your Tingue account: contract pricing, order history, saved quotes",
-     "body": "Hi {{first_name}},\n\nYou order from Tingue already. Here's how to make it faster.\n\nWith a Tingue account you get:\n\n- **Your machines listed**, so the right parts are a click away\n- **Your contract pricing**, order history and saved quotes\n- **One invoice** across every manufacturer\n\nTell us your plant location, equipment list and who's authorized to order. Your rep does the rest.",
+     "body": "Hi Dave,\n\nYou order from Tingue already. Here's how to make it faster.\n\nWith a Tingue account you get:\n\n- **Your machines listed**, so the right parts are a click away\n- **Your contract pricing**, order history and saved quotes\n- **One invoice** across every manufacturer\n\nTell us your plant location, equipment list and who's authorized to order. Your rep does the rest.",
      "cta": "Set up my account",
-     "signoff": "Talk soon,\n[Rep name], your Tingue rep"
+     "signoff": "Talk soon,\nMike Sullivan, your Tingue rep"
     }
    ]
   },
@@ -3329,19 +3474,23 @@ document.addEventListener('DOMContentLoaded', () => {
      "readTime": "Draft",
      "title": "Tingue Marks 124 Years Supporting Commercial Laundries Across North America",
      "graphic": {
-      "style": "cover",
-      "theme": "night",
-      "kicker": "FOR IMMEDIATE RELEASE",
-      "title": "124 years of keeping laundries running",
+      "style": "tg-hero",
+      "wide": true,
+      "photo": "img/david-and-john-tingue.jpg",
+      "alt": "Two generations of the Tingue family",
+      "focus": "70% 30%",
+      "kicker": "NEWSROOM",
+      "title": "124 years of keeping laundries *running.*",
       "sub": "Family-owned since 1902 · five generations",
-      "foot": "tingue.com · Newsroom"
+      "button": "Read the release"
      },
-     "body": "**SANDY SPRINGS, Ga.** — Tingue, the family-owned supplier of commercial laundry equipment repair parts, marks 124 years in business in 2026. Started in New York in 1902 by William J. Tingue at age 24, the company has been family-owned and run for five generations.\n\nToday Tingue serves 1,900+ commercial laundries, from national uniform rental and healthcare linen groups to regional plants, with 23,000+ SKUs from 30+ equipment manufacturers. A team of 40+ field representatives covers all 50 US states and 10 Canadian provinces, and orders placed before 3pm EST ship the same business day.\n\n> “[Quote from Tingue leadership, to be written with and approved by them.]”\n\n## About Tingue\n\nTingue is a supplier of laundry equipment repair parts and commercial laundry solutions. Its mission is to foster a benevolent culture that drives it to be the familiar, friendly, and trusted solution for its laundry partners. Learn more at tingue.com.\n\n**Media contact:** [Name], Marketing, Tingue · [email] · [phone]\n\n###",
+     "body": "**SANDY SPRINGS, Ga., October 5, 2026:** Tingue, the family-owned supplier of commercial laundry equipment repair parts, marks 124 years in business in 2026. Started in New York in 1902 by William J. Tingue at age 24, the company has been family-owned and run for five generations.\n\nToday Tingue serves 1,900+ commercial laundries, from national uniform rental and healthcare linen groups to regional plants, with 23,000+ SKUs from 30+ equipment manufacturers. A team of 40+ field representatives covers all 50 US states and 10 Canadian provinces, and orders placed before 3pm EST ship the same business day.\n\n> “In 1902 the job was simple: help laundries keep running. It still is. The machines have changed and the catalog has grown to 23,000+ parts, but every order still ends with a person who knows your plant,” said Patrick C. Robertson, Director of Marketing at Tingue. “We're proud to have earned that trust for 124 years, and we're not slowing down.”\n\n## About Tingue\n\nTingue is a supplier of laundry equipment repair parts and commercial laundry solutions. Its mission is to foster a benevolent culture that drives it to be the familiar, friendly, and trusted solution for its laundry partners. Learn more at tingue.com.\n\n**Media contact:** Durva Thakkar, Marketing Assistant, Tingue · media@tingue.com · (705) 555-0142\n\n###",
      "cta": {
       "text": "Distribution list: trade press, association newsletters, local business press, LinkedIn.",
       "label": "See the partner list"
      },
-     "distribution": "Wire or direct pitch to laundry trade publications and association newsletters, plus a company LinkedIn post and a newsletter mention. Every fact here is from tingue.com."
+     "distribution": "Wire or direct pitch to laundry trade publications and association newsletters, plus a company LinkedIn post and a newsletter mention. Every fact here is from tingue.com.",
+     "intro": "Develop and distribute press releases. Built on facts from tingue.com; the quote is a sample for leadership to edit and approve."
     }
    ]
   },
@@ -3359,7 +3508,7 @@ document.addEventListener('DOMContentLoaded', () => {
      "badge": "Campaign plan",
      "phases": [
       {
-       "label": "Weeks 1–2",
+       "label": "Weeks 1-2",
        "when": "Build it",
        "items": [
         {
@@ -3400,7 +3549,7 @@ document.addEventListener('DOMContentLoaded', () => {
        ]
       },
       {
-       "label": "Weeks 3–6",
+       "label": "Weeks 3-6",
        "when": "Launch",
        "items": [
         {
@@ -3413,9 +3562,9 @@ document.addEventListener('DOMContentLoaded', () => {
           "time": "3w",
           "body": "Five suppliers. Five invoices. Five logins. 😩\n\nOr: every brand in your plant, one cart, one invoice.\n\n23,000+ SKUs from 30+ manufacturers, your contract pricing, and same-day shipping before 3pm EST.\n\nSet up your account in one form → link in the comments\n\n#CommercialLaundry #Maintenance #Purchasing",
           "graphic": {
-           "style": "cmp2",
+           "style": "tg-compare",
            "kicker": "ORDERING PARTS",
-           "title": "Two ways to keep a plant running",
+           "title": "Two ways to keep a plant *running.*",
            "leftLabel": "FIVE SUPPLIERS",
            "left": "Five logins, five carts, five invoices",
            "rightLabel": "TINGUE",
@@ -3440,7 +3589,7 @@ document.addEventListener('DOMContentLoaded', () => {
        ]
       },
       {
-       "label": "Weeks 7–10",
+       "label": "Weeks 7-10",
        "when": "Push",
        "items": [
         {
@@ -3461,7 +3610,7 @@ document.addEventListener('DOMContentLoaded', () => {
        ]
       },
       {
-       "label": "Weeks 11–12",
+       "label": "Weeks 11-12",
        "when": "Report",
        "items": [
         {
@@ -3726,7 +3875,7 @@ document.addEventListener('DOMContentLoaded', () => {
        "✓",
        "Check",
        "✓",
-       "—",
+       "None",
        {
         "b": "warn",
         "t": "Add model fit"
@@ -3738,7 +3887,7 @@ document.addEventListener('DOMContentLoaded', () => {
        "Missing",
        "✓",
        "✓",
-       "—",
+       "None",
        {
         "b": "bad",
         "t": "Needs photo"
@@ -3762,7 +3911,7 @@ document.addEventListener('DOMContentLoaded', () => {
        "✓",
        "Check",
        "Partial",
-       "—",
+       "None",
        {
         "b": "warn",
         "t": "Add spec"
