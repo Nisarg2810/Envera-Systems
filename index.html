@@ -10,7 +10,6 @@
   <meta property="og:image" content="https://durvathakkar.com/assets/story-jake.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="image" href="assets/durva-look-sprite.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -95,11 +94,11 @@
     .hero .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; opacity: 0; animation: fade .9s ease 1.1s forwards; }
     @keyframes fade { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 
-    /* portrait that follows the cursor (21-frame sprite) */
+    /* portrait */
     .lk-wrap { justify-self: center; position: relative; width: min(100%, 400px); animation: pop 1.1s cubic-bezier(.2,1.4,.4,1) .35s both; }
     @keyframes pop { from { opacity: 0; transform: translateY(60px) scale(.8) rotate(-6deg); } }
     .lk-card { position: relative; aspect-ratio: 560 / 512; border-radius: 36px; overflow: hidden; background: var(--lime); border: 10px solid #fff; transform: rotate(2deg); box-shadow: inset 0 0 0 1px rgba(0,0,0,.04), 0 40px 50px -30px rgba(10,40,20,.6), inset -10px -12px 22px rgba(0,0,0,.08); }
-    .lk-layer { position: absolute; inset: 0; background: url("assets/durva-look-sprite.jpg") no-repeat 50% 0 / 2100% 100%; will-change: background-position, opacity; }
+    .lk-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
     .lk-bubble { position: absolute; left: -26px; top: -22px; z-index: 2; background: #fff; font-weight: 700; font-size: 20px; letter-spacing: -0.02em; padding: 12px 18px; border-radius: 22px 22px 22px 6px; transform: rotate(-8deg); animation: bob 4s ease-in-out infinite; }
     .lk-hint { position: absolute; right: 16px; bottom: -18px; z-index: 2; font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; background: var(--ink); color: #fff; padding: 9px 14px; border-radius: 999px; transition: opacity .6s, transform .6s; }
     .lk-wrap.seen .lk-hint { opacity: 0; transform: translateY(8px); }
@@ -270,6 +269,47 @@
       .hero h1 .ln > span { transform: none; }
       .hero .sub, .hero .cta { opacity: 1; }
     }
+
+    /* ---------- proof of work: hover the words ---------- */
+    .pw-line .nw { white-space: nowrap; }
+    .pw-line { font-size: clamp(26px, 3.6vw, 46px); line-height: 1.45; letter-spacing: -0.03em; font-weight: 600; max-width: 1100px; }
+    .pw { font: inherit; letter-spacing: inherit; color: var(--ink); cursor: pointer; border: 0; background: var(--pc); padding: 0 .28em; border-radius: .32em; box-shadow: inset 0 -.12em 0 rgba(0,0,0,.12); transition: transform .25s cubic-bezier(.3,1.6,.5,1), box-shadow .25s; display: inline-block; line-height: 1.2; }
+    .pw:hover, .pw:focus-visible, .pw.on { transform: translateY(-3px) rotate(-1.5deg); box-shadow: inset 0 -.12em 0 rgba(0,0,0,.12), 0 10px 20px -10px rgba(0,0,0,.35); outline: none; }
+    .pv-float { position: fixed; left: 0; top: 0; z-index: 80; width: 300px; height: 230px; pointer-events: none; opacity: 0; transform: translate3d(-999px, -999px, 0) scale(.85); transition: opacity .2s; }
+    .pv-float.show { opacity: 1; }
+    .pv-float img, .pv-sheet img { border-radius: 14px; border: 6px solid #fff; box-shadow: 0 30px 50px -20px rgba(10,40,20,.55); object-fit: cover; background: #fff; }
+    .pv-float img { position: absolute; width: 230px; height: 190px; left: 35px; top: 10px; transition: transform .35s cubic-bezier(.3,1.5,.5,1); }
+    .pv-float img:nth-child(1) { transform: rotate(-7deg) translate(-26px, 8px); } .pv-float img:nth-child(2) { transform: rotate(5deg) translate(22px, -4px); } .pv-float img:nth-child(3) { transform: rotate(-1deg) translate(0, -14px); }
+    .pv-float img:only-child { transform: rotate(-3deg); width: 260px; left: 20px; }
+    .pv-float .cap, .pv-sheet .cap { position: absolute; left: 10px; right: 10px; bottom: -8px; background: var(--ink); color: #fff; font-family: var(--mono); font-size: 11px; letter-spacing: .04em; padding: 8px 12px; border-radius: 999px; text-align: center; }
+    .pv-sheet { margin-top: 26px; position: relative; display: flex; gap: 14px; overflow-x: auto; padding: 8px 4px 46px; scroll-snap-type: x mandatory; }
+    .pv-sheet img { height: 220px; width: auto; max-width: 340px; flex: none; scroll-snap-align: start; }
+    .pv-sheet .cap { position: absolute; left: 4px; right: auto; bottom: 6px; }
+    .pv-strip { margin-top: 44px; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+    .pv-track { display: flex; gap: 16px; width: max-content; animation: pvScroll 60s linear infinite; padding: 10px 0 24px; }
+    .pv-strip:hover .pv-track { animation-play-state: paused; }
+    .pv-track img { height: 180px; width: auto; border-radius: 16px; border: 6px solid #fff; box-shadow: 0 20px 30px -18px rgba(10,40,20,.5); background: #fff; }
+    .pv-track img:nth-child(odd) { transform: rotate(-1.5deg); } .pv-track img:nth-child(even) { transform: rotate(1.5deg); }
+    @keyframes pvScroll { to { transform: translateX(-50%); } }
+    .pv-note { margin-top: 10px; font-size: 14px; color: var(--muted); }
+    @media (prefers-reduced-motion: reduce) { .pv-track { animation: none; } }
+
+    /* ---------- writing ---------- */
+    .pubs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .pub { display: flex; flex-direction: column; gap: 14px; border-radius: var(--radius); background: #fff; padding: 22px; text-decoration: none; color: inherit; transition: transform .35s cubic-bezier(.3,1.5,.5,1); }
+    .pub:hover { transform: translateY(-6px) rotate(-.5deg); }
+    .pub-cover { position: relative; height: 150px; border-radius: 22px; background: var(--pb); display: grid; place-items: center; overflow: hidden; }
+    .pub-cover::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 30% 20%, rgba(255,255,255,.55), transparent 55%); }
+    .pub-emo { font-size: 64px; filter: drop-shadow(0 10px 10px rgba(0,0,0,.15)); }
+    .pub-src { position: absolute; left: 14px; bottom: 12px; z-index: 1; font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; background: #fff; padding: 6px 10px; border-radius: 999px; }
+    .pub .pt { display: flex; flex-wrap: wrap; gap: 6px; } .pub .pt span { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--pc); background: var(--pb); padding: 4px 9px; border-radius: 999px; }
+    .pub h3 { font-size: 24px; line-height: 1.12; letter-spacing: -0.03em; font-weight: 600; } .pub h3 span { color: var(--pc); }
+    .pub-ex { color: var(--muted); font-size: 15.5px; }
+    .pub-pts { display: flex; flex-wrap: wrap; gap: 6px; } .pub-pts span { font-size: 12.5px; background: #f4f4ef; border-radius: 999px; padding: 5px 10px; }
+    .pub .go { margin-top: auto; display: inline-flex; align-items: center; gap: 10px; font-weight: 600; color: var(--ink); text-decoration: none; }
+    .pub .go i { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--pb); font-style: normal; transition: transform .25s; }
+    .pub:hover .go i { transform: rotate(-30deg); }
+    @media (max-width: 980px) { .pubs { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -281,9 +321,11 @@
       <li><a href="#journey">Journey</a></li>
       <li><a href="#learning">Learning</a></li>
       <li><a href="#toolbox">Toolbox</a></li>
+      <li><a href="#proof">Proof</a></li>
+      <li><a href="#writing">Writing</a></li>
       <li><a href="#stories">Stories</a></li>
     </ul>
-    <a class="btn dark" href="#say-hi">Say hi 👋</a>
+    <a class="btn dark" href="#say-hi">Coffee? ☕</a>
   </nav>
 
   <!-- ============ HERO ============ -->
@@ -367,17 +409,13 @@
         </h1>
         <p class="sub">Marketer, storyteller, and professional yes-sayer to coffee chats. I write the content, start the conversations, and listen to the customers. Fresh grad, and looking for what's next in Canada.</p>
         <div class="cta">
-          <a class="btn white" href="#say-hi">Say hi 👋</a>
+          <a class="btn white" href="#say-hi">Let's grab a coffee ☕</a>
           <a class="btn lime" href="#journey">See my journey <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v10M3 8l5 5 5-5"/></svg></a>
         </div>
       </div>
       <div class="lk-wrap" id="look">
         <span class="lk-bubble" aria-hidden="true">hi there! ✨</span>
-        <div class="lk-card" role="img" aria-label="Portrait of Durva Thakkar. She turns her head to follow your cursor.">
-          <div class="lk-layer"></div>
-          <div class="lk-layer"></div>
-        </div>
-        <span class="lk-hint" aria-hidden="true"><span class="lk-mouse">move your cursor 👀</span><span class="lk-touch">tap or drag 👀</span></span>
+        <div class="lk-card"><img src="assets/durva-portrait.jpg" alt="Portrait of Durva Thakkar, smiling, in glasses and a navy sweater" width="560" height="512"></div>
       </div>
     </div>
   </header>
@@ -544,6 +582,55 @@
       </div>
     </section>
 
+    <!-- ============ PROOF OF WORK ============ -->
+    <section class="block wrap" id="proof">
+      <div class="sec-head rv">
+        <span class="tag" style="--c: #8fb0ff"><i></i>Proof of work</span>
+        <h2>Don't take my word for it. <span class="hl" style="--c: var(--blue-ink)">Hover over it.</span></h2>
+        <p>Every highlighted word is something I've made. Hover (or tap) to see it.</p>
+      </div>
+      <p class="pw-line rv">Lately I've written and designed <span class="nw"><button class="pw" type="button" data-pv="linkedin" style="--pc: var(--blue)">LinkedIn posts</button>,</span> <span class="nw"><button class="pw" type="button" data-pv="instagram" style="--pc: var(--pink)">Instagram carousels</button>,</span> <span class="nw"><button class="pw" type="button" data-pv="blog" style="--pc: var(--butter)">blogs</button>,</span> <span class="nw"><button class="pw" type="button" data-pv="case" style="--pc: var(--mint)">case studies</button>,</span> <span class="nw"><button class="pw" type="button" data-pv="events" style="--pc: var(--peach)">event campaigns</button>,</span> <span class="nw"><button class="pw" type="button" data-pv="hubspot" style="--pc: var(--lime)">HubSpot workflows</button>,</span> <span class="nw"><button class="pw" type="button" data-pv="plan" style="--pc: var(--blue)">30-60-90 plans</button>,</span> <button class="pw" type="button" data-pv="ops" style="--pc: var(--mint)">ops playbooks</button> and even <span class="nw"><button class="pw" type="button" data-pv="game" style="--pc: var(--pink)">8-bit games</button>.</span> </p>
+      <div class="pv-sheet" id="pvSheet" hidden></div>
+      <div class="pv-strip rv" aria-hidden="true"><div class="pv-track" id="pvTrack"></div></div>
+      <p class="pv-note rv">All spec work: made to practise and to show what I can do. None of it is client work, and the brands you see aren't my clients.</p>
+      <div class="pv-float" id="pvFloat" aria-hidden="true"></div>
+    </section>
+
+    <!-- ============ WRITING ============ -->
+    <section class="block wrap" id="writing">
+      <div class="sec-head rv">
+        <span class="tag" style="--c: var(--lime)"><i></i>Writing</span>
+        <h2>Words in other people's voices <span class="hl">(and a few in mine).</span></h2>
+        <p>Ghostwritten articles that made it into publications, and a portfolio of LinkedIn posts.</p>
+      </div>
+      <div class="pubs">
+        <article class="pub clay rv" style="--pb: var(--butter); --pc: var(--butter-ink)">
+          <div class="pub-cover"><span class="pub-emo">🏗️</span><span class="pub-src">USA Wire</span></div>
+          <div class="pt"><span>Ghostwritten</span><span>Trade shows</span><span>Jun 2024</span></div>
+          <h3>9 things to consider while designing <span>your trade show booth.</span></h3>
+          <p class="pub-ex">“Your trade show booth can make or break your presence, right? … This is not just about aesthetics; it is about creating an interactive experience for your attendees.”</p>
+          <div class="pub-pts"><span>Visitor flow</span><span>Storage &amp; power</span><span>Multi-purpose furniture</span><span>Interactive elements</span><span>Accessibility</span><span>Lighting</span><span>Easy assembly</span><span>Social media</span><span>Sustainability</span></div>
+          <a class="go" href="https://usawire.com/9-things-to-consider-while-designing-your-trade-show-booth/" target="_blank" rel="noopener"><i>↗</i>Read on USA Wire</a>
+        </article>
+        <article class="pub clay rv" style="--pb: var(--peach); --pc: var(--peach-ink); --d:.08s">
+          <div class="pub-cover"><span class="pub-emo">🗓️</span><span class="pub-src">Mirror Review</span></div>
+          <div class="pt"><span>Ghostwritten</span><span>Events</span><span>May 2024</span></div>
+          <h3>How to plan your next <span>trade show exhibition.</span></h3>
+          <p class="pub-ex">“So, you've got a trade show exhibition coming up? We all know how exhibiting at a trade show requires a lot of planning and better execution skills.”</p>
+          <div class="pub-pts"><span>Clear goals</span><span>Target audience</span><span>Budget</span><span>Book space early</span><span>Booth design</span><span>Train your staff</span><span>A compelling message</span><span>Marketing plan</span><span>Fast follow-up</span></div>
+          <a class="go" href="https://www.mirrorreview.com/plan-your-next-trade-show-exhibition/" target="_blank" rel="noopener"><i>↗</i>Read on Mirror Review</a>
+        </article>
+        <a class="pub pub-li clay rv" href="writing/" style="--pb: var(--blue); --pc: var(--blue-ink); --d:.16s">
+          <div class="pub-cover"><span class="pub-emo">✍️</span><span class="pub-src">LinkedIn</span></div>
+          <div class="pt"><span>Ghostwriting portfolio</span><span>16 posts</span></div>
+          <h3>LinkedIn posts for founders and leaders, <span>in their voice.</span></h3>
+          <p class="pub-ex">B2B SaaS, cybersecurity, AI, accounting, hospitality tech and product management: long-form posts written to sound like the person posting them.</p>
+          <span class="go"><i>→</i>Browse the posts</span>
+        </a>
+      </div>
+      <p class="more-soon rv">Bylines on the published pieces belong to the publications and contributors; I wrote the words.</p>
+    </section>
+
     <!-- ============ STORIES ============ -->
     <section class="block wrap" id="stories">
       <div class="sec-head rv">
@@ -690,11 +777,11 @@
         <span class="orb clay" aria-hidden="true" style="--t:7.5s; width:60px; height:60px; right:9%; top:20%; background:#8fb0ff"></span>
         <span class="orb clay" aria-hidden="true" style="--t:5s; width:120px; height:120px; right:5%; bottom:-30px; background:#ffb07a"></span>
         <span class="orb clay" aria-hidden="true" style="--t:8s; width:70px; height:70px; left:12%; bottom:10%; background:#fff"></span>
-        <h2>Buy a ticket. <br>Say hi <span class="hand">👋</span></h2>
-        <p>I'm looking for what's next in marketing, business, or content, in Canada. If you know people doing great work in these spaces, I'd love an intro. And I always say yes to the coffee.</p>
+        <h2>Let's meet <br>for a coffee? <span class="hand">☕</span></h2>
+        <p>I'm looking for what's next in marketing, business, or content, in Canada. If you're building something good, or know people who are, let's grab a coffee, in person or on a call. I always say yes to the coffee.</p>
         <div class="cta">
           <a class="btn dark" href="https://www.linkedin.com/in/durvathakkar/" target="_blank" rel="noopener">Connect on LinkedIn</a>
-          <a class="btn white" href="mailto:durvathakker7@gmail.com?subject=Hi%20Durva%20%F0%9F%91%8B">durvathakker7@gmail.com</a>
+          <a class="btn white" href="mailto:durvathakker7@gmail.com?subject=Coffee%3F%20%E2%98%95">durvathakker7@gmail.com</a>
         </div>
       </div>
     </section>
@@ -762,54 +849,44 @@
   });
   dlg.addEventListener('click', e => { if (e.target === dlg || e.target.closest('[data-close]')) dlg.close(); });
 
-  /* ---------- portrait that follows the cursor ----------
-     The sprite is one horizontal strip of FRAMES frames: 0 = looking far left, middle = default pose, last = far right.
-     Cursor x picks a target frame; the shown frame eases toward it every animation frame,
-     and two stacked layers cross-fade between neighbouring frames so the scrub stays smooth. */
-  (() => {
-    const FRAMES = 21, MID = (FRAMES - 1) / 2;
-    const FOLLOW = 7;   // how quickly it chases the cursor (per second)
-    const RETURN = 2.6; // gentler ease back to the default pose
-    const wrap = document.getElementById('look');
-    const card = wrap.querySelector('.lk-card');
-    const [base, blend] = card.querySelectorAll('.lk-layer');
 
-    let current = MID, target = MID, rate = RETURN, raf = 0, last = 0;
-    const pos = f => (f / (FRAMES - 1)) * 100 + '% 0';
-    function paint() {
-      const lo = Math.floor(current), hi = Math.min(FRAMES - 1, lo + 1), mix = current - lo;
-      base.style.backgroundPosition = pos(lo);
-      blend.style.backgroundPosition = pos(hi);
-      blend.style.opacity = mix.toFixed(3);
-    }
-    function tick(now) {
-      const dt = Math.min(0.05, (now - last) / 1000); last = now;
-      current += (target - current) * (1 - Math.exp(-rate * dt)); // frame-rate independent ease
-      if (Math.abs(target - current) < 0.002) { current = target; raf = 0; paint(); return; }
-      paint();
-      raf = requestAnimationFrame(tick);
-    }
-    function go(f, r) {
-      target = Math.max(0, Math.min(FRAMES - 1, f)); rate = r;
-      if (still.matches) { current = target = MID; paint(); return; }
-      if (!raf) { last = performance.now(); raf = requestAnimationFrame(tick); }
-    }
-    function aim(clientX) {
-      const r = card.getBoundingClientRect(), cx = r.left + r.width / 2;
-      const room = clientX < cx ? cx : innerWidth - cx;
-      const t = Math.max(-1, Math.min(1, (clientX - cx) / Math.max(room, 1)));
-      const eased = Math.sign(t) * (1 - Math.pow(1 - Math.abs(t), 2)); // ease-out: responds early, settles at the edges
-      wrap.classList.add('seen');
-      go(MID + eased * MID, FOLLOW);
-    }
-    const home = () => go(MID, RETURN);
-    addEventListener('pointermove', e => { if (e.pointerType === 'mouse' || e.buttons) aim(e.clientX); }, { passive: true });
-    addEventListener('pointerdown', e => aim(e.clientX), { passive: true });
-    addEventListener('pointerup', e => { if (e.pointerType !== 'mouse') home(); });
-    addEventListener('pointercancel', home);
-    document.documentElement.addEventListener('mouseleave', home);
-    addEventListener('blur', home);
-    paint();
+  /* ---------- proof of work: previews on hover (desktop) or tap (anywhere) ---------- */
+  (() => {
+    const PV = {
+      linkedin: { imgs: ['spellbook/posts/c1.jpg', 'acre/posts/a1.jpg', 'acre/posts/a3.jpg'], cap: 'LinkedIn posts · spec work' },
+      instagram: { imgs: ['acre/posts/i1.jpg', 'spellbook/posts/ig1.jpg', 'spellbook/posts/reel.jpg'], cap: 'Instagram carousels + reel covers · spec work' },
+      blog: { imgs: ['acre/posts/blog.jpg'], cap: 'Blog cover + long-form guide · spec work' },
+      case: { imgs: ['assets/proof/case.jpg'], cap: 'Case study, sales-ready · spec work' },
+      events: { imgs: ['acre/posts/ev.jpg', 'acre/posts/a5.jpg', 'spellbook/posts/launch.jpg'], cap: 'Event + launch campaigns · spec work' },
+      hubspot: { imgs: ['assets/proof/hubspot.jpg'], cap: 'HubSpot lead-nurture workflow · spec work' },
+      plan: { imgs: ['assets/proof/plan.jpg'], cap: '30-60-90 day plan, week by week' },
+      ops: { imgs: ['assets/proof/qa.jpg', 'assets/proof/jira.jpg', 'assets/proof/utm.jpg'], cap: 'QA checklist · Jira board · UTM builder' },
+      game: { imgs: ['assets/proof/game.jpg'], cap: 'An 8-bit story, coded from scratch' },
+    };
+    const float = document.getElementById('pvFloat'), sheet = document.getElementById('pvSheet'), track = document.getElementById('pvTrack');
+    const imgs = k => PV[k].imgs.map(src => `<img src="${src}" alt="" loading="lazy">`).join('');
+    // the strip: every piece, looping
+    const all = Object.values(PV).flatMap(v => v.imgs);
+    track.innerHTML = [...all, ...all].map(src => `<img src="${src}" alt="" loading="lazy">`).join('');
+    // desktop: a fan of previews that follows the cursor
+    let tx = -999, ty = -999, x = -999, y = -999, raf = 0, active = null;
+    const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+    function loop() { x += (tx - x) * .18; y += (ty - y) * .18; float.style.transform = `translate3d(${x}px, ${y}px, 0) scale(1)`; raf = active ? requestAnimationFrame(loop) : 0; }
+    document.querySelectorAll('.pw').forEach(w => {
+      if (fine) {
+        w.addEventListener('mouseenter', e => { active = w.dataset.pv; float.innerHTML = imgs(active) + `<span class="cap">${PV[active].cap}</span>`; x = tx = e.clientX + 330 < innerWidth ? e.clientX + 24 : e.clientX - 324; y = ty = Math.max(10, e.clientY - 250); float.classList.add('show'); if (!raf) raf = requestAnimationFrame(loop); });
+        w.addEventListener('mousemove', e => { tx = e.clientX + 330 < innerWidth ? e.clientX + 24 : e.clientX - 324; ty = Math.max(10, e.clientY - 250); });
+        w.addEventListener('mouseleave', () => { active = null; float.classList.remove('show'); });
+      }
+      // tap / click / keyboard: open the full set below the sentence
+      w.addEventListener('click', () => {
+        const k = w.dataset.pv, open = w.classList.contains('on');
+        document.querySelectorAll('.pw.on').forEach(o => o.classList.remove('on'));
+        if (open) { sheet.hidden = true; return; }
+        w.classList.add('on'); sheet.innerHTML = imgs(k) + `<span class="cap">${PV[k].cap}</span>`; sheet.hidden = false;
+        if (!fine) sheet.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+    });
   })();
   </script>
 </body>
