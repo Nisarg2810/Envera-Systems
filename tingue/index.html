@@ -987,6 +987,55 @@
     .tg-band.tg-wide .tg-k { font-size: 1.3cqi; }
     .tg-band.tg-wide .tg-foot { display: none; }
     .tg-band.tg-wide .tg-prod { width: 22cqi; top: 50%; right: 8cqi; transform: translateY(-50%); }
+
+    /* ---- print designs ---- */
+    .tg-booth { background: linear-gradient(105deg, #0a1226 0%, #13244a 55%, #1b3a73 55.2%, #2a4f9a 100%); flex-direction: row; }
+    .tg-booth .tg-facet { position: absolute; right: 0; top: 0; width: 45%; height: 50%; background: linear-gradient(200deg, rgba(255,255,255,.1), transparent 70%); clip-path: polygon(30% 0, 100% 0, 100% 100%); }
+    .tb-l { position: relative; z-index: 2; width: 56%; padding: 3.4cqi 4cqi; display: flex; flex-direction: column; }
+    .tb-logo { height: 7cqi; width: auto; align-self: flex-start; margin-bottom: 3cqi; }
+    .tg-booth .tg-k { font-size: 1.2cqi; } .tg-booth .tg-k i { width: 4cqi; }
+    .tg-booth h4 { font-size: 4.4cqi; line-height: 1.06; margin-top: 1.2cqi; }
+    .tg-booth p { font-size: 1.5cqi; margin-top: 1.2cqi; opacity: .9; }
+    .tb-brands { margin-top: auto; display: flex; flex-wrap: wrap; gap: .7cqi; padding-bottom: 4cqi; }
+    .tb-brands span { font: 500 1.1cqi "Jost"; letter-spacing: .06em; border: 1px solid rgba(255,255,255,.3); border-radius: .6cqi; padding: .5cqi 1cqi; }
+    .tb-r { position: relative; z-index: 2; flex: 1; display: grid; grid-template-columns: 1fr 1fr; align-items: center; justify-items: center; padding: 2cqi 3cqi 6cqi; gap: 1cqi; }
+    .tb-r img { width: 80%; filter: drop-shadow(0 1.4cqi 1.6cqi rgba(0,0,0,.35)); }
+    .tb-bar { position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; background: #44C7F4; color: #0a1226; font: 600 1.2cqi "Jost"; letter-spacing: .12em; text-align: center; padding: 1cqi; }
+    .tg-counter { padding: 0; }
+    .tc-top { display: flex; align-items: center; justify-content: space-between; padding: 6cqi 6cqi 0; } .tc-top img { height: 8cqi; } .tc-top span { font: 600 2.4cqi "Jost"; letter-spacing: .16em; color: #2e52a2; }
+    .tg-counter h4 { font-size: 8.6cqi; line-height: 1.04; padding: 0 6cqi; margin-top: 5cqi; }
+    .tg-counter ol { list-style: none; counter-reset: c; margin: 4cqi 6cqi 0; display: grid; gap: 2cqi; }
+    .tg-counter li { counter-increment: c; display: flex; gap: 3cqi; align-items: center; font: 500 3.6cqi/1.25 "Jost"; color: #0e1a33; background: #fff; border: 1px solid #e3e6ec; border-radius: 1.6cqi; padding: 2.4cqi 3cqi; }
+    .tg-counter li::before { content: counter(c); flex: none; width: 6cqi; height: 6cqi; border-radius: 1.2cqi; background: #2F4E8D; color: #fff; display: grid; place-items: center; font-weight: 600; font-size: 3cqi; }
+    .tc-foot { margin: auto 6cqi 4cqi; display: flex; gap: 4cqi; align-items: center; }
+    .tc-qr { width: 22cqi; height: 22cqi; flex: none; background: #fff; padding: 1.4cqi; border-radius: 1.6cqi; border: 1px solid #e3e6ec; }
+    .tc-qr svg { width: 100%; height: 100%; display: block; }
+    .tc-foot b { display: block; font: 600 4.2cqi/1.15 "Jost"; color: #0e1a33; } .tc-foot span { display: block; margin-top: 1cqi; font-size: 3cqi; color: #67758D; }
+    .tg-counter .tg-bar { font-size: 2.2cqi; }
+    .tg-linecard { padding: 6cqi; }
+    .tl-head { display: flex; gap: 4cqi; align-items: center; padding-bottom: 4cqi; border-bottom: .5cqi solid #2F4E8D; }
+    .tl-head img { height: 11cqi; } .tl-head b { display: block; font: 600 5.6cqi/1.05 "Jost"; color: #0e1a33; } .tl-head span { display: block; margin-top: 1cqi; font-size: 2.8cqi; color: #67758D; }
+    .tl-k { margin-top: 4.4cqi; font: 600 2.4cqi "Jost"; letter-spacing: .2em; color: #2e52a2; }
+    .tl-grid { margin-top: 2cqi; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.4cqi; }
+    .tl-grid span { background: #fff; border: 1px solid #e3e6ec; border-radius: 1.2cqi; padding: 2cqi 1.6cqi; font: 600 2.7cqi "Jost"; color: #0e1a33; text-align: center; }
+    .tl-cats { margin-top: 2cqi; display: flex; flex-wrap: wrap; gap: 1.2cqi; }
+    .tl-cats span { background: #2F4E8D; color: #fff; border-radius: 99px; padding: 1.2cqi 2.4cqi; font: 500 2.5cqi "Jost"; }
+    .tl-why { list-style: none; margin-top: 2cqi; display: grid; gap: 1.4cqi; } .tl-why li { font: 500 2.8cqi "Jost"; color: #0e1a33; padding-left: 4cqi; position: relative; } .tl-why li::before { content: "✓"; position: absolute; left: 0; color: #2e52a2; font-weight: 700; }
+    .tl-foot { margin-top: auto; display: flex; justify-content: space-between; font: 500 2.6cqi "Jost"; color: #67758D; border-top: 1px solid #d8dce3; padding-top: 3cqi; }
+    /* ---- gallery + post builder ---- */
+    .gal-grid { margin-top: 16px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; align-items: start; }
+    .gal-f { margin: 0; } .gal-f.wide { grid-column: 1 / -1; }
+    .gal-frame { position: relative; container-type: inline-size; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px -12px rgba(14,29,61,.35); border: 1px solid #e3e6ec; }
+    .gal-f figcaption { margin-top: 10px; font-size: 13.5px; color: var(--muted); } .gal-f figcaption b { display: block; color: var(--ink); font-size: 14.5px; }
+    @media (max-width: 860px) { .gal-grid { grid-template-columns: 1fr; } }
+    .pb { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 380px); gap: 26px; align-items: start; }
+    .pb-form { display: grid; gap: 12px; }
+    .pb-form label { display: grid; gap: 6px; font: 600 12px "Inter"; color: var(--muted); }
+    .pb-form input, .pb-form select { font: 500 14px "Inter"; padding: 10px 12px; border: 1px solid #d5d9e1; border-radius: 9px; background: #fff; color: var(--ink); width: 100%; }
+    .pb-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .pb-hint { font-size: 13px; color: var(--muted); }
+    .pb-frame { position: relative; container-type: inline-size; aspect-ratio: 4 / 5; border-radius: 10px; overflow: hidden; box-shadow: 0 14px 34px -14px rgba(14,29,61,.45); }
+    @media (max-width: 860px) { .pb { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -1831,6 +1880,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const logoW = '<img src="logo.svg" alt="Tingue">';
     const bg = x => x.photo ? `<img class="bg" src="${esc(x.photo)}" alt="${esc(x.alt || '')}" loading="lazy" style="object-position:${esc(x.focus || 'center')}">` : '';
     const k = g.kicker ? `<div class="k">${rich(g.kicker)}</div>` : '';
+    const QR = '<svg viewBox="0 0 21 21" fill="#0e1a33" shape-rendering="crispEdges"><rect x="0" y="0" width="1" height="1"/><rect x="0" y="1" width="1" height="1"/><rect x="0" y="2" width="1" height="1"/><rect x="0" y="3" width="1" height="1"/><rect x="0" y="4" width="1" height="1"/><rect x="0" y="5" width="1" height="1"/><rect x="0" y="6" width="1" height="1"/><rect x="0" y="8" width="1" height="1"/><rect x="0" y="11" width="1" height="1"/><rect x="0" y="12" width="1" height="1"/><rect x="0" y="14" width="1" height="1"/><rect x="0" y="15" width="1" height="1"/><rect x="0" y="16" width="1" height="1"/><rect x="0" y="17" width="1" height="1"/><rect x="0" y="18" width="1" height="1"/><rect x="0" y="19" width="1" height="1"/><rect x="0" y="20" width="1" height="1"/><rect x="1" y="0" width="1" height="1"/><rect x="1" y="6" width="1" height="1"/><rect x="1" y="10" width="1" height="1"/><rect x="1" y="14" width="1" height="1"/><rect x="1" y="20" width="1" height="1"/><rect x="2" y="0" width="1" height="1"/><rect x="2" y="2" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="2" y="4" width="1" height="1"/><rect x="2" y="6" width="1" height="1"/><rect x="2" y="8" width="1" height="1"/><rect x="2" y="11" width="1" height="1"/><rect x="2" y="14" width="1" height="1"/><rect x="2" y="16" width="1" height="1"/><rect x="2" y="17" width="1" height="1"/><rect x="2" y="18" width="1" height="1"/><rect x="2" y="20" width="1" height="1"/><rect x="3" y="0" width="1" height="1"/><rect x="3" y="2" width="1" height="1"/><rect x="3" y="3" width="1" height="1"/><rect x="3" y="4" width="1" height="1"/><rect x="3" y="6" width="1" height="1"/><rect x="3" y="8" width="1" height="1"/><rect x="3" y="10" width="1" height="1"/><rect x="3" y="14" width="1" height="1"/><rect x="3" y="16" width="1" height="1"/><rect x="3" y="17" width="1" height="1"/><rect x="3" y="18" width="1" height="1"/><rect x="3" y="20" width="1" height="1"/><rect x="4" y="0" width="1" height="1"/><rect x="4" y="2" width="1" height="1"/><rect x="4" y="3" width="1" height="1"/><rect x="4" y="4" width="1" height="1"/><rect x="4" y="6" width="1" height="1"/><rect x="4" y="9" width="1" height="1"/><rect x="4" y="10" width="1" height="1"/><rect x="4" y="12" width="1" height="1"/><rect x="4" y="14" width="1" height="1"/><rect x="4" y="16" width="1" height="1"/><rect x="4" y="17" width="1" height="1"/><rect x="4" y="18" width="1" height="1"/><rect x="4" y="20" width="1" height="1"/><rect x="5" y="0" width="1" height="1"/><rect x="5" y="6" width="1" height="1"/><rect x="5" y="8" width="1" height="1"/><rect x="5" y="11" width="1" height="1"/><rect x="5" y="14" width="1" height="1"/><rect x="5" y="20" width="1" height="1"/><rect x="6" y="0" width="1" height="1"/><rect x="6" y="1" width="1" height="1"/><rect x="6" y="2" width="1" height="1"/><rect x="6" y="3" width="1" height="1"/><rect x="6" y="4" width="1" height="1"/><rect x="6" y="5" width="1" height="1"/><rect x="6" y="6" width="1" height="1"/><rect x="6" y="8" width="1" height="1"/><rect x="6" y="12" width="1" height="1"/><rect x="6" y="14" width="1" height="1"/><rect x="6" y="15" width="1" height="1"/><rect x="6" y="16" width="1" height="1"/><rect x="6" y="17" width="1" height="1"/><rect x="6" y="18" width="1" height="1"/><rect x="6" y="19" width="1" height="1"/><rect x="6" y="20" width="1" height="1"/><rect x="7" y="8" width="1" height="1"/><rect x="7" y="11" width="1" height="1"/><rect x="7" y="12" width="1" height="1"/><rect x="8" y="0" width="1" height="1"/><rect x="8" y="1" width="1" height="1"/><rect x="8" y="4" width="1" height="1"/><rect x="8" y="5" width="1" height="1"/><rect x="8" y="7" width="1" height="1"/><rect x="8" y="9" width="1" height="1"/><rect x="8" y="11" width="1" height="1"/><rect x="8" y="13" width="1" height="1"/><rect x="8" y="15" width="1" height="1"/><rect x="8" y="16" width="1" height="1"/><rect x="8" y="18" width="1" height="1"/><rect x="8" y="19" width="1" height="1"/><rect x="9" y="2" width="1" height="1"/><rect x="9" y="3" width="1" height="1"/><rect x="9" y="5" width="1" height="1"/><rect x="9" y="8" width="1" height="1"/><rect x="9" y="10" width="1" height="1"/><rect x="9" y="12" width="1" height="1"/><rect x="9" y="13" width="1" height="1"/><rect x="9" y="14" width="1" height="1"/><rect x="9" y="17" width="1" height="1"/><rect x="9" y="18" width="1" height="1"/><rect x="10" y="5" width="1" height="1"/><rect x="10" y="12" width="1" height="1"/><rect x="10" y="13" width="1" height="1"/><rect x="10" y="18" width="1" height="1"/><rect x="10" y="19" width="1" height="1"/><rect x="11" y="2" width="1" height="1"/><rect x="11" y="5" width="1" height="1"/><rect x="11" y="7" width="1" height="1"/><rect x="11" y="8" width="1" height="1"/><rect x="11" y="9" width="1" height="1"/><rect x="11" y="10" width="1" height="1"/><rect x="11" y="12" width="1" height="1"/><rect x="11" y="13" width="1" height="1"/><rect x="11" y="15" width="1" height="1"/><rect x="11" y="16" width="1" height="1"/><rect x="11" y="18" width="1" height="1"/><rect x="11" y="19" width="1" height="1"/><rect x="11" y="20" width="1" height="1"/><rect x="12" y="3" width="1" height="1"/><rect x="12" y="4" width="1" height="1"/><rect x="12" y="5" width="1" height="1"/><rect x="12" y="7" width="1" height="1"/><rect x="12" y="8" width="1" height="1"/><rect x="12" y="11" width="1" height="1"/><rect x="12" y="12" width="1" height="1"/><rect x="12" y="13" width="1" height="1"/><rect x="12" y="14" width="1" height="1"/><rect x="12" y="16" width="1" height="1"/><rect x="13" y="8" width="1" height="1"/><rect x="13" y="10" width="1" height="1"/><rect x="13" y="11" width="1" height="1"/><rect x="13" y="13" width="1" height="1"/><rect x="13" y="14" width="1" height="1"/><rect x="13" y="15" width="1" height="1"/><rect x="13" y="16" width="1" height="1"/><rect x="13" y="19" width="1" height="1"/><rect x="13" y="20" width="1" height="1"/><rect x="14" y="0" width="1" height="1"/><rect x="14" y="1" width="1" height="1"/><rect x="14" y="2" width="1" height="1"/><rect x="14" y="3" width="1" height="1"/><rect x="14" y="4" width="1" height="1"/><rect x="14" y="5" width="1" height="1"/><rect x="14" y="6" width="1" height="1"/><rect x="14" y="12" width="1" height="1"/><rect x="14" y="13" width="1" height="1"/><rect x="14" y="15" width="1" height="1"/><rect x="14" y="16" width="1" height="1"/><rect x="14" y="19" width="1" height="1"/><rect x="14" y="20" width="1" height="1"/><rect x="15" y="0" width="1" height="1"/><rect x="15" y="6" width="1" height="1"/><rect x="15" y="10" width="1" height="1"/><rect x="15" y="12" width="1" height="1"/><rect x="15" y="13" width="1" height="1"/><rect x="15" y="14" width="1" height="1"/><rect x="15" y="15" width="1" height="1"/><rect x="15" y="17" width="1" height="1"/><rect x="15" y="18" width="1" height="1"/><rect x="15" y="19" width="1" height="1"/><rect x="15" y="20" width="1" height="1"/><rect x="16" y="0" width="1" height="1"/><rect x="16" y="2" width="1" height="1"/><rect x="16" y="3" width="1" height="1"/><rect x="16" y="4" width="1" height="1"/><rect x="16" y="6" width="1" height="1"/><rect x="16" y="10" width="1" height="1"/><rect x="16" y="11" width="1" height="1"/><rect x="16" y="12" width="1" height="1"/><rect x="16" y="13" width="1" height="1"/><rect x="16" y="15" width="1" height="1"/><rect x="16" y="16" width="1" height="1"/><rect x="16" y="17" width="1" height="1"/><rect x="16" y="18" width="1" height="1"/><rect x="16" y="19" width="1" height="1"/><rect x="17" y="0" width="1" height="1"/><rect x="17" y="2" width="1" height="1"/><rect x="17" y="3" width="1" height="1"/><rect x="17" y="4" width="1" height="1"/><rect x="17" y="6" width="1" height="1"/><rect x="17" y="9" width="1" height="1"/><rect x="17" y="10" width="1" height="1"/><rect x="17" y="11" width="1" height="1"/><rect x="17" y="20" width="1" height="1"/><rect x="18" y="0" width="1" height="1"/><rect x="18" y="2" width="1" height="1"/><rect x="18" y="3" width="1" height="1"/><rect x="18" y="4" width="1" height="1"/><rect x="18" y="6" width="1" height="1"/><rect x="18" y="13" width="1" height="1"/><rect x="18" y="14" width="1" height="1"/><rect x="18" y="15" width="1" height="1"/><rect x="18" y="16" width="1" height="1"/><rect x="18" y="18" width="1" height="1"/><rect x="18" y="19" width="1" height="1"/><rect x="19" y="0" width="1" height="1"/><rect x="19" y="6" width="1" height="1"/><rect x="19" y="9" width="1" height="1"/><rect x="19" y="10" width="1" height="1"/><rect x="19" y="14" width="1" height="1"/><rect x="19" y="15" width="1" height="1"/><rect x="19" y="16" width="1" height="1"/><rect x="19" y="17" width="1" height="1"/><rect x="19" y="19" width="1" height="1"/><rect x="20" y="0" width="1" height="1"/><rect x="20" y="1" width="1" height="1"/><rect x="20" y="2" width="1" height="1"/><rect x="20" y="3" width="1" height="1"/><rect x="20" y="4" width="1" height="1"/><rect x="20" y="5" width="1" height="1"/><rect x="20" y="6" width="1" height="1"/><rect x="20" y="12" width="1" height="1"/><rect x="20" y="14" width="1" height="1"/><rect x="20" y="15" width="1" height="1"/><rect x="20" y="16" width="1" height="1"/><rect x="20" y="17" width="1" height="1"/><rect x="20" y="19" width="1" height="1"/></svg>';
     const TGL = '<img class="tg-logo" src="logo.svg" alt="Tingue">';
     switch (g.style) {
       case 'p-log': return `<div class="gx gx-plog">${bg(g)}<div class="shade"></div>${k}<h4 class="xl">${rich(g.title)}</h4>${g.sub ? `<p class="sub">${rich(g.sub)}</p>` : ''}<ul class="glass">${(g.rows || []).map(r => `<li><span class="dot ${esc(r.status || 'ok')}"></span><b>${rich(r.name)}</b><em>${rich(r.label)}</em><time>${esc(r.time)}</time></li>`).join('')}</ul><div class="foot"><span>${rich(g.foot || '')}</span>${logoW}</div></div>`;
@@ -1861,6 +1911,9 @@ document.addEventListener('DOMContentLoaded', () => {
       case 'tg-compare': return `<div class="gx tg tg-light tg-compare"><div class="tg-k dk">${esc(g.kicker || '')}</div><h4>${rich(g.title)}</h4><div class="tg-cols"><div class="old"><small>${esc(g.leftLabel)}</small><span>${rich(g.left)}</span><i>✕</i></div><div class="new"><small>${esc(g.rightLabel)}</small><span>${rich(g.right)}</span><i>✓</i></div></div><div class="tg-foot dk">${TGL}<span>${rich(g.foot || 'tingue.com')}</span></div></div>`;
       case 'tg-slide': return `<div class="gx tg tg-light tg-slide"><div class="tg-top"><span class="tg-num">0${esc(g.num)}</span><span class="tg-prog">${Array.from({ length: g.of || 4 }, (_, j) => `<i class="${j < +g.num ? 'on' : ''}"></i>`).join('')}</span></div>${g.img ? `<img class="tg-corner" src="${esc(g.img)}" alt="">` : ''}<h4>${rich(g.title)}</h4><div class="tg-ans"><small>${esc(g.label || '')}</small>${rich(g.answer)}</div><div class="tg-foot dk">${TGL}<span>${n ? `${i + 1}/${n}` : ''}</span></div></div>`;
       case 'tg-band': return `<div class="gx tg tg-band${g.wide ? ' tg-wide' : ''}"><div class="tg-facet"></div>${g.img ? `<img class="tg-prod" src="${esc(g.img)}" alt="">` : ''}<div class="tg-in"><div class="tg-k">${esc(g.kicker || '')}<i></i></div><h4>${rich(g.title)}</h4>${g.sub ? `<p>${rich(g.sub)}</p>` : ''}${g.swipe ? `<span class="tg-b1">${esc(g.swipe)}</span>` : ''}</div><div class="tg-foot">${TGL}<span>${rich(g.foot || 'tingue.com')}</span></div></div>`;
+      case 'tg-booth': return `<div class="gx tg tg-booth"><div class="tg-facet"></div><div class="tb-l"><img class="tb-logo" src="logo.svg" alt="Tingue"><div class="tg-k">${esc(g.kicker || 'SINCE 1902')}<i></i></div><h4>${rich(g.title)}</h4><p>${rich(g.sub || '')}</p><div class="tb-brands">${(g.brands || []).map(b => `<span>${esc(b)}</span>`).join('')}</div></div><div class="tb-r">${(g.imgs || []).map(s => `<img src="${esc(s)}" alt="">`).join('')}</div><div class="tb-bar">${esc(g.bar || '')}</div></div>`;
+      case 'tg-counter': return `<div class="gx tg tg-light tg-counter"><div class="tc-top"><img src="logo.svg" alt="Tingue"><span>${esc(g.kicker || 'FOR THE MAINTENANCE DESK')}</span></div><h4>${rich(g.title)}</h4><ol>${(g.steps || []).map(x => `<li>${rich(x)}</li>`).join('')}</ol><div class="tc-foot"><div class="tc-qr">${QR}</div><div><b>${rich(g.cta || '')}</b><span>${rich(g.sub || '')}</span></div></div><div class="tg-bar">${esc(g.bar || 'ALL ORDERS PLACED BEFORE 3PM EST SHIP SAME DAY')}</div></div>`;
+      case 'tg-linecard': return `<div class="gx tg tg-light tg-linecard"><div class="tl-head"><img src="logo.svg" alt="Tingue"><div><b>${rich(g.title)}</b><span>${rich(g.sub || '')}</span></div></div><div class="tl-k">${esc(g.kicker || 'BRANDS WE CARRY')}</div><div class="tl-grid">${(g.brands || []).map(b => `<span>${esc(b)}</span>`).join('')}</div><div class="tl-k">${esc(g.kicker2 || 'CATEGORIES')}</div><div class="tl-cats">${(g.cats || []).map(b => `<span>${esc(b)}</span>`).join('')}</div>${(g.why || []).length ? `<div class="tl-k">WHY TINGUE</div><ul class="tl-why">${g.why.map(x => `<li>${rich(x)}</li>`).join('')}</ul>` : ''}<div class="tl-foot"><span>${rich(g.foot || '')}</span><span>tingue.com</span></div></div>`;
       default: return `<div class="gx gx-blue"><h4>${rich(g.title || '')}</h4></div>`;
     }
   }
@@ -2094,7 +2147,21 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="utm-out"><code></code><button type="button" class="utm-copy">Copy link</button></div><ul class="utm-warn"></ul></div>`;
   }
   const code_card = it => `<div class="panel codec"><div class="tbl-h"><h3>${rich(it.title)}</h3><span class="sample">${esc(it.label || 'TEMPLATE')}</span></div><pre>${esc(it.code).replace(/\{\{(\w+)\}\}/g, '<b>{{$1}}</b>')}</pre>${it.note ? `<p class="tbl-note">${rich(it.note)}</p>` : ''}</div>`;
-  const R = { _row, _col, exec_track, personas, table, checklist, kanban, utm_builder, code_card, linkedin, instagram, instagram_carousel, blog, case_study, email, landing_page, campaign_timeline, video, approach, strategy, ideas, hubspot_workflow, hubspot_scoring, hubspot_dashboard, hubspot_setup, about, contact };
+  window.__tgGfx = graphic;
+  function gallery(it) {
+    return `<div class="panel"><div class="tbl-h"><h3>${rich(it.title)}</h3><span class="sample">${esc(it.label || 'DESIGNS')}</span></div><div class="gal-grid">${it.items.map(x => `<figure class="gal-f${x.wide ? ' wide' : ''}"><div class="gal-frame" style="aspect-ratio:${esc(x.ratio)}">${graphic(x.graphic)}</div><figcaption><b>${rich(x.label)}</b><span>${rich(x.note || '')}</span></figcaption></figure>`).join('')}</div>${it.note ? `<p class="tbl-note">${rich(it.note)}</p>` : ''}</div>`;
+  }
+  function post_builder(it) {
+    const o = a => a.map(x => `<option value="${esc(x[0])}">${esc(x[1])}</option>`).join('');
+    return `<div class="panel pb-wrap"><div class="tbl-h"><h3>${rich(it.title)}</h3><span class="sample">TRY IT</span></div><div class="pb" style="margin-top:16px"><div class="pb-form">
+      <div class="pb-row"><label>Layout<select data-b="style">${o(it.styles)}</select></label><label>Picture<select data-b="pic">${o(it.pics)}</select></label></div>
+      <div class="pb-row"><label>Small label<input data-b="kicker" value="${esc(it.kicker)}"></label><label>Big number (blue block)<input data-b="big" value="${esc(it.big)}"></label></div>
+      <label>Headline (put *stars* around a word to make it blue)<input data-b="title" value="${esc(it.headline)}"></label>
+      <label>Line under it<input data-b="sub" value="${esc(it.sub)}"></label>
+      <label>Button<input data-b="button" value="${esc(it.button)}"></label>
+      <p class="pb-hint">${rich(it.hint || '')}</p></div><div class="pb-frame"></div></div></div>`;
+  }
+  const R = { _row, _col, exec_track, personas, table, gallery, post_builder, checklist, kanban, utm_builder, code_card, linkedin, instagram, instagram_carousel, blog, case_study, email, landing_page, campaign_timeline, video, approach, strategy, ideas, hubspot_workflow, hubspot_scoring, hubspot_dashboard, hubspot_setup, about, contact };
   const WRAPPED = new Set(['linkedin', 'instagram', 'instagram_carousel', 'email', 'landing_page']);
   function renderItem(it, ctx) {
     const fn = R[it.type];
@@ -2904,6 +2971,101 @@ document.addEventListener('DOMContentLoaded', () => {
    ]
   },
   {
+   "id": "audit",
+   "short": "Quick wins",
+   "title": "Quick wins I found on tingue.com",
+   "intro": "Before writing a single post, I looked at where every post sends people: the website. These are small, real fixes I noticed on the public homepage in October 2026, each one a few hours of work.",
+   "layout": "stack",
+   "items": [
+    {
+     "type": "table",
+     "title": "Homepage check · tingue.com",
+     "sample": "REAL FINDINGS",
+     "cols": [
+      "What I found",
+      "Why it matters",
+      "Quick fix",
+      "Effort"
+     ],
+     "rows": [
+      [
+       "**“Small piece folder (do not use)”** shows in the public model picker",
+       "Customers see an internal note; it can send someone down the wrong path",
+       "Hide or archive that entry in the catalog",
+       {
+        "b": "ok",
+        "t": "Minutes"
+       }
+      ],
+      [
+       "**Two spellings of one brand** in the model list: “American dryer co. ad-170 series” and “American dryer co~ ad-100 series” (8 entries use “~”)",
+       "Inconsistent names look untidy and make search less reliable",
+       "One naming rule: “American Dryer Co. AD-100 Series”, applied to every model",
+       {
+        "b": "warn",
+        "t": "A day"
+       }
+      ],
+      [
+       "**56 of 66 images** on the homepage have no alt text",
+       "Screen readers skip them, and image search can't match part photos to part numbers",
+       "Alt text with part number and name, e.g. “CD-3208-033 tape spool 2\" OD”",
+       {
+        "b": "warn",
+        "t": "A day"
+       }
+      ],
+      [
+       "**No H1 heading** on the homepage",
+       "Search engines and screen readers look for one main headline",
+       "Make “124 years of keeping the world's laundries running.” the H1",
+       {
+        "b": "ok",
+        "t": "Minutes"
+       }
+      ],
+      [
+       "**No social preview image** (og:image) on the homepage",
+       "When a rep shares tingue.com on LinkedIn or Facebook, the link shows no picture",
+       "A branded 1200 × 630 share image (designed below, in Print & display)",
+       {
+        "b": "ok",
+        "t": "An hour"
+       }
+      ],
+      [
+       "**The shipping promise is written two ways**: “All orders, if possible, placed before 3pm EST will ship same day” and “Same-day shipping on orders before 3pm EST”",
+       "Your strongest promise should sound the same everywhere",
+       "Pick one line and use it on the site, in posts, emails and print",
+       {
+        "b": "ok",
+        "t": "Minutes"
+       }
+      ],
+      [
+       "**No blog or news section** in the menu (Resources has About, FAQ, Manufacturers, Find My Rep)",
+       "How-to guides and press releases have no home to rank in search or to link from posts",
+       "Add “Guides & News” under Resources; start with the blog post on this page",
+       {
+        "b": "warn",
+        "t": "A week"
+       }
+      ],
+      [
+       "**Three named testimonials** (Joe Gayton, Magic Laundry; Earl Martin, Century Linen; Alex Rodriguez, Mission Linen) live only on the homepage",
+       "Real customer voices are the best social proof Tingue has",
+       "Turn each into a quote post, an email feature and a deck slide (with permission)",
+       {
+        "b": "ok",
+        "t": "Ready now"
+       }
+      ]
+     ],
+     "note": "A quick look at the public homepage, not a full audit. With access, I'd run the same check on product pages, search, and the account flow."
+    }
+   ]
+  },
+  {
    "id": "brand",
    "short": "Brand standards",
    "title": "Brand standards",
@@ -3193,13 +3355,13 @@ document.addEventListener('DOMContentLoaded', () => {
      "pillar": "Customer proof",
      "size": "1080 × 1350 · 4:5",
      "time": "1w",
-     "body": "We asked customers what they like about ordering online. One answer stuck with us:\n\n“It lists all my machines, allowing me to quickly find and order what I need.”\n\nThat's the whole idea. Your plant, your equipment, your part numbers, all in one place.\n\nNot set up yet? Your rep will get you an account with your contract pricing. → link in the comments\n\n#CommercialLaundry #Maintenance #Ecommerce",
+     "body": "We asked customers what they like about ordering online. Joe Gayton at Magic Laundry said it best:\n\n“One thing I really like about ordering parts from your website is how it lists all my machines, allowing me to quickly find and order what I need.”\n\nThat's the whole idea. Your plant, your equipment, your part numbers, all in one place.\n\nNot set up yet? Your rep will get you an account with your contract pricing. → link in the comments\n\n#CommercialLaundry #Maintenance #Ecommerce",
      "graphic": {
       "style": "tg-quote",
       "kicker": "WHAT CUSTOMERS SAY",
       "title": "It lists all my machines, allowing me to quickly find and order what I need.",
-      "name": "Tingue customer",
-      "role": "Review on tingue.com",
+      "name": "Joe Gayton",
+      "role": "Magic Laundry · review on tingue.com",
       "foot": "tingue.com"
      },
      "reactions": 144,
@@ -3338,6 +3500,69 @@ document.addEventListener('DOMContentLoaded', () => {
        "answer": "Order before 3pm EST and it ships the same business day."
       }
      ]
+    }
+   ]
+  },
+  {
+   "id": "builder",
+   "short": "Post builder",
+   "title": "Post builder",
+   "intro": "Templates only help if everyone uses them. Here's a small one I built: type a headline, pick a picture, and get a post in Tingue's look. Try it.",
+   "layout": "stack",
+   "items": [
+    {
+     "type": "post_builder",
+     "title": "Make a Tingue post in 10 seconds",
+     "styles": [
+      [
+       "tg-hero",
+       "Navy hero with a photo"
+      ],
+      [
+       "tg-band",
+       "Blue band with a product"
+      ],
+      [
+       "tg-block",
+       "Blue block with a big number"
+      ]
+     ],
+     "pics": [
+      [
+       "img/david-and-john-tingue.jpg",
+       "Photo: the Tingue family"
+      ],
+      [
+       "img/tingue-team.jpg",
+       "Photo: the team"
+      ],
+      [
+       "img/guide-tape-spool.png",
+       "Product: tape spool"
+      ],
+      [
+       "img/tape.png",
+       "Product: guide tape"
+      ],
+      [
+       "img/Belts-1.png",
+       "Product: belting"
+      ],
+      [
+       "img/Electrical.png",
+       "Product: sensor"
+      ],
+      [
+       "img/Steam.png",
+       "Product: steam part"
+      ]
+     ],
+     "kicker": "SINCE 1902",
+     "big": "30+",
+     "headline": "Every brand in your plant. *One cart.*",
+     "sub": "23,000+ parts from 30+ manufacturers.",
+     "button": "Shop Parts",
+     "hint": "Locked to the brand: colours, fonts, logo and layout can't drift. In the job, this would be a Canva or Figma template kit that sales and reps can use too."
     }
    ]
   },
@@ -3718,6 +3943,127 @@ document.addEventListener('DOMContentLoaded', () => {
    ]
   },
   {
+   "id": "print",
+   "short": "Print & display",
+   "title": "Print & display designs",
+   "intro": "Branded displays, promotional materials and the share image the website is missing, all in tingue.com's look.",
+   "layout": "stack",
+   "items": [
+    {
+     "type": "gallery",
+     "title": "Designs, ready for a printer",
+     "label": "DESIGNS",
+     "items": [
+      {
+       "wide": true,
+       "ratio": "16 / 7",
+       "label": "Trade-show backdrop · 10 ft",
+       "note": "Readable from the aisle: one line, the logo, the brands and real parts.",
+       "graphic": {
+        "style": "tg-booth",
+        "kicker": "SINCE 1902",
+        "title": "The single source for every brand in your *laundry.*",
+        "sub": "23,000+ parts · 30+ manufacturers · same-day shipping before 3pm EST",
+        "brands": [
+         "CHICAGO DRYER",
+         "MILNOR",
+         "JENSEN",
+         "G.A. BRAUN",
+         "HUEBSCH",
+         "CISSELL",
+         "CONTINENTAL GIRBAU",
+         "AMERICAN DRYER"
+        ],
+        "imgs": [
+         "img/guide-tape-spool.png",
+         "img/tape.png",
+         "img/Belts-1.png",
+         "img/Steam.png"
+        ],
+        "bar": "FIND YOUR REP · 40+ FIELD REPS · 50 STATES · 10 PROVINCES"
+       }
+      },
+      {
+       "ratio": "5 / 7",
+       "label": "Counter card · 5 × 7 in · maintenance desk",
+       "note": "Left by reps at the plant. The QR goes to account sign-up.",
+       "graphic": {
+        "style": "tg-counter",
+        "title": "Machine down? Get the right part the *first time.*",
+        "steps": [
+         "Photo of the serial plate",
+         "Exact part number",
+         "Photo of the old part",
+         "Order before 3pm EST"
+        ],
+        "cta": "Set up your Tingue account",
+        "sub": "Your machines, your pricing, one invoice."
+       }
+      },
+      {
+       "ratio": "8.5 / 11",
+       "label": "Line card · letter size",
+       "note": "Every brand and category on one page, for reps to hand over.",
+       "graphic": {
+        "style": "tg-linecard",
+        "title": "One catalog. One cart. One invoice.",
+        "sub": "Commercial laundry parts & supplies · Since 1902",
+        "brands": [
+         "Chicago Dryer",
+         "Milnor",
+         "Jensen",
+         "G.A. Braun",
+         "Huebsch",
+         "Cissell",
+         "Continental Girbau",
+         "American Dryer",
+         "American Laundry Machinery",
+         "Alliance",
+         "Challenge Cook",
+         "+ 20 more"
+        ],
+        "cats": [
+         "Belting",
+         "Guide tape",
+         "Ironer pads & covers",
+         "Electrical",
+         "Pneumatics",
+         "Hydraulics",
+         "Steam",
+         "Sealing",
+         "Lubricants & cleaners",
+         "Carts & trucks"
+        ],
+        "why": [
+         "Same-day shipping on orders before 3pm EST",
+         "40+ field reps · 50 states · 10 provinces",
+         "Contract pricing, order history and saved quotes online",
+         "Family-owned since 1902"
+        ],
+        "foot": "Find your rep at tingue.com"
+       }
+      },
+      {
+       "ratio": "1200 / 630",
+       "label": "Website share image · 1200 × 630",
+       "note": "Fixes the missing social preview from the quick wins.",
+       "graphic": {
+        "style": "tg-hero",
+        "wide": true,
+        "photo": "img/david-and-john-tingue.jpg",
+        "focus": "65% 30%",
+        "kicker": "SINCE 1902",
+        "title": "124 years of keeping the world's laundries *running.*",
+        "sub": "Your source for laundry equipment repair parts",
+        "button": "Shop Parts"
+       }
+      }
+     ],
+     "note": "Brand names are manufacturers listed on tingue.com. Sizes are print-ready proportions; final files would go out with bleed and CMYK colours."
+    }
+   ]
+  },
+  {
    "id": "clickup",
    "short": "ClickUp calendar",
    "title": "Marketing calendar in ClickUp",
@@ -3845,6 +4191,92 @@ document.addEventListener('DOMContentLoaded', () => {
       ]
      ],
      "note": "Every row is a ClickUp list with tasks, owners and due dates; budget lines are checked against agency and partner quotes monthly."
+    },
+    {
+     "type": "table",
+     "title": "12 months at a glance",
+     "sample": "SAMPLE YEAR",
+     "cols": [
+      "Month",
+      "Theme",
+      "Hero content",
+      "Campaign / print"
+     ],
+     "rows": [
+      [
+       "**January**",
+       "Plan the year",
+       "Preventive maintenance calendar (download)",
+       "Line card refresh"
+      ],
+      [
+       "**February**",
+       "Belting & guide tape",
+       "Part swap video: guide tape",
+       "Product spotlight posts"
+      ],
+      [
+       "**March**",
+       "Spring catalog clean-up",
+       "“What's new in the catalog” newsletter",
+       "Catalog audit sprint with Sales"
+      ],
+      [
+       "**April**",
+       "Meet your rep",
+       "60 seconds with your rep, season 2",
+       "Rep share kit"
+      ],
+      [
+       "**May**",
+       "Customer stories",
+       "Plant tour with a customer",
+       "Testimonial quote series"
+      ],
+      [
+       "**June**",
+       "Summer heat",
+       "Dryer & steam care guide",
+       "Email to plant managers"
+      ],
+      [
+       "**July**",
+       "Since 1902",
+       "Archive photo series",
+       "Heritage booth wall"
+      ],
+      [
+       "**August**",
+       "Training month",
+       "Maintenance 101 carousels",
+       "Counter card reprint"
+      ],
+      [
+       "**September**",
+       "Trade-show season",
+       "Booth recap + 3 questions operators asked",
+       "Backdrop, pop-up, swag"
+      ],
+      [
+       "**October**",
+       "One cart",
+       "Account sign-up campaign",
+       "Landing page + retargeting"
+      ],
+      [
+       "**November**",
+       "Thank you",
+       "Customer thank-you video",
+       "Holiday card"
+      ],
+      [
+       "**December**",
+       "Year in review",
+       "124 → 125 years recap",
+       "Plan for next year"
+      ]
+     ],
+     "note": "A starting point to shape with the team; each month becomes a ClickUp list."
     }
    ]
   },
@@ -4217,6 +4649,10 @@ document.addEventListener('DOMContentLoaded', () => {
      "checklistTitle": "Your job post, and where you'll find it on this page",
      "checklist": [
       {
+       "ask": "Your website, as the place every post sends people",
+       "answer": "Eight real quick wins from tingue.com, each with a fix (Quick wins)."
+      },
+      {
        "ask": "Creative strategy + brand standards",
        "answer": "90-day plan, brand on one page and a brand check (What I'd do, Brand standards)."
       },
@@ -4432,6 +4868,36 @@ document.addEventListener('DOMContentLoaded', () => {
     "D",
     "Keep scrolling. There's a question for you."
    ]
+  ],
+  "audit": [
+   [
+    "C",
+    "You audited our site?"
+   ],
+   [
+    "D",
+    "Gently. Eight quick wins."
+   ]
+  ],
+  "builder": [
+   [
+    "C",
+    "I can make a post?"
+   ],
+   [
+    "D",
+    "Type a headline. It stays on-brand."
+   ]
+  ],
+  "print": [
+   [
+    "C",
+    "A booth backdrop too?"
+   ],
+   [
+    "D",
+    "And the share image you're missing."
+   ]
   ]
  },
  "finale": {
@@ -4547,6 +5013,24 @@ document.addEventListener('DOMContentLoaded', () => {
       u.querySelector('.utm-copy').addEventListener('click', e => { navigator.clipboard?.writeText(out.textContent); e.target.textContent = 'Copied ✓'; setTimeout(() => e.target.textContent = 'Copy link', 1500); });
     });
   });
+})();
+</script>
+<script>
+(() => {
+  const go = () => {
+    const w = document.querySelector('.pb-wrap');
+    if (!w || !window.__tgGfx) return setTimeout(go, 300);
+    const f = k => w.querySelector(`[data-b="${k}"]`), frame = w.querySelector('.pb-frame');
+    const draw = () => {
+      const style = f('style').value, pic = f('pic').value, photo = /\.jpg$/.test(pic);
+      const g = { style, kicker: f('kicker').value, title: f('title').value, sub: f('sub').value, button: f('button').value, big: f('big').value, link: f('button').value, swipe: f('button').value ? f('button').value + ' →' : '' };
+      if (style === 'tg-hero') { g.photo = photo ? pic : 'img/david-and-john-tingue.jpg'; g.focus = '55% 30%'; }
+      else { g.img = photo ? 'img/guide-tape-spool.png' : pic; g.bar = false; }
+      frame.innerHTML = window.__tgGfx(g);
+    };
+    w.addEventListener('input', draw); w.addEventListener('change', draw); draw();
+  };
+  go();
 })();
 </script>
 </body>
