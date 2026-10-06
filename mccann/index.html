@@ -1043,6 +1043,7 @@
     .bar .to img { height: 16px; }
     .gx:not(.tg-light):not(.gx-light) img[src="logo.svg"], .tg-booth img[src="logo.svg"], .tg-hero img[src="logo.svg"], .tg-band img[src="logo.svg"], .tg-block img[src="logo.svg"] { filter: invert(1); }
     .tg em { color: #ffffff; text-decoration: underline; text-underline-offset: .12em; } .tg-light em { color: #1d1d1d; }
+    .xlink { color: inherit; text-decoration: underline; text-underline-offset: 3px; } .xlink:hover { opacity: .7; }
   </style>
 </head>
 <body>
@@ -1813,6 +1814,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return esc(s)
       .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
       .replace(/(^|[\s(])\*(?!\s)(.+?)\*(?=[\s).,!?]|$)/g, '$1<em>$2</em>')
+      .replace(/\[(.+?)\]\((https?:\/\/[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener" class="xlink">$1</a>')
       .replace(/\{\{(\w+)\}\}/g, '<span class="merge">{{$1}}</span>')
       .replace(/\[([^\]]+)\]/g, '<span class="ph">[$1]</span>')
       .replace(/(^|\s)(#[A-Za-z][\w]*)/g, '$1<span class="tag">$2</span>');
@@ -3683,12 +3685,12 @@ document.addEventListener('DOMContentLoaded', () => {
      ],
      "rows": [
       [
-       "**9 things to consider while designing your trade show booth**",
+       "[**9 things to consider while designing your trade show booth** ↗](https://usawire.com/9-things-to-consider-while-designing-your-trade-show-booth/)",
        "USA Wire · June 2024",
        "Practical guide, scannable structure, checklist format"
       ],
       [
-       "**How to plan your next trade show exhibition**",
+       "[**How to plan your next trade show exhibition** ↗](https://www.mirrorreview.com/plan-your-next-trade-show-exhibition/)",
        "Mirror Review · May 2024",
        "Step-by-step guide that answers the question up front"
       ],
@@ -3698,12 +3700,12 @@ document.addEventListener('DOMContentLoaded', () => {
        "SEO-optimized content that helped drive a 73% increase in inquiries"
       ],
       [
-       "**16 long-form LinkedIn posts** for founders and leaders",
+       "[**16 long-form LinkedIn posts** for founders and leaders ↗](https://durvathakkar.com/writing/)",
        "B2B SaaS, AI, cybersecurity, accounting",
        "Turning complex topics into clear stories"
       ]
      ],
-     "note": "Both articles are readable on durvathakkar.com (Writing section); bylines belong to the publications, the words are mine."
+     "note": ""
     }
    ]
   },
