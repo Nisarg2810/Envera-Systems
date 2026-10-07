@@ -897,32 +897,6 @@
     <h1>I Could Tell You. <span class="hl">Or I Could Show You.</span></h1>
     <div class="hero-stage"><canvas id="heroStage" width="240" height="80" role="img" aria-label="Pixel scene: you throw a wrench at a target while I jump to hit question blocks that pop out a landing page, a form, a UTM and more, then we high-five."></canvas></div>
 
-    <article class="post" aria-label="Your award">
-      <figure>
-        <img src="kat.jpg" alt="Katherine holding her WellnessLiving Excellence Award" width="1280" height="1707">
-        <figcaption>EXCELLENCE AWARD · WELLNESSLIVING</figcaption>
-      </figure>
-      <div class="post-body">
-        <div class="who">
-          <img src="kat-avatar.jpg" alt="">
-          <div>
-            <div class="name">Katherine Flandez</div>
-            <div class="role">VP of Marketing · WellnessLiving</div>
-          </div>
-          <span class="tag">Your award</span>
-        </div>
-        <div class="caption">
-          <p class="big">An Excellence Award. 🏆</p>
-          <p>WellnessLiving’s value of Excellence: “We approach every task, whether big or small, with a steadfast commitment to exceptional execution.”</p>
-          <p>On a launch day, that value lives in the small things: the page QA’d, the hidden field filled, the lead in the right campaign, the renewal caught in time.</p>
-          <p>That’s the Marketing Operations Coordinator. So I built you a working sample of the job. Press start. 🚀</p>
-        </div>
-        <div class="post-foot">
-          <a class="btn" href="#play">▶ Replay the game</a>
-          <a class="btn ghost" href="#workspace">Open the workspace ↓</a>
-        </div>
-      </div>
-    </article>
   </section>
 
   <!-- The game -->
@@ -1808,7 +1782,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const a = who(it.author);
     return `<div class="mail">
       <div class="mail-bar"><span class="lights"><i></i><i></i><i></i></span><span>Inbox</span></div>
-      <div class="mail-row"><b>${esc(it.fromName || a.name)}</b><span class="s">${rich(it.subject)}</span><span class="p">— ${rich(it.preview)}</span></div>
+      <div class="mail-row"><b>${esc(it.fromName || a.name)}</b><span class="s">${rich(it.subject)}</span><span class="p">· ${rich(it.preview)}</span></div>
       <div class="mail-open">
         <h4>${rich(it.subject)}</h4>
         <div class="mail-from">${avatar(a, 36, a.kind === 'company')}<div><b>${esc(it.fromName || a.name)}</b> &lt;${esc(it.fromEmail)}&gt;<div>to ${rich(it.to || 'me')}</div></div><time>${esc(it.time || '9:02 AM')}</time></div>
@@ -3239,7 +3213,7 @@ document.addEventListener('DOMContentLoaded', () => {
      "type": "code_card",
      "label": "Template",
      "title": "Prompt: Release notes → feature page brief",
-     "code": "ROLE: You are WellnessLiving's product marketer.\nSOURCES: Use only the Product Knowledge project. If a fact isn't in the sources, say \"not in sources\".\n\nINPUT: {{release_note}}\nAUDIENCE: {{vertical}}  (e.g. yoga studio, med spa, martial arts school)\n\nRETURN:\n1. One-line headline (max 9 words)\n2. The problem it solves, in the owner's words\n3. How it works: 3 steps\n4. Proof: a metric or customer line from the sources\n5. CTA + suggested page URL\n6. QA flags: anything ambiguous for Product to confirm",
+     "code": "ROLE: You are WellnessLiving's product marketer.\nSOURCES: Use only the Product Knowledge project. If a fact isn't in the sources, say \"not in sources\".\n\nINPUT: New: automatic waitlist texts. When a spot opens in a full class, the next client on the waitlist gets a text and can book in one tap.\nAUDIENCE: Yoga studio owners (swap for med spa, martial arts school, etc.)\n\nRETURN:\n1. One-line headline (max 9 words)\n2. The problem it solves, in the owner's words\n3. How it works: 3 steps\n4. Proof: a metric or customer line from the sources\n5. CTA + suggested page URL\n6. QA flags: anything ambiguous for Product to confirm",
      "note": "Same shape every time, named owner, and it refuses to invent facts. That's what keeps outputs accurate downstream."
     }
    ]
@@ -3450,7 +3424,7 @@ document.addEventListener('DOMContentLoaded', () => {
        "**n8n**",
        "Workflow automations",
        "Marketing Ops",
-       "—",
+       "Usage-based",
        "Monthly",
        "Monthly",
        {
