@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Durva × Foundation</title>
+<meta name="description" content="Hello Team Foundation. A 60-second pixel film about getting clients ranked, cited and renewed. Made by Durva Thakkar for the SEO/GEO Writer role.">
+<meta property="og:title" content="Hello Team Foundation: a 60-second film">
+<meta property="og:description" content="One writer, five clients, ranked, cited and renewed. Made by Durva Thakkar for the SEO/GEO Writer role.">
+<meta property="og:image" content="https://durvathakkar.com/foundation/share.jpg">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #1d1f25; --panel: #262932; --panel2: #2f333d; --ink: #f4f1ec; --muted: #a9adb8; --line: #3a3f4b;
+    --coral: #e8604c; --coral2: #f08a76; --blue: #2a6fd6; --sky: #8fb4e8; --sand: #e3ddd2; --pink: #f3b8ad; --mint: #00d084;
+    --font: "Jost", "Futura", system-ui, sans-serif; --pixel: "Press Start 2P", monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: var(--bg); }
+  body { background: var(--bg); color: var(--ink); font: 17px/1.5 var(--font); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .bar { background: #111215; color: var(--mint); text-align: center; font: 600 14px var(--font); padding: 8px 16px; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding-inline: 20px; }
+  header.hero { padding-block: 44px 18px; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 30px; align-items: center; }
+  .eyebrow { font: 600 13px var(--font); letter-spacing: .18em; text-transform: uppercase; color: var(--coral2); }
+  h1 { margin-top: 12px; font-size: clamp(40px, 6.4vw, 76px); line-height: .98; letter-spacing: -0.02em; font-weight: 800; text-wrap: balance; }
+  h1 .c { color: var(--coral); }
+  .lede { margin-top: 18px; max-width: 560px; color: #d5d7de; font-size: 19px; }
+  .pie { position: relative; aspect-ratio: 1; max-width: 360px; width: 100%; justify-self: end; }
+  .pie svg { width: 100%; height: 100%; display: block; }
+  .pie .slice { transition: opacity .5s, transform .5s; transform-origin: 50% 50%; opacity: .28; }
+  .pie .slice.on { opacity: 1; }
+  .pie .mid { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; font: 600 12px var(--font); letter-spacing: .2em; color: var(--muted); }
+  .pie .mid b { display: block; font: 800 34px var(--font); letter-spacing: 0; color: var(--ink); }
+  .stage { margin-top: 18px; position: relative; border-radius: 18px; overflow: hidden; border: 1px solid var(--line); background: #15171c; box-shadow: 0 30px 80px -40px rgba(0,0,0,.8); }
+  canvas { display: block; width: 100%; height: auto; touch-action: none; }
+  .overlay { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(17,18,22,.82); text-align: center; padding: 20px; }
+  .overlay[hidden] { display: none; }
+  .ov-in { max-width: 560px; }
+  .ov-in .k { font: 10px var(--pixel); color: var(--mint); letter-spacing: .06em; }
+  .ov-in h2 { margin-top: 14px; font: 800 clamp(30px, 5vw, 52px)/1 var(--font); }
+  .ov-in p { margin-top: 12px; color: #cfd2da; }
+  .btns { margin-top: 20px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .btn { font: 700 15px var(--font); letter-spacing: .12em; text-transform: uppercase; border: 0; border-radius: 6px; padding: 14px 20px; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+  .btn.coral { background: var(--coral); color: #fff; box-shadow: 0 4px 0 #b4402f; }
+  .btn.ghost { background: transparent; color: var(--ink); border: 1px solid #4a505d; }
+  .btn:focus-visible, button:focus-visible { outline: 2px solid var(--sky); outline-offset: 3px; }
+  .hud { display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; align-items: center; margin-top: 10px; }
+  .hud .tip { color: var(--muted); font-size: 14px; }
+  .hud button { font: 600 13px var(--font); background: var(--panel); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; cursor: pointer; }
+  .pad { display: none; gap: 10px; margin-top: 10px; }
+  .pad button { flex: 1; font: 800 22px var(--font); background: var(--panel); color: var(--ink); border: 1px solid var(--line); border-radius: 12px; padding: 14px; touch-action: none; }
+  @media (hover: none) { .pad { display: flex; } }
+  section.after { padding-block: 60px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
+  .card .k { font: 600 12px var(--font); letter-spacing: .16em; text-transform: uppercase; }
+  .card h3 { margin-top: 10px; font-size: 22px; line-height: 1.15; }
+  .card p, .card li { margin-top: 8px; color: #cfd2da; font-size: 15.5px; }
+  .card ul { list-style: none; } .card li::before { content: "✓ "; color: var(--mint); font-weight: 700; }
+  .card a.more { display: inline-block; margin-top: 12px; color: var(--sky); font-weight: 600; text-decoration: none; }
+  .me { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 16px; align-items: center; }
+  .me img { width: 92px; height: 92px; border-radius: 50%; object-fit: cover; border: 3px solid var(--coral); }
+  footer { border-top: 1px solid var(--line); padding-block: 22px 40px; color: var(--muted); font-size: 13.5px; }
+  @media (max-width: 860px) { header.hero { grid-template-columns: 1fr; } .pie { justify-self: center; max-width: 280px; } section.after { grid-template-columns: 1fr; } }
+  @media (prefers-reduced-motion: reduce) { .pie .slice { transition: none; } }
+  .ctrl { display: flex; gap: 8px; align-items: center; margin-top: 10px; flex-wrap: wrap; }
+  .ctrl button { font: 600 13px var(--font); background: var(--panel); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; cursor: pointer; }
+  .track { flex: 1; min-width: 120px; height: 6px; background: var(--panel2); border-radius: 3px; overflow: hidden; }
+  .track i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--coral), #fcb900); }
+  canvas { cursor: pointer; }
+</style>
+</head>
+<body>
+<div class="bar">A 60-second film, made for Team Foundation by Durva Thakkar · SEO/GEO Writer applicant</div>
+<div class="wrap">
+  <header class="hero">
+    <div>
+      <div class="eyebrow">Hello Team Foundation 👋</div>
+      <h1>Visibility in LLMs. <span class="c">Happy clients</span> in your CRM.</h1>
+      <p class="lede">I made you a short film about the thing you do best: getting brands found in search and cited in AI answers. Five clients, five briefs, one writer. It plays on its own.</p>
+    </div>
+    <div class="pie" aria-label="The AI Visibility Pie. A slice lights up for every happy client.">
+      <svg viewBox="0 0 200 200" id="pieSvg" aria-hidden="true"></svg>
+      <div class="mid"><div><b id="pieCount">0/5</b>CLIENTS CITED</div></div>
+    </div>
+  </header>
+  <div class="stage">
+    <canvas id="cv" width="960" height="540" role="img" aria-label="A pixel film: Durva writes for five clients; each article climbs to number one in search and gets cited in the AI answer, the clients celebrate, the account manager cheers, and the founder appears."></canvas>
+    <div class="overlay" id="endOv" hidden>
+      <div class="ov-in">
+        <div class="k">THE END · 5 OF 5 CLIENTS CITED</div>
+        <h2>Ross, can I join the team to generate solid results?</h2>
+        <p>I'm Durva, a content marketer and SEO &amp; GEO writer. I'd love to do this for real, for your clients.</p>
+        <div class="btns"><a class="btn coral" href="mailto:durvathakker7@gmail.com?subject=Let's%20talk%20about%20the%20SEO%2FGEO%20Writer%20role">✉ Let's talk</a><a class="btn ghost" href="https://durvathakkar.com/" target="_blank" rel="noopener">Meet Durva ↗</a><button class="btn ghost" id="again" type="button">↺ Watch again</button></div>
+      </div>
+    </div>
+  </div>
+  <div class="ctrl"><button id="pp" type="button">▶ Play</button><button id="replay" type="button">↺ Replay</button><div class="track"><i id="prog"></i></div><button id="snd" type="button">🔈 Sound off</button></div>
+  <section class="after">
+    <div class="card">
+      <div class="k" style="color: var(--coral2)">Research → Create</div>
+      <h3>What the game is really about</h3>
+      <ul>
+        <li>Answer the query in the first two sentences</li>
+        <li>Original data, expert quotes, clear H2s</li>
+        <li>Schema and entities that models can read</li>
+        <li>Distribution on Reddit, YouTube and LinkedIn</li>
+        <li>No keyword stuffing, no fluff, no AI slop</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="k" style="color: var(--sky)">About me</div>
+      <div class="me" style="margin-top: 12px"><img src="/assets/durva-avatar.jpg" alt="Durva Thakkar"><div><h3 style="margin: 0">Durva Thakkar</h3><p style="margin-top: 4px">Content Marketer · SEO &amp; GEO Writer · Ontario, Canada</p></div></div>
+      <p>SEO blogs, B2B and SaaS-style content, landing pages and email. I use AI in my workflow and write for search and LLM visibility. My SEO content at Missive Digital helped a client get a 73% increase in inquiries.</p>
+      <a class="more" href="https://durvathakkar.com/" target="_blank" rel="noopener">durvathakkar.com ↗</a>
+    </div>
+  </section>
+  <footer>The five clients in the game are fictional, made up for this page. "Create Once, Distribute Forever" is Ross Simmonds' book. Foundation's name belongs to Foundation. Made by Durva Thakkar.</footer>
+</div>
+<script>
+(() => {
+  /* ---------- pie ---------- */
+  const SLICES = [["On-Site Content", "#2a6fd6"], ["Reddit", "#e8604c"], ["YouTube", "#f08a76"], ["LinkedIn", "#f3b8ad"], ["Technical GEO", "#8fb4e8"]];
+  const svg = document.getElementById("pieSvg");
+  (function drawPie() {
+    const cx = 100, cy = 100, r1 = 58, r2 = 92, gap = 3, pt = (r, a) => [cx + r * Math.cos(a), cy + r * Math.sin(a)];
+    let html = `<circle cx="100" cy="100" r="98" fill="#2a2d36"/>`;
+    SLICES.forEach(([label, col], i) => {
+      const a0 = -Math.PI / 2 + i * 2 * Math.PI / 5 + gap / 100, a1 = -Math.PI / 2 + (i + 1) * 2 * Math.PI / 5 - gap / 100;
+      const [x0, y0] = pt(r2, a0), [x1, y1] = pt(r2, a1), [x2, y2] = pt(r1, a1), [x3, y3] = pt(r1, a0);
+      html += `<path class="slice" data-i="${i}" d="M${x0},${y0} A${r2},${r2} 0 0 1 ${x1},${y1} L${x2},${y2} A${r1},${r1} 0 0 0 ${x3},${y3} Z" fill="${col}"><title>${label}</title></path>`;
+    });
+    svg.innerHTML = html;
+  })();
+  let pieN = -1;
+  function lightPie(n) { if (n === pieN) return; pieN = n; svg.querySelectorAll(".slice").forEach(s => s.classList.toggle("on", +s.dataset.i < n)); document.getElementById("pieCount").textContent = n + "/5"; }
+
+  /* ---------- sprites ---------- */
+  const pad = rows => rows.map(r => r.padEnd(14, ".").slice(0, 14));
+  const TOP_D = pad(["...HHHhHHH....", "..HHhHHHHHHH..", ".HHHHHHHHhHHH.", ".HhHHSSSSSSHH.", ".HHHSSGGGGGG..", ".HHHSSGGSGGS..", ".HHhSSSSSMMS..", "HHHHHSSSSSSH..", "HhHHHWWWWHHhH.", "HHHTTTWWTTTHH.", ".HTTTTTWTTTTH.", "..TTTTTTTTTT..", "..TtTTTTTTtT..", "...TTTTtTTTT..", "...TTTTTTTT...", "...TTTTTTTT...", "...tttttttt..."]);
+  const TOP_LONG = pad(["....HHHHHH....", "..HHHHHHHHHH..", ".HHHHHHHHHHHH.", ".HHHHSSSSSSH..", ".HHHSSSESSES..", ".HHHSSSSSSSS..", ".HHHSSSSSMMS..", ".HHHHSSSSSS...", ".HHHHHTTTT....", ".HHHTTTTTTT...", ".HHTTTTTTTTT..", ".HHTTTTTTTTT..", ".HHTTTTTTTTT..", "..HTTTTTTTT...", "...TTTTTTTT...", "...TTTTTTTT...", "...tttttttt..."]);
+  const TOP_SHORT = pad(["...HHHHHHH....", "..HHHHHHHHH...", "..HHSSSSSSH...", "..HSSESSSES...", "..HSSSSSSSS...", "..SSSSSSSSS...", "..SSSSMMSSS...", "...SSSSSSS....", "....SSSSS.....", "..TTTTTTTTTT..", ".TTTTTTTTTTTT.", ".TTTTTTTTTTTT.", ".TTTTTTTTTTTT.", ".TTTTTTTTTTTT.", "..TTTTTTTTTT..", "...TTTTTTTT...", "...tttttttt..."]);
+  const LEGS = {
+    stand: pad(["...PPPPPPPP...", "...PPPPPPPP...", "...PPPppPPP...", "..PPPPppPPPP..", "..PPPPppPPPP..", "..PPPP..PPPP..", "..PPPP..PPPP..", ".PPPPP..PPPPP.", ".PPPPP..PPPPP.", ".PPPPP..PPPPP.", "..FFF....FFF.."]),
+    run1: pad(["...PPPPPPPP...", "...PPPPPPPP...", "..PPPPppPPPP..", "..PPPP..PPPPP.", ".PPPP....PPPP.", ".PPPP....PPPP.", "PPPP......PPPP", "PPPP......PPPP", "PPP........PPP", "FFF........FFF", ".............."]),
+    run2: pad(["...PPPPPPPP...", "...PPPPPPPP...", "...PPPPPPPP...", "...PPPPPPP....", "...PPPPPPP....", "..PPPPPPPPP...", "..PPPPPPPPP...", "..PPPPPPPPP...", "..PPPPPPPPP...", "..FFFF.FFF....", ".............."]),
+  };
+  const PD = { top: TOP_D, H: "#1c1310", h: "#3b2a22", S: "#d9a47e", G: "#0b0b0d", M: "#b0525a", W: "#f4f1ea", T: "#1f2645", t: "#151a33", P: "#2e4163", p: "#22314d", F: "#1a1a1a" };
+  const mk = (top, H, S, T, P) => ({ top, H, S, E: "#1a1410", M: "#b0525a", T, t: shade(T), P, p: shade(P), F: "#1a1a1a" });
+  function shade(hex) { const n = parseInt(hex.slice(1), 16); const f = v => Math.max(0, Math.round(v * .78)); return "#" + [n >> 16, (n >> 8) & 255, n & 255].map(f).map(v => v.toString(16).padStart(2, "0")).join(""); }
+  const CHARS = [
+    mk(TOP_SHORT, "#6b4a2b", "#f1c9ab", "#2a6fd6", "#2e3a55"),
+    mk(TOP_LONG, "#e6cf96", "#f1cdb4", "#e8604c", "#3a3f4b"),
+    mk(TOP_SHORT, "#1c1310", "#c98e6a", "#00a36a", "#2e3a55"),
+    mk(TOP_LONG, "#7a3b1d", "#e9b994", "#8a5cd6", "#2e3a55"),
+    mk(TOP_SHORT, "#9aa0a6", "#f1c3a6", "#f0a63a", "#3a3f4b"),
+  ];
+  const AM = mk(TOP_LONG, "#3b2a22", "#d9a47e", "#8fb4e8", "#2e3a55");
+  const ROSS = { top: TOP_SHORT, H: "#3a3f4b", S: "#3a3f4b", E: "#3a3f4b", M: "#3a3f4b", T: "#3a3f4b", t: "#30343e", P: "#30343e", p: "#2a2d36", F: "#2a2d36" };
+
+  /* ---------- canvas ---------- */
+  const cv = document.getElementById("cv"), g = cv.getContext("2d");
+  const W = 960, H = 540, FLOOR = 452;
+  const C = { bg: "#15171c", wall: "#1d2027", panel: "#22252d", panel2: "#2b2f39", line: "#3a3f4b", ink: "#f4f1ec", muted: "#a9adb8", coral: "#e8604c", blue: "#2a6fd6", sky: "#8fb4e8", sand: "#e3ddd2", mint: "#00d084", gold: "#fcb900" };
+  const R = (x, y, w, h, c) => { g.fillStyle = c; g.fillRect(Math.round(x), Math.round(y), Math.ceil(w), Math.ceil(h)); };
+  function rr(x, y, w, h, r, c, stroke) { g.beginPath(); g.roundRect(x, y, w, h, r); if (c) { g.fillStyle = c; g.fill(); } if (stroke) { g.strokeStyle = stroke; g.lineWidth = 1.5; g.stroke(); } }
+  function txt(s, x, y, c, size = 14, w = 500, align = "left", px) { g.fillStyle = c; g.font = px ? `${size}px "Press Start 2P", monospace` : `${w} ${size}px "Jost", system-ui, sans-serif`; g.textAlign = align; g.textBaseline = "alphabetic"; g.fillText(s, x, y); }
+  function lines(s, maxW, size, w) { g.font = `${w} ${size}px "Jost", system-ui, sans-serif`; const out = []; let line = ""; for (const wd of s.split(" ")) { const t = line ? line + " " + wd : wd; if (g.measureText(t).width > maxW && line) { out.push(line); line = wd; } else line = t; } if (line) out.push(line); return out; }
+  function bubble(s, x, y, maxW, opts = {}) {
+    const size = opts.size || 16, ls = lines(s, maxW - 28, size, 600), h = ls.length * (size + 6) + 22, w = Math.min(maxW, Math.max(...ls.map(l => (g.font = `600 ${size}px Jost`, g.measureText(l).width))) + 28);
+    const bx = opts.right ? x - w : x, by = y - h;
+    rr(bx, by, w, h, 14, opts.bg || C.sand);
+    g.beginPath(); const tx = opts.right ? x - 26 : x + 22; g.moveTo(tx, by + h - 1); g.lineTo(tx + 12, by + h - 1); g.lineTo(tx + (opts.right ? 14 : 2), by + h + 14); g.fillStyle = opts.bg || C.sand; g.fill();
+    ls.forEach((l, i) => txt(l, bx + 14, by + 26 + i * (size + 6), opts.ink || "#1d1f25", size, 600));
+  }
+  function actor(pal, cx, footY, pose = "stand", sc = 5, flip = false) {
+    const rows = pal.top.concat(LEGS[pose]); const x0 = cx - 7 * sc, y0 = footY - rows.length * sc;
+    rows.forEach((row, j) => [...row].forEach((ch, i) => { const c = pal[ch]; if (ch !== "." && c) R(x0 + (flip ? 13 - i : i) * sc, y0 + j * sc, sc, sc, c); }));
+    return y0;
+  }
+  const walkPose = t => (Math.floor(t * 8) % 2 ? "run1" : "run2");
+  const ease = x => x < 0 ? 0 : x > 1 ? 1 : 1 - Math.pow(1 - x, 3);
+  const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
+
+  /* ---------- story data ---------- */
+  const CLIENTS = [
+    { name: "Ledgerly", vert: "Fintech SaaS", q: "best AP automation for mid-market", ask: "When buyers ask AI about AP automation, we need to be the answer.", url: "ledgerly.io/blog/ap-automation", quote: "First source in the AI answer. We're renewing!" },
+    { name: "Shieldwise", vert: "Cybersecurity", q: "how to prepare for a SOC 2 audit", ask: "SOC 2 guide. Must include an expert quote.", url: "shieldwise.com/soc-2-checklist", quote: "Page one AND cited. Our CISO is framing this." },
+    { name: "Shipyard", vert: "Dev tools", q: "CI/CD pipeline best practices", ask: "Developers hate fluff. Give them a comparison table.", url: "shipyard.dev/guides/ci-cd", quote: "Devs are sharing it on Reddit!" },
+    { name: "Hirewise", vert: "HR tech", q: "how to reduce time to hire", ask: "Something Reddit won't roast us for, please.", url: "hirewise.co/time-to-hire", quote: "Demo requests from an AI answer. Wild." },
+    { name: "Metricly", vert: "Analytics", q: "product analytics vs web analytics", ask: "Make it work on YouTube and LinkedIn too.", url: "metricly.com/vs/web-analytics", quote: "Cited by every assistant we checked. 10/10." },
+  ];
+  const CHIPS = [
+    [["Answer-first intro", 1], ["Keyword stuffing", 0], ["Original data", 1], ["FAQ schema", 1], ["Clear H2s", 1], ["Internal links", 1]],
+    [["Answer-first intro", 1], ["Expert quote", 1], ["Fluff", 0], ["Step-by-step checklist", 1], ["FAQ schema", 1], ["Fresh stats", 1]],
+    [["Comparison table", 1], ["Code examples", 1], ["AI slop", 0], ["Clear H2s", 1], ["Entity coverage", 1], ["Internal links", 1]],
+    [["Honest take", 1], ["Reddit thread", 1], ["Clickbait", 0], ["Original data", 1], ["Expert quote", 1], ["FAQ schema", 1]],
+    [["Answer-first intro", 1], ["YouTube explainer", 1], ["Thin content", 0], ["LinkedIn post", 1], ["Comparison table", 1], ["Fresh stats", 1]],
+  ];
+  const COMP = ["g2.com", "forbes.com/advisor", "capterra.com", "reddit.com/r/saas", "medium.com", "techradar.com", "quora.com", "nerdwallet.com"];
+
+  // timeline (seconds)
+  const T_TITLE = 3.4, T_INTRO = 4.2, T_C0 = 11, T_C = 7.6, T_AM = 7, T_ROSS = 9;
+  const scenes = [["title", T_TITLE], ["intro", T_INTRO]];
+  CLIENTS.forEach((_, i) => scenes.push(["client" + i, i ? T_C : T_C0]));
+  scenes.push(["am", T_AM], ["ross", T_ROSS]);
+  const TOTAL = scenes.reduce((a, s) => a + s[1], 0);
+  function sceneAt(t) { let a = 0; for (const [n, d] of scenes) { if (t < a + d) return [n, t - a, d]; a += d; } return ["ross", T_ROSS, T_ROSS]; }
+
+  /* ---------- drawing ---------- */
+  function office() {
+    R(0, 0, 580, H, C.wall);
+    // window with city
+    rr(40, 250, 170, 120, 6, "#2a3350"); for (let i = 0; i < 9; i++) R(52 + i * 17, 330 - (i * 37) % 60, 12, 40 + (i * 37) % 60, "#3a4566");
+    R(40, 308, 170, 3, C.wall); R(124, 250, 3, 120, C.wall);
+    // sign
+    rr(250, 262, 290, 44, 8, "#111215"); txt("[FOUNDATION]", 395, 292, C.ink, 18, 800, "center");
+    // floor
+    R(0, FLOOR, 580, H - FLOOR, "#1a1c22"); for (let x = 0; x < 580; x += 40) R(x, FLOOR, 1, H - FLOOR, "#22252c");
+    R(0, FLOOR, 580, 3, "#2b2f39");
+  }
+  function desk(typing, t) {
+    // Durva behind desk
+    actor(PD, 150, FLOOR - 2, "stand", 5);
+    // desk
+    R(70, FLOOR - 70, 230, 14, C.sand); R(84, FLOOR - 56, 10, 56, "#b9b2a5"); R(276, FLOOR - 56, 10, 56, "#b9b2a5");
+    // laptop (back side facing us)
+    R(150, FLOOR - 112, 96, 42, "#3a3f4b"); R(150, FLOOR - 74, 110, 6, "#565c6b"); g.fillStyle = C.coral; g.beginPath(); g.arc(198, FLOOR - 92, 6, 0, 7); g.fill();
+    // name tag
+    rr(64, FLOOR + 22, 180, 30, 15, C.sand); txt("DURVA · SEO/GEO WRITER", 154, FLOOR + 42, "#1d1f25", 8, 400, "center", true);
+    if (typing) for (let i = 0; i < 3; i++) { const y = FLOOR - 140 - ((t * 60 + i * 20) % 50); g.globalAlpha = .6; txt(["</>", "H2", "✓"][i], 120 + i * 30, y, C.sky, 13, 700, "center"); g.globalAlpha = 1; }
+  }
+  function editor(cl, chipsShown, quality, title) {
+    rr(18, 18, 544, 214, 12, C.panel, C.line);
+    R(18, 18, 544, 30, C.panel2); [C.coral, C.gold, C.mint].forEach((c, i) => { g.fillStyle = c; g.beginPath(); g.arc(36 + i * 16, 33, 5, 0, 7); g.fill(); });
+    txt(title, 290, 38, C.muted, 13, 600, "center");
+    txt(`Draft: “${cl.q}”`, 36, 74, C.ink, 18, 700);
+    let x = 36, y = 92;
+    chipsShown.forEach(([label, good, cut]) => {
+      g.font = "600 14px Jost"; const w = g.measureText(label).width + 34;
+      if (x + w > 544) { x = 36; y += 40; }
+      rr(x, y, w, 30, 15, good ? "rgba(0,208,132,.15)" : "rgba(232,96,76,.15)", good ? C.mint : C.coral);
+      txt((good ? "+ " : "× ") + label, x + 12, y + 20, good ? "#bff5df" : "#ffcfc6", 14, 600);
+      if (!good && cut) { g.strokeStyle = C.coral; g.lineWidth = 2; g.beginPath(); g.moveTo(x + 10, y + 15); g.lineTo(x + w - 10, y + 15); g.stroke(); }
+      x += w + 8;
+    });
+    rr(36, 196, 508, 14, 7, C.panel2);
+    if (quality > 0) { const gr = g.createLinearGradient(36, 0, 544, 0); gr.addColorStop(0, C.coral); gr.addColorStop(1, C.gold); rr(36, 196, Math.max(14, 508 * quality / 100), 14, 7, gr); }
+    txt(`QUALITY ${Math.round(quality)}%`, 544, 188, C.muted, 8, 400, "right", true);
+  }
+  function rightPanels(cl, ci, rank, answer, cited) {
+    const x0 = 580, w = 380;
+    R(x0, 0, w, H, "#1b1d23"); R(x0, 0, 1, H, C.line);
+    rr(x0 + 16, 16, w - 32, 250, 12, C.panel, C.line);
+    txt("AI ANSWER", x0 + 32, 40, C.sky, 9, 400, "left", true);
+    rr(x0 + w - 130, 26, 98, 22, 11, C.panel2); txt("LLM · live", x0 + w - 81, 42, C.muted, 12, 600, "center");
+    rr(x0 + 32, 56, w - 64, 32, 10, "#33384a"); txt((cl.q + "?").slice(0, 40), x0 + 44, 77, C.ink, 14, 600);
+    const n = 6, filled = Math.floor(answer * n);
+    for (let i = 0; i < n; i++) rr(x0 + 32, 102 + i * 17, (w - 64) * (i === n - 1 ? .55 : .7 + .3 * ((i * 37) % 10) / 10), 9, 5, i < filled ? "#59607a" : "#2d313c");
+    txt("Sources", x0 + 32, 222, C.muted, 13, 600);
+    if (cited) txt("✓ Cited", x0 + w - 32, 222, C.mint, 13, 700, "right");
+    const chips = cited ? [[cl.url, 1], [COMP[ci % 8], 0]] : [[COMP[ci % 8], 0], [COMP[(ci + 3) % 8], 0]];
+    let cx = x0 + 32;
+    chips.forEach(([u, me], i) => { const label = `[${i + 1}] ${u}`.slice(0, 34); g.font = "600 12px Jost"; const tw = g.measureText(label).width + 16; if (cx + tw > x0 + w - 28) return; rr(cx, 232, tw, 24, 12, me ? "rgba(0,208,132,.16)" : C.panel2, me ? C.mint : null); txt(label, cx + 8, 248, me ? C.mint : C.muted, 12, 600); cx += tw + 6; });
+    rr(x0 + 16, 280, w - 32, 244, 12, C.panel, C.line);
+    txt("SEARCH RESULTS", x0 + 32, 304, C.coral, 9, 400, "left", true);
+    const rk = clamp(Math.round(rank), 1, 9);
+    txt(rk === 1 ? "#1 ✓" : `#${rk}`, x0 + w - 32, 304, rk === 1 ? C.mint : C.muted, 14, 800, "right");
+    const top = clamp(rk - 3, 0, 4); let k = 0;
+    for (let i = 0; i < 5; i++) {
+      const r = top + i + 1, y = 318 + i * 40;
+      if (r === rk) { rr(x0 + 28, y, w - 56, 34, 8, "rgba(232,96,76,.16)", C.coral); txt(`#${r}`, x0 + 40, y + 22, C.coral, 15, 800); txt(cl.url.slice(0, 30), x0 + 76, y + 15, C.ink, 13, 700); txt(`${cl.name}'s article`, x0 + 76, y + 29, C.muted, 11, 500); }
+      else { txt(`#${r}`, x0 + 40, y + 22, C.muted, 15, 700); rr(x0 + 76, y + 8, 140, 8, 4, "#3a3f4b"); txt(COMP[(ci + k++) % 8], x0 + 76, y + 29, "#6e7484", 11, 500); }
+    }
+  }
+  function hearts(x, y, t) { for (let i = 0; i < 5; i++) { const p = (t * .8 + i / 5) % 1; g.globalAlpha = 1 - p; txt("♥", x - 40 + i * 20, y - p * 60, [C.coral, C.pink || "#f3b8ad", C.gold][i % 3], 18, 700, "center"); } g.globalAlpha = 1; }
+  function confetti(t) { for (let i = 0; i < 46; i++) { const x = (i * 97 + t * 60 * (1 + i % 3)) % W, y = (i * 53 + t * 120) % H; R(x, y, 5, 9, [C.coral, C.sky, C.mint, C.gold, C.sand][i % 5]); } }
+
+  function drawTitle(t) {
+    R(0, 0, W, H, C.bg); confetti(t * .4);
+    const k = ease(t / .8);
+    g.globalAlpha = k;
+    txt("A 60-SECOND FILM FOR", W / 2, 150, C.mint, 12, 400, "center", true);
+    txt("Hello Team Foundation 👋", W / 2, 220, C.ink, 54, 800, "center");
+    txt("How one writer gets five clients ranked, cited and renewed.", W / 2, 268, C.muted, 20, 500, "center");
+    g.globalAlpha = 1;
+    actor(PD, W / 2, 470, Math.floor(t * 3) % 2 ? "stand" : "run2", 5);
+  }
+  function drawIntro(t) {
+    office(); rightPanels(CLIENTS[0], 0, 9, 0, false);
+    const x = 620 - 470 * ease(t / 2.2);
+    if (t < 2.2) { actor(PD, x, FLOOR - 2, walkPose(t), 5, true); R(70, FLOOR - 70, 230, 14, C.sand); }
+    else desk(false, t);
+    editor(CLIENTS[0], [], 0, "untitled draft");
+    if (t > 2.4) bubble("Hi Foundation! I'm Durva. Let's get some brands cited.", 210, FLOOR - 150, 330);
+  }
+  function drawClient(i, t, d) {
+    const cl = CLIENTS[i], chips = CHIPS[i], P = CHARS[i];
+    const walkIn = 1.1, briefEnd = walkIn + (i ? 1.4 : 2.2), happyAt = d - 2.6;
+    const step = (happyAt - briefEnd - .4) / chips.length;
+    const shown = []; let quality = 0;
+    chips.forEach(([l, good], k) => { const at = briefEnd + k * step; if (t > at) { shown.push([l, good, t > at + step * .6]); if (good) quality += 100 / 5; } });
+    quality = clamp(quality, 0, 100);
+    const pub = t > happyAt, cited = t > happyAt + .4;
+    const rank = pub ? 1 : 9 - 8 * quality / 100, answer = pub ? 1 : quality / 100 * .85;
+    office(); rightPanels(cl, i, rank, answer, cited);
+    desk(t > briefEnd && !pub, t);
+    // client walks in from the right
+    const cx = 560 - 150 * ease(t / walkIn);
+    const jump = pub ? Math.abs(Math.sin((t - happyAt) * 7)) * 18 : 0;
+    actor(P, cx, FLOOR - 2 - jump, t < walkIn ? walkPose(t) : "stand", 5, false);
+    rr(cx - 70, FLOOR + 22, 140, 30, 15, C.panel2); txt(`${cl.name.toUpperCase()}`, cx, FLOOR + 42, C.ink, 8, 400, "center", true);
+    editor(cl, shown, quality, pub ? `PUBLISHED ✓ · CLIENT ${i + 1} OF 5` : `${cl.name} · ${cl.vert} · client ${i + 1} of 5`);
+    if (t > walkIn && t < briefEnd + .6) bubble(cl.ask, cx + 40, FLOOR - 140, 300, { right: true });
+    if (pub) { hearts(cx, FLOOR - 150, t); bubble(cl.quote, cx + 40, FLOOR - 140, 300, { right: true, bg: C.mint, ink: "#0b2a1d" }); }
+    lightPie(i + (cited ? 1 : 0));
+  }
+  function drawAM(t) {
+    R(0, 0, W, H, C.bg);
+    txt("MEANWHILE, AT FOUNDATION", W / 2, 54, C.mint, 12, 400, "center", true);
+    // dashboard
+    rr(330, 80, 590, 300, 14, C.panel, C.line);
+    txt("Client dashboard · this quarter", 352, 112, C.ink, 18, 700);
+    CLIENTS.forEach((c, i) => { const y = 132 + i * 46, k = ease((t - .4 - i * .25) / .4); g.globalAlpha = k; rr(352, y, 546, 38, 8, C.panel2); txt(c.name, 368, y + 25, C.ink, 16, 700); txt("#1 on Google", 540, y + 25, C.muted, 14, 600); txt("Cited in AI answers", 670, y + 25, C.muted, 14, 600); txt("Renewed ✓", 884, y + 25, C.mint, 14, 700, "right"); g.globalAlpha = 1; });
+    // AM at the dashboard
+    const amY = FLOOR + 20 - (t > 2.6 ? Math.abs(Math.sin(t * 6)) * 14 : 0);
+    actor(AM, 200, amY, "stand", 5, true);
+    rr(130, amY + 18, 140, 30, 15, C.panel2); txt("ACCOUNT MGR", 200, amY + 38, C.ink, 8, 400, "center", true);
+    if (t > 2.4) bubble("5 for 5. Ranked, cited, renewed. Who wrote these?!", 120, amY - 150, 300);
+    // Durva walks in
+    const dx = W + 40 - 220 * ease((t - 3.4) / 1.4);
+    if (t > 3.4) { actor(PD, dx, FLOOR + 20, t < 4.8 ? walkPose(t) : "stand", 5, true); if (t > 5) bubble("That was me 👋", dx - 30, FLOOR - 130, 220, { right: true }); }
+    if (t > 2.6) confetti(t);
+  }
+  function drawRoss(t) {
+    R(0, 0, W, H, C.bg);
+    txt("AND THEN THE FOUNDER SAW IT", W / 2, 54, C.coral, 12, 400, "center", true);
+    // spotlight
+    const gr = g.createRadialGradient(W / 2, 330, 10, W / 2, 330, 260); gr.addColorStop(0, "rgba(232,96,76,.22)"); gr.addColorStop(1, "rgba(232,96,76,0)"); g.fillStyle = gr; g.fillRect(0, 0, W, H);
+    const rx = W / 2;
+    actor(ROSS, rx, FLOOR + 10, "stand", 6);
+    rr(rx - 80, FLOOR + 26, 160, 30, 15, C.coral); txt("ROSS · FOUNDER", rx, FLOOR + 46, "#fff", 8, 400, "center", true);
+    if (t > .8) { const k = ease((t - .8) / .6); g.globalAlpha = k; rr(rx - 230, 86, 460, 54, 27, C.panel2, C.line); txt("Create once. Distribute forever.", rx, 121, C.sand, 22, 700, "center"); g.globalAlpha = 1; }
+    // Durva + AM on the sides
+    actor(AM, 200, FLOOR + 10, "stand", 5, false);
+    actor(PD, W - 200, FLOOR + 10, "stand", 5, true);
+    if (t > 2.4) bubble("Ross, can I join the team to generate solid results?", W - 150, FLOOR - 140, 330, { right: true, bg: C.coral, ink: "#fff" });
+    if (t > 2.4) confetti(t);
+  }
+
+  /* ---------- player ---------- */
+  let t = 0, playing = false, last = 0, done = false, sound = false, ac = null, lastBeep = -1;
+  const endOv = document.getElementById("endOv"), playBtn = document.getElementById("pp"), bar = document.getElementById("prog");
+  function beep(f, d = .06, v = .03) { if (!sound) return; try { ac = ac || new (window.AudioContext || window.webkitAudioContext)(); const o = ac.createOscillator(), gn = ac.createGain(); o.type = "square"; o.frequency.value = f; gn.gain.value = v; o.connect(gn); gn.connect(ac.destination); o.start(); gn.gain.exponentialRampToValueAtTime(.0001, ac.currentTime + d); o.stop(ac.currentTime + d); } catch {} }
+  function render() {
+    const [name, st, d] = sceneAt(t);
+    g.save();
+    if (name === "title") drawTitle(st); else if (name === "intro") drawIntro(st);
+    else if (name.startsWith("client")) drawClient(+name.slice(6), st, d);
+    else if (name === "am") { drawAM(st); lightPie(5); } else drawRoss(st);
+    g.restore();
+    bar.style.width = (t / TOTAL * 100) + "%";
+    const beat = Math.floor(t * 2.2); if (playing && beat !== lastBeep) { lastBeep = beat; beep([392, 440, 523, 587][beat % 4]); }
+  }
+  function loop(now) {
+    if (playing) { t += Math.min(.05, (now - last) / 1000); if (t >= TOTAL) { t = TOTAL - .001; playing = false; done = true; endOv.hidden = false; playBtn.textContent = "▶ Play"; } }
+    last = now; render(); requestAnimationFrame(loop);
+  }
+  function play() { if (done) { t = 0; done = false; lightPie(0); } endOv.hidden = true; playing = true; last = performance.now(); playBtn.textContent = "❚❚ Pause"; }
+  function pause() { playing = false; playBtn.textContent = "▶ Play"; }
+  playBtn.onclick = () => playing ? pause() : play();
+  document.getElementById("replay").onclick = () => { t = 0; done = false; lightPie(0); play(); };
+  document.getElementById("again").onclick = () => { t = 0; done = false; lightPie(0); play(); };
+  document.getElementById("snd").onclick = e => { sound = !sound; e.target.textContent = sound ? "🔊 Sound on" : "🔈 Sound off"; };
+  cv.onclick = () => playing ? pause() : play();
+  // autoplay once the film scrolls into view
+  let started = false;
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting && !started) { started = true; play(); } }), { threshold: .45 });
+  io.observe(cv);
+  lightPie(0);
+  const go = () => { last = performance.now(); requestAnimationFrame(loop); };
+  (document.fonts ? document.fonts.load('16px "Jost"').then(() => document.fonts.load('10px "Press Start 2P"')) : Promise.resolve()).finally(go);
+})();
+
+</script>
+</body>
+</html>
