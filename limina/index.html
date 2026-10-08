@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Durva × Limina</title>
+<meta name="description" content="A demand generation workspace for Limina, made for Tyler Munro by Durva Thakkar: an integrated campaign, a landing page, emails, the webinar program end to end, LinkedIn ads, ABM, case studies and reporting.">
+<meta property="og:title" content="Durva × Limina: demand gen, already on the job">
+<meta property="og:description" content="Every line of the job post, done once, as if I'd started Monday. Made for Tyler Munro by Durva Thakkar.">
+<meta property="og:image" content="https://durvathakkar.com/limina/share.jpg">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  /* Limina's own look: off-white ground, deep navy panels, one bright blue, light-blue redaction tags. */
+  :root {
+    --bg: #f8f9fc; --surface: #ffffff; --navy: #0b1020; --navy2: #131a2e; --ink: #1c1c1c; --muted: #6b6b6b; --line: #e2e4ea;
+    --blue: #2170f1; --blue-dk: #0f4aa8; --tag: #dbeeff; --tag2: #bedbff; --ok: #12805c; --okbg: #e3f6ee; --warn: #8a5a00; --warnbg: #fff3d6;
+    --font: "Instrument Sans", system-ui, -apple-system, sans-serif; --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--ink); font: 16px/1.55 var(--font); -webkit-font-smoothing: antialiased; }
+  a { color: var(--blue); }
+  .wrap { max-width: 1180px; margin: 0 auto; padding-inline: 20px; }
+  .tagx { font: 600 12px var(--mono); background: var(--tag); color: var(--blue-dk); border-radius: 4px; padding: 2px 6px; white-space: nowrap; }
+  .eyebrow { font: 600 12px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--blue); display: inline-flex; align-items: center; gap: 8px; }
+  .eyebrow::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--blue); }
+  h1, h2, h3 { letter-spacing: -0.02em; text-wrap: balance; }
+  /* top bar + nav */
+  .top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(248,249,252,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  .top .wrap { display: flex; align-items: center; gap: 16px; height: 56px; }
+  .brand { font-weight: 700; letter-spacing: -0.02em; white-space: nowrap; }
+  .brand span { color: var(--muted); font-weight: 500; }
+  .nav { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; flex: 1; }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav a { font: 500 13px var(--font); color: var(--muted); text-decoration: none; padding: 6px 10px; border-radius: 999px; white-space: nowrap; }
+  .nav a:hover, .nav a.on { background: var(--tag); color: var(--blue-dk); }
+  /* hero */
+  .hero { margin-top: 20px; background: var(--navy); color: #fff; border-radius: 20px; padding: clamp(28px, 5vw, 64px); display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 36px; align-items: center; }
+  .hero .eyebrow { color: #8fb4ff; } .hero .eyebrow::before { background: #8fb4ff; }
+  .hero h1 { margin-top: 14px; font-size: clamp(34px, 5vw, 58px); line-height: 1.04; font-weight: 600; }
+  .hero p.lede { margin-top: 16px; color: #c7cddd; font-size: 18px; max-width: 560px; }
+  .redact { display: inline-block; position: relative; }
+  .redact .t { font: 600 .55em var(--mono); background: var(--tag2); color: var(--blue-dk); border-radius: 6px; padding: .1em .35em; vertical-align: middle; transition: opacity .5s, transform .5s; }
+  .redact .n { position: absolute; left: 0; top: 0; white-space: nowrap; color: #fff; opacity: 0; transform: translateY(6px); transition: opacity .5s, transform .5s; }
+  .redact.on .t { opacity: 0; transform: translateY(-6px); } .redact.on .n { opacity: 1; transform: none; }
+  .note { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; font: 600 13px var(--mono); letter-spacing: .06em; text-transform: uppercase; border-radius: 6px; padding: 13px 18px; text-decoration: none; border: 1px solid transparent; cursor: pointer; }
+  .btn.blue { background: var(--blue); color: #fff; } .btn.line { border-color: #3a4a7a; color: #cfe0ff; } .btn.line.dk { border-color: var(--line); color: var(--ink); background: var(--surface); }
+  .btn:focus-visible, a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+  .doc { background: #f4f7fd; color: #3c3c3c; border-radius: 14px; padding: 22px; font-size: 14.5px; line-height: 1.9; box-shadow: 0 30px 60px -30px rgba(0,0,0,.6); }
+  .doc small { display: block; font: 600 11px var(--mono); letter-spacing: .12em; color: #7a8399; margin-bottom: 8px; }
+  .doc .tagx { font-size: 11.5px; }
+  .kpis { margin-top: 28px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid #263055; }
+  .kpis div { padding: 16px 16px 0 0; } .kpis b { display: block; font-size: 28px; font-weight: 600; letter-spacing: -0.02em; } .kpis span { color: #aab3c9; font-size: 13px; }
+  /* sections */
+  section.s { padding-block: 64px 8px; scroll-margin-top: 70px; }
+  .s-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: end; }
+  .s-head h2 { margin-top: 8px; font-size: clamp(28px, 3.6vw, 42px); line-height: 1.08; font-weight: 600; }
+  .s-head p { color: var(--muted); font-size: 16.5px; }
+  .grid { margin-top: 24px; display: grid; gap: 16px; }
+  .g2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } .g3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } .g4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px; min-width: 0; }
+  .card h3 { font-size: 18px; font-weight: 600; }
+  .card .k { font: 600 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--blue); }
+  .card p, .card li { color: #444; font-size: 14.5px; }
+  .card ul { margin-top: 10px; padding-left: 18px; display: grid; gap: 4px; }
+  .card.dark { background: var(--navy); color: #fff; border-color: var(--navy); } .card.dark p, .card.dark li { color: #c7cddd; }
+  .pill { display: inline-block; font: 600 11px var(--mono); padding: 3px 8px; border-radius: 999px; background: var(--tag); color: var(--blue-dk); }
+  .pill.ok { background: var(--okbg); color: var(--ok); } .pill.warn { background: var(--warnbg); color: var(--warn); } .pill.gray { background: #eef0f4; color: #555; }
+  .sample { font: 600 10.5px var(--mono); letter-spacing: .08em; color: var(--warn); background: var(--warnbg); border-radius: 4px; padding: 3px 6px; }
+  .tbl { margin-top: 12px; overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 640px; }
+  th { text-align: left; font: 600 11px var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); background: #f3f5f9; padding: 10px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  td { padding: 11px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr:last-child td { border-bottom: 0; }
+  td b { font-weight: 600; }
+  .row-h { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+  /* gantt */
+  .gantt { margin-top: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; overflow-x: auto; }
+  .gantt .gr { display: grid; grid-template-columns: 210px repeat(10, minmax(46px, 1fr)); align-items: center; min-width: 720px; }
+  .gantt .gr + .gr { border-top: 1px dashed var(--line); }
+  .gantt .lbl { font-size: 13.5px; padding: 8px 8px 8px 0; }
+  .gantt .wk { font: 600 11px var(--mono); color: var(--muted); text-align: center; padding-bottom: 6px; }
+  .gantt .bar { height: 18px; border-radius: 9px; background: var(--blue); margin: 8px 2px; }
+  .gantt .bar.l { background: var(--tag2); } .gantt .bar.n { background: var(--navy); }
+  /* landing page mock */
+  .browser { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: 0 30px 60px -40px rgba(11,16,32,.45); }
+  .bbar { display: flex; align-items: center; gap: 8px; padding: 10px 14px; background: #f1f3f8; border-bottom: 1px solid var(--line); }
+  .bbar i { width: 10px; height: 10px; border-radius: 50%; background: #d5d9e2; } .bbar .u { margin-left: 10px; font: 500 12.5px var(--mono); color: var(--muted); background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 4px 10px; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .lp { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 0; }
+  .lp .l { background: var(--navy); color: #fff; padding: 34px; }
+  .lp .l h3 { font-size: 30px; line-height: 1.1; font-weight: 600; margin-top: 12px; }
+  .lp .l p { color: #c7cddd; margin-top: 12px; font-size: 15px; }
+  .lp .l ul { margin-top: 16px; list-style: none; display: grid; gap: 8px; font-size: 14.5px; color: #e3e8f5; }
+  .lp .l li::before { content: "✓"; color: #8fb4ff; margin-right: 8px; font-weight: 700; }
+  .lp .spk { margin-top: 20px; display: grid; gap: 10px; }
+  .lp .spk div { display: flex; gap: 10px; align-items: center; font-size: 13.5px; color: #c7cddd; }
+  .lp .spk i { width: 34px; height: 34px; border-radius: 50%; background: #263055; display: grid; place-items: center; font: 600 12px var(--mono); color: #8fb4ff; font-style: normal; flex: none; }
+  .lp .spk b { color: #fff; font-weight: 600; display: block; }
+  .lp form { padding: 30px; display: grid; gap: 10px; align-content: start; }
+  .lp form h4 { font-size: 18px; font-weight: 600; }
+  .lp label { display: grid; gap: 4px; font: 600 11px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  .lp input, .lp select { font: 14px var(--font); padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--ink); width: 100%; min-width: 0; }
+  .lp .fine { font-size: 12px; color: var(--muted); }
+  .lp .ok-msg { background: var(--okbg); color: var(--ok); border-radius: 8px; padding: 10px 12px; font-size: 13.5px; }
+  /* emails */
+  .tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
+  .tabs button { font: 600 12.5px var(--font); border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 7px 12px; cursor: pointer; color: var(--ink); }
+  .tabs button.on { background: var(--navy); color: #fff; border-color: var(--navy); }
+  .mail { margin-top: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+  .mail .mh { padding: 16px 20px; border-bottom: 1px solid var(--line); display: grid; gap: 4px; font-size: 13.5px; color: var(--muted); }
+  .mail .mh b { color: var(--ink); font-size: 17px; font-weight: 600; }
+  .mail .mb { padding: 22px 26px; font-size: 15px; display: grid; gap: 12px; max-width: 680px; }
+  .mail .mb .cta { justify-self: start; background: var(--blue); color: #fff; border-radius: 6px; padding: 11px 16px; font: 600 13px var(--mono); text-decoration: none; }
+  .mail .mf { padding: 12px 26px 18px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--line); }
+  .meta { display: flex; flex-wrap: wrap; gap: 6px; }
+  /* ads */
+  .ad { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
+  .ad .ah { display: flex; gap: 10px; padding: 12px 14px; align-items: center; }
+  .ad .ah i { width: 36px; height: 36px; border-radius: 8px; background: var(--navy); color: #fff; display: grid; place-items: center; font: 700 15px var(--font); font-style: normal; }
+  .ad .ah b { font-size: 14px; display: block; } .ad .ah span { font-size: 12px; color: var(--muted); }
+  .ad .at { padding: 0 14px 12px; font-size: 14px; }
+  .ad .art { aspect-ratio: 1.91 / 1; background: var(--navy); color: #fff; padding: 18px; display: flex; flex-direction: column; justify-content: space-between; }
+  .ad .art .big { font-size: 22px; line-height: 1.15; font-weight: 600; }
+  .ad .art .tagline { font: 600 11px var(--mono); color: #8fb4ff; letter-spacing: .08em; }
+  .ad .af { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; background: #f3f5f9; font-size: 13px; gap: 8px; }
+  .ad .af b { font-size: 13.5px; } .ad .af span { border: 1px solid var(--blue); color: var(--blue); border-radius: 999px; padding: 4px 12px; font-weight: 600; white-space: nowrap; }
+  /* flow */
+  .flow { margin-top: 12px; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(170px, 1fr); gap: 10px; overflow-x: auto; padding-bottom: 6px; }
+  .step { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px; position: relative; }
+  .step small { font: 600 11px var(--mono); color: var(--blue); letter-spacing: .06em; }
+  .step b { display: block; margin-top: 6px; font-size: 14.5px; font-weight: 600; }
+  .step p { margin-top: 4px; font-size: 13px; color: var(--muted); }
+  /* kanban */
+  .kb { margin-top: 12px; display: grid; grid-template-columns: repeat(6, minmax(160px, 1fr)); gap: 10px; overflow-x: auto; }
+  .kb .col { background: #eef1f6; border-radius: 12px; padding: 10px; min-width: 160px; }
+  .kb h5 { font: 600 11px var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--muted); padding: 4px 4px 10px; }
+  .kb .it { background: var(--surface); border: 1px solid var(--line); border-radius: 9px; padding: 10px; font-size: 13.5px; margin-bottom: 8px; }
+  .kb .it small { display: block; color: var(--muted); font-size: 12px; margin-top: 4px; }
+  /* checklist */
+  .ck label { display: grid; grid-template-columns: 20px 1fr; gap: 8px; font-size: 14px; padding: 5px 0; cursor: pointer; }
+  .ck input { width: 16px; height: 16px; margin-top: 3px; accent-color: var(--blue); }
+  .ck h5 { font: 600 11px var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--blue); margin: 12px 0 4px; }
+  .ck .cnt { font: 600 12px var(--mono); color: var(--blue-dk); background: var(--tag); border-radius: 4px; padding: 3px 7px; }
+  /* dashboard */
+  .dash { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
+  .tile { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+  .tile span { font: 600 11px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  .tile b { display: block; font-size: 30px; font-weight: 600; letter-spacing: -0.02em; margin-top: 6px; font-variant-numeric: tabular-nums; }
+  .tile em { font-style: normal; font-size: 13px; color: var(--ok); }
+  .bars { display: grid; gap: 10px; margin-top: 10px; }
+  .bars .b { display: grid; grid-template-columns: 150px 1fr 50px; gap: 10px; align-items: center; font-size: 13.5px; }
+  .bars .b i { display: block; height: 12px; border-radius: 6px; background: var(--blue); }
+  .bars .b em { font-style: normal; font: 600 12px var(--mono); color: var(--muted); text-align: right; }
+  .funnel { display: grid; gap: 6px; margin-top: 10px; }
+  .funnel div { background: var(--navy); color: #fff; border-radius: 8px; padding: 9px 12px; display: flex; justify-content: space-between; font-size: 13.5px; margin-inline: auto; width: 100%; }
+  .funnel div b { font-variant-numeric: tabular-nums; }
+  .code { background: var(--navy); color: #dbe4ff; border-radius: 12px; padding: 16px 18px; font: 13px/1.65 var(--mono); white-space: pre-wrap; overflow-x: auto; margin-top: 12px; }
+  .code b { color: #8fb4ff; font-weight: 600; }
+  .quote { border-left: 3px solid var(--blue); padding-left: 14px; font-size: 15px; color: #333; }
+  .quote cite { display: block; margin-top: 6px; font-style: normal; font-size: 13px; color: var(--muted); }
+  .me { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 18px; align-items: center; }
+  .me img { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; border: 3px solid var(--blue); }
+  footer { margin-top: 70px; border-top: 1px solid var(--line); padding-block: 26px 50px; color: var(--muted); font-size: 13px; }
+  @media (max-width: 900px) {
+    .hero, .s-head, .lp, .g2, .g3 { grid-template-columns: 1fr; }
+    .g4, .dash, .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .bars .b { grid-template-columns: 110px 1fr 44px; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .redact .t, .redact .n { transition: none; } }
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap">
+  <div class="brand">Durva × Limina <span>· demand gen workspace</span></div>
+  <nav class="nav" id="nav">
+    <a href="#plan">90 days</a><a href="#campaign">Campaign</a><a href="#lp">Landing page</a><a href="#emails">Emails</a><a href="#webinar">Webinar program</a><a href="#paid">Paid + LinkedIn</a><a href="#promo">Content promotion</a><a href="#data">Database</a><a href="#events">Events</a><a href="#cases">Case studies</a><a href="#reps">Rep assets</a><a href="#abm">ABM pilot</a><a href="#report">Reporting</a><a href="#me">About me</a>
+  </nav>
+</div></div>
+
+<main class="wrap">
+  <!-- HERO -->
+  <header class="hero">
+    <div>
+      <div class="eyebrow">Hi Tyler 👋 · Week 0</div>
+      <h1>Meet <span class="redact" id="red"><span class="t">[NAME_GIVEN_1]</span><span class="n">Durva.</span></span><br>Your demand gen hire, already on the job.</h1>
+      <p class="lede">Every line of the job post, done once, as if I'd started Monday: a full integrated campaign, a landing page and form, the email sequence, the webinar program end to end, LinkedIn ads, list building, events, case studies, rep assets, an ABM pilot and the report that ties it all to pipeline.</p>
+      <div class="note"><a class="btn blue" href="#campaign">See the campaign</a><a class="btn line" href="#webinar">See the webinar system</a></div>
+    </div>
+    <div class="doc" aria-label="A job post, de-identified Limina style">
+      <small>JOB POST · DE-IDENTIFIED</small>
+      Reporting to <span class="tagx">[VP_MARKETING_1]</span>, the new hire will turn <span class="tagx">[PRIVACY_LEADER_1]</span>, <span class="tagx">[SECURITY_LEADER_1]</span> and <span class="tagx">[DATA_LEADER_1]</span> into engaged prospects through <span class="tagx">[WEBINARS]</span>, <span class="tagx">[EMAIL]</span>, <span class="tagx">[EVENTS]</span> and <span class="tagx">[PAID]</span>, then hand them to the <span class="tagx">[MDR_1]</span>. Low ego, high ownership. Ships on a deadline.
+      <div style="margin-top: 12px; font: 600 11px var(--mono); color: #7a8399;">ENTITIES FOUND: 9 · CONFIDENCE: 99.5%*</div>
+    </div>
+    <div class="kpis" style="grid-column: 1 / -1">
+      <div><b>1</b><span>integrated campaign, brief to launch</span></div>
+      <div><b>7</b><span>webinar topics + the full runbook</span></div>
+      <div><b>9</b><span>emails, ads and rep templates</span></div>
+      <div><b>3</b><span>ABM tiers, built with the MDR</span></div>
+    </div>
+  </header>
+  <p style="margin-top: 10px; font-size: 12.5px; color: var(--muted)">*A nod to Limina's 99.5% accuracy on physician conversations for Providence Health. Facts about Limina come from getlimina.ai; targets and numbers marked SAMPLE are illustrative.</p>
+
+  <!-- PLAN -->
+  <section class="s" id="plan">
+    <div class="s-head"><div><div class="eyebrow">First 90 days</div><h2>Learn the buyer, ship the engine, prove the pipeline.</h2></div><p>The marketing function is young, so the first job is to make campaigns repeatable. By day 90, every program on this page runs on a calendar, a template and a number.</p></div>
+    <div class="grid g3">
+      <div class="card"><div class="k">Days 1-30 · Learn</div><h3 style="margin-top:6px">Sit next to the buyer</h3><ul><li>Shadow the MDR and 5 sales calls; log every objection</li><li>Audit HubSpot: lists, forms, UTMs, lifecycle stages</li><li>Read every guide, blog and case on getlimina.ai</li><li>Launch webinar #1 promotion (it's 4 weeks out)</li></ul><p style="margin-top:10px"><span class="pill">Output</span> Buyer question bank · HubSpot fix list · webinar #1 live</p></div>
+      <div class="card"><div class="k">Days 31-60 · Build</div><h3 style="margin-top:6px">Turn one-offs into systems</h3><ul><li>Integrated campaign live: page, form, 5 emails, ads</li><li>Case study pipeline: 3 customers in motion</li><li>LinkedIn audiences + first A/B tests</li><li>ABM tier 1 list agreed with the MDR</li></ul><p style="margin-top:10px"><span class="pill">Output</span> Campaign live · case pipeline · ABM list</p></div>
+      <div class="card dark"><div class="k" style="color:#8fb4ff">Days 61-90 · Prove</div><h3 style="margin-top:6px">Tie it to pipeline</h3><ul><li>Monthly report: leads, MQLs, pipeline by program</li><li>First case study published, cut into rep assets</li><li>Shift budget to what's converting</li><li>Webinar #2 and #3 on the calendar</li></ul><p style="margin-top:10px;color:#c7cddd"><span class="pill">Output</span> Pipeline report · first case · budget shifts</p></div>
+    </div>
+  </section>
+
+  <!-- CAMPAIGN -->
+  <section class="s" id="campaign">
+    <div class="s-head"><div><div class="eyebrow">Integrated campaign · brief to launch</div><h2>“Every prompt is a data transaction.”</h2></div><p>A quarter-long campaign built on Limina's own line. One idea, one webinar, one guide, run across email, LinkedIn, syndication and the MDR, with every touch tracked to pipeline.</p></div>
+    <div class="grid g2">
+      <div class="card">
+        <div class="row-h"><h3>Campaign brief</h3><span class="sample">SAMPLE TARGETS</span></div>
+        <div class="tbl"><table style="min-width:0"><tbody>
+          <tr><td style="width:130px"><b>Goal</b></td><td>Net-new leads from regulated enterprises building AI, converted to MQLs and MDR meetings</td></tr>
+          <tr><td><b>Audience</b></td><td>CPOs, DPOs, CISOs, Heads of Data/AI at financial services, insurance, healthcare and pharma, 1,000+ employees</td></tr>
+          <tr><td><b>Insight</b></td><td>Teams want to use their best data in AI. Compliance says no. Cloud tools miss too much, DIY costs too much.</td></tr>
+          <tr><td><b>Offer</b></td><td>Webinar “Governing every prompt” + the guide “De-identification for AI Training Data”</td></tr>
+          <tr><td><b>Proof</b></td><td>99.5% accuracy (Providence Health) · 48 hours to minutes (Boehringer Ingelheim) · runs in your VPC</td></tr>
+          <tr><td><b>Channels</b></td><td>Email · LinkedIn (organic + paid) · content syndication · partner co-marketing · MDR sequences</td></tr>
+          <tr><td><b>Targets</b></td><td>600 registrations · 40% attendance · 180 net-new leads · 60 MQLs · 15 meetings</td></tr>
+          <tr><td><b>Owner</b></td><td>Durva (campaign) · MDR (follow-up) · VP Marketing (approval)</td></tr>
+        </tbody></table></div>
+      </div>
+      <div class="card">
+        <div class="row-h"><h3>Message house</h3><span class="pill">For technical + compliance buyers</span></div>
+        <p style="margin-top:12px;font-size:20px;font-weight:600;color:var(--ink)">Use your most restricted data in AI, without it ever leaving your environment.</p>
+        <div class="grid g2" style="margin-top:12px">
+          <div><span class="pill">For privacy + compliance</span><p style="margin-top:6px">Audit-ready outputs for HIPAA, GDPR, CPRA and PCI-DSS. Expert determination your auditors accept.</p></div>
+          <div><span class="pill">For security</span><p style="margin-top:6px">Deploys in your VPC or on-prem. No third-party processing, no outbound calls.</p></div>
+          <div><span class="pill">For data + AI</span><p style="margin-top:6px">Context-aware, 50+ entity types, 52 languages. De-identified data that stays useful.</p></div>
+          <div><span class="pill">For the CFO</span><p style="margin-top:6px">Stop maintaining DIY scripts. Most customers are running in days, not months.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="row-h" style="margin-top:22px"><h3>Launch timeline · 10 weeks</h3><span class="pill gray">Week 6 = live webinar</span></div>
+    <div class="gantt" id="gantt"></div>
+  </section>
+
+  <!-- LANDING PAGE -->
+  <section class="s" id="lp">
+    <div class="s-head"><div><div class="eyebrow">Landing page + form</div><h2>The registration page, built.</h2></div><p>Five fields, one promise, proof above the fold. Try the form: it's live on this page (nothing is sent anywhere). Below it, the spec I'd hand to HubSpot.</p></div>
+    <div class="browser" style="margin-top:24px">
+      <div class="bbar"><i></i><i></i><i></i><span class="u">getlimina.ai/en/webinars/governing-every-prompt?utm_source=linkedin&amp;utm_medium=paid-social&amp;utm_campaign=2026-q4_webinar_governing-every-prompt</span></div>
+      <div class="lp">
+        <div class="l">
+          <div class="eyebrow" style="color:#8fb4ff">Live webinar · 45 minutes</div>
+          <h3>Governing every prompt: how regulated enterprises put sensitive data to work in AI</h3>
+          <p>Every prompt is a data transaction. Learn how privacy, security and data teams at banks, insurers and health systems de-identify PII and PHI across RAG pipelines and agentic workflows, without slowing AI down.</p>
+          <ul><li>Where PII and PHI leak in RAG and agent workflows</li><li>What “audit-ready” looks like for HIPAA, GDPR and PCI-DSS</li><li>Why context beats pattern matching (with a live demo)</li></ul>
+          <div class="spk">
+            <div><i>PS</i><span><b>Patricia Thaine</b>Founder, CAIO and Chairwoman, Limina</span></div>
+            <div><i>CX</i><span><b>A customer data leader</b>Financial services (invited)</span></div>
+            <div><i>MO</i><span><b>Moderator</b>Limina marketing</span></div>
+          </div>
+        </div>
+        <form id="lpForm" novalidate>
+          <h4>Save your seat</h4>
+          <label for="f1">First name<input id="f1" required value="Priya"></label>
+          <label for="f2">Work email<input id="f2" type="email" required value="priya.shah@northbank.com"></label>
+          <label for="f3">Company<input id="f3" required value="Northbank Financial"></label>
+          <label for="f4">Job title<input id="f4" required value="Director, Data Privacy"></label>
+          <label for="f5">Where are you with AI governance?<select id="f5"><option>Exploring</option><option selected>Piloting AI on sensitive data</option><option>In production, need controls</option></select></label>
+          <button class="btn blue" type="submit" style="justify-content:center">Register free</button>
+          <div class="fine">Can't make it live? Register and we'll send the recording.</div>
+          <div class="ok-msg" id="lpOk" hidden></div>
+        </form>
+      </div>
+    </div>
+    <div class="grid g2">
+      <div class="card"><h3>Form spec</h3><div class="tbl"><table style="min-width:0"><thead><tr><th>Field</th><th>Rule</th></tr></thead><tbody>
+        <tr><td><b>Work email</b></td><td>Block free domains; enrich company + size</td></tr>
+        <tr><td><b>Job title</b></td><td>Map to persona: Privacy / Security / Data-AI / Other</td></tr>
+        <tr><td><b>AI governance stage</b></td><td>Drives nurture branch + MDR priority</td></tr>
+        <tr><td><b>Hidden</b></td><td>utm_source, utm_medium, utm_campaign, utm_content, page_url, campaign_id</td></tr>
+        <tr><td><b>On submit</b></td><td>Add to campaign · send confirmation + calendar invite · notify MDR if tier 1 account or “In production”</td></tr>
+      </tbody></table></div></div>
+      <div class="card ck" id="qa"><div class="row-h"><h3>Launch QA</h3><span class="cnt" id="qaCnt">0 / 10</span></div>
+        <h5>Page</h5><label><input type="checkbox"><span>Mobile, tablet, desktop checked</span></label><label><input type="checkbox"><span>Speaker photos, titles and approvals in</span></label><label><input type="checkbox"><span>Meta title, description, social image set</span></label>
+        <h5>Form</h5><label><input type="checkbox"><span>Test submit lands in the right HubSpot list</span></label><label><input type="checkbox"><span>Hidden UTM fields populate</span></label><label><input type="checkbox"><span>Confirmation email + .ics fire</span></label><label><input type="checkbox"><span>Free-email block works</span></label>
+        <h5>Tracking</h5><label><input type="checkbox"><span>LinkedIn Insight Tag + conversion event</span></label><label><input type="checkbox"><span>Campaign ID matches the CRM</span></label><label><input type="checkbox"><span>MDR alert tested end to end</span></label>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMAILS -->
+  <section class="s" id="emails">
+    <div class="s-head"><div><div class="eyebrow">Email program</div><h2>Five emails, one job each.</h2></div><p>Invite, reminder, last call, then a split follow-up: attendees get the next step, no-shows get the recording. Written for people who read privacy law for fun, and people who don't.</p></div>
+    <div class="tabs" id="mailTabs"></div>
+    <div class="mail" id="mail"></div>
+  </section>
+
+  <!-- WEBINAR -->
+  <section class="s" id="webinar">
+    <div class="s-head"><div><div class="eyebrow">Webinar program · end to end</div><h2>The system I'd run every webinar on.</h2></div><p>Topics, speakers, promotion, registration, the live session and follow-up, each with an owner and a date. The same runbook, every time, so quality goes up and effort goes down.</p></div>
+    <div class="row-h" style="margin-top:24px"><h3>1 · Topic bank (next 7 webinars)</h3><span class="pill">Built from Limina's own guides + buyer questions</span></div>
+    <div class="tbl"><table><thead><tr><th>Webinar</th><th>For</th><th>Hook</th><th>Speakers</th><th>Repurpose into</th></tr></thead><tbody id="topics"></tbody></table></div>
+
+    <div class="row-h" style="margin-top:26px"><h3>2 · Runbook: T-28 to T+14</h3><span class="pill gray">Owner in brackets</span></div>
+    <div class="flow" id="runbook"></div>
+
+    <div class="grid g2" style="margin-top:20px">
+      <div class="card"><div class="row-h"><h3>3 · Live session run sheet (45 min)</h3></div><div class="tbl"><table style="min-width:0"><thead><tr><th>Min</th><th>Segment</th><th>Who</th></tr></thead><tbody>
+        <tr><td>-15</td><td>Tech check, slides locked, polls loaded, backup host ready</td><td>Durva</td></tr>
+        <tr><td>0</td><td>Welcome, housekeeping, poll 1: “Where are you with AI governance?”</td><td>Moderator</td></tr>
+        <tr><td>3</td><td>The problem: where PII/PHI leaks in RAG and agents</td><td>Limina SME</td></tr>
+        <tr><td>15</td><td>Live demo: context vs pattern matching</td><td>Limina SME</td></tr>
+        <tr><td>25</td><td>Customer story: what changed, in numbers</td><td>Customer</td></tr>
+        <tr><td>35</td><td>Q&amp;A (seeded with 3 questions from registration)</td><td>All</td></tr>
+        <tr><td>43</td><td>Poll 2: “Want a 20-min data review?” + close</td><td>Moderator</td></tr>
+      </tbody></table></div></div>
+      <div class="card"><h3>4 · Follow-up, split by behaviour</h3><div class="tbl"><table style="min-width:0"><thead><tr><th>Segment</th><th>Within</th><th>What happens</th></tr></thead><tbody>
+        <tr><td><b>Said yes to poll 2</b></td><td>1 hour</td><td>MDR call + calendar link; marked hot in HubSpot</td></tr>
+        <tr><td><b>Asked a question</b></td><td>24 hours</td><td>Personal answer from the SME + relevant guide</td></tr>
+        <tr><td><b>Attended</b></td><td>24 hours</td><td>Recording, slides, guide; nurture branch by persona</td></tr>
+        <tr><td><b>No-show</b></td><td>24 hours</td><td>“Sorry we missed you” + recording in 3 clips</td></tr>
+        <tr><td><b>Tier 1 account, any</b></td><td>Same day</td><td>MDR + AE get a summary of who came and what they asked</td></tr>
+      </tbody></table></div></div>
+    </div>
+
+    <div class="grid g2" style="margin-top:16px">
+      <div class="card"><div class="row-h"><h3>5 · Speaker kit</h3><span class="pill">Sent at T-21</span></div><ul><li>One-page brief: audience, 3 takeaways, what not to pitch</li><li>Slide template in Limina brand, 12 slides max</li><li>Social card with their photo + a ready-to-post line</li><li>Tech check invite at T-3 and a 15-min dry run</li><li>Thank-you note + clip of their best moment within 48 hours</li></ul></div>
+      <div class="card"><div class="row-h"><h3>6 · How I'd judge each webinar</h3><span class="sample">SAMPLE TARGETS</span></div>
+        <div class="bars">
+          <div class="b"><span>Registrations</span><i style="width:80%"></i><em>600</em></div>
+          <div class="b"><span>Attendance rate</span><i style="width:40%"></i><em>40%</em></div>
+          <div class="b"><span>Poll 2 “yes”</span><i style="width:12%"></i><em>12%</em></div>
+          <div class="b"><span>MQLs (30 days)</span><i style="width:30%"></i><em>60</em></div>
+          <div class="b"><span>Meetings booked</span><i style="width:8%"></i><em>15</em></div>
+        </div></div>
+    </div>
+  </section>
+
+  <!-- PAID -->
+  <section class="s" id="paid">
+    <div class="s-head"><div><div class="eyebrow">Paid media + LinkedIn</div><h2>The right 40,000 people, not the most people.</h2></div><p>Audience build, four ad variants to test, and tracking that reports cost per MQL, not cost per click.</p></div>
+    <div class="grid g3">
+      <div class="card"><h3>Audience: who</h3><ul><li><b>Titles:</b> CPO, DPO, CISO, Head of Privacy, Head of Data, AI/ML lead, Compliance Director</li><li><b>Seniority:</b> Director, VP, CXO</li><li><b>Industries:</b> Banking, Insurance, Hospitals and Health Care, Pharmaceuticals</li><li><b>Size:</b> 1,000+ employees</li></ul></div>
+      <div class="card"><h3>Audience: smart layers</h3><ul><li>Matched audience: ABM tier 1 + 2 accounts</li><li>Retarget: pricing, product and guide visitors (90 days)</li><li>Lookalike off closed-won (when volume allows)</li><li><b>Exclude:</b> customers, competitors, students</li></ul></div>
+      <div class="card"><h3>Tracking</h3><ul><li>Insight Tag + conversion API on form submit</li><li>UTMs on every ad, one naming rule</li><li>Offline conversions: MQL and SQL back to LinkedIn</li><li>Weekly: CPL, cost per MQL, pipeline per $</li></ul></div>
+    </div>
+    <div class="row-h" style="margin-top:22px"><h3>Ad variants to test</h3><span class="pill gray">Same audience, one variable each</span></div>
+    <div class="grid g4" id="ads"></div>
+  </section>
+
+  <!-- PROMO -->
+  <section class="s" id="promo">
+    <div class="s-head"><div><div class="eyebrow">Content promotion</div><h2>Create once, promote everywhere it earns.</h2></div><p>Every guide and webinar gets a promotion plan across owned, earned and paid, plus one partner angle. Here's the plan for the AI training data guide.</p></div>
+    <div class="tbl" style="margin-top:24px"><table><thead><tr><th>Channel</th><th>Type</th><th>What we ship</th><th>Measure</th></tr></thead><tbody>
+      <tr><td><b>Email newsletter</b></td><td><span class="pill">Owned</span></td><td>Feature + 3 key takeaways, segmented by industry</td><td>Click-to-download rate</td></tr>
+      <tr><td><b>LinkedIn company page</b></td><td><span class="pill">Owned</span></td><td>Document carousel of the 5 rules; native video clip</td><td>Engagement, follower growth in target titles</td></tr>
+      <tr><td><b>Exec + employee posts</b></td><td><span class="pill">Owned</span></td><td>Share kit: 3 ready posts, 1 graphic per person</td><td>Reach, profile visits</td></tr>
+      <tr><td><b>Privacy communities</b></td><td><span class="pill ok">Earned</span></td><td>Answer real questions with the guide's frameworks, no hard sell</td><td>Referral traffic</td></tr>
+      <tr><td><b>Trade press</b></td><td><span class="pill ok">Earned</span></td><td>Pitch a data story from the guide (e.g. “where PHI hides outside the EHR”)</td><td>Coverage, backlinks</td></tr>
+      <tr><td><b>Content syndication</b></td><td><span class="pill warn">Paid</span></td><td>Guide on 1-2 B2B networks with persona + industry filters</td><td>Cost per lead, lead-to-MQL rate</td></tr>
+      <tr><td><b>LinkedIn Document Ads</b></td><td><span class="pill warn">Paid</span></td><td>First 3 pages free, gate the rest with a lead form</td><td>Cost per MQL</td></tr>
+      <tr><td><b>Partner co-marketing</b></td><td><span class="pill gray">Partner</span></td><td>Joint piece with a stack partner Limina plugs into (AWS, Azure, Snowflake, NVIDIA NeMo): “de-identify before you load”</td><td>Partner-sourced leads</td></tr>
+    </tbody></table></div>
+  </section>
+
+  <!-- DATA -->
+  <section class="s" id="data">
+    <div class="s-head"><div><div class="eyebrow">Database growth</div><h2>More of the right buyers, kept clean.</h2></div><p>A segment model sales trusts, a list-building routine, and a weekly hygiene check, because list cleanup is part of the craft.</p></div>
+    <div class="grid g2">
+      <div class="card"><div class="row-h"><h3>Segment grid · persona × industry</h3><span class="sample">SAMPLE COUNTS</span></div><div class="tbl"><table style="min-width:0"><thead><tr><th></th><th>Fin. services</th><th>Insurance</th><th>Healthcare</th><th>Pharma</th></tr></thead><tbody>
+        <tr><td><b>Privacy</b></td><td>420</td><td>310</td><td>380</td><td>190</td></tr>
+        <tr><td><b>Security</b></td><td>510</td><td>260</td><td>290</td><td>140</td></tr>
+        <tr><td><b>Data / AI</b></td><td>640</td><td>330</td><td>350</td><td>270</td></tr>
+        <tr><td><b>Compliance</b></td><td>380</td><td>290</td><td>240</td><td>160</td></tr>
+      </tbody></table></div><p style="margin-top:10px">Each cell gets a target (net-new per quarter) and a nurture track. Thin cells become list-building priorities.</p></div>
+      <div class="card ck" id="hyg"><div class="row-h"><h3>Weekly list hygiene</h3><span class="cnt" id="hygCnt">0 / 8</span></div>
+        <h5>Import</h5><label><input type="checkbox"><span>Source tagged on every import (event, syndication, list buy)</span></label><label><input type="checkbox"><span>Consent basis recorded (CASL, GDPR)</span></label><label><input type="checkbox"><span>Dedupe on email + company domain</span></label>
+        <h5>Clean</h5><label><input type="checkbox"><span>Bounces and role addresses suppressed</span></label><label><input type="checkbox"><span>Job titles normalised to persona</span></label><label><input type="checkbox"><span>Company size + industry enriched</span></label>
+        <h5>Check</h5><label><input type="checkbox"><span>Segment counts vs last week</span></label><label><input type="checkbox"><span>Customers excluded from prospect sends</span></label>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section class="s" id="events">
+    <div class="s-head"><div><div class="eyebrow">Event promotion</div><h2>Book the meetings before we land.</h2></div><p>A pre-show play for any privacy, security or health data event: prospects know we'll be there, and the MDR fills the calendar before the booth opens.</p></div>
+    <div class="flow" style="margin-top:24px">
+      <div class="step"><small>T-30</small><b>Pick the 100</b><p>Attendee list + ABM accounts + open opportunities, agreed with the MDR</p></div>
+      <div class="step"><small>T-21</small><b>“See us at” email</b><p>Booth, talk time, 20-min meeting slots; one ask</p></div>
+      <div class="step"><small>T-21</small><b>LinkedIn</b><p>Company post + targeted ads to the event's attendee audience</p></div>
+      <div class="step"><small>T-14</small><b>MDR sequence</b><p>3 touches: email, LinkedIn, call; personal reason to meet</p></div>
+      <div class="step"><small>T-7</small><b>Reminder + map</b><p>Where to find us, what we'll demo, a small gift for booked meetings</p></div>
+      <div class="step"><small>Live</small><b>Capture</b><p>Badge scans tagged by conversation quality, same-day notes</p></div>
+      <div class="step"><small>T+2</small><b>Follow-up</b><p>Personal email per conversation; hot ones to AE within 24 hours</p></div>
+    </div>
+    <div class="grid g3">
+      <div class="card"><div class="k">Where the buyers are</div><h3 style="margin-top:6px">Event shortlist</h3><ul><li>IAPP Global Privacy Summit (privacy leaders)</li><li>RSA Conference (security)</li><li>HIMSS (health data)</li><li>AI and data governance summits for financial services</li></ul></div>
+      <div class="card"><div class="k">Goal per event</div><h3 style="margin-top:6px">Meetings, not badge scans</h3><p style="margin-top:8px">Success = pre-booked meetings, then meetings held, then opportunities in 60 days. Scans are a by-product.</p></div>
+      <div class="card"><div class="k">Booking line</div><h3 style="margin-top:6px">“20 minutes, your data, our engine.”</h3><p style="margin-top:8px">Offer a live test on a sample of their messy text (call transcripts, notes, chats). The product does the selling.</p></div>
+    </div>
+  </section>
+
+  <!-- CASES -->
+  <section class="s" id="cases">
+    <div class="s-head"><div><div class="eyebrow">Case study program</div><h2>From first ask to final sign-off, smoothly.</h2></div><p>I'd own the logistics: source willing customers with CS and Sales, schedule interviews, manage approvals, and make the customer feel their time was well spent. Six customers already praise Limina in public on getlimina.ai; that's the candidate list. The other columns show example stages.</p></div>
+    <div class="kb" id="kb"></div>
+    <div class="grid g3">
+      <div class="card"><h3>The ask (via CS)</h3><p style="margin-top:8px;font-size:14px">“Hi Sam, your team's results with Limina have been impressive, and we'd love to share them. It's a 30-minute call, we write everything, and you approve every word before anything goes live. Would you be open to it? Happy to work around your schedule.”</p></div>
+      <div class="card"><h3>Interview guide (30 min)</h3><ul><li>What were you trying to do with this data?</li><li>What did you try before? What broke?</li><li>Why Limina? What did the evaluation look like?</li><li>What changed, in numbers? Time, accuracy, cost</li><li>What would you tell a peer in your role?</li></ul></div>
+      <div class="card"><h3>Approval path</h3><ul><li>Draft to champion (5 business days)</li><li>Champion to their legal / comms (we track it)</li><li>Logo + quote approval in writing</li><li>Publish, then thank-you note + their own copy</li><li>Cut into rep assets the same week</li></ul></div>
+    </div>
+  </section>
+
+  <!-- REP ASSETS -->
+  <section class="s" id="reps">
+    <div class="s-head"><div><div class="eyebrow">Rep-ready assets</div><h2>What the MDR and AEs actually send.</h2></div><p>Campaign content and case studies, adapted for each industry and use case, in formats reps use in follow-up.</p></div>
+    <div class="grid g3">
+      <div class="card"><span class="pill">Financial services</span><h3 style="margin-top:8px">“Detect payment data the way customers say it”</h3><p style="margin-top:8px">One-pager: PCI in call transcripts, legacy archives, AI on communications data. Proof: banks that tested competitors found 15-30% of PCI data went undetected.</p></div>
+      <div class="card"><span class="pill">Healthcare + pharma</span><h3 style="margin-top:8px">“Unstructured PHI, outside the EHR”</h3><p style="margin-top:8px">One-pager: physician conversations, medical inquiries, expert determination. Proof: 99.5% accuracy for Providence Health; 48 hours to minutes for Boehringer Ingelheim.</p></div>
+      <div class="card"><span class="pill">Insurance</span><h3 style="margin-top:8px">“Enable AI on claims data”</h3><p style="margin-top:8px">One-pager: claims notes, adjuster calls, documents. Proof: runs in your environment; audit-ready outputs for compliance.</p></div>
+    </div>
+    <div class="grid g2">
+      <div class="card"><div class="row-h"><h3>MDR follow-up after the webinar</h3><span class="pill">Template</span></div><div class="code">Subject: Your question about RAG pipelines
+
+Hi <b>Priya</b>,
+
+Thanks for joining “Governing every prompt” on Thursday. You asked how teams keep PII out of retrieval without losing context. Short answer: de-identify at ingestion, re-identify only for authorised users.
+
+Here's the 6-minute clip where we demo it: getlimina.ai/webinars/governing-every-prompt#demo
+
+Worth a 20-minute look at a sample of your own data? Tuesday 2 PM or Wednesday 10 AM ET work on my side.
+
+<b>Alex</b>, Limina</div></div>
+      <div class="card"><div class="row-h"><h3>Objection cards</h3><span class="pill">From Limina's own site</span></div>
+        <div style="display:grid;gap:12px;margin-top:10px">
+          <div class="quote">“We already use AWS Comprehend / Presidio.”<cite>Pattern matching misses context: an SSN without the word “SSN”, order numbers flagged as cards. Offer a side-by-side on their data.</cite></div>
+          <div class="quote">“Our data can't leave our environment.”<cite>It doesn't. Limina runs in their VPC or on-prem, with no third-party access and no outbound calls.</cite></div>
+          <div class="quote">“We built our own scripts.”<cite>Text, then JSON, then audio, then a new language: each one a new edge case to maintain. 52 languages and 50+ entity types out of the box.</cite></div>
+        </div></div>
+    </div>
+  </section>
+
+  <!-- ABM -->
+  <section class="s" id="abm">
+    <div class="s-head"><div><div class="eyebrow">ABM pilot · with the MDR</div><h2>Three tiers, one shared list.</h2></div><p>A small, measurable pilot: the MDR and I agree the accounts, I build the lists and materials, we review together every two weeks.</p></div>
+    <div class="grid g3">
+      <div class="card dark"><div class="k" style="color:#8fb4ff">Tier 1 · 1:1 · 10 accounts</div><h3 style="margin-top:6px">Built for one account</h3><ul><li>Account brief: AI initiatives, data types, regulators, buying group</li><li>Personalised landing page + a tailored data-review offer</li><li>Exec-to-exec note; invite to a private roundtable</li></ul></div>
+      <div class="card"><div class="k">Tier 2 · 1:few · 40 accounts</div><h3 style="margin-top:6px">Built for an industry</h3><ul><li>Industry one-pager + case study</li><li>LinkedIn ads to the buying group</li><li>MDR sequence with industry proof</li></ul></div>
+      <div class="card"><div class="k">Tier 3 · 1:many · 200 accounts</div><h3 style="margin-top:6px">Built for a persona</h3><ul><li>Webinar invites + guide promotion</li><li>Intent-based retargeting</li><li>Move up a tier on engagement</li></ul></div>
+    </div>
+    <div class="grid g2">
+      <div class="card"><h3>Account selection criteria</h3><div class="tbl"><table style="min-width:0"><tbody>
+        <tr><td><b>Fit</b></td><td>Regulated industry, 1,000+ employees, active AI programme</td></tr>
+        <tr><td><b>Pain</b></td><td>Large unstructured data: calls, notes, documents, chats</td></tr>
+        <tr><td><b>Signals</b></td><td>Hiring AI/privacy roles, AI announcements, our content engagement</td></tr>
+        <tr><td><b>Access</b></td><td>Known contacts in privacy, security or data</td></tr>
+      </tbody></table></div></div>
+      <div class="card"><div class="row-h"><h3>Pilot scorecard</h3><span class="sample">SAMPLE TARGETS</span></div><div class="bars">
+        <div class="b"><span>Accounts engaged</span><i style="width:60%"></i><em>60%</em></div>
+        <div class="b"><span>Buying-group reach</span><i style="width:45%"></i><em>3+ ppl</em></div>
+        <div class="b"><span>Meetings (tier 1-2)</span><i style="width:24%"></i><em>12</em></div>
+        <div class="b"><span>Opportunities</span><i style="width:12%"></i><em>6</em></div>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- REPORT -->
+  <section class="s" id="report">
+    <div class="s-head"><div><div class="eyebrow">Reporting</div><h2>Your success metrics, on one page.</h2></div><p>Exactly the measures in the job post, every month, with one recommendation: where to shift effort next.</p></div>
+    <div class="row-h" style="margin-top:20px"><h3>Marketing report · October</h3><span class="sample">SAMPLE DATA</span></div>
+    <div class="dash">
+      <div class="tile"><span>Net-new leads (target segments)</span><b>412</b><em>▲ 18% vs Sept</em></div>
+      <div class="tile"><span>MQLs from campaigns</span><b>96</b><em>▲ 22%</em></div>
+      <div class="tile"><span>Webinar reg → attend</span><b>41%</b><em>▲ 6 pts</em></div>
+      <div class="tile"><span>Cost per lead</span><b>$148</b><em>▼ $21</em></div>
+      <div class="tile"><span>Pipeline sourced</span><b>$1.2M</b><em>▲ 31%</em></div>
+      <div class="tile"><span>Pipeline influenced</span><b>$3.4M</b><em>▲ 12%</em></div>
+      <div class="tile"><span>Case studies this quarter</span><b>2 / 3</b><em>1 in approval</em></div>
+      <div class="tile"><span>Rep assets used in deals</span><b>14</b><em>▲ 5</em></div>
+    </div>
+    <div class="grid g2">
+      <div class="card"><h3>MQLs by program</h3><div class="bars">
+        <div class="b"><span>Webinars</span><i style="width:88%"></i><em>38</em></div>
+        <div class="b"><span>LinkedIn ads</span><i style="width:50%"></i><em>22</em></div>
+        <div class="b"><span>Syndication</span><i style="width:34%"></i><em>15</em></div>
+        <div class="b"><span>Events</span><i style="width:27%"></i><em>12</em></div>
+        <div class="b"><span>Organic + email</span><i style="width:20%"></i><em>9</em></div>
+      </div></div>
+      <div class="card dark"><div class="k" style="color:#8fb4ff">This month's recommendation</div><h3 style="margin-top:6px">Shift 20% of syndication budget into webinar promotion.</h3><p style="margin-top:10px">Webinar MQLs convert to meetings at 3x the rate of syndicated leads at a similar cost. Keep syndication for the healthcare segment only, where it's still beating the average.</p><p style="margin-top:10px;font-size:13px;color:#8fb4ff">Sample reasoning on sample data, the shape of every monthly note.</p></div>
+    </div>
+  </section>
+
+  <!-- ME -->
+  <section class="s" id="me">
+    <div class="s-head"><div><div class="eyebrow">About me</div><h2>Low ego, high ownership, ships on a deadline.</h2></div><p>The job post asks for 0-2 years in B2B marketing, execution, an analytical mind, clear writing and technical curiosity. Here's where I stand.</p></div>
+    <div class="grid g2">
+      <div class="card"><div class="me"><img src="/assets/durva-avatar.jpg" alt="Durva Thakkar"><div><h3>Durva Thakkar</h3><p>Content Marketer · B2B campaigns, SEO and outreach · Ontario, Canada</p><p style="margin-top:6px"><a href="https://durvathakkar.com/" target="_blank" rel="noopener">durvathakkar.com ↗</a> · <a href="https://durvathakkar.com/#resume" target="_blank" rel="noopener">Resume ↗</a></p></div></div>
+        <ul style="margin-top:14px"><li><b>Outreach Specialist, Bsquaree:</b> ran targeted outreach campaigns, managed pipelines and follow-ups, reviewed results to improve response rates</li><li><b>Content Writer, Missive Digital:</b> SEO content and keyword research; content that helped drive a 73% increase in inquiries</li><li><b>Content Writer, freelance:</b> content calendars, SEO blogs, LinkedIn and email for B2B clients</li><li><b>Sales &amp; Marketing Intern, Rewynd Snacks:</b> campaigns that contributed to a 40% increase in sales</li></ul></div>
+      <div class="card"><h3>Why this role, why Limina</h3><ul><li><b>Execution:</b> I built this page, the campaign, the emails and the systems on it myself</li><li><b>Analytical:</b> postgrad in Information Systems Business Analysis; I like knowing why a number moved</li><li><b>Tools:</b> HubSpot Marketing Hub certified; Excel, UiPath, AI-assisted workflows</li><li><b>Technical curiosity:</b> I read Limina's guides on HIPAA expert determination and AI training data to write this page, and I want to understand the product deeply</li><li><b>Timing:</b> every company building AI has to govern the data inside it. That's a category I want to grow with.</li></ul>
+        <div class="note"><a class="btn blue" href="mailto:durvathakker7@gmail.com?subject=Demand%20gen%20at%20Limina">✉ Let's talk</a><a class="btn line dk" href="https://durvathakkar.com/" target="_blank" rel="noopener">More about me ↗</a></div></div>
+    </div>
+  </section>
+
+  <footer>Made for Tyler Munro and the Limina marketing team by Durva Thakkar. Facts, proof points and customer names come from getlimina.ai. Targets and numbers marked SAMPLE are illustrative; the webinar, registrant and contact names are examples. The Limina name belongs to Limina.</footer>
+</main>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  // hero: redaction reveal
+  setTimeout(() => $("red").classList.add("on"), 1400);
+
+  // gantt
+  const G = [["Brief + message house approved", 0, 1, "n"], ["Landing page, form, tracking", 1, 2, ""], ["Speaker kit + slides", 1, 4, "l"], ["Email invites (3)", 2, 6, ""], ["LinkedIn organic + paid", 2, 6, ""], ["Syndication + partner promo", 3, 6, "l"], ["MDR pre-event outreach", 4, 6, "l"], ["Live webinar", 5, 6, "n"], ["Follow-up + MDR handoff", 6, 8, ""], ["Repurpose: clips, blog, carousel", 6, 10, "l"], ["Report + next-quarter shifts", 9, 10, "n"]];
+  $("gantt").innerHTML = `<div class="gr"><div></div>${Array.from({ length: 10 }, (_, i) => `<div class="wk">W${i + 1}</div>`).join("")}</div>` + G.map(([l, a, b, c]) => `<div class="gr"><div class="lbl">${l}</div>${Array.from({ length: 10 }, (_, i) => `<div>${i === a ? `<div class="bar ${c}" style="width:calc(${(b - a) * 100}% + ${(b - a - 1) * 0}px)"></div>` : ""}</div>`).join("")}</div>`).join("");
+
+  // landing page form
+  $("lpForm").addEventListener("submit", e => { e.preventDefault(); const ok = $("lpOk"); const em = $("f2").value; ok.hidden = false; ok.textContent = /@(gmail|yahoo|hotmail|outlook)\./i.test(em) ? "Please use your work email so we can send the right materials." : `You're in, ${$("f1").value || "there"}. Calendar invite on its way. (Demo only, nothing was sent.)`; });
+
+  // emails
+  const M = [
+    ["Invite", "Governing every prompt: a 45-minute webinar for privacy and data leaders", "T-21 · Tue 9:30 AM · to target segments", ["Hi {first_name},", "Every prompt your teams send to an AI model is a data transaction. When that prompt carries PII or PHI, it's also a compliance question.", "On <b>Thursday, November 19</b>, we're hosting a 45-minute session for privacy, security and data leaders at regulated enterprises:", "<b>• Where sensitive data leaks in RAG pipelines and agents<br>• What audit-ready looks like for HIPAA, GDPR and PCI-DSS<br>• Why context beats pattern matching (live demo)</b>", "No slides full of logos. Just what's working in production."], "Save my seat"],
+    ["Reminder", "Thursday: how banks and health systems govern AI prompts", "T-7 · registrants only", ["Hi {first_name},", "Quick reminder: <b>“Governing every prompt”</b> is next Thursday at 11 AM ET.", "Bring your hardest question. We'll answer the three most common ones live, and send everyone the guide <b>De-identification for AI Training Data</b> afterwards.", "Add it to your calendar so it doesn't get buried."], "Add to calendar"],
+    ["Last call", "Starting in 2 hours: governing every prompt", "Day of · 9:00 AM · registrants + late invite", ["Hi {first_name},", "We go live at 11 AM ET. Your link is below; it works on any browser, no download.", "Can't make it? Stay registered and we'll send the recording and slides tomorrow."], "Join the webinar"],
+    ["Attended", "Your recording, slides and the next step", "T+1 · attendees · branch by persona", ["Hi {first_name},", "Thanks for joining yesterday. Here's everything in one place: the recording, the slides and the guide.", "The part most people rewatched: the live demo where context catches what pattern matching misses (minute 15).", "If you'd like to see it on a sample of your own data, our team can set up a 20-minute review."], "Book a 20-min data review"],
+    ["No-show", "Sorry we missed you: here's the 3-minute version", "T+1 · registrants who didn't attend", ["Hi {first_name},", "No worries if Thursday got away from you. We cut the session into three short clips:", "<b>1. Where PII hides in RAG pipelines (3 min)<br>2. The live demo (6 min)<br>3. What auditors actually ask for (4 min)</b>", "The full recording and the guide are here too."], "Watch the clips"],
+  ];
+  let mi = 0;
+  function drawMail() {
+    $("mailTabs").innerHTML = M.map((m, i) => `<button type="button" class="${i === mi ? "on" : ""}" data-i="${i}">${i + 1}. ${m[0]}</button>`).join("");
+    const [, subj, meta, body, cta] = M[mi];
+    $("mail").innerHTML = `<div class="mh"><b>${subj}</b><span>From: Limina &lt;events@getlimina.ai&gt; · ${meta}</span><div class="meta"><span class="pill gray">Preheader: one line, one benefit</span><span class="pill">UTM: utm_medium=email&amp;utm_content=${M[mi][0].toLowerCase().replace(/ /g, "-")}</span></div></div><div class="mb">${body.map(p => `<p>${p.replace("{first_name}", "Priya")}</p>`).join("")}<a class="cta" href="#lp">${cta}</a><p style="font-size:14px;color:var(--muted)">The Limina team</p></div><div class="mf">Limina · Contextual data intelligence for the AI era · Unsubscribe · Manage preferences</div>`;
+  }
+  $("mailTabs").addEventListener("click", e => { const b = e.target.closest("button"); if (b) { mi = +b.dataset.i; drawMail(); } });
+  drawMail();
+
+  // webinar topics
+  const T = [
+    ["New: Contextual Replacement, synthetic values that keep context", "Data + AI teams, privacy", "Release 4.5: de-identified data that still reads naturally", "Limina product lead + customer", "Launch post, demo clip, email to all customers"],
+    ["Governing every prompt: sensitive data in RAG and agents", "CISO, Head of Data/AI", "Every prompt is a data transaction", "Limina SME + FS customer", "3 clips, blog, carousel, rep follow-up"],
+    ["Who qualifies as a HIPAA expert? Expert determination, explained", "Privacy, compliance (health)", "Auditors ask for evidence, not promises", "Limina privacy expert + health system", "Checklist, LinkedIn doc, one-pager"],
+    ["PCI in the contact center: redact what customers say, not just type", "Security, CX ops (FS, insurance)", "15-30% of PCI data goes undetected", "Limina SME + contact center partner", "Demo clip, battlecard"],
+    ["De-identification for AI training data, without killing the data", "Data science, ML leads", "Compliant and still useful", "Limina CTO-level SME + pharma customer", "Guide update, blog series"],
+    ["The new chatbot laws (California SB 243 and friends)", "Legal, privacy", "What changed and what to do this quarter", "Limina + privacy counsel (invited)", "Explainer post, email"],
+    ["Privacy by design in dev workflows", "Engineering, security", "Ship AI features without privacy debt", "Limina + platform partner", "Dev checklist, partner co-marketing"],
+  ];
+  $("topics").innerHTML = T.map(r => `<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td></tr>`).join("");
+
+  // runbook
+  const RB = [["T-28", "Lock topic + speakers", "Title, abstract, 3 takeaways (Durva, VP)"], ["T-24", "Build page + form", "Landing page, HubSpot form, tracking, QA (Durva)"], ["T-21", "Launch promotion", "Invite email, LinkedIn post, ads live, speaker share kit (Durva)"], ["T-14", "MDR personal invites", "Tier 1-2 accounts get a personal note (MDR)"], ["T-7", "Reminder + 2nd push", "Reminder email, retargeting, partner post (Durva)"], ["T-3", "Dry run", "Slides final, polls loaded, tech check (Durva, speakers)"], ["T-0", "Live", "Run sheet below; backup host on standby (all)"], ["T+1", "Follow-up", "Split by behaviour; hot leads to MDR in 1 hour (Durva, MDR)"], ["T+7", "Repurpose", "Clips, blog recap, carousel, rep asset (Durva)"], ["T+14", "Report", "Reg, attend, MQLs, meetings, what to change (Durva)"]];
+  $("runbook").innerHTML = RB.map(([t, b, p]) => `<div class="step"><small>${t}</small><b>${b}</b><p>${p}</p></div>`).join("");
+
+  // ads
+  const A = [
+    ["A · Pain", "Your best data is off-limits. Until now.", "Compliance said no. Your AI team still needs the data. Here's how regulated enterprises use PII-heavy data in AI, safely.", "Watch the webinar"],
+    ["B · Proof", "99.5% accuracy on physician conversations.", "That's what Providence Health got with Limina. See how context-aware de-identification works on messy, real-world data.", "Register free"],
+    ["C · Security", "Your data never leaves your environment.", "De-identify PII, PHI and PCI inside your VPC. No third-party processing, no outbound calls. Audit-ready outputs.", "Get the guide"],
+    ["D · Competitor", "Pattern matching missed the SSN.", "Because “SSN” wasn't in the sentence. Context-aware de-identification catches what rules can't. See the side-by-side.", "See the demo"],
+  ];
+  $("ads").innerHTML = A.map(([lbl, head, copy, cta]) => `<div class="ad"><div class="ah"><i>L</i><div><b>Limina</b><span>Promoted · ${lbl}</span></div></div><div class="at">${copy}</div><div class="art"><span class="tagline">GOVERNING EVERY PROMPT</span><div class="big">${head}</div><span class="tagline">LIVE WEBINAR · 45 MIN</span></div><div class="af"><b>getlimina.ai</b><span>${cta}</span></div></div>`).join("");
+
+  // case study kanban
+  const K = [["Candidates (public quotes)", [["Boehringer Ingelheim", "48 hours to minutes"], ["Providence", "99.5% accuracy"], ["Rilla", "Accuracy vs AWS"], ["Be My Eyes", "Inclusive AI"], ["Semalytix", "PHI detection"], ["GPT-NL / TNO", "Privacy at scale"]]], ["Asked via CS", [["Example: regional bank", "PCI in call transcripts"]]], ["Interview booked", [["Example: insurer", "Claims notes for AI"]]], ["Drafting", [["Example: health system", "Unstructured PHI"]]], ["In approval", [["Example: pharma", "Medical inquiries"]]], ["Published", [["Example: anonymised FS", "Legacy archives"]]]];
+  $("kb").innerHTML = K.map(([c, items]) => `<div class="col"><h5>${c} · ${items.length}</h5>${items.map(([n, s]) => `<div class="it"><b>${n}</b><small>${s}</small></div>`).join("")}</div>`).join("");
+
+  // checklists
+  [["qa", "qaCnt"], ["hyg", "hygCnt"]].forEach(([id, cnt]) => { const el = $(id); const up = () => { const b = el.querySelectorAll("input"); $(cnt).textContent = [...b].filter(x => x.checked).length + " / " + b.length; }; el.addEventListener("change", up); up(); });
+
+  // nav highlight
+  const links = [...document.querySelectorAll(".nav a")];
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id)); }), { rootMargin: "-40% 0px -55% 0px" });
+  document.querySelectorAll("section.s").forEach(s => io.observe(s));
+})();
+</script>
+</body>
+</html>
