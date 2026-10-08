@@ -64,6 +64,59 @@
   .lpc-f span { height: 12px; border-radius: 4px; background: #e9ecf2; } .lpc-f .go { height: auto; background: var(--blue); color: #fff; font: 600 11px var(--mono); letter-spacing: .1em; text-align: center; padding: 8px; }
   .lpc-cta { padding: 4px 16px 14px; font: 600 13px var(--font); color: var(--blue); }
   .card { background: var(--surface); }
+  /* redaction reveal, Limina style */
+  .rd { position: relative; display: inline-block; white-space: nowrap; }
+  .rd::before { content: attr(data-tag); position: absolute; left: 0; top: 50%; transform: translateY(-50%); font: 600 .5em var(--mono); letter-spacing: 0; background: var(--tag2); color: var(--blue-dk); border-radius: 6px; padding: .18em .4em; white-space: nowrap; transition: opacity .45s, transform .45s; }
+  .rd > .w { display: inline-block; opacity: 0; transform: translateY(.25em); transition: opacity .45s .15s, transform .45s .15s; color: var(--blue); }
+  .rd.on::before { opacity: 0; transform: translateY(-90%); }
+  .rd.on > .w { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .rd::before, .rd > .w { transition: none; } }
+  /* LinkedIn feed mocks */
+  .ads2 { margin-top: 14px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+  .li { background: #fff; border: 1px solid #e0dfdc; border-radius: 10px; overflow: hidden; font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: rgba(0,0,0,.9); max-width: 552px; width: 100%; justify-self: center; box-shadow: 0 20px 40px -30px rgba(11,16,32,.35); }
+  .li-h { display: flex; gap: 8px; padding: 12px 16px 0; align-items: center; }
+  .li-av { width: 48px; height: 48px; border-radius: 6px; background: #fff; border: 1px solid #e6e6e6; overflow: hidden; flex: none; display: grid; place-items: center; }
+  .li-av span { width: 30px; height: 26px; overflow: hidden; display: block; } .li-av img { height: 26px; width: auto; max-width: none; display: block; }
+  .li-h b { font-size: 14px; font-weight: 600; display: block; } .li-h small { font-size: 12px; color: rgba(0,0,0,.6); display: block; line-height: 1.35; }
+  .li-t { padding: 8px 16px 10px; font-size: 14px; line-height: 1.43; }
+  .li-t .more { color: rgba(0,0,0,.6); }
+  .li-img { aspect-ratio: 1 / 1; container-type: inline-size; position: relative; overflow: hidden; background: var(--navy); color: #fff; }
+  .li-hl { display: flex; align-items: center; gap: 12px; padding: 10px 16px; background: #eef3f8; }
+  .li-hl div { flex: 1; min-width: 0; } .li-hl b { font-size: 14px; font-weight: 600; display: block; } .li-hl small { font-size: 12px; color: rgba(0,0,0,.6); }
+  .li-hl span { border: 1px solid #0a66c2; color: #0a66c2; font-weight: 600; font-size: 14px; border-radius: 999px; padding: 5px 16px; white-space: nowrap; }
+  .li-r { display: flex; justify-content: space-around; padding: 6px 8px; border-top: 1px solid #e8e8e8; font-size: 13px; font-weight: 600; color: rgba(0,0,0,.6); }
+  .spec { margin-top: 10px; max-width: 552px; width: 100%; justify-self: center; display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; font-size: 13px; color: var(--muted); }
+  .spec b { color: var(--ink); font-weight: 600; } .spec em { font-style: normal; font: 600 11px var(--mono); color: var(--ok); }
+  .adwrap { display: grid; }
+  /* creatives (1:1) */
+  .cr { position: absolute; inset: 0; padding: 7cqi; display: flex; flex-direction: column; font-family: var(--font); }
+  .cr::after { content: ""; position: absolute; right: -25cqi; top: -25cqi; width: 70cqi; height: 70cqi; border-radius: 50%; background: radial-gradient(circle, rgba(33,112,241,.35), transparent 65%); }
+  .cr > * { position: relative; z-index: 1; }
+  .cr .k { font: 600 2.6cqi var(--mono); letter-spacing: .14em; color: #8fb4ff; }
+  .cr h4 { margin-top: 3cqi; font-size: 8.4cqi; line-height: 1.02; font-weight: 600; letter-spacing: -0.03em; }
+  .cr h4 em { font-style: normal; color: #8fb4ff; }
+  .cr .ft { margin-top: auto; padding-top: 3cqi; display: flex; justify-content: space-between; align-items: center; font: 600 2.4cqi var(--mono); letter-spacing: .1em; color: #aab3c9; }
+  .cr .ft img { height: 4.4cqi; width: auto; }
+  .cr .tg { font: 600 .82em var(--mono); background: var(--tag2); color: var(--blue-dk); border-radius: .3em; padding: .05em .3em; white-space: nowrap; }
+  .cr .paper { margin-top: 5cqi; background: #f4f7fd; color: #3c3c3c; border-radius: 2.4cqi; padding: 4.4cqi; font-size: 3.5cqi; line-height: 1.95; box-shadow: 0 4cqi 8cqi -4cqi rgba(0,0,0,.6); transform: rotate(-1.5deg); }
+  .cr .paper small { display: block; font: 600 2.2cqi var(--mono); letter-spacing: .12em; color: #7a8399; margin-bottom: 1.6cqi; }
+  .cr .big { margin-top: auto; font-size: 30cqi; line-height: .9; font-weight: 600; letter-spacing: -0.05em; }
+  .cr .big + p { margin-top: 3cqi; font-size: 5.4cqi; line-height: 1.15; color: #e3e8f5; }
+  .cr .src { margin-top: 2.4cqi; font: 600 2.6cqi var(--mono); color: #8fb4ff; letter-spacing: .08em; }
+  .cr .chips { margin-top: 4cqi; display: flex; flex-wrap: wrap; gap: 1.6cqi; font-size: 3cqi; }
+  .cr .vpc { margin-top: 5cqi; flex: none; height: 44cqi; display: grid; grid-template-columns: 1.4fr .6fr; gap: 3cqi; align-items: center; }
+  .cr .box { border: .5cqi dashed #8fb4ff; border-radius: 3cqi; padding: 3.4cqi; display: grid; gap: 2cqi; align-content: center; height: 100%; }
+  .cr .box small { font: 600 2.4cqi var(--mono); letter-spacing: .14em; color: #8fb4ff; }
+  .cr .box div { background: #fff; color: var(--navy); border-radius: 2cqi; padding: 2.6cqi 3cqi; font-size: 3.6cqi; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
+  .cr .box div i { font-style: normal; font: 600 2.4cqi var(--mono); color: var(--blue); }
+  .cr .out { text-align: center; font-size: 3.2cqi; color: #aab3c9; display: grid; gap: 2cqi; justify-items: center; }
+  .cr .out .x { width: 12cqi; height: 12cqi; border-radius: 50%; border: .5cqi solid #ff8a80; color: #ff8a80; display: grid; place-items: center; font-size: 7cqi; font-weight: 600; }
+  .cr .chat { margin-top: 5cqi; display: grid; gap: 2.2cqi; font-size: 3.3cqi; line-height: 1.45; }
+  .cr .chat p { max-width: 80%; padding: 2.4cqi 3.2cqi; border-radius: 3cqi; }
+  .cr .chat .a { background: #1b2443; color: #c7cddd; border-bottom-left-radius: .8cqi; }
+  .cr .chat .c { background: #f4f7fd; color: #1c1c1c; justify-self: end; border-bottom-right-radius: .8cqi; }
+  .cr .chat .c .st { text-decoration: line-through; color: #9aa3b8; }
+  @media (max-width: 900px) { .ads2 { grid-template-columns: 1fr; } }
   /* sections */
   section.s { padding-block: 64px 8px; scroll-margin-top: 70px; }
   .s-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: end; }
@@ -220,7 +273,7 @@
 
   <!-- PLAN -->
   <section class="s" id="plan">
-    <div class="s-head"><div><div class="eyebrow">First 90 days</div><h2>My plan for the first 90 days.</h2></div><p>The marketing function is young, so the first job is to make campaigns repeatable. By day 90, every program on this page runs on a calendar, a template and a number.</p></div>
+    <div class="s-head"><div><div class="eyebrow">First 90 days</div><h2>My plan for the first <span class="rd" data-tag="[DURATION_1]">90 days</span>.</h2></div><p>The marketing function is young, so the first job is to make campaigns repeatable. By day 90, every program on this page runs on a calendar, a template and a number.</p></div>
     <div class="grid g3">
       <div class="card"><div class="k">Days 1-30 · Learn</div><h3 style="margin-top:6px">Sit next to the buyer</h3><ul><li>Shadow the MDR and 5 sales calls; log every objection</li><li>Audit HubSpot: lists, forms, UTMs, lifecycle stages</li><li>Read every guide, blog and case on getlimina.ai</li><li>Launch webinar #1 promotion (it's 4 weeks out)</li></ul><p style="margin-top:10px"><span class="pill">Output</span> Buyer question bank · HubSpot fix list · webinar #1 live</p></div>
       <div class="card"><div class="k">Days 31-60 · Build</div><h3 style="margin-top:6px">Turn one-offs into systems</h3><ul><li>Integrated campaign live: page, form, 5 emails, ads</li><li>Case study pipeline: 3 customers in motion</li><li>LinkedIn audiences + first A/B tests</li><li>ABM tier 1 list agreed with the MDR</li></ul><p style="margin-top:10px"><span class="pill">Output</span> Campaign live · case pipeline · ABM list</p></div>
@@ -230,7 +283,7 @@
 
   <!-- CAMPAIGN -->
   <section class="s" id="campaign">
-    <div class="s-head"><div><div class="eyebrow">Integrated campaign · brief to launch</div><h2>One big campaign, start to finish.</h2></div><p>Campaign name: <b>“Every prompt is a data transaction.”</b> A quarter-long campaign built on Limina's own line. One idea, one webinar, one guide, run across email, LinkedIn, syndication and the MDR, with every touch tracked to pipeline.</p></div>
+    <div class="s-head"><div><div class="eyebrow">Integrated campaign · brief to launch</div><h2>One big <span class="rd" data-tag="[CAMPAIGN_1]">campaign</span>, start to finish.</h2></div><p>Campaign name: <b>“Every prompt is a data transaction.”</b> A quarter-long campaign built on Limina's own line. One idea, one webinar, one guide, run across email, LinkedIn, syndication and the MDR, with every touch tracked to pipeline.</p></div>
     <div class="grid g2">
       <div class="card">
         <div class="row-h"><h3>Campaign brief</h3><span class="sample">SAMPLE TARGETS</span></div>
@@ -262,7 +315,7 @@
 
   <!-- LANDING PAGE -->
   <section class="s" id="lp">
-    <div class="s-head"><div><div class="eyebrow">Landing page + form</div><h2>The sign-up page. It is live. Try it.</h2></div><p>I built the real page, in Limina's look, with a working form, a live demo and a calendar invite. <a href="webinar/"><b>Open the live page ↗</b></a></p></div>
+    <div class="s-head"><div><div class="eyebrow">Landing page + form</div><h2>The sign-up page. It is <span class="rd" data-tag="[STATUS_1]">live</span>. Try it.</h2></div><p>I built the real page, in Limina's look, with a working form, a live demo and a calendar invite. <a href="webinar/"><b>Open the live page ↗</b></a></p></div>
     <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap"><a class="btn blue" href="webinar/">Open the live landing page ↗</a><a class="btn line dk" href="webinar/?utm_source=linkedin&amp;utm_medium=paid-social&amp;utm_campaign=2026-q4_webinar_governing-every-prompt&amp;utm_content=ad-a-pain">Open it as if from LinkedIn ad A ↗</a></div>
     <div class="browser" style="margin-top:16px">
       <div class="bbar"><i></i><i></i><i></i><span class="u">getlimina.ai/en/webinars/governing-every-prompt?utm_source=linkedin&amp;utm_medium=paid-social&amp;utm_campaign=2026-q4_webinar_governing-every-prompt</span></div>
@@ -357,14 +410,14 @@
 
   <!-- PAID -->
   <section class="s" id="paid">
-    <div class="s-head"><div><div class="eyebrow">Paid media + LinkedIn</div><h2>Ads on LinkedIn, shown to the right people.</h2></div><p>Audience build, four ad variants to test, and tracking that reports cost per MQL, not cost per click.</p></div>
+    <div class="s-head"><div><div class="eyebrow">Paid media + LinkedIn</div><h2>Ads on LinkedIn, shown to the <span class="rd" data-tag="[AUDIENCE_1]">right people</span>.</h2></div><p>Who sees our ads, four ads to test (one idea each), and tracking that counts cost per MQL, not cost per click.</p></div>
     <div class="grid g3">
       <div class="card"><h3>Audience: who</h3><ul><li><b>Titles:</b> CPO, DPO, CISO, Head of Privacy, Head of Data, AI/ML lead, Compliance Director</li><li><b>Seniority:</b> Director, VP, CXO</li><li><b>Industries:</b> Banking, Insurance, Hospitals and Health Care, Pharmaceuticals</li><li><b>Size:</b> 1,000+ employees</li></ul></div>
       <div class="card"><h3>Audience: smart layers</h3><ul><li>Matched audience: ABM tier 1 + 2 accounts</li><li>Retarget: pricing, product and guide visitors (90 days)</li><li>Lookalike off closed-won (when volume allows)</li><li><b>Exclude:</b> customers, competitors, students</li></ul></div>
       <div class="card"><h3>Tracking</h3><ul><li>Insight Tag + conversion API on form submit</li><li>UTMs on every ad, one naming rule</li><li>Offline conversions: MQL and SQL back to LinkedIn</li><li>Weekly: CPL, cost per MQL, pipeline per $</li></ul></div>
     </div>
-    <div class="row-h" style="margin-top:22px"><h3>Ad variants to test</h3><span class="pill gray">Same audience, one variable each</span></div>
-    <div class="grid g4" id="ads"></div>
+    <div class="row-h" style="margin-top:26px"><h3>4 ads to test, one idea each</h3><span class="pill gray">Single image · 1200 × 1200 · same audience</span></div>
+    <div class="ads2" id="ads"></div>
   </section>
 
   <!-- PROMO -->
@@ -485,7 +538,7 @@ Worth a 20-minute look at a sample of your own data? Tuesday 2 PM or Wednesday 1
 
   <!-- REPORT -->
   <section class="s" id="report">
-    <div class="s-head"><div><div class="eyebrow">Reporting</div><h2>How we know it is working.</h2></div><p>Exactly the measures in the job post, every month, with one recommendation: where to shift effort next.</p></div>
+    <div class="s-head"><div><div class="eyebrow">Reporting</div><h2>How we know it is <span class="rd" data-tag="[RESULT_1]">working</span>.</h2></div><p>Exactly the measures in the job post, every month, with one recommendation: where to shift effort next.</p></div>
     <div class="row-h" style="margin-top:20px"><h3>Marketing report · October</h3><span class="sample">SAMPLE DATA</span></div>
     <div class="dash">
       <div class="tile"><span>Net-new leads (target segments)</span><b>412</b><em>▲ 18% vs Sept</em></div>
@@ -511,7 +564,7 @@ Worth a 20-minute look at a sample of your own data? Tuesday 2 PM or Wednesday 1
 
   <!-- ME -->
   <section class="s" id="me">
-    <div class="s-head"><div><div class="eyebrow">About me</div><h2>About me.</h2></div><p>The job post asks for 0-2 years in B2B marketing, execution, an analytical mind, clear writing and technical curiosity. Here's where I stand.</p></div>
+    <div class="s-head"><div><div class="eyebrow">About me</div><h2>About <span class="rd" data-tag="[NAME_GIVEN_1]">Durva</span>.</h2></div><p>The job post asks for 0-2 years in B2B marketing, execution, an analytical mind, clear writing and technical curiosity. Here's where I stand.</p></div>
     <div class="grid g2">
       <div class="card"><div class="me"><img src="/assets/durva-avatar.jpg" alt="Durva Thakkar"><div><h3>Durva Thakkar</h3><p>Content Marketer · B2B campaigns, SEO and outreach · Ontario, Canada</p><p style="margin-top:6px"><a href="https://durvathakkar.com/" target="_blank" rel="noopener">durvathakkar.com ↗</a> · <a href="https://durvathakkar.com/#resume" target="_blank" rel="noopener">Resume ↗</a></p></div></div>
         <ul style="margin-top:14px"><li><b>Outreach Specialist, Bsquaree:</b> ran targeted outreach campaigns, managed pipelines and follow-ups, reviewed results to improve response rates</li><li><b>Content Writer, Missive Digital:</b> SEO content and keyword research; content that helped drive a 73% increase in inquiries</li><li><b>Content Writer, freelance:</b> content calendars, SEO blogs, LinkedIn and email for B2B clients</li><li><b>Sales &amp; Marketing Intern, Rewynd Snacks:</b> campaigns that contributed to a 40% increase in sales</li></ul></div>
@@ -526,6 +579,10 @@ Worth a 20-minute look at a sample of your own data? Tuesday 2 PM or Wednesday 1
 <script>
 (() => {
   const $ = id => document.getElementById(id);
+  // headline redaction reveals
+  document.querySelectorAll(".rd").forEach(el => { el.innerHTML = `<span class="w">${el.textContent}</span>`; });
+  const rio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add("on"), 350); rio.unobserve(e.target); } }), { threshold: 1 });
+  document.querySelectorAll(".rd").forEach(el => rio.observe(el));
   // hero: redaction reveal
   setTimeout(() => $("red").classList.add("on"), 1400);
 
@@ -570,13 +627,23 @@ Worth a 20-minute look at a sample of your own data? Tuesday 2 PM or Wednesday 1
   $("runbook").innerHTML = RB.map(([t, b, p]) => `<div class="step"><small>${t}</small><b>${b}</b><p>${p}</p></div>`).join("");
 
   // ads
-  const A = [
-    ["A · Pain", "Your best data is off-limits. Until now.", "Compliance said no. Your AI team still needs the data. Here's how regulated enterprises use PII-heavy data in AI, safely.", "Watch the webinar"],
-    ["B · Proof", "99.5% accuracy on physician conversations.", "That's what Providence Health got with Limina. See how context-aware de-identification works on messy, real-world data.", "Register free"],
-    ["C · Security", "Your data never leaves your environment.", "De-identify PII, PHI and PCI inside your VPC. No third-party processing, no outbound calls. Audit-ready outputs.", "Get the guide"],
-    ["D · Competitor", "Pattern matching missed the SSN.", "Because “SSN” wasn't in the sentence. Context-aware de-identification catches what rules can't. See the side-by-side.", "See the demo"],
+  const FT = `<div class="ft"><img src="logo-white.svg" alt="Limina"><span>LIVE WEBINAR · NOV 19 · 11 AM ET</span></div>`;
+  const ADS = [
+    { id: "A", name: "Pain", intro: "Compliance said no to using your best data in AI. Here's how banks, insurers and health systems got to yes, in 45 minutes.", head: "Govern every prompt · Live webinar, Nov 19", cta: "Register", obj: "Registrations", hyp: "Naming the blocker (compliance says no) beats naming the product.",
+      art: `<div class="cr"><span class="k">LIVE WEBINAR</span><h4>Your best data is off-limits. <em>Until now.</em></h4><div class="paper"><small>CLAIMS NOTE · DE-IDENTIFIED</small><span class="tg">[NAME_GIVEN_1]</span>, DOB <span class="tg">[DOB_1]</span>, called about claim <span class="tg">[CLAIM_ID_1]</span>. Card ending <span class="tg">[CREDIT_CARD_1]</span> verified. Notes ready for AI.</div>${FT}</div>` },
+    { id: "B", name: "Proof", intro: "99.5% accuracy on physician conversations. See how Providence Health de-identifies PHI that rules miss. Live demo, Nov 19.", head: "See context-aware de-identification, live", cta: "Register", obj: "Registrations", hyp: "A hard number from a known health system builds trust fastest.",
+      art: `<div class="cr"><span class="k">PROVEN AT SCALE</span><div class="big">99.5%</div><p>accuracy on physician conversations</p><div class="src">PROVIDENCE HEALTH</div><div class="chips"><span class="tg">[PATIENT_1]</span><span class="tg">[CONDITION_1]</span><span class="tg">[MEDICATION_1]</span><span class="tg">[NPI_1]</span></div><div style="height:5cqi"></div>${FT}</div>` },
+    { id: "C", name: "Security", intro: "De-identify PII, PHI and PCI inside your own VPC. No third-party processing. No outbound calls. Audit-ready outputs.", head: "Your data never leaves your environment", cta: "Learn more", obj: "Guide downloads", hyp: "Security leaders respond to architecture, not adjectives.",
+      art: `<div class="cr"><span class="k">FOR SECURITY LEADERS</span><h4>Your data never leaves <em>your environment.</em></h4><div class="vpc"><div class="box"><small>YOUR VPC OR ON-PREM</small><div>Your data <i>PII · PHI · PCI</i></div><div>Limina <i>RUNS HERE</i></div><div>Your AI <i>CLEAN INPUT</i></div></div><div class="out"><div class="x">✕</div>Third-party clouds<br>No outbound calls</div></div><div style="height:5cqi"></div>${FT}</div>` },
+    { id: "D", name: "Context", intro: "The caller never said “SSN”. Pattern matching missed it. Context didn't. See what rules miss in your call transcripts.", head: "Catch what pattern matching misses", cta: "Watch demo", obj: "Demo views → MQLs", hyp: "Showing the miss (vs. telling) wins with technical buyers.",
+      art: `<div class="cr"><span class="k">CALL TRANSCRIPT · LIVE DEMO</span><h4>No “SSN” in the sentence. <em>Still caught.</em></h4><div class="chat"><p class="a">Agent: Can you verify your identity for me?</p><p class="c">Sure, it's <span class="tg">[SSN_1]</span>. And the card ends in <span class="tg">[CREDIT_CARD_1]</span>.</p><p class="a">Agent: Thanks, you're verified.</p></div>${FT}</div>` },
   ];
-  $("ads").innerHTML = A.map(([lbl, head, copy, cta]) => `<div class="ad"><div class="ah"><i>L</i><div><b>Limina</b><span>Promoted · ${lbl}</span></div></div><div class="at">${copy}</div><div class="art"><span class="tagline">GOVERNING EVERY PROMPT</span><div class="big">${head}</div><span class="tagline">LIVE WEBINAR · 45 MIN</span></div><div class="af"><b>getlimina.ai</b><span>${cta}</span></div></div>`).join("");
+  const LOGO = `<span><img src="logo.svg" alt=""></span>`;
+  $("ads").innerHTML = ADS.map(a => {
+    const cut = 138, short = a.intro.length > cut ? a.intro.slice(0, a.intro.lastIndexOf(" ", cut)) + "… <span class=\"more\">see more</span>" : a.intro;
+    return `<div class="adwrap"><article class="li" aria-label="LinkedIn ad ${a.id}"><div class="li-h"><div class="li-av">${LOGO}</div><div><b>Limina</b><small>Promoted</small></div></div><div class="li-t">${short}</div><div class="li-img">${a.art}</div><div class="li-hl"><div><b>${a.head}</b><small>getlimina.ai</small></div><span>${a.cta}</span></div><div class="li-r"><span>👍 Like</span><span>💬 Comment</span><span>↻ Repost</span><span>➤ Send</span></div></article>
+      <div class="spec"><b>Ad ${a.id} · ${a.name}</b><span>${a.hyp}</span><b>Objective</b><span>${a.obj}</span><b>Intro text</b><span>${a.intro.length} / 150 characters <em>✓ fits before “see more”</em></span><b>Headline</b><span>${a.head.length} / 70 characters <em>✓</em></span><b>Format</b><span>Single image, 1200 × 1200, safe zone respected</span></div></div>`;
+  }).join("");
 
   // case study kanban
   const K = [["Candidates (public quotes)", [["Boehringer Ingelheim", "48 hours to minutes"], ["Providence", "99.5% accuracy"], ["Rilla", "Accuracy vs AWS"], ["Be My Eyes", "Inclusive AI"], ["Semalytix", "PHI detection"], ["GPT-NL / TNO", "Privacy at scale"]]], ["Asked via CS", [["Example: regional bank", "PCI in call transcripts"]]], ["Interview booked", [["Example: insurer", "Claims notes for AI"]]], ["Drafting", [["Example: health system", "Unstructured PHI"]]], ["In approval", [["Example: pharma", "Medical inquiries"]]], ["Published", [["Example: anonymised FS", "Legacy archives"]]]];
