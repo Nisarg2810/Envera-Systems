@@ -14,7 +14,7 @@
 <style>
   /* Limina's own look: off-white ground, deep navy panels, one bright blue, light-blue redaction tags. */
   :root {
-    --bg: #f8f9fc; --surface: #ffffff; --navy: #0b1020; --navy2: #131a2e; --ink: #1c1c1c; --muted: #6b6b6b; --line: #e2e4ea;
+    --bg: #ffffff; --surface: #f8f9fc; --navy: #0b1020; --navy2: #131a2e; --ink: #1c1c1c; --muted: #6b6b6b; --line: #e2e4ea;
     --blue: #2170f1; --blue-dk: #0f4aa8; --tag: #dbeeff; --tag2: #bedbff; --ok: #12805c; --okbg: #e3f6ee; --warn: #8a5a00; --warnbg: #fff3d6;
     --font: "Instrument Sans", system-ui, -apple-system, sans-serif; --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
   }
@@ -24,7 +24,7 @@
   a { color: var(--blue); }
   .wrap { max-width: 1180px; margin: 0 auto; padding-inline: 20px; }
   .tagx { font: 600 12px var(--mono); background: var(--tag); color: var(--blue-dk); border-radius: 4px; padding: 2px 6px; white-space: nowrap; }
-  .eyebrow { font: 600 12px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--blue); display: inline-flex; align-items: center; gap: 8px; }
+  .eyebrow { font: 600 12.5px var(--font); letter-spacing: .1em; text-transform: uppercase; color: var(--blue); display: inline-flex; align-items: center; gap: 8px; }
   .eyebrow::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--blue); }
   h1, h2, h3 { letter-spacing: -0.02em; text-wrap: balance; }
   /* top bar + nav */
@@ -54,6 +54,16 @@
   .doc .tagx { font-size: 11.5px; }
   .kpis { margin-top: 28px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid #263055; }
   .kpis div { padding: 16px 16px 0 0; } .kpis b { display: block; font-size: 28px; font-weight: 600; letter-spacing: -0.02em; } .kpis span { color: #aab3c9; font-size: 13px; }
+  .lpcard { display: block; text-decoration: none; color: inherit; background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 40px 80px -40px rgba(0,0,0,.8); transform: rotate(1.2deg); transition: transform .3s; }
+  .lpcard:hover { transform: rotate(0) translateY(-4px); }
+  .lpc-bar { display: flex; gap: 6px; align-items: center; padding: 9px 12px; background: #eef1f6; } .lpc-bar i { width: 9px; height: 9px; border-radius: 50%; background: #d5d9e2; } .lpc-bar span { margin-left: 8px; font: 500 11.5px var(--mono); color: #6b6b6b; }
+  .lpc-in { background: var(--navy); margin: 12px; border-radius: 12px; padding: 22px; color: #fff; display: grid; gap: 12px; border: 1px solid #263055; }
+  .lpc-k { font: 600 11px var(--mono); letter-spacing: .1em; color: #8fb4ff; }
+  .lpc-in b { font-size: 22px; line-height: 1.15; font-weight: 600; } .lpc-in em { font-style: normal; color: #8fb4ff; }
+  .lpc-f { display: grid; gap: 7px; background: #fff; border-radius: 10px; padding: 12px; }
+  .lpc-f span { height: 12px; border-radius: 4px; background: #e9ecf2; } .lpc-f .go { height: auto; background: var(--blue); color: #fff; font: 600 11px var(--mono); letter-spacing: .1em; text-align: center; padding: 8px; }
+  .lpc-cta { padding: 4px 16px 14px; font: 600 13px var(--font); color: var(--blue); }
+  .card { background: var(--surface); }
   /* sections */
   section.s { padding-block: 64px 8px; scroll-margin-top: 70px; }
   .s-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: end; }
@@ -174,7 +184,7 @@
 </head>
 <body>
 <div class="top"><div class="wrap">
-  <div class="brand">Durva × Limina <span>· demand gen workspace</span></div>
+  <div class="brand"><a href="https://www.getlimina.ai/en" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:inherit">Durva ×<img src="logo.svg" alt="Limina" style="height:20px;width:auto"></a> <span>· demand gen workspace</span></div>
   <nav class="nav" id="nav">
     <a href="#plan">90 days</a><a href="#campaign">Campaign</a><a href="#lp">Landing page</a><a href="#emails">Emails</a><a href="#webinar">Webinar program</a><a href="#paid">Paid + LinkedIn</a><a href="#promo">Content promotion</a><a href="#data">Database</a><a href="#events">Events</a><a href="#cases">Case studies</a><a href="#reps">Rep assets</a><a href="#abm">ABM pilot</a><a href="#report">Reporting</a><a href="#me">About me</a>
   </nav>
@@ -189,10 +199,15 @@
       <p class="lede">Every line of the job post, done once, as if I'd started Monday: a full integrated campaign, a landing page and form, the email sequence, the webinar program end to end, LinkedIn ads, list building, events, case studies, rep assets, an ABM pilot and the report that ties it all to pipeline.</p>
       <div class="note"><a class="btn blue" href="#campaign">See the campaign</a><a class="btn line" href="#webinar">See the webinar system</a></div>
     </div>
-    <div class="doc" aria-label="A job post, de-identified Limina style">
-      <small>JOB POST · DE-IDENTIFIED</small>
-      Reporting to <span class="tagx">[VP_MARKETING_1]</span>, the new hire will turn <span class="tagx">[PRIVACY_LEADER_1]</span>, <span class="tagx">[SECURITY_LEADER_1]</span> and <span class="tagx">[DATA_LEADER_1]</span> into engaged prospects through <span class="tagx">[WEBINARS]</span>, <span class="tagx">[EMAIL]</span>, <span class="tagx">[EVENTS]</span> and <span class="tagx">[PAID]</span>, then hand them to the <span class="tagx">[MDR_1]</span>. Low ego, high ownership. Ships on a deadline.
-      <div style="margin-top: 12px; font: 600 11px var(--mono); color: #7a8399;">ENTITIES FOUND: 9 · CONFIDENCE: 99.5%*</div>
+    <a class="lpcard" href="webinar/" aria-label="Open the live landing page">
+      <div class="lpc-bar"><i></i><i></i><i></i><span>durvathakkar.com/limina/webinar</span></div>
+      <div class="lpc-in">
+        <span class="lpc-k">LIVE WEBINAR · NOV 19</span>
+        <b>Every prompt is a data transaction. <em>Govern every one.</em></b>
+        <div class="lpc-f"><span></span><span></span><span class="go">REGISTER FREE</span></div>
+      </div>
+      <div class="lpc-cta">It's live. Click to try the real page ↗</div>
+    </a>
     </div>
     <div class="kpis" style="grid-column: 1 / -1">
       <div><b>1</b><span>integrated campaign, brief to launch</span></div>
@@ -201,11 +216,11 @@
       <div><b>3</b><span>ABM tiers, built with the MDR</span></div>
     </div>
   </header>
-  <p style="margin-top: 10px; font-size: 12.5px; color: var(--muted)">*A nod to Limina's 99.5% accuracy on physician conversations for Providence Health. Facts about Limina come from getlimina.ai; targets and numbers marked SAMPLE are illustrative.</p>
+  <p style="margin-top: 10px; font-size: 12.5px; color: var(--muted)">Facts about Limina come from getlimina.ai. Targets and numbers marked SAMPLE are illustrative.</p>
 
   <!-- PLAN -->
   <section class="s" id="plan">
-    <div class="s-head"><div><div class="eyebrow">First 90 days</div><h2>Learn the buyer, ship the engine, prove the pipeline.</h2></div><p>The marketing function is young, so the first job is to make campaigns repeatable. By day 90, every program on this page runs on a calendar, a template and a number.</p></div>
+    <div class="s-head"><div><div class="eyebrow">First 90 days</div><h2>My plan for the first 90 days.</h2></div><p>The marketing function is young, so the first job is to make campaigns repeatable. By day 90, every program on this page runs on a calendar, a template and a number.</p></div>
     <div class="grid g3">
       <div class="card"><div class="k">Days 1-30 · Learn</div><h3 style="margin-top:6px">Sit next to the buyer</h3><ul><li>Shadow the MDR and 5 sales calls; log every objection</li><li>Audit HubSpot: lists, forms, UTMs, lifecycle stages</li><li>Read every guide, blog and case on getlimina.ai</li><li>Launch webinar #1 promotion (it's 4 weeks out)</li></ul><p style="margin-top:10px"><span class="pill">Output</span> Buyer question bank · HubSpot fix list · webinar #1 live</p></div>
       <div class="card"><div class="k">Days 31-60 · Build</div><h3 style="margin-top:6px">Turn one-offs into systems</h3><ul><li>Integrated campaign live: page, form, 5 emails, ads</li><li>Case study pipeline: 3 customers in motion</li><li>LinkedIn audiences + first A/B tests</li><li>ABM tier 1 list agreed with the MDR</li></ul><p style="margin-top:10px"><span class="pill">Output</span> Campaign live · case pipeline · ABM list</p></div>
@@ -215,7 +230,7 @@
 
   <!-- CAMPAIGN -->
   <section class="s" id="campaign">
-    <div class="s-head"><div><div class="eyebrow">Integrated campaign · brief to launch</div><h2>“Every prompt is a data transaction.”</h2></div><p>A quarter-long campaign built on Limina's own line. One idea, one webinar, one guide, run across email, LinkedIn, syndication and the MDR, with every touch tracked to pipeline.</p></div>
+    <div class="s-head"><div><div class="eyebrow">Integrated campaign · brief to launch</div><h2>One big campaign, start to finish.</h2></div><p>Campaign name: <b>“Every prompt is a data transaction.”</b> A quarter-long campaign built on Limina's own line. One idea, one webinar, one guide, run across email, LinkedIn, syndication and the MDR, with every touch tracked to pipeline.</p></div>
     <div class="grid g2">
       <div class="card">
         <div class="row-h"><h3>Campaign brief</h3><span class="sample">SAMPLE TARGETS</span></div>
@@ -247,8 +262,9 @@
 
   <!-- LANDING PAGE -->
   <section class="s" id="lp">
-    <div class="s-head"><div><div class="eyebrow">Landing page + form</div><h2>The registration page, built.</h2></div><p>Five fields, one promise, proof above the fold. Try the form: it's live on this page (nothing is sent anywhere). Below it, the spec I'd hand to HubSpot.</p></div>
-    <div class="browser" style="margin-top:24px">
+    <div class="s-head"><div><div class="eyebrow">Landing page + form</div><h2>The sign-up page. It is live. Try it.</h2></div><p>I built the real page, in Limina's look, with a working form, a live demo and a calendar invite. <a href="webinar/"><b>Open the live page ↗</b></a></p></div>
+    <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap"><a class="btn blue" href="webinar/">Open the live landing page ↗</a><a class="btn line dk" href="webinar/?utm_source=linkedin&amp;utm_medium=paid-social&amp;utm_campaign=2026-q4_webinar_governing-every-prompt&amp;utm_content=ad-a-pain">Open it as if from LinkedIn ad A ↗</a></div>
+    <div class="browser" style="margin-top:16px">
       <div class="bbar"><i></i><i></i><i></i><span class="u">getlimina.ai/en/webinars/governing-every-prompt?utm_source=linkedin&amp;utm_medium=paid-social&amp;utm_campaign=2026-q4_webinar_governing-every-prompt</span></div>
       <div class="lp">
         <div class="l">
@@ -293,14 +309,14 @@
 
   <!-- EMAILS -->
   <section class="s" id="emails">
-    <div class="s-head"><div><div class="eyebrow">Email program</div><h2>Five emails, one job each.</h2></div><p>Invite, reminder, last call, then a split follow-up: attendees get the next step, no-shows get the recording. Written for people who read privacy law for fun, and people who don't.</p></div>
+    <div class="s-head"><div><div class="eyebrow">Email program</div><h2>The 5 emails we send.</h2></div><p>Invite, reminder, last call, then a split follow-up: attendees get the next step, no-shows get the recording. Written for people who read privacy law for fun, and people who don't.</p></div>
     <div class="tabs" id="mailTabs"></div>
     <div class="mail" id="mail"></div>
   </section>
 
   <!-- WEBINAR -->
   <section class="s" id="webinar">
-    <div class="s-head"><div><div class="eyebrow">Webinar program · end to end</div><h2>The system I'd run every webinar on.</h2></div><p>Topics, speakers, promotion, registration, the live session and follow-up, each with an owner and a date. The same runbook, every time, so quality goes up and effort goes down.</p></div>
+    <div class="s-head"><div><div class="eyebrow">Webinar program · end to end</div><h2>How I run every webinar, start to finish.</h2></div><p>Topics, speakers, promotion, registration, the live session and follow-up, each with an owner and a date. The same runbook, every time, so quality goes up and effort goes down.</p></div>
     <div class="row-h" style="margin-top:24px"><h3>1 · Topic bank (next 7 webinars)</h3><span class="pill">Built from Limina's own guides + buyer questions</span></div>
     <div class="tbl"><table><thead><tr><th>Webinar</th><th>For</th><th>Hook</th><th>Speakers</th><th>Repurpose into</th></tr></thead><tbody id="topics"></tbody></table></div>
 
@@ -341,7 +357,7 @@
 
   <!-- PAID -->
   <section class="s" id="paid">
-    <div class="s-head"><div><div class="eyebrow">Paid media + LinkedIn</div><h2>The right 40,000 people, not the most people.</h2></div><p>Audience build, four ad variants to test, and tracking that reports cost per MQL, not cost per click.</p></div>
+    <div class="s-head"><div><div class="eyebrow">Paid media + LinkedIn</div><h2>Ads on LinkedIn, shown to the right people.</h2></div><p>Audience build, four ad variants to test, and tracking that reports cost per MQL, not cost per click.</p></div>
     <div class="grid g3">
       <div class="card"><h3>Audience: who</h3><ul><li><b>Titles:</b> CPO, DPO, CISO, Head of Privacy, Head of Data, AI/ML lead, Compliance Director</li><li><b>Seniority:</b> Director, VP, CXO</li><li><b>Industries:</b> Banking, Insurance, Hospitals and Health Care, Pharmaceuticals</li><li><b>Size:</b> 1,000+ employees</li></ul></div>
       <div class="card"><h3>Audience: smart layers</h3><ul><li>Matched audience: ABM tier 1 + 2 accounts</li><li>Retarget: pricing, product and guide visitors (90 days)</li><li>Lookalike off closed-won (when volume allows)</li><li><b>Exclude:</b> customers, competitors, students</li></ul></div>
@@ -353,7 +369,7 @@
 
   <!-- PROMO -->
   <section class="s" id="promo">
-    <div class="s-head"><div><div class="eyebrow">Content promotion</div><h2>Create once, promote everywhere it earns.</h2></div><p>Every guide and webinar gets a promotion plan across owned, earned and paid, plus one partner angle. Here's the plan for the AI training data guide.</p></div>
+    <div class="s-head"><div><div class="eyebrow">Content promotion</div><h2>Where we share each piece of content.</h2></div><p>Every guide and webinar gets a promotion plan across owned, earned and paid, plus one partner angle. Here's the plan for the AI training data guide.</p></div>
     <div class="tbl" style="margin-top:24px"><table><thead><tr><th>Channel</th><th>Type</th><th>What we ship</th><th>Measure</th></tr></thead><tbody>
       <tr><td><b>Email newsletter</b></td><td><span class="pill">Owned</span></td><td>Feature + 3 key takeaways, segmented by industry</td><td>Click-to-download rate</td></tr>
       <tr><td><b>LinkedIn company page</b></td><td><span class="pill">Owned</span></td><td>Document carousel of the 5 rules; native video clip</td><td>Engagement, follower growth in target titles</td></tr>
@@ -368,7 +384,7 @@
 
   <!-- DATA -->
   <section class="s" id="data">
-    <div class="s-head"><div><div class="eyebrow">Database growth</div><h2>More of the right buyers, kept clean.</h2></div><p>A segment model sales trusts, a list-building routine, and a weekly hygiene check, because list cleanup is part of the craft.</p></div>
+    <div class="s-head"><div><div class="eyebrow">Database growth</div><h2>Growing our list of buyers, and keeping it clean.</h2></div><p>A segment model sales trusts, a list-building routine, and a weekly hygiene check, because list cleanup is part of the craft.</p></div>
     <div class="grid g2">
       <div class="card"><div class="row-h"><h3>Segment grid · persona × industry</h3><span class="sample">SAMPLE COUNTS</span></div><div class="tbl"><table style="min-width:0"><thead><tr><th></th><th>Fin. services</th><th>Insurance</th><th>Healthcare</th><th>Pharma</th></tr></thead><tbody>
         <tr><td><b>Privacy</b></td><td>420</td><td>310</td><td>380</td><td>190</td></tr>
@@ -386,7 +402,7 @@
 
   <!-- EVENTS -->
   <section class="s" id="events">
-    <div class="s-head"><div><div class="eyebrow">Event promotion</div><h2>Book the meetings before we land.</h2></div><p>A pre-show play for any privacy, security or health data event: prospects know we'll be there, and the MDR fills the calendar before the booth opens.</p></div>
+    <div class="s-head"><div><div class="eyebrow">Event promotion</div><h2>Book meetings before the event starts.</h2></div><p>A pre-show play for any privacy, security or health data event: prospects know we'll be there, and the MDR fills the calendar before the booth opens.</p></div>
     <div class="flow" style="margin-top:24px">
       <div class="step"><small>T-30</small><b>Pick the 100</b><p>Attendee list + ABM accounts + open opportunities, agreed with the MDR</p></div>
       <div class="step"><small>T-21</small><b>“See us at” email</b><p>Booth, talk time, 20-min meeting slots; one ask</p></div>
@@ -405,7 +421,7 @@
 
   <!-- CASES -->
   <section class="s" id="cases">
-    <div class="s-head"><div><div class="eyebrow">Case study program</div><h2>From first ask to final sign-off, smoothly.</h2></div><p>I'd own the logistics: source willing customers with CS and Sales, schedule interviews, manage approvals, and make the customer feel their time was well spent. Six customers already praise Limina in public on getlimina.ai; that's the candidate list. The other columns show example stages.</p></div>
+    <div class="s-head"><div><div class="eyebrow">Case study program</div><h2>Getting happy customers to tell their story.</h2></div><p>I'd own the logistics: source willing customers with CS and Sales, schedule interviews, manage approvals, and make the customer feel their time was well spent. Six customers already praise Limina in public on getlimina.ai; that's the candidate list. The other columns show example stages.</p></div>
     <div class="kb" id="kb"></div>
     <div class="grid g3">
       <div class="card"><h3>The ask (via CS)</h3><p style="margin-top:8px;font-size:14px">“Hi Sam, your team's results with Limina have been impressive, and we'd love to share them. It's a 30-minute call, we write everything, and you approve every word before anything goes live. Would you be open to it? Happy to work around your schedule.”</p></div>
@@ -416,7 +432,7 @@
 
   <!-- REP ASSETS -->
   <section class="s" id="reps">
-    <div class="s-head"><div><div class="eyebrow">Rep-ready assets</div><h2>What the MDR and AEs actually send.</h2></div><p>Campaign content and case studies, adapted for each industry and use case, in formats reps use in follow-up.</p></div>
+    <div class="s-head"><div><div class="eyebrow">Rep-ready assets</div><h2>Tools the sales team can send today.</h2></div><p>Campaign content and case studies, adapted for each industry and use case, in formats reps use in follow-up.</p></div>
     <div class="grid g3">
       <div class="card"><span class="pill">Financial services</span><h3 style="margin-top:8px">“Detect payment data the way customers say it”</h3><p style="margin-top:8px">One-pager: PCI in call transcripts, legacy archives, AI on communications data. Proof: banks that tested competitors found 15-30% of PCI data went undetected.</p></div>
       <div class="card"><span class="pill">Healthcare + pharma</span><h3 style="margin-top:8px">“Unstructured PHI, outside the EHR”</h3><p style="margin-top:8px">One-pager: physician conversations, medical inquiries, expert determination. Proof: 99.5% accuracy for Providence Health; 48 hours to minutes for Boehringer Ingelheim.</p></div>
@@ -445,7 +461,7 @@ Worth a 20-minute look at a sample of your own data? Tuesday 2 PM or Wednesday 1
 
   <!-- ABM -->
   <section class="s" id="abm">
-    <div class="s-head"><div><div class="eyebrow">ABM pilot · with the MDR</div><h2>Three tiers, one shared list.</h2></div><p>A small, measurable pilot: the MDR and I agree the accounts, I build the lists and materials, we review together every two weeks.</p></div>
+    <div class="s-head"><div><div class="eyebrow">ABM pilot · with the MDR</div><h2>Going after our top target companies.</h2></div><p>A small, measurable pilot: the MDR and I agree the accounts, I build the lists and materials, we review together every two weeks.</p></div>
     <div class="grid g3">
       <div class="card dark"><div class="k" style="color:#8fb4ff">Tier 1 · 1:1 · 10 accounts</div><h3 style="margin-top:6px">Built for one account</h3><ul><li>Account brief: AI initiatives, data types, regulators, buying group</li><li>Personalised landing page + a tailored data-review offer</li><li>Exec-to-exec note; invite to a private roundtable</li></ul></div>
       <div class="card"><div class="k">Tier 2 · 1:few · 40 accounts</div><h3 style="margin-top:6px">Built for an industry</h3><ul><li>Industry one-pager + case study</li><li>LinkedIn ads to the buying group</li><li>MDR sequence with industry proof</li></ul></div>
@@ -469,7 +485,7 @@ Worth a 20-minute look at a sample of your own data? Tuesday 2 PM or Wednesday 1
 
   <!-- REPORT -->
   <section class="s" id="report">
-    <div class="s-head"><div><div class="eyebrow">Reporting</div><h2>Your success metrics, on one page.</h2></div><p>Exactly the measures in the job post, every month, with one recommendation: where to shift effort next.</p></div>
+    <div class="s-head"><div><div class="eyebrow">Reporting</div><h2>How we know it is working.</h2></div><p>Exactly the measures in the job post, every month, with one recommendation: where to shift effort next.</p></div>
     <div class="row-h" style="margin-top:20px"><h3>Marketing report · October</h3><span class="sample">SAMPLE DATA</span></div>
     <div class="dash">
       <div class="tile"><span>Net-new leads (target segments)</span><b>412</b><em>▲ 18% vs Sept</em></div>
@@ -495,7 +511,7 @@ Worth a 20-minute look at a sample of your own data? Tuesday 2 PM or Wednesday 1
 
   <!-- ME -->
   <section class="s" id="me">
-    <div class="s-head"><div><div class="eyebrow">About me</div><h2>Low ego, high ownership, ships on a deadline.</h2></div><p>The job post asks for 0-2 years in B2B marketing, execution, an analytical mind, clear writing and technical curiosity. Here's where I stand.</p></div>
+    <div class="s-head"><div><div class="eyebrow">About me</div><h2>About me.</h2></div><p>The job post asks for 0-2 years in B2B marketing, execution, an analytical mind, clear writing and technical curiosity. Here's where I stand.</p></div>
     <div class="grid g2">
       <div class="card"><div class="me"><img src="/assets/durva-avatar.jpg" alt="Durva Thakkar"><div><h3>Durva Thakkar</h3><p>Content Marketer · B2B campaigns, SEO and outreach · Ontario, Canada</p><p style="margin-top:6px"><a href="https://durvathakkar.com/" target="_blank" rel="noopener">durvathakkar.com ↗</a> · <a href="https://durvathakkar.com/#resume" target="_blank" rel="noopener">Resume ↗</a></p></div></div>
         <ul style="margin-top:14px"><li><b>Outreach Specialist, Bsquaree:</b> ran targeted outreach campaigns, managed pipelines and follow-ups, reviewed results to improve response rates</li><li><b>Content Writer, Missive Digital:</b> SEO content and keyword research; content that helped drive a 73% increase in inquiries</li><li><b>Content Writer, freelance:</b> content calendars, SEO blogs, LinkedIn and email for B2B clients</li><li><b>Sales &amp; Marketing Intern, Rewynd Snacks:</b> campaigns that contributed to a 40% increase in sales</li></ul></div>

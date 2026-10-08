@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Governing Every Prompt · Live Webinar · Limina (demo page)</title>
+<meta name="description" content="A 45-minute live webinar for privacy, security and data leaders: how regulated enterprises keep PII and PHI out of RAG pipelines and AI agents. Demo landing page made by Durva Thakkar.">
+<meta property="og:title" content="Governing every prompt: a live webinar for privacy, security and data leaders">
+<meta property="og:description" content="How banks, insurers and health systems put sensitive data to work in AI, safely. Thursday, November 19 · 11 AM ET · 45 minutes.">
+<meta property="og:image" content="https://durvathakkar.com/limina/webinar/share.jpg">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #ffffff; --soft: #f8f9fc; --navy: #0b1020; --navy2: #141b31; --ink: #1c1c1c; --body: #3c3c3c; --muted: #6b6b6b; --line: #e2e4ea;
+    --blue: #2170f1; --blue2: #5b81de; --blue-dk: #0f4aa8; --tag: #dbeeff; --tag2: #bedbff; --ok: #12805c; --okbg: #e3f6ee; --err: #b42335;
+    --font: "Instrument Sans", system-ui, -apple-system, sans-serif; --mono: "JetBrains Mono", ui-monospace, Menlo, monospace; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  [hidden] { display: none !important; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--ink); font: 16px/1.55 var(--font); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .wrap { max-width: 1240px; margin: 0 auto; padding-inline: 20px; }
+  .ann { background: var(--navy); color: #cfe0ff; text-align: center; font: 600 12px var(--mono); letter-spacing: .08em; padding: 9px 16px; }
+  .ann b { color: #fff; }
+  header.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: rgba(255,255,255,.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  header.nav .wrap { display: flex; align-items: center; gap: 28px; height: 68px; }
+  header.nav img { height: 24px; width: auto; display: block; }
+  header.nav ul { list-style: none; display: flex; gap: 22px; font: 600 13px var(--font); letter-spacing: .04em; text-transform: uppercase; color: var(--body); }
+  header.nav ul a { text-decoration: none; }
+  header.nav .sp { flex: 1; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font: 600 12.5px var(--mono); letter-spacing: .12em; text-transform: uppercase; border-radius: 6px; padding: 14px 20px; text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: background .2s, transform .2s; }
+  .btn.blue { background: var(--blue); color: #fff; } .btn.blue:hover { background: #1a5fd0; }
+  .btn.ghost { border-color: #3b4f8a; color: #cfe0ff; } .btn.ghost:hover { background: rgba(255,255,255,.06); }
+  .btn.out { border-color: var(--blue); color: var(--blue); background: #fff; }
+  .btn:focus-visible, a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+  .eyebrow { font: 600 12.5px var(--font); letter-spacing: .1em; text-transform: uppercase; color: var(--blue); display: inline-flex; align-items: center; gap: 8px; }
+  .eyebrow::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+  h1, h2, h3 { letter-spacing: -0.02em; text-wrap: balance; font-weight: 600; }
+  /* hero */
+  .hero { margin-top: 24px; background: var(--navy); color: #fff; border-radius: 24px; padding: clamp(28px, 5vw, 64px); display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 44px; align-items: start; position: relative; overflow: hidden; }
+  .hero::after { content: ""; position: absolute; right: -180px; top: -180px; width: 520px; height: 520px; border-radius: 50%; background: radial-gradient(circle, rgba(33,112,241,.35), transparent 65%); pointer-events: none; }
+  .hero > * { position: relative; z-index: 1; }
+  .hero .eyebrow { color: #8fb4ff; }
+  .hero h1 { margin-top: 16px; font-size: clamp(36px, 5vw, 62px); line-height: 1.03; }
+  .hero h1 em { font-style: normal; color: #8fb4ff; }
+  .hero .sub { margin-top: 18px; color: #c7cddd; font-size: 18.5px; max-width: 580px; }
+  .chips { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .chips span { font: 600 12px var(--mono); letter-spacing: .04em; color: #dbe6ff; border: 1px solid #2c3a66; border-radius: 999px; padding: 7px 12px; }
+  .host { margin-top: 30px; display: flex; gap: 14px; align-items: center; color: #c7cddd; font-size: 14px; }
+  .host i { width: 46px; height: 46px; border-radius: 50%; background: #233063; color: #8fb4ff; display: grid; place-items: center; font: 600 14px var(--mono); font-style: normal; flex: none; }
+  .host b { display: block; color: #fff; font-weight: 600; }
+  /* form card */
+  .formcard { background: #fff; color: var(--ink); border-radius: 16px; padding: 26px; box-shadow: 0 40px 80px -40px rgba(0,0,0,.7); }
+  .formcard h2 { font-size: 22px; }
+  .formcard p.s { color: var(--muted); font-size: 14px; margin-top: 4px; }
+  form { display: grid; gap: 12px; margin-top: 16px; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  label { display: grid; gap: 5px; font: 600 11.5px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  input, select { font: 15px var(--font); color: var(--ink); padding: 11px 12px; border: 1px solid var(--line); border-radius: 8px; background: #fff; width: 100%; min-width: 0; }
+  input[aria-invalid="true"], select[aria-invalid="true"] { border-color: var(--err); background: #fff7f8; }
+  .err { font: 500 12.5px var(--font); color: var(--err); text-transform: none; letter-spacing: 0; min-height: 0; }
+  .consent { display: grid; grid-template-columns: 18px 1fr; gap: 8px; font: 400 12.5px var(--font); text-transform: none; letter-spacing: 0; color: var(--muted); align-items: start; }
+  .consent input { width: 16px; height: 16px; margin-top: 2px; accent-color: var(--blue); }
+  .fine { font-size: 12.5px; color: var(--muted); text-align: center; }
+  .done { display: grid; gap: 12px; text-align: left; }
+  .done .tick { width: 52px; height: 52px; border-radius: 50%; background: var(--okbg); color: var(--ok); display: grid; place-items: center; font-size: 26px; font-weight: 700; }
+  .done h2 { font-size: 24px; }
+  .done .row { display: flex; flex-wrap: wrap; gap: 8px; }
+  /* trust */
+  .trust { margin-top: 34px; text-align: center; font: 600 12.5px var(--font); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  .trust b { color: var(--ink); }
+  section { padding-block: 84px 0; scroll-margin-top: 80px; }
+  .head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 30px; align-items: end; }
+  .head h2 { margin-top: 10px; font-size: clamp(30px, 4vw, 48px); line-height: 1.06; }
+  .head p { color: var(--body); font-size: 17px; }
+  .cards3 { margin-top: 36px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .card { background: var(--soft); border: 1px solid var(--line); border-radius: 16px; padding: 26px; }
+  .card .n { font: 600 13px var(--mono); color: var(--blue); }
+  .card h3 { margin-top: 14px; font-size: 21px; line-height: 1.2; }
+  .card p { margin-top: 10px; color: var(--body); font-size: 15px; }
+  /* demo */
+  .demo { margin-top: 36px; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 16px; }
+  .note { background: var(--soft); border: 1px solid var(--line); border-radius: 16px; padding: 26px; }
+  .note small { display: block; font: 600 11.5px var(--mono); letter-spacing: .12em; color: #7a8399; margin-bottom: 10px; }
+  .note .txt { font-size: 16px; line-height: 2; color: var(--body); }
+  .note mark { background: transparent; color: inherit; border-radius: 4px; transition: background .4s, color .4s; }
+  .note.red mark { background: var(--tag2); color: var(--blue-dk); font: 600 13px var(--mono); padding: 2px 5px; }
+  .note .tog { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .ent { background: var(--navy); color: #fff; border-radius: 16px; padding: 26px; }
+  .ent small { font: 600 11.5px var(--mono); letter-spacing: .12em; color: #8fb4ff; }
+  .ent ul { list-style: none; margin-top: 14px; display: grid; gap: 8px; font-size: 14px; }
+  .ent li { display: grid; grid-template-columns: 1fr auto; gap: 10px; border-bottom: 1px solid #22305a; padding-bottom: 8px; }
+  .ent li span { font: 600 12px var(--mono); color: #8fb4ff; }
+  .ent p { margin-top: 16px; color: #c7cddd; font-size: 14px; }
+  /* stats */
+  .stats { margin-top: 84px; background: var(--navy); color: #fff; border-radius: 24px; padding: clamp(28px, 5vw, 60px); }
+  .stats .eyebrow { color: #8fb4ff; }
+  .stats .grid { margin-top: 30px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px; }
+  .stats b { display: block; font-size: clamp(28px, 3vw, 36px); font-weight: 600; letter-spacing: -0.02em; padding-bottom: 14px; border-bottom: 1px solid #2c3a66; }
+  .stats span { display: block; margin-top: 14px; border-left: 2px solid var(--blue); padding-left: 12px; color: #c7cddd; }
+  /* agenda */
+  .agenda { margin-top: 36px; display: grid; gap: 0; border-top: 1px solid var(--line); }
+  .agenda div { display: grid; grid-template-columns: 110px minmax(0, 1fr) minmax(0, 1.2fr); gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+  .agenda em { font: 600 13px var(--mono); color: var(--blue); font-style: normal; }
+  .agenda h3 { font-size: 19px; }
+  .agenda p { color: var(--body); font-size: 15px; }
+  /* who + speakers */
+  .who { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .who span { background: var(--tag); color: var(--blue-dk); font: 600 14px var(--font); border-radius: 999px; padding: 10px 16px; }
+  .spk { margin-top: 36px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .spk .card { display: grid; gap: 12px; }
+  .spk i { width: 64px; height: 64px; border-radius: 50%; background: var(--navy); color: #8fb4ff; display: grid; place-items: center; font: 600 18px var(--mono); font-style: normal; }
+  .spk h3 { font-size: 19px; margin: 0; } .spk p { margin: 0; }
+  /* quotes */
+  .quotes { margin-top: 36px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  blockquote { background: var(--soft); border: 1px solid var(--line); border-radius: 16px; padding: 28px; font-size: 18px; line-height: 1.5; color: var(--ink); }
+  blockquote cite { display: block; margin-top: 16px; font: 500 14px var(--font); color: var(--muted); font-style: normal; }
+  blockquote cite b { color: var(--ink); }
+  /* faq */
+  .faq { margin-top: 30px; border-top: 1px solid var(--line); }
+  details { border-bottom: 1px solid var(--line); padding: 18px 0; }
+  summary { cursor: pointer; font-size: 18px; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--blue); font-size: 22px; line-height: 1; }
+  details[open] summary::after { content: "−"; }
+  details p { margin-top: 10px; color: var(--body); max-width: 760px; }
+  .cta { margin-top: 84px; background: var(--blue); color: #fff; border-radius: 24px; padding: clamp(28px, 5vw, 60px); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: center; }
+  .cta h2 { font-size: clamp(28px, 3.6vw, 44px); line-height: 1.05; }
+  .cta p { margin-top: 10px; color: #dbe6ff; }
+  .cta .btn { background: #fff; color: var(--blue); }
+  footer { margin-top: 70px; background: var(--navy); color: #aab3c9; padding-block: 40px 60px; font-size: 13.5px; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; align-items: center; }
+  footer img { height: 22px; }
+  /* demo helper for Tyler */
+  .helper { position: fixed; left: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 30; display: flex; gap: 8px; flex-wrap: wrap; }
+  .helper a, .helper button { font: 600 12px var(--mono); background: var(--navy); color: #cfe0ff; border: 1px solid #2c3a66; border-radius: 999px; padding: 9px 13px; cursor: pointer; text-decoration: none; box-shadow: 0 10px 24px -10px rgba(0,0,0,.5); }
+  .panel { position: fixed; right: 16px; bottom: calc(64px + env(safe-area-inset-bottom, 0px)); z-index: 31; width: min(440px, calc(100% - 32px)); background: var(--navy); color: #dbe4ff; border-radius: 14px; padding: 18px; box-shadow: 0 30px 60px -20px rgba(0,0,0,.6); }
+  .panel b { color: #fff; } .panel pre { margin-top: 10px; font: 12.5px/1.6 var(--mono); white-space: pre-wrap; max-height: 50vh; overflow: auto; color: #cfe0ff; }
+  .panel p { font-size: 13px; color: #aab3c9; margin-top: 6px; }
+  @media (max-width: 920px) {
+    header.nav ul { display: none; }
+    .hero, .head, .demo, .cta { grid-template-columns: 1fr; }
+    .cards3, .spk, .stats .grid, .quotes { grid-template-columns: 1fr; }
+    .agenda div { grid-template-columns: 70px minmax(0, 1fr); } .agenda p { grid-column: 2; }
+  }
+  @media (max-width: 480px) { .two { grid-template-columns: 1fr; } }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .note mark { transition: none; } }
+</style>
+</head>
+<body>
+<div class="ann">LIVE WEBINAR · <b>THURSDAY, NOVEMBER 19 · 11:00 AM ET</b> · 45 MINUTES · FREE</div>
+<header class="nav"><div class="wrap">
+  <a href="https://www.getlimina.ai/en" target="_blank" rel="noopener" aria-label="Limina"><img src="../logo.svg" alt="Limina" width="151" height="26"></a>
+  <ul><li><a href="#learn">What you'll learn</a></li><li><a href="#demo">Live demo</a></li><li><a href="#agenda">Agenda</a></li><li><a href="#faq">FAQ</a></li></ul>
+  <div class="sp"></div>
+  <a class="btn blue" href="#register">Save my seat</a>
+</div></header>
+
+<main class="wrap">
+  <section class="hero" id="register" style="padding-block: clamp(28px, 5vw, 64px)">
+    <div>
+      <div class="eyebrow">Live webinar for privacy, security and data leaders</div>
+      <h1>Every prompt is a data transaction. <em>Govern every one.</em></h1>
+      <p class="sub">Your teams want to use your best data in AI. Compliance keeps saying no. In 45 minutes, see how banks, insurers and health systems keep PII and PHI out of RAG pipelines and AI agents, without slowing AI down.</p>
+      <div class="chips"><span>THU, NOV 19</span><span>11:00 AM ET</span><span>45 MIN</span><span>RECORDING INCLUDED</span></div>
+      <div class="host"><i>PT</i><span><b>Patricia Thaine</b>Founder, CAIO and Chairwoman, Limina</span></div>
+    </div>
+    <div class="formcard" id="formcard">
+      <div id="formView">
+        <h2>Save your seat</h2>
+        <p class="s">Free. Can't make it live? Register and we'll send the recording.</p>
+        <form id="reg" novalidate>
+          <div class="two">
+            <label for="fn">First name<input id="fn" name="firstname" autocomplete="given-name" required></label>
+            <label for="ln">Last name<input id="ln" name="lastname" autocomplete="family-name" required></label>
+          </div>
+          <label for="em">Work email<input id="em" name="email" type="email" autocomplete="email" required><span class="err" id="emErr"></span></label>
+          <div class="two">
+            <label for="co">Company<input id="co" name="company" autocomplete="organization" required></label>
+            <label for="jt">Job title<input id="jt" name="jobtitle" autocomplete="organization-title" required></label>
+          </div>
+          <label for="st">Where are you with AI governance?<select id="st" name="ai_stage" required><option value="">Choose one</option><option>Exploring the risks</option><option>Piloting AI on sensitive data</option><option>In production, need controls</option></select></label>
+          <label class="consent" for="cs"><input id="cs" type="checkbox" checked><span>Send me the recording and related resources from Limina. You can unsubscribe any time.</span></label>
+          <button class="btn blue" type="submit">Register free</button>
+          <p class="fine">We'll never share your details. Privacy is kind of our thing.</p>
+        </form>
+      </div>
+      <div class="done" id="doneView" hidden>
+        <div class="tick">✓</div>
+        <h2 id="doneTitle">You're in.</h2>
+        <p>Your calendar invite is ready. We'll email your link the day before, and the recording right after.</p>
+        <div class="row"><button class="btn blue" id="ics" type="button">Add to calendar</button><button class="btn out" id="share" type="button">Copy link for a colleague</button></div>
+        <p class="fine" style="text-align:left">Got a question for the panel? Reply to your confirmation email and we'll try to answer it live.</p>
+      </div>
+    </div>
+  </section>
+
+  <p class="trust">From the team behind the de-identification engine trusted by <b>Boehringer Ingelheim</b>, <b>Zurich Insurance</b> and <b>MUFG Bank</b></p>
+
+  <section id="learn">
+    <div class="head"><div><div class="eyebrow">What you'll learn</div><h2>Three things you can use the next morning.</h2></div><p>No product tour disguised as a webinar. Practical answers to the questions privacy, security and data teams are asking right now.</p></div>
+    <div class="cards3">
+      <div class="card"><div class="n">01</div><h3>Where sensitive data leaks in AI</h3><p>RAG retrieval, agent memory, prompt logs, fine-tuning sets. The four places PII and PHI slip through, and how to close each one.</p></div>
+      <div class="card"><div class="n">02</div><h3>What “audit-ready” really means</h3><p>The evidence auditors accept for HIPAA expert determination, GDPR, CPRA and PCI-DSS, and how to produce it without a six-month project.</p></div>
+      <div class="card"><div class="n">03</div><h3>Why context beats pattern matching</h3><p>A live demo of what rules miss: the SSN without the word “SSN”, the card number spoken across two turns, the name that doesn't look like a name.</p></div>
+    </div>
+  </section>
+
+  <section id="demo">
+    <div class="head"><div><div class="eyebrow">A preview of the live demo</div><h2>See what a rule would miss.</h2></div><p>Press the button. This is the kind of messy, real-world text we'll de-identify live, on screen, with the entities explained.</p></div>
+    <div class="demo">
+      <div class="note" id="note">
+        <small>CALL TRANSCRIPT · CONTACT CENTER</small>
+        <div class="txt">Hi, this is <mark data-t="[NAME_GIVEN_1]">Dana</mark> calling about my claim. It's <mark data-t="[CLAIM_NUMBER_1]">TXB 2026 441</mark>. My number for verification is <mark data-t="[SSN_1]">four five two, eight one, nine nine zero three</mark>, and you can reach me at <mark data-t="[PHONE_NUMBER_1]">six one three, five five five, oh one four two</mark>. The card ends in <mark data-t="[CREDIT_CARD_1]">four four one two</mark>, and my doctor is <mark data-t="[NAME_MEDICAL_PROFESSIONAL_1]">Dr. Holloway</mark> at <mark data-t="[ORGANIZATION_1]">Cedarwood Clinic</mark>.</div>
+        <div class="tog"><button class="btn blue" id="redact" type="button">De-identify it</button><button class="btn out" id="reset" type="button">Show original</button></div>
+      </div>
+      <div class="ent">
+        <small>ENTITIES FOUND</small>
+        <ul id="ents"><li>Press “De-identify it” <span>…</span></li></ul>
+        <p>No “SSN” keyword, numbers spoken as words, a card split across a sentence. Pattern matching struggles here. Context doesn't.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="eyebrow">Proven at scale</div>
+    <h2 style="margin-top:10px;font-size:clamp(28px,3.6vw,44px)">Built for regulated data, in production today.</h2>
+    <div class="grid">
+      <div><b>99.5%</b><span>Accuracy on physician conversations for Providence Health</span></div>
+      <div><b>48 hours → minutes</b><span>Medical inquiry response time for Boehringer Ingelheim</span></div>
+      <div><b>52 languages</b><span>Deployed inside your own environment, with no third-party processing</span></div>
+    </div>
+  </div>
+
+  <section id="agenda">
+    <div class="head"><div><div class="eyebrow">Agenda</div><h2>45 minutes, minute by minute.</h2></div><p>Bring your hardest question. We save the last ten minutes for yours.</p></div>
+    <div class="agenda">
+      <div><em>00:00</em><h3>Welcome and a quick poll</h3><p>Where are you with AI governance? We'll share the room's answers live.</p></div>
+      <div><em>03:00</em><h3>Where PII and PHI leak in AI</h3><p>RAG pipelines, agents, logs and training data, with real examples from regulated teams.</p></div>
+      <div><em>15:00</em><h3>Live demo: context vs. rules</h3><p>De-identifying call transcripts, clinical notes and documents, entity by entity.</p></div>
+      <div><em>25:00</em><h3>From “no” to “yes”: a customer story</h3><p>How one team got compliance to approve AI on their most restricted data.</p></div>
+      <div><em>35:00</em><h3>Your questions, answered</h3><p>Open Q&amp;A with the speakers, plus the three most asked questions from registration.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="head"><div><div class="eyebrow">Who should attend</div><h2>Built for the people who say yes (or no) to AI.</h2></div><p>If your job is to protect sensitive data, or to put it to work, this session is for you.</p></div>
+    <div class="who"><span>Chief Privacy Officers</span><span>Data Protection Officers</span><span>CISOs and security leaders</span><span>Heads of Data and AI</span><span>Compliance and risk leaders</span><span>ML and platform engineers</span></div>
+    <div class="spk">
+      <div class="card"><i>PT</i><h3>Patricia Thaine</h3><p>Founder, CAIO and Chairwoman, Limina</p></div>
+      <div class="card"><i>FS</i><h3>A customer data leader</h3><p>Financial services, sharing what changed in production</p></div>
+      <div class="card"><i>LM</i><h3>Your host</h3><p>Limina marketing, keeping it on time and on topic</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="head"><div><div class="eyebrow">What customers say</div><h2>Teams that stopped choosing between compliance and useful data.</h2></div><p>Real words from Limina customers, as published on getlimina.ai.</p></div>
+    <div class="quotes">
+      <blockquote>“Our platform reduces response time from days to minutes, but we couldn't have launched without proper anonymization. It was critical for compliance.”<cite><b>Israel Gonzales Salas</b> · Data Engineer, Boehringer Ingelheim</cite></blockquote>
+      <blockquote>“After doing a side-by-side comparison, it quickly became clear to us that we couldn't go back to using something like AWS.”<cite><b>Sebastian Jimenez</b> · Founder and CEO, Rilla</cite></blockquote>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="head"><div><div class="eyebrow">FAQ</div><h2>Good questions, short answers.</h2></div><p></p></div>
+    <div class="faq">
+      <details><summary>I can't make it live. Should I still register?</summary><p>Yes. Everyone who registers gets the recording, the slides and the guide “De-identification for AI Training Data” the next day.</p></details>
+      <details><summary>Is it technical?</summary><p>It's built for both sides of the table. Privacy and compliance leaders get the “what and why”; data and engineering teams get the “how”, including a live demo.</p></details>
+      <details><summary>Will it be a sales pitch?</summary><p>No. You'll see the product in the demo, because that's the clearest way to show the problem. The rest is practical and vendor-neutral.</p></details>
+      <details><summary>Can I bring my team?</summary><p>Please do. Use “Copy link for a colleague” after you register, or forward your confirmation email.</p></details>
+      <details><summary>Does my data leave my environment with Limina?</summary><p>No. Limina deploys in your VPC or on-prem, with no third-party access and no outbound calls. We'll show the architecture in the session.</p></details>
+    </div>
+  </section>
+
+  <div class="cta"><div><h2>Save your seat. Bring your hardest question.</h2><p>Thursday, November 19 · 11:00 AM ET · 45 minutes · free</p></div><a class="btn" href="#register">Register free</a></div>
+</main>
+
+<footer><div class="wrap"><img src="../logo-white.svg" alt="Limina" width="151" height="26"><span>Demo landing page made by Durva Thakkar for the Limina marketing team. Not an official Limina page; facts and customer quotes are from getlimina.ai.</span></div></footer>
+
+<div class="helper"><a href="../#lp">← Back to Durva's workspace</a><button id="hs" type="button">What HubSpot receives</button></div>
+<div class="panel" id="panel" hidden><b>Behind the form</b><p>What this page would send to HubSpot on submit, including the hidden fields. Try registering, then open this again.</p><pre id="payload"></pre></div>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const qs = new URLSearchParams(location.search);
+  if (qs.has("shot")) document.querySelector(".helper").hidden = true;
+  const utm = k => qs.get(k) || { utm_source: "linkedin", utm_medium: "paid-social", utm_campaign: "2026-q4_webinar_governing-every-prompt", utm_content: "ad-b-proof" }[k];
+  const persona = t => /privacy|dpo|data protection/i.test(t) ? "Privacy" : /security|ciso|infosec/i.test(t) ? "Security" : /data|ai|ml|machine|analytics|engineer/i.test(t) ? "Data / AI" : /compliance|risk|legal|counsel/i.test(t) ? "Compliance" : "Other";
+  let last = null;
+  function payload() {
+    const v = id => $(id).value.trim();
+    return {
+      firstname: v("fn"), lastname: v("ln"), email: v("em"), company: v("co"), jobtitle: v("jt"), ai_governance_stage: v("st"),
+      persona: persona(v("jt")), consent_marketing: $("cs").checked,
+      utm_source: utm("utm_source"), utm_medium: utm("utm_medium"), utm_campaign: utm("utm_campaign"), utm_content: utm("utm_content"),
+      page_url: location.origin + location.pathname, campaign_id: "2026-Q4-WEB-GEP", lifecyclestage: "lead",
+      mdr_alert: v("st") === "In production, need controls",
+    };
+  }
+  const show = () => { $("payload").textContent = JSON.stringify(last || payload(), null, 2); };
+  $("hs").onclick = () => { const p = $("panel"); p.hidden = !p.hidden; if (!p.hidden) show(); };
+
+  const FREE = /@(gmail|yahoo|hotmail|outlook|icloud|aol|proton(mail)?|live)\./i;
+  $("reg").addEventListener("submit", e => {
+    e.preventDefault();
+    let ok = true;
+    ["fn", "ln", "em", "co", "jt", "st"].forEach(id => { const el = $(id), bad = !el.value.trim(); el.setAttribute("aria-invalid", bad); if (bad) ok = false; });
+    const em = $("em").value.trim();
+    if (em && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)) { $("emErr").textContent = "That email doesn't look right."; $("em").setAttribute("aria-invalid", true); ok = false; }
+    else if (FREE.test(em)) { $("emErr").textContent = "Please use your work email so we can send the right materials."; $("em").setAttribute("aria-invalid", true); ok = false; }
+    else $("emErr").textContent = "";
+    if (!ok) { (document.querySelector('[aria-invalid="true"]') || $("fn")).focus(); return; }
+    last = payload();
+    $("doneTitle").textContent = `You're in, ${$("fn").value.trim()}.`;
+    $("formView").hidden = true; $("doneView").hidden = false;
+    if (!$("panel").hidden) show();
+  });
+  document.querySelectorAll("#reg input, #reg select").forEach(el => el.addEventListener("input", () => el.removeAttribute("aria-invalid")));
+
+  $("ics").onclick = () => {
+    const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Limina demo//EN", "BEGIN:VEVENT", "UID:gep-20261119@durvathakkar.com", "DTSTAMP:20261010T120000Z", "DTSTART:20261119T160000Z", "DTEND:20261119T164500Z",
+      "SUMMARY:Governing every prompt (Limina webinar)", "DESCRIPTION:Live webinar for privacy\\, security and data leaders. Demo invite from Durva Thakkar's landing page.", "END:VEVENT", "END:VCALENDAR"].join("\r\n");
+    const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([ics], { type: "text/calendar" })); a.download = "governing-every-prompt.ics"; document.body.append(a); a.click(); a.remove();
+  };
+  $("share").onclick = async e => { try { await navigator.clipboard.writeText(location.origin + location.pathname + "?utm_source=referral&utm_medium=colleague"); e.target.textContent = "Link copied ✓"; } catch { e.target.textContent = "Copy the address bar"; } };
+
+  // demo: de-identify the transcript
+  const marks = [...document.querySelectorAll("#note mark")];
+  marks.forEach(m => m.dataset.o = m.textContent);
+  $("redact").onclick = () => {
+    $("note").classList.add("red");
+    marks.forEach((m, i) => setTimeout(() => { m.textContent = m.dataset.t; }, i * 160));
+    $("ents").innerHTML = marks.map(m => `<li>${m.dataset.o} <span>${m.dataset.t.replace(/[\[\]]/g, "").replace(/_1$/, "")}</span></li>`).join("");
+  };
+  $("reset").onclick = () => { $("note").classList.remove("red"); marks.forEach(m => m.textContent = m.dataset.o); $("ents").innerHTML = "<li>Press “De-identify it” <span>…</span></li>"; };
+})();
+</script>
+</body>
+</html>
