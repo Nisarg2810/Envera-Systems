@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Case File LIM-1119 · For Tyler</title>
+<meta name="description" content="A confidential case file for Tyler Munro. Bring your own flashlight.">
+<meta property="og:title" content="CONFIDENTIAL · Case File LIM-1119">
+<meta property="og:description" content="For Tyler Munro, VP Marketing. Some things only show up with the right light.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600;700&family=JetBrains+Mono:wght@600;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root { --dark: #07040f; --paper: #1d2ccf; --ink: #0b0b12; --glow: #8ff6ff; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  [hidden] { display: none !important; }
+  html, body { height: 100%; }
+  body { background: var(--dark); color: #fff; font-family: "Instrument Sans", system-ui, sans-serif; overflow-x: hidden; cursor: none; -webkit-font-smoothing: antialiased; }
+  @media (hover: none) { body { cursor: auto; } }
+  .wrap { min-height: 100%; display: grid; place-items: center; padding: 28px 16px 90px; }
+  .hint { position: fixed; top: calc(14px + env(safe-area-inset-top, 0px)); left: 50%; transform: translateX(-50%); z-index: 20; font: 700 12px "JetBrains Mono", monospace; letter-spacing: .14em; color: #9aa3c7; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); padding: 8px 14px; border-radius: 999px; white-space: nowrap; transition: opacity .6s; }
+  /* the sheet */
+  .sheet { position: relative; width: min(640px, 100%, calc((100svh - 150px) * 8.5 / 11)); min-width: min(300px, 100%); aspect-ratio: 8.5 / 11; container-type: inline-size; border-radius: 6px; overflow: hidden; box-shadow: 0 40px 100px -30px rgba(0,0,0,.9); user-select: none; -webkit-user-select: none; touch-action: none; }
+  .layer { position: absolute; inset: 0; padding: 7cqi 7cqi 6cqi; display: flex; flex-direction: column; }
+  .day { background: var(--paper); color: var(--ink); filter: brightness(.16) saturate(.6); }
+  .uv { background: radial-gradient(circle at 50% 50%, #2a17ff, #1406a8 70%); color: #0b0618; -webkit-mask-image: radial-gradient(circle var(--r, 0px) at var(--x, -999px) var(--y, -999px), #000 55%, transparent 100%); mask-image: radial-gradient(circle var(--r, 0px) at var(--x, -999px) var(--y, -999px), #000 55%, transparent 100%); }
+  .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 3cqi; }
+  .stamp { font: 700 4cqi "JetBrains Mono", monospace; letter-spacing: .1em; color: #7a1020; border: .5cqi solid #7a1020; padding: 1cqi 2cqi; transform: rotate(-7deg); }
+  .meta { font: 700 2.5cqi "JetBrains Mono", monospace; letter-spacing: .08em; line-height: 1.8; text-align: right; }
+  .sub { margin-top: 4cqi; font: 700 2.8cqi "JetBrains Mono", monospace; letter-spacing: .12em; }
+  h1 { margin-top: 1cqi; font: 700 6cqi "Caveat", cursive; }
+  .doc { margin-top: 1.4cqi; font: 700 3.6cqi/1.55 "Caveat", cursive; }
+  .doc p + p { margin-top: 1.6cqi; }
+  .bar { background: var(--ink); color: transparent; border-radius: .5cqi; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+  .tag { font: 700 .62em "JetBrains Mono", monospace; border: .3cqi solid currentColor; border-radius: .6cqi; padding: 0 .3em; }
+  .box { margin-top: 3cqi; flex: 1; border: .3cqi solid rgba(11,11,18,.6); border-radius: 1cqi; position: relative; }
+  .foot { margin-top: 3cqi; display: flex; justify-content: space-between; align-items: flex-end; font: 700 2.4cqi "JetBrains Mono", monospace; letter-spacing: .06em; }
+  .foot .h { font: 700 4cqi "Caveat", cursive; letter-spacing: 0; }
+  .msg { position: absolute; inset: 3.5cqi 4cqi; color: var(--glow); text-shadow: 0 0 1.2cqi rgba(143,246,255,.95), 0 0 3cqi rgba(143,246,255,.6); font: 700 5.2cqi/1.15 "Caveat", cursive; display: grid; align-content: center; gap: 1.6cqi; }
+  .msg .u { font: 700 3.6cqi "JetBrains Mono", monospace; letter-spacing: .01em; }
+  /* flashlight cursor */
+  .torch { position: fixed; left: 0; top: 0; width: 34px; height: 34px; margin: -17px 0 0 -17px; border-radius: 50%; background: radial-gradient(circle, rgba(170,140,255,.9), rgba(120,80,255,.15) 60%, transparent 70%); pointer-events: none; z-index: 30; mix-blend-mode: screen; }
+  @media (hover: none) { .torch { display: none; } }
+  .found { position: fixed; left: 50%; bottom: calc(22px + env(safe-area-inset-bottom, 0px)); transform: translate(-50%, 20px); opacity: 0; transition: opacity .6s, transform .6s; z-index: 25; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; width: calc(100% - 32px); }
+  .found.on { opacity: 1; transform: translate(-50%, 0); }
+  .found a { cursor: pointer; font: 700 13px "JetBrains Mono", monospace; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; padding: 14px 20px; border-radius: 8px; }
+  .found .a1 { background: #2170f1; color: #fff; } .found .a2 { border: 1px solid #3b4f8a; color: #cfe0ff; background: rgba(7,4,15,.7); }
+  .found a:focus-visible { outline: 2px solid var(--glow); outline-offset: 2px; }
+</style>
+</head>
+<body>
+<div class="hint" id="hint">THE LIGHTS ARE OFF · MOVE YOUR FLASHLIGHT OVER THE FILE 🔦</div>
+<div class="wrap">
+  <div class="sheet" id="sheet" role="img" aria-label="A redacted case file. A hidden UV message reads: Hi Tyler, it's Durva. I did the job for a week to prove I could be the best hire. Find it here: durvathakkar.com/limina">
+    <div class="layer day" aria-hidden="true">
+      <div class="top"><div class="stamp">CONFIDENTIAL</div><div class="meta">CASE FILE · LIM-1119<br>CLASSIFICATION: PII<br>FOR: TYLER MUNRO, VP MARKETING</div></div>
+      <div class="sub">SUBJECT · DEMAND GENERATION</div>
+      <h1>The Candidate file.</h1>
+      <div class="doc">
+        <p>Subject <span class="tag">[NAME_GIVEN_1]</span> has <span class="bar">completed one full week</span> of the Demand Gen role at <span class="bar">Limina</span>, without being hired.</p>
+        <p>Evidence recovered: <span class="bar">1 campaign</span>, <span class="bar">landing page</span>, <span class="bar">5 emails</span>, <span class="bar">webinar program</span>, <span class="bar">4 ads</span>, <span class="bar">ABM pilot</span>.</p>
+        <p>Location of full file: <span class="bar">durvathakkar.com/limina</span>. Recommended action: <span class="bar">20-min coffee</span>. Priority: <span class="bar">high</span>.</p>
+      </div>
+      <div class="box"></div>
+      <div class="foot"><span>ENTITIES HIDDEN: 11<br>TOOLS REQUIRED: 1 (YOUR CURSOR)</span><span class="h">(read hidden text) 🔦</span></div>
+    </div>
+    <div class="layer uv" id="uv" aria-hidden="true">
+      <div class="top"><div class="stamp">CONFIDENTIAL</div><div class="meta">CASE FILE · LIM-1119<br>CLASSIFICATION: PII<br>FOR: TYLER MUNRO, VP MARKETING</div></div>
+      <div class="sub">SUBJECT · DEMAND GENERATION</div>
+      <h1>The Candidate file.</h1>
+      <div class="doc">
+        <p>Subject <span class="tag">[NAME_GIVEN_1]</span> has <span class="bar">completed one full week</span> of the Demand Gen role at <span class="bar">Limina</span>, without being hired.</p>
+        <p>Evidence recovered: <span class="bar">1 campaign</span>, <span class="bar">landing page</span>, <span class="bar">5 emails</span>, <span class="bar">webinar program</span>, <span class="bar">4 ads</span>, <span class="bar">ABM pilot</span>.</p>
+        <p>Location of full file: <span class="bar">durvathakkar.com/limina</span>. Recommended action: <span class="bar">20-min coffee</span>. Priority: <span class="bar">high</span>.</p>
+      </div>
+      <div class="box" id="box"><div class="msg"><span>Hi Tyler, it's Durva.</span><span>I did the job for a week to prove I could be the best hire.</span><span class="u">Find it here: durvathakkar.com/limina</span></div></div>
+      <div class="foot"><span>ENTITIES HIDDEN: 11<br>TOOLS REQUIRED: 1 (YOUR CURSOR)</span><span class="h">(read hidden text) 🔦</span></div>
+    </div>
+  </div>
+</div>
+<div class="torch" id="torch" aria-hidden="true"></div>
+<div class="found" id="found"><a class="a1" href="../">Open the full case file ↗</a><a class="a2" href="../webinar/">See the live landing page ↗</a></div>
+<noscript><p style="text-align:center;padding:20px">Hi Tyler, it's Durva. I did the job for a week to prove I could be the best hire. <a href="../" style="color:#8ff6ff">durvathakkar.com/limina</a></p></noscript>
+<script>
+(() => {
+  const sheet = document.getElementById("sheet"), uv = document.getElementById("uv"), box = document.getElementById("box");
+  const torch = document.getElementById("torch"), found = document.getElementById("found"), hint = document.getElementById("hint");
+  let shown = false, moved = false;
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function shine(cx, cy) {
+    const r = sheet.getBoundingClientRect();
+    uv.style.setProperty("--x", (cx - r.left) + "px"); uv.style.setProperty("--y", (cy - r.top) + "px");
+    uv.style.setProperty("--r", Math.max(90, r.width * .26) + "px");
+    if (!moved) { moved = true; hint.style.opacity = ".0"; }
+    const b = box.getBoundingClientRect();
+    if (!shown && cx > b.left && cx < b.right && cy > b.top && cy < b.bottom) { shown = true; setTimeout(() => found.classList.add("on"), 900); }
+  }
+  addEventListener("pointermove", e => { torch.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`; shine(e.clientX, e.clientY); });
+  sheet.addEventListener("pointerdown", e => shine(e.clientX, e.clientY));
+  sheet.addEventListener("touchmove", e => { const t = e.touches[0]; shine(t.clientX, t.clientY); }, { passive: true });
+  // a slow automatic sweep if nobody moves, so the page explains itself
+  if (!reduce) setTimeout(() => {
+    if (moved) return;
+    const r = sheet.getBoundingClientRect(); let t = 0;
+    const sweep = () => { if (moved) return; t += .012; const x = r.left + r.width * (.5 + .32 * Math.sin(t * 2)), y = r.top + r.height * (.62 + .1 * Math.cos(t * 3)); const R = sheet.getBoundingClientRect(); uv.style.setProperty("--x", (x - r.left) + "px"); uv.style.setProperty("--y", (y - r.top) + "px"); uv.style.setProperty("--r", Math.max(90, R.width * .22) + "px"); if (t < 6) requestAnimationFrame(sweep); };
+    requestAnimationFrame(sweep);
+  }, 2600);
+  if (reduce) { uv.style.setProperty("--x", "50%"); uv.style.setProperty("--y", "65%"); uv.style.setProperty("--r", "2000px"); found.classList.add("on"); }
+})();
+</script>
+</body>
+</html>
