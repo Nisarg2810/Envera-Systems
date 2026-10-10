@@ -113,19 +113,15 @@
   .label3d .a { margin-top: 2.5cqi; font: 500 5.6cqi/1.38 "Instrument Sans", sans-serif; }
   .label3d .a b { font-weight: 700; }
   .stencil { position: absolute; right: 6%; bottom: 10%; font: 700 calc(var(--w) * .028) "JetBrains Mono", monospace; letter-spacing: .14em; color: rgba(40,24,10,.55); text-align: right; line-height: 1.6; }
-  .crinkle { width: calc(var(--w) - 6px); height: calc(var(--d) - 6px); margin: calc(var(--d) / -2 + 3px) 0 0 calc(var(--w) / -2 + 3px); pointer-events: none; }
-  .crinkle svg { width: 100%; height: 100%; display: block; overflow: visible; }
-  .c1 { transform: translateY(calc(var(--h) / 2 - 4px)) rotateX(90deg); }
-  .c2 { transform: translateY(calc(var(--h) / 2 - 22px)) rotateX(90deg); }
   .item { transition: transform 1.4s cubic-bezier(.4,0,.2,1), filter .4s; cursor: pointer; }
-  .ev { width: calc(var(--w) * .4); height: calc(var(--w) * .4 * 11 / 8.5); margin: calc(var(--w) * -.259) 0 0 calc(var(--w) * -.2); transform: translate3d(calc(var(--w) * -.12), calc(var(--h) / 2 - 16px), 0) rotateX(90deg) rotateZ(-8deg); }
+  .ev { width: calc(var(--w) * .4); height: calc(var(--w) * .4 * 11 / 8.5); margin: calc(var(--w) * -.259) 0 0 calc(var(--w) * -.2); transform: translate3d(calc(var(--w) * -.12), calc(var(--h) / 2 - 5px), 0) rotateX(90deg) rotateZ(-8deg); }
   .box3d.s3 .ev { transform: translate3d(calc(var(--w) * -.2), calc(var(--h) * -1.75), calc(var(--d) * .25)) rotateY(14deg) rotateX(50deg) rotateZ(-5deg); }
   .ev .pp { position: absolute; inset: 0; background: #1d2ccf; border-radius: 3px; box-shadow: 0 10px 24px rgba(0,0,0,.45); padding: 9%; display: grid; align-content: start; gap: 5%; container-type: inline-size; }
   .ev .pp i { display: block; height: 4cqi; background: #0b0b12; border-radius: 2px; }
   .ev .pp .t { font: 700 6.5cqi "JetBrains Mono", monospace; color: #7a1020; border: .8cqi solid #7a1020; justify-self: start; padding: 0 2cqi; }
   .ev .bag { position: absolute; inset: -5%; border: 2px solid rgba(255,255,255,.35); border-radius: 6px; background: linear-gradient(160deg, rgba(255,255,255,.2), rgba(255,255,255,.04) 40%, rgba(255,255,255,.14)); container-type: inline-size; }
   .ev .bag::after { content: "EVIDENCE"; position: absolute; left: 6%; bottom: 4%; font: 700 7cqi "JetBrains Mono", monospace; letter-spacing: .14em; color: #fff; background: #b0182c; padding: .5cqi 2.4cqi; border-radius: 2px; }
-  .uvt { width: calc(var(--w) * .1); height: calc(var(--w) * .46); margin: calc(var(--w) * -.23) 0 0 calc(var(--w) * -.05); transform: translate3d(calc(var(--w) * .24), calc(var(--h) / 2 - 19px), 0) rotateX(90deg) rotateZ(14deg); background: none; border: 0; padding: 0; container-type: inline-size; }
+  .uvt { width: calc(var(--w) * .1); height: calc(var(--w) * .46); margin: calc(var(--w) * -.23) 0 0 calc(var(--w) * -.05); transform: translate3d(calc(var(--w) * .24), calc(var(--h) / 2 - 8px), 0) rotateX(90deg) rotateZ(14deg); background: none; border: 0; padding: 0; container-type: inline-size; }
   .box3d.s3 .uvt { transform: translate3d(calc(var(--w) * .3), calc(var(--h) * -1.6), calc(var(--d) * .35)) rotateY(14deg) rotateX(50deg) rotateZ(16deg); transition-delay: .25s; }
   .box3d.s3 .uvt:hover, .uvt:focus-visible { filter: drop-shadow(0 0 16px rgba(170,140,255,.95)); }
   .uvt .head { position: absolute; top: 0; left: -12%; right: -12%; height: 22%; border-radius: 8px 8px 4px 4px; background: linear-gradient(90deg, #2b2b33, #5a5a66 45%, #222229); }
@@ -157,10 +153,8 @@
         <div class="box3d" id="box3d">
           <div class="f shadow"></div>
           <div class="f floor"><div class="sk"></div></div>
-          <div class="f crinkle c1"><svg class="cr" viewBox="0 0 400 288" preserveAspectRatio="none"></svg></div>
           <div class="f item ev" id="ev" aria-hidden="true"><div class="pp"><span class="t">CONFIDENTIAL</span><i style="width:80%"></i><i style="width:60%"></i><i style="width:90%"></i><i style="width:45%"></i><i style="width:70%"></i><i style="width:55%"></i></div><span class="bag"></span></div>
           <button class="f item uvt" id="uvt" aria-label="Pick up the UV torch" tabindex="-1"><span class="lens"></span><span class="head"></span><span class="body"></span></button>
-          <div class="f crinkle c2"><svg class="cr" viewBox="0 0 400 288" preserveAspectRatio="none"></svg></div>
           <div class="f wall fb back"><div class="sk out"></div><div class="sk in"></div><div class="flap"><div class="sk out"><span class="tape"></span></div><div class="sk in"></div></div></div>
           <div class="f wall lr left"><div class="sk out"><span class="tape"></span></div><div class="sk in"></div><div class="flap"><div class="sk out"></div><div class="sk in"></div></div></div>
           <div class="f wall lr right"><div class="sk out"><span class="tape"></span></div><div class="sk in"></div><div class="flap"><div class="sk out"></div><div class="sk in"></div></div></div>
@@ -239,22 +233,6 @@
   }, 2600); };
   if (reduce) { uv.style.setProperty("--x", "50%"); uv.style.setProperty("--y", "65%"); uv.style.setProperty("--r", "2000px"); found.classList.add("on"); }
 
-  // crinkle paper: lots of little zig-zag strands, thicker around the edges of the top layer
-  document.querySelectorAll(".cr").forEach((svg, li) => {
-    let seed = 7 + li * 31; const rnd = () => (seed = (seed * 9301 + 49297) % 233280) / 233280;
-    const cols = ["#e9d4a6", "#d9b77f", "#f3e6c6", "#caa36a", "#e3c48e", "#2170f1"];
-    let out = "";
-    for (let i = 0; i < (li ? 150 : 220); i++) {
-      let x = rnd() * 400, y = rnd() * 288;
-      if (li) { const edge = rnd() < .5; if (edge) x = rnd() < .5 ? rnd() * 70 : 330 + rnd() * 70; else y = rnd() < .5 ? rnd() * 55 : 233 + rnd() * 55; }
-      const a = rnd() * Math.PI * 2, len = 26 + rnd() * 46, n = 6 + (rnd() * 6 | 0), amp = 2 + rnd() * 4;
-      let d = `M${x.toFixed(1)} ${y.toFixed(1)}`;
-      for (let k = 1; k <= n; k++) { const t = len * k / n, z = (k % 2 ? amp : -amp); d += ` L${(x + Math.cos(a) * t - Math.sin(a) * z).toFixed(1)} ${(y + Math.sin(a) * t + Math.cos(a) * z).toFixed(1)}`; }
-      const c = rnd() < .06 ? cols[5] : cols[(rnd() * 5) | 0];
-      out += `<path d="${d}" stroke="${c}" stroke-width="${(2.2 + rnd() * 1.6).toFixed(1)}" fill="none" stroke-linejoin="bevel" opacity="${(.75 + rnd() * .25).toFixed(2)}"/>`;
-    }
-    svg.innerHTML = out;
-  });
   // the box, step by step: drop, cut the tape, open the flaps, lift out, pick up the torch
   const intro = document.getElementById("intro"), box3d = document.getElementById("box3d"), say = document.getElementById("say"), go = document.getElementById("go");
   const uvt = document.getElementById("uvt"), ev = document.getElementById("ev"), dots = document.querySelectorAll(".steps i");
