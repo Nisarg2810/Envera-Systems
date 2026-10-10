@@ -47,56 +47,117 @@
   .found .a1 { background: #2170f1; color: #fff; } .found .a2 { border: 1px solid #3b4f8a; color: #cfe0ff; background: rgba(7,4,15,.7); }
   .found a:focus-visible { outline: 2px solid var(--glow); outline-offset: 2px; }
 
-  /* intro: the box */
+  /* intro: a real 3D box */
   body.intro { cursor: auto; }
   body.intro .torch, body.intro .hint { display: none; }
-  #intro { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 24px 16px; background: radial-gradient(ellipse at 50% 35%, #3a2c22, #17110c 75%); transition: background 1s, opacity .8s; }
+  #intro { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 20px 16px; overflow: hidden; background: radial-gradient(ellipse at 50% 30%, #4a382a, #1a130d 70%); transition: background 1s, opacity .8s; }
   #intro.dark { background: #000; }
   #intro.gone { opacity: 0; pointer-events: none; }
-  .stage { width: min(560px, 100%); display: grid; gap: 22px; justify-items: center; transition: opacity .7s; }
+  .stage { width: min(640px, 100%); display: grid; gap: 16px; justify-items: center; transition: opacity .7s; }
   #intro.dark .stage { opacity: 0; }
-  .crate { position: relative; width: 100%; aspect-ratio: 4 / 3; border-radius: 6px; background: #8a6438; box-shadow: inset 0 0 0 10px #b98a52, inset 0 18px 40px rgba(0,0,0,.55), 0 30px 70px -20px rgba(0,0,0,.8); container-type: inline-size; }
-  .lid { position: absolute; inset: -6px; border-radius: 6px; background: linear-gradient(135deg, #cfa067, #b98a52); box-shadow: 0 14px 30px -10px rgba(0,0,0,.6); display: grid; place-items: center; cursor: pointer; transition: transform 1s cubic-bezier(.6,-0.2,.3,1), opacity 1s; z-index: 3; }
-  .lid::before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 16%; transform: translateX(-50%); background: rgba(225,205,160,.55); box-shadow: inset 0 0 0 1px rgba(255,255,255,.15); }
-  .crate.open .lid { transform: translate(8%, -115%) rotate(9deg); opacity: 0; pointer-events: none; }
-  .label { position: relative; width: 70%; background: #fbfaf6; color: #151515; border-radius: 4px; padding: 4.5cqi 5cqi; box-shadow: 0 4px 12px rgba(0,0,0,.25); transform: rotate(-2deg); font: 600 2.7cqi/1.5 "JetBrains Mono", monospace; }
-  .label .c { display: inline-block; color: #b0182c; border: .5cqi solid #b0182c; padding: .4cqi 1.6cqi; font-weight: 700; letter-spacing: .14em; font-size: 3.2cqi; transform: rotate(-4deg); }
-  .label .k { margin-top: 2cqi; font-weight: 700; letter-spacing: .1em; border-bottom: .3cqi dashed #999; padding-bottom: 2.4cqi; }
-  .label .a { margin-top: 2.4cqi; font: 500 3cqi/1.45 "Instrument Sans", sans-serif; }
-  .label .a b { font-weight: 700; }
-  .inside { position: absolute; inset: 7%; display: flex; align-items: center; justify-content: center; gap: 6%; }
-  .ev { position: relative; width: 44%; aspect-ratio: 8.5 / 11; background: #1d2ccf; border-radius: 3px; transform: rotate(-6deg); box-shadow: 0 10px 24px rgba(0,0,0,.5); padding: 7%; display: grid; align-content: start; gap: 6%; cursor: pointer; }
-  .ev i { display: block; height: 3.5%; min-height: 4px; background: #0b0b12; border-radius: 2px; }
-  .ev .t { font: 700 2.4cqi "JetBrains Mono", monospace; color: #7a1020; border: .35cqi solid #7a1020; justify-self: start; padding: .2cqi 1cqi; }
-  .ev .bag { position: absolute; inset: -5%; border: 2px solid rgba(255,255,255,.35); border-radius: 6px; background: linear-gradient(160deg, rgba(255,255,255,.18), rgba(255,255,255,.04) 40%, rgba(255,255,255,.12)); }
-  .ev .bag::after { content: "EVIDENCE"; position: absolute; left: 6%; bottom: 4%; font: 700 2.2cqi "JetBrains Mono", monospace; letter-spacing: .14em; color: #fff; background: #b0182c; padding: .3cqi 1.2cqi; border-radius: 2px; }
-  .uvt { position: relative; width: 14%; height: 70%; transform: rotate(14deg); cursor: pointer; background: none; border: 0; padding: 0; }
-  .uvt .head { position: absolute; top: 0; left: -12%; right: -12%; height: 22%; border-radius: 8px 8px 4px 4px; background: linear-gradient(90deg, #2b2b33, #55555f 45%, #222229); }
+  .scene { width: 100%; height: min(60svh, 540px); perspective: 1400px; perspective-origin: 50% 20%; display: grid; place-items: center; }
+  .dropper { transform-style: preserve-3d; animation: drop 1.2s cubic-bezier(.3,0,.25,1) both; }
+  @keyframes drop { 0% { transform: translateY(-75svh) rotateZ(-6deg); } 62% { transform: translateY(0) rotateZ(0); } 74% { transform: translateY(-26px); } 86% { transform: translateY(0); } 93% { transform: translateY(-6px); } 100% { transform: translateY(0); } }
+  .box3d { --w: min(360px, 66vw); --d: calc(var(--w) * .72); --h: calc(var(--w) * .58); position: relative; width: 0; height: 0; transform-style: preserve-3d; transform: translateY(calc(var(--h) * .25)) rotateX(-14deg) rotateY(-26deg); transition: transform 1.5s cubic-bezier(.55,0,.2,1); }
+  .box3d.s1, .box3d.s2 { transform: translateY(calc(var(--h) * .05)) rotateX(-50deg) rotateY(-14deg); }
+  .box3d.s3 { transform: translateY(calc(var(--h) * .75)) rotateX(-50deg) rotateY(-14deg); }
+  .f { position: absolute; left: 0; top: 0; transform-style: preserve-3d; }
+  .sk { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+  .sk.in { transform: translateZ(-1px) rotateY(180deg); }
+  .wall { height: var(--h); margin-top: calc(var(--h) / -2); }
+  .wall.fb { width: var(--w); margin-left: calc(var(--w) / -2); --fl: calc(var(--d) / 2); }
+  .wall.lr { width: var(--d); margin-left: calc(var(--d) / -2); --fl: calc(var(--w) / 2 - 4px); }
+  .front { transform: translateZ(calc(var(--d) / 2)); }
+  .back { transform: rotateY(180deg) translateZ(calc(var(--d) / 2)); }
+  .left { transform: rotateY(-90deg) translateZ(calc(var(--w) / 2)); }
+  .right { transform: rotateY(90deg) translateZ(calc(var(--w) / 2)); }
+  .front > .sk.out { background: linear-gradient(180deg, #cf9f62, #b88648); }
+  .back > .sk.out { background: #a87a42; }
+  .left > .sk.out { background: linear-gradient(180deg, #ad7d43, #94683a); }
+  .right > .sk.out { background: linear-gradient(180deg, #bb8a4f, #a2733f); }
+  .wall > .sk.in { background: linear-gradient(180deg, #8a6236, #5b3f22); }
+  .floor { width: var(--w); height: var(--d); margin: calc(var(--d) / -2) 0 0 calc(var(--w) / -2); transform: translateY(calc(var(--h) / 2 - 1px)) rotateX(90deg); }
+  .floor .sk { background: radial-gradient(ellipse at 50% 50%, #6e4d2b, #3f2b17); }
+  .shadow { width: var(--w); height: var(--d); margin: calc(var(--d) / -2) 0 0 calc(var(--w) / -2); transform: translateY(calc(var(--h) / 2 + 2px)) rotateX(90deg) scale(1.12); background: rgba(0,0,0,.65); filter: blur(18px); border-radius: 12px; }
+  .flap { position: absolute; left: 0; bottom: 100%; width: 100%; height: var(--fl); transform-origin: 50% 100%; transform-style: preserve-3d; transform: rotateX(90deg); transition: transform 1s cubic-bezier(.5,-.15,.3,1.25); }
+  .lr > .flap { transform: rotateX(92.5deg); }
+  .flap .sk.out { background: linear-gradient(0deg, #c1904f, #d9ab6c); }
+  .flap .sk.in { background: linear-gradient(0deg, #9a6f3d, #b2834a); }
+  .box3d.open .front > .flap { transform: rotateX(-122deg); }
+  .box3d.open .back > .flap { transform: rotateX(-122deg); transition-delay: .35s; }
+  .box3d.open .left > .flap { transform: rotateX(-108deg); transition-delay: .75s; }
+  .box3d.open .right > .flap { transform: rotateX(-108deg); transition-delay: .95s; }
+  .tape { position: absolute; background: linear-gradient(90deg, rgba(232,214,170,.92), rgba(246,234,200,.95) 50%, rgba(232,214,170,.92)); box-shadow: inset 0 0 0 1px rgba(255,255,255,.25); }
+  .flap .tape { left: 0; right: 0; top: 0; height: calc(var(--w) * .07); }
+  .lr > .sk.out .tape { top: 0; left: 50%; width: calc(var(--w) * .14); height: 32%; transform: translateX(-50%); }
+  .lr > .sk.out .tape::after { content: ""; position: absolute; left: 50%; top: 0; width: 2px; height: 0; background: #3a2715; transition: height .5s .7s; }
+  .box3d.cut .lr > .sk.out .tape::after { height: 100%; }
+  .slit { width: var(--w); height: 3px; margin: -1.5px 0 0 calc(var(--w) / -2); transform: translateY(calc(var(--h) / -2 - 1px)) rotateX(90deg); }
+  .slit::before { content: ""; position: absolute; inset: 0; background: #2b1c0e; transform: scaleX(0); transform-origin: left; transition: transform .9s cubic-bezier(.6,0,.3,1) .5s; }
+  .box3d.cut .slit::before { transform: scaleX(1); }
+  .box3d.open .slit { opacity: 0; transition: opacity .2s; }
+  .blade { position: absolute; left: 0; top: 50%; width: calc(var(--w) * .16); height: calc(var(--w) * .05); margin-top: calc(var(--w) * -.025); border-radius: 2px 40% 40% 2px; background: linear-gradient(180deg, #e9edf2, #9aa3ad); box-shadow: 0 2px 6px rgba(0,0,0,.4); opacity: 0; transform: translateX(-120%) translateZ(4px); }
+  .box3d.cut .blade { animation: slice 1.5s cubic-bezier(.6,0,.3,1) .2s both; }
+  @keyframes slice { 0% { opacity: 0; transform: translateX(-120%) translateZ(30px); } 20% { opacity: 1; transform: translateX(-60%) translateZ(4px); } 85% { opacity: 1; transform: translateX(calc(var(--w) - 40%)) translateZ(4px); } 100% { opacity: 0; transform: translateX(calc(var(--w) + 10%)) translateZ(40px); } }
+  .label3d { position: absolute; left: 7%; top: 9%; width: 62%; height: 82%; background: #fbfaf6; color: #151515; border-radius: 3px; padding: 4% 5%; box-shadow: 0 2px 6px rgba(0,0,0,.25); transform: rotate(-1.5deg); container-type: inline-size; overflow: hidden; font: 600 calc(var(--w) * .026)/1.45 "JetBrains Mono", monospace; }
+  .label3d .c { display: inline-block; color: #b0182c; border: .7cqi solid #b0182c; padding: .3cqi 2cqi; font-weight: 700; letter-spacing: .14em; font-size: 5.4cqi; transform: rotate(-4deg); }
+  .label3d .k { margin-top: 2.5cqi; font-size: 4.6cqi; font-weight: 700; letter-spacing: .06em; border-bottom: .4cqi dashed #999; padding-bottom: 2.5cqi; }
+  .label3d .a { margin-top: 2.5cqi; font: 500 5.6cqi/1.38 "Instrument Sans", sans-serif; }
+  .label3d .a b { font-weight: 700; }
+  .stencil { position: absolute; right: 6%; bottom: 10%; font: 700 calc(var(--w) * .028) "JetBrains Mono", monospace; letter-spacing: .14em; color: rgba(40,24,10,.55); text-align: right; line-height: 1.6; }
+  .item { transition: transform 1.4s cubic-bezier(.4,0,.2,1), filter .4s; cursor: pointer; }
+  .ev { width: calc(var(--w) * .4); height: calc(var(--w) * .4 * 11 / 8.5); margin: calc(var(--w) * -.259) 0 0 calc(var(--w) * -.2); transform: translate3d(calc(var(--w) * -.12), calc(var(--h) / 2 - 5px), 0) rotateX(90deg) rotateZ(-8deg); }
+  .box3d.s3 .ev { transform: translate3d(calc(var(--w) * -.2), calc(var(--h) * -1.75), calc(var(--d) * .25)) rotateY(14deg) rotateX(50deg) rotateZ(-5deg); }
+  .ev .pp { position: absolute; inset: 0; background: #1d2ccf; border-radius: 3px; box-shadow: 0 10px 24px rgba(0,0,0,.45); padding: 9%; display: grid; align-content: start; gap: 5%; container-type: inline-size; }
+  .ev .pp i { display: block; height: 4cqi; background: #0b0b12; border-radius: 2px; }
+  .ev .pp .t { font: 700 6.5cqi "JetBrains Mono", monospace; color: #7a1020; border: .8cqi solid #7a1020; justify-self: start; padding: 0 2cqi; }
+  .ev .bag { position: absolute; inset: -5%; border: 2px solid rgba(255,255,255,.35); border-radius: 6px; background: linear-gradient(160deg, rgba(255,255,255,.2), rgba(255,255,255,.04) 40%, rgba(255,255,255,.14)); container-type: inline-size; }
+  .ev .bag::after { content: "EVIDENCE"; position: absolute; left: 6%; bottom: 4%; font: 700 7cqi "JetBrains Mono", monospace; letter-spacing: .14em; color: #fff; background: #b0182c; padding: .5cqi 2.4cqi; border-radius: 2px; }
+  .uvt { width: calc(var(--w) * .1); height: calc(var(--w) * .46); margin: calc(var(--w) * -.23) 0 0 calc(var(--w) * -.05); transform: translate3d(calc(var(--w) * .24), calc(var(--h) / 2 - 8px), 0) rotateX(90deg) rotateZ(14deg); background: none; border: 0; padding: 0; container-type: inline-size; }
+  .box3d.s3 .uvt { transform: translate3d(calc(var(--w) * .3), calc(var(--h) * -1.6), calc(var(--d) * .35)) rotateY(14deg) rotateX(50deg) rotateZ(16deg); transition-delay: .25s; }
+  .box3d.s3 .uvt:hover, .uvt:focus-visible { filter: drop-shadow(0 0 16px rgba(170,140,255,.95)); }
+  .uvt .head { position: absolute; top: 0; left: -12%; right: -12%; height: 22%; border-radius: 8px 8px 4px 4px; background: linear-gradient(90deg, #2b2b33, #5a5a66 45%, #222229); }
   .uvt .lens { position: absolute; top: -3%; left: -6%; right: -6%; height: 6%; border-radius: 50%; background: #9a7bff; box-shadow: 0 0 14px 4px rgba(150,110,255,.8); }
-  .uvt .body { position: absolute; top: 21%; bottom: 0; left: 0; right: 0; border-radius: 4px 4px 10px 10px; background: linear-gradient(90deg, #1d1d24, #44444e 45%, #18181e); }
-  .uvt .body::before { content: "UV"; position: absolute; top: 18%; left: 50%; transform: translateX(-50%); font: 700 2.4cqi "JetBrains Mono", monospace; color: #b9a6ff; }
-  .uvt .body::after { content: ""; position: absolute; top: 42%; left: 50%; transform: translateX(-50%); width: 40%; aspect-ratio: 1; border-radius: 50%; background: #8a1a2a; box-shadow: inset 0 -2px 0 rgba(0,0,0,.4); }
-  .crate.open .uvt { animation: pick 1.6s ease-in-out 1.1s infinite; }
-  @keyframes pick { 50% { transform: rotate(14deg) translateY(-5%); filter: drop-shadow(0 0 10px rgba(170,140,255,.7)); } }
+  .uvt .body { position: absolute; top: 21%; bottom: 0; left: 0; right: 0; border-radius: 4px 4px 10px 10px; background: linear-gradient(90deg, #1d1d24, #484853 45%, #18181e); }
+  .uvt .body::before { content: "UV"; position: absolute; top: 14%; left: 50%; transform: translateX(-50%); font: 700 26cqi "JetBrains Mono", monospace; color: #b9a6ff; }
+  .uvt .body::after { content: ""; position: absolute; top: 40%; left: 50%; transform: translateX(-50%); width: 42%; aspect-ratio: 1; border-radius: 50%; background: #8a1a2a; }
+  .box3d.s3.ready .uvt .lens { animation: lens 1.4s ease-in-out infinite; }
+  @keyframes lens { 50% { box-shadow: 0 0 26px 10px rgba(170,130,255,.95); } }
+  .say, .go, .steps { position: relative; z-index: 5; }
   .say { font: 700 12px "JetBrains Mono", monospace; letter-spacing: .14em; text-transform: uppercase; color: #e9d9c2; text-align: center; min-height: 1.5em; }
-  .go { cursor: pointer; font: 700 13px "JetBrains Mono", monospace; letter-spacing: .12em; text-transform: uppercase; background: #f4e6cf; color: #2a1d12; border: 0; padding: 14px 22px; border-radius: 8px; }
-  .go:focus-visible, .uvt:focus-visible, .lid:focus-visible { outline: 2px solid #8ff6ff; outline-offset: 3px; }
+  .steps { display: flex; gap: 6px; } .steps i { width: 26px; height: 3px; border-radius: 2px; background: rgba(233,217,194,.2); transition: background .4s; } .steps i.on { background: #e9d9c2; }
+  .go { cursor: pointer; font: 700 13px "JetBrains Mono", monospace; letter-spacing: .12em; text-transform: uppercase; background: #f4e6cf; color: #2a1d12; border: 0; padding: 14px 22px; border-radius: 8px; transition: opacity .3s; }
+  .go:disabled { opacity: .35; cursor: default; }
+  .go:focus-visible, .uvt:focus-visible { outline: 2px solid #8ff6ff; outline-offset: 3px; }
+  /* pop-up button on the hidden link */
+  .lnk { border-bottom: .35cqi dashed rgba(143,246,255,.7); }
+  .pop { position: fixed; z-index: 40; left: 0; top: 0; transform: translate(-50%, -100%) scale(.6); opacity: 0; pointer-events: none; transition: opacity .25s, transform .35s cubic-bezier(.3,1.6,.5,1); cursor: pointer; font: 700 14px "JetBrains Mono", monospace; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; color: #07040f; background: #8ff6ff; padding: 13px 20px; border-radius: 10px; box-shadow: 0 0 24px rgba(143,246,255,.8); white-space: nowrap; }
+  .pop::after { content: ""; position: absolute; left: 50%; bottom: -7px; width: 14px; height: 14px; background: #8ff6ff; transform: translateX(-50%) rotate(45deg); }
+  .pop.on { opacity: 1; transform: translate(-50%, -100%) scale(1); pointer-events: auto; }
+  @media (prefers-reduced-motion: reduce) { .dropper { animation: none; } .box3d, .flap, .item, .slit::before { transition-duration: .01s !important; transition-delay: 0s !important; } .box3d.cut .blade { animation: none; } }
 </style>
 </head>
 <body class="intro">
 <div id="intro">
   <div class="stage">
-    <div class="crate" id="crate">
-      <div class="inside">
-        <div class="ev" id="ev" aria-hidden="true"><span class="t">CONFIDENTIAL</span><i style="width:80%"></i><i style="width:60%"></i><i style="width:90%"></i><i style="width:45%"></i><i style="width:70%"></i><span class="bag"></span></div>
-        <button class="uvt" id="uvt" aria-label="Pick up the UV torch"><span class="lens"></span><span class="head"></span><span class="body"></span></button>
-      </div>
-      <div class="lid" id="lid" role="button" tabindex="0" aria-label="Open the box">
-        <div class="label"><span class="c">CONFIDENTIAL</span><div class="k">CASE FILE · FOR TYLER MUNRO</div><div class="a"><b>Tyler Munro</b><br>Limina<br>366 Adelaide St W, Suite 404<br>Toronto, ON M5V 1R9<br>Canada</div></div>
+    <div class="scene" id="scene">
+      <div class="dropper">
+        <div class="box3d" id="box3d">
+          <div class="f shadow"></div>
+          <div class="f floor"><div class="sk"></div></div>
+          <div class="f item ev" id="ev" aria-hidden="true"><div class="pp"><span class="t">CONFIDENTIAL</span><i style="width:80%"></i><i style="width:60%"></i><i style="width:90%"></i><i style="width:45%"></i><i style="width:70%"></i><i style="width:55%"></i></div><span class="bag"></span></div>
+          <button class="f item uvt" id="uvt" aria-label="Pick up the UV torch" tabindex="-1"><span class="lens"></span><span class="head"></span><span class="body"></span></button>
+          <div class="f wall fb back"><div class="sk out"></div><div class="sk in"></div><div class="flap"><div class="sk out"><span class="tape"></span></div><div class="sk in"></div></div></div>
+          <div class="f wall lr left"><div class="sk out"><span class="tape"></span></div><div class="sk in"></div><div class="flap"><div class="sk out"></div><div class="sk in"></div></div></div>
+          <div class="f wall lr right"><div class="sk out"><span class="tape"></span></div><div class="sk in"></div><div class="flap"><div class="sk out"></div><div class="sk in"></div></div></div>
+          <div class="f wall fb front"><div class="sk out"><div class="label3d"><span class="c">CONFIDENTIAL</span><div class="k">CASE FILE · FOR TYLER MUNRO</div><div class="a"><b>Tyler Munro</b><br>Limina<br>366 Adelaide St W, Suite 404<br>Toronto, ON M5V 1R9<br>Canada</div></div><div class="stencil">THIS SIDE UP ↑<br>OPEN IN THE DARK</div></div><div class="sk in"></div><div class="flap"><div class="sk out"><span class="tape"></span></div><div class="sk in"></div></div></div>
+          <div class="f slit"><span class="blade"></span></div>
+        </div>
       </div>
     </div>
-    <div class="say" id="say">A package arrived for you.</div>
-    <button class="go" id="go">Open the box</button>
+    <div class="steps" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+    <div class="say" id="say" aria-live="polite">A package arrived for you.</div>
+    <button class="go" id="go">Cut the tape</button>
   </div>
 </div>
 <div class="hint" id="hint">THE LIGHTS ARE OFF · MOVE YOUR FLASHLIGHT OVER THE FILE 🔦</div>
@@ -123,12 +184,13 @@
         <p>Evidence recovered: <span class="bar">1 campaign</span>, <span class="bar">landing page</span>, <span class="bar">5 emails</span>, <span class="bar">webinar program</span>, <span class="bar">4 ads</span>, <span class="bar">ABM pilot</span>.</p>
         <p>Location of full file: <span class="bar">durvathakkar.com/limina</span>. Recommended action: <span class="bar">20-min coffee</span>. Priority: <span class="bar">high</span>.</p>
       </div>
-      <div class="box" id="box"><div class="msg"><span>Hi Tyler, it's Durva.</span><span>I did the job for a week to prove I could be the best hire.</span><span class="u">Find it here: durvathakkar.com/limina</span></div></div>
+      <div class="box" id="box"><div class="msg"><span>Hi Tyler, it's Durva.</span><span>I did the job for a week to prove I could be the best hire.</span><span class="u">Find it here: <span class="lnk" id="lnk">durvathakkar.com/limina</span></span></div></div>
       <div class="foot"><span>ENTITIES HIDDEN: 11<br>TOOLS REQUIRED: 1 (YOUR CURSOR)</span><span class="h">(read hidden text) 🔦</span></div>
     </div>
   </div>
 </div>
 <div class="torch" id="torch" aria-hidden="true"></div>
+<a class="pop" id="pop" href="../">Open it ↗</a>
 <div class="found" id="found"><a class="a1" href="../">Open the full case file ↗</a><a class="a2" href="../webinar/">See the live landing page ↗</a></div>
 <noscript><p style="text-align:center;padding:20px">Hi Tyler, it's Durva. I did the job for a week to prove I could be the best hire. <a href="../" style="color:#8ff6ff">durvathakkar.com/limina</a></p></noscript>
 <script>
@@ -136,6 +198,7 @@
   const sheet = document.getElementById("sheet"), uv = document.getElementById("uv"), box = document.getElementById("box");
   const torch = document.getElementById("torch"), found = document.getElementById("found"), hint = document.getElementById("hint");
   let shown = false, moved = false, live = false;
+  const pop = document.getElementById("pop"), lnk = document.getElementById("lnk"); let popT = 0;
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   function shine(cx, cy) {
     const r = sheet.getBoundingClientRect();
@@ -143,9 +206,13 @@
     uv.style.setProperty("--r", Math.max(90, r.width * .26) + "px");
     if (!moved) { moved = true; hint.style.opacity = ".0"; }
     const b = box.getBoundingClientRect();
+    const L = lnk.getBoundingClientRect(), pad = 26;
+    if (cx > L.left - pad && cx < L.right + pad && cy > L.top - pad && cy < L.bottom + pad) {
+      clearTimeout(popT); popT = 0; pop.style.left = (L.left + L.width / 2) + "px"; pop.style.top = (L.top - 14) + "px"; pop.classList.add("on");
+    } else if (pop.classList.contains("on") && !popT) popT = setTimeout(() => { pop.classList.remove("on"); popT = 0; }, 1400);
     if (!shown && cx > b.left && cx < b.right && cy > b.top && cy < b.bottom) { shown = true; setTimeout(() => found.classList.add("on"), 900); }
   }
-  addEventListener("pointermove", e => { if (!live) return; torch.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`; shine(e.clientX, e.clientY); });
+  addEventListener("pointermove", e => { if (!live) return; torch.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`; if (e.target === pop) { clearTimeout(popT); popT = 0; return; } shine(e.clientX, e.clientY); });
   sheet.addEventListener("pointerdown", e => live && shine(e.clientX, e.clientY));
   sheet.addEventListener("touchmove", e => { if (!live) return; const t = e.touches[0]; shine(t.clientX, t.clientY); }, { passive: true });
   // a slow automatic sweep if nobody moves, so the page explains itself
@@ -157,33 +224,41 @@
   }, 2600); };
   if (reduce) { uv.style.setProperty("--x", "50%"); uv.style.setProperty("--y", "65%"); uv.style.setProperty("--r", "2000px"); found.classList.add("on"); }
 
-  // the box: open it, pick up the torch, lights off
-  const intro = document.getElementById("intro"), crate = document.getElementById("crate"), say = document.getElementById("say"), go = document.getElementById("go");
-  const lid = document.getElementById("lid"), uvt = document.getElementById("uvt"), ev = document.getElementById("ev");
-  let opened = false, picked = false;
-  function openBox() {
-    if (opened) return; opened = true;
-    crate.classList.add("open"); go.textContent = "Pick up the torch"; say.textContent = "Inside: one piece of evidence and a UV torch.";
-    setTimeout(() => uvt.focus({ preventScroll: true }), reduce ? 0 : 1000);
+  // the box, step by step: drop, cut the tape, open the flaps, lift out, pick up the torch
+  const intro = document.getElementById("intro"), box3d = document.getElementById("box3d"), say = document.getElementById("say"), go = document.getElementById("go");
+  const uvt = document.getElementById("uvt"), ev = document.getElementById("ev"), dots = document.querySelectorAll(".steps i");
+  const T = ms => reduce ? 30 : ms;
+  let step = 0, busy = false;
+  const steps = [
+    { cls: ["s1", "cut"], say: "Cutting the tape…", after: "Tape cut.", next: "Open the flaps", wait: 2000 },
+    { cls: ["s2", "open"], say: "Opening…", after: "Something is inside.", next: "Take it out", wait: 2200 },
+    { cls: ["s3"], say: "Lifting it out…", after: "One piece of evidence. One UV torch.", next: "Pick up the torch", wait: 1700 }
+  ];
+  function advance(e) {
+    if (busy) return;
+    if (step === 3) return pickUp(e);
+    const st = steps[step]; busy = true; go.disabled = true; say.textContent = st.say;
+    box3d.classList.add(...st.cls); step++; dots[step].classList.add("on");
+    setTimeout(() => {
+      busy = false; go.disabled = false; say.textContent = st.after; go.textContent = st.next;
+      if (step === 3) { box3d.classList.add("ready"); uvt.tabIndex = 0; }
+    }, T(st.wait));
   }
   function pickUp(e) {
-    if (!opened) return openBox();
-    if (picked) return; picked = true;
-    say.textContent = "Lights off.";
-    intro.classList.add("dark");
+    if (step < 3 || busy) return; busy = true; step = 4; dots[4].classList.add("on");
+    say.textContent = "Lights off."; intro.classList.add("dark");
     const x = e && e.clientX ? e.clientX : innerWidth / 2, y = e && e.clientY ? e.clientY : innerHeight / 2;
     setTimeout(() => {
       intro.classList.add("gone"); document.body.classList.remove("intro"); live = true;
       torch.style.transform = `translate(${x}px, ${y}px)`;
-      startSweep();
-      setTimeout(() => intro.remove(), 900);
-    }, reduce ? 50 : 1100);
+      startSweep(); setTimeout(() => intro.remove(), 900);
+    }, T(1100));
   }
-  lid.addEventListener("click", openBox);
-  lid.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openBox(); } });
-  uvt.addEventListener("click", pickUp); ev.addEventListener("click", pickUp);
-  go.addEventListener("click", e => opened ? pickUp(e) : openBox());
-  if (location.hash === "#file") { opened = true; pickUp(); }
+  go.addEventListener("click", advance);
+  document.getElementById("scene").addEventListener("click", e => { if (step < 3) advance(e); });
+  uvt.addEventListener("click", e => { e.stopPropagation(); pickUp(e); });
+  ev.addEventListener("click", e => { if (step === 3) { e.stopPropagation(); pickUp(e); } });
+  if (location.hash === "#file") { step = 3; pickUp(); }
 })();
 </script>
 </body>
