@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Media Planning, Week One · Durva for Klick</title>
+<meta name="description" content="Durva Thakkar's application for Media Planning Coordinator at Klick: a working media plan, flowchart, pacing tracker, naming builder, compliance QA and a downloadable workbook.">
+<meta property="og:title" content="Media Planning Coordinator, week one already done">
+<meta property="og:description" content="A working media plan, pacing tracker, naming builder and Excel workbook, made for the Klick Media Planning team by Durva Thakkar.">
+<meta property="og:image" content="https://durvathakkar.com/klick/share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root { --ink: #111; --mute: #6b6b6b; --line: #e3e3e3; --soft: #f5f5f5; --blue: #0343fb; --blue-50: #e8eeff; --ok: #15803d; --warn: #c2410c; --bad: #dc2626; --bg: #fff; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--ink); font: 400 17px/1.6 "Public Sans", system-ui, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: inherit; }
+  .w { width: min(1160px, 100% - 32px); margin: 0 auto; }
+  .mono { font-family: "JetBrains Mono", monospace; }
+  /* nav */
+  .nav { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .nav .w { display: flex; align-items: center; gap: 22px; height: 60px; }
+  .brand { font-weight: 800; letter-spacing: -.02em; font-size: 18px; white-space: nowrap; }
+  .brand i { font-style: normal; color: var(--blue); }
+  .links { display: flex; gap: 18px; overflow-x: auto; scrollbar-width: none; font-size: 14px; font-weight: 600; margin-left: auto; }
+  .links::-webkit-scrollbar { display: none; }
+  .links a { text-decoration: none; color: var(--mute); white-space: nowrap; } .links a:hover { color: var(--ink); }
+  .dl { background: var(--blue); color: #fff !important; padding: 8px 14px; border-radius: 999px; }
+  /* hero */
+  .hero { padding: 92px 0 72px; }
+  .eyebrow { font: 700 13px "JetBrains Mono", monospace; letter-spacing: .12em; text-transform: uppercase; color: var(--blue); }
+  h1 { font-size: clamp(42px, 7.4vw, 96px); line-height: .98; letter-spacing: -.045em; font-weight: 800; margin-top: 18px; max-width: 13ch; }
+  h1 em { font-style: italic; font-weight: 400; }
+  .lede { margin-top: 28px; font-size: clamp(18px, 2vw, 22px); color: #333; max-width: 46ch; }
+  .chips { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .chip { border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; font-size: 14px; font-weight: 600; text-decoration: none; background: #fff; }
+  .chip b { color: var(--blue); }
+  .cta { display: inline-flex; align-items: center; gap: 10px; margin-top: 34px; background: var(--ink); color: #fff; text-decoration: none; font-weight: 700; padding: 16px 24px; border-radius: 999px; }
+  .cta:hover { background: var(--blue); }
+  .cta.ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); margin-left: 8px; }
+  .cta.ghost:hover { background: var(--ink); color: #fff; }
+  /* sections */
+  section { padding: 84px 0; border-top: 1px solid var(--line); }
+  section.soft { background: var(--soft); border-top: 0; }
+  .sh { display: grid; grid-template-columns: 220px 1fr; gap: 28px; margin-bottom: 40px; }
+  .sh .n { font: 700 13px "JetBrains Mono", monospace; letter-spacing: .12em; color: var(--blue); text-transform: uppercase; padding-top: 12px; }
+  h2 { font-size: clamp(32px, 4.6vw, 56px); line-height: 1.02; letter-spacing: -.035em; font-weight: 800; }
+  .sh p { margin-top: 14px; color: #444; max-width: 62ch; }
+  @media (max-width: 800px) { .sh { grid-template-columns: 1fr; gap: 6px; } }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 26px; }
+  .note { font-size: 14px; color: var(--mute); margin-top: 14px; }
+  .tag { display: inline-block; font: 700 11px "JetBrains Mono", monospace; letter-spacing: .1em; text-transform: uppercase; padding: 4px 8px; border-radius: 6px; background: var(--blue-50); color: var(--blue); }
+  /* brief */
+  .brief { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+  .brief div { background: #fff; padding: 22px; }
+  .brief small { display: block; font: 700 11px "JetBrains Mono", monospace; letter-spacing: .1em; color: var(--mute); text-transform: uppercase; margin-bottom: 8px; }
+  .brief b { font-size: 18px; line-height: 1.3; display: block; }
+  @media (max-width: 800px) { .brief { grid-template-columns: 1fr 1fr; } }
+  /* tables */
+  .tbl { width: 100%; border-collapse: collapse; font-size: 15px; }
+  .tbl th { text-align: left; font: 700 11px "JetBrains Mono", monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--mute); padding: 10px 10px; border-bottom: 2px solid var(--ink); white-space: nowrap; }
+  .tbl td { padding: 12px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .tbl td.r, .tbl th.r { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .tbl tfoot td { font-weight: 800; border-bottom: 0; border-top: 2px solid var(--ink); }
+  .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .tbl small { display: block; color: var(--mute); font-size: 13px; }
+  .pct { width: 66px; font: 600 15px "Public Sans", sans-serif; padding: 6px 8px; border: 1px solid var(--line); border-radius: 8px; text-align: right; background: var(--blue-50); color: var(--blue); }
+  .pct:focus { outline: 2px solid var(--blue); outline-offset: 1px; }
+  .ctrl { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; margin-bottom: 20px; }
+  .ctrl label { font-weight: 700; font-size: 15px; display: flex; gap: 10px; align-items: center; }
+  .ctrl input[type=number] { width: 150px; font: 700 18px "Public Sans", sans-serif; padding: 8px 12px; border: 1.5px solid var(--ink); border-radius: 10px; }
+  .ctrl input[type=range] { width: min(320px, 70vw); accent-color: var(--blue); }
+  .sum { font-weight: 700; font-size: 14px; padding: 6px 12px; border-radius: 999px; }
+  .sum.ok { background: #e7f6ec; color: var(--ok); } .sum.bad { background: #fde8e8; color: var(--bad); }
+  .bar { height: 8px; border-radius: 4px; background: var(--blue); min-width: 2px; }
+  /* split chart */
+  .split { display: flex; height: 54px; border-radius: 12px; overflow: hidden; margin-bottom: 26px; }
+  .split span { display: grid; place-items: center; color: #fff; font: 700 12px "JetBrains Mono", monospace; min-width: 0; overflow: hidden; white-space: nowrap; transition: flex-grow .4s; }
+  /* flowchart */
+  .fc { display: grid; grid-template-columns: minmax(170px, 1.6fr) repeat(12, minmax(30px, 1fr)); font-size: 13px; min-width: 760px; }
+  .fc > div { padding: 8px 4px; border-bottom: 1px solid var(--line); }
+  .fc .h { font: 700 10px/1.3 "JetBrains Mono", monospace; color: var(--mute); text-align: center; border-bottom: 2px solid var(--ink); }
+  .fc .h:first-child { text-align: left; }
+  .fc .c { font-weight: 600; }
+  .fc .on { position: relative; } .fc .on::after { content: ""; position: absolute; left: 2px; right: 2px; top: 9px; bottom: 9px; background: var(--blue); border-radius: 4px; }
+  .fc .on.hcp::after { background: var(--ink); }
+  .legend { display: flex; gap: 18px; font-size: 13px; color: var(--mute); margin-top: 14px; } .legend i { display: inline-block; width: 14px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: middle; }
+  /* pacing */
+  .pace { display: grid; grid-template-columns: minmax(150px, 1.4fr) 1fr 1fr 2fr 140px; gap: 0; font-size: 14px; min-width: 760px; }
+  .pace > div { padding: 12px 8px; border-bottom: 1px solid var(--line); display: flex; align-items: center; }
+  .pace .h { font: 700 11px "JetBrains Mono", monospace; letter-spacing: .08em; color: var(--mute); text-transform: uppercase; border-bottom: 2px solid var(--ink); }
+  .meter { position: relative; width: 100%; height: 14px; background: var(--soft); border-radius: 7px; }
+  .meter i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 7px; background: var(--blue); transition: width .3s; }
+  .meter b { position: absolute; top: -4px; bottom: -4px; width: 2px; background: var(--ink); transition: left .3s; }
+  .st { font-weight: 700; font-size: 13px; padding: 4px 10px; border-radius: 999px; }
+  .st.ok { background: #e7f6ec; color: var(--ok); } .st.under { background: #fff1e6; color: var(--warn); } .st.over { background: #fde8e8; color: var(--bad); }
+  .act { margin-top: 22px; display: grid; gap: 10px; }
+  .act div { background: #fff; border-left: 3px solid var(--blue); padding: 12px 16px; border-radius: 0 10px 10px 0; font-size: 15px; }
+  /* builder */
+  .bld { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .bld label { font: 700 11px "JetBrains Mono", monospace; letter-spacing: .08em; color: var(--mute); text-transform: uppercase; display: grid; gap: 6px; }
+  .bld input, .bld select { font: 600 15px "Public Sans", sans-serif; padding: 10px 12px; border: 1px solid #cfcfcf; border-radius: 10px; background: #fff; color: var(--ink); text-transform: uppercase; width: 100%; }
+  @media (max-width: 800px) { .bld { grid-template-columns: 1fr 1fr; } }
+  .out { margin-top: 20px; display: grid; gap: 10px; }
+  .out div { display: grid; grid-template-columns: 150px 1fr auto; gap: 12px; align-items: center; background: var(--ink); color: #fff; padding: 14px 16px; border-radius: 12px; }
+  .out small { font: 700 11px "JetBrains Mono", monospace; letter-spacing: .08em; color: #9aa7ff; text-transform: uppercase; }
+  .out code { font: 500 14px "JetBrains Mono", monospace; word-break: break-all; }
+  .out button { font: 700 12px "JetBrains Mono", monospace; background: var(--blue); color: #fff; border: 0; border-radius: 8px; padding: 8px 12px; cursor: pointer; }
+  @media (max-width: 700px) { .out div { grid-template-columns: 1fr auto; } .out small { grid-column: 1 / -1; } }
+  .warn { margin-top: 12px; font-size: 14px; color: var(--bad); font-weight: 600; min-height: 1.2em; }
+  /* checklist */
+  .qa { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 800px) { .qa { grid-template-columns: 1fr; } }
+  .qa label { display: grid; grid-template-columns: 26px 1fr; gap: 12px; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 16px; cursor: pointer; font-size: 15px; line-height: 1.45; }
+  .qa input { width: 20px; height: 20px; accent-color: var(--blue); margin-top: 2px; }
+  .qa small { display: block; margin-top: 6px; } .qa label:has(input:checked) { border-color: var(--blue); background: var(--blue-50); }
+  .prog { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; font-weight: 700; }
+  .prog .meter { max-width: 320px; }
+  /* report */
+  .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .kpi { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 20px; }
+  .kpi small { font: 700 11px "JetBrains Mono", monospace; letter-spacing: .08em; color: var(--mute); text-transform: uppercase; }
+  .kpi b { display: block; font-size: 34px; letter-spacing: -.03em; margin-top: 6px; }
+  .kpi span { font-size: 13px; font-weight: 700; } .up { color: var(--ok); } .down { color: var(--bad); }
+  @media (max-width: 800px) { .kpis { grid-template-columns: 1fr 1fr; } }
+  .rep { display: grid; grid-template-columns: 1.3fr 1fr; gap: 18px; margin-top: 18px; }
+  @media (max-width: 900px) { .rep { grid-template-columns: 1fr; } }
+  .chart svg { width: 100%; height: auto; display: block; }
+  .so { list-style: none; display: grid; gap: 12px; } .so li { padding-left: 22px; position: relative; font-size: 15px; } .so li::before { content: ""; position: absolute; left: 0; top: 9px; width: 10px; height: 10px; border-radius: 2px; background: var(--blue); }
+  /* AI */
+  .ai { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 900px) { .ai { grid-template-columns: 1fr; } }
+  .ai .card h3 { font-size: 20px; letter-spacing: -.02em; margin: 10px 0 10px; }
+  .ai pre { white-space: pre-wrap; font: 500 13px/1.55 "JetBrains Mono", monospace; background: var(--soft); border-radius: 10px; padding: 14px; color: #222; }
+  .rule { margin-top: 16px; background: var(--ink); color: #fff; border-radius: 14px; padding: 18px 22px; font-weight: 600; }
+  .rule b { color: #9aa7ff; }
+  /* fit */
+  .fit td:first-child { font-weight: 700; width: 30%; }
+  .fit td:nth-child(3) a { color: var(--blue); font-weight: 700; text-decoration: none; }
+  /* download */
+  .dlx { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; background: var(--blue); color: #fff; border-radius: 22px; padding: 40px; }
+  .dlx h2 { color: #fff; }
+  .dlx ul { margin-top: 16px; list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+  .dlx li { background: rgba(255,255,255,.14); border-radius: 999px; padding: 6px 12px; font-size: 14px; font-weight: 600; }
+  .dlx a { background: #fff; color: var(--blue); text-decoration: none; font-weight: 800; padding: 18px 26px; border-radius: 999px; white-space: nowrap; }
+  @media (max-width: 800px) { .dlx { grid-template-columns: 1fr; padding: 28px; } }
+  /* why + about */
+  .why { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .why .card b { display: block; font-size: 42px; letter-spacing: -.04em; line-height: 1; margin-bottom: 10px; color: var(--blue); }
+  @media (max-width: 800px) { .why { grid-template-columns: 1fr; } }
+  .about { display: grid; grid-template-columns: 220px 1fr; gap: 34px; align-items: start; }
+  .about img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 20px; }
+  .about ul { list-style: none; margin-top: 18px; display: grid; gap: 12px; }
+  .about li { border-top: 1px solid var(--line); padding-top: 12px; }
+  .about li b { display: block; }
+  @media (max-width: 700px) { .about { grid-template-columns: 1fr; } .about img { width: 160px; } }
+  .end { padding: 110px 0 120px; text-align: left; }
+  .end h2 { font-size: clamp(40px, 7vw, 88px); max-width: 14ch; }
+  footer { border-top: 1px solid var(--line); padding: 26px 0 40px; font-size: 13px; color: var(--mute); }
+  .toast { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 30px); opacity: 0; background: var(--ink); color: #fff; padding: 10px 18px; border-radius: 999px; font-weight: 700; font-size: 14px; transition: .3s; z-index: 50; pointer-events: none; }
+  .toast.on { opacity: 1; transform: translate(-50%, 0); }
+</style>
+</head>
+<body>
+<nav class="nav"><div class="w">
+  <div class="brand">Durva <i>×</i> Klick</div>
+  <div class="links">
+    <a href="#brief">Brief</a><a href="#plan">Plan</a><a href="#flow">Flowchart</a><a href="#pacing">Pacing</a><a href="#naming">Naming</a><a href="#qa">QA</a><a href="#report">Report</a><a href="#ai">AI</a><a href="#fit">Fit</a>
+    <a class="dl" href="Klick-Media-Plan-Sample-Durva-Thakkar.xlsx" download>Workbook ↓</a>
+  </div>
+</div></nav>
+
+<header class="hero"><div class="w">
+  <div class="eyebrow">For the Klick Media Planning team · Media Planning Coordinator, Toronto</div>
+  <h1>Week one, <em>already</em> planned.</h1>
+  <p class="lede">Hi, I'm Durva. Instead of telling you I can support your media plans, I built one. A sample health brief, planned the way your job post describes it: budget, flowchart, pacing, naming, compliance QA and a report. Everything below works, and the workbook is yours to open.</p>
+  <div class="chips">
+    <a class="chip" href="#plan"><b>01</b> Media plan + budget</a><a class="chip" href="#flow"><b>02</b> Flowchart</a><a class="chip" href="#pacing"><b>03</b> Pacing tracker</a><a class="chip" href="#naming"><b>04</b> Naming + UTM builder</a><a class="chip" href="#qa"><b>05</b> Health media QA</a><a class="chip" href="#report"><b>06</b> Weekly report</a><a class="chip" href="#ai"><b>07</b> AI in the workflow</a>
+  </div>
+  <a class="cta" href="Klick-Media-Plan-Sample-Durva-Thakkar.xlsx" download>Download the Excel workbook ↓</a><a class="cta ghost" href="#fit">See how I fit →</a>
+</div></header>
+
+<section id="brief" class="soft"><div class="w">
+  <div class="sh"><div class="n">00 · The brief</div><div><h2>A sample brief, so the plan has something real to work on.</h2><p>I wrote this brief myself. The campaign is unbranded on purpose: no product, no claims, so the focus stays on the planning work. The method is the one your post describes.</p></div></div>
+  <div class="brief">
+    <div><small>Campaign</small><b>Migraine awareness, unbranded</b></div>
+    <div><small>Market</small><b>United States</b></div>
+    <div><small>Audiences</small><b>Adults living with migraine + neurologists and primary care</b></div>
+    <div><small>Flight</small><b>Jan 4 to Mar 28, 2027 · 12 weeks</b></div>
+    <div><small>Budget</small><b id="briefBudget">$1,200,000</b></div>
+    <div><small>Goal</small><b>More people talk to a doctor about their headaches</b></div>
+    <div><small>Channels</small><b>Search, display, video, mobile, social, HCP endemic, HCP email</b></div>
+    <div><small>Rules</small><b>MLR approval, privacy-safe targeting, platform health policies</b></div>
+  </div>
+</div></section>
+
+<section id="plan"><div class="w">
+  <div class="sh"><div class="n">01 · Media plan</div><div><h2>Where every dollar goes, and what it buys.</h2><p>Change the total budget or any channel's share. Budgets, delivery and the split recalculate live, the same way the workbook does. Rates are planning assumptions for the sample, not vendor quotes.</p></div></div>
+  <div class="ctrl">
+    <label>Total budget $ <input type="number" id="budget" value="1200000" step="50000" min="50000"></label>
+    <span class="sum ok" id="sumBadge">Shares add to 100%</span>
+  </div>
+  <div class="split" id="split"></div>
+  <div class="scroll"><table class="tbl" id="planTbl">
+    <thead><tr><th>Channel</th><th class="r">Share</th><th class="r">Budget</th><th>Buy</th><th class="r">Rate</th><th class="r">Est. delivery</th><th>Primary KPI</th></tr></thead>
+    <tbody></tbody>
+    <tfoot><tr><td>Total</td><td class="r" id="tShare"></td><td class="r" id="tBudget"></td><td></td><td></td><td></td><td></td></tr></tfoot>
+  </table></div>
+  <p class="note">Why this split: search catches people already looking for answers, video and display build awareness, and the HCP lines make sure doctors are ready when patients ask. A small line covers ad serving, verification and contingency.</p>
+</div></section>
+
+<section id="flow" class="soft"><div class="w">
+  <div class="sh"><div class="n">02 · Flowchart</div><div><h2>Twelve weeks on one screen.</h2><p>Always-on where people search, flighted bursts where we build awareness, and HCP email every third week so doctors aren't flooded.</p></div></div>
+  <div class="card scroll"><div class="fc" id="fc"></div>
+    <div class="legend"><span><i style="background:var(--blue)"></i>Patient</span><span><i style="background:var(--ink)"></i>HCP</span></div>
+  </div>
+</div></section>
+
+<section id="pacing"><div class="w">
+  <div class="sh"><div class="n">03 · Pacing</div><div><h2>Are we spending on plan?</h2><p>Drag the day of the flight. The black line is where spend should be by now; the blue bar is where it is. Anything outside 90% to 110% gets flagged, with the action I'd take.</p></div></div>
+  <div class="ctrl"><label>Day <span id="dayLbl" class="mono">42</span> of 84 <input type="range" id="day" min="1" max="84" value="42"></label></div>
+  <div class="card scroll"><div class="pace" id="pace"></div></div>
+  <div class="act" id="actions"></div>
+</div></section>
+
+<section id="naming" class="soft"><div class="w">
+  <div class="sh"><div class="n">04 · Naming + trafficking</div><div><h2>One name, everywhere.</h2><p>Same name in the plan, the DSP, the ad server and analytics, so reporting lines up and nobody has to guess which line is which. Fill it in and copy.</p></div></div>
+  <div class="card">
+    <div class="bld">
+      <label>Client<input id="nClient" value="KLK" maxlength="6"></label>
+      <label>Brand<input id="nBrand" value="UNB-MIGRAINE"></label>
+      <label>Campaign<input id="nCamp" value="KNOW-YOUR-MIGRAINE"></label>
+      <label>Audience<select id="nAud"><option value="PT">PT · patient</option><option value="HCP">HCP · professional</option><option value="CG">CG · caregiver</option></select></label>
+      <label>Channel<select id="nCh"><option>SEARCH</option><option>DISPLAY</option><option>OLV</option><option>CTV</option><option>SOCIAL</option><option>MOBILE</option><option>ENDEMIC</option><option>EMAIL</option></select></label>
+      <label>Tactic<input id="nTac" value="SYMPTOM-KW"></label>
+      <label>Start (YYYYMM)<input id="nDate" value="202701" maxlength="6"></label>
+      <label>MLR code<input id="nMlr" value="MLR-0142"></label>
+    </div>
+    <div class="out">
+      <div><small>Placement name</small><code id="oName"></code><button data-copy="oName">Copy</button></div>
+      <div><small>Tracked URL</small><code id="oUrl"></code><button data-copy="oUrl">Copy</button></div>
+    </div>
+    <div class="warn" id="nWarn"></div>
+  </div>
+</div></section>
+
+<section id="qa"><div class="w">
+  <div class="sh"><div class="n">05 · Health media QA</div><div><h2>Nothing goes live until every box is ticked.</h2><p>Health is a regulated space, and your post asks for someone who follows process. This is the coordinator's pre-launch checklist I'd run on every placement. Medical, legal and regulatory teams have the final word; this makes sure nothing reaches them half done.</p></div></div>
+  <div class="prog"><span id="qaCount">0 of 12</span><div class="meter"><i id="qaBar" style="width:0"></i></div></div>
+  <div class="qa" id="qaList"></div>
+</div></section>
+
+<section id="report" class="soft"><div class="w">
+  <div class="sh"><div class="n">06 · Weekly report</div><div><h2>Week 6, in one page.</h2><p>What a weekly update to the planning team could look like: the numbers, what changed, and what I'd do next. The numbers are sample data for the sample brief.</p></div></div>
+  <div class="kpis">
+    <div class="kpi"><small>Spend to date</small><b>$571K</b><span class="up">48% of budget · on pace</span></div>
+    <div class="kpi"><small>Impressions</small><b>31.4M</b><span class="up">+6% vs plan</span></div>
+    <div class="kpi"><small>Site visits</small><b>48.2K</b><span class="down">−2% vs plan</span></div>
+    <div class="kpi"><small>Doctor-finder clicks</small><b>3,910</b><span class="up">8.1% of visits</span></div>
+  </div>
+  <div class="rep">
+    <div class="card chart"><span class="tag">Site visits by week · plan vs actual</span><div id="chart" style="margin-top:14px"></div></div>
+    <div class="card"><span class="tag">So what</span>
+      <ul class="so" style="margin-top:14px">
+        <li>Search CPCs rose 12% after a competitor launch. Visits are slightly under plan.</li>
+        <li>CTV completion rate is 94%, the best line in the plan.</li>
+        <li>Mobile in-app is under-pacing at 60%: inventory is thin on the approved app list.</li>
+        <li><b>Recommendation:</b> move $20K from mobile to search for weeks 7 to 9, and add two approved apps. Planner to approve.</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section id="ai"><div class="w">
+  <div class="sh"><div class="n">07 · AI in the workflow</div><div><h2>AI does the first pass. I check every number.</h2><p>Your post lists comfort with AI as a plus. Here's how I use it day to day: for speed, never for sign-off.</p></div></div>
+  <div class="ai">
+    <div class="card"><span class="tag">Pacing check</span><h3>Spot problems on Monday morning</h3><pre>Here is this week's pacing export.
+Flag any line outside 90-110% of
+expected spend, explain the likely
+cause in one line each, and suggest
+a reallocation that keeps the total
+budget the same.</pre></div>
+    <div class="card"><span class="tag">Report draft</span><h3>Turn data into a first draft</h3><pre>Summarize week 6 for a media
+planner in 4 bullets: what moved,
+why, what it means, what we should
+do next. Use only the numbers in
+the table. No new figures.</pre></div>
+    <div class="card"><span class="tag">QA</span><h3>Catch naming mistakes</h3><pre>Check these 60 placement names
+against our naming convention.
+List every name that breaks a rule
+and show the corrected version.</pre></div>
+  </div>
+  <div class="rule"><b>My rule:</b> no patient data, unapproved claims or client-confidential plans go into public AI tools. Only approved, company-sanctioned tools, and a human checks every output.</div>
+</div></section>
+
+<section id="dl" class="soft" style="padding:64px 0"><div class="w">
+  <div class="dlx">
+    <div><h2>Open the workbook.</h2><p style="margin-top:10px;opacity:.9">Everything on this page, in Excel, with live formulas. Change the budget and every tab follows.</p>
+      <ul><li>Media plan</li><li>Flowchart</li><li>Pacing</li><li>Reconciliation</li><li>Naming</li><li>Compliance QA</li></ul></div>
+    <a href="Klick-Media-Plan-Sample-Durva-Thakkar.xlsx" download>Download .xlsx ↓</a>
+  </div>
+</div></section>
+
+<section id="fit"><div class="w">
+  <div class="sh"><div class="n">08 · Your job post × me</div><div><h2>Line by line, honestly.</h2><p>Where my experience matches, and where I'll learn fast.</p></div></div>
+  <div class="scroll"><table class="tbl fit">
+    <thead><tr><th>Your post asks for</th><th>What I've done</th><th>On this page</th></tr></thead>
+    <tbody>
+      <tr><td>Research, audience insights and channel recommendations</td><td>Audience research and outreach campaigns at Bsquaree; SEO and keyword research at Missive Digital, where my content helped drive a 73% increase in inquiries.</td><td><a href="#plan">Media plan</a></td></tr>
+      <tr><td>Media plans, budgets and flowcharts in Excel</td><td>Excel is in my daily toolkit. I built the workbook on this page from scratch, formulas and all.</td><td><a href="#dl">Workbook</a></td></tr>
+      <tr><td>Campaign setup, trafficking and pacing</td><td>Wrote LinkedIn and email campaigns for B2B clients as a freelancer; built UTM tracking and a working landing page for a B2B demand gen sample.</td><td><a href="#pacing">Pacing</a> · <a href="#naming">Naming</a></td></tr>
+      <tr><td>Campaign data and performance reports</td><td>Reviewed outreach results to improve response rates at Bsquaree; HubSpot Marketing Hub certified; Google Analytics.</td><td><a href="#report">Report</a></td></tr>
+      <tr><td>Financial tracking, reporting or quality control</td><td>Postgrad in Information Systems Business Analysis at George Brown: requirements, documentation and checking that systems do what they should.</td><td><a href="#dl">Reconciliation tab</a></td></tr>
+      <tr><td>Working with many stakeholders</td><td>Client calls, revisions and delivery across industries as a freelancer; worked across teams on campaigns at Rewynd Snacks that contributed to a 40% increase in sales.</td><td><a href="#report">Report</a></td></tr>
+      <tr><td>Documenting work and following process in regulated settings</td><td>Business analysis training is all about documented process. Health media is new to me, so I studied the rules first.</td><td><a href="#qa">QA checklist</a></td></tr>
+      <tr><td>Comfort using AI</td><td>Use ChatGPT and Claude daily for research, drafts and QA, with a human check on every output.</td><td><a href="#ai">AI</a></td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Where I'll learn fast: hands-on time in DSPs and ad servers, and the healthcare rules your teams live by every day.</p>
+</div></section>
+
+<section class="soft"><div class="w">
+  <div class="sh"><div class="n">09 · Why Klick</div><div><h2>Outcomes over optics.</h2><p>I want to learn media planning where the work matters to people's health, at the agency that keeps proving it can be done brilliantly.</p></div></div>
+  <div class="why">
+    <div class="card"><b>2026</b>Cannes Lions Healthcare Agency of the Year and Healthcare Network of the Year, plus Independent Agency of the Year in Health.</div>
+    <div class="card"><b>48</b>Clio Health wins in 2026, including three Grand Clios, and a fourth straight Indie Agency of the Year title.</div>
+    <div class="card"><b>1997</b>Founded in Toronto. Still the kind of place that says "there's something different here" and means it.</div>
+  </div>
+</div></section>
+
+<section><div class="w">
+  <div class="sh"><div class="n">10 · About me</div><div><h2>Hi, I'm Durva.</h2></div></div>
+  <div class="about">
+    <img src="/assets/durva-avatar.jpg" alt="Durva Thakkar">
+    <div>
+      <p>Content marketer with a business analyst's brain. I like knowing why a number moved, and I like a spreadsheet that explains itself. Based in Ontario, ready for Toronto.</p>
+      <ul>
+        <li><b>Content Writer · Freelance</b>Content calendars, SEO blogs, LinkedIn and email for B2B clients, run end to end.</li>
+        <li><b>Outreach Specialist · Bsquaree, Toronto</b>Targeted outreach campaigns, pipelines and follow-ups; reviewed results to improve response rates.</li>
+        <li><b>Content Writer · Missive Digital</b>SEO content and keyword research; content that helped drive a 73% increase in inquiries.</li>
+        <li><b>Sales &amp; Marketing Intern · Rewynd Snacks</b>Campaigns that contributed to a 40% increase in sales.</li>
+        <li><b>Education</b>George Brown: Information Systems Business Analysis · York University: Digital &amp; Content Marketing · GLS University: BBA</li>
+      </ul>
+      <p style="margin-top:18px"><a href="https://durvathakkar.com/" style="color:var(--blue);font-weight:700">durvathakkar.com ↗</a> &nbsp; <a href="/assets/Durva-Thakkar-Resume.pdf" style="color:var(--blue);font-weight:700">Resume ↗</a></p>
+    </div>
+  </div>
+</div></section>
+
+<section class="end" style="background:var(--ink);color:#fff;border:0"><div class="w">
+  <div class="eyebrow" style="color:#9aa7ff">Next step</div>
+  <h2 style="margin-top:16px">Let's plan the real one together.</h2>
+  <p class="lede" style="color:#cfcfcf">Twenty minutes is enough. I'll walk you through the workbook, and you can tell me everything I got wrong.</p>
+  <a class="cta" style="background:var(--blue)" href="mailto:durvathakker7@gmail.com?subject=Media%20Planning%20Coordinator%20at%20Klick">Email me →</a><a class="cta ghost" style="color:#fff;border-color:#fff" href="https://www.linkedin.com/in/durvathakkar/">LinkedIn →</a>
+</div></section>
+
+<footer><div class="w">Made by Durva Thakkar for the Klick Media Planning team, October 2026. The brief, rates and report numbers are samples created for this application, not client data. Klick is a trademark of its owner.</div></footer>
+<div class="toast" id="toast">Copied</div>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const money = n => "$" + Math.round(n).toLocaleString("en-US");
+  const CH = [
+    { n: "Paid search", s: "Google, Microsoft · patients searching symptoms", sh: 22, buy: "CPC", rate: 3.5, unit: "clicks", kpi: "Cost per qualified visit", c: "#0343fb", hcp: 0, fl: [1,1,1,1,1,1,1,1,1,1,1,1] },
+    { n: "Programmatic display", s: "DSP, contextual health content", sh: 18, buy: "CPM", rate: 9, unit: "impr.", kpi: "Viewability, CTR", c: "#3a6bff", hcp: 0, fl: [1,1,1,1,1,1,1,1,1,1,1,1] },
+    { n: "Online video + CTV", s: "Adults 25-54, broad + contextual", sh: 20, buy: "CPM", rate: 28, unit: "impr.", kpi: "Completion rate", c: "#6f92ff", hcp: 0, fl: [1,1,1,1,0,0,1,1,1,1,0,0] },
+    { n: "Paid social", s: "Meta, broad + contextual, no condition targeting", sh: 14, buy: "CPM", rate: 11, unit: "impr.", kpi: "Reach, frequency", c: "#9db4ff", hcp: 0, fl: [1,1,1,1,1,1,1,1,1,1,1,1] },
+    { n: "Mobile in-app", s: "Approved health and lifestyle apps", sh: 6, buy: "CPM", rate: 7, unit: "impr.", kpi: "CTR, viewability", c: "#c6d4ff", hcp: 0, fl: [0,0,1,1,1,1,1,1,1,1,0,0] },
+    { n: "HCP endemic", s: "Medscape, Doximity · NPI verified", sh: 12, buy: "CPM", rate: 60, unit: "impr.", kpi: "HCP reach", c: "#111111", hcp: 1, fl: [1,1,1,1,1,1,1,1,1,1,1,1] },
+    { n: "HCP email", s: "Endemic lists · neurology, primary care", sh: 5, buy: "CPM", rate: 250, unit: "sends", kpi: "Open, click rate", c: "#444444", hcp: 1, fl: [0,1,0,0,1,0,0,1,0,0,1,0] },
+    { n: "Serving + contingency", s: "Ad server, verification, buffer", sh: 3, buy: "Flat", rate: 0, unit: "", kpi: "Brand safety, IVT", c: "#8a8a8a", hcp: 0, fl: [1,1,1,1,1,1,1,1,1,1,1,1] }
+  ];
+  // ---------- plan ----------
+  const tb = document.querySelector("#planTbl tbody");
+  tb.innerHTML = CH.map((c, i) => `<tr><td><b>${c.n}</b><small>${c.s}</small></td><td class="r"><input class="pct" type="number" min="0" max="100" step="1" value="${c.sh}" data-i="${i}" aria-label="${c.n} share"> %</td><td class="r" data-b="${i}"></td><td>${c.buy}</td><td class="r">${c.rate ? "$" + c.rate.toFixed(2) : "n/a"}</td><td class="r" data-d="${i}"></td><td>${c.kpi}</td></tr>`).join("");
+  function plan() {
+    const B = Math.max(0, +$("budget").value || 0); let tot = 0;
+    CH.forEach((c, i) => { c.sh = Math.max(0, +document.querySelector(`.pct[data-i="${i}"]`).value || 0); tot += c.sh; });
+    CH.forEach((c, i) => {
+      c.b = B * c.sh / 100;
+      tb.querySelector(`[data-b="${i}"]`).textContent = money(c.b);
+      const d = c.buy === "CPC" ? c.b / c.rate : c.buy === "CPM" ? c.b / c.rate * 1000 : 0;
+      tb.querySelector(`[data-d="${i}"]`).textContent = d ? Math.round(d).toLocaleString("en-US") + " " + c.unit : "n/a";
+    });
+    $("tShare").textContent = tot + "%"; $("tBudget").textContent = money(B * tot / 100); $("briefBudget").textContent = money(B);
+    const ok = tot === 100; $("sumBadge").className = "sum " + (ok ? "ok" : "bad"); $("sumBadge").textContent = ok ? "Shares add to 100%" : `Shares add to ${tot}%. Fix before sending.`;
+    $("split").innerHTML = CH.map(c => `<span style="flex-grow:${c.sh};background:${c.c}" title="${c.n} ${c.sh}%">${c.sh >= 8 ? c.sh + "%" : ""}</span>`).join("");
+    pacing();
+  }
+  $("budget").addEventListener("input", plan); tb.addEventListener("input", plan);
+  // ---------- flowchart ----------
+  const wk = ["Jan 4","Jan 11","Jan 18","Jan 25","Feb 1","Feb 8","Feb 15","Feb 22","Mar 1","Mar 8","Mar 15","Mar 22"];
+  $("fc").innerHTML = `<div class="h">Channel</div>` + wk.map((w, i) => `<div class="h">W${i + 1}<br>${w}</div>`).join("") +
+    CH.map(c => `<div class="c">${c.n}</div>` + c.fl.map(v => `<div class="${v ? "on" + (c.hcp ? " hcp" : "") : ""}"></div>`).join("")).join("");
+  // ---------- pacing ----------
+  const ACT = [0.49, 0.41, 0.55, 0.50, 0.30, 0.47, 0.33, 0.50]; // sample delivery at day 42, as a share of each budget
+  function expected(c, day) { // spend expected by `day`, following the flighting
+    const live = c.fl.reduce((a, b) => a + b, 0) || 1; let e = 0;
+    for (let w = 0; w < 12; w++) if (c.fl[w]) e += Math.min(1, Math.max(0, (day - w * 7) / 7)) / live;
+    return e;
+  }
+  function pacing() {
+    const day = +$("day").value; $("dayLbl").textContent = day; const acts = [];
+    let h = `<div class="h">Channel</div><div class="h">Budget</div><div class="h">Expected</div><div class="h">Delivered vs expected</div><div class="h">Status</div>`;
+    CH.forEach((c, i) => {
+      const ex = expected(c, day), base = expected(c, 42) || 1;
+      const del = Math.min(1, ACT[i] * (ex / base)); // scale the sample delivery to the chosen day
+      const pace = ex ? del / ex : 1;
+      const st = pace > 1.1 ? ["over", "Over · " + Math.round(pace * 100) + "%"] : pace < 0.9 ? ["under", "Under · " + Math.round(pace * 100) + "%"] : ["ok", "On pace · " + Math.round(pace * 100) + "%"];
+      h += `<div><b>${c.n}</b></div><div>${money(c.b || 0)}</div><div>${money((c.b || 0) * ex)}</div><div><div class="meter"><i style="width:${del * 100}%"></i><b style="left:${ex * 100}%"></b></div></div><div><span class="st ${st[0]}">${st[1]}</span></div>`;
+      if (st[0] === "under") acts.push(`<b>${c.n}</b> is under-pacing (${Math.round(pace * 100)}%). Check bids, caps and inventory, then raise with the planner: push spend or move ${money((c.b || 0) * (ex - del))} to a line that's delivering.`);
+      if (st[0] === "over") acts.push(`<b>${c.n}</b> is over-pacing (${Math.round(pace * 100)}%). Lower daily caps today so it doesn't run out of budget before the flight ends.`);
+    });
+    $("pace").innerHTML = h;
+    $("actions").innerHTML = (acts.length ? acts : ["Everything is between 90% and 110%. No action needed today."]).map(a => `<div>${a}</div>`).join("");
+  }
+  $("day").addEventListener("input", pacing);
+  // ---------- naming ----------
+  const clean = v => v.toUpperCase().trim().replace(/\s+/g, "-").replace(/[^A-Z0-9-]/g, "");
+  function naming() {
+    const f = ["nClient", "nBrand", "nCamp", "nAud", "nCh", "nTac", "nDate", "nMlr"].map(id => clean($(id).value));
+    const name = f.join("_");
+    const src = { SEARCH: "google", DISPLAY: "dsp", OLV: "dsp", CTV: "ctv", SOCIAL: "meta", MOBILE: "dsp", ENDEMIC: "medscape", EMAIL: "hcp-email" }[f[4]] || "other";
+    const med = { SEARCH: "cpc", EMAIL: "email" }[f[4]] || "paid-" + f[4].toLowerCase();
+    const url = `https://example-awareness-site.com/?utm_source=${src}&utm_medium=${med}&utm_campaign=${(f[1] + "_" + f[2] + "_" + f[6]).toLowerCase()}&utm_content=${(f[3] + "_" + f[5] + "_" + f[7]).toLowerCase()}`;
+    $("oName").textContent = name; $("oUrl").textContent = url;
+    const w = [];
+    if (!/^MLR-\d{3,}$/.test(f[7])) w.push("MLR code missing or in the wrong format. Nothing traffics without one.");
+    if (!/^20\d{2}(0[1-9]|1[0-2])$/.test(f[6])) w.push("Start date should be YYYYMM.");
+    if (f.some(x => !x)) w.push("Every part needs a value.");
+    $("nWarn").textContent = w.join(" ");
+  }
+  document.querySelectorAll(".bld input, .bld select").forEach(el => el.addEventListener("input", naming));
+  const toast = $("toast");
+  document.querySelectorAll("[data-copy]").forEach(b => b.addEventListener("click", () => {
+    navigator.clipboard?.writeText($(b.dataset.copy).textContent).then(() => { toast.classList.add("on"); setTimeout(() => toast.classList.remove("on"), 1200); }).catch(() => {});
+  }));
+  // ---------- QA ----------
+  const QA = [
+    ["Every creative has an approved MLR (medical, legal, regulatory) code, and the code is in the creative name.", "All"],
+    ["Branded Rx (US): fair balance and Important Safety Information are present and readable on every unit.", "Branded"],
+    ["Unbranded: no product name, colours or claims that could tie the ad to a product.", "Unbranded"],
+    ["Canada: Rx ads to consumers stay within name, price and quantity; HCP materials have PAAB clearance where needed.", "Canada"],
+    ["Google: account and ads follow the Healthcare and medicines policy; Rx ads in the US need Google certification.", "Search"],
+    ["Meta: no targeting or copy that implies someone has a health condition; check current limits on health data and events.", "Social"],
+    ["No retargeting from condition pages without consent; check state health-privacy laws such as Washington's My Health My Data Act.", "All digital"],
+    ["Pixels and tags on patient sites reviewed with privacy and legal, so no health data reaches ad platforms.", "All digital"],
+    ["HCP audiences are NPI-verified on endemic platforms.", "HCP"],
+    ["Brand safety, contextual exclusions and frequency caps are set in every platform.", "All"],
+    ["Names and UTMs follow the naming convention; every link tested end to end.", "All"],
+    ["Trafficking sheet matches the plan: dates, budgets, sizes, landing pages.", "All"]
+  ];
+  $("qaList").innerHTML = QA.map((q, i) => `<label><input type="checkbox" data-q="${i}"><span>${q[0]}<small><span class="tag">${q[1]}</span></small></span></label>`).join("");
+  function qa() { const n = document.querySelectorAll("#qaList input:checked").length; $("qaCount").textContent = n === 12 ? "12 of 12 · ready to launch" : `${n} of 12`; $("qaBar").style.width = (n / 12 * 100) + "%"; }
+  $("qaList").addEventListener("change", qa);
+  // ---------- chart (plan vs actual site visits, weeks 1-6) ----------
+  const plan6 = [7.2, 7.8, 8.4, 8.6, 8.4, 8.6], act6 = [6.9, 7.9, 8.6, 8.1, 8.0, 8.7];
+  const W = 560, Hh = 240, P = 34, max = 10, x = i => P + i * (W - P * 2) / 5, y = v => Hh - P - v / max * (Hh - P * 2);
+  const line = a => a.map((v, i) => (i ? "L" : "M") + x(i).toFixed(1) + " " + y(v).toFixed(1)).join(" ");
+  $("chart").innerHTML = `<svg viewBox="0 0 ${W} ${Hh}" role="img" aria-label="Site visits per week in thousands, plan versus actual, weeks 1 to 6">
+    ${[0, 5, 10].map(v => `<line x1="${P}" x2="${W - P}" y1="${y(v)}" y2="${y(v)}" stroke="#e3e3e3"/><text x="${P - 8}" y="${y(v) + 4}" font-size="11" text-anchor="end" fill="#6b6b6b">${v}K</text>`).join("")}
+    ${plan6.map((_, i) => `<text x="${x(i)}" y="${Hh - 10}" font-size="11" text-anchor="middle" fill="#6b6b6b">W${i + 1}</text>`).join("")}
+    <path d="${line(plan6)}" fill="none" stroke="#111" stroke-width="2" stroke-dasharray="5 5"/>
+    <path d="${line(act6)}" fill="none" stroke="#0343fb" stroke-width="3"/>
+    ${act6.map((v, i) => `<circle cx="${x(i)}" cy="${y(v)}" r="4" fill="#0343fb"/>`).join("")}
+    <text x="${W - P}" y="${y(plan6[5]) - 10}" font-size="12" text-anchor="end" fill="#111">Plan</text>
+    <text x="${W - P}" y="${y(act6[5]) + 20}" font-size="12" text-anchor="end" fill="#0343fb" font-weight="700">Actual</text>
+  </svg>`;
+  plan(); naming(); qa();
+})();
+</script>
+</body>
+</html>
