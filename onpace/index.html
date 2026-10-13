@@ -3,291 +3,259 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>On Pace · a 60-second game for Pink</title>
-<meta name="description" content="A 60-second pixel game: keep a 12-week health media plan on pace. Made for Pink by Durva Thakkar.">
-<meta property="og:title" content="On Pace · can you keep the plan on pace?">
-<meta property="og:description" content="A 60-second pixel game for Pink: five channels, twelve weeks, one pacing band.">
+<title>On Pace · a 45-second story for Pink</title>
+<meta name="description" content="A 45-second motion story for Pink: a busy Monday in media planning, and a Player 2 who keeps every plan on pace. By Durva Thakkar.">
+<meta property="og:title" content="On Pace · a 45-second story for Pink">
+<meta property="og:description" content="A busy Monday in media planning, and a Player 2 who keeps every plan on pace.">
 <meta property="og:image" content="https://durvathakkar.com/onpace/share.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Public+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root { --bg: #070b1f; --panel: #0e1536; --line: #24306b; --blue: #0343fb; --sky: #6f92ff; --ink: #fff; --mute: #9aa6d6; --ok: #22c55e; --under: #f59e0b; --over: #ef4444; }
+  :root { --bg: #070b1f; --panel: #0e1536; --line: #24306b; --blue: #0343fb; --sky: #8ea8ff; --ok: #22c55e; --under: #f59e0b; --over: #ef4444; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { height: 100%; }
-  body { background: var(--bg); color: var(--ink); font: 400 16px/1.5 "Public Sans", system-ui, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; touch-action: manipulation; }
-  body::before { content: ""; position: fixed; inset: 0; pointer-events: none; background: repeating-linear-gradient(0deg, rgba(255,255,255,.025) 0 2px, transparent 2px 4px); z-index: 60; }
-  .px { font-family: "Press Start 2P", monospace; letter-spacing: .02em; }
-  .app { width: min(820px, 100% - 24px); margin: 0 auto; padding: 18px 0 40px; }
-  canvas.av { image-rendering: pixelated; image-rendering: crisp-edges; border: 3px solid #fff; box-shadow: 4px 4px 0 var(--blue); background: #222; }
-  /* HUD */
-  .hud { display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--panel); border: 3px solid var(--line); }
-  .hud canvas { width: 46px; height: 46px; flex: none; }
-  .hud .who { font-size: 9px; line-height: 1.7; } .hud .who b { display: block; font-size: 11px; color: #fff; } .hud .who span { color: var(--mute); }
-  .hud .stats { margin-left: auto; display: flex; gap: 14px; text-align: right; font-size: 9px; color: var(--mute); }
-  .hud .stats b { display: block; font-size: 14px; color: #fff; margin-top: 6px; }
-  @media (max-width: 560px) { .hud .who span { display: none; } .hud .stats { gap: 10px; } .hud .stats b { font-size: 12px; } }
-  .weeks { display: grid; grid-template-columns: repeat(12, 1fr); gap: 3px; margin-top: 10px; }
-  .weeks i { height: 10px; background: var(--line); }
-  .weeks i.done { background: var(--blue); } .weeks i.now { background: #fff; animation: blink .5s steps(2) infinite; }
-  @keyframes blink { 50% { opacity: .3; } }
-  .ticker { margin-top: 10px; min-height: 52px; display: flex; gap: 10px; align-items: center; background: #0a1030; border: 3px solid var(--line); padding: 8px 10px; }
-  .ticker canvas { width: 34px; height: 34px; flex: none; border-width: 2px; box-shadow: 2px 2px 0 var(--blue); }
-  .ticker p { font-size: 14px; font-weight: 600; line-height: 1.35; }
-  .ticker p b { color: var(--sky); }
-  /* board */
-  .board { position: relative; margin-top: 10px; background: var(--panel); border: 3px solid var(--line); padding: 14px 10px 12px; }
-  .chs { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
-  .ch { display: grid; gap: 8px; justify-items: center; }
-  .ch .nm { font-size: 8px; text-align: center; line-height: 1.6; min-height: 26px; color: var(--mute); }
-  .tube { position: relative; width: 100%; max-width: 92px; height: clamp(190px, 38vh, 290px); background: #050816; border: 3px solid #fff; }
-  .band { position: absolute; left: 0; right: 0; background: rgba(34,197,94,.18); border-top: 2px dashed var(--ok); border-bottom: 2px dashed var(--ok); }
-  .fill { position: absolute; left: 4px; right: 4px; bottom: 4px; background: var(--ok); transition: background .2s; box-shadow: inset -6px 0 0 rgba(0,0,0,.18); }
-  .fill.under { background: var(--under); } .fill.over { background: var(--over); }
-  .val { font-size: 10px; } .val.under { color: var(--under); } .val.over { color: var(--over); } .val.ok { color: var(--ok); }
-  .btns { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; width: 100%; max-width: 92px; }
-  .btns button { font: 12px "Press Start 2P", monospace; padding: 12px 0; border: 3px solid #fff; background: var(--blue); color: #fff; cursor: pointer; box-shadow: 3px 3px 0 #000; -webkit-tap-highlight-color: transparent; }
-  .btns button:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 #000; }
-  .btns button:focus-visible { outline: 3px solid var(--under); outline-offset: 2px; }
-  .legend { margin-top: 12px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; font-size: 8px; color: var(--mute); }
-  .legend i { display: inline-block; width: 10px; height: 10px; margin-right: 6px; vertical-align: -1px; }
-  /* MLR card */
-  .mlr { position: absolute; left: 50%; top: 18%; width: min(360px, 92%); transform: translate(-50%, -30px) scale(.9); opacity: 0; pointer-events: none; background: #fff; color: #0b0f24; border: 4px solid #000; box-shadow: 6px 6px 0 var(--blue); padding: 16px; transition: .2s steps(3); z-index: 5; }
-  .mlr.on { opacity: 1; transform: translate(-50%, 0) scale(1); pointer-events: auto; }
-  .mlr .k { font-size: 9px; color: var(--blue); }
-  .mlr h3 { font-size: 11px; line-height: 1.7; margin: 10px 0 8px; word-break: break-all; }
-  .mlr .code { font-size: 10px; } .mlr .code.miss { color: var(--over); } .mlr .code.has { color: #15803d; }
-  .mlr .timer { height: 6px; background: #e5e7eb; margin: 12px 0; } .mlr .timer i { display: block; height: 100%; background: var(--blue); }
-  .mlr .row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-  .mlr button { font: 10px "Press Start 2P", monospace; padding: 12px 6px; border: 3px solid #000; cursor: pointer; box-shadow: 3px 3px 0 #000; }
-  .mlr .hold { background: #fde68a; } .mlr .go { background: #bbf7d0; }
-  .pop { position: absolute; left: 50%; top: 46%; transform: translate(-50%, -50%); font-size: 12px; padding: 10px 14px; background: #000; border: 3px solid #fff; opacity: 0; transition: opacity .2s; pointer-events: none; z-index: 6; white-space: nowrap; }
-  .pop.on { opacity: 1; }
-  /* screens */
-  .scr { position: fixed; inset: 0; z-index: 40; display: grid; place-items: center; padding: 20px 16px; background: rgba(7,11,31,.96); overflow-y: auto; }
-  .scr[hidden] { display: none; }
-  .card { width: min(560px, 100%); text-align: center; }
-  .duo { display: flex; justify-content: center; align-items: end; gap: 22px; margin-bottom: 22px; }
-  .duo figure { display: grid; gap: 10px; justify-items: center; font-size: 8px; color: var(--mute); }
-  .duo canvas { width: 104px; height: 104px; }
-  .duo .vs { font-size: 14px; color: var(--sky); padding-bottom: 46px; }
-  .kick { font-size: 10px; color: var(--sky); line-height: 1.8; }
-  .card h1 { font-size: clamp(20px, 5vw, 30px); line-height: 1.35; margin: 14px 0 16px; }
-  .card p { color: #d6dcf5; font-size: 16px; max-width: 46ch; margin: 0 auto; }
-  .rules { margin: 20px auto 0; display: grid; gap: 10px; text-align: left; max-width: 420px; font-size: 14px; }
-  .rules div { display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; background: var(--panel); border: 2px solid var(--line); padding: 10px; }
-  .rules b.px { font-size: 10px; color: var(--sky); padding-top: 3px; }
-  .start { margin-top: 24px; font: 13px "Press Start 2P", monospace; padding: 18px 26px; background: var(--blue); color: #fff; border: 4px solid #fff; box-shadow: 5px 5px 0 #000; cursor: pointer; }
-  .start:active { transform: translate(3px, 3px); box-shadow: 2px 2px 0 #000; }
-  .start:focus-visible { outline: 3px solid var(--under); outline-offset: 3px; }
-  .small { margin-top: 14px; font-size: 12px; color: var(--mute); }
-  .small button { background: none; border: 0; color: var(--sky); font: inherit; text-decoration: underline; cursor: pointer; }
+  html, body { min-height: 100%; }
+  body { background: var(--bg); color: #fff; font: 400 16px/1.5 "Public Sans", system-ui, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; display: grid; place-items: center; padding: 16px 12px 28px; }
+  .px { font-family: "Press Start 2P", monospace; }
+  .wrap { width: min(1000px, 100%, calc((100svh - 150px) * 16 / 9)); }
+  @media (max-aspect-ratio: 1/1) { .wrap { width: min(100%, calc((100svh - 150px) * 4 / 5)); min-width: min(300px, 100%); } }
+  .stage { position: relative; width: 100%; aspect-ratio: 16 / 9; background: radial-gradient(ellipse at 50% 0%, #142057, var(--bg) 70%); border: 4px solid #fff; box-shadow: 8px 8px 0 var(--blue); overflow: hidden; container-type: inline-size; }
+  @media (max-aspect-ratio: 1/1) { .stage { aspect-ratio: 4 / 5; } }
+  .stage::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(0deg, rgba(255,255,255,.03) 0 2px, transparent 2px 4px); }
+  .sc { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity .45s, visibility 0s .45s; display: grid; place-items: center; padding: 4cqi 4cqi 7cqi; }
+  .sc.on { opacity: 1; visibility: visible; transition: opacity .45s; }
+  .stage.paused *, .stage.paused *::before, .stage.paused *::after { animation-play-state: paused !important; }
+  .av { display: block; aspect-ratio: 1; object-fit: cover; border: .6cqi solid #fff; box-shadow: .8cqi .8cqi 0 var(--blue); background: #222; }
+  /* title */
+  .t1 { text-align: center; }
+  .t1 .duo { display: flex; justify-content: center; align-items: center; gap: 3cqi; }
+  .t1 .av { width: 17cqi; }
+  .t1 .plus { font-size: 3cqi; color: var(--sky); }
+  .t1 h1 { font-size: 4.2cqi; line-height: 1.35; margin-top: 3.6cqi; }
+  .t1 p { font-size: 1.9cqi; color: #cdd5f5; margin-top: 1.6cqi; }
+  .sc.on .t1 .p1 { animation: popIn .6s steps(4) .2s both; } .sc.on .t1 .p2 { animation: popIn .6s steps(4) .9s both; } .sc.on .t1 .plus { animation: popIn .4s steps(3) .7s both; }
+  .sc.on .t1 h1 { animation: rise .6s steps(5) 1.4s both; } .sc.on .t1 p { animation: rise .6s steps(5) 1.9s both; }
+  @keyframes popIn { from { transform: scale(0); } to { transform: scale(1); } }
+  @keyframes rise { from { opacity: 0; transform: translateY(2cqi); } to { opacity: 1; transform: none; } }
+  /* desk */
+  .desk { width: 100%; height: 100%; display: grid; grid-template-columns: 20cqi 1fr; grid-template-rows: auto 1fr; gap: 2cqi; }
+  .clock { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: center; font-size: 1.5cqi; color: var(--sky); gap: 2cqi; }
+  .clock b { color: #fff; }
+  .people { display: grid; gap: 3cqi; align-content: start; padding-top: 2cqi; }
+  .who { position: relative; display: grid; justify-items: center; gap: 1cqi; }
+  .who .av { width: 12cqi; }
+  .who span { font-size: 1.1cqi; color: var(--sky); text-align: center; line-height: 1.6; }
+  .bub { position: absolute; top: -2.6cqi; left: 55%; background: #fff; color: #0b0f24; font: 1.1cqi/1.5 "Press Start 2P", monospace; padding: 1cqi 1.2cqi; border: .4cqi solid #000; white-space: nowrap; opacity: 0; z-index: 3; transition: opacity .2s; }
+  .bub::after { content: ""; position: absolute; left: 1.4cqi; bottom: -1.3cqi; border: .65cqi solid transparent; border-top-color: #000; }
+  .p2slot { opacity: 0; transform: translateX(-10cqi); }
+  .work { position: relative; background: var(--panel); border: .45cqi solid var(--line); padding: 2cqi; display: grid; grid-template-columns: 1.1fr 1fr; gap: 2.4cqi; min-height: 0; }
+  .lbl { font-size: 1.05cqi; color: var(--sky); margin-bottom: 1.2cqi; letter-spacing: .06em; }
+  .bars { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.2cqi; height: 24cqi; }
+  .bar { display: grid; grid-template-rows: 1fr auto; gap: .8cqi; justify-items: center; }
+  .tube { position: relative; width: 100%; height: 100%; border: .35cqi solid #fff; background: #050816; }
+  .band { position: absolute; left: 0; right: 0; bottom: 41.6%; top: 41.6%; background: rgba(34,197,94,.18); border-top: .25cqi dashed var(--ok); border-bottom: .25cqi dashed var(--ok); }
+  .fill { position: absolute; left: .4cqi; right: .4cqi; bottom: .4cqi; height: var(--h, 50%); background: var(--c, var(--ok)); transition: height 1.1s steps(8), background .3s steps(2); }
+  .bar small { font-size: .85cqi; color: #cdd5f5; text-align: center; }
+  .tasks { display: grid; gap: 1.1cqi; align-content: start; }
+  .task { display: grid; grid-template-columns: 2.6cqi 1fr; gap: 1cqi; align-items: center; background: #0a1030; border: .3cqi solid var(--line); padding: 1.1cqi 1.2cqi; font-size: 1.5cqi; font-weight: 600; opacity: 0; transform: translateX(3cqi); transition: opacity .3s, transform .3s steps(3), border-color .3s, background .3s; }
+  .task i { width: 2.2cqi; height: 2.2cqi; border: .3cqi solid #fff; display: grid; place-items: center; font-style: normal; color: var(--ok); }
+  .task.in { opacity: 1; transform: none; }
+  .task.done { border-color: var(--ok); background: rgba(34,197,94,.12); }
+  .task.done i::before { content: "✓"; font-weight: 800; font-size: 1.7cqi; }
+  .task.now { border-color: #fff; }
+  .ov { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(.8); opacity: 0; transition: opacity .25s, transform .3s steps(3); z-index: 4; pointer-events: none; }
+  .ov.on { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  .mlr { width: 46cqi; background: #fff; color: #0b0f24; border: .5cqi solid #000; box-shadow: .9cqi .9cqi 0 var(--blue); padding: 2cqi; }
+  .mlr .k, .report .k { font-size: 1.05cqi; color: var(--blue); }
+  .mlr h3 { font-size: 1.3cqi; line-height: 1.6; margin: 1.2cqi 0; word-break: break-all; }
+  .mlr .code { font-size: 1.2cqi; } .miss { color: var(--over); } .has { color: #15803d; }
+  .stamp { position: absolute; right: 2cqi; bottom: 1.4cqi; font: 2.2cqi "Press Start 2P", monospace; border: .45cqi solid; padding: .6cqi 1cqi; transform: rotate(-8deg) scale(2.4); opacity: 0; transition: transform .25s steps(3), opacity .1s; background: #fff; }
+  .stamp.hold { color: #b45309; } .stamp.live { color: #15803d; }
+  .stamp.on { opacity: 1; transform: rotate(-8deg) scale(1); }
+  .names { width: 56cqi; background: #000; border: .45cqi solid #fff; padding: 1.6cqi; display: grid; gap: 1cqi; }
+  .names div { font: 1.15cqi/1.5 "Press Start 2P", monospace; color: #fca5a5; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .names div.clean { color: #86efac; }
+  .report { width: 46cqi; background: #fff; color: #0b0f24; border: .5cqi solid #000; box-shadow: .9cqi .9cqi 0 var(--blue); padding: 2cqi; }
+  .report .row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1cqi; margin: 1.4cqi 0; }
+  .report .row div { background: #eef2ff; padding: 1cqi; font: .9cqi/1.6 "Press Start 2P", monospace; color: #475569; }
+  .report .row b { display: block; font-family: "Public Sans", sans-serif; font-size: 2.4cqi; color: #0b0f24; }
+  .report p { font-size: 1.45cqi; font-weight: 600; }
+  .report .sent { margin-top: 1.2cqi; font: 1.05cqi "Press Start 2P", monospace; color: #15803d; min-height: 1.4cqi; }
+  .report.fly { transition: transform .9s steps(6), opacity .9s; transform: translate(-160%, -70%) scale(.3) !important; opacity: 0 !important; }
+  .joined { position: absolute; left: 50%; top: 46%; transform: translate(-50%, -50%); font-size: 2.6cqi; text-align: center; line-height: 1.6; color: #fff; text-shadow: .4cqi .4cqi 0 var(--blue); opacity: 0; z-index: 6; pointer-events: none; background: rgba(7,11,31,.85); padding: 2cqi 3cqi; border: .4cqi solid #fff; }
+  .joined.on { animation: joined 2.2s steps(10) both; }
+  @keyframes joined { 0% { opacity: 0; transform: translate(-50%, -50%) scale(.4); } 15%, 80% { opacity: 1; transform: translate(-50%, -50%) scale(1); } 100% { opacity: 0; transform: translate(-50%, -50%) scale(1); } }
   /* end */
-  .score { margin: 18px auto 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; max-width: 460px; }
-  .score div { background: var(--panel); border: 2px solid var(--line); padding: 12px 6px; font-size: 8px; color: var(--mute); line-height: 1.6; }
-  .score b { display: block; font-size: 16px; color: #fff; margin-top: 8px; }
-  .rank { margin-top: 16px; font-size: 12px; color: var(--ok); }
-  .five { position: relative; height: 120px; margin: 4px auto 6px; width: 260px; }
-  .five canvas { position: absolute; bottom: 0; width: 88px; height: 88px; }
-  .five .l { left: 0; animation: inL 1s steps(6) .3s both; } .five .r { right: 0; animation: inR 1s steps(6) .3s both; }
-  .five .spark { position: absolute; left: 50%; top: 4px; transform: translateX(-50%); font-size: 12px; color: var(--under); opacity: 0; animation: spark .6s steps(2) 1.3s 3 both; }
-  @keyframes inL { from { transform: translateX(-60px); } to { transform: translateX(34px); } }
-  @keyframes inR { from { transform: translateX(60px); } to { transform: translateX(-34px); } }
-  @keyframes spark { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; } }
-  .note { margin: 22px auto 0; max-width: 460px; background: #fff; color: #0b0f24; border: 4px solid #000; box-shadow: 6px 6px 0 var(--blue); padding: 16px 18px; text-align: left; font-size: 15px; line-height: 1.5; }
-  .note b { font-weight: 800; }
-  .links { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-  .links a, .links button { font: 10px "Press Start 2P", monospace; text-decoration: none; padding: 14px 16px; border: 3px solid #fff; color: #fff; background: transparent; cursor: pointer; box-shadow: 3px 3px 0 #000; }
+  .end { text-align: center; width: 100%; }
+  .five { position: relative; height: 17cqi; width: 46cqi; margin: 0 auto; }
+  .five .av { position: absolute; bottom: 0; width: 15cqi; }
+  .five .a { left: 0; } .five .b { right: 0; }
+  .sc.on .five .a { animation: inL 1s steps(6) .2s both; } .sc.on .five .b { animation: inR 1s steps(6) .2s both; }
+  .five .spark { position: absolute; left: 50%; top: 0; transform: translateX(-50%); font-size: 2.4cqi; color: var(--under); opacity: 0; }
+  .sc.on .five .spark { animation: spark .5s steps(2) 1.2s 4 both; }
+  @keyframes inL { from { transform: translateX(-8cqi); } to { transform: translateX(6cqi); } }
+  @keyframes inR { from { transform: translateX(8cqi); } to { transform: translateX(-6cqi); } }
+  @keyframes spark { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+  .end h2 { font-size: 3cqi; line-height: 1.5; margin-top: 3cqi; }
+  .sc.on .end h2 { animation: rise .6s steps(5) 1.6s both; }
+  .end p { font-size: 1.8cqi; color: #cdd5f5; margin-top: 1.6cqi; }
+  .sc.on .end p { animation: rise .6s steps(5) 2.1s both; }
+  .cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.3cqi 3cqi; background: rgba(0,0,0,.78); font-size: 1.7cqi; font-weight: 600; text-align: center; z-index: 8; transition: opacity .3s; }
+  .cap:empty { opacity: 0; }
+  /* portrait phones: stack */
+  @media (max-aspect-ratio: 1/1) {
+    .desk { grid-template-columns: 1fr; grid-template-rows: auto auto 1fr; gap: 2.4cqi; }
+    .people { grid-template-columns: 1fr 1fr; padding-top: 4cqi; gap: 2cqi; }
+    .who .av { width: 16cqi; } .who span, .bub { font-size: 1.9cqi; } .bub { top: -4cqi; left: 50%; }
+    .work { grid-template-columns: 1fr; padding: 3cqi; } .bars { height: 26cqi; } .bar small { font-size: 1.4cqi; } .lbl { font-size: 1.7cqi; } .clock { font-size: 2cqi; }
+    .task { font-size: 2.5cqi; padding: 1.4cqi; } .task i { width: 3cqi; height: 3cqi; }
+    .mlr, .report { width: 80cqi; } .names { width: 84cqi; } .mlr .k, .report .k, .mlr .code { font-size: 1.8cqi; } .mlr h3 { font-size: 2cqi; } .report p { font-size: 2.6cqi; } .report .row div { font-size: 1.5cqi; } .report .row b { font-size: 3.6cqi; } .names div { font-size: 1.9cqi; } .stamp { font-size: 3.4cqi; } .report .sent { font-size: 1.8cqi; }
+    .cap { font-size: 3cqi; } .t1 .av { width: 26cqi; } .t1 h1 { font-size: 6.4cqi; } .t1 p { font-size: 3.4cqi; } .five { width: 72cqi; height: 26cqi; } .five .av { width: 24cqi; } .end h2 { font-size: 4.4cqi; } .end p { font-size: 3.2cqi; } .joined { font-size: 4cqi; }
+  }
+  .play { position: absolute; inset: 0; z-index: 10; display: grid; place-items: center; background: rgba(7,11,31,.5); border: 0; cursor: pointer; color: #fff; }
+  .play span { font: 14px "Press Start 2P", monospace; background: var(--blue); border: 4px solid #fff; box-shadow: 6px 6px 0 #000; padding: 18px 24px; }
+  .play[hidden] { display: none; }
+  .ctrl { margin-top: 18px; display: flex; gap: 10px; align-items: center; }
+  .ctrl button { font: 10px "Press Start 2P", monospace; padding: 12px 12px; border: 3px solid #fff; background: var(--panel); color: #fff; cursor: pointer; box-shadow: 3px 3px 0 #000; white-space: nowrap; }
+  .ctrl .prog { flex: 1; height: 10px; background: var(--line); border: 2px solid #fff; min-width: 30px; }
+  .ctrl .prog i { display: block; height: 100%; width: 0; background: var(--blue); }
+  .links { margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+  .links a { font: 10px "Press Start 2P", monospace; padding: 14px 16px; border: 3px solid #fff; color: #fff; text-decoration: none; box-shadow: 3px 3px 0 #000; }
   .links .main { background: var(--blue); }
-  .snd { position: fixed; right: 12px; bottom: 12px; z-index: 50; font: 8px "Press Start 2P", monospace; background: var(--panel); color: var(--mute); border: 2px solid var(--line); padding: 8px 10px; cursor: pointer; }
-  @media (prefers-reduced-motion: reduce) { .weeks i.now { animation: none; } .five .l, .five .r, .five .spark { animation: none; opacity: 1; } .five .l { transform: translateX(34px); } .five .r { transform: translateX(-34px); } }
+  button:focus-visible, a:focus-visible { outline: 3px solid var(--under); outline-offset: 3px; }
+  .credit { margin-top: 16px; text-align: center; font-size: 12px; color: #8590bd; }
 </style>
 </head>
 <body>
-<div class="app" id="app" aria-hidden="true">
-  <div class="hud">
-    <canvas class="av" id="hudPink" width="24" height="24"></canvas>
-    <div class="who px"><b>PINK</b><span>MEDIA PLANNING</span></div>
-    <div class="stats px"><div>WEEK<b id="wk">1/12</b></div><div>ON PACE<b id="sc">100%</b></div><div>MLR<b id="ml">0/0</b></div></div>
-  </div>
-  <div class="weeks" id="weeks"></div>
-  <div class="ticker"><canvas class="av" id="tipDurva" width="24" height="24"></canvas><p id="tip">Your plan is live. Keep every bar inside the green band.</p></div>
-  <div class="board">
-    <div class="chs" id="chs"></div>
-    <div class="legend px"><span><i style="background:var(--ok)"></i>90-110% ON PACE</span><span><i style="background:var(--under)"></i>UNDER</span><span><i style="background:var(--over)"></i>OVER</span></div>
-    <div class="mlr" id="mlr" role="dialog" aria-label="Creative check">
-      <div class="k px">NEW CREATIVE · READY TO TRAFFIC?</div>
-      <h3 class="px" id="mlrName"></h3>
-      <div class="code px" id="mlrCode"></div>
-      <div class="timer"><i id="mlrT"></i></div>
-      <div class="row"><button class="hold" id="mlrHold">HOLD IT</button><button class="go" id="mlrGo">LAUNCH</button></div>
-    </div>
-    <div class="pop px" id="pop"></div>
-  </div>
-</div>
+<div class="wrap">
+  <div class="stage" id="stage">
+    <div class="sc" id="s1"><div class="t1">
+      <div class="duo"><img class="av p1" src="pink.jpg" alt="Pink"><span class="plus px">+</span><img class="av p2" src="/assets/durva-avatar.jpg" alt="Durva"></div>
+      <h1 class="px">Hi Pink!</h1>
+      <p>A 45-second story about Mondays in media planning.</p>
+    </div></div>
 
-<div class="scr" id="intro">
-  <div class="card">
-    <div class="duo">
-      <figure><canvas class="av" id="inPink" width="24" height="24"></canvas><span class="px">PINK · P1</span></figure>
-      <div class="vs px">+</div>
-      <figure><canvas class="av" id="inDurva" width="24" height="24"></canvas><span class="px">DURVA · P2</span></figure>
+    <div class="sc" id="desk"><div class="desk">
+      <div class="clock px"><span>MEDIA PLANNING · TORONTO</span><span>MONDAY <b id="time">9:00 AM</b></span></div>
+      <div class="people">
+        <div class="who"><img class="av" src="pink.jpg" alt=""><span class="px">PINK · P1</span><div class="bub" id="bubPink"></div></div>
+        <div class="who p2slot" id="p2"><img class="av" src="/assets/durva-avatar.jpg" alt=""><span class="px">DURVA · P2</span><div class="bub" id="bubDurva"></div></div>
+      </div>
+      <div class="work">
+        <div><div class="lbl px">PACING · 90-110% BAND</div><div class="bars" id="bars"></div></div>
+        <div><div class="lbl px">TO DO BEFORE 11 AM</div>
+          <div class="tasks">
+            <div class="task" data-t="0"><i></i>Pacing check, 5 channels</div>
+            <div class="task" data-t="1"><i></i>Creatives need an MLR check</div>
+            <div class="task" data-t="2"><i></i>Clean up placement names</div>
+            <div class="task" data-t="3"><i></i>Week 6 report to the client</div>
+          </div>
+        </div>
+        <div class="ov mlr" id="mlr"><div class="k px">NEW CREATIVE · READY TO TRAFFIC?</div><h3 class="px" id="mlrName"></h3><div class="code px" id="mlrCode"></div><div class="stamp" id="stamp"></div></div>
+        <div class="ov names" id="names"><div></div><div></div><div></div></div>
+        <div class="ov report" id="report"><div class="k px">WEEK 6 REPORT</div><div class="row"><div>ON PACE<b>5/5</b></div><div>MLR CHECKS<b>2/2</b></div><div>VISITS<b>48.2K</b></div></div><p>Search CPCs up 12%. Suggest moving $20K from mobile to search for weeks 7-9. Planner to approve.</p><div class="sent px" id="sent"></div></div>
+      </div>
     </div>
-    <div class="kick px">ON PACE · A 60-SECOND GAME FOR PINK</div>
-    <h1 class="px">Hi Pink! Can you keep the plan on pace?</h1>
-    <p>A health campaign just went live: five channels, twelve weeks. Markets move, inventory dries up, creatives show up without approvals. Keep it all on plan.</p>
-    <div class="rules">
-      <div><b class="px">1</b><span>Tap <b>▲</b> or <b>▼</b> to keep each channel inside the green band (90% to 110% of planned spend).</span></div>
-      <div><b class="px">2</b><span>When a creative pops up, check its MLR code. <b>No code, no launch.</b></span></div>
-      <div><b class="px">3</b><span>Twelve weeks pass in 60 seconds. Player 2 will shout tips.</span></div>
+    <div class="joined px" id="joined">PLAYER 2<br>HAS JOINED</div>
     </div>
-    <button class="start" id="startBtn">START THE FLIGHT &gt;</button>
-    <div class="small">Sound is off. <button id="sndIntro">Turn it on</button></div>
-  </div>
-</div>
 
-<div class="scr" id="end" hidden>
-  <div class="card">
-    <div class="kick px">FLIGHT COMPLETE · WEEK 12 REPORT</div>
-    <div class="five"><canvas class="av l" id="endPink" width="24" height="24"></canvas><span class="spark px">★</span><canvas class="av r" id="endDurva" width="24" height="24"></canvas></div>
-    <h1 class="px" id="endTitle">Nice pacing, Pink.</h1>
-    <div class="score">
-      <div>ON PACE<b id="eScore"></b></div>
-      <div>MLR CHECKS<b id="eMlr"></b></div>
-      <div>BIGGEST SAVE<b id="eSave" style="font-size:10px;line-height:1.5"></b></div>
-    </div>
-    <div class="rank px" id="eRank"></div>
-    <div class="note">Hi Pink, I'm Durva. Pacing checks, MLR codes and twelve-week flowcharts are the parts of media planning I enjoy most, so I turned them into a game. <b>I've applied for the Media Planning Coordinator role on your team</b>, and I'd love to help keep the real plans on pace.</div>
-    <div class="links">
-      <a class="main" href="https://durvathakkar.com/klick/">See the full plan &gt;</a>
-      <a href="https://www.linkedin.com/in/durvathakkar/">Say hi &gt;</a>
-      <button id="again">Play again</button>
-    </div>
+    <div class="sc" id="s6"><div class="end">
+      <div class="five"><img class="av a" src="pink.jpg" alt=""><span class="spark px">★</span><img class="av b" src="/assets/durva-avatar.jpg" alt=""></div>
+      <h2 class="px">Pink, can I join your team<br>and keep every plan on pace?</h2>
+      <p>I've applied for the Media Planning Coordinator role.</p>
+    </div></div>
+
+    <div class="cap" id="cap" aria-live="polite"></div>
+    <button class="play" id="play" aria-label="Play the story"><span>▶ PLAY</span></button>
   </div>
+
+  <div class="ctrl">
+    <button id="pp">PAUSE</button>
+    <div class="prog" aria-hidden="true"><i id="prog"></i></div>
+    <button id="rp">REPLAY</button>
+    <button id="snd" aria-pressed="false">SOUND OFF</button>
+  </div>
+  <div class="links">
+    <a class="main" href="https://durvathakkar.com/klick/">See the full plan &gt;</a>
+    <a href="https://www.linkedin.com/in/durvathakkar/">Say hi &gt;</a>
+  </div>
+  <p class="credit">Made for Pink by Durva Thakkar · <a href="https://durvathakkar.com/" style="color:#8ea8ff">durvathakkar.com</a></p>
 </div>
-<button class="snd" id="snd" aria-pressed="false">SOUND: OFF</button>
 
 <script>
 (() => {
   const $ = id => document.getElementById(id);
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  // ---------- pixel portraits ----------
-  function pixelate(src, ids) {
-    const img = new Image(); img.onload = () => ids.forEach(id => {
-      const c = $(id), g = c.getContext("2d"), s = Math.min(img.width, img.height);
-      g.imageSmoothingEnabled = true; g.drawImage(img, (img.width - s) / 2, (img.height - s) / 2 * .6, s, s, 0, 0, c.width, c.height);
-    }); img.src = src;
-  }
-  pixelate("pink.jpg", ["hudPink", "inPink", "endPink"]);
-  pixelate("/assets/durva-avatar.jpg", ["tipDurva", "inDurva", "endDurva"]);
-  // ---------- sound ----------
+  const stage = $("stage"), DUR = 44;
+  const CH = ["SEARCH", "DISPLAY", "VIDEO", "SOCIAL", "HCP"];
+  const MESSY = [62, 128, 104, 141, 74], CLEAN = [99, 103, 101, 97, 100];
+  $("bars").innerHTML = CH.map((c, i) => `<div class="bar"><div class="tube"><div class="band"></div><div class="fill" id="b${i}"></div></div><small class="px">${c}</small></div>`).join("");
+  const setBars = vals => vals.forEach((v, i) => { const b = $("b" + i); b.style.setProperty("--h", ((v - 40) / 120 * 100).toFixed(1) + "%"); b.style.setProperty("--c", v < 90 ? "var(--under)" : v > 110 ? "var(--over)" : "var(--ok)"); });
   let ac = null, sound = false;
-  function beep(f = 440, d = .07, type = "square", v = .05) {
-    if (!sound) return; try { ac = ac || new (window.AudioContext || window.webkitAudioContext)(); const o = ac.createOscillator(), g = ac.createGain(); o.type = type; o.frequency.value = f; g.gain.value = v; o.connect(g); g.connect(ac.destination); o.start(); g.gain.exponentialRampToValueAtTime(.0001, ac.currentTime + d); o.stop(ac.currentTime + d); } catch (e) {}
-  }
-  function setSound(on) { sound = on; $("snd").textContent = "SOUND: " + (on ? "ON" : "OFF"); $("snd").setAttribute("aria-pressed", on); $("sndIntro").textContent = on ? "Turn it off" : "Turn it on"; if (on) beep(660, .1); }
-  $("snd").onclick = () => setSound(!sound); $("sndIntro").onclick = () => setSound(!sound);
-  // ---------- channels ----------
-  const CH = [
-    { n: "SEARCH", k: "search" }, { n: "DISPLAY", k: "display" }, { n: "VIDEO + CTV", k: "video" }, { n: "SOCIAL", k: "social" }, { n: "HCP", k: "hcp" }
-  ];
-  const MIN = 40, MAX = 160, toPct = v => (v - MIN) / (MAX - MIN) * 100;
-  $("chs").innerHTML = CH.map((c, i) => `<div class="ch"><div class="nm px">${c.n}</div><div class="tube"><div class="band" style="bottom:${toPct(90)}%;top:${100 - toPct(110)}%"></div><div class="fill" id="f${i}"></div></div><div class="val px" id="v${i}">100%</div><div class="btns"><button data-i="${i}" data-d="1" aria-label="Raise ${c.n}">▲</button><button data-i="${i}" data-d="-1" aria-label="Lower ${c.n}">▼</button></div></div>`).join("");
-  $("weeks").innerHTML = Array.from({ length: 12 }, () => "<i></i>").join("");
-  const EVENTS = [
-    { t: 7, i: 0, push: -34, msg: "<b>W2 · Competitor launch.</b> Search CPCs jump 12%. Search is falling behind: raise it!" },
-    { t: 17, i: 3, push: 36, msg: "<b>W4 · A post goes viral.</b> Social is spending too fast: pull it back!" },
-    { t: 27, i: 4, push: -38, msg: "<b>W6 · Endemic site outage.</b> HCP delivery stalls: push it up!" },
-    { t: 38, i: 2, push: 34, msg: "<b>W8 · CTV inventory opens up.</b> Video over-delivers: slow it down!" },
-    { t: 48, i: 1, push: -32, msg: "<b>W10 · Viewability dip.</b> Display bids paused: bring it back!" }
-  ];
-  const CARDS = [
-    { t: 12, name: "KLK_UNB-MIGRAINE_PT_CTV_15S_V3", code: null },
-    { t: 23, name: "KLK_UNB-MIGRAINE_HCP_ENDEMIC_BANNER_V2", code: "MLR-0150" },
-    { t: 33, name: "KLK_UNB-MIGRAINE_PT_SOCIAL_CAROUSEL_V1", code: null },
-    { t: 44, name: "KLK_UNB-MIGRAINE_PT_SEARCH_RSA_V4", code: "MLR-0142" },
-    { t: 53, name: "KLK_UNB-MIGRAINE_PT_DISPLAY_300X250_V5", code: null }
-  ];
-  let S;
+  function beep(f = 440, d = .08, type = "square", v = .045) { if (!sound) return; try { ac = ac || new (window.AudioContext || window.webkitAudioContext)(); const o = ac.createOscillator(), g = ac.createGain(); o.type = type; o.frequency.value = f; g.gain.value = v; o.connect(g); g.connect(ac.destination); o.start(); g.gain.exponentialRampToValueAtTime(.0001, ac.currentTime + d); o.stop(ac.currentTime + d); } catch (e) {} }
+  const tune = fs => fs.forEach((f, k) => setTimeout(() => beep(f, .1), k * 110));
+  $("snd").onclick = () => { sound = !sound; $("snd").textContent = sound ? "SOUND ON" : "SOUND OFF"; $("snd").setAttribute("aria-pressed", sound); if (sound) beep(660); };
+  const show = id => document.querySelectorAll(".sc").forEach(s => s.classList.toggle("on", s.id === id));
+  const cap = t => $("cap").textContent = t;
+  const on = (id, v = true) => $(id).classList.toggle("on", v);
+  const bub = (id, t) => { const b = $(id); b.textContent = t; b.style.opacity = t ? 1 : 0; };
+  const task = (i, c) => document.querySelector(`.task[data-t="${i}"]`).classList.add(c);
+  const taskNow = i => document.querySelectorAll(".task").forEach(t => t.classList.toggle("now", +t.dataset.t === i));
+  const MESSYN = ["video final FINAL v2 (1).mp4", "Banner_300x250 copy NEW", "search ad - JAN - test??"];
+  const CLEANN = ["KLK_UNB-MIGRAINE_PT_CTV_202701_V3", "KLK_UNB-MIGRAINE_PT_DISPLAY_202701_V5", "KLK_UNB-MIGRAINE_PT_SEARCH_202701_V4"];
   function reset() {
-    S = { t: 0, run: false, ch: CH.map(() => ({ v: 100, d: 0, out: 0 })), inBand: 0, total: 0, ev: 0, card: 0, mlr: null, ok: 0, seen: 0, saves: {}, nextDrift: 0, tipLock: 0 };
-    render();
+    document.querySelectorAll(".task").forEach(t => t.className = "task");
+    ["mlr", "names", "report", "joined", "stamp"].forEach(id => $(id).classList.remove("on"));
+    $("report").classList.remove("fly"); const p = $("p2"); p.style.transition = "none"; p.style.opacity = 0; p.style.transform = "translateX(-10cqi)"; $("sent").textContent = "";
+    $("names").querySelectorAll("div").forEach((d, k) => { d.textContent = MESSYN[k]; d.className = ""; });
+    bub("bubPink", ""); bub("bubDurva", ""); setBars([100, 100, 100, 100, 100]); $("time").textContent = "9:00 AM"; cap("");
   }
-  function tip(html, lock = 2.4) { $("tip").innerHTML = html; S.tipLock = S.t + lock; }
-  function pop(txt) { const p = $("pop"); p.textContent = txt; p.classList.add("on"); clearTimeout(pop.t); pop.t = setTimeout(() => p.classList.remove("on"), 900); }
-  function nudge(i, d) {
-    if (!S.run) return; const c = S.ch[i]; const before = c.v;
-    c.v = Math.max(MIN, Math.min(MAX, c.v + d * 7)); beep(d > 0 ? 620 : 380, .05);
-    if ((before < 90 || before > 110) && c.v >= 90 && c.v <= 110) S.saves[i] = (S.saves[i] || 0) + 1;
-    render();
+  const T = [
+    [0, () => { show("s1"); tune([523, 659, 784]); }],
+    [5, () => { show("desk"); cap("Monday, 9:00 AM. A health campaign is live, and the week starts fast."); }],
+    [6.2, () => { setBars(MESSY); beep(200, .2, "sawtooth"); }],
+    [7.2, () => [0, 1, 2, 3].forEach((i, k) => setTimeout(() => { task(i, "in"); beep(520 + k * 60, .05); }, k * 380))],
+    [9.4, () => { bub("bubPink", "WHERE DO I START?"); cap("Search is under, social is over, and the report is due at 11."); }],
+    [12.4, () => { bub("bubPink", ""); on("joined"); cap(""); tune([392, 523, 659, 784, 1046]); }],
+    [13.4, () => { const p = $("p2"); p.style.transition = "opacity .4s, transform .7s steps(5)"; p.style.opacity = 1; p.style.transform = "none"; }],
+    [14.8, () => { bub("bubDurva", "ON IT!"); cap("Player 2 has joined: Durva, ready to help the team."); }],
+    [17, () => { bub("bubDurva", ""); taskNow(0); $("time").textContent = "9:15 AM"; cap("Pacing check: push search, slow social, lift HCP."); }],
+    [17.8, () => { setBars(CLEAN); beep(880, .12, "triangle"); }],
+    [20, () => { task(0, "done"); beep(1046, .1); }],
+    [20.8, () => { taskNow(1); $("time").textContent = "9:40 AM"; cap("Creative check: no MLR code, no launch."); $("mlrName").textContent = "KLK_UNB-MIGRAINE_PT_CTV_15S_V3"; $("mlrCode").textContent = "MLR CODE: MISSING"; $("mlrCode").className = "code px miss"; $("stamp").className = "stamp hold"; $("stamp").textContent = "HELD"; on("mlr"); }],
+    [22.2, () => { on("stamp"); beep(160, .2, "sawtooth"); }],
+    [23.4, () => { $("stamp").classList.remove("on"); $("mlrName").textContent = "KLK_UNB-MIGRAINE_HCP_ENDEMIC_V2"; $("mlrCode").textContent = "MLR CODE: MLR-0150 ✓"; $("mlrCode").className = "code px has"; $("stamp").className = "stamp live"; $("stamp").textContent = "LIVE"; }],
+    [24.2, () => { on("stamp"); beep(988, .12); }],
+    [25.2, () => { on("mlr", false); task(1, "done"); }],
+    [25.6, () => { taskNow(2); $("time").textContent = "10:05 AM"; cap("One name, everywhere, so every report lines up."); on("names"); }],
+    [26.8, () => $("names").querySelectorAll("div").forEach((d, k) => setTimeout(() => { d.textContent = CLEANN[k]; d.className = "clean"; beep(700 + k * 80, .06); }, k * 450))],
+    [29.2, () => { on("names", false); task(2, "done"); }],
+    [29.6, () => { taskNow(3); $("time").textContent = "10:42 AM"; cap("Week 6 report: the numbers, what changed, and the next step."); on("report"); }],
+    [31.6, () => { $("sent").textContent = "SENT ✓ 10:42 AM"; beep(1046, .12); }],
+    [32.6, () => { $("report").classList.add("fly"); task(3, "done"); taskNow(-1); }],
+    [33.8, () => { bub("bubPink", "DONE BEFORE 11?!"); cap("Done before 11. More time for the big thinking."); tune([523, 659, 784, 1046]); }],
+    [36.2, () => { bub("bubPink", ""); bub("bubDurva", "SAME TIME NEXT MONDAY?"); }],
+    [38.4, () => { show("s6"); bub("bubDurva", ""); cap(""); tune([659, 784, 988, 1318]); }],
+  ];
+  let t = 0, idx = 0, playing = false, lastTs = 0;
+  function tick(ts) {
+    if (!playing) return;
+    t += Math.min(.1, (ts - (lastTs || ts)) / 1000); lastTs = ts;
+    while (idx < T.length && T[idx][0] <= t) T[idx++][1]();
+    $("prog").style.width = Math.min(100, t / DUR * 100) + "%";
+    if (t >= DUR) { playing = false; $("pp").textContent = "PLAY"; return; }
+    requestAnimationFrame(tick);
   }
-  $("chs").addEventListener("click", e => { const b = e.target.closest("button[data-i]"); if (b) nudge(+b.dataset.i, +b.dataset.d); });
-  addEventListener("keydown", e => { // keys: 1-5 pick a channel then arrows, or Q/A W/S E/D R/F T/G
-    const up = "qwert".indexOf(e.key.toLowerCase()), dn = "asdfg".indexOf(e.key.toLowerCase());
-    if (up > -1) nudge(up, 1); else if (dn > -1) nudge(dn, -1);
-  });
-  function showCard(c) {
-    S.mlr = { ...c, until: S.t + 4.5, start: S.t }; S.seen++;
-    $("mlrName").textContent = c.name;
-    const code = $("mlrCode"); code.textContent = c.code ? "MLR CODE: " + c.code + " ✓" : "MLR CODE: MISSING"; code.className = "code px " + (c.code ? "has" : "miss");
-    $("mlr").classList.add("on"); beep(880, .12, "triangle");
-  }
-  function answer(launch) {
-    if (!S.mlr) return; const right = launch === !!S.mlr.code;
-    if (right) { S.ok++; pop(launch ? "APPROVED · LIVE ✓" : "HELD · NO CODE ✓"); beep(990, .12); tip(launch ? "Code checked, creative live. <b>Nice.</b>" : "Held. <b>Nothing goes live without an MLR code.</b>"); }
-    else { pop(launch ? "OOPS · NO MLR CODE" : "HELD A GOOD ONE"); beep(160, .25, "sawtooth"); tip(launch ? "That one had no MLR code. <b>Always check before launch.</b>" : "That creative was approved. <b>Code present means good to go.</b>"); }
-    S.mlr = null; $("mlr").classList.remove("on"); render();
-  }
-  $("mlrHold").onclick = () => answer(false); $("mlrGo").onclick = () => answer(true);
-  function render() {
-    S.ch.forEach((c, i) => {
-      const f = $("f" + i), v = $("v" + i), st = c.v < 90 ? "under" : c.v > 110 ? "over" : "ok";
-      f.style.height = `calc(${toPct(c.v)}% - 8px)`; f.className = "fill " + (st === "ok" ? "" : st);
-      v.textContent = Math.round(c.v) + "%"; v.className = "val px " + st;
-    });
-    const wk = Math.min(12, Math.floor(S.t / 5) + 1);
-    $("wk").textContent = wk + "/12";
-    $("sc").textContent = (S.total ? Math.round(S.inBand / S.total * 100) : 100) + "%";
-    $("ml").textContent = S.ok + "/" + S.seen;
-    [...$("weeks").children].forEach((el, i) => el.className = i < wk - 1 ? "done" : i === wk - 1 && S.run ? "now" : "");
-    if (S.mlr) $("mlrT").style.width = Math.max(0, (S.mlr.until - S.t) / 4.5 * 100) + "%";
-  }
-  let last = 0;
-  function loop(ts) {
-    if (!S.run) return;
-    const dt = Math.min(.05, (ts - (last || ts)) / 1000); last = ts; S.t += dt;
-    const level = 1 + S.t / 40;
-    if (S.t > S.nextDrift) { S.ch.forEach(c => c.d = (Math.random() * 2 - 1) * 5.5 * level); S.nextDrift = S.t + 1.6 + Math.random(); }
-    S.ch.forEach((c, i) => {
-      c.v += c.d * dt + (100 - c.v) * .02 * dt; c.v = Math.max(MIN, Math.min(MAX, c.v));
-      const ok = c.v >= 90 && c.v <= 110; S.total += dt; if (ok) { S.inBand += dt; c.out = 0; } else c.out += dt;
-      if (!ok && c.out > 1.6 && S.t > S.tipLock) tip(`<b>${CH[i].n}</b> is ${c.v < 90 ? "under-pacing. Push it up!" : "over-pacing. Pull it back!"}`, 2);
-    });
-    const ev = EVENTS[S.ev]; if (ev && S.t >= ev.t) { S.ch[ev.i].v = Math.max(MIN, Math.min(MAX, S.ch[ev.i].v + ev.push)); tip(ev.msg, 3.2); beep(220, .18, "sawtooth"); S.ev++; }
-    const cd = CARDS[S.card]; if (cd && S.t >= cd.t && !S.mlr) { showCard(cd); S.card++; }
-    if (S.mlr && S.t >= S.mlr.until) { const was = S.mlr; S.mlr = null; $("mlr").classList.remove("on"); if (!was.code) { pop("AUTO-LAUNCHED · NO CODE"); tip("Too slow: it launched without an MLR code. <b>Hold anything without one.</b>"); beep(160, .25, "sawtooth"); } else { S.ok++; pop("APPROVED · LIVE ✓"); } }
-    if (S.t >= 60) return finish();
-    render(); requestAnimationFrame(loop);
-  }
-  function start() {
-    reset(); $("intro").hidden = true; $("end").hidden = true; $("app").removeAttribute("aria-hidden");
-    S.run = true; last = 0; tip("Your plan is live. Keep every bar inside the green band.", 3); beep(523, .1); setTimeout(() => beep(784, .12), 110);
-    requestAnimationFrame(loop);
-  }
-  function finish() {
-    S.run = false; $("mlr").classList.remove("on"); $("intro").hidden = true; render();
-    const sc = Math.round(S.inBand / S.total * 100);
-    let best = -1, bv = 0; Object.entries(S.saves).forEach(([i, v]) => { if (v > bv) { bv = v; best = +i; } });
-    $("eScore").textContent = sc + "%"; $("eMlr").textContent = S.ok + "/" + S.seen; $("eSave").textContent = best > -1 ? CH[best].n : "STEADY HANDS";
-    $("endTitle").textContent = sc >= 80 ? "Pacing pro, Pink!" : sc >= 60 ? "Nice pacing, Pink." : "Tough market, Pink!";
-    $("eRank").textContent = sc >= 80 ? "★★★ RANK: ON PLAN ALL FLIGHT" : sc >= 60 ? "★★ RANK: SOLID MONDAY CHECKS" : "★ RANK: PLAYER 2 CAN HELP";
-    $("end").hidden = false; $("app").setAttribute("aria-hidden", "true");
-    [523, 659, 784, 1046].forEach((f, k) => setTimeout(() => beep(f, .12), k * 120));
-  }
-  $("startBtn").onclick = start; $("again").onclick = start;
-  reset();
-  if (location.hash === "#end") { S.inBand = 84; S.total = 100; S.ok = 4; S.seen = 5; S.saves = { 0: 3 }; finish(); }
+  function play() { $("play").hidden = true; playing = true; lastTs = 0; stage.classList.remove("paused"); $("pp").textContent = "PAUSE"; requestAnimationFrame(tick); }
+  function pause() { playing = false; stage.classList.add("paused"); $("pp").textContent = "PLAY"; }
+  function replay() { t = 0; idx = 0; reset(); show(""); play(); }
+  $("play").onclick = () => (t >= DUR ? replay() : play());
+  $("pp").onclick = () => { if (playing) pause(); else if (t >= DUR) replay(); else play(); };
+  $("rp").onclick = replay;
+  reset(); show("s1");
+  // ?t=SECONDS jumps to a moment (for previews)
+  const jump = +(new URLSearchParams(location.search).get("t") || 0);
+  if (jump) { $("play").hidden = true; while (idx < T.length && T[idx][0] <= jump) T[idx++][1](); t = jump; $("prog").style.width = (t / DUR * 100) + "%"; $("pp").textContent = "PLAY"; }
 })();
 </script>
 </body>
