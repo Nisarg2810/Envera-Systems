@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Event Ops Kit · Durva for Clio</title>
+<meta name="description" content="An events and partnerships ops kit for Clio's Strategic Engagement team: logistics tracker, budget reconciliation, stakeholder comms, volunteer roster, inbox triage, partner onboarding, AI workflows and a working workbook. By Durva Thakkar.">
+<meta property="og:title" content="An event ops kit for Clio's Strategic Engagement team">
+<meta property="og:description" content="Logistics, budgets, comms, volunteers, partner onboarding and AI workflows, ready to use. By Durva Thakkar.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://durvathakkar.com/clio/">
+<meta property="og:image" content="https://durvathakkar.com/clio/share.jpg?v=1">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://durvathakkar.com/clio/share.jpg?v=1">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root { --navy: #04304c; --navy2: #063d61; --blue: #0069d1; --blue-50: #e6f0fb; --slate: #5b7d95; --ink: #17191c; --mute: #5f6b76; --line: #dde3e8; --cream: #eeedea; --soft: #f6f6f4; --orange: #d74417; --ok: #15803d; --amber: #b45309; --red: #c2410c; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: #fff; color: var(--ink); font: 400 18px/1.6 "Source Sans 3", system-ui, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  h1, h2, h3, .pp { font-family: "Poppins", sans-serif; font-weight: 400; letter-spacing: -.01em; }
+  .mono { font-family: "JetBrains Mono", monospace; }
+  a { color: inherit; }
+  .w { width: min(1180px, 100% - 32px); margin: 0 auto; }
+  /* nav */
+  .nav { position: sticky; top: 0; z-index: 30; background: rgba(4,48,76,.97); color: #fff; }
+  .nav .w { display: flex; align-items: center; gap: 22px; height: 62px; }
+  .brand { font: 500 17px "Poppins", sans-serif; white-space: nowrap; display: flex; align-items: center; gap: 10px; }
+  .brand svg { width: 22px; height: 22px; }
+  .links { display: flex; gap: 18px; overflow-x: auto; scrollbar-width: none; font-size: 15px; font-weight: 600; margin-left: auto; }
+  .links::-webkit-scrollbar { display: none; }
+  .links a { text-decoration: none; color: rgba(255,255,255,.75); white-space: nowrap; } .links a:hover { color: #fff; }
+  .pill { display: inline-flex; align-items: center; gap: 8px; background: #fff; color: var(--navy) !important; border-radius: 500px; padding: 8px 16px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+  /* hero */
+  .hero { background: var(--navy); color: #fff; padding: 70px 0 84px; position: relative; overflow: hidden; }
+  .hero::before { content: ""; position: absolute; right: -240px; top: -260px; width: 760px; height: 760px; border-radius: 50%; background: radial-gradient(circle, rgba(0,105,209,.45), transparent 65%); }
+  .hero .w { position: relative; display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center; }
+  @media (max-width: 960px) { .hero .w { grid-template-columns: 1fr; } }
+  .eb { font: 700 13px "JetBrains Mono", monospace; letter-spacing: .12em; text-transform: uppercase; color: #8cc4ff; }
+  .hero h1 { font-size: clamp(38px, 5.4vw, 62px); line-height: 1.08; margin-top: 18px; }
+  .hero h1 b { font-weight: 500; color: #8cc4ff; }
+  .lede { margin-top: 22px; font-size: 20px; color: rgba(255,255,255,.85); max-width: 40ch; }
+  .count { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .count div { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16); border-radius: 14px; padding: 12px 16px; min-width: 104px; }
+  .count b { display: block; font: 500 30px "Poppins", sans-serif; }
+  .count small { font: 700 11px "JetBrains Mono", monospace; letter-spacing: .1em; color: #8cc4ff; text-transform: uppercase; }
+  .ctas { margin-top: 30px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; border-radius: 500px; padding: 15px 24px; font-weight: 700; text-decoration: none; background: var(--blue); color: #fff; border: 2px solid var(--blue); cursor: pointer; font-size: 17px; font-family: inherit; }
+  .btn.ghost { background: transparent; border-color: rgba(255,255,255,.6); }
+  .btn.dark { background: var(--navy); border-color: var(--navy); }
+  .btn.line { background: #fff; color: var(--navy); border-color: var(--line); }
+  /* motion graphic */
+  .mg { background: #fff; color: var(--ink); border-radius: 22px; padding: 22px; box-shadow: 0 40px 90px -30px rgba(0,0,0,.55); }
+  .mg-top { display: flex; justify-content: space-between; align-items: center; font: 700 12px "JetBrains Mono", monospace; letter-spacing: .08em; color: var(--slate); }
+  .mg-top i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #22c55e; margin-right: 6px; animation: pulse 1.4s infinite; }
+  @keyframes pulse { 50% { opacity: .3; } }
+  .mg-main { display: grid; grid-template-columns: 120px 1fr; gap: 18px; align-items: center; margin-top: 16px; }
+  .ring { position: relative; width: 120px; height: 120px; }
+  .ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+  .ring circle { fill: none; stroke-width: 10; }
+  .ring .bg { stroke: var(--blue-50); } .ring .fg { stroke: var(--blue); stroke-linecap: round; transition: stroke-dashoffset .8s cubic-bezier(.4,0,.2,1); }
+  .ring span { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; font: 500 22px/1.1 "Poppins", sans-serif; color: var(--navy); }
+  .ring span small { display: block; font: 700 10px "JetBrains Mono", monospace; color: var(--slate); letter-spacing: .08em; }
+  .stage-card { min-height: 112px; }
+  .stage-card .t { font: 700 12px "JetBrains Mono", monospace; color: var(--blue); letter-spacing: .08em; }
+  .stage-card h3 { font-size: 24px; line-height: 1.2; margin-top: 6px; color: var(--navy); }
+  .stage-card p { color: var(--mute); font-size: 16px; margin-top: 4px; }
+  .stage-card.swap { animation: swap .5s ease; }
+  @keyframes swap { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  .track { display: grid; grid-template-columns: repeat(10, 1fr); gap: 5px; margin-top: 18px; }
+  .track i { height: 6px; border-radius: 3px; background: var(--blue-50); transition: background .4s; }
+  .track i.on { background: var(--blue); }
+  .log { margin-top: 16px; background: var(--soft); border-radius: 14px; padding: 12px 14px; height: 168px; overflow: hidden; display: flex; flex-direction: column-reverse; gap: 6px; }
+  .log div { display: grid; grid-template-columns: 52px 1fr auto; gap: 10px; font-size: 15px; align-items: center; animation: swap .4s ease; }
+  .log .d { font: 700 11px "JetBrains Mono", monospace; color: var(--slate); }
+  .log .ok { font: 700 11px "JetBrains Mono", monospace; color: var(--ok); background: #dcfce7; padding: 2px 8px; border-radius: 500px; }
+  /* sections */
+  section { padding: 88px 0; }
+  section.alt { background: var(--soft); }
+  section.navy { background: var(--navy); color: #fff; }
+  .sh { display: grid; grid-template-columns: 240px 1fr; gap: 28px; margin-bottom: 38px; }
+  .sh .n { font: 700 13px "JetBrains Mono", monospace; letter-spacing: .1em; color: var(--blue); text-transform: uppercase; padding-top: 12px; }
+  .sh h2 { font-size: clamp(30px, 4vw, 46px); line-height: 1.12; color: var(--navy); }
+  .sh p { margin-top: 12px; color: var(--mute); max-width: 64ch; }
+  .sh .jd { margin-top: 14px; font-size: 15px; color: var(--slate); border-left: 3px solid var(--blue); padding-left: 12px; max-width: 70ch; }
+  @media (max-width: 820px) { .sh { grid-template-columns: 1fr; gap: 6px; } }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 24px; }
+  .tag { display: inline-block; font: 700 11px "JetBrains Mono", monospace; letter-spacing: .08em; text-transform: uppercase; padding: 4px 9px; border-radius: 500px; background: var(--blue-50); color: var(--blue); }
+  .note { font-size: 15px; color: var(--mute); margin-top: 14px; }
+  .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  /* logistics */
+  .lbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 16px; }
+  .chipf { border: 1px solid var(--line); background: #fff; border-radius: 500px; padding: 7px 14px; font: 600 15px "Source Sans 3", sans-serif; cursor: pointer; color: var(--ink); }
+  .chipf.on { background: var(--navy); color: #fff; border-color: var(--navy); }
+  .prog { margin-left: auto; display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px; }
+  .meter { width: 160px; height: 10px; border-radius: 5px; background: var(--blue-50); overflow: hidden; } .meter i { display: block; height: 100%; background: var(--blue); transition: width .3s; }
+  .tbl { width: 100%; border-collapse: collapse; font-size: 16px; }
+  .tbl th { text-align: left; font: 700 11px "JetBrains Mono", monospace; letter-spacing: .08em; color: var(--slate); text-transform: uppercase; padding: 10px; border-bottom: 2px solid var(--navy); white-space: nowrap; }
+  .tbl td { padding: 12px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .tbl td.r, .tbl th.r { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .tbl small { display: block; color: var(--mute); font-size: 14px; }
+  .tbl tfoot td { font-weight: 700; border-top: 2px solid var(--navy); border-bottom: 0; }
+  .st { cursor: pointer; border: 0; font: 700 12px "JetBrains Mono", monospace; padding: 5px 10px; border-radius: 500px; white-space: nowrap; }
+  .st[data-s="Done"] { background: #dcfce7; color: var(--ok); } .st[data-s="In progress"] { background: var(--blue-50); color: var(--blue); }
+  .st[data-s="Waiting"] { background: #fef3c7; color: var(--amber); } .st[data-s="Not started"] { background: #eef1f4; color: var(--mute); }
+  .late { color: var(--orange); font-weight: 700; }
+  .flag { font: 700 12px "JetBrains Mono", monospace; padding: 4px 9px; border-radius: 500px; white-space: nowrap; }
+  .flag.ok { background: #dcfce7; color: var(--ok); } .flag.warn { background: #fff1e6; color: var(--orange); } .flag.info { background: #fef3c7; color: var(--amber); }
+  /* comms */
+  .comms { display: grid; grid-template-columns: 300px 1fr; gap: 22px; }
+  @media (max-width: 900px) { .comms { grid-template-columns: 1fr; } }
+  .picker { display: grid; gap: 16px; align-content: start; }
+  .picker label { font: 700 11px "JetBrains Mono", monospace; letter-spacing: .08em; color: var(--slate); text-transform: uppercase; display: grid; gap: 8px; }
+  .seg { display: flex; flex-wrap: wrap; gap: 6px; }
+  .seg button { border: 1px solid var(--line); background: #fff; border-radius: 500px; padding: 7px 12px; font: 600 15px "Source Sans 3", sans-serif; cursor: pointer; color: var(--ink); }
+  .seg button.on { background: var(--blue); color: #fff; border-color: var(--blue); }
+  .mail { background: #fff; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; box-shadow: 0 20px 50px -30px rgba(4,48,76,.4); }
+  .mail .hd { padding: 16px 20px; border-bottom: 1px solid var(--line); font-size: 15px; display: grid; gap: 4px; }
+  .mail .hd b { color: var(--mute); font-weight: 600; display: inline-block; width: 64px; }
+  .mail .bd { padding: 22px 22px 26px; white-space: pre-line; font-size: 17px; }
+  .mail .bd mark { background: var(--blue-50); color: var(--blue); border-radius: 4px; padding: 0 3px; font-weight: 600; }
+  .mail .ft { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; background: var(--soft); font-size: 14px; color: var(--mute); gap: 10px; flex-wrap: wrap; }
+  .copy { border: 0; background: var(--navy); color: #fff; border-radius: 500px; padding: 8px 14px; font: 700 13px "Source Sans 3", sans-serif; cursor: pointer; }
+  /* volunteers */
+  .vol { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; }
+  .shift { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 18px; }
+  .shift .k { font: 700 11px "JetBrains Mono", monospace; color: var(--slate); letter-spacing: .08em; }
+  .shift h3 { font-size: 19px; color: var(--navy); margin: 6px 0 10px; }
+  .seats { display: flex; flex-wrap: wrap; gap: 6px; }
+  .seats i { width: 22px; height: 22px; border-radius: 6px; background: var(--blue); }
+  .seats i.gap { background: #fff; border: 2px dashed var(--orange); }
+  .shift p { margin-top: 10px; font-size: 15px; color: var(--mute); }
+  .shift p b { color: var(--orange); }
+  /* inbox */
+  .inbox { display: grid; gap: 10px; }
+  .mailrow { display: grid; grid-template-columns: 210px 1fr auto; gap: 16px; align-items: start; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; }
+  @media (max-width: 820px) { .mailrow { grid-template-columns: 1fr; gap: 8px; } }
+  .mailrow .from { font-size: 15px; } .mailrow .from b { display: block; color: var(--navy); }
+  .mailrow .from small { font: 700 11px "JetBrains Mono", monospace; color: var(--slate); }
+  .mailrow .sub { font-weight: 700; } .mailrow .pre { color: var(--mute); font-size: 15px; }
+  .ai-out { margin-top: 10px; display: none; gap: 8px; }
+  .mailrow.done .ai-out { display: grid; animation: swap .4s ease; }
+  .ai-out .lbls { display: flex; flex-wrap: wrap; gap: 6px; }
+  .ai-out .draft { background: var(--soft); border-radius: 10px; padding: 10px 12px; font-size: 15px; }
+  .ai-out .draft small { display: block; font: 700 11px "JetBrains Mono", monospace; color: var(--slate); margin-bottom: 4px; }
+  .rev { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; min-width: 140px; }
+  .rev label { font-size: 14px; display: flex; gap: 6px; align-items: center; cursor: pointer; white-space: nowrap; }
+  .rev input { accent-color: var(--blue); width: 18px; height: 18px; }
+  .rev button { border: 0; border-radius: 500px; padding: 8px 14px; font: 700 13px "Source Sans 3", sans-serif; background: var(--blue); color: #fff; cursor: pointer; }
+  .rev button:disabled { background: #c9d3dc; cursor: not-allowed; }
+  .rev .sent { font: 700 12px "JetBrains Mono", monospace; color: var(--ok); }
+  .p-high { background: #fff1e6 !important; color: var(--orange) !important; } .p-med { background: #fef3c7 !important; color: var(--amber) !important; } .p-low { background: #eef1f4 !important; color: var(--mute) !important; }
+  /* partner onboarding */
+  .tl { position: relative; display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; }
+  .tl::before { content: ""; position: absolute; left: 0; right: 0; top: 21px; height: 3px; background: var(--line); }
+  .tl div { position: relative; text-align: center; font-size: 15px; }
+  .tl b { position: relative; z-index: 1; display: grid; place-items: center; width: 44px; height: 44px; margin: 0 auto 10px; border-radius: 50%; background: var(--navy); color: #fff; font: 500 14px "Poppins", sans-serif; }
+  @media (max-width: 860px) { .tl { grid-template-columns: 1fr; text-align: left; } .tl::before { left: 21px; right: auto; top: 0; bottom: 0; width: 3px; height: auto; } .tl div { display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: center; text-align: left; } .tl b { margin: 0; } }
+  .kit { margin-top: 26px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+  .kit div { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px; font-size: 16px; }
+  .kit b { display: block; color: var(--navy); font-family: "Poppins", sans-serif; font-weight: 500; margin-bottom: 4px; }
+  /* AI workflows */
+  .flows { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  @media (max-width: 900px) { .flows { grid-template-columns: 1fr; } }
+  .flow h3 { font-size: 21px; color: var(--navy); margin: 10px 0 12px; }
+  .steps { display: grid; gap: 8px; }
+  .steps div { display: grid; grid-template-columns: 26px 1fr; gap: 10px; font-size: 16px; }
+  .steps i { font: 700 12px "JetBrains Mono", monospace; font-style: normal; width: 26px; height: 26px; border-radius: 50%; background: var(--blue-50); color: var(--blue); display: grid; place-items: center; }
+  .steps .hm i { background: #dcfce7; color: var(--ok); }
+  .bars2 { margin-top: 16px; display: grid; gap: 6px; font-size: 14px; }
+  .bars2 div { display: grid; grid-template-columns: 56px 1fr 96px; white-space: nowrap; gap: 10px; align-items: center; }
+  .bars2 span.b { height: 10px; border-radius: 5px; background: #c9d3dc; } .bars2 .after span.b { background: var(--blue); }
+  .rules { margin-top: 22px; background: var(--navy); color: #fff; border-radius: 18px; padding: 22px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .rules b { display: block; font-family: "Poppins", sans-serif; font-weight: 500; color: #8cc4ff; margin-bottom: 4px; }
+  .rules div { font-size: 16px; }
+  /* status */
+  .status { display: grid; grid-template-columns: 1.3fr 1fr; gap: 18px; }
+  @media (max-width: 900px) { .status { grid-template-columns: 1fr; } }
+  .rag { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 8px; vertical-align: -1px; }
+  .rag.g { background: #22c55e; } .rag.a { background: #f59e0b; } .rag.r { background: var(--orange); }
+  .slack { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 18px; font-size: 16px; }
+  .slack .who { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; }
+  .slack .who img { width: 38px; height: 38px; border-radius: 8px; object-fit: cover; }
+  .slack .who b { font-weight: 700; } .slack .who small { color: var(--mute); margin-left: 6px; }
+  .slack .msg { display: grid; gap: 6px; }
+  .slack code { font: 500 13px "JetBrains Mono", monospace; background: var(--soft); padding: 1px 6px; border-radius: 4px; color: var(--orange); }
+  /* knowledge */
+  .kn { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 900px) { .kn { grid-template-columns: 1fr; } }
+  .tree { font: 500 14px/1.9 "JetBrains Mono", monospace; background: var(--navy); color: #d6e7f7; border-radius: 16px; padding: 20px 22px; white-space: pre; overflow-x: auto; }
+  .tree b { color: #8cc4ff; font-weight: 700; }
+  .nm { display: grid; gap: 10px; }
+  .nm div { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+  .nm small { font: 700 11px "JetBrains Mono", monospace; color: var(--slate); letter-spacing: .08em; }
+  .nm code { display: block; margin-top: 4px; font: 500 14px "JetBrains Mono", monospace; color: var(--navy); word-break: break-all; }
+  /* download */
+  .dl { display: grid; grid-template-columns: 1fr auto; gap: 26px; align-items: center; background: var(--blue); color: #fff; border-radius: 24px; padding: 40px; }
+  .dl h2 { color: #fff; font-size: clamp(28px, 3.6vw, 42px); }
+  .dl ul { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .dl li { background: rgba(255,255,255,.16); border-radius: 500px; padding: 6px 12px; font-size: 15px; font-weight: 600; }
+  .dl a { background: #fff; color: var(--blue); }
+  @media (max-width: 800px) { .dl { grid-template-columns: 1fr; padding: 28px; } }
+  /* fit */
+  .fit td:first-child { font-weight: 700; width: 32%; color: var(--navy); }
+  .fit td:last-child a { color: var(--blue); font-weight: 700; text-decoration: none; white-space: nowrap; }
+  /* why + about */
+  .why { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 860px) { .why { grid-template-columns: 1fr; } }
+  .why .card b { display: block; font: 500 40px/1 "Poppins", sans-serif; color: var(--blue); margin-bottom: 10px; }
+  .about { display: grid; grid-template-columns: 220px 1fr; gap: 34px; align-items: start; }
+  .about img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 22px; }
+  .about ul { list-style: none; margin-top: 16px; display: grid; gap: 12px; }
+  .about li { border-top: 1px solid var(--line); padding-top: 12px; } .about li b { display: block; color: var(--navy); }
+  @media (max-width: 720px) { .about { grid-template-columns: 1fr; } .about img { width: 160px; } }
+  .end { text-align: left; }
+  .end h2 { font-size: clamp(34px, 5vw, 58px); line-height: 1.1; max-width: 18ch; }
+  .end p { margin-top: 16px; color: rgba(255,255,255,.8); font-size: 20px; max-width: 46ch; }
+  footer { padding: 26px 0 40px; font-size: 14px; color: var(--mute); }
+  .toast { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 30px); opacity: 0; background: var(--navy); color: #fff; padding: 10px 18px; border-radius: 500px; font-weight: 700; transition: .3s; z-index: 60; pointer-events: none; }
+  .toast.on { opacity: 1; transform: translate(-50%, 0); }
+  button:focus-visible, a:focus-visible { outline: 3px solid #8cc4ff; outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+<nav class="nav"><div class="w">
+  <div class="brand"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-7"/></svg>Durva for Clio</div>
+  <div class="links">
+    <a href="#logistics">Logistics</a><a href="#budget">Budget</a><a href="#comms">Comms</a><a href="#volunteers">Volunteers</a><a href="#inbox">Inbox</a><a href="#partners">Partners</a><a href="#ai">AI</a><a href="#status">Status</a><a href="#fit">Fit</a>
+    <a class="pill" href="Clio-Event-Ops-Kit-Durva-Thakkar.xlsx" download>Workbook ↓</a>
+  </div>
+</div></nav>
+
+<header class="hero"><div class="w">
+  <div>
+    <div class="eb">Events + Partnerships Coordinator · Strategic Engagement</div>
+    <h1>ClioCon is almost here. <b>Here's the ops kit.</b></h1>
+    <p class="lede">Hi, I'm Durva. Below is a working toolkit for every task in the Events and Partnerships Coordinator role: logistics, budgets, stakeholder emails, volunteers, inbox triage, partner onboarding and AI workflows. Sample data, real systems, ready to use.</p>
+    <div class="count" id="count"><div><b id="cdD">12</b><small>Days to ClioCon</small></div><div><b>Boston</b><small>Oct 26-27</small></div><div><b>14th</b><small>ClioCon</small></div></div>
+    <div class="ctas"><a class="btn" href="#logistics">Open the kit</a><a class="btn ghost" href="Clio-Event-Ops-Kit-Durva-Thakkar.xlsx" download>Download the workbook ↓</a></div>
+  </div>
+  <div class="mg" aria-label="Animation: an event moving from vendor onboarding to doors open and the post-event report">
+    <div class="mg-top"><span><i></i>EVENT OPS · LIVE</span><span id="mgClock">T-45</span></div>
+    <div class="mg-main">
+      <div class="ring"><svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="50"/><circle class="fg" id="mgRing" cx="60" cy="60" r="50" stroke-dasharray="314.16" stroke-dashoffset="314.16"/></svg><span id="mgPct">0%<small>READY</small></span></div>
+      <div class="stage-card" id="mgCard"><div class="t" id="mgT"></div><h3 id="mgH"></h3><p id="mgP"></p></div>
+    </div>
+    <div class="track" id="mgTrack"></div>
+    <div class="log" id="mgLog"></div>
+  </div>
+</div></header>
+
+<section id="logistics"><div class="w">
+  <div class="sh"><div class="n">01 · Logistics</div><div><h2>Every vendor, PO, contract, box and flight in one tracker.</h2><p>Due dates count back from the event date. Click a status to move it forward; anything close to its due date and not done turns orange.</p><div class="jd">Payment processing, new vendor onboarding, purchase order creation, contracting, shipping, swag, flights, hotels and local vendor transactions.</div></div></div>
+  <div class="lbar" id="lfilters"></div>
+  <div class="card scroll" style="padding:8px 16px"><table class="tbl" id="ltbl"><thead><tr><th>Workstream</th><th>Task</th><th>Owner</th><th class="r">Due</th><th class="r">Days left</th><th>Status</th></tr></thead><tbody></tbody></table></div>
+  <p class="note">Sample tracker for a flagship conference on Oct 26. Vendors, amounts and names are sample data, not Clio data.</p>
+</div></section>
+
+<section id="budget" class="alt"><div class="w">
+  <div class="sh"><div class="n">02 · Budget + reconciliation</div><div><h2>Budget, PO, invoice and payment, side by side.</h2><p>Variance over 5% or a missing receipt gets flagged before month-end, not after.</p><div class="jd">Payment processing, expense reconciliation and report consolidation.</div></div></div>
+  <div class="card scroll" style="padding:8px 16px"><table class="tbl" id="btbl"><thead><tr><th>Line</th><th class="r">Budget</th><th class="r">PO</th><th class="r">Invoiced</th><th class="r">Paid</th><th class="r">Variance</th><th>Flag</th></tr></thead><tbody></tbody><tfoot></tfoot></table></div>
+</div></section>
+
+<section id="comms"><div class="w">
+  <div class="sh"><div class="n">03 · Stakeholder comms</div><div><h2>The right email, to the right people, at the right time.</h2><p>Pick an audience and a moment. Every email ties to the event date, has an owner, and is ready to send.</p><div class="jd">Email correspondence with conference attendees, speakers and sponsors; internal volunteer enablement and coordination.</div></div></div>
+  <div class="comms">
+    <div class="picker">
+      <label>Audience<div class="seg" id="aud"></div></label>
+      <label>Moment<div class="seg" id="mom"></div></label>
+      <div class="card" style="padding:16px"><span class="tag">Send date</span><div class="pp" style="font-size:22px;color:var(--navy);margin-top:8px" id="sendDate"></div><div class="note" style="margin-top:4px" id="sendRel"></div></div>
+    </div>
+    <div class="mail"><div class="hd"><div><b>To</b><span id="mTo"></span></div><div><b>Subject</b><strong id="mSub"></strong></div></div><div class="bd" id="mBody"></div><div class="ft"><span>Merge fields in blue fill from the registration sheet.</span><button class="copy" id="mCopy">Copy email</button></div></div>
+  </div>
+</div></section>
+
+<section id="volunteers" class="alt"><div class="w">
+  <div class="sh"><div class="n">04 · Volunteers</div><div><h2>Every shift covered, every gap visible.</h2><p>Filled seats in blue, open seats dashed. The gaps are the first thing to fix this week.</p><div class="jd">Internal volunteer enablement and coordination.</div></div></div>
+  <div class="vol" id="vol"></div>
+  <div class="card" style="margin-top:16px"><span class="tag">Volunteer briefing, one page</span><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:14px;font-size:16px">
+    <div><b class="pp" style="font-weight:500;color:var(--navy)">Before</b><br>Shift, station and lead · venue map · what to wear · Slack channel for the day</div>
+    <div><b class="pp" style="font-weight:500;color:var(--navy)">At your station</b><br>Top 10 attendee questions with answers · who to call for AV, accessibility and first aid</div>
+    <div><b class="pp" style="font-weight:500;color:var(--navy)">After</b><br>Hand-off note to the next shift · two-minute feedback form · thank-you</div>
+  </div></div>
+</div></section>
+
+<section id="inbox"><div class="w">
+  <div class="sh"><div class="n">05 · Shared inbox</div><div><h2>AI sorts the inbox. A person sends the reply.</h2><p>Six emails across partnerships, tradeshows and events. Run the triage, then review each draft before it can be sent.</p><div class="jd">Shared inbox management across partnerships, tradeshows and virtual events, with appropriate judgment and review of AI output.</div></div></div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;align-items:center"><button class="btn dark" id="triage">Triage with AI</button><span class="note" style="margin:0" id="triageNote">Labels, priority, owner and a draft reply for every email.</span></div>
+  <div class="inbox" id="inboxList"></div>
+</div></section>
+
+<section id="partners" class="alt"><div class="w">
+  <div class="sh"><div class="n">06 · Partner onboarding</div><div><h2>The same first 30 days for every partner.</h2><p>So nothing depends on memory, and every partner gets the same great start.</p><div class="jd">Supporting the Partnerships team with reporting, partner onboarding and communications, project management, shipping and logistics.</div></div></div>
+  <div class="tl">
+    <div><b>D1</b>Welcome email, kickoff booked</div><div><b>D2</b>Partner record, contacts, logo</div><div><b>D5</b>Kickoff: goals, audience, first idea</div><div><b>D7</b>Partner kit sent</div><div><b>D14</b>Listing or landing page live</div><div><b>D21</b>First joint activity booked</div><div><b>D30</b>Check-in + first report</div>
+  </div>
+  <div class="kit"><div><b>Partner kit</b>Brand rules, approved messaging, co-branding do's and don'ts, logo files.</div><div><b>Comms cadence</b>Monthly partner newsletter, quarterly results call, Slack Connect for active launches.</div><div><b>Shipping + swag</b>One request form, standard kits, tracked in the shipping tab.</div><div><b>Reporting</b>Leads, registrations and pipeline per partner, consolidated monthly.</div></div>
+</div></section>
+
+<section id="ai"><div class="w">
+  <div class="sh"><div class="n">07 · AI workflows</div><div><h2>Built, tested, documented, shared.</h2><p>Four workflows that take repetitive work off the team. Each one has a human review step, and the time saved is an estimate to measure after four weeks.</p><div class="jd">Help build, test, document and maintain AI-enabled workflows; identify repetitive, manual work; share learnings with teammates.</div></div></div>
+  <div class="flows" id="flows"></div>
+  <div class="rules">
+    <div><b>Review everything</b>AI drafts, a person decides. Numbers are checked against the source.</div>
+    <div><b>Approved tools only</b>Company-approved AI tools, inside Google Workspace and Slack.</div>
+    <div><b>Protect people's data</b>No personal or client data in tools that aren't approved for it.</div>
+    <div><b>Write it down</b>Every workflow gets a one-page how-to and an owner.</div>
+  </div>
+</div></section>
+
+<section id="status" class="alt"><div class="w">
+  <div class="sh"><div class="n">08 · Status, risks, results</div><div><h2>Where everything stands, every Friday.</h2><p>One table for the team, one short Slack post for everyone else.</p><div class="jd">Communicating the status, progress, risks and results of multiple projects to the team and key stakeholders.</div></div></div>
+  <div class="status">
+    <div class="card scroll" style="padding:8px 16px"><table class="tbl"><thead><tr><th>Workstream</th><th>This week</th><th>Risk + next step</th></tr></thead><tbody>
+      <tr><td><span class="rag g"></span><b>Logistics</b></td><td>Booth kit shipped, travel booked</td><td><small>None. Signage to print Monday.</small></td></tr>
+      <tr><td><span class="rag a"></span><b>Speakers</b></td><td>32 of 40 decks in</td><td><small>Late decks delay AV prep. Personal follow-up today, deadline Friday.</small></td></tr>
+      <tr><td><span class="rag a"></span><b>Sponsors</b></td><td>2 logo files missing</td><td><small>Signage reprint cost. Calling both sponsors.</small></td></tr>
+      <tr><td><span class="rag r"></span><b>Volunteers</b></td><td>4 shifts short</td><td><small>Day 2 registration line. Slack ask + backup list.</small></td></tr>
+    </tbody></table></div>
+    <div class="slack"><div class="who"><img src="/assets/durva-avatar.jpg" alt=""><div><b>Durva</b><small>Friday 4:00 PM</small></div></div>
+      <div class="msg"><div><b>Event status · week of Oct 19</b></div><div>🟢 Logistics on track · 🟡 Speakers 32/40 · 🟡 Sponsors 2 logos missing · 🔴 Volunteers 4 shifts open</div><div><b>Ask:</b> can anyone take a Day 2 registration shift, 7:30 to 10:30? Reply here 🙌</div><div>Full tracker: <code>Events/ClioCon/Status</code></div></div></div>
+  </div>
+</div></section>
+
+<section id="knowledge"><div class="w">
+  <div class="sh"><div class="n">09 · Team knowledge</div><div><h2>A shared drive anyone can find things in.</h2><p>One structure, one naming rule, and a calendar that matches.</p><div class="jd">Keeping shared drives, team calendars, documentation and resources organized, accurate and current.</div></div></div>
+  <div class="kn">
+    <div class="tree"><b>Strategic Engagement/</b>
+├── <b>00 Start here</b>  (how-tos, contacts, calendar rules)
+├── <b>Events/</b>
+│   ├── ClioCon_2026/
+│   │   ├── 01_Budget  02_Vendors  03_Travel
+│   │   ├── 04_Speakers  05_Sponsors  06_Volunteers
+│   │   └── 07_Report
+│   └── Tradeshows_2026/
+├── <b>Partnerships/</b>  (one folder per partner)
+├── <b>Virtual events/</b>
+└── <b>AI workflows/</b>  (one how-to per workflow)</div>
+    <div class="nm">
+      <div><small>FILES</small><code>YYYY-MM-DD_EVENT_TYPE_DESCRIPTION_V#</code><code>2026-10-26_CLIOCON_VENDOR_AV-CONTRACT_V2</code></div>
+      <div><small>CALENDAR EVENTS</small><code>[EVENT] ClioCon 2026 · Boston</code><code>[DEADLINE] Speaker decks due</code><code>[OOO] Name · travel</code></div>
+      <div><small>MONTHLY TIDY-UP</small><code>Archive old versions · update 00 Start here · check links</code></div>
+    </div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="w">
+  <div class="dl"><div><h2>Open the workbook.</h2><p style="margin-top:8px;opacity:.9">Everything on this page with live formulas. Works in Excel and Google Sheets. Change the event date and every deadline follows.</p>
+    <ul><li>Logistics</li><li>Vendors</li><li>Budget + reconciliation</li><li>Travel</li><li>Shipping</li><li>Volunteers</li><li>Comms calendar</li><li>Partner onboarding</li><li>Status + risks</li><li>AI workflow log</li></ul></div>
+    <a class="btn" href="Clio-Event-Ops-Kit-Durva-Thakkar.xlsx" download>Download .xlsx ↓</a></div>
+</div></section>
+
+<section id="fit" class="alt"><div class="w">
+  <div class="sh"><div class="n">10 · The role, mapped</div><div><h2>Each responsibility, and the closest experience.</h2></div></div>
+  <div class="card scroll" style="padding:8px 16px"><table class="tbl fit"><thead><tr><th>The role</th><th>Closest experience</th><th>On this page</th></tr></thead><tbody>
+    <tr><td>Extremely organized, many deliverables for many stakeholders</td><td>Built and ran the content calendar that kept marketing on time at Rewynd Snacks; freelance projects for several clients at once.</td><td><a href="#logistics">Logistics</a></td></tr>
+    <tr><td>Vendors, payments, POs, contracts, reconciliation</td><td>Postgrad in Information Systems Business Analysis at George Brown: processes, documentation and checking that numbers match.</td><td><a href="#budget">Budget</a></td></tr>
+    <tr><td>Attendee, speaker and sponsor correspondence</td><td>Outreach Specialist at Bsquaree: targeted outreach, follow-ups and stakeholder communication.</td><td><a href="#comms">Comms</a></td></tr>
+    <tr><td>Partner onboarding and communications</td><td>Client onboarding and delivery as a freelance content writer, from first call to final revision.</td><td><a href="#partners">Partners</a></td></tr>
+    <tr><td>AI and automation to remove manual work</td><td>Use ChatGPT and Claude daily for research, drafts and QA; UiPath automation is in my toolkit.</td><td><a href="#ai">AI workflows</a></td></tr>
+    <tr><td>Reporting and report consolidation</td><td>Reviewed outreach results to improve response rates; HubSpot Marketing Hub certified; Google Analytics.</td><td><a href="#status">Status</a></td></tr>
+    <tr><td>Google Workspace and Slack</td><td>Docs, Sheets, Forms and Slides daily. The workbook on this page works in Google Sheets.</td><td><a href="#knowledge">Knowledge</a></td></tr>
+    <tr><td>Interest in the legal industry</td><td>Drawn to work that widens access to justice. Building this kit was a crash course in the legal events calendar.</td><td><a href="#why">Why Clio</a></td></tr>
+  </tbody></table></div>
+</div></section>
+
+<section id="why"><div class="w">
+  <div class="sh"><div class="n">11 · Why Clio</div><div><h2>Better days for legal professionals, more access to justice.</h2><p>A mission that shows up in every event and every partnership, at a company using AI the way this role describes it.</p></div></div>
+  <div class="why">
+    <div class="card"><b>400K+</b>legal professionals trust Clio to run their firms.</div>
+    <div class="card"><b>14th</b>ClioCon, in Boston on October 26 and 27.</div>
+    <div class="card"><b>$1B</b>vLex acquisition, bringing Vincent AI into Clio's platform.</div>
+  </div>
+</div></section>
+
+<section class="alt"><div class="w">
+  <div class="sh"><div class="n">12 · About me</div><div><h2>Hi, I'm Durva.</h2></div></div>
+  <div class="about"><img src="/assets/durva-avatar.jpg" alt="Durva Thakkar">
+    <div><p>Content marketer with a business analyst's brain. I like a tracker that explains itself, a process that saves the team an hour, and an event where nobody notices the logistics because they just work. Based in Ontario, ready for Toronto.</p>
+      <ul>
+        <li><b>Content Writer · Freelance</b>Content calendars, SEO blogs, LinkedIn and email for B2B clients, run end to end.</li>
+        <li><b>Outreach Specialist · Bsquaree, Toronto</b>Targeted outreach campaigns, pipelines and follow-ups; reviewed results to improve response rates.</li>
+        <li><b>Content Writer · Missive Digital</b>SEO content and keyword research; content that helped drive a 73% increase in inquiries.</li>
+        <li><b>Sales &amp; Marketing Intern · Rewynd Snacks</b>Campaigns that contributed to a 40% increase in sales.</li>
+        <li><b>Education</b>George Brown: Information Systems Business Analysis · York University: Digital &amp; Content Marketing · GLS University: BBA</li>
+      </ul>
+      <p style="margin-top:16px"><a href="https://durvathakkar.com/" style="color:var(--blue);font-weight:700">durvathakkar.com ↗</a> &nbsp; <a href="/assets/Durva-Thakkar-Resume.pdf" style="color:var(--blue);font-weight:700">Resume ↗</a></p></div>
+  </div>
+</div></section>
+
+<section class="navy end"><div class="w">
+  <div class="eb">Next step</div>
+  <h2 style="margin-top:14px">Happy to walk through the kit.</h2>
+  <p>Twenty minutes is enough to go through the tracker, the inbox triage and the workbook.</p>
+  <div class="ctas"><a class="btn" href="mailto:durvathakker7@gmail.com?subject=Events%20and%20Partnerships%20Coordinator%20at%20Clio">Email me</a><a class="btn ghost" href="https://www.linkedin.com/in/durvathakkar/">LinkedIn</a></div>
+</div></section>
+<footer><div class="w">Made by Durva Thakkar for Clio's Strategic Engagement team, October 2026. Vendors, amounts, names and emails are sample data created for this application, not Clio data. Clio and ClioCon are trademarks of their owner.</div></footer>
+<div class="toast" id="toast">Copied</div>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const money = n => "$" + Math.round(n).toLocaleString("en-US");
+  const EVENT = new Date(2026, 9, 26);
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const days = d => Math.round((d - today) / 864e5);
+  const fmt = d => d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+  const toEvent = days(EVENT); $("cdD").textContent = toEvent > 0 ? toEvent : toEvent === 0 ? "Today" : "Done";
+  if (toEvent <= 0) $("cdD").nextElementSibling.textContent = toEvent === 0 ? "ClioCon day" : "ClioCon wrapped";
+  const toast = t => { const e = $("toast"); e.textContent = t; e.classList.add("on"); setTimeout(() => e.classList.remove("on"), 1300); };
+
+  // ---------- motion graphic ----------
+  const MG = [
+    ["T-45", "Vendor onboarded", "Northside AV · tax form, banking and insurance on file"],
+    ["T-40", "PO created", "PO-2611 · $18,000 · approved"],
+    ["T-35", "Contract signed", "Partner dinner · e-signed by both sides"],
+    ["T-30", "Swag ordered", "1,200 notebooks · 10% buffer on registrations"],
+    ["T-21", "Travel booked", "YYZ, YVR, YYC to BOS · hotel block confirmed"],
+    ["T-14", "Booth kit shipped", "3 cases to the advance warehouse · tracking added"],
+    ["T-10", "Speakers chased", "32 of 40 decks in · personal follow-ups sent"],
+    ["T-7", "Volunteers briefed", "28 of 30 shifts filled · briefing deck out"],
+    ["T-0", "Doors open", "Registration live at 8:00 AM"],
+    ["T+7", "Report sent", "Expenses reconciled · results shared with the team"]
+  ];
+  $("mgTrack").innerHTML = MG.map(() => "<i></i>").join("");
+  let mi = 0;
+  function mgStep() {
+    const [t, h, p] = MG[mi], pct = Math.round((mi + 1) / MG.length * 100);
+    const card = $("mgCard"); card.classList.remove("swap"); void card.offsetWidth; card.classList.add("swap");
+    $("mgT").textContent = t + (t === "T-0" ? " · EVENT DAY" : ""); $("mgH").textContent = h; $("mgP").textContent = p; $("mgClock").textContent = t;
+    $("mgRing").style.strokeDashoffset = 314.16 * (1 - pct / 100); $("mgPct").innerHTML = pct + "%<small>READY</small>";
+    [...$("mgTrack").children].forEach((e, k) => e.classList.toggle("on", k <= mi));
+    const row = document.createElement("div"); row.innerHTML = `<span class="d">${t}</span><span>${h}</span><span class="ok">DONE</span>`;
+    $("mgLog").prepend(row); while ($("mgLog").children.length > 6) $("mgLog").lastChild.remove();
+    mi++;
+    if (mi >= MG.length) { setTimeout(() => { mi = 0; $("mgLog").innerHTML = ""; mgStep(); }, 3200); return; }
+    setTimeout(mgStep, 1900);
+  }
+  mgStep();
+
+  // ---------- logistics ----------
+  const ST = ["Not started", "In progress", "Waiting", "Done"];
+  const LG = [
+    ["Vendors", "Onboard AV vendor: tax form, banking, insurance certificate", "Coordinator", 45, "Done"],
+    ["Vendors", "Create PO for AV and staging", "Coordinator", 40, "Done"],
+    ["Contracts", "Contract signed with catering for the partner dinner", "Program manager", 35, "Done"],
+    ["Swag", "Order swag: notebooks, pens, stickers (registrations x 1.1)", "Coordinator", 30, "Done"],
+    ["Travel", "Book team flights and the hotel block", "Coordinator", 21, "Done"],
+    ["Shipping", "Ship booth kit to the venue's advance warehouse", "Coordinator", 14, "In progress"],
+    ["Speakers", "Collect final slides and bios (8 of 40 outstanding)", "Program manager", 10, "In progress"],
+    ["Sponsors", "Confirm sponsor booth assets and logo files", "Partnerships", 10, "Waiting"],
+    ["Volunteers", "Final roster and briefing deck sent", "Coordinator", 7, "Not started"],
+    ["Payments", "Process deposits and local vendor payments", "Coordinator", 7, "In progress"],
+    ["Onsite", "Print signage and badge stock", "Coordinator", 5, "Not started"],
+    ["Wrap-up", "Expense reconciliation and post-event report", "Coordinator", -7, "Not started"]
+  ].map(r => ({ ws: r[0], task: r[1], own: r[2], d: r[3], s: r[4] }));
+  let lf = "All";
+  const wss = ["All", ...new Set(LG.map(r => r.ws))];
+  $("lfilters").innerHTML = wss.map(w => `<button class="chipf${w === "All" ? " on" : ""}" data-w="${w}">${w}</button>`).join("") + `<div class="prog"><span id="lp"></span><div class="meter"><i id="lm"></i></div></div>`;
+  $("lfilters").addEventListener("click", e => { const b = e.target.closest("[data-w]"); if (!b) return; lf = b.dataset.w; [...$("lfilters").querySelectorAll(".chipf")].forEach(x => x.classList.toggle("on", x === b)); lrender(); });
+  function lrender() {
+    $("ltbl").querySelector("tbody").innerHTML = LG.map((r, i) => {
+      if (lf !== "All" && r.ws !== lf) return "";
+      const due = new Date(EVENT); due.setDate(due.getDate() - r.d); const left = days(due);
+      const late = r.s !== "Done" && left < 3;
+      return `<tr><td><b>${r.ws}</b></td><td>${r.task}</td><td>${r.own}</td><td class="r">${fmt(due)}</td><td class="r ${late ? "late" : ""}">${r.s === "Done" ? "✓" : left}</td><td><button class="st" data-i="${i}" data-s="${r.s}" title="Click to change">${r.s}</button></td></tr>`;
+    }).join("");
+    const done = LG.filter(r => r.s === "Done").length; $("lp").textContent = `${done} of ${LG.length} done`; $("lm").style.width = done / LG.length * 100 + "%";
+  }
+  $("ltbl").addEventListener("click", e => { const b = e.target.closest(".st"); if (!b) return; const r = LG[+b.dataset.i]; r.s = ST[(ST.indexOf(r.s) + 1) % ST.length]; lrender(); });
+  lrender();
+
+  // ---------- budget ----------
+  const BG = [["Audio visual", "Northside AV", 18000, 18000, 18450, 18450, 1], ["Partner dinner", "Harbour Catering", 12000, 12000, 12900, 6000, 1], ["Swag", "Swag Supply Co.", 9000, 8600, 8600, 8600, 1], ["Signage + badges", "Print Lab", 4000, 0, 0, 0, 0], ["Team travel", "Airlines + hotel", 22000, 0, 20750, 20750, 0], ["Shipping", "Freight", 3500, 3500, 3900, 3900, 1]];
+  const tot = [0, 0, 0, 0];
+  $("btbl").querySelector("tbody").innerHTML = BG.map(([l, v, b, po, inv, paid, rc]) => {
+    [b, po, inv, paid].forEach((x, k) => tot[k] += x);
+    const vr = b ? inv / b - 1 : 0;
+    const fl = !rc ? ["warn", "Missing receipt"] : Math.abs(vr) > .05 ? ["warn", "Over 5%: explain"] : inv > paid ? ["info", "Balance due " + money(inv - paid)] : ["ok", "OK"];
+    return `<tr><td><b>${l}</b><small>${v}</small></td><td class="r">${money(b)}</td><td class="r">${po ? money(po) : "None"}</td><td class="r">${money(inv)}</td><td class="r">${money(paid)}</td><td class="r">${inv ? (vr * 100).toFixed(1) + "%" : "n/a"}</td><td><span class="flag ${fl[0]}">${fl[1]}</span></td></tr>`;
+  }).join("");
+  $("btbl").querySelector("tfoot").innerHTML = `<tr><td>Total</td>${tot.map(x => `<td class="r">${money(x)}</td>`).join("")}<td class="r">${((tot[2] / tot[0] - 1) * 100).toFixed(1)}%</td><td></td></tr>`;
+
+  // ---------- comms ----------
+  const C = {
+    Speakers: { to: "All confirmed speakers (40)", m: {
+      "14 days before": ["Your ClioCon logistics pack", "Hi <mark>{first_name}</mark>,\n\nWe're two weeks out from ClioCon, and we can't wait to hear your session, <mark>{session_title}</mark>.\n\nHere's everything you need:\n• Arrival: please check in at the speaker desk 45 minutes before your session.\n• AV check: <mark>{av_check_time}</mark> in <mark>{room}</mark>.\n• Slides: final deck due <mark>{deck_due}</mark>, uploaded here: <mark>{upload_link}</mark>.\n• Day-of contact: <mark>{coordinator_phone}</mark>.\n\nReply to this email with any questions, big or small.\n\nSee you in Boston,\n<mark>{coordinator_name}</mark>"],
+      "2 days before": ["See you Monday: your day-of details", "Hi <mark>{first_name}</mark>,\n\nQuick reminder before ClioCon on Monday, October 26 at the Hynes Convention Center.\n\n• Your session: <mark>{session_time}</mark>, <mark>{room}</mark>\n• Speaker desk opens at 7:30 AM\n• Day-of contact: <mark>{coordinator_phone}</mark>\n\nSafe travels!\n<mark>{coordinator_name}</mark>"],
+      "2 days after": ["Thank you for speaking at ClioCon", "Hi <mark>{first_name}</mark>,\n\nThank you for <mark>{session_title}</mark>. Attendees rated it <mark>{rating}</mark> out of 5.\n\nYour recording will be ready by <mark>{recording_date}</mark>, and we'd love your feedback in this two-minute form: <mark>{form_link}</mark>.\n\nWith thanks,\n<mark>{coordinator_name}</mark>"] } },
+    Sponsors: { to: "Sponsor contacts (all tiers)", m: {
+      "14 days before": ["Booth move-in and asset deadline", "Hi <mark>{first_name}</mark>,\n\nThank you for sponsoring ClioCon. A few dates for <mark>{company}</mark>'s booth:\n\n• Move-in: <mark>{move_in_window}</mark>\n• Booth number: <mark>{booth}</mark>\n• Logo and asset files due: <mark>{asset_due}</mark>\n• Lead retrieval: app login sent <mark>{lead_app_date}</mark>\n\nShipping to the venue? Use the advance warehouse address in the attached exhibitor guide.\n\nThanks,\n<mark>{coordinator_name}</mark>"],
+      "2 days before": ["Final check before ClioCon", "Hi <mark>{first_name}</mark>,\n\nYour booth (<mark>{booth}</mark>) is set for Monday. Badges for your team are at the exhibitor desk from 7:00 AM. Day-of contact: <mark>{coordinator_phone}</mark>.\n\nSee you there,\n<mark>{coordinator_name}</mark>"],
+      "2 days after": ["Your ClioCon results", "Hi <mark>{first_name}</mark>,\n\nThank you for being part of ClioCon. Your booth captured <mark>{leads}</mark> leads, and the full lead file is here: <mark>{lead_link}</mark>.\n\nCould we book 20 minutes to talk about what worked and next year? <mark>{calendar_link}</mark>\n\nThanks,\n<mark>{coordinator_name}</mark>"] } },
+    Attendees: { to: "All registered attendees", m: {
+      "14 days before": ["Two weeks to ClioCon: plan your agenda", "Hi <mark>{first_name}</mark>,\n\nClioCon is two weeks away. Now's the time to build your agenda in the event app: <mark>{app_link}</mark>.\n\nOctober 26 and 27 · Hynes Convention Center, Boston\n\nNeed an accessibility accommodation? Reply to this email and we'll take care of it.\n\nSee you soon,\nThe ClioCon team"],
+      "2 days before": ["Know before you go", "Hi <mark>{first_name}</mark>,\n\nClioCon starts Monday! Here's what to know:\n\n• Registration opens at 7:30 AM\n• Bring your QR code: <mark>{badge_qr}</mark>\n• Your agenda is in the app: <mark>{app_link}</mark>\n• Questions on site? Find the info desk in the main lobby.\n\nSee you Monday,\nThe ClioCon team"],
+      "2 days after": ["Thank you for coming to ClioCon", "Hi <mark>{first_name}</mark>,\n\nThank you for joining us in Boston. Session recordings are now available here: <mark>{recordings_link}</mark>.\n\nTell us how we did in two minutes: <mark>{survey_link}</mark>\n\nUntil next year,\nThe ClioCon team"] } },
+    Volunteers: { to: "Internal volunteers (Clions)", m: {
+      "14 days before": ["You're on the ClioCon volunteer team", "Hi <mark>{first_name}</mark>,\n\nThank you for volunteering! Your shift: <mark>{shift}</mark> at <mark>{station}</mark>, with <mark>{lead}</mark> as your lead.\n\nBriefing deck and the top 10 attendee questions are here: <mark>{briefing_link}</mark>.\nJoin <mark>#cliocon-volunteers</mark> on Slack for day-of updates.\n\nThank you,\n<mark>{coordinator_name}</mark>"],
+      "2 days before": ["Your shift is Monday", "Hi <mark>{first_name}</mark>,\n\nQuick reminder: <mark>{shift}</mark> at <mark>{station}</mark>. Please arrive 15 minutes early at the volunteer desk to pick up your lanyard.\n\nThank you!\n<mark>{coordinator_name}</mark>"],
+      "2 days after": ["Thank you, volunteer team", "Hi <mark>{first_name}</mark>,\n\nClioCon ran smoothly because of you. Thank you!\n\nTwo minutes of feedback would help us make next year even better: <mark>{form_link}</mark>\n\n<mark>{coordinator_name}</mark>"] } }
+  };
+  const MOM = { "14 days before": 14, "2 days before": 2, "2 days after": -2 };
+  let ca = "Speakers", cm = "14 days before";
+  $("aud").innerHTML = Object.keys(C).map(a => `<button data-a="${a}">${a}</button>`).join("");
+  $("mom").innerHTML = Object.keys(MOM).map(m => `<button data-m="${m}">${m}</button>`).join("");
+  function crender() {
+    [...$("aud").children].forEach(b => b.classList.toggle("on", b.dataset.a === ca)); [...$("mom").children].forEach(b => b.classList.toggle("on", b.dataset.m === cm));
+    const [sub, body] = C[ca].m[cm]; $("mTo").textContent = C[ca].to; $("mSub").textContent = sub; $("mBody").innerHTML = body;
+    const sd = new Date(EVENT); sd.setDate(sd.getDate() - MOM[cm]); $("sendDate").textContent = sd.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
+    $("sendRel").textContent = MOM[cm] > 0 ? `${MOM[cm]} days before ClioCon` : `${-MOM[cm]} days after ClioCon`;
+  }
+  $("aud").onclick = e => { const b = e.target.closest("button"); if (b) { ca = b.dataset.a; crender(); } };
+  $("mom").onclick = e => { const b = e.target.closest("button"); if (b) { cm = b.dataset.m; crender(); } };
+  $("mCopy").onclick = () => navigator.clipboard?.writeText($("mSub").textContent + "\n\n" + $("mBody").innerText).then(() => toast("Email copied")).catch(() => {});
+  crender();
+
+  // ---------- volunteers ----------
+  const VS = [["DAY 1 · 7:00-11:00", "Registration desk", 6, 6], ["DAY 1 · 8:30-12:30", "Session room monitors", 8, 6], ["DAY 1 · 12:00-17:00", "Info desk", 3, 3], ["DAY 2 · 7:30-10:30", "Registration desk", 4, 2], ["DAY 2 · 12:00-16:00", "Expo hall guides", 4, 4]];
+  $("vol").innerHTML = VS.map(([k, s, need, have]) => `<div class="shift"><div class="k">${k}</div><h3>${s}</h3><div class="seats">${Array.from({ length: need }, (_, i) => `<i class="${i < have ? "" : "gap"}"></i>`).join("")}</div><p>${have} of ${need} filled${need > have ? ` · <b>${need - have} open</b>` : " · covered ✓"}</p></div>`).join("");
+
+  // ---------- inbox ----------
+  const IN = [
+    ["Sponsor · legal payments company", "sponsorships@", "Can we add a second booth rep?", "Hi team, our VP just confirmed she can make it. Is it too late to add a second badge for our booth?", ["Tradeshows", "Sponsor"], "med", "Partnerships", "Great news! Yes, we can add one more badge. Could you send her full name and email by Thursday? We'll have it ready at the exhibitor desk."],
+    ["Speaker · Day 1 session", "events@", "Flight lands at 11, can I move my AV check?", "My flight now lands at 11 AM Monday. My AV check was at 10. Can we move it?", ["ClioCon", "Speaker"], "high", "Coordinator", "Thanks for the heads-up! We'll move your AV check to 12:15 in your session room. I'll confirm with the AV team today and send a calendar update."],
+    ["Partner · practice management integration", "partnerships@", "Logo files for the co-branded webinar", "Attaching our logo pack for next month's webinar. Do you need anything else from us?", ["Partnerships", "Virtual event"], "low", "Partner manager", "Thank you, logos received! The last thing we need is your speaker's headshot and a 60-word bio by Friday."],
+    ["Attendee · solo practitioner", "events@", "Accessibility request", "I use a wheelchair. Is there accessible seating in the keynote hall?", ["ClioCon", "Accessibility"], "high", "Coordinator", "Thank you for letting us know. Yes, there's reserved accessible seating at the front of the keynote hall. I've added a note to your registration, and our team will meet you at registration to show you the way."],
+    ["Vendor · signage printer", "events@", "Invoice 8812 attached", "Please find attached our invoice for the signage order.", ["Finance", "Vendor"], "low", "Coordinator", "Thank you, received. We'll match it to PO-2618 and process payment within our standard terms."],
+    ["Volunteer · Clion", "volunteers@", "Can I swap my Day 2 shift?", "I have a client call Tuesday morning. Could I move to the afternoon expo shift?", ["Volunteers"], "med", "Coordinator", "No problem! I've moved you to Expo hall guides, Day 2, 12:00 to 16:00. Your updated briefing is in #cliocon-volunteers."]
+  ];
+  $("inboxList").innerHTML = IN.map((m, i) => `<div class="mailrow" id="mr${i}"><div class="from"><b>${m[0]}</b><small>TO ${m[1]}</small></div><div><div class="sub">${m[2]}</div><div class="pre">${m[3]}</div>
+    <div class="ai-out"><div class="lbls">${m[4].map(l => `<span class="tag">${l}</span>`).join("")}<span class="tag p-${m[5]}">${{ high: "High priority", med: "Medium", low: "Low" }[m[5]]}</span><span class="tag" style="background:#eef1f4;color:var(--navy)">Owner: ${m[6]}</span></div><div class="draft"><small>AI DRAFT · REVIEW BEFORE SENDING</small>${m[7]}</div></div></div>
+    <div class="rev"><label><input type="checkbox" data-r="${i}" disabled> Reviewed</label><button data-s="${i}" disabled>Send</button></div></div>`).join("");
+  $("triage").onclick = () => {
+    $("triage").disabled = true; $("triageNote").textContent = "Sorting…";
+    IN.forEach((_, i) => setTimeout(() => { $("mr" + i).classList.add("done"); $("mr" + i).querySelector("input").disabled = false; if (i === IN.length - 1) $("triageNote").textContent = "6 emails sorted. 2 high priority. Review each draft, then send."; }, 350 * (i + 1)));
+  };
+  $("inboxList").addEventListener("change", e => { const c = e.target.closest("[data-r]"); if (c) document.querySelector(`[data-s="${c.dataset.r}"]`).disabled = !c.checked; });
+  $("inboxList").addEventListener("click", e => { const b = e.target.closest("button[data-s]"); if (!b || b.disabled) return; b.outerHTML = `<span class="sent">SENT ✓</span>`; toast("Reply sent"); });
+
+  // ---------- AI workflows ----------
+  const FL = [
+    ["Receipts to reconciliation", "Google Forms · Sheets · Gemini", ["Team snaps receipts into one Form", "AI reads vendor, date, amount, category into the Sheet", "Sheet matches each line to its PO and budget line", "Coordinator checks every line against the card statement"], 90, 25],
+    ["Speaker bios to session pages", "Google Forms · Sheets · Gemini", ["Speakers submit bio, headshot and session details", "AI trims each bio to 60 words in the style guide", "Sheet flags missing headshots or titles", "Program manager approves each bio before it goes live"], 120, 30],
+    ["Shared inbox triage", "Gmail · Slack · Gemini", ["New emails are labelled by program and priority", "AI drafts a reply from the FAQ doc", "High priority items post to Slack", "Coordinator edits and sends every reply"], 150, 60],
+    ["Post-event report", "Sheets · Slides · Gemini", ["Survey, registration and lead data in one Sheet", "AI summarizes results and the top three themes", "Charts update in the Slides template", "Coordinator checks every number against the source"], 240, 90]
+  ];
+  $("flows").innerHTML = FL.map(([t, tools, steps, b, a]) => `<div class="card flow"><span class="tag">${tools}</span><h3>${t}</h3><div class="steps">${steps.map((s, k) => `<div class="${k === steps.length - 1 ? "hm" : ""}"><i>${k === steps.length - 1 ? "✓" : k + 1}</i><span>${s}</span></div>`).join("")}</div>
+    <div class="bars2"><div><span>Before</span><span class="b" style="width:${b / 240 * 100}%"></span><span>${b} min/wk</span></div><div class="after"><span>After</span><span class="b" style="width:${a / 240 * 100}%"></span><span>${a} min/wk</span></div></div></div>`).join("");
+})();
+</script>
+</body>
+</html>
