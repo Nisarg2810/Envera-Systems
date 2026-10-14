@@ -664,5 +664,86 @@ Worth a 20-minute look at a sample of your own data? Tuesday 2 PM or Wednesday 1
   document.querySelectorAll("section.s").forEach(s => io.observe(s));
 })();
 </script>
+<!-- Visitor notifications via EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js"></script>
+<script>
+(() => {
+  const EMAILJS_PUBLIC_KEY = "QX_zYoZlN7ibZXYNv";
+  const EMAILJS_SERVICE_ID = "nisargmehta2810";
+  const EMAILJS_TEMPLATE_ID = "template_wa24pe8";
+
+  // Visit once with ?notrack=1 to stop tracking your own visits on this browser
+  try {
+    if (location.search.includes("notrack=1")) localStorage.setItem("notrack", "1");
+    if (localStorage.getItem("notrack") === "1") return;
+  } catch (e) {}
+
+  if (!window.emailjs) return;
+  emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+  // Approximate location from IP (city level), cached for the session
+  async function getLocation() {
+    try {
+      const cached = sessionStorage.getItem("loc");
+      if (cached) return cached;
+      const ctrl = new AbortController();
+      setTimeout(() => ctrl.abort(), 4000);
+      const r = await fetch("https://ipapi.co/json/", { signal: ctrl.signal });
+      const d = await r.json();
+      const loc = `${d.city || "?"}, ${d.region || "?"}, ${d.country_name || "?"} (IP ${d.ip || "?"}, ${d.org || "?"})`;
+      sessionStorage.setItem("loc", loc);
+      return loc;
+    } catch (e) {
+      return "Unknown (lookup blocked) · timezone: " + Intl.DateTimeFormat().resolvedOptions().timeZone;
+    }
+  }
+
+  async function notify(event, detail) {
+    const location_ = await getLocation();
+    const now = new Date();
+    const params = {
+      event,
+      detail: detail || "-",
+      time: now.toLocaleString(),
+      time_utc: now.toISOString(),
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+      location: location_,
+      page_url: location.href,
+      referrer: document.referrer || "direct",
+      device: navigator.userAgent,
+      screen: `${screen.width}x${screen.height}`,
+      language: navigator.language,
+    };
+    params.message = Object.entries(params).map(([k, v]) => `${k}: ${v}`).join("\n");
+    try { await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params); } catch (e) { console.warn("notify failed", e); }
+  }
+
+  // 1) Page opened (once per browser session)
+  if (!sessionStorage.getItem("opened")) {
+    sessionStorage.setItem("opened", "1");
+    notify("Page opened", document.title);
+  }
+
+  // 2) Which button / link was clicked (incl. opening your website or the live page)
+  let last = "", lastT = 0;
+  document.addEventListener("click", e => {
+    const el = e.target.closest("a, button");
+    if (!el) return;
+    const label = (el.innerText || el.getAttribute("aria-label") || el.id || "unnamed").trim().replace(/\s+/g, " ").slice(0, 80);
+    const href = el.href || "";
+    const isSite = /durvathakkar\.com/.test(href);
+    const isWebinar = /webinar\//.test(href);
+    const event = isSite ? "Opened your website" : isWebinar ? "Opened live landing page" : "Clicked: " + label;
+    const key = event + href + label;
+    if (key === last && Date.now() - lastT < 3000) return;
+    last = key; lastT = Date.now();
+    notify(event, `${label}${href ? " → " + href : ""}`);
+  }, true);
+
+  // 3) Form submitted
+  const f = document.getElementById("lpForm");
+  if (f) f.addEventListener("submit", () => notify("Demo form submitted", "Register free"));
+})();
+</script>
 </body>
 </html>
