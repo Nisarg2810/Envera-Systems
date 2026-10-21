@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A work plan for BorderPass · Durva Thakkar</title>
+<meta name="description" content="The digital version of the passport Durva Thakkar mailed to the BorderPass marketing team. Open the envelope, flip the pages, collect the stamps.">
+<meta property="og:title" content="A work plan for BorderPass, in a passport">
+<meta property="og:description" content="Open the envelope, flip the pages, collect the stamps. By Durva Thakkar.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://durvathakkar.com/borderpass/passport/">
+<meta property="og:image" content="https://durvathakkar.com/borderpass/passport/share.jpg?v=1">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A work plan for BorderPass, in a passport">
+<meta name="twitter:description" content="Open the envelope, flip the pages, collect the stamps. By Durva Thakkar.">
+<meta name="twitter:image" content="https://durvathakkar.com/borderpass/passport/share.jpg?v=1">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@400;500;600;700&family=Caveat:wght@600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#151414;--cream:#fffcf2;--paper:#f6efe1;--gold:#d3ac6a;--bronze:#956f3d;--navy:#10273d;--navy2:#1b3e5f;--ink:#151414;--green:#455841;--red:#7a2c30}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:radial-gradient(circle at 50% 40%,#2a2626,#151414 70%);color:var(--cream);font-family:"Outfit",system-ui,sans-serif;overflow:hidden;-webkit-font-smoothing:antialiased}
+.top{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:16px 20px;z-index:20;font-size:14px}
+.top .b{font:500 19px "Crimson Pro"}.top .b i{color:var(--gold);font-style:normal}
+.top a{color:#c9c3b8;text-decoration:none}.top a:hover{color:var(--gold)}
+#stage{position:fixed;left:50%;top:50%;width:760px;height:560px;transform-origin:center;transform:translate(-50%,-50%) scale(var(--s,1))}
+.hint{position:fixed;left:0;right:0;bottom:22px;text-align:center;font-size:14px;color:#b9b2a6;z-index:20;transition:opacity .4s}
+.ctrl{position:fixed;left:0;right:0;bottom:18px;display:flex;justify-content:center;align-items:center;gap:14px;z-index:20;opacity:0;pointer-events:none;transition:opacity .5s}
+.ctrl.on{opacity:1;pointer-events:auto}
+.ctrl button{font:600 14px "Outfit";padding:10px 18px;border-radius:999px;border:1px solid #4a4646;background:transparent;color:var(--cream);cursor:pointer}
+.ctrl button.p{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.ctrl button:disabled{opacity:.35;cursor:default}
+.ctrl span{font-size:13px;color:#958f8f;min-width:70px;text-align:center}
+
+/* envelope */
+.env{position:absolute;left:50%;top:50%;width:560px;height:380px;margin:-190px 0 0 -280px;transition:transform 1s cubic-bezier(.6,0,.3,1),opacity .8s}
+.env .body{position:absolute;inset:0;border-radius:10px;background:#c9a273 repeating-linear-gradient(115deg,rgba(255,255,255,.04) 0 2px,transparent 2px 7px);box-shadow:0 30px 60px rgba(0,0,0,.55),inset 0 0 0 1px rgba(0,0,0,.08);z-index:3}
+.env .strip{position:absolute;left:0;right:0;top:34px;height:22px;background:#b88f60;border-top:1px dashed rgba(0,0,0,.25);border-bottom:1px dashed rgba(0,0,0,.25);z-index:5;transition:transform .9s cubic-bezier(.5,0,.3,1),opacity .9s;transform-origin:left center;display:flex;align-items:center;padding-left:14px;font:600 11px "Outfit";letter-spacing:.14em;color:rgba(0,0,0,.45)}
+.env .strip b{position:absolute;right:-6px;top:-8px;background:var(--red);color:#fff;border-radius:6px;padding:9px 12px;font:700 11px "Outfit";letter-spacing:.1em;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,.3);animation:nudge 1.6s infinite}
+@keyframes nudge{0%,70%,100%{transform:translateX(0)}80%{transform:translateX(8px)}90%{transform:translateX(-2px)}}
+.env.torn .strip{transform:translate(620px,-120px) rotate(28deg);opacity:0}
+.env .lab{position:absolute;left:150px;top:120px;width:300px;background:#fff;color:var(--ink);border-radius:4px;padding:16px 18px;font-size:13px;line-height:1.45;box-shadow:0 2px 4px rgba(0,0,0,.15);z-index:4;transform:rotate(-1.5deg)}
+.env .lab .k{font:600 10px "Outfit";letter-spacing:.14em;color:#958f8f}
+.env .lab b{font-weight:600;font-size:15px}
+.env .from{position:absolute;left:26px;top:76px;font-size:11px;color:rgba(0,0,0,.6);z-index:4;line-height:1.4}
+.env .post{position:absolute;right:26px;top:72px;width:74px;height:88px;background:var(--cream);border:3px dotted #c9a273;outline:2px solid var(--cream);z-index:4;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--navy);transform:rotate(3deg)}
+.env .post .serif{font:500 28px "Crimson Pro";line-height:1}.env .post span{font:600 8px "Outfit";letter-spacing:.12em}
+.env .sticker{position:absolute;left:30px;bottom:30px;z-index:4;background:var(--red);color:#fff;font:700 11px "Outfit";letter-spacing:.1em;padding:8px 12px;border-radius:4px;transform:rotate(-6deg)}
+.env .sticker2{position:absolute;right:34px;bottom:34px;z-index:4;color:rgba(0,0,0,.5);font:600 11px "Outfit";letter-spacing:.12em;border:2px solid rgba(0,0,0,.35);border-radius:999px;padding:6px 12px;transform:rotate(4deg)}
+.env .back{position:absolute;inset:0;border-radius:10px;background:#b88f60;z-index:1}
+.env.gone{transform:translateY(560px) rotate(4deg);opacity:0}
+
+/* book */
+#book{z-index:2;position:absolute;left:50%;top:50%;width:592px;height:420px;margin:-210px 0 0 -296px;perspective:2200px;transition:transform .9s cubic-bezier(.5,0,.25,1),opacity .6s;opacity:0}
+#book.out{opacity:1}
+#book.closed{transform:translateX(-148px)}
+#book.inenv{transform:translate(-148px,110px) scale(.82);opacity:0}
+.leaf{position:absolute;left:296px;top:0;width:296px;height:420px;transform-style:preserve-3d;transform-origin:left center;transition:transform 1s cubic-bezier(.45,.05,.25,1)}
+.leaf.f{transform:rotateY(-180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;cursor:pointer}
+.face.bk{transform:rotateY(180deg)}
+.pg{background:var(--paper);color:var(--ink);padding:24px 24px 30px;border-radius:0 12px 12px 0;box-shadow:inset 14px 0 18px -14px rgba(0,0,0,.35)}
+.bk.pg{border-radius:12px 0 0 12px;box-shadow:inset -14px 0 18px -14px rgba(0,0,0,.35)}
+.pg::before{content:"";position:absolute;inset:0;background:repeating-radial-gradient(circle at 50% 120%,rgba(27,62,95,.05) 0 1px,transparent 1px 9px),repeating-linear-gradient(60deg,rgba(149,111,61,.04) 0 1px,transparent 1px 12px);pointer-events:none}
+.pg>*{position:relative}
+.pn{position:absolute!important;bottom:10px;left:0;right:0;text-align:center;font:500 10px "IBM Plex Mono";color:#a2967f}
+.cover{background:var(--navy);border-radius:4px 14px 14px 4px;box-shadow:inset 6px 0 0 rgba(0,0,0,.25),0 20px 50px rgba(0,0,0,.5);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:var(--gold)}
+.cover .crest{width:96px;height:96px;border:2px solid var(--gold);border-radius:50%;display:grid;place-items:center;font:500 46px "Crimson Pro";margin-bottom:22px;position:relative}
+.cover .crest::after{content:"";position:absolute;inset:6px;border:1px solid rgba(211,172,106,.5);border-radius:50%}
+.cover .t1{font:500 15px "Outfit";letter-spacing:.34em}
+.cover .t2{font:500 32px "Crimson Pro";color:var(--cream);margin:8px 0 4px}
+.cover .t3{font:500 12px "Outfit";letter-spacing:.2em;opacity:.8}
+.cover .chip{position:absolute;bottom:34px;width:46px;height:30px;border:1.5px solid var(--gold);border-radius:5px;opacity:.75}
+.cover .chip::before{content:"";position:absolute;left:50%;top:0;bottom:0;border-left:1.5px solid var(--gold)}
+.cover .tap{position:absolute;bottom:80px;font:500 11px "Outfit";letter-spacing:.14em;color:rgba(255,252,242,.55);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.25}}
+.inside{background:var(--navy2);color:var(--cream)}
+.inside .note{background:var(--paper);color:var(--ink);border-radius:6px;padding:18px;font-size:13.5px;line-height:1.5;margin-top:8px}
+.inside .note p+p{margin-top:8px}
+.sig{font:600 30px "Caveat",cursive;color:var(--navy);line-height:1;margin-top:8px}
+.k{font:600 9.5px "Outfit";letter-spacing:.14em;text-transform:uppercase;color:var(--bronze)}
+h3.pt{font:500 23px "Crimson Pro";line-height:1.1;margin:4px 0 12px}
+.id{display:grid;grid-template-columns:96px 1fr;gap:12px;margin-top:6px}
+.id img{width:96px;height:124px;object-fit:cover;object-position:50% 25%;border-radius:4px;filter:saturate(.75) contrast(1.02);box-shadow:0 0 0 1px rgba(0,0,0,.12)}
+.f2{margin-bottom:6px}.f2 .k{font-size:8.5px}.f2 div:last-child{font:600 12px "Outfit";text-transform:uppercase;letter-spacing:.02em}
+.mrz{position:absolute!important;left:16px;right:16px;bottom:30px;font:500 9.4px/1.5 "IBM Plex Mono";letter-spacing:.03em;color:#3d3a36;white-space:nowrap;overflow:hidden}
+.list{font-size:13px;line-height:1.45}
+.list li{list-style:none;padding:7px 0 7px 22px;border-bottom:1px dashed #d5c7aa;position:relative}
+.list li::before{content:"→";position:absolute;left:0;color:var(--bronze);font-weight:700}
+.visa .hd{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1.5px solid var(--navy);padding-bottom:6px}
+.visa .hd b{font:600 11px "Outfit";letter-spacing:.16em;color:var(--navy)}
+.visa .hd span{font:500 10px "IBM Plex Mono";color:#8a7e68}
+.visa .zone{height:168px;margin:16px 0 14px;border:1.5px dashed #cdbf9f;border-radius:10px;display:grid;place-items:center;position:relative}
+.visa .zone::after{content:"STAMP";font:600 10px "Outfit";letter-spacing:.3em;color:#cdbf9f;transition:opacity .3s}
+.visa.stamped .zone::after{opacity:0}
+.visa p{font-size:13.5px;line-height:1.5}
+.visa .on{margin-top:10px;font:600 10.5px "Outfit";letter-spacing:.1em;color:var(--bronze);text-transform:uppercase}
+.st{position:absolute;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:var(--c);border:3px solid var(--c);opacity:0;transform:scale(2.2) rotate(var(--r));transition:transform .28s cubic-bezier(.3,1.6,.5,1),opacity .15s;mix-blend-mode:multiply}
+.st::before{content:"";position:absolute;inset:4px;border:1.5px solid var(--c);border-radius:inherit}
+.stamped .st{opacity:.88;transform:scale(1) rotate(var(--r))}
+.st b{font:700 17px "Outfit";letter-spacing:.08em;line-height:1.05}
+.st span{font:600 8.5px "Outfit";letter-spacing:.16em}
+.st.circ{width:144px;height:144px;border-radius:50%}.st.circ b{font-size:14.5px}
+.st.rect{width:190px;height:96px;border-radius:6px}
+.st.oval{width:200px;height:110px;border-radius:50%}
+.st.tick{width:150px;height:118px;border-radius:22px}
+.ink{filter:url(#rough)}
+.appr .big{position:absolute;left:18px;right:18px;top:62px;height:118px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:4px double var(--green);color:var(--green);border-radius:8px;opacity:0;transform:scale(2.4) rotate(-7deg);transition:transform .3s cubic-bezier(.3,1.6,.5,1),opacity .15s;mix-blend-mode:multiply}
+.appr.stamped .big{opacity:.92;transform:scale(1) rotate(-7deg)}
+.appr .big b{font:700 30px "Outfit";letter-spacing:.12em}
+.appr .big span{font:600 10px "Outfit";letter-spacing:.2em}
+.appr .qrw{position:absolute;left:20px;right:20px;bottom:36px;display:flex;gap:12px;align-items:center;opacity:0;transition:opacity .6s .5s}
+.appr.stamped .qrw{opacity:1}
+.appr .qr{width:96px;height:96px;background:#fff;padding:7px;border-radius:6px;flex-shrink:0}
+.appr .qr svg{width:100%;height:100%;display:block}
+.appr .qrw>div:last-child{min-width:0;flex:1}.appr .qrw p{font-size:11.5px;line-height:1.4}
+.appr .url{font:600 11.5px "Outfit";color:var(--navy);text-decoration:underline;text-underline-offset:3px;position:relative;cursor:pointer}
+.appr .go{display:inline-block;margin-top:8px;background:var(--navy);color:var(--cream);font:600 12px "Outfit";padding:8px 14px;border-radius:999px;text-decoration:none}
+.pop{position:absolute;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%) scale(.6);opacity:0;background:var(--gold);color:var(--ink);font:700 11px "Outfit";letter-spacing:.06em;padding:6px 10px;border-radius:999px;white-space:nowrap;pointer-events:none;transition:.2s}
+.url:hover .pop{opacity:1;transform:translateX(-50%) scale(1)}
+.backc{background:var(--navy);border-radius:14px 4px 4px 14px;color:var(--gold);display:grid;place-items:center;text-align:center;padding:40px;font:500 14px/1.6 "Crimson Pro"}
+
+/* backup card */
+.card{position:absolute;left:-10px;bottom:-30px;width:200px;height:116px;background:var(--cream);color:var(--ink);border-radius:8px;box-shadow:0 14px 30px rgba(0,0,0,.45);padding:14px 16px;transform:translate(-200px,60px) rotate(-14deg);opacity:0;transition:transform 1s .5s cubic-bezier(.4,0,.2,1),opacity .6s .5s;z-index:1}
+.card.out{transform:translate(0,0) rotate(-7deg);opacity:1}
+.card .k{font-size:8.5px}
+.card p{font-size:11.5px;line-height:1.4;margin-top:6px}
+.card b{font:600 13px "Outfit";color:var(--navy);display:block;margin-top:6px}
+#stage.open .card{left:-14px;bottom:-26px}
+#stage.mob .env{transform:scale(.56)}#stage.mob .env.gone{transform:translateY(560px) scale(.56)}
+#stage.mob .card,#stage.mob.open .card{left:262px;top:-34px;bottom:auto;transform:scale(.8) rotate(4deg);opacity:0!important;pointer-events:none}
+#stage.mob.last .card{opacity:1!important}
+body.share .top,body.share .ctrl,body.share .hint{display:none}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><filter id="rough"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.2"/></filter></svg>
+
+<div class="top"><div class="b">Durva <i>for</i> BorderPass</div><a href="/borderpass/">Skip to the full plan →</a></div>
+
+<div id="stage">
+  <div class="env" id="env">
+    <div class="back"></div>
+    <div class="body"></div>
+    <div class="strip">PULL TO OPEN · PULL TO OPEN · PULL TO OPEN<b id="pull">PULL ›</b></div>
+    <div class="from">From<br><b>Durva Thakkar</b><br>Ontario, Canada</div>
+    <div class="post"><div class="serif">D</div><span>DURVA POST</span></div>
+    <div class="lab"><div class="k">Deliver to</div><b>The Marketing Team</b><br>BorderPass<br>Toronto, Ontario</div>
+    <div class="sticker">HANDLE WITH CARE</div>
+    <div class="sticker2">WORK PLAN INSIDE</div>
+  </div>
+
+  <div id="book" class="closed inenv">
+    <!-- leaf 0: cover / inside cover -->
+    <div class="leaf" data-i="0">
+      <div class="face fr cover"><div class="crest">D</div><div class="t1">WORK PLAN</div><div class="t2">Marketing Specialist</div><div class="t3">BORDERPASS · 2026</div><div class="tap">TAP TO OPEN</div><div class="chip"></div></div>
+      <div class="face bk pg inside"><div class="k" style="color:var(--gold)">A note before you start</div>
+        <div class="note"><p>Hi BorderPass marketing team,</p><p>Two years ago I went through Canadian immigration myself, as an international student. I know how confusing it gets with a deadline coming up and three guides that disagree.</p><p>I'd love to help BorderPass explain it. Every page in this booklet is something I'd build for you. The last page opens the full plan.</p><div class="sig">Durva</div></div>
+        <div class="pn" style="color:rgba(255,252,242,.45)">2</div></div>
+    </div>
+    <!-- leaf 1: identity / findings -->
+    <div class="leaf" data-i="1">
+      <div class="face fr pg"><div class="k">Holder</div><h3 class="pt">Identity page</h3>
+        <div class="id"><img src="/assets/durva-portrait.jpg" alt="Durva Thakkar">
+          <div><div class="f2"><div class="k">Surname</div><div>Thakkar</div></div><div class="f2"><div class="k">Given name</div><div>Durva</div></div><div class="f2"><div class="k">Applying for</div><div>Marketing Specialist</div></div><div class="f2"><div class="k">Destination</div><div>BorderPass</div></div></div></div>
+        <div class="f2" style="margin-top:10px"><div class="k">Studied in Canada</div><div>York University · George Brown Polytechnic</div></div>
+        <div class="f2"><div class="k">Writes</div><div>SEO + GEO content, social, email</div></div>
+        <div class="mrz">WP&lt;BORDERPASS&lt;&lt;THAKKAR&lt;&lt;DURVA&lt;&lt;&lt;&lt;&lt;&lt;&lt;<br>MKTG&lt;SPECIALIST&lt;&lt;CONTENT&lt;SOCIAL&lt;AI&lt;&lt;</div>
+        <div class="pn">3</div></div>
+      <div class="face bk pg"><div class="k">Entry inspection</div><h3 class="pt">Before planning anything, I read borderpass.ai</h3>
+        <ul class="list"><li><b>211 blog posts and 72 news posts</b> already live: years of social content waiting to be repurposed.</li><li><b>Every page shares one preview image</b>, so a PGWP link in a group chat looks like every other link.</li><li><b>Page text loads only after JavaScript</b>, so many AI search tools see a title and little else.</li><li><b>No newsletter</b> for people who aren't ready to apply yet.</li></ul>
+        <div class="pn">4</div></div>
+    </div>
+    <!-- leaf 2: visas 01 / 02 -->
+    <div class="leaf" data-i="2">
+      <div class="face fr pg visa"><div class="hd"><b>VISA 01 · CONTENT</b><span>NO. 0001</span></div>
+        <div class="zone"><div class="st circ ink" style="--c:#1b3e5f;--r:-10deg"><span>ENTRY</span><b>CONTENT</b><span>B2C · B2B</span></div></div>
+        <p>Carousels, blogs, newsletters and video scripts for students, workers, schools and employers. First piece is ready: "Study permit refused? 5 steps before you reapply."</p><div class="on">Full plan: section 02</div><div class="pn">5</div></div>
+      <div class="face bk pg visa"><div class="hd"><b>VISA 02 · SOCIAL</b><span>NO. 0002</span></div>
+        <div class="zone"><div class="st rect ink" style="--c:#455841;--r:6deg"><span>TORONTO · ON</span><b>SOCIAL</b><span>NOV 2026</span></div></div>
+        <p>One job for each channel and a 4-week calendar built around your CBIE reception in Ottawa on November 23. Plus a 24-hour plan for when the rules change.</p><div class="on">Full plan: section 03</div><div class="pn">6</div></div>
+    </div>
+    <!-- leaf 3: visas 03 / 04 -->
+    <div class="leaf" data-i="3">
+      <div class="face fr pg visa"><div class="hd"><b>VISA 03 · AI WORKFLOW</b><span>NO. 0003</span></div>
+        <div class="zone"><div class="st oval ink" style="--c:#956f3d;--r:-5deg"><span>GUIDED BY AI</span><b>AI WORKFLOW</b><span>FINISHED BY PEOPLE</span></div></div>
+        <p>AI drafts. A person makes it sound human. A lawyer checks anything legal. The same promise BorderPass makes to applicants, used for marketing.</p><div class="on">Full plan: section 04</div><div class="pn">7</div></div>
+      <div class="face bk pg visa"><div class="hd"><b>VISA 04 · SEO + GEO</b><span>NO. 0004</span></div>
+        <div class="zone"><div class="st tick ink" style="--c:#7a2c30;--r:8deg"><span>FOUND · READ · QUOTED</span><b>SEO + GEO</b><span>SEARCH + AI</span></div></div>
+        <p>Keyword groups mapped to your real pages, short answer boxes that AI search can quote, and one share card for every key page.</p><div class="on">Full plan: section 05</div><div class="pn">8</div></div>
+    </div>
+    <!-- leaf 4: visas 05 / 06 -->
+    <div class="leaf" data-i="4">
+      <div class="face fr pg visa"><div class="hd"><b>VISA 05 · COMMUNITY</b><span>NO. 0005</span></div>
+        <div class="zone"><div class="st circ ink" style="--c:#10273d;--r:12deg"><span>WELCOME</span><b>COMMUNITY</b><span>150+ COUNTRIES</span></div></div>
+        <p>Ask a Lawyer Live every month, an Approved Wall of client stories (with consent), and student ambassadors at partner schools.</p><div class="on">Full plan: section 06</div><div class="pn">9</div></div>
+      <div class="face bk pg visa"><div class="hd"><b>VISA 06 · PAID</b><span>NO. 0006</span></div>
+        <div class="zone"><div class="st rect ink" style="--c:#455841;--r:-7deg"><span>GOOGLE · META · LINKEDIN</span><b>PAID</b><span>TESTED WEEKLY</span></div></div>
+        <p>Google for people searching for help right now, Meta for students and IEC applicants by country, LinkedIn for international offices and HR teams.</p><div class="on">Full plan: section 07</div><div class="pn">10</div></div>
+    </div>
+    <!-- leaf 5: approved -->
+    <div class="leaf" data-i="5">
+      <div class="face fr pg appr"><div class="hd" style="display:flex;justify-content:space-between;border-bottom:1.5px solid var(--navy);padding-bottom:6px"><b style="font:600 11px Outfit;letter-spacing:.16em;color:var(--navy)">FINAL PAGE</b><span style="font:500 10px 'IBM Plex Mono';color:#8a7e68">NO. 0007</span></div>
+        <div class="big ink"><span>BORDERPASS · MARKETING</span><b>APPROVED</b><span>ENTRY TO THE FULL PLAN</span></div>
+        <div class="qrw"><div class="qr"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33" shape-rendering="crispEdges" class="segno"><path class="qrline" stroke="#10273d" d="M0 0.5h7m1 0h2m1 0h1m2 0h5m3 0h2m2 0h7m-33 1h1m5 0h1m2 0h1m2 0h1m4 0h1m1 0h3m4 0h1m5 0h1m-33 1h1m1 0h3m1 0h1m4 0h1m1 0h1m1 0h1m3 0h3m1 0h1m2 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h2m1 0h2m1 0h2m1 0h4m2 0h2m1 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h3m3 0h3m1 0h2m2 0h1m1 0h3m1 0h1m-33 1h1m5 0h1m1 0h4m1 0h1m2 0h4m2 0h1m3 0h1m5 0h1m-33 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-25 1h1m1 0h3m1 0h5m2 0h2m-23 1h1m3 0h1m1 0h4m2 0h1m4 0h1m1 0h4m1 0h6m2 0h1m-33 1h1m2 0h2m2 0h3m1 0h3m1 0h2m1 0h1m1 0h1m2 0h1m1 0h1m3 0h2m-29 1h1m2 0h3m1 0h3m3 0h3m3 0h3m5 0h1m1 0h1m-32 1h1m2 0h2m6 0h1m2 0h1m1 0h4m1 0h2m1 0h1m1 0h1m4 0h1m-32 1h1m1 0h2m2 0h1m1 0h1m2 0h4m3 0h5m3 0h4m1 0h2m-32 1h1m1 0h2m3 0h1m2 0h2m3 0h2m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m2 0h1m-31 1h1m1 0h1m2 0h2m2 0h4m1 0h1m1 0h1m1 0h2m1 0h6m3 0h2m-31 1h1m1 0h1m3 0h3m2 0h1m4 0h7m1 0h4m-29 1h2m1 0h1m2 0h3m1 0h1m1 0h2m1 0h3m3 0h2m3 0h1m1 0h2m1 0h1m-32 1h2m7 0h1m1 0h1m1 0h1m1 0h4m2 0h1m1 0h1m1 0h1m3 0h3m-31 1h3m2 0h3m1 0h4m1 0h1m2 0h1m1 0h1m2 0h1m3 0h1m1 0h1m1 0h1m-31 1h1m2 0h2m1 0h3m1 0h1m1 0h2m6 0h1m3 0h3m-28 1h1m3 0h1m1 0h1m1 0h2m1 0h1m1 0h4m2 0h4m1 0h6m1 0h2m-33 1h1m3 0h2m5 0h1m5 0h4m1 0h2m3 0h1m2 0h2m-30 1h3m1 0h4m2 0h1m2 0h1m1 0h2m2 0h3m1 0h1m4 0h2m-28 1h2m1 0h4m4 0h4m2 0h1m1 0h1m5 0h1m1 0h1m-32 1h2m1 0h2m1 0h4m2 0h1m1 0h1m2 0h6m1 0h5m2 0h2m-25 1h1m2 0h2m1 0h3m1 0h1m4 0h2m3 0h1m1 0h1m-31 1h7m1 0h6m1 0h3m2 0h1m1 0h1m1 0h1m1 0h1m1 0h2m1 0h1m-32 1h1m5 0h1m2 0h6m1 0h4m1 0h2m1 0h1m3 0h1m3 0h1m-33 1h1m1 0h3m1 0h1m1 0h1m3 0h3m3 0h1m1 0h3m1 0h6m1 0h2m-33 1h1m1 0h3m1 0h1m2 0h2m5 0h2m1 0h6m1 0h4m-30 1h1m1 0h3m1 0h1m4 0h1m1 0h1m2 0h1m1 0h1m3 0h1m2 0h4m1 0h1m-31 1h1m5 0h1m2 0h1m1 0h1m5 0h2m1 0h2m2 0h3m2 0h1m-30 1h7m1 0h1m1 0h2m3 0h1m1 0h1m1 0h6m1 0h1m2 0h1m2 0h1"/></svg></div><div><p>Scan for the full plan: findings, content, calendar, AI, SEO, community, paid and the first 90 days.</p><p style="margin-top:6px"><span class="url" id="url">durvathakkar.com/borderpass<span class="pop">Open it ↗</span></span></p><a class="go" href="/borderpass/">Open the full plan</a></div></div>
+        <div class="pn">11</div></div>
+      <div class="face bk backc">If found, please return to the BorderPass marketing team.</div>
+    </div>
+  </div>
+
+  <div class="card" id="card"><div class="k">Backup card</div><p>If the QR code doesn't scan, the full plan is here:</p><b>durvathakkar.com/borderpass</b></div>
+</div>
+
+<div class="hint" id="hint">Pull the red tab to open the envelope</div>
+<div class="ctrl" id="ctrl"><button id="prev">← Back</button><span id="pos"></span><button class="p" id="next">Next page →</button></div>
+
+<script>
+if(/[?&]share/.test(location.search))document.body.classList.add('share');
+var st=document.getElementById('stage'),env=document.getElementById('env'),book=document.getElementById('book'),card=document.getElementById('card'),hint=document.getElementById('hint'),ctrl=document.getElementById('ctrl');
+var mob=false,side='R';
+function fit(){mob=innerWidth<700&&innerHeight>innerWidth;st.classList.toggle('mob',mob);var s=mob?Math.min(innerWidth/330,(innerHeight-150)/600,1.3):Math.min(innerWidth/860,(innerHeight-130)/580,1.25);st.style.setProperty('--s',s);if(typeof place==='function')place()}
+addEventListener('resize',fit);fit();
+var leaves=[].slice.call(document.querySelectorAll('.leaf')),N=leaves.length,cur=0,busy=false;
+function z(){leaves.forEach(function(l,i){l.style.zIndex=i<cur?10+i:50-i})}
+z();
+function spread(){var a=[];if(cur>0)a.push(leaves[cur-1].querySelector('.bk'));if(cur<N)a.push(leaves[cur].querySelector('.fr'));return a}
+function stampSpread(){spread().forEach(function(f,k){if(f&&!f.classList.contains('stamped')&&(f.classList.contains('visa')||f.classList.contains('appr')))setTimeout(function(){f.classList.add('stamped')},280+k*420)})}
+function place(){if(!book.classList.contains('out')){book.style.transform='';return}book.style.transform=mob?'translateX('+(cur===0||side==='R'?-148:148)+'px)':''}
+function ui(){place();st.classList.toggle('last',cur>=N-1&&(!mob||side==='R'));document.getElementById('prev').disabled=cur===0&&!(mob&&side==='L');document.getElementById('next').disabled=cur>=N-1&&(!mob||side==='R');var labels=['Cover','Note + identity','Findings + visa 01','Visas 02 + 03','Visas 04 + 05','Visa 06 + approved'];document.getElementById('pos').textContent=labels[cur]||'';book.classList.toggle('closed',cur===0);st.classList.toggle('open',cur>0)}
+function go(d){if(busy)return;if(mob){if(d>0&&cur>0&&side==='L'){side='R';ui();return}if(d<0&&cur>0&&side==='R'){side='L';ui();return}side=d>0?'L':'R'}var n=cur+d;if(n<0||n>N-1)return;busy=true;if(d>0){var l=leaves[cur];l.style.zIndex=99;l.classList.add('f');cur=n}else{cur=n;var l=leaves[cur];l.style.zIndex=99;l.classList.remove('f')}setTimeout(function(){z();busy=false;stampSpread()},1000);ui()}
+book.addEventListener('click',function(e){if(e.target.closest('a,.url'))return;var lf=e.target.closest('.leaf');if(!lf)return;var i=+lf.dataset.i;if(mob){go(1);return}if(i===cur)go(1);else if(i===cur-1)go(-1)});
+document.getElementById('next').onclick=function(){go(1)};document.getElementById('prev').onclick=function(){go(-1)};
+addEventListener('keydown',function(e){if(!book.classList.contains('out'))return;if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+document.getElementById('url').onclick=function(){location.href='/borderpass/'};
+function open(fast){env.classList.add('torn');hint.style.opacity=0;setTimeout(function(){book.classList.add('out');book.classList.remove('inenv');env.classList.add('gone');card.classList.add('out')},fast?0:800);setTimeout(function(){ctrl.classList.add('on');ui()},fast?100:1700)}
+document.getElementById('pull').onclick=function(){open()};
+env.addEventListener('click',function(e){if(!env.classList.contains('torn'))open()});
+if(location.hash==='#open'){env.style.transition='none';open(true);var jp=Math.min(N-1,+new URLSearchParams(location.search).get('p')||0);if(jp){leaves.forEach(function(l,i){l.style.transition='none';if(i<jp)l.classList.add('f')});cur=jp;side='R';z();ui();stampSpread()}}
+</script>
+</body>
+</html>
