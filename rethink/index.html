@@ -2893,13 +2893,12 @@ document.addEventListener('DOMContentLoaded', () => {
 })();
 </script>
 
-<script type="application/json" id="content">
-{
+<script type="application/json" id="content">{
  "_how_to_edit": "Edit any text below and save. Each item's \"type\" picks how it looks.",
  "workspace": {
   "title": "A little about me, lined up with your job post.",
   "lede": "",
-  "note": "No big pitch here. Just how my experience maps to the Coordinator (Social) role, the work and writing I've done, and two small things I made to show how I'd keep a channel and an asset library tidy. Everything about me comes from durvathakkar.com."
+  "note": "No big pitch here. Just how my experience maps to the Coordinator (Social) role, the work and writing I've done, two small things I made to show how I'd keep a channel and an asset library tidy, and a few samples of the everyday tasks. Everything about me comes from durvathakkar.com."
  },
  "authors": {
   "rethink": {
@@ -3178,6 +3177,65 @@ document.addEventListener('DOMContentLoaded', () => {
    ]
   },
   {
+   "id": "samples",
+   "short": "Sample work",
+   "title": "Sample work: the everyday tasks",
+   "intro": "Small examples of how I'd handle the core of the role: a video's metadata, keywords, the weekly status report and a meeting recap. The brand and details are made up for practice.",
+   "layout": "grid-2",
+   "items": [
+    {
+     "type": "code_card",
+     "label": "YOUTUBE METADATA",
+     "title": "One template for every upload (EN + FR)",
+     "code": "Title (EN)\nSpring Event | Meet the New Lineup | BRAND Canada\n\nTitre (FR, from the FR team)\nÉvénement printanier | Découvrez la nouvelle gamme | BRAND Canada\n\nDescription, line 1: main message, main keyword first\nLine 2: brand.ca/spring · FR: brand.ca/fr/printemps\nLegal: approved line, pasted exactly\nHashtags: #BRAND #SpringEvent (3 max)\nTags: 5 to 10 (product, campaign, type, brand)\nThumbnail: 1280x720, 3 to 4 words, readable on a phone\nPlaylist: by product, then campaign\nCaptions: EN on EN, FR on FR, edited line by line",
+     "note": "Title under 70 characters so it isn't cut on a phone. The client's style guide (or the channel's last 20 uploads) sets the pattern; this template just makes it the same every time."
+    },
+    {
+     "type": "checklist",
+     "title": "Finding keywords in 10 minutes",
+     "groups": [
+      {
+       "name": "Start",
+       "items": [
+        "Approved product names and message from the brief (never a new claim)"
+       ]
+      },
+      {
+       "name": "Check",
+       "items": [
+        "YouTube search suggestions: what people actually type",
+        "Google Trends set to YouTube Search: which wording is more popular",
+        "YouTube Studio Research tab: what the channel's viewers search",
+        "Top videos on the same topic, in English and in French"
+       ]
+      },
+      {
+       "name": "Place",
+       "items": [
+        "Main keyword first in the title and the first line of the description",
+        "Related words in tags and 2 to 3 hashtags",
+        "French keywords confirmed by the FR team"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "code_card",
+     "label": "WEEKLY STATUS",
+     "title": "Status report for the account lead",
+     "code": "Done: 4 videos live (EN + FR); dealer spring pack uploaded\nIn progress: monthly asset library audit\nWaiting on: FR captions for the launch video (FR team, due Tue)\nAt risk: launch video needs approval by Thu to keep the date\nNext week: 2 uploads, dealer note, audit summary",
+     "note": "Same five headings every week. 'At risk' sits near the top so problems show up while there's still time to fix them."
+    },
+    {
+     "type": "code_card",
+     "label": "MEETING RECAP",
+     "title": "Notes out within the hour",
+     "code": "Subject: Recap · Weekly social · Wed Nov 4\n\nDECISIONS\n· Spring video goes live Thu 10 AM, EN + FR together\n\nACTIONS\n· Upload + schedule EN and FR videos · Durva · Wed\n· Send FR captions · French team · Tue\n· Approve thumbnail · Account lead · Tue\n\nOPEN QUESTIONS\n· Do dealers get the video this week or next?\n\nNext meeting: Wed Nov 11",
+     "note": "Decisions, then actions with an owner and a date, then open questions. Short enough to read on a phone."
+    }
+   ]
+  },
+  {
    "id": "toolbox",
    "short": "Toolbox",
    "title": "Skills & toolbox",
@@ -3394,8 +3452,7 @@ document.addEventListener('DOMContentLoaded', () => {
   "scheduleUrl": "",
   "placeholderToast": "Email me and I'll send times that work for you 👇"
  }
-}
-</script>
+}</script>
 <!-- ============ Visit notifications (EmailJS) ============
      Emails Durva when this page is opened or a button is clicked.
      Page + interaction data only: no IP, geolocation or ISP lookups.
