@@ -1,0 +1,901 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Marketing Specialist Kit · Durva for BorderPass</title>
+<meta name="description" content="A working marketing kit for BorderPass: site findings, B2C and B2B content, a 4-week social calendar, AI workflow with prompts, SEO and AI-search plan, community programs, paid campaigns and cross-team playbooks. By Durva Thakkar.">
+<meta property="og:title" content="A Marketing Specialist kit for BorderPass">
+<meta property="og:description" content="Content, social, AI, SEO, community, paid and team playbooks, built around borderpass.ai. By Durva Thakkar.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://durvathakkar.com/borderpass/">
+<meta property="og:image" content="https://durvathakkar.com/borderpass/share.jpg?v=1">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A Marketing Specialist kit for BorderPass">
+<meta name="twitter:description" content="Content, social, AI, SEO, community, paid and team playbooks, built around borderpass.ai. By Durva Thakkar.">
+<meta name="twitter:image" content="https://durvathakkar.com/borderpass/share.jpg?v=1">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#151414;--bg2:#1e1c1c;--card:#2f2d2d;--card2:#262424;--cream:#fffcf2;--cream2:#f6efe1;--mute:#958f8f;--line:#4a4646;--gold:#d3ac6a;--bronze:#956f3d;--navy:#10273d;--navy2:#1b3e5f;--blue:#6094c8;--blue2:#7a99b8;--green:#76996e;--red:#c0565b;--ink:#151414}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--cream);font:400 17px/1.6 "Outfit",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,.serif{font-family:"Crimson Pro",Georgia,serif;font-weight:500;letter-spacing:-.01em;line-height:1.1}
+a{color:inherit}
+.w{width:min(1180px,100% - 32px);margin:0 auto}
+.gold{color:var(--gold)}.mute{color:var(--mute)}
+.eyebrow{font:600 12px/1 "Outfit";letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+/* nav */
+.nav{position:sticky;top:0;z-index:40;background:rgba(21,20,20,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .w{display:flex;align-items:center;gap:18px;height:60px}
+.brand{font:500 21px "Crimson Pro";white-space:nowrap}
+.brand b{color:var(--gold);font-weight:500}
+.links{display:flex;gap:16px;overflow-x:auto;scrollbar-width:none;font-size:14px;margin-left:auto}
+.links::-webkit-scrollbar{display:none}
+.links a{text-decoration:none;color:#c9c3b8;white-space:nowrap}.links a:hover{color:var(--gold)}
+.pill{display:inline-flex;align-items:center;gap:8px;background:var(--cream);color:var(--ink)!important;border-radius:999px;padding:8px 16px;font-weight:600;text-decoration:none;white-space:nowrap;font-size:14px}
+/* hero */
+.hero{padding:72px 0 64px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:auto -200px -320px auto;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle,rgba(27,62,95,.75),transparent 65%)}
+.hero .w{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;position:relative}
+.hero h1{font-size:clamp(42px,6vw,76px);margin:18px 0 20px}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero p.lead{font-size:19px;color:#ddd6c9;max-width:600px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:999px;background:var(--gold);color:var(--ink);font-weight:600;text-decoration:none;border:0;cursor:pointer;font:600 15px "Outfit"}
+.btn.ghost{background:transparent;color:var(--cream);border:1px solid var(--line)}
+.btn.sm{padding:8px 14px;font-size:13px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:40px}
+.stats div{background:var(--bg2);padding:16px 18px}
+.stats b{display:block;font:500 30px "Crimson Pro";color:var(--gold)}
+.stats span{font-size:13px;color:var(--mute)}
+.src{font-size:12px;color:var(--mute);margin-top:8px}
+/* passport */
+.pp{perspective:1400px}
+.book{width:min(400px,100%);aspect-ratio:.72;margin:0 auto;background:var(--navy);border-radius:10px 18px 18px 10px;box-shadow:0 40px 80px rgba(0,0,0,.55),inset 8px 0 0 rgba(0,0,0,.25);position:relative;transform:rotateY(-14deg) rotateX(6deg);padding:28px;display:flex;flex-direction:column;overflow:hidden}
+.book .crest{width:72px;height:72px;flex-shrink:0;border:2px solid var(--gold);border-radius:50%;margin:8px auto 14px;display:grid;place-items:center;color:var(--gold);font:500 30px "Crimson Pro"}
+.book .t1{text-align:center;font:500 15px "Outfit";letter-spacing:.3em;color:var(--gold)}
+.book .t2{text-align:center;font:500 28px "Crimson Pro";color:var(--cream);margin:6px 0 18px}
+.book .page{flex:1;display:flex;flex-direction:column;background:var(--cream2);border-radius:8px;color:var(--ink);padding:14px;position:relative;font-size:12px}
+.book .row{display:flex;justify-content:space-between;border-bottom:1px dashed #cdbf9f;padding:4px 0}
+.book .row b{font-weight:600}
+.stamps{flex:1;display:flex;flex-wrap:wrap;gap:10px 8px;justify-content:center;align-content:center;padding-top:10px}
+.stamp{position:relative;inset:auto!important;border:2px solid;border-radius:8px;padding:5px 9px;font:700 11px "Outfit";letter-spacing:.08em;text-transform:uppercase;opacity:0;transform:scale(1.8) rotate(var(--r));transition:all .35s cubic-bezier(.2,1.6,.4,1)}
+.stamp.on{opacity:.9;transform:scale(1) rotate(var(--r))}
+/* sections */
+section.s{padding:84px 0;border-top:1px solid var(--line)}
+section.light{background:var(--cream);color:var(--ink);border-top:0}
+section.light .mute{color:#6d655b}
+section.light .eyebrow{color:var(--bronze)}
+section.navy{background:var(--navy);border-top:0}
+.sh{display:grid;grid-template-columns:240px 1fr;gap:40px;margin-bottom:40px}
+.sh .num{font:500 80px/1 "Crimson Pro";color:var(--gold)}
+section.light .sh .num{color:var(--bronze)}
+.sh h2{font-size:clamp(32px,4vw,50px);margin:10px 0 12px}
+.sh p{font-size:18px;max-width:760px}
+.jd{display:inline-block;margin-top:14px;font-size:13px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);color:#c9c3b8}
+section.light .jd{border-color:#d8ccb5;color:#6d655b}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:var(--card2);border:1px solid var(--line);border-radius:18px;padding:24px}
+section.light .card{background:#fff;border-color:#e6dcc8}
+section.navy .card{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.14)}
+.card h3{font-size:24px;margin-bottom:8px}
+.card h4{font:600 15px "Outfit";margin:14px 0 6px}
+.card p,.card li{font-size:15px}
+.card ul,.card ol{padding-left:18px}
+.card li{margin:4px 0}
+.tag{display:inline-block;font:600 11px "Outfit";letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border-radius:999px;background:rgba(211,172,106,.15);color:var(--gold);margin:0 6px 6px 0}
+section.light .tag{background:#f3e6cc;color:#7a5a2c}
+.tag.b{background:rgba(96,148,200,.18);color:#9cc0e4}
+section.light .tag.b{background:#e0e8f0;color:#1b3e5f}
+.tag.g{background:rgba(118,153,110,.2);color:#a9c4a2}
+section.light .tag.g{background:#e3ecdf;color:#455841}
+.note{font-size:13px;color:var(--mute);margin-top:14px}
+.small{font-size:14px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+section.light th,section.light td{border-color:#e6dcc8}
+th{font:600 12px "Outfit";letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+section.light th{color:var(--bronze)}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:14px}
+section.light .tw{border-color:#e6dcc8;background:#fff}
+.tw table{min-width:720px}
+/* findings */
+.find{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:22px 0;border-bottom:1px solid var(--line)}
+.find .n{font:500 34px/1 "Crimson Pro";color:var(--gold)}
+.find h3{font-size:24px;margin-bottom:6px}
+.find .fix{margin-top:10px;padding:12px 14px;border-left:3px solid var(--green);background:rgba(118,153,110,.08);border-radius:0 10px 10px 0;font-size:15px}
+.find .fix b{color:#a9c4a2}
+/* tabs */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.tabs button{font:500 14px "Outfit";padding:9px 16px;border-radius:999px;border:1px solid #d8ccb5;background:#fff;color:var(--ink);cursor:pointer}
+.tabs button.on{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+section:not(.light) .tabs button{background:transparent;color:var(--cream);border-color:var(--line)}
+section:not(.light) .tabs button.on{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.panel{display:none}.panel.on{display:block}
+/* carousel slides */
+.slides{display:flex;gap:14px;overflow-x:auto;padding-bottom:12px;scroll-snap-type:x mandatory}
+.slide{flex:0 0 260px;aspect-ratio:4/5;border-radius:14px;padding:22px;display:flex;flex-direction:column;scroll-snap-align:start;position:relative;overflow:hidden}
+.slide .k{font:600 11px "Outfit";letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+.slide h5{font:500 27px/1.08 "Crimson Pro";margin:12px 0 10px}
+.slide p{font-size:14px;line-height:1.45}
+.slide .ft{margin-top:auto;display:flex;justify-content:space-between;font-size:11px;opacity:.7}
+.s-d{background:var(--bg);color:var(--cream)}
+.s-n{background:var(--navy);color:var(--cream)}
+.s-c{background:var(--cream2);color:var(--ink)}
+.s-g{background:var(--gold);color:var(--ink)}
+.slide .big{font:500 64px/1 "Crimson Pro";color:var(--gold)}
+/* doc */
+.doc{background:#fff;border:1px solid #e6dcc8;border-radius:16px;padding:30px;color:var(--ink)}
+.doc h3{font-size:30px;margin-bottom:6px}
+.doc h4{font:600 16px "Outfit";margin:18px 0 6px}
+.doc p,.doc li{font-size:15.5px}
+.doc ul,.doc ol{padding-left:20px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 16px}
+.mail{max-width:640px;margin:0 auto;background:#fff;border-radius:14px;overflow:hidden;border:1px solid #e6dcc8;color:var(--ink)}
+.mail .top{background:var(--bg);color:var(--cream);padding:22px 26px}
+.mail .top .serif{font-size:30px}
+.mail .bd{padding:24px 26px}
+.mail .bd h4{font:500 22px "Crimson Pro";margin:18px 0 6px}
+.mail .bd p{font-size:15px;margin:6px 0}
+.mail .cta{display:inline-block;background:var(--navy);color:#fff;padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:600;font-size:14px;margin-top:8px}
+.mail .ftr{background:var(--cream2);padding:14px 26px;font-size:12px;color:#6d655b}
+.script{display:grid;grid-template-columns:90px 1fr 1fr;border:1px solid #e6dcc8;border-radius:14px;overflow:hidden;background:#fff}
+.script div{padding:10px 12px;border-bottom:1px solid #f0e8d8;font-size:14px}
+.script .h{background:var(--cream2);font:600 12px "Outfit";letter-spacing:.08em;text-transform:uppercase;color:var(--bronze)}
+/* calendar */
+.filters{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
+.filters select{font:500 14px "Outfit";padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card2);color:var(--cream)}
+.cal{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.day{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:10px;min-height:120px}
+.day .d{font:600 12px "Outfit";color:var(--mute);margin-bottom:8px;display:flex;justify-content:space-between}
+.day.ev{border-color:var(--gold)}
+.post{border-radius:8px;padding:8px 9px;margin-bottom:6px;font-size:12.5px;line-height:1.35;background:rgba(255,255,255,.05);border-left:3px solid var(--blue);cursor:pointer}
+.post b{display:block;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);font-weight:600}
+.post.IG{border-color:#d3ac6a}.post.TT{border-color:#c0565b}.post.LI{border-color:#6094c8}.post.YT{border-color:#e07a5f}.post.FB{border-color:#7a99b8}.post.NL{border-color:#76996e}.post.BL{border-color:#b2c2d2}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--mute);margin-top:12px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.pop{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;place-items:center;z-index:60;padding:16px}
+.pop.on{display:grid}
+.pop .in{background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:26px;max-width:560px;width:100%;max-height:85vh;overflow:auto}
+.pop h3{font-size:28px;margin:8px 0 10px}
+.pop .x{float:right;background:none;border:0;color:var(--cream);font-size:24px;cursor:pointer}
+/* pipeline */
+.pipe{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;counter-reset:p}
+.step{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:16px;position:relative}
+.step::before{counter-increment:p;content:counter(p);font:500 30px "Crimson Pro";color:var(--gold);display:block}
+.step h4{font:600 15px "Outfit";margin:4px 0}
+.step p{font-size:13.5px;color:#cfd8e2}
+.step .who{display:inline-block;margin-top:8px;font-size:11px;padding:3px 8px;border-radius:999px;background:rgba(211,172,106,.18);color:var(--gold)}
+.step .who.h{background:rgba(118,153,110,.25);color:#b8d4b0}
+textarea,input[type=text],input[type=url],select.f{width:100%;font:400 15px "Outfit";padding:11px 13px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--cream)}
+section.light textarea,section.light input[type=text],section.light input[type=url],section.light select.f{background:#fff;color:var(--ink);border-color:#d8ccb5}
+label.l{display:block;font:600 12px "Outfit";letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin:12px 0 6px}
+section.light label.l{color:var(--bronze)}
+pre.out{white-space:pre-wrap;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:16px;font:400 13.5px/1.55 ui-monospace,Menlo,monospace;color:#e8e1d3;max-height:420px;overflow:auto}
+section.light pre.out{background:#1e1c1c}
+.flag{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}
+.flag b{color:var(--red);min-width:110px}
+.ok{color:#a9c4a2}
+/* serp */
+.serp{background:#fff;border-radius:12px;padding:18px;color:#202124;font-family:Arial,sans-serif;border:1px solid #e6dcc8}
+.serp .u{font-size:13px;color:#4d5156}
+.serp .t{font-size:20px;color:#1a0dab;margin:4px 0;line-height:1.3}
+.serp .ds{font-size:14px;color:#4d5156;line-height:1.5}
+.bar{height:6px;border-radius:3px;background:#eee;margin-top:6px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--green)}
+.bar.over i{background:var(--red)}
+/* ogcards */
+.og{border-radius:12px;overflow:hidden;border:1px solid #e6dcc8;background:#fff}
+.og .im{aspect-ratio:1200/630;padding:18px;display:flex;flex-direction:column;justify-content:space-between}
+.og .im .serif{font-size:26px;line-height:1.05}
+.og .cap{padding:10px 12px;font-size:12px;color:#6d655b}
+/* kpi */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.kpi{background:var(--card2);border:1px solid var(--line);border-radius:14px;padding:16px}
+.kpi b{display:block;font:500 34px "Crimson Pro";color:var(--gold)}
+.kpi span{font-size:13px;color:var(--mute)}
+.kpi .d{font-size:12px;color:#a9c4a2}
+.bars{display:flex;align-items:flex-end;gap:6px;height:140px;padding-top:10px}
+.bars div{flex:1;background:var(--navy2);border-radius:4px 4px 0 0;position:relative}
+.bars div.hi{background:var(--gold)}
+.bars div span{position:absolute;bottom:-20px;left:0;right:0;text-align:center;font-size:11px;color:var(--mute)}
+/* budget */
+input[type=range]{width:100%;accent-color:var(--gold)}
+.alloc{display:flex;height:34px;border-radius:10px;overflow:hidden;margin:12px 0}
+.alloc div{display:grid;place-items:center;font-size:12px;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden}
+/* raci */
+.raci td.c{text-align:center;font-weight:700}
+.R{color:var(--gold)}.A{color:#9cc0e4}.C{color:#a9c4a2}.I{color:var(--mute)}
+/* plan */
+.phase{border-top:3px solid var(--gold);padding-top:14px}
+.phase h3{font-size:30px}
+.check li{list-style:none;padding-left:26px;position:relative;margin:8px 0}
+.check li::before{content:"";position:absolute;left:0;top:5px;width:14px;height:14px;border:1.5px solid var(--gold);border-radius:4px}
+section.light .check li::before{border-color:var(--bronze)}
+/* jd map */
+.map td:first-child{width:34%}
+/* footer */
+.end{padding:96px 0;text-align:center;background:radial-gradient(circle at 50% 0,rgba(27,62,95,.8),transparent 60%)}
+.end h2{font-size:clamp(40px,6vw,72px);margin:14px 0}
+.end p{max-width:620px;margin:0 auto;color:#ddd6c9;font-size:18px}
+.end .ctas{justify-content:center}
+.fine{font-size:12.5px;color:var(--mute);max-width:820px;margin:40px auto 0;line-height:1.6}
+.copy{cursor:pointer}
+.grid2>*,.grid3>*,.grid4>*,.sh>*,.hero .w>*{min-width:0}
+.card table{table-layout:auto}.card td,.card th{word-break:break-word}
+pre.out{overflow-wrap:anywhere}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--gold);color:var(--ink);padding:10px 18px;border-radius:999px;font-weight:600;font-size:14px;transition:.3s;z-index:70}
+.toast.on{transform:translateX(-50%) translateY(0)}
+@media (max-width:980px){
+ .hero .w{grid-template-columns:1fr}
+ .pp{order:-1}.book{width:min(290px,100%);aspect-ratio:.68;padding:22px}.book .crest{width:56px;height:56px;margin:4px auto 10px;font-size:24px}.book .t2{font-size:24px;margin-bottom:12px}
+ .sh{grid-template-columns:1fr;gap:6px}.sh .num{font-size:56px}
+ .grid3,.grid4{grid-template-columns:1fr 1fr}
+ .pipe{grid-template-columns:repeat(3,1fr)}
+ .kpis{grid-template-columns:1fr 1fr}
+ .cal{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+ body{font-size:16px}
+ .links{display:none}.nav .pill{margin-left:auto}
+ .hero{padding:40px 0}
+ .stats{grid-template-columns:1fr 1fr}
+ .grid2,.grid3,.grid4{grid-template-columns:1fr}
+ .pipe{grid-template-columns:1fr 1fr}
+ .cal{grid-template-columns:1fr}
+ section.s{padding:60px 0}
+ .doc{padding:20px}
+ .script{grid-template-columns:60px 1fr}
+ .script .vis{display:none}
+ .find{grid-template-columns:32px 1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="w">
+  <div class="brand">Durva <b>for</b> BorderPass</div>
+  <div class="links">
+    <a href="#found">Findings</a><a href="#content">Content</a><a href="#social">Social</a><a href="#ai">AI</a><a href="#seo">SEO</a><a href="#community">Community</a><a href="#paid">Paid</a><a href="#team">Teams</a><a href="#plan">90 days</a><a href="#map">Role map</a>
+  </div>
+  <a class="pill" href="mailto:durvathakker7@gmail.com?subject=Marketing%20Specialist%20at%20BorderPass">Say hi</a>
+</div></nav>
+
+<header class="hero"><div class="w">
+  <div>
+    <div class="eyebrow">Marketing Specialist · BorderPass</div>
+    <h1>Marketing for people moving their <em>whole life</em> to Canada.</h1>
+    <p class="lead">I'm Durva. Two years ago I landed in Canada with a bag and too many plans: York, George Brown, part-time jobs, freelance writing. This page is the Marketing Specialist role worked through for BorderPass: what I found on borderpass.ai, the content, the calendar, the AI workflow, the SEO plan, the community and paid programs, and how it all connects to product, sales and customer success.</p>
+    <div class="ctas"><a class="btn" href="#found">Start with what I found</a><a class="btn ghost" href="#map">See the role map</a></div>
+    <div class="stats">
+      <div><b>60K+</b><span>applications</span></div>
+      <div><b>150+</b><span>source countries</span></div>
+      <div><b>100,000+</b><span>students helped</span></div>
+      <div><b>50+</b><span>partner institutions</span></div>
+    </div>
+    <div class="src">Numbers as published on borderpass.ai, October 2026.</div>
+  </div>
+  <div class="pp"><div class="book" id="book">
+    <div class="crest">D</div>
+    <div class="t1">WORK PLAN</div>
+    <div class="t2">Marketing Specialist</div>
+    <div class="page">
+      <div class="row"><span>Holder</span><b>Durva Thakkar</b></div>
+      <div class="row"><span>Destination</span><b>BorderPass</b></div>
+      <div class="row"><span>Based in</span><b>Ontario, Canada</b></div>
+      <div class="row"><span>Pages</span><b>10 sections</b></div>
+      <div class="stamps"><span class="stamp" style="--r:-12deg;left:8%;top:4%;color:#1b3e5f">Content</span>
+      <span class="stamp" style="--r:9deg;right:8%;top:8%;color:#455841">Social</span>
+      <span class="stamp" style="--r:-6deg;left:14%;top:38%;color:#956f3d">AI workflow</span>
+      <span class="stamp" style="--r:11deg;right:10%;top:42%;color:#7a2c30">SEO + GEO</span>
+      <span class="stamp" style="--r:-10deg;left:24%;top:72%;color:#10273d">Community</span>
+      <span class="stamp" style="--r:6deg;right:16%;top:74%;color:#455841">Paid</span></div>
+    </div>
+  </div></div>
+</div></header>
+
+<!-- 0 FINDINGS -->
+<section class="s light" id="found"><div class="w">
+  <div class="sh"><div><div class="num">01</div><div class="eyebrow">What I found</div></div><div>
+    <h2>A close read of borderpass.ai</h2>
+    <p>Before planning anything, I went through the site, its sitemap and its social links. BorderPass already has a lot to work with. These are the eight places where marketing can get more out of what exists.</p>
+  </div></div>
+
+  <div class="find"><div class="n">1</div><div>
+    <h3>211 blog posts and 72 news posts already live</h3>
+    <p class="mute">The sitemap lists a deep library: refusals, reconsideration requests, judicial review timelines, proof of funds, PNP updates, OINP changes, Express Entry, housing for students. Most of it lives only on the blog.</p>
+    <div class="fix"><b>Do this:</b> every post becomes one carousel, one short video, one newsletter item and one LinkedIn post. That alone is years of social content from work already done. The repurposing system is in <a href="#ai">section 04</a>.</div>
+  </div></div>
+
+  <div class="find"><div class="n">2</div><div>
+    <h3>Every page shares the same preview image</h3>
+    <p class="mute">The PGWP page, the IEC page, the CRS calculator and the homepage all point their og:image to the same generic screenshot file. When someone pastes a PGWP link into WhatsApp or a student group chat, it looks the same as every other BorderPass link.</p>
+    <div class="fix"><b>Do this:</b> one designed share card per key page (title + who it's for + "Lawyer-reviewed"). Mock-ups are in <a href="#seo">section 05</a>. Group chats are where international students share links, so this is a small fix with a big reach.</div>
+  </div></div>
+
+  <div class="find"><div class="n">3</div><div>
+    <h3>Page text arrives only after JavaScript runs</h3>
+    <p class="mute">Each URL sends a correct title, description and canonical tag, then an empty <code>&lt;div id="root"&gt;</code>. Google renders JavaScript, but many AI crawlers read only the raw HTML. To them, the PGWP page is a title and one sentence.</p>
+    <div class="fix"><b>Do this:</b> ask the product team about prerendering the top 40 public pages (static HTML snapshot at build time). For AI answers ("best way to apply for PGWP with a lawyer review"), being readable is step one. Plan in <a href="#seo">section 05</a>.</div>
+  </div></div>
+
+  <div class="find"><div class="n">4</div><div>
+    <h3>No way to stay in touch before someone is ready to apply</h3>
+    <p class="mute">The paths on the site lead to an assessment, an application or a demo. I couldn't find a newsletter sign-up or a free guide for a student who is 8 months away from applying.</p>
+    <div class="fix"><b>Do this:</b> a monthly "BorderPass Brief" plus a free "Am I ready?" checklist per pathway. Issue #1 is fully written in <a href="#content">section 02</a>.</div>
+  </div></div>
+
+  <div class="find"><div class="n">5</div><div>
+    <h3>One case study, many partnership stories</h3>
+    <p class="mute">There is one employer case study (Global Construction Group). The news section mentions partnerships with Carleton University and Trent University, a #7 rank on The Globe and Mail's 2026 list of Canada's Top Growing Companies, and CCI's innovator network.</p>
+    <div class="fix"><b>Do this:</b> a case study series for each audience: one school, one employer, one agent, one student story (with consent). Template and interview questions in <a href="#community">section 06</a>.</div>
+  </div></div>
+
+  <div class="find"><div class="n">6</div><div>
+    <h3>CBIE 2026 is coming up</h3>
+    <p class="mute">BorderPass is hosting an evening reception with Flywire and StudentVIP during CBIE 2026 in Ottawa on November 23. That room is full of international offices, the exact B2B audience.</p>
+    <div class="fix"><b>Do this:</b> a before, during and after content plan so one evening turns into a month of partner content and warm leads. It's built into the <a href="#social">calendar</a>.</div>
+  </div></div>
+
+  <div class="find"><div class="n">7</div><div>
+    <h3>Two handles across channels</h3>
+    <p class="mute">Instagram and Facebook are <b>borderpassclub</b>. TikTok and YouTube are <b>@borderpass</b>. LinkedIn is <b>borderpassai</b> and X is <b>@BorderPassAI</b>.</p>
+    <div class="fix"><b>Do this:</b> same display name, photo and bio line everywhere, with each bio pointing to the others. People searching "BorderPass" on Instagram should land on the right account first try.</div>
+  </div></div>
+
+  <div class="find"><div class="n">8</div><div>
+    <h3>New destinations: US, UK and Australia</h3>
+    <p class="mute">The navigation now lists Canada, United States, United Kingdom and Australia. The blog and social content are still almost all about Canada.</p>
+    <div class="fix"><b>Do this:</b> one pillar post and one social series per new destination, starting with "Canada vs UK vs Australia for your master's" style comparisons, which students search before they choose a country.</div>
+  </div></div>
+  <p class="note">All findings from public pages, the sitemap and page source of borderpass.ai, checked October 21, 2026.</p>
+</div></section>
+
+<!-- 02 CONTENT -->
+<section class="s light" id="content" style="background:var(--cream2)"><div class="w">
+  <div class="sh"><div><div class="num">02</div><div class="eyebrow">Content creation</div></div><div>
+    <h2>Written, static and video, for B2C and B2B</h2>
+    <p>Six finished pieces below, each one aimed at a real BorderPass audience and pointed at a real BorderPass page. Every immigration claim would go through lawyer review before posting.</p>
+    <span class="jd">JD: Create engaging written, static, and video content... for B2C and B2B audiences</span>
+  </div></div>
+
+  <div class="grid4" style="margin-bottom:28px">
+    <div class="card"><span class="tag">B2C</span><h3>Students</h3><p class="small">Study permits, extensions, PGWP. Their worry: a refusal costs a semester and a lot of money. Content job: make the next step clear and calm.</p></div>
+    <div class="card"><span class="tag">B2C</span><h3>Workers + PR</h3><p class="small">Work permits, BOWP, Express Entry, PNP, sponsorship. Their worry: one missed detail resets a long timeline. Content job: plans and checklists.</p></div>
+    <div class="card"><span class="tag b">B2B</span><h3>Schools + agents</h3><p class="small">International offices and education agents. Their worry: refusal rates and compliance reporting. Content job: proof, data and partner stories.</p></div>
+    <div class="card"><span class="tag b">B2B</span><h3>Employers</h3><p class="small">HR teams hiring global talent. Their worry: permits expiring, LMIA rules changing. Content job: clear updates and a simple system.</p></div>
+  </div>
+
+  <div class="tabs" data-tabs="ct">
+    <button class="on" data-p="ct1">Instagram carousel</button>
+    <button data-p="ct2">Blog brief</button>
+    <button data-p="ct3">Newsletter #1</button>
+    <button data-p="ct4">Short video script</button>
+    <button data-p="ct5">LinkedIn (B2B)</button>
+    <button data-p="ct6">Promo: IEC</button>
+  </div>
+
+  <div class="panel on" id="ct1">
+    <div class="slides">
+      <div class="slide s-n"><div class="k">BorderPass · Refusals</div><h5>Study permit refused?<br>Read this before you reapply.</h5><p>5 steps that turn a "no" into a stronger second application.</p><div class="ft"><span>@borderpassclub</span><span>Swipe →</span></div></div>
+      <div class="slide s-c"><div class="big">1</div><h5>Read the reasons line by line</h5><p>The letter lists why the officer refused. Each reason is something your next application has to answer directly.</p><div class="ft"><span>01 / 06</span></div></div>
+      <div class="slide s-c"><div class="big">2</div><h5>Get the officer's notes</h5><p>The letter is short. The officer's full notes (GCMS notes) can be requested and often explain much more.</p><div class="ft"><span>02 / 06</span></div></div>
+      <div class="slide s-c"><div class="big">3</div><h5>Fix the cause, not just the form</h5><p>Funds, study plan, ties to home: resubmitting the same file usually gets the same answer.</p><div class="ft"><span>03 / 06</span></div></div>
+      <div class="slide s-d"><div class="big">4</div><h5>Know your three options</h5><p>Reapply, ask for reconsideration, or seek judicial review. Deadlines for judicial review are short, so check them early.</p><div class="ft"><span>04 / 06</span></div></div>
+      <div class="slide s-g"><div class="k">Next step</div><h5>Get a lawyer to look at it.</h5><p>BorderPass Application Recovery reviews refusal reasons and helps you build a clearer reapplication plan.</p><div class="ft"><span>Link in bio · borderpass.ai/visa-refusal</span></div></div>
+    </div>
+    <div class="grid2" style="margin-top:16px">
+      <div class="card"><h4>Caption</h4><p class="small">A refusal letter feels final. It usually isn't.<br><br>Before you reapply, do these 5 things (save this for later 📌). Most second applications fail for the same reason the first one did: the cause never got fixed.<br><br>If you want a licensed immigration lawyer to look at your refusal, BorderPass Application Recovery starts at the link in bio.<br><br>#studypermit #studyincanada #internationalstudents</p></div>
+      <div class="card"><h4>Why this post</h4><ul class="small"><li>Points to a real paid service (/visa-refusal) and two existing blog posts (reconsideration request, judicial review timelines).</li><li>Saves and shares matter more than likes for this audience: the post is a checklist people keep.</li><li>Alt text written per slide; captions on video versions.</li><li>Lawyer review before posting, since slide 4 mentions legal options.</li></ul></div>
+    </div>
+  </div>
+
+  <div class="panel" id="ct2"><div class="doc">
+    <span class="tag">Blog brief</span><span class="tag b">SEO + AI search</span>
+    <h3>Study permit refused: what to do in the next 30 days</h3>
+    <div class="meta"><span class="tag g">Target page: /blog</span><span class="tag g">Converts to: /visa-refusal</span><span class="tag g">1,600 to 1,900 words</span><span class="tag g">Reviewer: licensed lawyer</span></div>
+    <h4>Search intent</h4><p>Someone holding a refusal letter, scared, searching on their phone at night. They want: "is it over?", "what are my options?", "how fast do I need to act?"</p>
+    <h4>Answer box (first 60 words, written for AI answers)</h4><p>"A study permit refusal is not permanent. Start by reading the reasons in your letter and requesting the officer's notes. Then choose one of three paths: reapply with a stronger file, ask for reconsideration, or seek judicial review. Judicial review has short deadlines, so get advice early. Most successful second applications fix the specific reason for the first refusal."</p>
+    <h4>Outline</h4>
+    <ol><li>Is a refusal the end? (short answer, then the detail)</li><li>Step 1: Read your refusal reasons, with the 6 most common reasons explained in plain English</li><li>Step 2: Request the officer's notes, and what they show</li><li>Step 3: Reapply, reconsideration or judicial review: a comparison table (time, cost, when it fits)</li><li>Step 4: Rebuild your file: funds, study plan, ties, documents</li><li>Step 5: When to bring in a lawyer</li><li>FAQ (FAQPage schema): "Can I reapply right away?", "Will a refusal affect future applications?", "Do I have to tell my school?"</li></ol>
+    <h4>Internal links</h4><ul><li>/blog/reconsideration-request</li><li>/blog/timelines-and-deadlines-for-judicial-review-of-ircc-refusals</li><li>/blog/proof-of-funds-for-a-study-permit-in-canada-all-you-need-to-know</li><li>/blog/study-permit-letter-explanation</li><li>/visa-refusal (main call to action)</li></ul>
+    <h4>Repurpose</h4><p>Carousel (done, see tab 1), 45-second video, newsletter lead story, LinkedIn post for school partners: "Supporting a refused student: a 5-step guide for advisors".</p>
+  </div></div>
+
+  <div class="panel" id="ct3">
+    <div class="mail">
+      <div class="top"><div class="eyebrow">The BorderPass Brief · Issue #1</div><div class="serif">What changed this month, and what to do about it</div></div>
+      <div class="bd">
+        <p>Hi there,</p>
+        <p>Immigration news moves fast and most of it doesn't apply to you. Each month we pick the updates that do, explain them in plain words, and tell you the next step.</p>
+        <h4>1. Study permit funds went up on September 1</h4>
+        <p>If you're applying for a study permit now, the amount you need to show has changed. Our guide walks through what counts as proof of funds and the mistakes that cause refusals.</p>
+        <a class="cta" href="#content">Read the funds guide</a>
+        <h4>2. Your work permit can now cover a six-month course</h4>
+        <p>If you're working in Canada and want to upskill, there's new room to study part of the year without a separate study permit. Here's who qualifies.</p>
+        <h4>3. Provinces are adding nomination spaces</h4>
+        <p>Several provinces announced more nomination spaces for 2026. If your Express Entry score is close but not quite there, a provincial nomination can change the picture.</p>
+        <h4>Question of the month</h4>
+        <p><i>"My study permit expires before my PGWP decision. Can I keep working?"</i> Short answer and the details in this month's Q&amp;A post.</p>
+        <h4>Not sure where you stand?</h4>
+        <p>The free pathway assessment takes a few minutes and tells you which route fits you.</p>
+        <a class="cta" href="#content">Take the assessment</a>
+      </div>
+      <div class="ftr">BorderPass is not a law firm. Applications are reviewed by licensed immigration lawyers before submission. This email is general information, not legal advice. You're getting it because you signed up at borderpass.ai. Unsubscribe anytime.</div>
+    </div>
+    <p class="note" style="text-align:center">Every story links to an existing BorderPass post from the sitemap. Subject line tests: "3 changes that might affect your application" vs "What changed in Canadian immigration this month".</p>
+  </div>
+
+  <div class="panel" id="ct4">
+    <div class="doc" style="margin-bottom:16px"><span class="tag">TikTok · Reels · Shorts</span><h3>"I got refused. Here's what I'd do."</h3><p class="mute">Format: face to camera, on-screen text, 40 seconds, captions burned in. Talent: a BorderPass team member or a student with consent.</p></div>
+    <div class="script">
+      <div class="h">Time</div><div class="h">Say</div><div class="h vis">On screen</div>
+      <div>0 to 3s</div><div>"My study permit got refused. Here's what I'd do in the first 24 hours."</div><div class="vis">Refusal letter (blurred) · text: "Refused. Now what?"</div>
+      <div>3 to 10s</div><div>"First, read the reasons. Every line. That's your to-do list."</div><div class="vis">Highlighter over letter</div>
+      <div>10 to 18s</div><div>"Second, request the officer's notes. They explain way more than the letter."</div><div class="vis">Text: "GCMS notes = the full story"</div>
+      <div>18 to 28s</div><div>"Third, don't just resubmit. Fix the reason. Same file, same answer."</div><div class="vis">Split screen: same file / stronger file</div>
+      <div>28 to 36s</div><div>"And check your options early. Some deadlines are short."</div><div class="vis">Three cards: Reapply · Reconsider · Review</div>
+      <div>36 to 40s</div><div>"Want a lawyer to look at yours? Link in bio."</div><div class="vis">BorderPass end card</div>
+    </div>
+    <p class="note">Hook tested in 2 versions: "I got refused" (story) vs "3 things to do after a refusal" (list). Keep the one with the higher 3-second hold.</p>
+  </div>
+
+  <div class="panel" id="ct5"><div class="grid2">
+    <div class="doc">
+      <span class="tag b">LinkedIn · Company page</span><span class="tag b">For international offices</span>
+      <p style="margin-top:12px">Ottawa, November 23. 🇨🇦<br><br>If you work in international education and you'll be at CBIE 2026, join BorderPass, Flywire and StudentVIP for an evening reception.<br><br>No slides. Just good conversation about the year ahead: study permit approvals, compliance reporting, and how schools are supporting students from offer letter to graduation.<br><br>Spots are limited. RSVP at the link in the comments.<br><br>#CBIE2026 #InternationalEducation #StudyInCanada</p>
+    </div>
+    <div class="doc">
+      <span class="tag b">LinkedIn · Advisor guide</span>
+      <p style="margin-top:12px">A student just got a study permit refusal. What do you tell them first?<br><br>Here's the 5-step guide we share with advisors:<br><br>1. Read the refusal reasons together, line by line.<br>2. Request the officer's notes (GCMS) for the full picture.<br>3. Fix the cause before reapplying. Same file, same answer.<br>4. Check deadlines early if judicial review is an option.<br>5. Get a licensed lawyer to review the plan.<br><br>Save this for your team. Our full guide is in the comments.</p>
+      <p class="note">The CBIE recap post gets written from notes on the night: 3 quotes and 4 themes (template in <a href="#team">section 08</a>).</p>
+    </div>
+  </div></div>
+
+  <div class="panel" id="ct6"><div class="grid2">
+    <div class="slide s-n" style="flex:none;width:100%;max-width:420px;aspect-ratio:4/5;margin:0 auto">
+      <div class="k">IEC Working Holiday · Canada</div>
+      <h5 style="font-size:40px">A year in Canada starts with one profile.</h5>
+      <p>Free eligibility check. Profile created and submitted for $75 CAD. Work permit application for $60 CAD more. Lawyer support included.</p>
+      <p style="margin-top:12px;font-size:12px;opacity:.75">Government processing and filing fees are separate.</p>
+      <div class="ft"><span>borderpass.ai/iec</span><span>Check eligibility →</span></div>
+    </div>
+    <div class="card" style="background:#fff;border-color:#e6dcc8">
+      <h3>Promo plan: IEC season</h3>
+      <ul><li><b>Who:</b> 18 to 35 year olds from IEC partner countries.</li><li><b>Hook:</b> price clarity. Most people don't know what IEC help costs; BorderPass publishes it.</li><li><b>Formats:</b> static (left), a 3-slide "what $75 covers" carousel, a "day 1 in Canada" Reel.</li><li><b>Channels:</b> Meta ads by country, TikTok organic, a Google Search ad group for "IEC working holiday help".</li><li><b>Measure:</b> eligibility checks started, profiles submitted, cost per submitted profile.</li></ul>
+      <p class="note">Prices from the BorderPass IEC FAQ, October 2026.</p>
+    </div>
+  </div></div>
+
+  <div class="card" style="margin-top:28px;background:var(--ink);color:var(--cream);border:0">
+    <h3>Brand and compliance guardrails for every piece</h3>
+    <div class="grid3" style="margin-top:10px">
+      <div><h4 class="gold">Always</h4><ul class="small"><li>Say "lawyer-reviewed", the core promise.</li><li>Date every policy post and link the official source.</li><li>Give the next step on every post.</li><li>Plain words; explain acronyms once (PGWP, GCMS, LMIA).</li></ul></div>
+      <div><h4 class="gold">Never</h4><ul class="small"><li>Promise approval or quote odds for one person.</li><li>Give case-specific advice in comments or DMs.</li><li>Use fear to sell ("Don't get deported!").</li><li>Imply BorderPass is a law firm. It isn't; lawyers review the applications.</li></ul></div>
+      <div><h4 class="gold">Voice</h4><ul class="small"><li>Calm older sibling who already did this.</li><li>Clear, warm, specific.</li><li>Confident about the system, careful about the law.</li><li>Inclusive of 150+ source countries: simple English, no slang that doesn't travel.</li></ul></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- 03 SOCIAL -->
+<section class="s" id="social"><div class="w">
+  <div class="sh"><div><div class="num">03</div><div class="eyebrow">Social media</div></div><div>
+    <h2>A strategy, a 4-week calendar and a trend radar</h2>
+    <p>Each channel gets one job. Four content pillars keep it balanced. The calendar runs November 2 to 27, 2026, built around CBIE on November 23. Click any post for the full brief, or download it all as a spreadsheet.</p>
+    <span class="jd">JD: Manage social media accounts, create and schedule posts, monitor trends, engage with followers... analyze performance</span>
+  </div></div>
+
+  <div class="tw" style="margin-bottom:28px"><table>
+    <tr><th>Channel</th><th>Handle</th><th>Its job</th><th>Audience</th><th>Rhythm</th><th>Main format</th></tr>
+    <tr><td><b>Instagram</b></td><td>@borderpassclub</td><td>Save-worthy guides + community</td><td>Students, workers</td><td>4 posts + daily stories</td><td>Carousels, Reels</td></tr>
+    <tr><td><b>TikTok</b></td><td>@borderpass</td><td>Reach new people early</td><td>Students before they apply</td><td>4 videos</td><td>Face to camera, explainers</td></tr>
+    <tr><td><b>YouTube</b></td><td>@borderpass</td><td>Search: long how-tos</td><td>Applicants mid-process</td><td>1 long + 3 Shorts</td><td>Screen walkthroughs</td></tr>
+    <tr><td><b>LinkedIn</b></td><td>borderpassai</td><td>B2B trust</td><td>Schools, employers, agents</td><td>3 posts</td><td>News takes, partner stories</td></tr>
+    <tr><td><b>Facebook</b></td><td>borderpassclub</td><td>Families + community groups</td><td>Parents, visitors, sponsors</td><td>3 posts</td><td>Reshared guides, events</td></tr>
+    <tr><td><b>Newsletter</b></td><td>New</td><td>Own the audience</td><td>Everyone not ready yet</td><td>Monthly</td><td>The BorderPass Brief</td></tr>
+  </table></div>
+
+  <div class="grid4" style="margin-bottom:34px">
+    <div class="card"><span class="tag">Pillar 1 · 35%</span><h3>Know the rules</h3><p class="small">Policy updates in plain words within 24 hours. "What changed, who it affects, what to do."</p></div>
+    <div class="card"><span class="tag">Pillar 2 · 30%</span><h3>Do it right</h3><p class="small">Checklists and how-tos: proof of funds, study plans, PGWP timing, IEC steps.</p></div>
+    <div class="card"><span class="tag">Pillar 3 · 20%</span><h3>Real journeys</h3><p class="small">Student and worker stories, partner schools, team faces, lawyer Q&amp;As.</p></div>
+    <div class="card"><span class="tag">Pillar 4 · 15%</span><h3>Life in Canada</h3><p class="small">Housing, health insurance, first jobs, winter. From the blog's settlement posts.</p></div>
+  </div>
+
+  <div class="filters">
+    <select id="fCh"><option value="">All channels</option><option value="IG">Instagram</option><option value="TT">TikTok</option><option value="YT">YouTube</option><option value="LI">LinkedIn</option><option value="FB">Facebook</option><option value="NL">Newsletter</option><option value="BL">Blog</option></select>
+    <select id="fAu"><option value="">B2C + B2B</option><option value="B2C">B2C only</option><option value="B2B">B2B only</option></select>
+    <button class="btn sm" id="dlCal">Download calendar (.csv)</button>
+    <span class="mute small" id="calCount"></span>
+  </div>
+  <div class="cal" id="cal"></div>
+  <div class="legend"><span><i style="background:#d3ac6a"></i>Instagram</span><span><i style="background:#c0565b"></i>TikTok</span><span><i style="background:#e07a5f"></i>YouTube</span><span><i style="background:#6094c8"></i>LinkedIn</span><span><i style="background:#7a99b8"></i>Facebook</span><span><i style="background:#76996e"></i>Newsletter</span><span><i style="background:#b2c2d2"></i>Blog</span></div>
+
+  <div class="grid2" style="margin-top:40px">
+    <div class="card">
+      <span class="tag">Trend radar</span><h3>What I check, and how often</h3>
+      <table style="margin-top:8px"><tr><th>Source</th><th>When</th><th>Becomes</th></tr>
+      <tr><td>IRCC news releases + Express Entry draw results</td><td>Daily</td><td>24-hour explainer post</td></tr>
+      <tr><td>Provincial nominee program updates</td><td>Daily</td><td>Story + blog update</td></tr>
+      <tr><td>Student subreddits, Facebook groups, TikTok comments</td><td>Daily, 20 min</td><td>FAQ list for posts</td></tr>
+      <tr><td>Competitor and creator accounts in immigration</td><td>Weekly</td><td>Format ideas</td></tr>
+      <tr><td>TikTok Creative Center + IG trending audio</td><td>Weekly</td><td>Reel formats</td></tr>
+      <tr><td>Google Trends: "study permit", "PGWP", "Express Entry"</td><td>Weekly</td><td>Timing for posts</td></tr></table>
+    </div>
+    <div class="card">
+      <span class="tag">24-hour rule</span><h3>When a policy changes</h3>
+      <ol class="small" style="margin-top:8px">
+        <li><b>Hour 0:</b> announcement spotted. Slack alert to marketing + legal reviewer.</li>
+        <li><b>Hour 2:</b> AI draft of "what changed, who it affects, what to do" from the official release (prompt in section 04).</li>
+        <li><b>Hour 4:</b> human rewrite in BorderPass voice. Lawyer check on any legal claim.</li>
+        <li><b>Hour 6:</b> Story + LinkedIn post live. "We're updating our guide" if the blog needs more time.</li>
+        <li><b>Hour 24:</b> carousel + updated blog post + pinned comment with the link.</li>
+        <li><b>Week:</b> newsletter item + B2B note to partner schools if it affects students.</li>
+      </ol>
+    </div>
+  </div>
+
+  <h3 style="font-size:34px;margin:56px 0 8px">The Monday report</h3>
+  <p class="mute" style="margin-bottom:18px">What I'd send every Monday. Sample numbers below to show the format, not BorderPass data.</p>
+  <div class="kpis">
+    <div class="kpi"><span>Saves + shares per post</span><b>184</b><div class="d">▲ 22% vs 4-week avg</div></div>
+    <div class="kpi"><span>Profile link clicks</span><b>1,240</b><div class="d">▲ 9%</div></div>
+    <div class="kpi"><span>Assessments started from social</span><b>96</b><div class="d">▲ 14%</div></div>
+    <div class="kpi"><span>DMs answered under 2 hrs</span><b>92%</b><div class="d">Goal 90%</div></div>
+  </div>
+  <div class="grid2" style="margin-top:16px">
+    <div class="card"><h4 style="margin-top:0">Saves by pillar (sample)</h4>
+      <div class="bars" style="margin-bottom:24px"><div style="height:70%"><span>Rules</span></div><div class="hi" style="height:100%"><span>Do it right</span></div><div style="height:48%"><span>Journeys</span></div><div style="height:36%"><span>Life</span></div></div>
+    </div>
+    <div class="card"><h4 style="margin-top:0">What I'd write under the numbers</h4><ul class="small"><li><b>Worked:</b> checklists get 2x the saves of news posts. Make one checklist per week.</li><li><b>Didn't:</b> long captions on TikTok. Moving the detail to the pinned comment.</li><li><b>Next week:</b> test a lawyer Q&amp;A Reel against the usual explainer.</li><li><b>Ask:</b> 15 minutes with customer success for this week's top 5 questions.</li></ul></div>
+  </div>
+</div></section>
+
+<!-- 04 AI -->
+<section class="s navy" id="ai"><div class="w">
+  <div class="sh"><div><div class="num">04</div><div class="eyebrow">AI-driven content</div></div><div>
+    <h2>AI does the first draft. People do the last word.</h2>
+    <p>BorderPass is built on "guided by AI, reviewed by licensed lawyers". Marketing can work the same way: AI speeds up research, drafts and versions; a person makes it sound human; a lawyer checks anything legal.</p>
+    <span class="jd">JD: Use AI tools for content ideation, creation, and optimization while ensuring the final output maintains a natural, human touch</span>
+  </div></div>
+
+  <div class="pipe">
+    <div class="step"><h4>Source</h4><p>IRCC release, blog post, customer question, call transcript.</p><span class="who h">Human picks</span></div>
+    <div class="step"><h4>Brief</h4><p>Audience, format, one takeaway, the call to action.</p><span class="who h">Human</span></div>
+    <div class="step"><h4>Draft</h4><p>AI writes 3 versions per format from the brief.</p><span class="who">AI</span></div>
+    <div class="step"><h4>Make it human</h4><p>Rewrite in BorderPass voice, add a real example, cut filler.</p><span class="who h">Human</span></div>
+    <div class="step"><h4>Check</h4><p>Facts against the official source. Lawyer reviews legal claims.</p><span class="who h">Human + lawyer</span></div>
+    <div class="step"><h4>Ship + learn</h4><p>Schedule, then AI summarizes the week's results.</p><span class="who">AI + human</span></div>
+  </div>
+
+  <div class="grid2" style="margin-top:36px">
+    <div class="card">
+      <span class="tag">Prompt builder</span><h3>Pick the job, get the prompt</h3>
+      <label class="l">Audience</label>
+      <select class="f" id="pAud"><option>international students applying for a study permit</option><option>graduates applying for a PGWP</option><option>workers planning Express Entry</option><option>international office staff at Canadian colleges</option><option>HR teams hiring global talent</option><option>education agents</option><option>18 to 35 year olds considering IEC Working Holiday</option></select>
+      <label class="l">Format</label>
+      <select class="f" id="pFmt"><option>Instagram carousel (6 slides)</option><option>40-second TikTok script</option><option>LinkedIn post</option><option>newsletter section</option><option>blog outline</option><option>3 Google Search ads</option><option>FAQ answers for AI search</option></select>
+      <label class="l">Topic or source (paste a link or a fact)</label>
+      <input type="text" id="pTop" value="what to do after a study permit refusal">
+      <label class="l">Language</label>
+      <select class="f" id="pLang"><option>English</option><option>French</option><option>Hindi</option><option>Spanish</option><option>Tagalog</option><option>Portuguese</option></select>
+      <button class="btn sm" style="margin-top:16px" id="pCopy">Copy prompt</button>
+    </div>
+    <div><pre class="out" id="pOut"></pre></div>
+  </div>
+
+  <div class="grid2" style="margin-top:36px">
+    <div class="card">
+      <span class="tag">Human-touch check</span><h3>Paste a draft, see the AI tells</h3>
+      <p class="small mute" style="margin-bottom:10px">Flags the words and patterns that make copy feel machine-written, plus the claims that need a lawyer.</p>
+      <textarea id="lint" rows="8">In today's ever-evolving immigration landscape, navigating the complexities of the study permit process can feel overwhelming, but it doesn't have to be! Our seamless platform helps you unlock your Canadian dream and guarantees a smooth approval. Let's delve into the key steps.</textarea>
+    </div>
+    <div class="card"><h4 style="margin-top:0">Flags</h4><div id="lintOut"></div></div>
+  </div>
+
+  <div class="grid3" style="margin-top:36px">
+    <div class="card"><span class="tag b">Experiment 1</span><h3>AI search watch</h3><p class="small">Every month, ask ChatGPT, Perplexity, Gemini and Google AI Overviews the same 25 questions ("how do I extend my study permit", "PGWP help with a lawyer"). Log who gets cited. Goal: BorderPass named in more answers each quarter.</p></div>
+    <div class="card"><span class="tag b">Experiment 2</span><h3>Multilingual Shorts</h3><p class="small">Take the 5 best English Reels, make subtitled and voice-dubbed versions for the largest source-country languages. Native speaker checks each one. Measure watch time against English.</p></div>
+    <div class="card"><span class="tag b">Experiment 3</span><h3>Inbox to content</h3><p class="small">With customer success, tag support questions by topic each week (no personal data). AI clusters them; the top 5 become next week's FAQ posts and Q&amp;A Stories.</p></div>
+  </div>
+  <p class="note">Tools I'd reach for: ChatGPT or Claude for drafts, Canva (Magic Write, resize) for design, CapCut for captions and cuts, Descript for long video, Perplexity for research with sources. Nothing gets published straight from an AI tool.</p>
+</div></section>
+
+<!-- 05 SEO -->
+<section class="s light" id="seo"><div class="w">
+  <div class="sh"><div><div class="num">05</div><div class="eyebrow">SEO + AI search</div></div><div>
+    <h2>Make the pages easy to find, read and quote</h2>
+    <p>Keyword clusters built on the pages BorderPass already has, a title and description checker, share cards, and a proofreading routine.</p>
+    <span class="jd">JD: Conduct keyword research, proofread content, and optimize written materials to improve search visibility and organic reach</span>
+  </div></div>
+
+  <div class="tw"><table>
+    <tr><th>Cluster</th><th>Hub page (live)</th><th>Questions people ask</th><th>Content to add</th><th>Priority</th></tr>
+    <tr><td><b>Refusals</b></td><td>/visa-refusal</td><td>study permit refused what next · GCMS notes · reapply after refusal · reconsideration vs judicial review</td><td>30-day guide (brief in section 02), refusal reasons glossary, comparison table</td><td><span class="tag">High</span></td></tr>
+    <tr><td><b>PGWP</b></td><td>/students/pgwp</td><td>PGWP eligibility · apply before study permit expires · can I work while waiting · PGWP length</td><td>Timeline tool page, "apply in the right order" checklist, FAQ schema</td><td><span class="tag">High</span></td></tr>
+    <tr><td><b>Study permit</b></td><td>/students/study-permits</td><td>proof of funds · letter of explanation · processing time · extension</td><td>Refresh the funds guide after Sept 1 change, sample study plan structure</td><td><span class="tag">High</span></td></tr>
+    <tr><td><b>Express Entry</b></td><td>/pr/express-entry + /pr/crs-calculator</td><td>CRS score calculator · how to increase CRS · category draws · PNP +600</td><td>"Raise your CRS" playbook linking the calculator, draw recap template</td><td><span class="tag">Medium</span></td></tr>
+    <tr><td><b>IEC</b></td><td>/iec</td><td>IEC working holiday Canada · IEC cost · IEC pool · documents</td><td>Country pages for top IEC countries, "what $75 covers" explainer</td><td><span class="tag">Medium</span></td></tr>
+    <tr><td><b>Visitors</b></td><td>/visitors/super-visa</td><td>super visa insurance · parents visit Canada · extend visitor stay</td><td>Parent and grandparent guide, insurance checklist</td><td><span class="tag">Medium</span></td></tr>
+    <tr><td><b>Schools (B2B)</b></td><td>/schools</td><td>PAL reporting · study permit approval rate · international student compliance</td><td>Annual approval-rate report, case studies (Carleton, Trent with permission)</td><td><span class="tag b">B2B</span></td></tr>
+    <tr><td><b>Employers (B2B)</b></td><td>/employers/lmia</td><td>LMIA process · work permit for employees · global talent stream</td><td>Monthly employer brief, second case study</td><td><span class="tag b">B2B</span></td></tr>
+  </table></div>
+  <p class="note">Search volumes and difficulty get pulled from Google Search Console and a keyword tool on day one; this map shows structure and intent.</p>
+
+  <div class="grid2" style="margin-top:36px">
+    <div class="card">
+      <span class="tag">Title + description checker</span><h3>Live search preview</h3>
+      <p class="small mute">Pre-filled with the current PGWP page. Edit to try a rewrite.</p>
+      <label class="l">Title <span id="tLen" class="mute"></span></label><input type="text" id="sT" value="Post-Graduation Work Permit (PGWP) | BorderPass">
+      <div class="bar" id="tBar"><i></i></div>
+      <label class="l">Description <span id="dLen" class="mute"></span></label><textarea id="sD" rows="3">Work in Canada after graduation. PGWP eligibility, application, and tips.</textarea>
+      <div class="bar" id="dBar"><i></i></div>
+      <button class="btn sm" id="sTry" style="margin-top:14px">Try my rewrite</button>
+    </div>
+    <div>
+      <div class="serp"><div class="u">borderpass.ai › students › pgwp</div><div class="t" id="sTo"></div><div class="ds" id="sDo"></div></div>
+      <div class="card" style="margin-top:16px"><h4 style="margin-top:0">Why rewrite</h4><ul class="small"><li>The current description is 72 characters: Google has room for about twice that.</li><li>It doesn't say what makes BorderPass different: a lawyer review.</li><li>The rewrite answers "when should I apply?", the question graduates worry about most.</li></ul></div>
+    </div>
+  </div>
+
+  <h3 style="font-size:32px;margin:48px 0 8px">One share card per page</h3>
+  <p class="mute" style="margin-bottom:18px">What a PGWP link would look like in a group chat, instead of the same screenshot on every page.</p>
+  <div class="grid3">
+    <div class="og"><div class="im" style="background:#10273d;color:#fffcf2"><div class="eyebrow">For graduates</div><div class="serif">Post-Graduation Work Permit, lawyer-reviewed</div><div style="font-size:12px;opacity:.8">BorderPass</div></div><div class="cap">borderpass.ai/students/pgwp</div></div>
+    <div class="og"><div class="im" style="background:#151414;color:#fffcf2"><div class="eyebrow">Working Holiday</div><div class="serif">IEC in Canada: free eligibility check</div><div style="font-size:12px;opacity:.8">BorderPass</div></div><div class="cap">borderpass.ai/iec</div></div>
+    <div class="og"><div class="im" style="background:#f6efe1;color:#151414"><div class="eyebrow" style="color:#956f3d">Express Entry</div><div class="serif">What's your CRS score? Find out in 5 minutes</div><div style="font-size:12px;opacity:.8">BorderPass</div></div><div class="cap">borderpass.ai/pr/crs-calculator</div></div>
+  </div>
+
+  <div class="grid3" style="margin-top:36px">
+    <div class="card"><span class="tag">AI search (GEO)</span><h3>Be the quoted answer</h3><ul class="small"><li>A 40 to 60 word answer box at the top of every guide.</li><li>Question-shaped H2s that match real searches.</li><li>FAQPage and HowTo schema on guides; Organization schema already exists.</li><li>A "Last reviewed by a licensed lawyer on November 3, 2026" style line: trust signal for people and machines.</li><li>Prerendered HTML for the top 40 pages (finding 3).</li></ul></div>
+    <div class="card"><span class="tag">Proofreading</span><h3>The 10-point pass</h3><ol class="small"><li>Facts match the official source, dated.</li><li>Program names spelled the official way.</li><li>Numbers and fees double-checked.</li><li>One idea per paragraph.</li><li>Reading level around grade 8.</li><li>Acronyms spelled out once.</li><li>Every link works and opens the right page.</li><li>Call to action matches the page.</li><li>Alt text on every image.</li><li>Read aloud once. If it sounds stiff, rewrite.</li></ol></div>
+    <div class="card"><span class="tag">Content refresh</span><h3>Keep 211 posts current</h3><ul class="small"><li>Monthly: pull posts losing clicks in Search Console.</li><li>Policy posts get a "what changed" box on top, not a new URL.</li><li>Merge posts that compete for the same search (two "study in Canada" guides exist).</li><li>Older posts like "Is PTE accepted in Canada in 2024" get updated titles and facts.</li><li>Every refreshed post links to its service page.</li></ul></div>
+  </div>
+</div></section>
+
+<!-- 06 COMMUNITY -->
+<section class="s" id="community"><div class="w">
+  <div class="sh"><div><div class="num">06</div><div class="eyebrow">Community engagement</div></div><div>
+    <h2>A community of people who've been through it</h2>
+    <p>The best marketing for an immigration product is someone who got their permit telling the next person how. These programs make that happen on purpose, and send feedback back to the team.</p>
+    <span class="jd">JD: Develop and execute strategies that encourage meaningful audience interaction, gather feedback, and build connection and loyalty</span>
+  </div></div>
+
+  <div class="grid3">
+    <div class="card"><span class="tag">Monthly · live</span><h3>Ask a Lawyer Live</h3><p class="small">30 minutes on Instagram and YouTube with a licensed lawyer from the BorderPass network. Questions collected all week in Stories. General answers only; case-specific questions go to the pathway assessment. Clipped into 6 Shorts after.</p></div>
+    <div class="card"><span class="tag">Ongoing</span><h3>Approved Wall</h3><p class="small">Clients share their approval moment (with written consent, details removed). Reposted as Stories and a monthly "approved this month" carousel. A gentle email goes out 7 days after an approval asking for a story.</p></div>
+    <div class="card"><span class="tag">Program</span><h3>BorderPass Ambassadors</h3><p class="small">15 students at partner schools. Monthly brief, early content, a private group chat with the team. They host welcome sessions on campus and tie into the existing referral program.</p></div>
+    <div class="card"><span class="tag">Weekly</span><h3>Comment hour</h3><p class="small">Every weekday, 30 minutes replying to comments and DMs in the BorderPass voice. Saved replies for the 20 most common questions. Anything case-specific gets a kind redirect, never advice.</p></div>
+    <div class="card"><span class="tag">Quarterly</span><h3>Partner roundtable</h3><p class="small">A 45-minute online session for international office staff: what's changing, what students are asking, what BorderPass is seeing. Recording becomes a LinkedIn article and a partner newsletter.</p></div>
+    <div class="card"><span class="tag">Always on</span><h3>Feedback loop</h3><p class="small">Short survey after key moments (account created, application submitted, decision received). Top themes shared with product and customer success every month.</p></div>
+  </div>
+
+  <div class="grid2" style="margin-top:28px">
+    <div class="card">
+      <h3>Saved replies (examples)</h3>
+      <h4>"Can you check if I'm eligible?"</h4><p class="small">Thanks for asking! Every case is different, so we don't want to guess in the comments. The free pathway assessment takes a few minutes and shows your options: borderpass.ai. If you get stuck, send us a DM 💛</p>
+      <h4>"I got refused, what do I do?"</h4><p class="small">We're sorry, that's a hard letter to get. A refusal isn't always the end. Our guide on what to do next is pinned on our profile, and if you'd like a lawyer to look at your reasons, Application Recovery can help.</p>
+      <h4>Negative comment about fees or wait times</h4><p class="small">Thanks for telling us. We'd like to understand what happened. Could you DM us your email so our team can look into it today?</p>
+    </div>
+    <div class="card">
+      <h3>Case study interview (15 questions, 4 shown)</h3>
+      <ol class="small"><li>Where were you in your journey when you found BorderPass?</li><li>What were you most worried about?</li><li>What part of the process felt different from what you expected?</li><li>What would you tell a friend in the same spot?</li></ol>
+      <h4>Story format</h4><p class="small">Before → the worry → what changed → the result → one quote. Published as a blog post, a 60-second video, a carousel and a sales one-pager. Every one needs written consent, and personal details stay private.</p>
+      <h4>Community health metrics</h4><p class="small">Comment reply rate, share of questions answered under 2 hours, ambassador posts per month, survey response rate, number of consented stories.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- 07 PAID -->
+<section class="s light" id="paid"><div class="w">
+  <div class="sh"><div><div class="num">07</div><div class="eyebrow">Paid campaigns</div></div><div>
+    <h2>Google, Meta and LinkedIn, each doing what it's best at</h2>
+    <p>Google catches people already searching for help. Meta finds students and IEC applicants by country and age. LinkedIn reaches the people who run international offices and HR teams.</p>
+    <span class="jd">JD: Plan, execute, and optimize paid marketing campaigns across platforms such as Google Ads, Meta, and LinkedIn</span>
+  </div></div>
+
+  <div class="grid3">
+    <div class="card"><span class="tag">Google Search</span><h3>High intent</h3><h4>Ad groups</h4><ul class="small"><li>Study permit refusal help</li><li>PGWP application help</li><li>Study permit extension</li><li>IEC working holiday help</li><li>Express Entry lawyer review</li></ul><h4>Sample ad</h4><p class="small"><b>Study Permit Refused? | Get a Lawyer Review</b><br>Find out why you were refused and build a stronger plan. Licensed immigration lawyers review before you reapply.</p><h4>Negatives</h4><p class="small">jobs, salary, IRCC login, free lawyer, sample letter download</p></div>
+    <div class="card"><span class="tag">Meta</span><h3>Audience reach</h3><h4>Campaigns</h4><ul class="small"><li>IEC season by country (static + Reel)</li><li>Graduating students: PGWP timing reminder</li><li>Retarget site visitors with the free checklist</li></ul><h4>Creative</h4><p class="small">Native-looking Reels win here: a person talking, captions, one clear offer. 3 hooks per ad, keep the winner.</p><h4>Optimize for</h4><p class="small">Assessment started, then profile submitted (send conversions back with the Conversions API).</p></div>
+    <div class="card"><span class="tag b">LinkedIn</span><h3>B2B trust</h3><h4>Targeting</h4><ul class="small"><li>International office, admissions, registrar roles at Canadian colleges and universities</li><li>HR and talent acquisition at companies hiring global talent</li></ul><h4>Formats</h4><p class="small">Document ads with the approval-rate report, event ads for CBIE, Thought Leader ads from leadership posts.</p><h4>Optimize for</h4><p class="small">Demo booked, report downloaded, CBIE RSVP.</p></div>
+  </div>
+
+  <div class="grid2" style="margin-top:28px">
+    <div class="card">
+      <h3>Budget split</h3><p class="small mute">Example monthly budget to show the logic. Slide to change it.</p>
+      <label class="l">Monthly budget: $<span id="bAmt">6000</span> CAD</label>
+      <input type="range" id="bR" min="2000" max="30000" step="500" value="6000">
+      <div class="alloc" id="alloc"></div>
+      <table id="bTab"></table>
+    </div>
+    <div class="card">
+      <h3>UTM builder</h3><p class="small mute">Every paid and social link gets tagged the same way, so reports compare cleanly.</p>
+      <label class="l">Page</label><select class="f" id="uP"><option>https://www.borderpass.ai/visa-refusal</option><option>https://www.borderpass.ai/students/pgwp</option><option>https://www.borderpass.ai/iec</option><option>https://www.borderpass.ai/pr/crs-calculator</option><option>https://www.borderpass.ai/schools</option><option>https://www.borderpass.ai/events/cbie-2026-reception</option></select>
+      <label class="l">Source / medium</label><select class="f" id="uS"><option value="google|cpc">google / cpc</option><option value="meta|paid_social">meta / paid_social</option><option value="linkedin|paid_social">linkedin / paid_social</option><option value="instagram|social">instagram / social</option><option value="tiktok|social">tiktok / social</option><option value="newsletter|email">newsletter / email</option></select>
+      <label class="l">Campaign</label><input type="text" id="uC" value="2026-11_refusal-recovery">
+      <label class="l">Content (ad or post version)</label><input type="text" id="uX" value="hook-a_carousel">
+      <pre class="out copy" id="uOut" title="Click to copy" style="margin-top:12px"></pre>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:28px">
+    <h3>Weekly optimization routine</h3>
+    <div class="grid4" style="margin-top:8px">
+      <div><h4>Monday</h4><p class="small">Read the numbers: cost per assessment started, cost per submitted application, demo bookings.</p></div>
+      <div><h4>Tuesday</h4><p class="small">Search terms report: add negatives, find new keywords from real searches.</p></div>
+      <div><h4>Wednesday</h4><p class="small">Creative: pause ads with low hold rate, launch 2 new hooks.</p></div>
+      <div><h4>Friday</h4><p class="small">Shift up to 20% of budget toward the best cost per submitted application.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- 08 TEAMS -->
+<section class="s" id="team"><div class="w">
+  <div class="sh"><div><div class="num">08</div><div class="eyebrow">Campaign collaboration</div></div><div>
+    <h2>Marketing that product, sales and success can use</h2>
+    <p>Who does what on a campaign, what each team gets from marketing, and the checklist for every launch.</p>
+    <span class="jd">JD: Work with product, sales, and customer success teams to align marketing initiatives with broader business objectives</span>
+  </div></div>
+
+  <div class="grid3">
+    <div class="card"><span class="tag">Product</span><h3>Launches people notice</h3><ul class="small"><li>Launch brief template: who it's for, the one change, the proof.</li><li>Release notes in plain English for the app and social.</li><li>In-app message + email + social post per feature.</li><li>Prerendering and share-card requests (findings 2 and 3).</li></ul></div>
+    <div class="card"><span class="tag b">Sales</span><h3>Content that opens doors</h3><ul class="small"><li>One-pager per audience: schools, employers, agents.</li><li>Case studies in sales-ready PDF and slide form.</li><li>CBIE follow-up sequence: 3 emails, sent within 48 hours.</li><li>Monthly "what we're hearing" notes from sales into content.</li></ul></div>
+    <div class="card"><span class="tag g">Customer success</span><h3>Fewer tickets, more stories</h3><ul class="small"><li>FAQ posts built from the top weekly questions.</li><li>Help articles and saved replies kept in sync.</li><li>Story request after approvals.</li><li>Heads-up before any campaign that will bring a spike in sign-ups.</li></ul></div>
+  </div>
+
+  <div class="tw" style="margin-top:28px"><table class="raci">
+    <tr><th>Campaign task</th><th>Marketing</th><th>Product</th><th>Sales</th><th>Success</th><th>Legal review</th></tr>
+    <tr><td>Campaign brief + goal</td><td class="c R">R</td><td class="c C">C</td><td class="c C">C</td><td class="c C">C</td><td class="c I">I</td></tr>
+    <tr><td>Immigration claims in copy</td><td class="c R">R</td><td class="c I">I</td><td class="c I">I</td><td class="c I">I</td><td class="c A">A</td></tr>
+    <tr><td>Landing page + tracking</td><td class="c R">R</td><td class="c A">A</td><td class="c I">I</td><td class="c I">I</td><td class="c I">I</td></tr>
+    <tr><td>Lead follow-up (B2B)</td><td class="c C">C</td><td class="c I">I</td><td class="c R">R</td><td class="c I">I</td><td class="c I">I</td></tr>
+    <tr><td>Support readiness</td><td class="c C">C</td><td class="c C">C</td><td class="c I">I</td><td class="c R">R</td><td class="c I">I</td></tr>
+    <tr><td>Results report</td><td class="c R">R</td><td class="c I">I</td><td class="c C">C</td><td class="c C">C</td><td class="c I">I</td></tr>
+  </table></div>
+  <p class="note"><span class="R">R</span> does it · <span class="A">A</span> signs off · <span class="C">C</span> gives input · <span class="I">I</span> kept informed</p>
+
+  <div class="grid2" style="margin-top:28px">
+    <div class="card"><h3>Launch checklist</h3><ul class="check small"><li>Brief signed off with one goal and one number</li><li>Claims checked by a licensed lawyer</li><li>Landing page live, tagged, tested on mobile</li><li>Share card and meta description set</li><li>Sales and success briefed with a one-page FAQ</li><li>Organic posts, email and ads scheduled</li><li>Report date in the calendar (day 7 and day 30)</li></ul></div>
+    <div class="card"><h3>CBIE night template</h3><ul class="check small"><li>Photo list: room, co-hosts, team, signage (consent cards at the door)</li><li>3 short quotes from guests, with names only if they agree</li><li>4 themes from conversations</li><li>Every new contact into the CRM the same night</li><li>Thank-you post within 24 hours, recap carousel within 48</li><li>Follow-up email sequence starts day 2</li></ul></div>
+  </div>
+</div></section>
+
+<!-- 09 PLAN -->
+<section class="s light" id="plan"><div class="w">
+  <div class="sh"><div><div class="num">09</div><div class="eyebrow">Learning + the first 90 days</div></div><div>
+    <h2>What I'd do first, and how I keep learning</h2>
+    <p>A plan that starts with listening, ships early, and ends with systems the team can keep running.</p>
+    <span class="jd">JD: Stay current with marketing trends, emerging social platforms, and AI innovations</span>
+  </div></div>
+  <div class="grid3">
+    <div class="phase"><div class="eyebrow">Days 1 to 30</div><h3>Listen and fix</h3><ul class="check small"><li>Meet product, sales, success and the legal reviewers</li><li>Read 3 months of support questions</li><li>Audit every channel; one bio and handle system</li><li>Brand and compliance guide signed off</li><li>Share cards for the top 20 pages</li><li>Turn the CBIE recap into partner content</li></ul></div>
+    <div class="phase"><div class="eyebrow">Days 31 to 60</div><h3>Build the engine</h3><ul class="check small"><li>Repurposing system live: 1 post → 4 pieces</li><li>Newsletter launched with a lead magnet</li><li>First Ask a Lawyer Live</li><li>Google Search campaigns for 3 top services</li><li>2 case studies published</li><li>Monday report running</li></ul></div>
+    <div class="phase"><div class="eyebrow">Days 61 to 90</div><h3>Scale what works</h3><ul class="check small"><li>Double down on the best pillar and format</li><li>Ambassador program with partner schools</li><li>First AI search report (25 questions)</li><li>Content plan for US, UK, Australia pages</li><li>Paid on Meta and LinkedIn, tested and tuned</li><li>Q1 plan shared with the team</li></ul></div>
+  </div>
+  <div class="card" style="margin-top:28px"><h3>How I keep up</h3><div class="grid3" style="margin-top:8px">
+    <div><h4>Immigration</h4><p class="small">IRCC news releases, provincial program pages, BorderPass's own news and lawyers' posts. I lived the student side of this system, so I know what the questions feel like.</p></div>
+    <div><h4>Marketing + platforms</h4><p class="small">Platform creator updates (Instagram, TikTok, YouTube, LinkedIn), Exit Five, Marketing Brew, and how other edtech and fintech brands talk to newcomers.</p></div>
+    <div><h4>AI</h4><p class="small">Testing new tools on real tasks every month, then writing a one-page "keep or skip" note for the team.</p></div>
+  </div></div>
+</div></section>
+
+<!-- 10 MAP -->
+<section class="s" id="map"><div class="w">
+  <div class="sh"><div><div class="num">10</div><div class="eyebrow">Role map</div></div><div>
+    <h2>Every line of the role, and where it lives</h2>
+    <p>The job description on the left. On the right, where it's covered on this page and the experience behind it.</p>
+  </div></div>
+  <div class="tw"><table class="map">
+    <tr><th>The role asks for</th><th>On this page</th><th>From my experience</th></tr>
+    <tr><td>Written, static and video content for B2C and B2B</td><td><a href="#content">02</a>: carousel, blog brief, newsletter, video script, LinkedIn, IEC promo</td><td>Freelance content writer since Oct 2024 (blogs, web, social, email across industries); content writer at Missive Digital; 16 ghostwritten LinkedIn posts for founders</td></tr>
+    <tr><td>Content aligned with brand and business goals</td><td><a href="#content">02</a>: guardrails; every piece points to a service page</td><td>Start each client with brand voice, audience and goals, then adapt tone</td></tr>
+    <tr><td>Manage accounts, schedule, monitor trends, engage</td><td><a href="#social">03</a>: channel roles, 4-week calendar, trend radar, 24-hour rule</td><td>Built the content calendar at Rewynd Snacks; ran campaigns for brand visibility</td></tr>
+    <tr><td>Analyze performance and refine</td><td><a href="#social">03</a>: Monday report</td><td>Postgraduate degree in Information Systems Business Analysis (George Brown)</td></tr>
+    <tr><td>AI for ideation, creation, optimization, with a human touch</td><td><a href="#ai">04</a>: pipeline, prompt builder, human-touch checker, 3 experiments</td><td>SEO and GEO writing that shows up in AI answers; AI drafts, human final</td></tr>
+    <tr><td>Keyword research, proofreading, optimization</td><td><a href="#seo">05</a>: clusters, search preview, share cards, 10-point proofread</td><td>SEO-optimized content that lifted rankings and organic traffic at Missive Digital</td></tr>
+    <tr><td>Community interaction, feedback, loyalty</td><td><a href="#community">06</a>: Ask a Lawyer Live, Approved Wall, Ambassadors, saved replies</td><td>Discovery calls and audience research at Bsquaree; front-line customer experience</td></tr>
+    <tr><td>Paid campaigns on Google, Meta, LinkedIn</td><td><a href="#paid">07</a>: channel plans, budget split, UTM builder, weekly routine</td><td>Digital &amp; Content Marketing post-graduate certificate (York University)</td></tr>
+    <tr><td>Work with product, sales, customer success</td><td><a href="#team">08</a>: RACI, launch checklist, CBIE template</td><td>Worked across teams to bring campaigns to life; direct stakeholder communication</td></tr>
+    <tr><td>Grow a community seeking life-changing opportunities abroad</td><td>The whole page</td><td>Arrived in Canada two years ago as an international student. I've been the person reading the guides at midnight.</td></tr>
+  </table></div>
+</div></section>
+
+<footer class="end"><div class="w">
+  <div class="eyebrow">Durva Thakkar · Ontario, Canada</div>
+  <h2>Ready when you are.</h2>
+  <p>If any of this would be useful to BorderPass, I'd love to talk about the Marketing Specialist role.</p>
+  <div class="ctas"><a class="btn" href="mailto:durvathakker7@gmail.com?subject=Marketing%20Specialist%20at%20BorderPass">Email me</a><a class="btn ghost" href="https://www.linkedin.com/in/durvathakkar/">LinkedIn</a><a class="btn ghost" href="https://durvathakkar.com/">More about me</a></div>
+  <p class="fine">Spec work made to show how I'd approach the role. BorderPass facts, prices and page addresses come from public pages and the sitemap of borderpass.ai (October 2026). Sample metrics and budgets are labeled as examples. Immigration content shown here is a draft and would be reviewed by a licensed lawyer before publishing; it is not legal advice. I'm not affiliated with BorderPass.</p>
+</div></footer>
+
+<div class="pop" id="pop"><div class="in"><button class="x" id="popX" aria-label="Close">×</button><div id="popB"></div></div></div>
+<div class="toast" id="toast">Copied</div>
+
+<script>
+// passport stamps
+(function(){var s=document.querySelectorAll('.stamp');s.forEach(function(e,i){setTimeout(function(){e.classList.add('on')},600+i*380)})})();
+
+// tabs
+document.querySelectorAll('[data-tabs]').forEach(function(t){t.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;t.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b);var p=document.getElementById(x.dataset.p);if(p)p.classList.toggle('on',x===b)})})});
+
+function toast(m){var t=document.getElementById('toast');t.textContent=m||'Copied';t.classList.add('on');setTimeout(function(){t.classList.remove('on')},1600)}
+function copy(txt){if(navigator.clipboard){navigator.clipboard.writeText(txt).then(function(){toast()},function(){toast('Select and copy')})}else toast('Select and copy')}
+
+// calendar
+var CH={IG:'Instagram',TT:'TikTok',YT:'YouTube',LI:'LinkedIn',FB:'Facebook',NL:'Newsletter',BL:'Blog'};
+var C=[
+['Mon Nov 2','IG','B2C','Do it right','Carousel','Study permit refused? 5 steps before you reapply','Save + link in bio to /visa-refusal','Refusal guide carousel from section 02. Pin for the month.'],
+['Mon Nov 2','LI','B2B','Real journeys','Event post','CBIE 2026 reception: join us in Ottawa','RSVP link in comments','Co-hosts tagged (Flywire, StudentVIP). Boost to international office roles.'],
+['Tue Nov 3','TT','B2C','Do it right','Video','"I got refused. Here\'s what I\'d do."','Link in bio','Script in section 02. Two hooks tested.'],
+['Wed Nov 4','IG','B2C','Know the rules','Reel','What the new study permit funds rule means for you','Read the funds guide','From the existing Sept 1 blog post. Lawyer check.'],
+['Wed Nov 4','BL','B2C','Do it right','Blog','Study permit refused: what to do in the next 30 days','Application Recovery','Brief in section 02.'],
+['Thu Nov 5','FB','B2C','Life in Canada','Post','Your first Canadian winter: what students wish they knew','Read on the blog','Reshare a settlement post with a family angle.'],
+['Fri Nov 6','YT','B2C','Do it right','Short','GCMS notes in 30 seconds','Subscribe','Cut from the TikTok script.'],
+['Mon Nov 9','IG','B2C','Do it right','Carousel','PGWP: apply in the right order','Save','Timeline from offer letter to PGWP decision. Lawyer check.'],
+['Tue Nov 10','LI','B2B','Know the rules','Post','What this month\'s changes mean for your international students','Partner briefing','Turn a news post into a 5-line advisor note.'],
+['Wed Nov 11','TT','B2C','Real journeys','Video','A day in the life of a BorderPass lawyer review','Follow','Behind the scenes, team on camera.'],
+['Thu Nov 12','IG','B2C','Real journeys','Stories','Ask a Lawyer Live: send your questions','Question sticker','Collect questions for the live session.'],
+['Fri Nov 13','NL','B2C','Know the rules','Email','The BorderPass Brief, Issue #1','Take the assessment','Full draft in section 02.'],
+['Mon Nov 16','YT','B2C','Do it right','Long video','Proof of funds for a study permit: full walkthrough','Book an assessment','12 minutes, screen share, chapters.'],
+['Mon Nov 16','LI','B2B','Real journeys','Post','One week to CBIE: what we want to talk about','RSVP','Leadership voice, Thought Leader ad.'],
+['Tue Nov 17','IG','B2C','Know the rules','Live','Ask a Lawyer Live #1','Assessment link','30 minutes. Clip into 6 Shorts.'],
+['Wed Nov 18','TT','B2C','Know the rules','Video','IEC: what $75 actually covers','Check eligibility','Price clarity hook. Fees from the IEC FAQ.'],
+['Thu Nov 19','FB','B2C','Do it right','Post','Bringing your parents to visit: super visa basics','Read the guide','Family audience.'],
+['Fri Nov 20','IG','B2C','Life in Canada','Carousel','Health insurance for international students in Ontario','Save','From the existing Ontario health insurance blog post.'],
+['Mon Nov 23','LI','B2B','Real journeys','Live photos','Tonight at CBIE 2026 with Flywire and StudentVIP','Say hi','Event day: stories every hour, team photos.'],
+['Mon Nov 23','IG','B2B','Real journeys','Stories','CBIE behind the scenes','Follow','Consent cards at the door.'],
+['Tue Nov 24','LI','B2B','Real journeys','Post','Thank you, Ottawa: what we heard at CBIE','Book a call','4 themes + 3 quotes.'],
+['Wed Nov 25','TT','B2C','Real journeys','Video','From refusal to approval (client story, with consent)','Link in bio','Only if a consented story is ready; else lawyer Q&A clip.'],
+['Thu Nov 26','IG','B2C','Do it right','Reel','3 mistakes that delay a study permit extension','Save','Clipped from the live session.'],
+['Thu Nov 26','BL','B2B','Know the rules','Report','Partner brief: November recap for international offices','Download','Gated PDF for the partner list.'],
+['Fri Nov 27','FB','B2C','Real journeys','Post','Approved this month: 5 stories','Share yours','Approved Wall roundup.'],
+['Fri Nov 27','YT','B2C','Know the rules','Short','Lawyer answers: can I work while my PGWP is processing?','Subscribe','From the live session.']
+];
+var days=[];C.forEach(function(r){if(days.indexOf(r[0])<0)days.push(r[0])});
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function drawCal(){var ch=fCh.value,au=fAu.value,n=0,h='';days.forEach(function(d){var items=C.map(function(r,i){return[r,i]}).filter(function(x){return(!ch||x[0][1]===ch)&&(!au||x[0][2]===au)&&x[0][0]===d});var ev=d==='Mon Nov 23';h+='<div class="day'+(ev?' ev':'')+'"><div class="d"><span>'+d+'</span>'+(ev?'<span class="gold">CBIE</span>':'')+'</div>';items.forEach(function(x){n++;var r=x[0];h+='<div class="post '+r[1]+'" data-i="'+x[1]+'"><b>'+CH[r[1]]+' · '+r[4]+'</b>'+esc(r[5])+'</div>'});h+='</div>'});cal.innerHTML=h;calCount.textContent=n+' pieces'}
+var fCh=document.getElementById('fCh'),fAu=document.getElementById('fAu'),cal=document.getElementById('cal'),calCount=document.getElementById('calCount');
+fCh.onchange=fAu.onchange=drawCal;drawCal();
+cal.addEventListener('click',function(e){var p=e.target.closest('.post');if(!p)return;var r=C[p.dataset.i];document.getElementById('popB').innerHTML='<span class="tag">'+CH[r[1]]+'</span><span class="tag b">'+r[2]+'</span><span class="tag g">'+r[3]+'</span><h3>'+esc(r[5])+'</h3><table><tr><td class="mute">Date</td><td>'+r[0]+', 2026</td></tr><tr><td class="mute">Format</td><td>'+r[4]+'</td></tr><tr><td class="mute">Call to action</td><td>'+esc(r[6])+'</td></tr><tr><td class="mute">Notes</td><td>'+esc(r[7])+'</td></tr></table>';document.getElementById('pop').classList.add('on')});
+document.getElementById('popX').onclick=function(){document.getElementById('pop').classList.remove('on')};
+document.getElementById('pop').onclick=function(e){if(e.target.id==='pop')this.classList.remove('on')};
+document.getElementById('dlCal').onclick=function(){var rows=[['Date','Channel','Audience','Pillar','Format','Title','Call to action','Notes']].concat(C.map(function(r){return[r[0]+' 2026',CH[r[1]],r[2],r[3],r[4],r[5],r[6],r[7]]}));var csv=rows.map(function(r){return r.map(function(c){return'"'+String(c).replace(/"/g,'""')+'"'}).join(',')}).join('\n');var a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['﻿'+csv],{type:'text/csv'}));a.download='BorderPass-Social-Calendar-Nov-2026.csv';a.click()};
+
+// prompt builder
+var pA=document.getElementById('pAud'),pF=document.getElementById('pFmt'),pT=document.getElementById('pTop'),pL=document.getElementById('pLang'),pO=document.getElementById('pOut');
+function prompt(){pO.textContent='You are a content writer for BorderPass, an immigration platform where AI guides the application and licensed immigration lawyers review it before submission. BorderPass is not a law firm.\n\nFormat: '+pF.value+'.\nAudience: '+pA.value+'.\nTopic: '+pT.value+'.\nLanguage: '+pL.value+(pL.value!=='English'?' (natural, the way a native speaker talks, not a word-for-word translation)':'')+'.\n\nRules:\n- Plain words, grade 8 reading level. Explain any acronym once.\n- Calm and warm, like an older sibling who has done this before. No fear tactics.\n- Never promise approval or give advice for one person\'s case.\n- Only use facts from the source I give you. If something is unclear, write [CHECK] instead of guessing.\n- One clear next step at the end that points to a BorderPass page.\n- No em dashes. Avoid: navigate, seamless, unlock, delve, landscape, journey (once at most).\n\nGive me 3 versions with different hooks, then list every factual claim you made so a lawyer can review them.'}
+[pA,pF,pL].forEach(function(e){e.onchange=prompt});pT.oninput=prompt;prompt();
+document.getElementById('pCopy').onclick=function(){copy(pO.textContent)};
+
+// lint
+var L=[[/\u2014/g,'Em dash','Swap for a period or comma.'],[/\b(delve|delving)\b/gi,'AI word','"delve" reads machine-written.'],[/\bnavigat(e|ing)\b/gi,'AI word','Say "go through" or "handle".'],[/\bseamless(ly)?\b/gi,'AI word','Say what is actually easy.'],[/\bunlock\b/gi,'AI word','Too salesy. Say the real result.'],[/\b(ever-evolving|landscape)\b/gi,'Filler','Cut the intro; start with the point.'],[/\bin today's\b/gi,'Filler opener','Start with the reader\'s problem.'],[/\bcomplexit(y|ies)\b/gi,'Vague','Name the actual hard part.'],[/\bguarantee[sd]?\b/gi,'Legal risk','Never promise outcomes. Needs lawyer review.'],[/\b(approval|approved)\b/gi,'Check claim','Mentions approval: make sure nothing is promised.'],[/!{1}/g,'Exclamation','Use sparingly in a serious topic.'],[/\blet's\b/gi,'AI tic','"Let\'s dive in" style openers feel generic.'],[/\b(dream)\b/gi,'Cliche','"Canadian dream" is overused. Be specific.']];
+var lint=document.getElementById('lint'),lo=document.getElementById('lintOut');
+function runLint(){var t=lint.value,h='',n=0;L.forEach(function(r){var m=t.match(r[0]);if(m){n+=m.length;h+='<div class="flag"><b>'+r[1]+'</b><span>"'+esc(m[0])+'"'+(m.length>1?' ×'+m.length:'')+' · '+esc(r[2])+'</span></div>'}});var w=t.trim().split(/\s+/).filter(Boolean).length,s=t.split(/[.!?]+/).filter(function(x){return x.trim()}).length||1;h+='<div class="flag"><b style="color:var(--gold)">Sentence length</b><span>'+Math.round(w/s)+' words on average '+(w/s>20?'· aim for under 18':'<span class="ok">· good</span>')+'</span></div>';lo.innerHTML=(n?'':'<p class="ok small">No AI tells found.</p>')+h}
+lint.oninput=runLint;runLint();
+
+// serp
+var sT=document.getElementById('sT'),sD=document.getElementById('sD');
+function serp(){var t=sT.value,d=sD.value;document.getElementById('sTo').textContent=t.length>60?t.slice(0,58)+'...':t;document.getElementById('sDo').textContent=d.length>158?d.slice(0,155)+'...':d;tLen.textContent=t.length+' / 60';dLen.textContent=d.length+' / 155';var tb=document.getElementById('tBar'),db=document.getElementById('dBar');tb.firstChild.style.width=Math.min(100,t.length/60*100)+'%';db.firstChild.style.width=Math.min(100,d.length/155*100)+'%';tb.classList.toggle('over',t.length>60);db.classList.toggle('over',d.length>158)}
+var tLen=document.getElementById('tLen'),dLen=document.getElementById('dLen');sT.oninput=sD.oninput=serp;serp();
+document.getElementById('sTry').onclick=function(){sT.value='PGWP Application, Lawyer-Reviewed | BorderPass';sD.value='Graduating in Canada? Check your PGWP eligibility, apply in the right order, and have a licensed immigration lawyer review it before you submit.';serp()};
+
+// budget
+var BR=[['Google Search','#d3ac6a',.45,'Assessments + applications'],['Meta','#6094c8',.30,'IEC + students + retargeting'],['LinkedIn','#76996e',.20,'Schools + employers'],['Testing','#b2c2d2',.05,'New channels, e.g. TikTok Spark Ads']];
+var bR=document.getElementById('bR');
+function budget(){var v=+bR.value;document.getElementById('bAmt').textContent=v.toLocaleString();document.getElementById('alloc').innerHTML=BR.map(function(b){return'<div style="width:'+b[2]*100+'%;background:'+b[1]+'">'+(b[2]>=.2?b[0]:'')+'</div>'}).join('');document.getElementById('bTab').innerHTML='<tr><th>Channel</th><th>Share</th><th>$/month</th><th>For</th></tr>'+BR.map(function(b){return'<tr><td>'+b[0]+'</td><td>'+b[2]*100+'%</td><td>$'+Math.round(v*b[2]).toLocaleString()+'</td><td>'+b[3]+'</td></tr>'}).join('')}
+bR.oninput=budget;budget();
+
+// utm
+function utm(){var s=document.getElementById('uS').value.split('|'),c=document.getElementById('uC').value.trim().toLowerCase().replace(/\s+/g,'-'),x=document.getElementById('uX').value.trim().toLowerCase().replace(/\s+/g,'-');document.getElementById('uOut').textContent=document.getElementById('uP').value+'?utm_source='+s[0]+'&utm_medium='+s[1]+'&utm_campaign='+encodeURIComponent(c)+(x?'&utm_content='+encodeURIComponent(x):'')}
+['uP','uS','uC','uX'].forEach(function(id){var e=document.getElementById(id);e.oninput=e.onchange=utm});utm();
+document.getElementById('uOut').onclick=function(){copy(this.textContent)};
+</script>
+</body>
+</html>
