@@ -1279,6 +1279,7 @@ section:not(.light) .why div b{color:var(--gold)}
 <div class="pop" id="pop"><div class="in"><button class="x" id="popX" aria-label="Close">×</button><div id="popB"></div></div></div>
 <div class="toast" id="toast">Copied</div>
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js"></script>
 <script>
 // passport stamps
 (function(){var s=document.querySelectorAll('.stamp');s.forEach(function(e,i){setTimeout(function(){e.classList.add('on')},600+i*380)})})();
@@ -1390,6 +1391,44 @@ document.querySelectorAll('[data-p="ct2"]').forEach(function(b){b.addEventListen
 })();
 // linkedin document carousel
 (function(){var d=document.getElementById('ldoc');if(!d)return;var tr=d.querySelector('.ldoc-tr'),n=tr.children.length,i=0,lab=document.getElementById('ldN');d.querySelectorAll('.ldoc-bar button').forEach(function(b){b.addEventListener('click',function(){i=Math.max(0,Math.min(n-1,i+(+b.dataset.d)));tr.style.transform='translateX('+(-100*i)+'%)';lab.textContent=(i+1)+' / '+n})})})();
+</script>
+<script>
+const EMAILJS_PUBLIC_KEY = "YOUR_EMAILJS_PUBLIC_KEY";
+const EMAILJS_SERVICE_ID = "nisargmehta2810";
+const EMAILJS_TEMPLATE_ID = "template_wa24pe8";
+
+(function initEmailJS() {
+  if (window.emailjs) {
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+  }
+})();
+
+function sendNotification(eventType, extra) {
+  if (!window.emailjs) return;
+  const now = new Date();
+  const baseParams = {
+    event_type: eventType,
+    page_url: window.location.href,
+    page_title: document.title,
+    visit_time: now.toLocaleString('en-US', { dateStyle: 'full', timeStyle: 'long' }),
+    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+    user_agent: navigator.userAgent,
+    referrer: document.referrer || 'Direct / no referrer',
+    ...extra,
+  };
+  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, baseParams).catch(function () {});
+}
+
+// mail on page open
+sendNotification('page_open');
+
+// mail on any button / link click
+document.addEventListener('click', function (e) {
+  const el = e.target.closest('button, a, [role="button"]');
+  if (!el) return;
+  const label = (el.getAttribute('aria-label') || el.textContent || el.id || 'unnamed').trim().slice(0, 80);
+  sendNotification('button_click', { button_label: label, button_id: el.id || 'n/a' });
+}, true);
 </script>
 </body>
 </html>
