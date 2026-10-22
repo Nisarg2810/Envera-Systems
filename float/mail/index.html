@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your new card has arrived · Durva for Float</title>
+<meta name="description" content="The digital version of the card Durva Thakkar mailed to Float: a mock card with one spend limit, a 20-minute coffee.">
+<meta property="og:title" content="Your new card has arrived. Its only limit: one 20-minute coffee.">
+<meta property="og:description" content="Open the mailer, peel the card, activate it. By Durva Thakkar.">
+<meta property="og:image" content="https://durvathakkar.com/float/mail/share.jpg?v=1">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/mail/base.css">
+<style>
+:root{--m-bg:#00163d;--m-bg2:#0a2f75;--m-accent:#105ff3;--m-on-accent:#fff;--m-font:"Inter",system-ui,sans-serif;--b:#105ff3;--d:#003997;--ink:#1f1d1e;--mute:#6b6f78;--line:#e6eaf2}
+/* envelope */
+.env{left:20px;top:170px;width:400px;height:250px;z-index:8;background:#fff;border-radius:6px;box-shadow:0 30px 60px rgba(0,0,0,.5);color:var(--ink)}
+.env .win{position:absolute;left:30px;top:96px;width:220px;height:84px;border-radius:6px;background:linear-gradient(120deg,rgba(230,238,250,.9),rgba(255,255,255,.6));border:1px solid #d5deec;padding:12px 14px;font-size:12px;line-height:1.45}
+.env .win b{font-size:13.5px}
+.env .rt{position:absolute;left:30px;top:26px;font-size:10px;color:var(--mute);letter-spacing:.06em;text-transform:uppercase}
+.env .bn{position:absolute;right:22px;top:24px;background:var(--b);color:#fff;font:700 10.5px Inter;letter-spacing:.08em;padding:6px 10px;border-radius:999px}
+.env .tap{position:absolute;left:0;right:0;bottom:16px;text-align:center;font:600 11px Inter;letter-spacing:.14em;color:var(--b);animation:pl 1.8s infinite}
+@keyframes pl{50%{opacity:.35}}
+body:not([data-step="0"]) .env{transform:translateY(720px) rotate(5deg);opacity:0}
+/* carrier letter */
+.ltr{left:22px;top:16px;width:396px;height:576px;background:#fff;color:var(--ink);border-radius:6px;box-shadow:0 24px 50px rgba(0,0,0,.45);padding:24px;overflow:hidden}
+body[data-step="0"] .ltr{transform:translateY(30px) scale(.97);opacity:0}
+.ltr .k{font:700 10px Inter;letter-spacing:.14em;color:var(--b);text-transform:uppercase}
+.ltr h1{font:800 26px/1.1 Inter;letter-spacing:-.02em;margin:6px 0 8px}
+.ltr p{font-size:12.5px;line-height:1.55;color:#3a3d44}
+.slot{position:relative;height:200px;margin:16px 0;border:1.5px dashed #c8d4ea;border-radius:16px;display:grid;place-items:center}
+.slot::after{content:"Card removed";font-size:11px;color:#a0aec4;position:absolute}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:6px}
+.steps div{background:#f3f7fe;border-radius:10px;padding:9px;font-size:10.5px;line-height:1.35;color:#3a3d44}
+.steps b{display:block;color:var(--b);font-size:11px}
+.act{display:block;width:100%;margin-top:12px;font:700 14px Inter;color:#fff;background:var(--b);border:0;border-radius:12px;padding:13px;cursor:pointer}
+body.done .act{background:#16a34a}
+body.done .act::after{content:" ✓"}
+/* card */
+.cardw{left:62px;top:178px;width:316px;height:198px;z-index:9;perspective:1200px}
+.cardi{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.4,.1,.2,1)}
+.cf,.cb{position:absolute;inset:0;border-radius:16px;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.cf{background:radial-gradient(circle at 85% 0%,rgba(255,255,255,.25),transparent 45%),linear-gradient(135deg,#105ff3,#003997 70%);color:#fff;padding:18px 20px}
+.cf .top{display:flex;justify-content:space-between;font:700 11px Inter;letter-spacing:.14em;opacity:.9}
+.cf .chip{width:42px;height:32px;border-radius:6px;background:linear-gradient(135deg,#f6d77d,#c99b32);margin-top:22px;position:relative}
+.cf .chip::before{content:"";position:absolute;inset:6px 10px;border:1px solid rgba(0,0,0,.25);border-radius:3px}
+.cf .nm{position:absolute;left:20px;bottom:42px;font:600 15px "IBM Plex Mono",monospace;letter-spacing:.08em}
+.cf .lim{position:absolute;left:20px;bottom:18px;font-size:11px;opacity:.85}
+.cf .wave{position:absolute;right:18px;top:62px;width:26px;height:26px;opacity:.85}
+.cb{transform:rotateY(180deg);background:#f7f9fd;color:var(--ink);padding:0}
+.cb .mag{height:34px;background:#1f1d1e;margin-top:16px}
+.cb .in{padding:10px 16px;font-size:10.5px;line-height:1.5}
+.cb .in b{font:700 9.5px Inter;letter-spacing:.12em;color:var(--b);display:block;margin-bottom:3px}
+.cb .sig{display:flex;align-items:center;gap:10px;margin-top:6px}
+.cb .sig div{flex:1;height:26px;background:repeating-linear-gradient(90deg,#e8edf6 0 6px,#f6f8fc 6px 12px);border-radius:4px;font:600 20px/26px Caveat;color:var(--d);padding-left:8px}
+/* card states */
+body[data-step="0"] .cardw{opacity:0;transform:translateY(40px)}
+body[data-step="2"] .cardw{transform:translate(0,-4px) rotate(-3deg)}
+body[data-step="2"] .cardi,body[data-step="3"] .cardi{transform:rotateY(180deg)}
+body[data-step="3"] .cardw{transform:translate(0,-46px) rotate(-3deg) scale(.82)}
+body.done .ltr{transform:translateY(-40px) scale(.9)}
+</style>
+</head>
+<body>
+<div class="m-top"><div class="b">Durva <i>for</i> Float</div><a href="/float/">Skip to the full plan →</a></div>
+
+<div id="stage">
+  <div class="sc ltr">
+    <div class="k">For the Float marketing team</div>
+    <h1>Your new card has arrived.</h1>
+    <p>It comes with one spend limit: <b>a 20-minute coffee</b>. Activate it and I'll walk you through the content plan I made for Float.</p>
+    <div class="slot"></div>
+    <div class="steps"><div><b>1 · Peel</b>Take the card off this letter</div><div><b>2 · Flip</b>See what it's authorized for</div><div><b>3 · Activate</b>Book the coffee</div></div>
+    <button class="act" data-next="2">Activate card</button>
+    <p style="font-size:10px;color:#9aa1ad;margin-top:10px">A mock card made for fun. It isn't a payment card and has no number.</p>
+  </div>
+
+  <div class="sc cardw" data-next="1"><div class="cardi">
+    <div class="cf"><div class="top"><span>FOR FLOAT</span><span>CONTENT</span></div><div class="chip"></div>
+      <svg class="wave" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M8 7a8 8 0 0 1 0 10"/><path d="M12 4a12 12 0 0 1 0 16"/><path d="M4 10a3 3 0 0 1 0 4"/></svg>
+      <div class="nm">DURVA THAKKAR</div><div class="lim">Spend limit: one 20-minute coffee</div></div>
+    <div class="cb"><div class="mag"></div><div class="in"><b>AUTHORIZED FOR</b>Webinars for Canadian finance leaders · Video case studies · LinkedIn posts from your own reports · A newsletter archive
+      <div class="sig"><div>Durva</div><span style="font-size:9px;color:#9aa1ad">Authorized<br>signature</span></div></div></div>
+  </div></div>
+
+  <div class="sc env" data-next="0"><div class="rt">Ontario, Canada</div><div class="bn">YOUR NEW CARD IS INSIDE</div><div class="win"><b>Float Marketing Team</b><br>Float Financial<br>Toronto, Ontario</div><div class="tap">TAP TO OPEN</div></div>
+
+  <div class="m-final"><img src="qr.svg" alt="QR code to the full plan"><div><p>Card activated. The full plan is here:</p><div class="u">durvathakkar.com/float</div><a class="go" href="/float/">Open the full plan</a></div></div>
+</div>
+
+<div class="m-hint" id="hint"></div>
+<div class="m-ctrl"><button id="prev">← Back</button><span id="pos"></span><button class="p" id="next">Next →</button></div>
+
+<script>
+window.MAIL={hints:["A card mailer arrived. Tap to open it.","Your new card is attached to the letter. Tap the card to peel it off.","Flipped: here's what it's authorized for. Tap Activate card.","Activated. Scan the QR or open the full plan."]};
+</script>
+<script src="/assets/mail/base.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+/* Shared base for the digital twins of each direct-mail box. Each page sets the --m-* tokens and draws its own scene. */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:radial-gradient(circle at 50% 40%,var(--m-bg2,#2a2626),var(--m-bg,#151414) 70%);color:#fffcf2;font-family:var(--m-font,system-ui,sans-serif);overflow:hidden;-webkit-font-smoothing:antialiased}
+.m-top{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:16px 20px;z-index:30;font-size:14px}
+.m-top .b{font-weight:600;letter-spacing:.01em}.m-top .b i{font-style:normal;color:var(--m-accent,#d3ac6a)}
+.m-top a{color:rgba(255,252,242,.7);text-decoration:none}.m-top a:hover{color:#fff}
+#stage{position:fixed;left:50%;top:50%;width:440px;height:620px;transform-origin:center;transform:translate(-50%,-52%) scale(var(--s,1))}
+.m-hint{position:fixed;left:0;right:0;bottom:74px;text-align:center;font-size:14px;color:rgba(255,252,242,.72);z-index:30;padding:0 20px;transition:opacity .3s}
+.m-ctrl{position:fixed;left:0;right:0;bottom:18px;display:flex;justify-content:center;align-items:center;gap:12px;z-index:30}
+.m-ctrl button{font:600 14px var(--m-font,system-ui);padding:10px 18px;border-radius:999px;border:1px solid rgba(255,252,242,.25);background:transparent;color:#fffcf2;cursor:pointer}
+.m-ctrl button.p{background:var(--m-accent,#d3ac6a);color:var(--m-on-accent,#151414);border-color:transparent}
+.m-ctrl button:disabled{opacity:.3;cursor:default}
+.m-ctrl span{font-size:12px;color:rgba(255,252,242,.55);min-width:44px;text-align:center}
+.sc{position:absolute;transition:transform .9s cubic-bezier(.5,0,.25,1),opacity .6s}
+[data-next]{cursor:pointer}
+/* final panel */
+.m-final{position:absolute;left:20px;right:20px;bottom:10px;background:#fffcf2;color:#151414;border-radius:16px;padding:16px;display:flex;gap:14px;align-items:center;box-shadow:0 20px 50px rgba(0,0,0,.5);opacity:0;transform:translateY(30px);pointer-events:none;transition:all .6s .2s}
+.m-final img{width:92px;height:92px;flex-shrink:0;background:#fff;padding:5px;border-radius:8px}
+.m-final p{font-size:13px;line-height:1.45}
+.m-final a.go{display:inline-block;margin-top:8px;background:var(--m-accent,#151414);color:var(--m-on-accent,#fff);font-weight:600;font-size:13px;padding:8px 14px;border-radius:999px;text-decoration:none}
+.m-final .u{font-weight:600;font-size:12.5px;text-decoration:underline;text-underline-offset:3px}
+body.done .m-final{opacity:1;transform:none;pointer-events:auto}
+body.share .m-top,body.share .m-ctrl,body.share .m-hint{display:none}
+body.share #stage{transform:translate(-50%,-50%) scale(var(--s,1))}
+body.fast *{transition:none!important}

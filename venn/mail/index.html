@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A cheque for Venn · Durva Thakkar</title>
+<meta name="description" content="The digital version of the novelty cheque Durva Thakkar mailed to Venn: pay to the order of Venn, one content marketer, full time.">
+<meta property="og:title" content="Pay to the order of Venn: one content marketer, full time.">
+<meta property="og:description" content="Open the mailer, read the cheque, flip it, deposit it. By Durva Thakkar.">
+<meta property="og:image" content="https://durvathakkar.com/venn/mail/share.jpg?v=1">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/mail/base.css">
+<style>
+:root{--m-bg:#021f0c;--m-bg2:#04451b;--m-accent:#9fe870;--m-on-accent:#04451b;--m-font:"Inter",system-ui,sans-serif;--g:#04451b;--g2:#0a9150;--lime:#9fe870;--ink:#163300;--mute:#5c6b5f;--pen:#1d3d8f}
+/* mailer */
+.mailer{left:20px;top:150px;width:400px;height:290px;z-index:8;background:#f3f1ea;border-radius:6px;box-shadow:0 30px 60px rgba(0,0,0,.5);color:var(--ink)}
+.mailer .dnb{position:absolute;left:0;right:0;top:22px;text-align:center;font:900 22px Inter;letter-spacing:.28em;color:#c0392b}
+.mailer .dnb small{display:block;font:700 9px Inter;letter-spacing:.2em;color:var(--mute);margin-top:2px}
+.mailer .lab{position:absolute;left:30px;top:110px;background:#fff;border-radius:4px;padding:12px 16px;font-size:12.5px;line-height:1.45;box-shadow:0 1px 4px rgba(0,0,0,.12);transform:rotate(-1.5deg)}
+.mailer .lab b{font-size:14px}
+.mailer .tap{position:absolute;left:0;right:0;bottom:18px;text-align:center;font:700 11px Inter;letter-spacing:.14em;color:var(--g2);animation:pl 1.8s infinite}
+@keyframes pl{50%{opacity:.35}}
+body:not([data-step="0"]) .mailer{transform:translateY(720px) rotate(4deg);opacity:0}
+/* cheque */
+.chw{left:6px;top:150px;width:428px;height:230px;perspective:1600px}
+body[data-step="0"] .chw{opacity:0;transform:translateY(60px)}
+.chi{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.4,.1,.2,1)}
+body[data-step="2"] .chi,body[data-step="3"] .chi{transform:rotateY(180deg)}
+.cf,.cb{position:absolute;inset:0;border-radius:10px;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;box-shadow:0 24px 50px rgba(0,0,0,.45);color:var(--ink)}
+.cf{background:linear-gradient(135deg,#f6fbf1,#e8f5dd);padding:14px 18px}
+.cf::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg,rgba(10,145,80,.06) 0 1px,transparent 1px 7px)}
+.cf>*{position:relative}
+.r1{display:flex;justify-content:space-between;font-size:10px;color:var(--mute);line-height:1.4}
+.r1 b{color:var(--ink);font-size:11.5px}
+.bank{font:800 11px Inter;letter-spacing:.16em;color:var(--g2)}
+.fld{display:flex;align-items:flex-end;gap:8px;margin-top:10px;font-size:9.5px;color:var(--mute);text-transform:uppercase;letter-spacing:.08em}
+.fld .v{flex:1;border-bottom:1.2px solid #8aa58f;font:700 21px/1.1 Caveat;color:var(--pen);text-transform:none;letter-spacing:0;padding:0 4px 1px;white-space:nowrap;overflow:hidden;clip-path:inset(0 100% 0 0);transition:clip-path 1.1s steps(28)}
+body:not([data-step="0"]) .fld .v{clip-path:inset(0 0 0 0)}
+.fld .v.d2{transition-delay:.9s}.fld .v.d3{transition-delay:1.8s}
+.box{border:1.2px solid #8aa58f;border-radius:4px;padding:2px 8px;font:700 18px Caveat;color:var(--pen);background:#fff}
+.sig{position:absolute;right:20px;bottom:12px;width:150px;text-align:center;font-size:9px;color:var(--mute);letter-spacing:.08em;border-top:1.2px solid #8aa58f;padding-top:3px}
+.sig svg{position:absolute;left:10px;bottom:16px;width:130px;height:44px}
+.sig path{fill:none;stroke:var(--pen);stroke-width:2.4;stroke-linecap:round;stroke-dasharray:420;stroke-dashoffset:420;transition:stroke-dashoffset 1.4s 2.6s ease}
+body:not([data-step="0"]) .sig path{stroke-dashoffset:0}
+.cb{transform:rotateY(180deg);background:#f6fbf1;padding:16px 20px}
+.cb .k{font:800 10px Inter;letter-spacing:.16em;color:var(--g2)}
+.cb .end{font:700 20px Caveat;color:var(--pen);border-bottom:1.2px solid #8aa58f;margin:4px 0 10px;padding-bottom:2px}
+.cb .row{display:flex;gap:10px;font-size:11.5px;line-height:1.4;padding:4px 0}
+.cb .row b{min-width:78px;color:var(--g);font-size:10.5px}
+.dep{position:absolute;right:12px;top:148px;border:4px double var(--g2);color:var(--g2);border-radius:8px;padding:5px 10px;font:900 16px Inter;letter-spacing:.12em;transform:scale(2.2) rotate(-10deg);opacity:0;transition:all .3s cubic-bezier(.3,1.6,.5,1);mix-blend-mode:multiply}
+.dep span{display:block;font:700 8px Inter;letter-spacing:.2em;text-align:center}
+body.done .dep{transform:scale(1) rotate(-10deg);opacity:.9}
+body.done .chw{transform:translateY(-50px)}
+</style>
+</head>
+<body>
+<div class="m-top"><div class="b">Durva <i>for</i> Venn</div><a href="/venn/">Skip to the full plan →</a></div>
+
+<div id="stage">
+  <div class="sc chw" data-next="1"><div class="chi">
+    <div class="cf">
+      <div class="r1"><div><b>Durva Thakkar</b><br>Ontario, Canada</div><div class="bank">THE BANK OF FIRST HIRES</div><div style="text-align:right">No. 0001<br>Date <b>2026-10-22</b></div></div>
+      <div class="fld">Pay to the<br>order of<div class="v">Venn</div><span class="box">Full time</span></div>
+      <div class="fld"><div class="v d2">One content marketer, ready to build from day one</div></div>
+      <div class="fld">Memo<div class="v d3" style="font-size:17px">Newsletter · SEO guides · webinars for accountants</div></div>
+      <div class="sig"><svg viewBox="0 0 130 44"><path d="M6 30 C14 6 22 6 20 30 C19 38 30 24 34 20 C36 30 40 32 46 22 C50 16 52 30 58 26 C64 22 66 14 70 28 C74 36 82 18 90 22 C98 26 104 30 124 16"/></svg>Authorized signature</div>
+    </div>
+    <div class="cb">
+      <div class="k">ENDORSE HERE</div><div class="end">For deposit only: the Venn marketing team</div>
+      <div class="row"><b>Days 1 to 30</b><span>Launch the newsletter and connect the sign-up on the site</span></div>
+      <div class="row"><b>Days 31 to 60</b><span>SEO guides on USD accounts and cross-border banking</span></div>
+      <div class="row"><b>Days 61 to 90</b><span>A webinar series for accountants, clipped for Venn Academy</span></div>
+      <div class="dep">DEPOSITED<span>VENN · 2026</span></div>
+    </div>
+  </div></div>
+
+  <div class="sc mailer" data-next="0"><div class="dnb">DO NOT BEND<small>PHOTOS · DOCUMENTS · CHEQUE ENCLOSED</small></div><div class="lab"><b>Venn Marketing Team</b><br>Venn<br>Toronto, Ontario</div><div class="tap">TAP TO OPEN</div></div>
+
+  <div class="m-final"><img src="qr.svg" alt="QR code to the full plan"><div><p>Cheque deposited. The full plan is here:</p><div class="u">durvathakkar.com/venn</div><a class="go" href="/venn/">Open the full plan</a></div></div>
+</div>
+
+<div class="m-hint" id="hint"></div>
+<div class="m-ctrl"><button id="prev">← Back</button><span id="pos"></span><button class="p" id="next">Next →</button></div>
+
+<script>
+window.MAIL={hints:["A rigid mailer arrived: do not bend. Tap to open it.","A cheque, made out to Venn. Tap it to flip it over.","Endorsed for the Venn marketing team: the first 90 days.","Deposited. Scan the QR or open the full plan."]};
+</script>
+<script src="/assets/mail/base.js"></script>
+</body>
+</html>

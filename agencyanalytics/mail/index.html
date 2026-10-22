@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A report for AgencyAnalytics · Durva Thakkar</title>
+<meta name="description" content="The digital version of the report Durva Thakkar mailed to AgencyAnalytics: a monthly report on her first 90 days, styled like an agency dashboard.">
+<meta property="og:title" content="Monthly report: Durva's first 90 days at AgencyAnalytics">
+<meta property="og:description" content="Open the folder and flip through the report. By Durva Thakkar.">
+<meta property="og:image" content="https://durvathakkar.com/agencyanalytics/mail/share.jpg?v=1">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/mail/base.css">
+<style>
+:root{--m-bg:#0b1e3a;--m-bg2:#163463;--m-accent:#ffe02a;--m-on-accent:#0b1e3a;--m-font:"DM Sans",system-ui,sans-serif;--navy:#004794;--ink:#13233d;--mute:#6b7787;--line:#e3e8ef;--ok:#16a34a}
+h1,h2,h3,.g{font-family:"Geologica",sans-serif}
+/* folder */
+.folder{left:24px;top:30px;width:392px;height:540px;border-radius:10px;background:linear-gradient(135deg,rgba(255,255,255,.28),rgba(255,255,255,.08) 40%,rgba(255,255,255,.18));border:1px solid rgba(255,255,255,.45);box-shadow:0 30px 60px rgba(0,0,0,.45);z-index:5;backdrop-filter:blur(1.5px)}
+.folder::after{content:"";position:absolute;left:0;right:0;top:0;height:30px;border-bottom:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.12)}
+.sticky{position:absolute;right:20px;top:60px;width:150px;height:130px;background:#ffe02a;color:#13233d;padding:14px;font:600 22px/1.15 "Caveat",cursive;transform:rotate(4deg);box-shadow:0 6px 14px rgba(0,0,0,.25);z-index:6}
+.tap{position:absolute;left:0;right:0;bottom:22px;text-align:center;font:600 12px "DM Sans";letter-spacing:.14em;color:#fff;opacity:.8;animation:pl 1.8s infinite}
+@keyframes pl{50%{opacity:.35}}
+body:not([data-step="0"]) .folder{transform:translate(-30px,640px) rotate(-8deg);opacity:0}
+/* report pages */
+.pg{left:30px;top:36px;width:380px;height:530px;background:#fff;color:var(--ink);border-radius:6px;box-shadow:0 24px 50px rgba(0,0,0,.45);overflow:hidden;transform-origin:left center}
+.pg.past{transform:translateX(-520px) rotate(-10deg);opacity:0}
+.pg.future{transform:translateY(8px) scale(.98)}
+.hd{background:var(--navy);color:#fff;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;font-size:10.5px}
+.hd b{font:600 13px "Geologica"}
+.hd span{opacity:.75}
+.bd{padding:16px}
+.pn{position:absolute;bottom:10px;right:14px;font-size:10px;color:var(--mute)}
+.ft{position:absolute;bottom:10px;left:16px;font-size:9.5px;color:var(--mute)}
+h2{font-size:19px;font-weight:600;margin:2px 0 10px;color:var(--ink)}
+.lbl{font:600 9.5px "DM Sans";letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tile{border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.tile b{display:block;font:600 24px "Geologica";color:var(--ink);margin-top:2px}
+.tile span{font-size:10.5px;color:var(--mute)}
+.tile i{float:right;font-style:normal;font-size:9px;font-weight:700;color:var(--navy);background:#e8f0fb;border-radius:4px;padding:2px 5px}
+.bars{display:flex;align-items:flex-end;gap:6px;height:70px;margin-top:8px}
+.bars div{flex:1;background:#cfe0f5;border-radius:3px 3px 0 0}
+.bars div.y{background:var(--navy)}
+.row{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);font-size:12px}
+.row b{font-weight:600}
+.chip{display:inline-block;font-size:9.5px;font-weight:600;padding:2px 7px;border-radius:999px;background:#e8f0fb;color:var(--navy);margin:2px 3px 0 0}
+.chip.g{background:#e7f6ec;color:var(--ok)}
+.note{background:#f6f8fb;border-radius:8px;padding:10px 12px;font-size:11.5px;line-height:1.45;margin-top:10px}
+.cover{height:100%;display:flex;flex-direction:column;justify-content:space-between;padding:26px 24px 40px;background:linear-gradient(160deg,#fff 55%,#eef4fc)}
+.cover h1{font-size:34px;line-height:1.05;font-weight:700;color:var(--ink)}
+.cover h1 em{font-style:normal;color:var(--navy)}
+.cover .meta div{display:flex;justify-content:space-between;font-size:11.5px;padding:7px 0;border-bottom:1px solid var(--line)}
+.cover .meta b{font-weight:600}
+.donut{width:84px;height:84px;border-radius:50%;background:conic-gradient(var(--navy) 0 72%,#ffe02a 72% 100%);display:grid;place-items:center}
+.donut::after{content:"90";width:56px;height:56px;border-radius:50%;background:#fff;display:grid;place-items:center;font:700 20px "Geologica";color:var(--ink)}
+.qrw{display:flex;gap:12px;align-items:center;margin-top:12px;border:1px solid var(--line);border-radius:10px;padding:10px}
+.qrw img{width:88px;height:88px}
+.qrw p{font-size:11.5px;line-height:1.45}
+.qrw a{display:inline-block;margin-top:6px;background:var(--navy);color:#fff;font-weight:600;font-size:11.5px;padding:6px 12px;border-radius:999px;text-decoration:none}
+.sig{font:600 24px "Caveat";color:var(--navy)}
+</style>
+</head>
+<body>
+<div class="m-top"><div class="b">Durva <i>for</i> AgencyAnalytics</div><a href="/agencyanalytics/">Skip to the full plan →</a></div>
+
+<div id="stage">
+  <!-- pages (bottom of stack first) -->
+  <div class="sc pg" data-p="6"><div class="hd"><b>Next 90 days</b><span>Page 6 of 6</span></div><div class="bd">
+    <div class="lbl">What I'd build next</div>
+    <div class="row"><span>Turn the benchmarks report into a quarterly webinar</span><b>Months 4 to 6</b></div>
+    <div class="row"><span>Customer story videos, cut into clips for YouTube</span><b>Months 4 to 6</b></div>
+    <div class="row"><span>A newsletter sign-up on every blog post and template</span><b>Months 4 to 6</b></div>
+    <div class="row"><span>Monthly report on what content drives trials</span><b>Ongoing</b></div>
+    <div class="note">Agencies send their clients a report every month. This is mine, for my first 90 days with your team. Everything above is a plan and a set of goals, not a result yet. <span class="sig">Durva</span></div>
+    <div class="qrw"><img src="qr.svg" alt="QR code to the full plan"><div><p>Scan for the full plan, or visit<br><b>durvathakkar.com/agencyanalytics</b></p><a href="/agencyanalytics/">Open the full plan</a></div></div>
+  </div><div class="pn">6</div></div>
+
+  <div class="sc pg" data-p="5"><div class="hd"><b>Content refresh + AI search</b><span>Page 5 of 6</span></div><div class="bd">
+    <h2>20 posts, refreshed to rank and to be quoted</h2>
+    <div class="lbl">Every refreshed post gets</div>
+    <div class="row"><span>A visible "last updated" date</span><b>✓</b></div>
+    <div class="row"><span>A short answer box at the top for AI search</span><b>✓</b></div>
+    <div class="row"><span>FAQ schema and question-style headings</span><b>✓</b></div>
+    <div class="row"><span>Links to the KPI definitions and templates</span><b>✓</b></div>
+    <div class="row"><span>A newsletter sign-up</span><b>✓</b></div>
+    <div class="lbl" style="margin-top:12px">Posts refreshed per month (goal)</div>
+    <div class="bars"><div style="height:60%"></div><div style="height:80%"></div><div class="y" style="height:80%"></div></div>
+    <div style="display:flex;justify-content:space-around;font-size:10px;color:var(--mute);margin-top:4px"><span>Month 1 · 6</span><span>Month 2 · 7</span><span>Month 3 · 7</span></div>
+  </div><div class="pn">5</div></div>
+
+  <div class="sc pg" data-p="4"><div class="hd"><b>Newsletter</b><span>Page 4 of 6</span></div><div class="bd">
+    <h2>A monthly newsletter, built from your benchmarks</h2>
+    <p style="font-size:12px;line-height:1.5;color:#334">Your 2026 Agency Benchmarks Report is full of numbers agencies care about. One newsletter issue a month turns one finding into a short story with a takeaway.</p>
+    <div class="lbl" style="margin-top:12px">Issue #1 outline</div>
+    <div class="row"><span>One benchmark, explained in 3 lines</span><b>Lead</b></div>
+    <div class="row"><span>How one agency uses it with clients</span><b>Story</b></div>
+    <div class="row"><span>A template to try this week</span><b>Tool</b></div>
+    <div class="row"><span>Next webinar invite</span><b>CTA</b></div>
+    <div class="tiles" style="margin-top:12px"><div class="tile"><i>GOAL</i><span>Issues sent</span><b>3</b></div><div class="tile"><i>GOAL</i><span>New subscribers</span><b>+1,200</b></div></div>
+  </div><div class="pn">4</div></div>
+
+  <div class="sc pg" data-p="3"><div class="hd"><b>Webinars</b><span>Page 3 of 6</span></div><div class="bd">
+    <h2>Agency Owner Office Hours</h2>
+    <p style="font-size:12px;line-height:1.5;color:#334">A monthly live session with agency owners. Each one becomes a blog post, short clips and a newsletter story.</p>
+    <div class="row"><span><b>Ep 1</b> · Reports clients actually read</span><span class="chip">Month 1</span></div>
+    <div class="row"><span><b>Ep 2</b> · What the 2026 benchmarks mean for you</span><span class="chip">Month 2</span></div>
+    <div class="row"><span><b>Ep 3</b> · AI insights, with the human touch</span><span class="chip">Month 3</span></div>
+    <div class="lbl" style="margin-top:12px">Each episode becomes</div>
+    <div><span class="chip g">1 blog post</span><span class="chip g">4 short clips</span><span class="chip g">1 newsletter story</span><span class="chip g">LinkedIn posts</span></div>
+    <div class="lbl" style="margin-top:12px">Registrations per episode (goal)</div>
+    <div class="bars"><div style="height:45%"></div><div style="height:65%"></div><div class="y" style="height:85%"></div></div>
+  </div><div class="pn">3</div></div>
+
+  <div class="sc pg" data-p="2"><div class="hd"><b>Summary</b><span>Page 2 of 6</span></div><div class="bd">
+    <h2>90 days at a glance</h2>
+    <div class="tiles">
+      <div class="tile"><i>GOAL</i><span>Webinars launched</span><b>3</b></div>
+      <div class="tile"><i>GOAL</i><span>Newsletter issues</span><b>3</b></div>
+      <div class="tile"><i>GOAL</i><span>New subscribers</span><b>+1,200</b></div>
+      <div class="tile"><i>GOAL</i><span>Blog posts refreshed</span><b>20</b></div>
+      <div class="tile"><i>GOAL</i><span>Video clips published</span><b>12</b></div>
+      <div class="tile"><i>GOAL</i><span>Posts with answer boxes</span><b>20</b></div>
+    </div>
+    <div class="note">All numbers are goals for my first 90 days. In a real report I'd swap each one for the actual result and what I learned.</div>
+  </div><div class="pn">2</div></div>
+
+  <div class="sc pg" data-p="1"><div class="cover">
+    <div><div class="lbl">Monthly report</div><h1 style="margin-top:10px">Durva's first <em>90 days</em> at AgencyAnalytics</h1></div>
+    <div style="display:flex;justify-content:space-between;align-items:center"><div class="donut"></div><div style="font-size:11.5px;color:var(--mute);max-width:200px;line-height:1.45">Webinars, a newsletter built from your benchmarks data, video, and 20 refreshed posts.</div></div>
+    <div class="meta"><div><span>Prepared for</span><b>The AgencyAnalytics marketing team</b></div><div><span>Prepared by</span><b>Durva Thakkar</b></div><div><span>Reporting period</span><b>Days 1 to 90</b></div></div>
+  </div><div class="pn">1</div></div>
+
+  <!-- folder on top -->
+  <div class="sc folder" data-next="0"><div class="sticky">Report for your next hire</div><div class="tap">TAP TO OPEN THE FOLDER</div></div>
+</div>
+
+<div class="m-hint" id="hint"></div>
+<div class="m-ctrl"><button id="prev">← Back</button><span id="pos"></span><button class="p" id="next">Next →</button></div>
+
+<script>
+window.MAIL={hints:["A clear folder arrived with a sticky note on it. Tap to take the report out.","Page 1: the cover. Tap the page or Next to turn it.","Page 2: the summary.","Page 3: a webinar series.","Page 4: a newsletter built from your benchmarks report.","Page 5: refreshing posts for search and AI.","Page 6: the next 90 days, with a QR code to the full plan."],
+onStep:function(i){document.querySelectorAll('.pg').forEach(function(p){var k=+p.dataset.p;p.classList.toggle('past',i>0&&k<i);p.classList.toggle('future',k>i||i===0);p.dataset.next=(k===i&&i<6)?i:'';});}};
+</script>
+<script src="/assets/mail/base.js"></script>
+</body>
+</html>

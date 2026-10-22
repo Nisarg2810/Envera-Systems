@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Runner #4 for Lane Four · Durva Thakkar</title>
+<meta name="description" content="The digital version of the box Durva Thakkar mailed to Lane Four: a race bib for runner #4, a run down lane four, and a finisher medal.">
+<meta property="og:title" content="Ready to run in lane four.">
+<meta property="og:description" content="Pin the bib, run the lane, collect the medal. By Durva Thakkar.">
+<meta property="og:image" content="https://durvathakkar.com/lanefour/mail/share.jpg?v=1">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/mail/base.css">
+<style>
+:root{--m-bg:#111;--m-bg2:#2a1a14;--m-accent:#ff5c39;--m-on-accent:#fff;--m-font:"Inter",system-ui,sans-serif;--o:#ff5c39;--ink:#111;--mute:#666}
+/* mailer */
+.mailer{left:40px;top:170px;width:360px;height:260px;z-index:8;border-radius:10px;background:var(--o);box-shadow:0 30px 60px rgba(0,0,0,.5);background-image:radial-gradient(rgba(255,255,255,.12) 2px,transparent 2.5px);background-size:14px 14px}
+.mailer .lab{position:absolute;left:30px;top:70px;background:#fff;color:var(--ink);border-radius:4px;padding:12px 16px;font-size:12.5px;line-height:1.45;transform:rotate(-2deg)}
+.mailer .lab b{font-size:14px}
+.mailer .tap{position:absolute;left:0;right:0;bottom:18px;text-align:center;font:700 11px Inter;letter-spacing:.14em;color:#fff;animation:pl 1.8s infinite}
+@keyframes pl{50%{opacity:.35}}
+body:not([data-step="0"]) .mailer{transform:translateY(720px) rotate(5deg);opacity:0}
+/* bib */
+.bib{left:30px;top:70px;width:380px;height:300px;background:#fbfbfb;color:var(--ink);border-radius:10px;box-shadow:0 24px 50px rgba(0,0,0,.45);overflow:hidden;z-index:6}
+.bib .band{background:var(--o);color:#fff;display:flex;justify-content:space-between;align-items:center;padding:10px 18px;font:800 13px Inter;letter-spacing:.16em}
+.bib .num{text-align:center;font:900 150px/1 Inter;letter-spacing:-.04em;margin-top:6px}
+.bib .nm{text-align:center;font:800 20px Inter;letter-spacing:.06em}
+.bib .sub{text-align:center;font-size:11.5px;color:var(--mute);margin-top:4px}
+.bib .tear{position:absolute;left:0;right:0;bottom:0;height:34px;border-top:2px dashed #ccc;display:flex;justify-content:space-between;align-items:center;padding:0 18px;font:700 10px Inter;letter-spacing:.12em;color:var(--mute)}
+.pin{position:absolute;width:44px;height:12px;z-index:7;opacity:0;transition:all .45s cubic-bezier(.3,1.5,.5,1)}
+.pin::before{content:"";position:absolute;left:0;top:4px;width:36px;height:3px;background:linear-gradient(#ddd,#999);border-radius:2px}
+.pin::after{content:"";position:absolute;left:30px;top:0;width:12px;height:11px;border:2.5px solid #aaa;border-radius:50%}
+body[data-step="0"] .bib{opacity:0;transform:translateY(40px)}
+body[data-step="1"] .pin,body[data-step="2"] .pin,body[data-step="3"] .pin{opacity:1}
+.pin.a{left:40px;top:112px;transform:rotate(-20deg)}.pin.b{left:356px;top:112px;transform:rotate(200deg)}.pin.c{left:40px;top:344px;transform:rotate(20deg)}.pin.d{left:356px;top:344px;transform:rotate(160deg)}
+body[data-step="0"] .pin{transform:translateY(-80px)}
+body[data-step="2"] .bib,body[data-step="3"] .bib,body[data-step="2"] .pin,body[data-step="3"] .pin{transform:translateY(-120px) scale(.55);opacity:0}
+/* track */
+.track{left:20px;top:150px;width:400px;height:380px;border-radius:18px;background:#b5442c;overflow:hidden;opacity:0;transform:translateY(40px);box-shadow:0 24px 50px rgba(0,0,0,.45)}
+body[data-step="2"] .track,body[data-step="3"] .track{opacity:1;transform:none}
+.lanes{position:absolute;inset:0;display:grid;grid-template-columns:repeat(5,1fr)}
+.lanes div{border-right:2px solid rgba(255,255,255,.75);position:relative}
+.lanes div span{position:absolute;bottom:8px;left:0;right:0;text-align:center;font:900 22px Inter;color:rgba(255,255,255,.85)}
+.lanes div.me{background:rgba(255,255,255,.12)}
+.cp{position:absolute;left:12px;width:218px;background:#fff;color:var(--ink);border-radius:8px;padding:7px 9px;font-size:11px;line-height:1.35;box-shadow:0 4px 10px rgba(0,0,0,.25);opacity:.25;transition:opacity .3s}
+.cp b{color:var(--o);font-size:10px;letter-spacing:.1em;display:block}
+.cp.hit{opacity:1}
+.runner{position:absolute;left:269px;bottom:40px;width:22px;height:22px;border-radius:50%;background:#fff;border:4px solid var(--ink);box-shadow:0 0 0 4px rgba(255,255,255,.4);transition:bottom 2.6s linear}
+body[data-step="2"] .runner,body[data-step="3"] .runner{bottom:330px}
+.finish{position:absolute;left:0;right:0;top:14px;height:12px;background:repeating-linear-gradient(90deg,#fff 0 12px,#111 12px 24px)}
+/* medal */
+.medal{left:150px;top:-260px;width:140px;z-index:9;opacity:0;transition:top 1s cubic-bezier(.3,1.4,.5,1),opacity .2s}
+.medal .rib{width:46px;height:110px;margin:0 auto;background:linear-gradient(90deg,var(--o) 0 50%,#111 50%);clip-path:polygon(0 0,100% 0,100% 100%,50% 85%,0 100%)}
+.medal .disc{width:120px;height:120px;margin:-14px auto 0;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffe7a3,#e0a82e 55%,#b07a12);display:grid;place-items:center;text-align:center;color:#5a3d00;box-shadow:0 10px 24px rgba(0,0,0,.4);transform-origin:50% -60px;animation:sw 2.4s ease-in-out infinite}
+.medal .disc b{display:block;font:900 30px Inter}
+.medal .disc span{font:800 9px Inter;letter-spacing:.14em}
+@keyframes sw{50%{transform:rotate(6deg)}}
+body.done .medal{top:20px;opacity:1}
+body.done .track{transform:translateY(-10px) scale(.92);opacity:.35}
+</style>
+</head>
+<body>
+<div class="m-top"><div class="b">Durva <i>for</i> Lane Four</div><a href="/lanefour/">Skip to the full plan →</a></div>
+
+<div id="stage">
+  <div class="sc track"><div class="lanes"><div><span>1</span></div><div><span>2</span></div><div><span>3</span></div><div class="me"><span>4</span></div><div><span>5</span></div></div><div class="finish"></div>
+    <div class="cp" style="bottom:56px"><b>KM 1</b>Case studies with real outcomes from your clients</div>
+    <div class="cp" style="bottom:126px"><b>KM 2</b>A monthly RevOps newsletter</div>
+    <div class="cp" style="bottom:196px"><b>KM 3</b>A webinar series with your Salesforce experts</div>
+    <div class="cp" style="bottom:266px"><b>KM 4</b>A LinkedIn plan to grow your experts' reach</div>
+    <div class="runner"></div>
+  </div>
+
+  <div class="sc bib" data-next="1"><div class="band"><span>LANE FOUR</span><span>2026</span></div><div class="num">4</div><div class="nm">DURVA THAKKAR</div><div class="sub">Content marketer · Ready to run in lane four</div><div class="tear"><span>RUNNER #4</span><span>TAP TO START →</span></div></div>
+  <div class="sc pin a"></div><div class="sc pin b"></div><div class="sc pin c"></div><div class="sc pin d"></div>
+
+  <div class="sc mailer" data-next="0"><div class="lab"><b>Lane Four Marketing</b><br>Race kit enclosed<br>Toronto, Ontario</div><div class="tap">TAP TO OPEN YOUR RACE KIT</div></div>
+
+  <div class="sc medal"><div class="rib"></div><div class="disc"><div><b>4</b><span>FINISHER</span></div></div></div>
+
+  <div class="m-final"><img src="qr.svg" alt="QR code to the full plan"><div><p>Race complete. The full plan is here:</p><div class="u">durvathakkar.com/lanefour</div><a class="go" href="/lanefour/">Open the full plan</a></div></div>
+</div>
+
+<div class="m-hint" id="hint"></div>
+<div class="m-ctrl"><button id="prev">← Back</button><span id="pos"></span><button class="p" id="next">Next →</button></div>
+
+<script>
+var cps=[].slice.call(document.querySelectorAll('.cp')),tm=[];
+window.MAIL={hints:["A race kit arrived. Tap to open it.","Runner #4, pinned and ready. Tap the bib to start the race.","Running lane four: four checkpoints, four things I'd build.","Finished. Scan the QR or open the full plan."],
+onStep:function(i,fast){tm.forEach(clearTimeout);tm=[];cps.forEach(function(c,k){if(i>=2){if(fast||i===3)c.classList.add('hit');else tm.push(setTimeout(function(){c.classList.add('hit')},300+k*620));}else c.classList.remove('hit');});}};
+</script>
+<script src="/assets/mail/base.js"></script>
+</body>
+</html>
