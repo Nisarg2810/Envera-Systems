@@ -497,6 +497,163 @@ section:not(.light) .why div b{color:var(--gold)}
 .frames button{background-size:cover!important;background-position:center!important}
 .frames button .fc,.frames button .fb{display:none}
 @media (max-width:980px){.feedw{grid-template-columns:1fr}}
+
+/* ===== v3: IG profile, reel video, linkedin, blog ===== */
+.feedw{grid-template-columns:470px 1fr!important}
+.igp{background:#fff;color:#111;border-radius:28px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.18);border:1px solid #e6dcc8;font-family:-apple-system,"Segoe UI",Outfit,sans-serif}
+.igp-bar{display:flex;justify-content:space-between;align-items:center;padding:14px 16px 6px;font-size:16px}
+.igp-bar b{font-weight:700}
+.igp-head{display:flex;align-items:center;gap:22px;padding:10px 16px}
+.igp-av{width:86px;height:86px;border-radius:50%;padding:3px;background:linear-gradient(45deg,#d3ac6a,#956f3d 40%,#733f41 70%,#4c1a1b);flex-shrink:0}
+.igp-av i{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;border-radius:50%;background:#151314;color:#fff;border:3px solid #fff;font-style:normal}
+.igp-av svg{width:34px}
+.igp-av b{font:600 11px/1.05 Outfit;margin-top:3px;text-align:left}
+.igp-st{display:flex;flex:1;justify-content:space-around;text-align:center}
+.igp-st b{display:block;font-size:17px;font-weight:700}
+.igp-st span{font-size:12.5px;color:#444}
+.igp-bio{padding:2px 16px 8px;font-size:13.5px;line-height:1.4}
+.igp-bio p{margin:2px 0}
+.igp-bio a{color:#00376b;font-weight:600}
+.igp-btn{display:flex;gap:6px;padding:4px 16px 12px}
+.igp-btn span{flex:1;text-align:center;background:#efefef;border-radius:8px;padding:7px;font-size:13px;font-weight:600}
+.igp-btn .f{background:#0095f6;color:#fff}
+.igp-hl{display:flex;gap:14px;padding:4px 16px 14px;overflow:hidden}
+.hl{text-align:center;font-size:11px;width:62px}
+.hl i{display:grid;place-items:center;width:58px;height:58px;border-radius:50%;color:#f6e7c8;font:500 15px "Crimson Pro";font-style:normal;border:3px solid #fff;box-shadow:0 0 0 1px #dbdbdb;margin:0 auto 4px}
+.igp-tabs{display:flex;border-top:1px solid #dbdbdb}
+.igp-tabs span{flex:1;display:grid;place-items:center;padding:9px 0;color:#999}
+.igp-tabs span.on{color:#111;border-bottom:1.5px solid #111}
+.igp-tabs svg{width:22px;height:22px}
+.igp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.igt{all:unset;cursor:pointer;position:relative;display:block;aspect-ratio:4/5;overflow:hidden}
+.igt .bpp{position:absolute;inset:0;aspect-ratio:auto;height:100%}
+.igt .ico{position:absolute;top:6px;right:6px;width:16px;height:16px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.5))}
+.igt:hover::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.15)}
+.igm{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;place-items:center;z-index:80;padding:16px}
+.igm.on{display:grid}
+.igm-in{background:#fff;color:#111;border-radius:10px;overflow:hidden;display:grid;grid-template-columns:min(440px,60vh) 300px;max-width:100%;position:relative}
+.igm-p .bpp{width:100%}
+.igm-c{padding:16px;display:flex;flex-direction:column;font-size:13.5px;line-height:1.5;border-left:1px solid #eee}
+.igm-h{display:flex;align-items:center;gap:8px;margin-bottom:10px;font-size:14px}
+.igm-av{width:30px;height:30px;border-radius:50%;background:#151314;color:#fff;display:grid;place-items:center;flex-shrink:0}
+.igm-av svg{width:18px}
+.igm-a{margin-top:auto;font-size:20px;display:flex;gap:4px}.igm-a span{margin-left:auto}
+.igm-x{position:absolute;top:6px;right:8px;background:none;border:0;font-size:26px;cursor:pointer;color:#111;z-index:2}
+@media (max-width:760px){.igm-in{grid-template-columns:1fr;width:360px}.igm-c{border-left:0}}
+/* reel video */
+.rv{aspect-ratio:9/19.5;background:#000;color:#fff;position:relative;cursor:pointer;overflow:hidden}
+.rv-s{position:absolute;inset:0;background-size:cover;opacity:0;transition:opacity .5s;transform:scale(1.08)}
+.rv-s.on{opacity:1;animation:kb 6.4s linear forwards}
+@keyframes kb{from{transform:scale(1.18) translate(2%,1%)}to{transform:scale(1.04) translate(-1%,-1%)}}
+.rv-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,0) 22%,rgba(0,0,0,0) 45%,rgba(0,0,0,.75))}
+.rv-top{position:absolute;top:44px;left:16px;right:16px;display:flex;justify-content:space-between;font-size:16px}
+.rv-title{position:absolute;left:16px;right:60px;top:34%;}
+.rv-title em{display:block;font:italic 500 40px/1 "Crimson Pro";color:#f6e7c8}
+.rv-title b{display:block;font:700 26px/1.1 Outfit;text-shadow:0 2px 12px rgba(0,0,0,.4)}
+.rv-title.in em,.rv-title.in b{animation:up .6s cubic-bezier(.2,.9,.3,1.2) both}
+.rv-title.in b{animation-delay:.15s}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.rv-cap{position:absolute;left:16px;right:60px;bottom:150px;font:700 15px/1.35 Outfit;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.rv-cap span{opacity:.45;transition:opacity .15s,color .15s}
+.rv-cap span.on{opacity:1}
+.rv-cap span.now{color:#f6e7c8}
+.rv-side{position:absolute;right:10px;bottom:150px;display:grid;gap:14px;text-align:center;font-size:10px}
+.rv-side svg{width:26px;height:26px;display:block;margin:0 auto 2px}
+.rv-foot{position:absolute;left:14px;right:56px;bottom:34px;font-size:12px}
+.rv-u{display:flex;align-items:center;gap:8px;font-size:13px;margin-bottom:6px}
+.rv-u i{font-style:normal;border:1px solid rgba(255,255,255,.7);border-radius:6px;padding:1px 8px;font-size:12px}
+.rv-foot p{opacity:.9;margin-bottom:4px}
+.rv-au{font-size:11px;opacity:.85}
+.rv-prog{position:absolute;left:0;right:0;bottom:20px;height:3px;background:rgba(255,255,255,.3)}
+.rv-prog i{display:block;height:100%;width:0;background:#fff}
+.rv-play{position:absolute;left:50%;top:50%;width:70px;height:70px;margin:-35px 0 0 -35px;border-radius:50%;border:0;background:rgba(0,0,0,.45);color:#fff;font-size:26px;cursor:pointer;backdrop-filter:blur(4px);transition:opacity .25s}
+.rv.playing .rv-play{opacity:0;pointer-events:none}
+.rvch button{background-size:cover!important;background-position:center!important;justify-content:flex-start}
+.rvch button em{position:absolute;left:5px;right:5px;bottom:20px;font:italic 500 13px "Crimson Pro";color:#f6e7c8;text-align:center;background:none!important;padding:0!important}
+.rvch button b{position:absolute;left:4px;right:4px;bottom:5px;text-align:center;font:600 8.5px/1.1 Outfit}
+/* linkedin */
+.tabs.sub{margin:4px 0 18px}
+.tabs.sub button{font-size:13px;padding:7px 13px}
+.li2{max-width:540px;width:100%}
+.li2 .h{align-items:center}
+.lfol{margin-left:auto;color:#0a66c2;font-weight:600;font-size:13px}
+.lst{font-size:11.5px;color:#666;padding:6px 16px;border-top:1px solid #eee}
+.ldoc{position:relative;background:#f3f2ef;overflow:hidden}
+.ldoc-tr{display:flex;transition:transform .4s}
+.ldp{flex:0 0 100%;aspect-ratio:4/5;background:radial-gradient(circle at 85% 0%,rgba(115,63,65,.45),transparent 50%),#151314;color:#fff;padding:30px 28px;display:flex;flex-direction:column;container-type:inline-size}
+.ldp:nth-child(even){background:#f2e8e7;color:#2a1d1d}
+.ldp span{font:600 11px Outfit;letter-spacing:.18em;text-transform:uppercase;color:#d3ac6a}
+.ldp:nth-child(even) span{color:#733f41}
+.ldp h6{font:500 34px/1.08 "Crimson Pro";margin:auto 0 10px}
+.ldp p{font-size:15px;line-height:1.45;opacity:.9}
+.ldp i{font-style:normal;margin-top:20px;font-size:13px}
+.ldp .lg svg{width:30px;margin-right:6px;vertical-align:-1px}
+.ldoc-bar{display:flex;justify-content:space-between;align-items:center;background:#1d2226;color:#fff;padding:8px 12px;font-size:12.5px}
+.ldoc-bar button{background:#fff;border:0;border-radius:50%;width:24px;height:24px;cursor:pointer;font-weight:700}
+.ldoc-bar em{font-style:normal;margin:0 8px}
+.pdash{position:absolute;inset:0;background:#f6f8fb;padding:18px 20px;color:#151314;font-family:Outfit}
+.pdh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+.pdh b{font-size:15px}.pdh span{font-size:11px;color:#777}
+.pdr{display:grid;grid-template-columns:1.2fr 1fr auto;gap:8px;align-items:center;background:#fff;border:1px solid #e6e9ef;border-radius:8px;padding:8px 10px;margin-bottom:6px;font-size:12px}
+.pdr i{font-style:normal;font-weight:600;font-size:11px;border-radius:999px;padding:2px 8px}
+.pdr i.r{background:#fde2e2;color:#a3262e}.pdr i.a{background:#fdf0d9;color:#8a5a0a}.pdr i.g{background:#e3f2e3;color:#2f6b2f}
+.pdf{font-size:10px;color:#888;margin-top:4px}
+.gmb{position:absolute;inset:0;background:radial-gradient(circle at 80% 10%,rgba(211,172,106,.3),transparent 55%),#151314;color:#fff;display:flex;flex-direction:column;justify-content:center;padding:0 30px}
+.gm-k{font:600 11px Outfit;letter-spacing:.2em;color:#d3ac6a}
+.gm-n{font:500 90px/1 "Crimson Pro";margin:6px 0 0}
+.gm-t{font:500 24px "Crimson Pro"}
+.gm-l{margin-top:16px;font-size:13px}.gm-l .lg svg{width:30px;margin-right:6px}
+/* blog */
+.blogw{display:grid;grid-template-columns:1.25fr .75fr;gap:30px;align-items:start}
+.brw{background:#fff;border-radius:14px;overflow:hidden;border:1px solid #e6dcc8;box-shadow:0 30px 60px rgba(0,0,0,.15)}
+.brw-bar{display:flex;align-items:center;gap:6px;background:#efebe3;padding:10px 12px}
+.brw-bar i{width:10px;height:10px;border-radius:50%;background:#d8d1c3}
+.brw-bar span{margin-left:10px;flex:1;background:#fff;border-radius:999px;padding:4px 12px;font-size:12px;color:#666}
+.brw-in{height:820px;overflow-y:auto;background:#fffcf7}
+.bh{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:16px;background:#151314;color:#fff;padding:12px 24px;font-size:12.5px}
+.bh-lg .lg{display:inline-flex;gap:6px;align-items:center;font:600 15px Outfit}.bh-lg svg{width:30px}
+.bh-nav{opacity:.75;margin-left:auto}
+.bh-cta{background:#fffcf2;color:#151314;border-radius:999px;padding:6px 12px;font-weight:600}
+.art{max-width:640px;margin:0 auto;padding:34px 28px 50px;color:#221d1a;font-family:Outfit}
+.art-k span{display:inline-block;font:600 11px Outfit;letter-spacing:.1em;text-transform:uppercase;background:#f2e8e7;color:#733f41;border-radius:999px;padding:4px 10px;margin-right:6px}
+.art h1{font:500 40px/1.08 "Crimson Pro";margin:14px 0 10px;color:#151314}
+.art-meta{font-size:13px;color:#7a716a}
+.art-hero{height:280px;border-radius:12px;background-size:cover;background-position:center 40%;margin:20px 0}
+.art-ans{background:#151314;color:#fffcf2;border-radius:12px;padding:18px 20px;font-size:15px;line-height:1.6}
+.art-ans b{display:block;color:#d3ac6a;font:600 11px Outfit;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px}
+.toc{border:1px solid #e6dcc8;border-radius:12px;padding:14px 18px;margin:20px 0;font-size:14px}
+.toc ol{padding-left:20px;margin-top:6px;columns:2}
+.art h2{font:500 28px/1.15 "Crimson Pro";margin:34px 0 10px;color:#151314}
+.art p,.art li{font-size:16px;line-height:1.7}
+.art p{margin:10px 0}
+.art ul{padding-left:22px}
+.art li{margin:6px 0}
+.atbl{overflow-x:auto;margin:14px 0}
+.atbl table{min-width:520px;border:1px solid #e6dcc8;border-radius:10px;overflow:hidden}
+.atbl th{background:#4c1a1b;color:#fff;font:600 11px Outfit;letter-spacing:.06em;text-transform:none;padding:10px}
+.atbl td{font-size:13.5px;line-height:1.45;padding:10px;border-color:#efe6d6}
+.atbl tr:nth-child(even) td{background:#faf5ec}
+.tip{background:#f2e8e7;border-left:4px solid #733f41;border-radius:0 10px 10px 0;padding:12px 16px;font-size:15px;margin:14px 0}
+.chk{list-style:none;padding-left:0!important}
+.chk li{padding-left:28px;position:relative}
+.chk li::before{content:"✓";position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:#455841;color:#fff;font-size:12px;display:grid;place-items:center}
+.acta{display:flex;gap:16px;align-items:center;justify-content:space-between;background:linear-gradient(120deg,#4c1a1b,#733f41);color:#fff;border-radius:14px;padding:20px 22px;margin:18px 0}
+.acta b{font:500 22px "Crimson Pro"}
+.acta p{font-size:14px;opacity:.9;margin:4px 0 0}
+.acta span{background:#fffcf2;color:#151314;border-radius:999px;padding:10px 16px;font-weight:600;font-size:13.5px;white-space:nowrap}
+.faq details{border-bottom:1px solid #e6dcc8;padding:12px 0}
+.faq summary{cursor:pointer;font-weight:600;font-size:16px}
+.rel{margin:26px 0 14px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.rel b{width:100%;font:500 20px "Crimson Pro"}
+.rel span{border:1px solid #e6dcc8;border-radius:999px;padding:6px 12px;font-size:13px}
+.disc{font-size:12.5px!important;color:#7a716a;border-top:1px solid #e6dcc8;padding-top:14px}
+.blog-side{position:sticky;top:80px}
+.blog-side h3{font-size:28px;margin:8px 0}
+.mini-t{width:100%;font-size:13px;background:#fff;border:1px solid #e6dcc8;border-radius:12px;overflow:hidden}
+.mini-t td{padding:9px 12px;border-bottom:1px solid #f0e8d8;vertical-align:top}
+.mini-t td:first-child{color:#956f3d;font-weight:600;width:38%}
+@media (max-width:980px){.feedw{grid-template-columns:1fr!important}.blogw{grid-template-columns:1fr}.blog-side{position:static}.brw-in{height:640px}.toc ol{columns:1}}
+@media (max-width:640px){.art h1{font-size:30px}.art-hero{height:180px}.acta{flex-direction:column;align-items:flex-start}.bh-nav{display:none}.igp-head{gap:12px}.igp-av{width:72px;height:72px}}
 </style>
 </head>
 <body>
@@ -576,22 +733,49 @@ section:not(.light) .why div b{color:var(--gold)}
 <section class="s light" id="content" style="background:var(--cream2)"><div class="w">
   <div class="sh"><div><div class="num">01</div><div class="eyebrow">Content creation</div></div><div>
     <h2>Posts, videos and emails I made for you</h2>
-    <p class="lede2">Seven finished pieces, designed to match the @borderpassclub Instagram and borderpass.ai. Each one is for a real audience and points to a real BorderPass page. A lawyer would check every immigration fact before anything goes live.</p>
+    <p class="lede2">Instagram posts, a Reel, four LinkedIn posts, a full blog post, a newsletter and a promo, designed to match the @borderpassclub Instagram and borderpass.ai. Each one is for a real audience and points to a real BorderPass page. A lawyer would check every immigration fact before anything goes live.</p>
     <div class="pillbar"><span class="jdchip"><b>JD</b> Written, static and video content for B2C and B2B</span><span class="jdchip"><b>JD</b> Aligns with the brand and business goals</span></div>
   </div></div>
 
   <div class="tabs" data-tabs="ct">
-    <button class="on" data-p="ct1">Instagram carousel</button>
-    <button data-p="ct7">Instagram feed</button>
-    <button data-p="ct2">Reel / TikTok</button>
+    <button class="on" data-p="ct7">Instagram feed</button>
+    <button data-p="ct1">Carousel</button>
+    <button data-p="ct2">Reel (video)</button>
+    <button data-p="ct5">LinkedIn (4 posts)</button>
     <button data-p="ct3">Blog post</button>
     <button data-p="ct4">Newsletter</button>
-    <button data-p="ct5">LinkedIn (B2B)</button>
     <button data-p="ct6">Promo: IEC</button>
   </div>
+  <!-- instagram profile -->
+  <div class="panel on" id="ct7"><div class="feedw">
+    <div class="igp">
+      <div class="igp-bar"><span>‹</span><b>borderpassclub</b><span>···</span></div>
+      <div class="igp-head"><div class="igp-av"><i><svg viewBox="0 0 30 10" fill="currentColor"><rect x="0" y="1" width="9" height="8" rx="1.6"/><circle cx="14.6" cy="5" r="4"/><path d="M22 1h4l3 3v2l-3 3h-4l-3-3V4z"/></svg><b>Border<br>Pass</b></i></div>
+        <div class="igp-st"><div><b>9</b><span>new posts</span></div><div><b>10.9K</b><span>followers</span></div><div><b>141</b><span>following</span></div></div></div>
+      <div class="igp-bio"><b>BorderPass</b><p>Manage your immigration journey affordably, with trusted legal support from study to work to settlement pathways. 🍁</p><a>linktr.ee/borderpass</a></div>
+      <div class="igp-btn"><span class="f">Follow</span><span>Message</span><span>Contact</span></div>
+      <div class="igp-hl"><div class="hl"><i style="background:#4c1a1b">S</i><span>Study</span></div><div class="hl"><i style="background:#5b4424">W</i><span>Work</span></div><div class="hl"><i style="background:#151314">PR</i><span>PR</span></div><div class="hl"><i style="background:#733f41">LL</i><span>Lawyer Live</span></div><div class="hl"><i style="background:#4c1a1b">★</i><span>Stories</span></div></div>
+      <div class="igp-tabs"><span class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg></span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M10 8.5v7l6-3.5z"/></svg></span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></span></div>
+      <div class="igp-grid"><button class="igt" data-i="0" aria-label="Open post"><div class="bpp"><div class="full" style="background-image:url(img/refusal.jpg);background-position:40% center"></div><div class="grad"></div><div class="tx" style="text-align:right;bottom:12cqw"><div class="it" style="font-size:12cqw;line-height:1">Refused?</div><div class="hb" style="font-size:8.6cqw">Here’s what<br>I’d do next</div></div><div class="lgb" style="left:auto;right:7cqw;bottom:5cqw;opacity:.85"><svg style="width:9cqw" viewBox="0 0 30 10" fill="currentColor"><rect x="0" y="1" width="9" height="8" rx="1.6"/><circle cx="14.6" cy="5" r="4"/><path d="M22 1h4l3 3v2l-3 3h-4l-3-3V4z"/></svg></div></div><svg class="ico" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></button><button class="igt" data-i="1" aria-label="Open post"><div class="bpp"><div class="full" style="background-image:url(img/student-book.jpg)"></div><div class="grad"></div><div class="lgt"><span class="lg"><svg viewBox="0 0 30 10" fill="currentColor"><rect x="0" y="1" width="9" height="8" rx="1.6"/><circle cx="14.6" cy="5" r="4"/><path d="M22 1h4l3 3v2l-3 3h-4l-3-3V4z"/></svg>BorderPass</span></div><div class="tx"><span class="pill">NEW RULE · SEP 1, 2026</span><div class="hb">Study permit funds just went up</div><div class="bd">Applying now? The amount you need to show has changed.</div><div class="see">See caption for the full breakdown ↓</div></div></div><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="8" y="3" width="13" height="13" rx="2"/><path d="M5 8v11h11"/></svg></button><button class="igt" data-i="2" aria-label="Open post"><div class="bpp" style="--ph:46%;--bc:#5b4424"><div class="ph" style="background-image:url(img/flag-sky.jpg)"></div><div class="blk"></div><div class="tx top"><div class="hs">Newfoundland and Labrador adds 1,000 more nomination spaces for 2026</div><div class="bd">More room for workers and graduates who want to stay.</div></div><div class="lgb"><span class="lg"><svg viewBox="0 0 30 10" fill="currentColor"><rect x="0" y="1" width="9" height="8" rx="1.6"/><circle cx="14.6" cy="5" r="4"/><path d="M22 1h4l3 3v2l-3 3h-4l-3-3V4z"/></svg>BorderPass</span></div></div></button><button class="igt" data-i="3" aria-label="Open post"><div class="bpp pink"><div class="card"><div class="hb">🇨🇦 Working in Canada and want to study too? Good news!</div><div class="box">Your work permit can now cover a six-month course, without a separate study permit. Here’s who qualifies →</div></div><div class="lgb"><span class="lg"><svg viewBox="0 0 30 10" fill="currentColor"><rect x="0" y="1" width="9" height="8" rx="1.6"/><circle cx="14.6" cy="5" r="4"/><path d="M22 1h4l3 3v2l-3 3h-4l-3-3V4z"/></svg>BorderPass</span></div></div></button><button class="igt" data-i="4" aria-label="Open post"><div class="bpp"><div class="full" style="background-image:url(img/toronto.jpg);background-position:center"></div><div class="grad"></div><div class="tx" style="text-align:right;bottom:12cqw"><div class="it" style="font-size:12cqw;line-height:1">Day 1</div><div class="hb" style="font-size:8.6cqw">in Canada:<br>5 things to do</div></div><div class="lgb" style="left:auto;right:7cqw;bottom:5cqw;opacity:.85"><svg style="width:9cqw" viewBox="0 0 30 10" fill="currentColor"><rect x="0" y="1" width="9" height="8" rx="1.6"/><circle cx="14.6" cy="5" r="4"/><path d="M22 1h4l3 3v2l-3 3h-4l-3-3V4z"/></svg></div></div><svg class="ico" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></button><button class="igt" data-i="5" aria-label="Open post"><div class="bpp" style="--ph:50%;--bc:#151314"><div class="ph" style="background-image:url(img/grads.jpg)"></div><div class="blk"></div><div class="tx top"><div class="hs">Graduating soon? Apply for your PGWP in the right order.</div><div class="bd">One step out of order can cost you months. A licensed lawyer checks yours before you submit.</div></div><div class="lgb"><span class="lg"><svg viewBox="0 0 30 10" fill="currentColor"><rect x="0" y="1" width="9" height="8" rx="1.6"/><circle cx="14.6" cy="5" r="4"/><path d="M22 1h4l3 3v2l-3 3h-4l-3-3V4z"/></svg>BorderPass</span></div></div><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="8" y="3" width="13" height="13" rx="2"/><path d="M5 8v11h11"/></svg></button><button class="igt" data-i="6" aria-label="Open post"><div class="bpp"><div class="full" style="background-image:url(img/lecture.jpg)"></div><div class="grad"></div><div class="lgt"><span class="lg"><svg viewBox="0 0 30 10" fill="currentColor"><rect x="0" y="1" width="9" height="8" rx="1.6"/><circle cx="14.6" cy="5" r="4"/><path d="M22 1h4l3 3v2l-3 3h-4l-3-3V4z"/></svg>BorderPass</span></div><div class="tx"><div class="hb"><span class="it">Ask a Lawyer</span><br>Live this Tuesday!</div><div class="bd">Drop your study permit questions in our Story.</div></div></div></button><button class="igt" data-i="7" aria-label="Open post"><div class="bpp" style="--ph:48%;--bc:#4c1a1b"><div class="ph" style="background-image:url(img/toronto.jpg)"></div><div class="blk"></div><div class="tx top"><div class="hs">Ontario health insurance for international students in 2026</div><div class="bd">What you’ll pay, and what’s covered.</div><div class="see">See caption for the full breakdown ↓</div></div><div class="lgb"><span class="lg"><svg viewBox="0 0 30 10" fill="currentColor"><rect x="0" y="1" width="9" height="8" rx="1.6"/><circle cx="14.6" cy="5" r="4"/><path d="M22 1h4l3 3v2l-3 3h-4l-3-3V4z"/></svg>BorderPass</span></div></div></button><button class="igt" data-i="8" aria-label="Open post"><div class="bpp"><div class="full" style="background-image:url(img/typing.jpg);background-position:center"></div><div class="grad"></div><div class="tx" style="text-align:right;bottom:12cqw"><div class="it" style="font-size:12cqw;line-height:1">Ask a Lawyer:</div><div class="hb" style="font-size:8.6cqw">Can I work while<br>my PGWP is processing?</div></div><div class="lgb" style="left:auto;right:7cqw;bottom:5cqw;opacity:.85"><svg style="width:9cqw" viewBox="0 0 30 10" fill="currentColor"><rect x="0" y="1" width="9" height="8" rx="1.6"/><circle cx="14.6" cy="5" r="4"/><path d="M22 1h4l3 3v2l-3 3h-4l-3-3V4z"/></svg></div></div><svg class="ico" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></button></div>
+    </div>
+    <div>
+      <span class="tag">Instagram · 9 new posts</span><h3 style="font-size:30px;margin:8px 0">What your grid would look like</h3>
+      <p class="small">Your real profile name, bio and follower count, with 9 new posts I made: 6 posts and 3 Reels, all in the @borderpassclub style. Tap any post to open it with its caption.</p>
+      <div class="fcap" style="margin-top:14px">
+        <div><b>Mix</b> 4 "know the rules" news posts, 2 how-tos, 2 Reels people save, 1 community post. One good-news pink card to break up the grid.</div>
+        <div><b>Rhythm</b> the grid alternates photo posts and colour blocks so it never looks like one long wall of text.</div>
+        <div><b>Every post</b> comes from a guide already on borderpass.ai, so each one links to a real page.</div>
+        <div><b>Measure</b> saves and shares first (people keep checklists), then profile link clicks.</div>
+      </div>
+      <p class="note">Followers (10.9K) and bio from the public @borderpassclub profile, October 2026. Photos: Unsplash (free licence). In the real job I'd use BorderPass's own photos and team.</p>
+    </div>
+  </div>
+  <div class="igm" id="igm"><div class="igm-in"><button class="igm-x" id="igmX" aria-label="Close">×</button><div class="igm-p" id="igmP"></div><div class="igm-c"><div class="igm-h"><span class="igm-av"><svg viewBox="0 0 30 10" fill="currentColor"><rect x="0" y="1" width="9" height="8" rx="1.6"/><circle cx="14.6" cy="5" r="4"/><path d="M22 1h4l3 3v2l-3 3h-4l-3-3V4z"/></svg></span><b>borderpassclub</b></div><p id="igmC"></p><div class="igm-a">♡ &nbsp; 💬 &nbsp; ↗<span>🔖</span></div></div></div></div>
+  </div>
+
 
   <!-- carousel -->
-  <div class="panel on" id="ct1"><div class="show">
+  <div class="panel" id="ct1"><div class="show">
     <div class="phone"><div class="screen">
       <div class="ig-top"><div class="ig-av"><i>BP</i></div>borderpassclub<span class="dots">···</span></div>
       <div class="car" id="car"><div class="cnt" id="carN">1/7</div><button class="nav l" data-d="-1" aria-label="Previous">‹</button><button class="nav r" data-d="1" aria-label="Next">›</button>
@@ -613,67 +797,119 @@ section:not(.light) .why div b{color:var(--gold)}
       <p class="note">Alt text is written for every slide. Measure: saves, shares and clicks to /visa-refusal.</p>
     </div>
   </div></div>
-
-  <div class="panel" id="ct7"><div class="feedw">
-    <div class="feed"><div class="bpp"><div class="full" style="background-image:url(img/student-book.jpg)"></div><div class="grad"></div><div class="lgt"><span class="lg"><svg viewBox="0 0 30 10" fill="currentColor"><rect x="0" y="1" width="9" height="8" rx="1.6"/><circle cx="14.6" cy="5" r="4"/><path d="M22 1h4l3 3v2l-3 3h-4l-3-3V4z"/></svg>BorderPass</span></div><div class="tx"><span class="pill">NEW RULE · SEP 1, 2026</span><div class="hb">Study permit funds just went up</div><div class="bd">Applying now? The amount you need to show has changed.</div><div class="see">See caption for the full breakdown ↓</div></div></div><div class="bpp" style="--ph:46%;--bc:#5b4424"><div class="ph" style="background-image:url(img/flag-sky.jpg)"></div><div class="blk"></div><div class="tx top"><div class="hs">Newfoundland and Labrador adds 1,000 more nomination spaces for 2026</div><div class="bd">More room for workers and graduates who want to stay.</div></div><div class="lgb"><span class="lg"><svg viewBox="0 0 30 10" fill="currentColor"><rect x="0" y="1" width="9" height="8" rx="1.6"/><circle cx="14.6" cy="5" r="4"/><path d="M22 1h4l3 3v2l-3 3h-4l-3-3V4z"/></svg>BorderPass</span></div></div><div class="bpp pink"><div class="card"><div class="hb">🇨🇦 Working in Canada and want to study too? Good news!</div><div class="box">Your work permit can now cover a six-month course, without a separate study permit. Here’s who qualifies →</div></div><div class="lgb"><span class="lg"><svg viewBox="0 0 30 10" fill="currentColor"><rect x="0" y="1" width="9" height="8" rx="1.6"/><circle cx="14.6" cy="5" r="4"/><path d="M22 1h4l3 3v2l-3 3h-4l-3-3V4z"/></svg>BorderPass</span></div></div><div class="bpp" style="--ph:50%;--bc:#151314"><div class="ph" style="background-image:url(img/grads.jpg)"></div><div class="blk"></div><div class="tx top"><div class="hs">Graduating soon? Apply for your PGWP in the right order.</div><div class="bd">One step out of order can cost you months. A licensed lawyer checks yours before you submit.</div></div><div class="lgb"><span class="lg"><svg viewBox="0 0 30 10" fill="currentColor"><rect x="0" y="1" width="9" height="8" rx="1.6"/><circle cx="14.6" cy="5" r="4"/><path d="M22 1h4l3 3v2l-3 3h-4l-3-3V4z"/></svg>BorderPass</span></div></div><div class="bpp"><div class="full" style="background-image:url(img/lecture.jpg)"></div><div class="grad"></div><div class="lgt"><span class="lg"><svg viewBox="0 0 30 10" fill="currentColor"><rect x="0" y="1" width="9" height="8" rx="1.6"/><circle cx="14.6" cy="5" r="4"/><path d="M22 1h4l3 3v2l-3 3h-4l-3-3V4z"/></svg>BorderPass</span></div><div class="tx"><div class="hb"><span class="it">Ask a Lawyer</span><br>Live this Tuesday!</div><div class="bd">Drop your study permit questions in our Story.</div></div></div><div class="bpp" style="--ph:48%;--bc:#4c1a1b"><div class="ph" style="background-image:url(img/toronto.jpg)"></div><div class="blk"></div><div class="tx top"><div class="hs">Ontario health insurance for international students in 2026</div><div class="bd">What you’ll pay, and what’s covered.</div><div class="see">See caption for the full breakdown ↓</div></div><div class="lgb"><span class="lg"><svg viewBox="0 0 30 10" fill="currentColor"><rect x="0" y="1" width="9" height="8" rx="1.6"/><circle cx="14.6" cy="5" r="4"/><path d="M22 1h4l3 3v2l-3 3h-4l-3-3V4z"/></svg>BorderPass</span></div></div></div>
-    <div>
-      <span class="tag">Instagram feed · 6 posts</span><h3 style="font-size:30px;margin:8px 0">A week of posts, in your style</h3>
-      <p class="small">Every topic comes from a post already on borderpass.ai, so each one links to a real page. Same look as @borderpassclub: photo + colour block, date pills, "See caption for the full breakdown", the pink alert card, and Reel covers with serif italic + bold sans.</p>
-      <div class="fcap" style="margin-top:14px">
-        <div><b>Mon · News</b> Study permit funds went up on Sept 1. What counts as proof, and the mistakes that cause refusals. Full guide at the link in bio.</div>
-        <div><b>Tue · Provinces</b> Newfoundland and Labrador adds 1,000 nomination spaces for 2026. Who it helps and how to get ready.</div>
-        <div><b>Wed · Good news card</b> Your work permit can now cover a six-month course. Save this if you want to upskill.</div>
-        <div><b>Thu · PGWP</b> Graduating soon? The right order: study permit, final marks, PGWP. Lawyer-reviewed before you submit.</div>
-        <div><b>Fri · Reel cover</b> Ask a Lawyer Live: send your questions in Stories.</div>
-        <div><b>Sat · Life in Canada</b> Ontario health insurance for international students in 2026: what you'll pay.</div>
-      </div>
-      <p class="note">Photos: Unsplash (free licence). In the real job I'd use BorderPass's own photo library and team.</p>
-    </div>
-  </div></div>
-
-  <!-- reel -->
+  <!-- reel video -->
   <div class="panel" id="ct2"><div class="show">
-    <div class="phone reel"><div class="screen"><div class="rl"><div class="bg"></div><div class="face"></div><div class="body"></div><div class="hd">Reels</div>
-      <div class="side"><div><span></span>Like</div><div><span></span>Comment</div><div><span></span>Share</div></div>
-      <div class="ost" id="rlTxt"><em>Refused?</em>Now what?</div><div class="cap" id="rlCap">"My study permit got refused. Here's what I'd do in the first 24 hours."</div>
-      <div class="prog"><i id="rlBar" style="width:8%"></i></div></div></div></div>
+    <div class="phone"><div class="screen rv" id="rv">
+      <div class="rv-s" style="background-image:url(img/refusal.jpg);background-position:40% center"></div><div class="rv-s" style="background-image:url(img/doc-reading.jpg);background-position:center"></div><div class="rv-s" style="background-image:url(img/typing.jpg);background-position:center"></div><div class="rv-s" style="background-image:url(img/student-book.jpg);background-position:center 30%"></div><div class="rv-s" style="background-image:url(img/lecture.jpg);background-position:center"></div><div class="rv-s" style="background-image:url(img/grad-selfie.jpg);background-position:center 30%"></div>
+      <div class="rv-shade"></div>
+      <div class="rv-top"><b>Reels</b><span>📷</span></div>
+      <div class="rv-title" id="rvT"><em>Refused?</em><b>Now what?</b></div>
+      <div class="rv-cap" id="rvC"></div>
+      <div class="rv-side"><div><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 5a5.5 5.5 0 0 1 9.5 7c-2.5 4.5-9.5 9-9.5 9z"/></svg><span>Like</span></div><div><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 12a8 8 0 0 1-12 7l-5 1 1-4a8 8 0 1 1 16-4z"/></svg><span>Comment</span></div><div><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 3L11 13M22 3l-7 19-4-9-9-4z"/></svg><span>Share</span></div><div><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span>Save</span></div></div>
+      <div class="rv-foot"><div class="rv-u"><span class="igm-av"><svg viewBox="0 0 30 10" fill="currentColor"><rect x="0" y="1" width="9" height="8" rx="1.6"/><circle cx="14.6" cy="5" r="4"/><path d="M22 1h4l3 3v2l-3 3h-4l-3-3V4z"/></svg></span><b>borderpassclub</b><i>Follow</i></div><p>A refusal letter feels final. It usually isn’t… <b>more</b></p><div class="rv-au">♪ Original audio · borderpassclub</div></div>
+      <div class="rv-prog"><i id="rvBar"></i></div>
+      <button class="rv-play" id="rvPlay" aria-label="Play">▶</button>
+    </div></div>
     <div class="side">
-      <span class="tag">Reels · TikTok · Shorts</span><h3>"I got refused. Here's what I'd do."</h3>
-      <p>40 seconds, face to camera, captions on screen. Tap a frame to play it on the phone.</p>
-      <div class="frames" id="frames">
-        <button class="on" data-t="Refused. Now what?" data-c="&quot;My study permit got refused. Here's what I'd do in the first 24 hours.&quot;" data-w="8"><span>0:00</span>Hook</button>
-        <button data-t="Read every line." data-c="&quot;First, read the reasons. Every line. That's your to-do list.&quot;" data-w="25"><span>0:03</span>Reasons</button>
-        <button data-t="GCMS notes = the full story" data-c="&quot;Second, ask for the officer's notes. They explain way more than the letter.&quot;" data-w="45"><span>0:10</span>Notes</button>
-        <button data-t="Same file = same answer" data-c="&quot;Third, don't just resubmit. Fix the reason.&quot;" data-w="65"><span>0:18</span>Fix</button>
-        <button data-t="Reapply · Reconsider · Review" data-c="&quot;And check your options early. Some deadlines are short.&quot;" data-w="85"><span>0:28</span>Options</button>
-        <button data-t="Link in bio" data-c="&quot;Want a lawyer to look at yours? Link in bio.&quot;" data-w="100"><span>0:36</span>CTA</button>
-      </div>
+      <span class="tag">Reels · TikTok · Shorts · 36 seconds</span><h3>"I got refused. Here's what I'd do."</h3>
+      <p>Press play. It runs like the real Reel: scenes change every 6 seconds, the on-screen title animates in, and the spoken words light up as captions, the way people watch with the sound off. Tap the video to pause, or jump to a scene below.</p>
+      <div class="frames rvch" id="rvCh"><button data-k="0" style="background-image:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.6)),url(img/refusal.jpg)"><span>0:00</span><em>Refused?</em><b>Now what?</b></button><button data-k="1" style="background-image:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.6)),url(img/doc-reading.jpg)"><span>0:06</span><em>Step 1</em><b>Read every line</b></button><button data-k="2" style="background-image:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.6)),url(img/typing.jpg)"><span>0:12</span><em>Step 2</em><b>Get the officer’s notes</b></button><button data-k="3" style="background-image:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.6)),url(img/student-book.jpg)"><span>0:18</span><em>Step 3</em><b>Fix the reason</b></button><button data-k="4" style="background-image:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.6)),url(img/lecture.jpg)"><span>0:24</span><em>Step 4</em><b>Know your options</b></button><button data-k="5" style="background-image:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.6)),url(img/grad-selfie.jpg)"><span>0:30</span><em>Step 5</em><b>Get a lawyer’s eyes on it</b></button></div>
       <div class="why" style="margin-top:18px">
-        <div><b>A</b><span>Two hooks get tested: "I got refused" (a story) vs "3 things to do after a refusal" (a list). Keep the one more people watch past 3 seconds.</span></div>
-        <div><b>B</b><span>Who's on camera: a BorderPass team member, or a student who agrees to share.</span></div>
-        <div><b>C</b><span>Posted to Reels, TikTok and YouTube Shorts, with captions burned in for people watching with the sound off.</span></div>
+        <div><b>A</b><span><b style="color:inherit">Hook in 1 second:</b> "Refused? Now what?" on screen before a word is said. Two hooks get tested: a story ("I got refused") vs a list ("3 things to do after a refusal").</span></div>
+        <div><b>B</b><span><b style="color:inherit">Style:</b> your Reel covers, italic serif + bold sans, white captions with the spoken word highlighted.</span></div>
+        <div><b>C</b><span><b style="color:inherit">Who's on camera:</b> a BorderPass team member, or a student who agrees to share their story.</span></div>
+        <div><b>D</b><span><b style="color:inherit">Posted to:</b> Reels, TikTok and YouTube Shorts. Measure watch-through past 3 seconds and saves.</span></div>
       </div>
     </div>
   </div></div>
 
-  <!-- blog -->
-  <div class="panel" id="ct3"><div class="show show2b">
-    <div class="gdoc"><div class="page">
-      <span class="tag2">Blog brief</span><span class="tag2">SEO + AI search</span><span class="tag2">Lawyer review</span>
-      <h4>Study permit refused: what to do in the next 30 days</h4>
-      <p style="color:#5f6368">Target: borderpass.ai/blog · Converts to: /visa-refusal · 1,600 to 1,900 words</p>
-      <h6>Who is searching</h6><p>Someone holding a refusal letter, scared, on their phone at night. They want to know: is it over, what are my options, how fast do I need to act?</p>
-      <h6>Answer box (first 60 words, for Google and AI answers)</h6>
-      <div class="ans">A study permit refusal is not permanent. Start by reading the reasons in your letter and asking for the officer's notes. Then choose one of three paths: reapply with a stronger file, ask for reconsideration, or seek judicial review. Judicial review has short deadlines, so get advice early.</div>
-      <h6>Outline</h6>
-      <ol><li>Is a refusal the end?</li><li>Step 1: Read your reasons (the 6 most common, in plain English)</li><li>Step 2: Ask for the officer's notes</li><li>Step 3: Reapply, reconsideration or judicial review (comparison table)</li><li>Step 4: Rebuild your file: funds, study plan, ties</li><li>Step 5: When to bring in a lawyer</li><li>FAQ (with FAQ schema)</li></ol>
-      <h6>Internal links</h6><p>/blog/reconsideration-request · /blog/timelines-and-deadlines-for-judicial-review-of-ircc-refusals · /blog/proof-of-funds-for-a-study-permit-in-canada-all-you-need-to-know · /visa-refusal</p>
-    </div></div>
-    <div>
-      <div class="serp" style="margin-bottom:16px"><div class="u">borderpass.ai › blog › study-permit-refused</div><div class="t">Study Permit Refused? What to Do in the Next 30 Days | BorderPass</div><div class="ds">A refusal isn't the end. Read your reasons, get the officer's notes, and choose the right next step. Reviewed by a licensed immigration lawyer.</div></div>
-      <div class="card" style="background:#fff;border-color:#e6dcc8"><h3>Why this post</h3><ul class="small"><li>People search this exact moment, and there's a paid service that solves it.</li><li>The answer box is written so Google and AI tools can quote it.</li><li>It links to 3 posts BorderPass already has, so the whole cluster gets stronger.</li><li>"Last reviewed by a licensed lawyer" with a date, at the top.</li></ul></div>
+
+  <!-- linkedin -->
+  <div class="panel" id="ct5">
+    <div class="tabs sub" data-tabs="li"><button class="on" data-p="li1">1 · Event invite</button><button class="" data-p="li2">2 · Advisor guide</button><button class="" data-p="li3">3 · Employer update</button><button class="" data-p="li4">4 · Milestone</button></div>
+    <div class="panel on" id="li1"><div class="show"><div><div class="li li2"><div class="h"><div class="av"><span style="width:22px;color:#fffcf2;display:block"><svg viewBox="0 0 30 10" fill="currentColor"><rect x="0" y="1" width="9" height="8" rx="1.6"/><circle cx="14.6" cy="5" r="4"/><path d="M22 1h4l3 3v2l-3 3h-4l-3-3V4z"/></svg></span></div><div><b>BorderPass</b><span>Promoted · International education leaders</span></div><span class="lfol">+ Follow</span></div><div class="t">Ottawa, November 23. 🇨🇦<br><br>If you work in international education and you’ll be at CBIE 2026, join BorderPass, Flywire and StudentVIP for an evening reception.<br><br>No slides. Just good conversation about the year ahead: study permit approvals, compliance reporting, and supporting students from offer letter to graduation.<br><br>Spots are limited. RSVP at the link in the comments.<br><br>#CBIE2026 #InternationalEducation #StudyInCanada</div><div class="img"><div class="evt"><div class="k">CBIE 2026 · OTTAWA</div><h6>An evening with BorderPass, Flywire and StudentVIP</h6><div class="row"><span>Mon, Nov 23</span><span>5 to 7 PM</span><span>Starling, 54 York St</span></div></div></div><div class="lst">CBIE invite · boosted to admissions + international office roles</div><div class="lbar"><span>👍 Like</span><span>💬 Comment</span><span>🔁 Repost</span><span>➤ Send</span></div></div></div><div class="side"><span class="tag b">LinkedIn post 1 of 4</span><h3>Event invite</h3><p>Schools and agents are BorderPass’s B2B buyers, and CBIE is where they gather. Details from your CBIE page: Starling Restaurant, 54 York Street, Ottawa, 5 to 7 PM ET. After the night: a recap post with consented quotes, and a 3-email follow-up for every new contact.</p></div></div></div><div class="panel" id="li2"><div class="show"><div><div class="li li2"><div class="h"><div class="av"><span style="width:22px;color:#fffcf2;display:block"><svg viewBox="0 0 30 10" fill="currentColor"><rect x="0" y="1" width="9" height="8" rx="1.6"/><circle cx="14.6" cy="5" r="4"/><path d="M22 1h4l3 3v2l-3 3h-4l-3-3V4z"/></svg></span></div><div><b>BorderPass</b><span>Document post · For partner schools</span></div><span class="lfol">+ Follow</span></div><div class="t">A student walks into your office holding a study permit refusal. What do you say first?<br><br>Advisors want to help, but they don’t want to give legal advice. So here’s the 5-step guide we share with partner schools:<br><br>1. Read the refusal reasons together, line by line.<br>2. Help them request the officer’s notes (GCMS).<br>3. Point them to the cause, not the form. Same file, same answer.<br>4. Flag deadlines early if judicial review is an option.<br>5. Connect them with a licensed lawyer before they reapply.<br><br>Swipe through the guide below and save it for your team. ↓<br><br>#InternationalEducation #StudentSupport #StudyInCanada</div><div class="ldoc" id="ldoc"><div class="ldoc-tr"><div class="ldp"><span>A 5-step guide</span><h6>Supporting a student after a study permit refusal</h6><p>For international office teams</p><i><span class="lg"><svg viewBox="0 0 30 10" fill="currentColor"><rect x="0" y="1" width="9" height="8" rx="1.6"/><circle cx="14.6" cy="5" r="4"/><path d="M22 1h4l3 3v2l-3 3h-4l-3-3V4z"/></svg>BorderPass</span></i></div><div class="ldp"><span>Step 1</span><h6>Read the reasons together</h6><p>Go line by line. Each reason is a to-do item.</p><i><span class="lg"><svg viewBox="0 0 30 10" fill="currentColor"><rect x="0" y="1" width="9" height="8" rx="1.6"/><circle cx="14.6" cy="5" r="4"/><path d="M22 1h4l3 3v2l-3 3h-4l-3-3V4z"/></svg>BorderPass</span></i></div><div class="ldp"><span>Step 2</span><h6>Request the officer’s notes</h6><p>GCMS notes often explain much more than the letter.</p><i><span class="lg"><svg viewBox="0 0 30 10" fill="currentColor"><rect x="0" y="1" width="9" height="8" rx="1.6"/><circle cx="14.6" cy="5" r="4"/><path d="M22 1h4l3 3v2l-3 3h-4l-3-3V4z"/></svg>BorderPass</span></i></div><div class="ldp"><span>Step 3</span><h6>Fix the cause, not the form</h6><p>Same file, same answer. Point them to what changes.</p><i><span class="lg"><svg viewBox="0 0 30 10" fill="currentColor"><rect x="0" y="1" width="9" height="8" rx="1.6"/><circle cx="14.6" cy="5" r="4"/><path d="M22 1h4l3 3v2l-3 3h-4l-3-3V4z"/></svg>BorderPass</span></i></div><div class="ldp"><span>Step 4</span><h6>Flag deadlines early</h6><p>Judicial review has strict timelines. Don’t wait.</p><i><span class="lg"><svg viewBox="0 0 30 10" fill="currentColor"><rect x="0" y="1" width="9" height="8" rx="1.6"/><circle cx="14.6" cy="5" r="4"/><path d="M22 1h4l3 3v2l-3 3h-4l-3-3V4z"/></svg>BorderPass</span></i></div><div class="ldp"><span>Step 5</span><h6>Connect them with a lawyer</h6><p>A licensed lawyer reviews before they reapply.</p><i><span class="lg"><svg viewBox="0 0 30 10" fill="currentColor"><rect x="0" y="1" width="9" height="8" rx="1.6"/><circle cx="14.6" cy="5" r="4"/><path d="M22 1h4l3 3v2l-3 3h-4l-3-3V4z"/></svg>BorderPass</span></i></div></div><div class="ldoc-bar"><b>Supporting a refused student</b><span><button data-d="-1">‹</button><em id="ldN">1 / 6</em><button data-d="1">›</button></span></div></div><div class="lst">Document post · 6 pages</div><div class="lbar"><span>👍 Like</span><span>💬 Comment</span><span>🔁 Repost</span><span>➤ Send</span></div></div></div><div class="side"><span class="tag b">LinkedIn post 2 of 4</span><h3>Advisor guide</h3><p>A document (PDF carousel) post, the format LinkedIn shows most in the feed. It turns the refusal carousel from Instagram into something useful for the B2B audience, and positions BorderPass as the partner that helps schools keep students.</p></div></div></div><div class="panel" id="li3"><div class="show"><div><div class="li li2"><div class="h"><div class="av"><span style="width:22px;color:#fffcf2;display:block"><svg viewBox="0 0 30 10" fill="currentColor"><rect x="0" y="1" width="9" height="8" rx="1.6"/><circle cx="14.6" cy="5" r="4"/><path d="M22 1h4l3 3v2l-3 3h-4l-3-3V4z"/></svg></span></div><div><b>BorderPass</b><span>For HR and people teams</span></div><span class="lfol">+ Follow</span></div><div class="t">Your best engineer’s work permit expires in 38 days.<br><br>Who on your team knows that today?<br><br>When a permit slips, it’s not one person’s problem. Teams lose skilled people, HR drops strategic work to fight fires, and projects stall.<br><br>3 habits that help teams stay ahead:<br>→ One list of every permit and its expiry date<br>→ Reminders at 120, 90 and 60 days<br>→ A licensed lawyer looped in before anything is filed<br><br>BorderPass gives HR one place to track it all, with lawyer-backed review where it matters.<br><br>How does your team track permit dates today? 👇<br><br>#HR #GlobalTalent #Immigration</div><div class="img"><div class="pdash"><div class="pdh"><b>Permit expiry tracker</b><span>Next 120 days</span></div><div class="pdr"><span>Software engineer</span><span>Work permit</span><i class="r">In 38 days</i></div><div class="pdr"><span>Data analyst</span><span>PGWP</span><i class="a">In 74 days</i></div><div class="pdr"><span>Site supervisor</span><span>LMIA-based</span><i class="a">In 96 days</i></div><div class="pdr"><span>Product designer</span><span>Work permit</span><i class="g">In 118 days</i></div><div class="pdf">Sample data · reminders at 120, 90 and 60 days</div></div></div><div class="lst">For employers · ends with a question</div><div class="lbar"><span>👍 Like</span><span>💬 Comment</span><span>🔁 Repost</span><span>➤ Send</span></div></div></div><div class="side"><span class="tag b">LinkedIn post 3 of 4</span><h3>Employer update</h3><p>Built on the pain BorderPass already names on its employers page: permits expiring, HR pulled into urgent problems. The question at the end invites comments, which helps reach. The tracker image uses sample data.</p></div></div></div><div class="panel" id="li4"><div class="show"><div><div class="li li2"><div class="h"><div class="av"><span style="width:22px;color:#fffcf2;display:block"><svg viewBox="0 0 30 10" fill="currentColor"><rect x="0" y="1" width="9" height="8" rx="1.6"/><circle cx="14.6" cy="5" r="4"/><path d="M22 1h4l3 3v2l-3 3h-4l-3-3V4z"/></svg></span></div><div><b>BorderPass</b><span>Company news</span></div><span class="lfol">+ Follow</span></div><div class="t">We’re #7 on The Globe and Mail’s 2026 list of Canada’s Top Growing Companies. 🇨🇦<br><br>We’re proud of the number, but prouder of what’s behind it: students who started their programs on time, graduates who stayed to build careers here, and families who are together again.<br><br>Thank you to every student, school, employer and lawyer who trusted us with one of the biggest moves of their life.<br><br>We’re just getting started.<br><br>#TopGrowingCompanies #Immigration #CanadianTech</div><div class="img"><div class="gmb"><div class="gm-k">THE GLOBE AND MAIL · 2026</div><div class="gm-n">#7</div><div class="gm-t">Canada’s Top Growing Companies</div><div class="gm-l"><span class="lg"><svg viewBox="0 0 30 10" fill="currentColor"><rect x="0" y="1" width="9" height="8" rx="1.6"/><circle cx="14.6" cy="5" r="4"/><path d="M22 1h4l3 3v2l-3 3h-4l-3-3V4z"/></svg>BorderPass</span></div></div></div><div class="lst">Milestone · from your own news</div><div class="lbar"><span>👍 Like</span><span>💬 Comment</span><span>🔁 Repost</span><span>➤ Send</span></div></div></div><div class="side"><span class="tag b">LinkedIn post 4 of 4</span><h3>Milestone</h3><p>From your real news post about the #7 ranking. A milestone post works best when it thanks people and tells a human story, not just the number. Tag partner schools and employees so it reaches their networks.</p></div></div></div>
+  </div>
+
+  <div class="panel" id="ct3"><div class="blogw">
+    <div class="brw">
+      <div class="brw-bar"><i></i><i></i><i></i><span>borderpass.ai/blog/study-permit-refused-what-to-do</span></div>
+      <div class="brw-in" id="blogScroll">
+        <div class="bh"><span class="bh-lg"><span class="lg"><svg viewBox="0 0 30 10" fill="currentColor"><rect x="0" y="1" width="9" height="8" rx="1.6"/><circle cx="14.6" cy="5" r="4"/><path d="M22 1h4l3 3v2l-3 3h-4l-3-3V4z"/></svg>BorderPass</span></span><span class="bh-nav">Students · Workers · PR · Visitors · Blog</span><span class="bh-cta">Get started</span></div>
+        <article class="art">
+          <div class="art-k"><span>Study permits</span><span>Refusals</span></div>
+          <h1>Study Permit Refused? What to Do in the Next 30 Days</h1>
+          <div class="art-meta">By Durva Thakkar · Draft for licensed lawyer review · 9 min read</div>
+          <div class="art-hero" style="background-image:url(img/refusal.jpg)"></div>
+          <div class="art-ans"><b>Quick answer</b>A study permit refusal is not permanent. Start by reading every reason in your refusal letter and requesting the officer's notes. Then choose one of three paths: reapply with a stronger file, ask for reconsideration, or seek judicial review. Judicial review has strict deadlines, so get advice early. Most successful second applications fix the exact reason for the first refusal.</div>
+          <div class="toc"><b>In this guide</b><ol><li>Is a refusal the end?</li><li>Days 1 to 3: read your letter line by line</li><li>Days 1 to 7: request the officer's notes</li><li>Days 7 to 14: choose your path</li><li>Days 14 to 30: rebuild your file</li><li>When to bring in a lawyer</li><li>What about your school?</li><li>FAQ</li></ol></div>
+
+          <p>Opening an email from IRCC and seeing the word "refused" is one of the hardest moments in a study journey. You have a school offer, a start date, maybe a deposit paid, and suddenly none of it feels certain.</p>
+          <p>Here's the good news: a refusal is a decision about one application, not about you. Many students who are refused the first time are approved later, once they understand exactly why the officer said no and fix it. This guide walks you through the next 30 days, step by step.</p>
+
+          <h2>1. Is a refusal the end?</h2>
+          <p>No. A study permit refusal does not stop you from applying again, and there is no waiting period before you can submit a new application. But two things matter a lot:</p>
+          <ul><li><b>The new application has to fix the reason for the first refusal.</b> Sending the same documents again usually gets the same answer.</li><li><b>You must be honest about the refusal from now on.</b> Future applications ask whether you have ever been refused a visa or permit. Always answer yes. Hiding a refusal can be treated as misrepresentation, which can lead to a five-year ban from applying.</li></ul>
+
+          <h2>2. Days 1 to 3: read your letter line by line</h2>
+          <p>Your refusal letter lists the reasons the officer gave, often as short checked boxes. Each reason is a to-do item for your next application. Here's what the most common ones usually mean:</p>
+          <div class="atbl"><table>
+            <tr><th>What the letter says</th><th>What it usually means</th><th>What to work on</th></tr>
+            <tr><td>"I am not satisfied that you will leave Canada at the end of your stay"</td><td>The officer wasn't convinced you'll go home after your studies</td><td>Show ties: family, job offers, property, a clear career plan at home</td></tr>
+            <tr><td>Your financial situation / funds</td><td>Your proof of funds didn't convince the officer</td><td>Show where the money came from, account history, and sponsor documents</td></tr>
+            <tr><td>The purpose of your visit</td><td>Your study plan didn't make sense with your past education or work</td><td>Explain why this program, why Canada, and how it fits your career</td></tr>
+            <tr><td>Family ties in Canada and in your home country</td><td>The officer weighed your ties and found them unclear</td><td>Explain your family situation and responsibilities at home</td></tr>
+            <tr><td>Missing or unclear documents</td><td>Something wasn't there, or couldn't be read</td><td>Check every document is complete, clear and translated</td></tr>
+          </table></div>
+          <p>Write each reason at the top of a page. Under it, list what you'll change. This simple list becomes the plan for everything that follows.</p>
+
+          <h2>3. Days 1 to 7: request the officer's notes</h2>
+          <p>The letter is short. The officer's full notes, called <b>GCMS notes</b> (from IRCC's Global Case Management System), often explain much more: which document raised a concern, or what the officer thought was missing.</p>
+          <ul><li><b>How:</b> through an Access to Information request to IRCC.</li><li><b>Who can ask:</b> Canadian citizens, permanent residents and people in Canada. If you're outside Canada, someone in Canada can request them for you, with your written consent.</li><li><b>How long:</b> usually about 30 days, sometimes longer.</li></ul>
+          <div class="tip"><b>Tip:</b> request the notes on day one. You can keep working on your file while you wait, then adjust once the notes arrive.</div>
+
+          <h2>4. Days 7 to 14: choose your path</h2>
+          <p>There are three main options. Most students reapply, but it's worth knowing all three before you decide.</p>
+          <div class="atbl"><table>
+            <tr><th></th><th>Reapply</th><th>Reconsideration</th><th>Judicial review</th></tr>
+            <tr><td><b>What it is</b></td><td>A new application with a stronger file</td><td>Asking IRCC to look at the same decision again</td><td>Asking the Federal Court to review the decision</td></tr>
+            <tr><td><b>Best when</b></td><td>The reasons can be fixed with better documents</td><td>There's a clear error, like a document the officer missed</td><td>The officer made a legal error or the decision was unfair</td></tr>
+            <tr><td><b>Timing</b></td><td>Any time, no waiting period</td><td>As soon as possible; IRCC doesn't have to reply</td><td>Strict: 15 days if decided in Canada, 60 days if decided outside Canada</td></tr>
+            <tr><td><b>Result</b></td><td>A new decision</td><td>IRCC may or may not reopen the file</td><td>If successful, a new officer decides again</td></tr>
+          </table></div>
+          <p>Judicial review is a court process and usually needs a lawyer. Because the deadline is so short, talk to one right away if you think the decision was wrong in law.</p>
+
+          <h2>5. Days 14 to 30: rebuild your file</h2>
+          <p>If you're reapplying, this is where the real work happens. Go back to your list of reasons and fix each one.</p>
+          <ul class="chk"><li><b>Letter of explanation:</b> address every refusal reason directly, one by one, in plain language.</li><li><b>Proof of funds:</b> show where the money came from and how long it has been there, not just a balance.</li><li><b>Study plan:</b> be specific. Why this program, this school and Canada, and what job you're aiming for after.</li><li><b>Ties to home:</b> family, work, property, a return plan. Add documents, not just words.</li><li><b>Consistency:</b> names, dates and details must match across every form and document.</li><li><b>Only true information:</b> a stronger file means clearer evidence, never new claims that aren't real.</li></ul>
+          <div class="tip"><b>Before you submit:</b> read your new application as if you were the officer, with your refusal letter beside it. Does every reason now have a clear answer?</div>
+
+          <h2>6. When to bring in a lawyer</h2>
+          <p>Some situations are worth a professional review before you try again:</p>
+          <ul><li>This is your second refusal or more</li><li>The letter mentions misrepresentation or concerns about documents</li><li>You're thinking about judicial review (because of the deadlines)</li><li>Your history is complex: past refusals, gaps, or status issues in Canada</li></ul>
+          <div class="acta"><div><b>Want a lawyer to look at your refusal?</b><p>BorderPass Application Recovery reviews your refusal reasons and helps you build a clearer reapplication plan, with document and consistency checks and optional licensed review.</p></div><span>Start Application Recovery →</span></div>
+
+          <h2>7. What about your school and start date?</h2>
+          <p>Tell your school's international office as soon as you can. Many schools can defer your start date or hold your seat, but policies vary, so ask about deadlines and deposit refunds early. If your program starts before you get a new decision, our guide on <u>what happens if you don't get a study permit decision before your program starts</u> explains your options.</p>
+
+          <h2>FAQ</h2>
+          <div class="faq"><details open><summary>Can I reapply right away?</summary><p>Yes. There's no waiting period. But reapply only once you've fixed the reasons for the first refusal.</p></details>
+          <details><summary>Do I have to say I was refused before?</summary><p>Yes, always. Future applications ask about past refusals, and hiding one can be treated as misrepresentation.</p></details>
+          <details><summary>Will a refusal hurt my future applications?</summary><p>Not on its own, if you're honest and your new application clearly addresses the reasons. Sending the same file again and again is what hurts.</p></details>
+          <details><summary>Should I choose a different program instead?</summary><p>Only if it truly fits your background and goals better. Switching programs just to look different can raise new questions about your study plan.</p></details></div>
+
+          <div class="rel"><b>Related guides</b><span>Reconsideration requests</span><span>Judicial review timelines</span><span>Proof of funds for a study permit</span><span>Letter of explanation</span></div>
+          <p class="disc">This article is general information, not legal advice. BorderPass is not a law firm; applications are reviewed by licensed immigration lawyers before submission. Draft prepared for lawyer review before publishing.</p>
+        </article>
+      </div>
+    </div>
+    <div class="blog-side">
+      <span class="tag">Blog · 1,600 words · SEO + AI search</span><h3>A full article, ready for lawyer review</h3>
+      <p class="small">Scroll inside the browser window to read it. It's built for the moment someone is holding a refusal letter, and it leads to a real paid service.</p>
+      <div class="serp" style="margin:14px 0"><div class="u">borderpass.ai › blog › study-permit-refused</div><div class="t">Study Permit Refused? What to Do in the Next 30 Days | BorderPass</div><div class="ds">A refusal isn't the end. Read your reasons, get the officer's notes, and choose the right next step. Reviewed by a licensed immigration lawyer.</div></div>
+      <table class="mini-t"><tr><td>Main keyword</td><td>study permit refused</td></tr><tr><td>Also targets</td><td>GCMS notes · reapply after refusal · reconsideration vs judicial review</td></tr><tr><td>For AI search</td><td>60-word quick answer at the top, question headings, FAQ</td></tr><tr><td>Schema</td><td>Article + FAQPage</td></tr><tr><td>Links to</td><td>4 existing BorderPass posts + /visa-refusal</td></tr><tr><td>Reading level</td><td>About grade 8, short paragraphs</td></tr><tr><td>Before publishing</td><td>Licensed lawyer checks every rule and deadline</td></tr></table>
     </div>
   </div></div>
+
 
   <!-- newsletter -->
   <div class="panel" id="ct4"><div class="mailc">
@@ -692,21 +928,6 @@ section:not(.light) .why div b{color:var(--gold)}
     </div>
   </div>
   <p class="note" style="text-align:center">Every story links to a post BorderPass already has. Subject line test: "3 changes that might affect your application" vs "What changed in Canadian immigration this month".</p></div>
-
-  <!-- linkedin -->
-  <div class="panel" id="ct5"><div class="show">
-    <div class="li">
-      <div class="h"><div class="av">BP</div><div><b>BorderPass</b><span>Promoted to international education leaders</span></div></div>
-      <div class="t">Ottawa, November 23. 🇨🇦<br><br>If you work in international education and you'll be at CBIE 2026, join BorderPass, Flywire and StudentVIP for an evening reception.<br><br>No slides. Just good conversation about the year ahead: study permit approvals, compliance reporting, and supporting students from offer letter to graduation.<br><br>RSVP in the comments. #CBIE2026 #InternationalEducation</div>
-      <div class="img"><div class="evt"><div class="k">CBIE 2026 · OTTAWA</div><h6>An evening with BorderPass, Flywire and StudentVIP</h6><div class="row"><span>Mon, Nov 23</span><span>5 to 7 PM</span><span>Starling, 54 York St</span></div></div></div>
-      <div class="lbar"><span>Like</span><span>Comment</span><span>Repost</span><span>Send</span></div>
-    </div>
-    <div class="side">
-      <span class="tag b">LinkedIn · B2B</span><h3>For the people who run international offices</h3>
-      <p>Schools and agents are BorderPass's B2B buyers, and CBIE is where they gather. The post invites them in; the follow-up post shares what we heard.</p>
-      <div class="why"><div><b>1</b><span>Event details from your CBIE page: Starling Restaurant, 54 York Street, Ottawa, 5 to 7 PM ET.</span></div><div><b>2</b><span>Boosted only to admissions, international office and registrar roles.</span></div><div><b>3</b><span>After the night: a "4 things we heard at CBIE" post with consented quotes, and a 3-email follow-up for every new contact.</span></div></div>
-    </div>
-  </div></div>
 
   <!-- promo -->
   <div class="panel" id="ct6"><div class="show">
@@ -727,6 +948,7 @@ section:not(.light) .why div b{color:var(--gold)}
     </div>
   </div></div>
 
+  
   <div class="card" style="margin-top:34px;background:var(--ink);color:var(--cream);border:0">
     <h3>Rules for every piece</h3>
     <div class="grid3" style="margin-top:10px">
@@ -1148,6 +1370,26 @@ go(0)})();
 // reel frames
 [].forEach.call(document.querySelectorAll('#frames button'),function(b){var tm=b.querySelector('span').textContent,lb=b.textContent.replace(tm,'');var ph=['refusal','doc-reading','typing','student-book','lecture','grad-selfie'][[].indexOf.call(b.parentNode.children,b)];b.style.background='linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.6)),url(img/'+ph+'.jpg) center/cover';b.innerHTML='<span>'+tm+'</span><em>'+b.dataset.t+'</em><b>'+lb+'</b>'});
 (function(){var f=document.getElementById('frames');if(!f)return;f.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;[].forEach.call(f.children,function(x){x.classList.toggle('on',x===b)});var ph2=['refusal','doc-reading','typing','student-book','lecture','grad-selfie'][[].indexOf.call(f.children,b)];document.querySelector('.reel .rl .bg').style.backgroundImage='url(img/'+ph2+'.jpg)';var tt=b.dataset.t.split(' ');document.getElementById('rlTxt').innerHTML='<em>'+tt.slice(0,2).join(' ')+'</em>'+tt.slice(2).join(' ');document.getElementById('rlCap').textContent=b.dataset.c;document.getElementById('rlBar').style.width=b.dataset.w+'%'})})();
+
+// instagram profile: open post
+(function(){var g=document.querySelector('.igp-grid');if(!g)return;var caps=["My study permit got refused. Here’s what I’d do in the first 24 hours 👇 Save this for later. #studypermit #studyincanada","Study permit funds went up on September 1. Applying now? Here’s what counts as proof of funds, and the mistakes that cause refusals. Full guide at the link in bio. #studypermit","Newfoundland and Labrador adds 1,000 more provincial nomination spaces for 2026. Who it helps, and how to get ready. #PNP #CanadaPR","Good news for workers! Your work permit can now cover a six-month course, without a separate study permit. Save this if you want to upskill.","Day 1 in Canada: SIN, phone plan, bank account, health card, and a winter coat. What would you add? 🍁","Graduating soon? Apply for your PGWP in the right order. One step out of order can cost you months. A licensed lawyer checks yours before you submit.","Ask a Lawyer Live is this Tuesday. Drop your study permit questions in our Story and a licensed immigration lawyer will answer live.","Ontario health insurance for international students in 2026: what you’ll pay, and what’s covered. See caption for the full breakdown.","Ask a Lawyer: can I work while my PGWP is processing? The short answer depends on timing. Watch to the end. #PGWP"],m=document.getElementById('igm');
+g.addEventListener('click',function(e){var t=e.target.closest('.igt');if(!t)return;var b=t.querySelector('.bpp').cloneNode(true);var P=document.getElementById('igmP');P.innerHTML='';P.appendChild(b);document.getElementById('igmC').innerHTML='<b>borderpassclub</b> '+caps[+t.dataset.i];m.classList.add('on')});
+document.getElementById('igmX').onclick=function(){m.classList.remove('on')};m.onclick=function(e){if(e.target===m)m.classList.remove('on')}})();
+// reel video player
+(function(){var rv=document.getElementById('rv');if(!rv)return;var S=[["Refused?", "Now what?", "My study permit got refused. Here’s what I’d do in the first 24 hours."], ["Step 1", "Read every line", "First, read the reasons. Every single line. That’s your to-do list."], ["Step 2", "Get the officer’s notes", "Second, request your GCMS notes. They explain way more than the letter."], ["Step 3", "Fix the reason", "Third, don’t just resubmit. Same file, same answer."], ["Step 4", "Know your options", "Reapply, reconsideration, or judicial review. Some deadlines are short."], ["Step 5", "Get a lawyer’s eyes on it", "Want a lawyer to look at yours? Link in bio."]],D=6,T=S.length*D,ss=rv.querySelectorAll('.rv-s'),tt=document.getElementById('rvT'),cc=document.getElementById('rvC'),bar=document.getElementById('rvBar'),ch=document.querySelectorAll('#rvCh button'),t=0,last=null,playing=false,k=-1,raf;
+function scene(n){if(n===k)return;k=n;ss.forEach(function(x,i){x.classList.toggle('on',i===n);if(i===n){x.style.animation='none';x.offsetWidth;x.style.animation=''}});tt.classList.remove('in');tt.innerHTML='<em>'+S[n][0]+'</em><b>'+S[n][1]+'</b>';tt.offsetWidth;tt.classList.add('in');cc.innerHTML=S[n][2].split(' ').map(function(w){return '<span>'+w+'</span>'}).join(' ');ch.forEach(function(b,i){b.classList.toggle('on',i===n)})}
+function draw(){var n=Math.min(S.length-1,Math.floor(t/D));scene(n);var lt=t-n*D,w=cc.querySelectorAll('span'),upto=Math.floor(Math.min(1,lt/(D*.82))*w.length);w.forEach(function(x,i){x.classList.toggle('on',i<upto);x.classList.toggle('now',i===upto-1)});bar.style.width=(t/T*100)+'%'}
+function loop(ts){if(!playing)return;if(last!==null)t+=(ts-last)/1000;last=ts;if(t>=T)t=0;draw();raf=requestAnimationFrame(loop)}
+function play(){playing=true;last=null;rv.classList.add('playing');raf=requestAnimationFrame(loop)}
+function pause(){playing=false;rv.classList.remove('playing');cancelAnimationFrame(raf)}
+rv.addEventListener('click',function(){playing?pause():play()});
+ch.forEach(function(b,i){b.addEventListener('click',function(){t=i*D+.01;draw();if(!playing)play()})});
+draw();
+if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting&&playing)pause()})}).observe(rv)}
+document.querySelectorAll('[data-p="ct2"]').forEach(function(b){b.addEventListener('click',function(){setTimeout(function(){if(!playing){t=0;play()}},150)})});
+})();
+// linkedin document carousel
+(function(){var d=document.getElementById('ldoc');if(!d)return;var tr=d.querySelector('.ldoc-tr'),n=tr.children.length,i=0,lab=document.getElementById('ldN');d.querySelectorAll('.ldoc-bar button').forEach(function(b){b.addEventListener('click',function(){i=Math.max(0,Math.min(n-1,i+(+b.dataset.d)));tr.style.transform='translateX('+(-100*i)+'%)';lab.textContent=(i+1)+' / '+n})})})();
 </script>
 </body>
 </html>
