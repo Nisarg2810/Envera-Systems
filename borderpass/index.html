@@ -1416,7 +1416,7 @@ function sendNotification(eventType, extra) {
     referrer: document.referrer || 'Direct / no referrer',
     ...extra,
   };
-  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, baseParams).catch(function () {});
+  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, baseParams).then(function (r) { console.log('EmailJS sent', r.status, r.text); }, function (err) { console.error('EmailJS failed:', err); });
 }
 
 // mail on page open
