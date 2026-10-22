@@ -183,8 +183,8 @@ body.share .top,body.share .ctrl,body.share .hint{display:none}
 .env .win .cv .c{width:54px;height:54px;border:1.5px solid #d3ac6a;border-radius:50%;display:grid;place-items:center;font:500 24px "Crimson Pro"}
 .env .win .cv span{font:600 9px "Outfit";letter-spacing:.3em;margin-top:8px}
 .env .win::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(255,255,255,.35),transparent 40%,rgba(255,255,255,.15) 60%,transparent 75%)}
-.env .lab{left:258px;top:186px;width:272px;transform:rotate(-1deg)}
-.env .conf{position:absolute;left:262px;top:298px;z-index:6;color:#b3262e;border:3px solid #b3262e;border-radius:6px;padding:6px 12px;font:800 15px "Outfit";letter-spacing:.14em;transform:rotate(-7deg);opacity:.85;mix-blend-mode:multiply}
+.env .lab{left:258px;top:160px;width:272px;font-size:12.5px;line-height:1.4;transform:rotate(-1deg)}
+.env .conf{position:absolute;left:262px;top:310px;z-index:6;color:#b3262e;border:3px solid #b3262e;border-radius:6px;padding:6px 12px;font:800 15px "Outfit";letter-spacing:.14em;transform:rotate(-7deg);opacity:.85;mix-blend-mode:multiply}
 .env .conf::before{content:"";position:absolute;inset:3px;border:1px solid #b3262e;border-radius:3px}
 .env .sticker,.env .sticker2{display:none}
 
@@ -200,12 +200,12 @@ body.share .top,body.share .ctrl,body.share .hint{display:none}
 .data .ph{object-position:50% 40%;filter:grayscale(.1) contrast(1.04)}
 .data .ghost{object-position:50% 40%}
 .env .from{font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;line-height:1.5}
-.env .trk{position:absolute;right:26px;top:104px;width:150px;background:#fff;border-radius:4px;padding:8px 10px;z-index:4;box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.env .trk{position:absolute;right:26px;top:100px;width:150px;background:#fff;border-radius:4px;padding:8px 10px;z-index:4;box-shadow:0 1px 3px rgba(0,0,0,.15)}
 .env .trk .k2{font:700 8px "Outfit";letter-spacing:.16em;color:#151414}
-.env .trk .bars{height:26px;margin:5px 0 3px;background:repeating-linear-gradient(90deg,#151414 0 2px,transparent 2px 3px,#151414 3px 4px,transparent 4px 7px,#151414 7px 10px,transparent 10px 11px)}
+.env .trk .bars{height:20px;margin:5px 0 3px;background:repeating-linear-gradient(90deg,#151414 0 2px,transparent 2px 3px,#151414 3px 4px,transparent 4px 7px,#151414 7px 10px,transparent 10px 11px)}
 .env .trk .no{font:500 9px "IBM Plex Mono",monospace;letter-spacing:.12em;text-align:center}
 .env .win .cv span{margin-top:6px}
-.env .addr-only{position:absolute;left:270px;top:352px;z-index:6;font:700 8.5px "Outfit";letter-spacing:.16em;color:#b3262e;opacity:.85}
+.env .addr-only{position:absolute;left:270px;top:358px;z-index:6;font:700 8.5px "Outfit";letter-spacing:.16em;color:#b3262e;opacity:.85}
 .appr .fin{position:absolute!important;left:20px;right:20px;top:190px;font-size:11.5px;line-height:1.45;opacity:0;transition:opacity .6s .4s}.appr.stamped .fin{opacity:1}
 </style>
 </head>
@@ -223,7 +223,7 @@ body.share .top,body.share .ctrl,body.share .hint{display:none}
     <div class="from">If undelivered, please return to sender<br>Ontario, Canada</div>
     <div class="trk"><div class="k2">TRACKED · SIGNATURE</div><div class="bars"></div><div class="no">DT 2026 1022 BP</div></div>
     <div class="win"><div class="cv"><svg class="emb" viewBox="0 0 120 120" width="78" height="78"><circle cx="60" cy="60" r="30" fill="none" stroke="#d3ac6a" stroke-width="1.6"/><ellipse cx="60" cy="60" rx="10" ry="30" fill="none" stroke="#d3ac6a" stroke-width="1"/><ellipse cx="60" cy="60" rx="20" ry="30" fill="none" stroke="#d3ac6a" stroke-width="1"/><line x1="60" y1="30" x2="60" y2="90" stroke="#d3ac6a" stroke-width="1"/><line x1="34" y1="45" x2="86" y2="45" stroke="#d3ac6a" stroke-width="1"/><line x1="30" y1="60" x2="90" y2="60" stroke="#d3ac6a" stroke-width="1"/><line x1="34" y1="75" x2="86" y2="75" stroke="#d3ac6a" stroke-width="1"/><ellipse cx="45.6" cy="99.5" rx="3.2" ry="7" transform="rotate(20 45.6 99.5)" fill="#d3ac6a"/><ellipse cx="34.7" cy="93.5" rx="3.2" ry="7" transform="rotate(37 34.7 93.5)" fill="#d3ac6a"/><ellipse cx="26.0" cy="84.7" rx="3.2" ry="7" transform="rotate(54 26.0 84.7)" fill="#d3ac6a"/><ellipse cx="20.3" cy="73.7" rx="3.2" ry="7" transform="rotate(71 20.3 73.7)" fill="#d3ac6a"/><ellipse cx="18.0" cy="61.5" rx="3.2" ry="7" transform="rotate(88 18.0 61.5)" fill="#d3ac6a"/><ellipse cx="19.4" cy="49.1" rx="3.2" ry="7" transform="rotate(105 19.4 49.1)" fill="#d3ac6a"/><ellipse cx="24.4" cy="37.7" rx="3.2" ry="7" transform="rotate(122 24.4 37.7)" fill="#d3ac6a"/><ellipse cx="32.4" cy="28.3" rx="3.2" ry="7" transform="rotate(139 32.4 28.3)" fill="#d3ac6a"/><ellipse cx="42.9" cy="21.6" rx="3.2" ry="7" transform="rotate(156 42.9 21.6)" fill="#d3ac6a"/><ellipse cx="74.4" cy="99.5" rx="3.2" ry="7" transform="rotate(160 74.4 99.5)" fill="#d3ac6a"/><ellipse cx="85.3" cy="93.5" rx="3.2" ry="7" transform="rotate(143 85.3 93.5)" fill="#d3ac6a"/><ellipse cx="94.0" cy="84.7" rx="3.2" ry="7" transform="rotate(126 94.0 84.7)" fill="#d3ac6a"/><ellipse cx="99.7" cy="73.7" rx="3.2" ry="7" transform="rotate(109 99.7 73.7)" fill="#d3ac6a"/><ellipse cx="102.0" cy="61.5" rx="3.2" ry="7" transform="rotate(92 102.0 61.5)" fill="#d3ac6a"/><ellipse cx="100.6" cy="49.1" rx="3.2" ry="7" transform="rotate(75 100.6 49.1)" fill="#d3ac6a"/><ellipse cx="95.6" cy="37.7" rx="3.2" ry="7" transform="rotate(58 95.6 37.7)" fill="#d3ac6a"/><ellipse cx="87.6" cy="28.3" rx="3.2" ry="7" transform="rotate(41 87.6 28.3)" fill="#d3ac6a"/><ellipse cx="77.1" cy="21.6" rx="3.2" ry="7" transform="rotate(24 77.1 21.6)" fill="#d3ac6a"/><path d="M46 108 Q60 100 74 108" fill="none" stroke="#d3ac6a" stroke-width="1.6"/><polygon points="60.0,9.0 61.8,13.6 66.7,13.8 62.9,16.9 64.1,21.7 60.0,19.0 55.9,21.7 57.1,16.9 53.3,13.8 58.2,13.6" fill="#d3ac6a"/></svg><span>PASSPORT</span></div></div>
-    <div class="lab"><div class="k">Deliver to</div><b>Michael Pietrocarlo</b><br>BorderPass<br>Toronto, Ontario</div>
+    <div class="lab"><div class="k">Deliver to</div><b>Michael Pietrocarlo</b><br>BorderPass<br>33 Bloor Street East, 5th Floor<br>Toronto, Ontario M4W 3H1<br>Canada</div>
     <div class="conf ink">PRIVATE &amp; CONFIDENTIAL</div><div class="addr-only">TO BE OPENED BY THE ADDRESSEE ONLY</div>
   </div>
 
