@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LinkedIn Ads Audit · Durva for Limina</title>
+<meta name="description" content="Every Limina ad in LinkedIn's Ad Library, read like a buyer reads it, checked against how the best B2B advertisers work, with 6 full rewrites and a test plan. By Durva Thakkar.">
+<meta property="og:title" content="15 Limina ads: what I would keep, change and test">
+<meta property="og:description" content="A buyer's read of every Limina LinkedIn ad, 6 rewrites with new creative, and a test plan. By Durva Thakkar.">
+<meta property="og:image" content="https://durvathakkar.com/limina/ads/share.jpg?v=1">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b1020;--bg2:#121a33;--blue:#2170f1;--sky:#8fb4ff;--ice:#f4f7fd;--line:#e3e8f5;--ink:#141a2e;--mute:#6b7590;--ok:#16a34a;--warn:#d97706;--li:#0a66c2}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ice);color:var(--ink);font:400 16.5px/1.6 "Instrument Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.mono{font-family:"JetBrains Mono",monospace}
+.w{width:min(1180px,100% - 32px);margin:0 auto}
+.nav{position:sticky;top:0;z-index:40;background:rgba(11,16,32,.94);backdrop-filter:blur(8px);color:#fff}
+.nav .w{display:flex;align-items:center;gap:18px;height:58px}
+.nav b{font-weight:600;white-space:nowrap}.nav b i{color:var(--sky);font-style:normal}
+.nav .lk{display:flex;gap:16px;overflow-x:auto;margin-left:auto;font-size:14px;scrollbar-width:none}
+.nav .lk::-webkit-scrollbar{display:none}
+.nav .lk a{text-decoration:none;color:#aab3c9;white-space:nowrap}.nav .lk a:hover{color:#fff}
+.hero{background:radial-gradient(circle at 80% 0%,rgba(33,112,241,.35),transparent 50%),var(--bg);color:#fff;padding:64px 0 56px}
+.k{font:600 12px "JetBrains Mono";letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.hero .k{color:var(--sky)}
+.hero h1{font-size:clamp(36px,5.4vw,64px);line-height:1.04;letter-spacing:-.03em;font-weight:600;margin:14px 0 16px;max-width:920px}
+.hero h1 em{font-style:normal;background:var(--blue);padding:0 .14em;border-radius:6px}
+.hero p{color:#c7cddd;font-size:18px;max-width:780px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chips span{font:500 13px "JetBrains Mono";border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:6px 12px;color:#dfe5f3}
+.thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:34px}
+.thumbs img{width:100%;border-radius:12px;display:block;border:1px solid rgba(255,255,255,.12)}
+section{padding:72px 0}
+section.alt{background:#fff}
+section.dark{background:var(--bg);color:#fff}
+h2{font-size:clamp(28px,3.6vw,42px);line-height:1.1;letter-spacing:-.02em;font-weight:600;margin:10px 0 12px;max-width:860px}
+.lede{color:var(--mute);font-size:17.5px;max-width:780px;margin-bottom:30px}
+.dark .lede{color:#aab3c9}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;min-width:0}
+.alt .card{background:var(--ice)}
+.dark .card{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1)}
+.card h3{font-size:19px;line-height:1.25;font-weight:600;margin-bottom:8px}
+.card p{font-size:15px;color:var(--mute)}
+.dark .card p{color:#aab3c9}
+.big{font:600 44px/1 "Instrument Sans";letter-spacing:-.03em;color:var(--blue);margin-bottom:10px}
+.dark .big{color:var(--sky)}
+.why{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-size:14px;color:var(--ink)}
+.dark .why{border-color:rgba(255,255,255,.14);color:#dfe5f3}
+.why b{font:600 11px "JetBrains Mono";letter-spacing:.1em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:3px}
+.dark .why b{color:var(--sky)}
+.num{font:600 12px "JetBrains Mono";color:var(--blue);letter-spacing:.08em}
+.src{font-size:12.5px;color:var(--mute);margin-top:8px}
+.src a{color:var(--blue)}
+/* rules */
+.rule{display:grid;grid-template-columns:56px minmax(0,1fr);gap:16px;padding:22px 0;border-top:1px solid var(--line)}
+.rule:last-child{border-bottom:1px solid var(--line)}
+.rule .n{font:600 30px "Instrument Sans";color:var(--blue);letter-spacing:-.02em}
+.rule h3{font-size:20px;font-weight:600;margin-bottom:4px}
+.rule p{color:var(--mute);font-size:15.5px}
+.rule .tech{margin-top:8px;font-size:14.5px;color:var(--ink);background:var(--ice);border-left:3px solid var(--blue);padding:10px 14px;border-radius:0 10px 10px 0}
+/* ad audit cards */
+.filt{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.filt button{font:600 13px "Instrument Sans";border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;cursor:pointer;color:var(--ink)}
+.filt button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.ad{display:grid;grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:26px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px;margin-bottom:20px}
+.ad .meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.pill{font:600 11px "JetBrains Mono";letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:4px 10px;background:var(--ice);color:var(--mute)}
+.pill.b{background:#e8f0fe;color:var(--blue)}
+.pill.g{background:#e7f6ec;color:var(--ok)}
+.ad h3{font-size:22px;line-height:1.2;font-weight:600;margin-bottom:12px}
+.sc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:16px}
+.sc div{background:var(--ice);border-radius:10px;padding:8px 10px}
+.sc span{font:600 10.5px "JetBrains Mono";letter-spacing:.06em;text-transform:uppercase;color:var(--mute);display:block}
+.sc i{display:flex;gap:3px;margin-top:6px}
+.sc i u{flex:1;height:6px;border-radius:3px;background:#dfe5f3}
+.sc i u.f{background:var(--blue)}
+.kc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:14px}
+.kc>div{border-radius:14px;padding:14px 16px;font-size:14.5px}
+.keep{background:#effaf3;border:1px solid #cdeed8}
+.chg{background:#fff7ed;border:1px solid #fde3c3}
+.kc h4{font:600 11px "JetBrains Mono";letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.keep h4{color:var(--ok)}.chg h4{color:var(--warn)}
+.chg ol{padding-left:18px}.chg li{margin-bottom:5px}
+.ad .why{font-size:14.5px}
+.go{display:inline-block;margin-top:12px;font:600 13.5px "Instrument Sans";color:#fff;background:var(--blue);border-radius:999px;padding:8px 14px;text-decoration:none}
+/* LinkedIn feed card */
+.li{background:#fff;border:1px solid #e0dfdc;border-radius:10px;overflow:hidden;font:400 14px/1.45 -apple-system,system-ui,"Segoe UI",Roboto,sans-serif;color:rgba(0,0,0,.9);min-width:0}
+.li .hd{display:flex;gap:8px;align-items:center;padding:12px 14px 6px}
+.li .lg{width:40px;height:40px;border-radius:4px;background:var(--bg) url(../logo-white.svg) 50%/28px no-repeat;flex-shrink:0;background-size:30px;background-position:4px 50%}
+.li .lg.p{border-radius:50%;background:#2a3557;color:#fff;display:grid;place-items:center;font:700 14px system-ui}
+.li .hd b{font-size:14px;font-weight:600;display:block;line-height:1.2}
+.li .hd span{font-size:12px;color:rgba(0,0,0,.6)}
+.li .tx{padding:4px 14px 10px;white-space:pre-line;font-size:14px}
+.li .tx .more{color:rgba(0,0,0,.6)}
+.li .tx .cut{background:linear-gradient(90deg,#fff3c4,#fff3c4);border-radius:2px}
+.li img{width:100%;display:block;aspect-ratio:1;object-fit:cover}
+.li .ft{display:flex;align-items:center;gap:10px;background:#eef3f8;padding:10px 14px}
+.li .ft div{flex:1;min-width:0}
+.li .ft b{font-size:14px;font-weight:600;display:block;line-height:1.3}
+.li .ft small{font-size:12px;color:rgba(0,0,0,.6);display:block}
+.li .ft a{border:1px solid var(--li);color:var(--li);border-radius:999px;padding:5px 14px;font-weight:600;font-size:14px;text-decoration:none;white-space:nowrap}
+.li .msg{padding:14px;font-size:14px;white-space:pre-line;background:#fff}
+.li .msgsub{padding:10px 14px;border-top:1px solid #eee;border-bottom:1px solid #eee;font-weight:600;font-size:14px}
+.li .msgbtn{margin:0 14px 14px;display:inline-block;background:var(--li);color:#fff;border-radius:999px;padding:6px 16px;font-weight:600}
+.li .car{display:flex;gap:8px;overflow-x:auto;padding:0 14px 12px;scroll-snap-type:x mandatory}
+.li .car>div{flex:0 0 72%;scroll-snap-align:start;border:1px solid #e0dfdc;border-radius:8px;overflow:hidden}
+.li .car p{padding:8px 10px;font-weight:600;font-size:13px}
+.noimg{aspect-ratio:1;display:grid;place-items:center;background:repeating-linear-gradient(45deg,#f3f5fa,#f3f5fa 10px,#eceff6 10px,#eceff6 20px);color:var(--mute);font:500 12px "JetBrains Mono";text-align:center;padding:20px}
+/* creative mocks (1:1) */
+.cr{position:relative;aspect-ratio:1;container-type:inline-size;background:radial-gradient(circle at 85% 10%,rgba(33,112,241,.45),transparent 55%),linear-gradient(160deg,#141c3d,#0b1020 60%);color:#fff;overflow:hidden;font-family:"Instrument Sans",sans-serif}
+.cr .lw{position:absolute;left:6cqw;top:6cqw;width:30cqw;height:5.2cqw;background:url(../logo-white.svg) 0 50%/contain no-repeat}
+.cr .h{position:absolute;left:6cqw;right:6cqw;top:16cqw;font-weight:600;font-size:7.4cqw;line-height:1.06;letter-spacing:-.02em}
+.cr .h em{font-style:normal;color:var(--sky)}
+.cr .bt{position:absolute;left:6cqw;bottom:6cqw;background:var(--blue);border-radius:2cqw;padding:2.2cqw 3.6cqw;font:600 3cqw "JetBrains Mono";letter-spacing:.04em}
+.cr .ft2{position:absolute;right:6cqw;bottom:7.2cqw;font:500 2.5cqw "JetBrains Mono";color:#aab3c9}
+.note{position:absolute;background:#fff;color:#141a2e;border-radius:2cqw;padding:3cqw;font:500 3.1cqw/1.5 "JetBrains Mono";box-shadow:0 2cqw 6cqw rgba(0,0,0,.35)}
+.note small{display:block;font:600 2.2cqw "JetBrains Mono";letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-bottom:1.4cqw}
+.rd{background:#141a2e;color:#141a2e;border-radius:.6cqw}
+.tg{background:#e8f0fe;color:var(--blue);border-radius:.6cqw;padding:0 .6cqw;font-weight:600}
+.kp{background:#e7f6ec;color:#0f7a35;border-radius:.6cqw;padding:0 .6cqw}
+.cr .cap{position:absolute;font:600 2.4cqw "JetBrains Mono";letter-spacing:.1em;text-transform:uppercase}
+/* rewrite blocks */
+.rw{background:#fff;border:1px solid var(--line);border-radius:24px;padding:28px;margin-bottom:26px}
+.rw .top{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 16px;margin-bottom:6px}
+.rw h3{font-size:26px;line-height:1.15;letter-spacing:-.01em;font-weight:600}
+.rw .sub{color:var(--mute);font-size:15.5px;max-width:820px;margin-bottom:22px}
+.ba{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:start}
+.ba>div>.lab{font:600 11px "JetBrains Mono";letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;display:block}
+.ba .o .lab{color:var(--mute)}.ba .n .lab{color:var(--blue)}
+.ba .o .li{opacity:.86}
+.dec{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:20px}
+.dec div{background:var(--ice);border-radius:14px;padding:14px 16px;font-size:14px}
+.dec b{display:block;font-size:14.5px;margin-bottom:4px}
+.series{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:8px}
+.series .cr{border-radius:12px}
+.verify{margin-top:14px;font-size:13.5px;color:var(--warn);background:#fff7ed;border:1px solid #fde3c3;border-radius:10px;padding:10px 14px}
+.cars{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.cars .cr{border-radius:10px}
+/* tables */
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:#fff}
+table{border-collapse:collapse;width:100%;min-width:760px;font-size:14.5px}
+th{text-align:left;font:600 11px "JetBrains Mono";letter-spacing:.08em;text-transform:uppercase;color:var(--mute);background:var(--ice);padding:12px 14px;border-bottom:1px solid var(--line)}
+td{padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td b{font-weight:600}
+.dark .tw{background:transparent;border-color:rgba(255,255,255,.12)}
+.dark th{background:rgba(255,255,255,.05);color:#aab3c9;border-color:rgba(255,255,255,.12)}
+.dark td{border-color:rgba(255,255,255,.1);color:#dfe5f3}
+.bar{height:8px;border-radius:4px;background:var(--blue)}
+.fmt{display:grid;grid-template-columns:150px minmax(0,1fr) 60px;gap:10px;align-items:center;font-size:14px;margin:8px 0}
+.fmt .t{background:rgba(255,255,255,.08);border-radius:4px;height:12px;overflow:hidden}
+.fmt .t div{height:100%;background:var(--sky);border-radius:4px}
+.fmt b{font:600 13px "JetBrains Mono";text-align:right}
+.cl{list-style:none;columns:2;column-gap:28px}
+.cl li{break-inside:avoid;padding:10px 0 10px 34px;position:relative;border-bottom:1px solid var(--line);font-size:15px}
+.cl li:before{content:"";position:absolute;left:0;top:12px;width:20px;height:20px;border:2px solid var(--blue);border-radius:6px}
+footer{background:var(--bg);color:#aab3c9;padding:40px 0;font-size:14px}
+footer a{color:var(--sky)}
+@media(max-width:900px){
+  .ad,.ba,.kc{grid-template-columns:minmax(0,1fr)}
+  .g3,.g4,.dec,.series{grid-template-columns:minmax(0,1fr)}
+  .g2{grid-template-columns:minmax(0,1fr)}
+  .thumbs{grid-template-columns:repeat(2,1fr)}
+  .cars{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cl{columns:1}
+  .fmt{grid-template-columns:110px minmax(0,1fr) 54px}
+  .sc{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rw{padding:20px}
+}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="w">
+  <b>Durva <i>for Limina</i></b>
+  <div class="lk">
+    <a href="#short">Short version</a><a href="#rules">How the best do it</a><a href="#audit">Every ad</a><a href="#rewrites">6 rewrites</a><a href="#test">Test plan</a><a href="../plan/">6-month plan</a>
+  </div>
+</div></nav>
+
+<header class="hero"><div class="w">
+  <div class="k">Limina · LinkedIn ads · read by Durva Thakkar</div>
+  <h1>15 Limina ads. What I would <em>keep</em>, change and test.</h1>
+  <p>I read every Limina ad in LinkedIn's Ad Library the way a privacy lead reads them on a phone at 8am: fast, skeptical and one thumb away from scrolling past. Then I checked each one against how the best B2B advertisers work. Below you'll find the patterns, a card for every ad and six full rewrites with new creative. Last comes a test plan, so we find out what actually works instead of guessing.</p>
+  <div class="chips"><span>22 newest results read</span><span>15 unique Limina ads</span><span>Liminal's ads removed</span><span>6 rewrites</span><span>4 A/B tests</span></div>
+  <div class="thumbs">
+    <img src="img/compliant.jpg" alt="Limina ad: 100% Compliant. 0% Useful.">
+    <img src="img/clinical.jpg" alt="Limina ad: Turn Clinical Data Into Working AI">
+    <img src="img/freetrial.jpg" alt="Limina ad: From PHI to AI-Ready in One API Call">
+    <img src="img/sevendays.jpg" alt="Limina ad: Seven Days of Manual Redaction, Down to Minutes">
+  </div>
+</div></header>
+
+<section id="short"><div class="w">
+  <div class="k">01 · The short version</div>
+  <h2>The raw material is strong. The system around it can do more.</h2>
+  <p class="lede">Limina already has hooks most B2B brands would pay for. The four changes below are about lining the ads up with each other and with where each reader is in the buying journey.</p>
+  <div class="g2">
+    <div class="card"><div class="big">3</div><h3>Great hooks are already here</h3><p>"Is Hope a feeling or a patient?", "100% Compliant. 0% Useful." and "You cleared every structured field. The notes still name the patient." read like a clinician's real problem, not a vendor pitch.</p><div class="why"><b>Change</b>Turn them from one-off ads into series. A strong hook is worth five creatives, not one.</div></div>
+    <div class="card"><div class="big">2</div><h3>Two accuracy numbers in one ad</h3><p>Ad 1535868536 says <b>99.5%</b> in the text and <b>99.96%</b> in the image. Both may be true, since they measure different things, but the ad never says what each one measures.</p><div class="why"><b>Change</b>Label every number with what it measures, every time. A privacy buyer forwards the ad to legal, and legal will ask "99.5% of what?"</div></div>
+    <div class="card"><div class="big">7 / 15</div><h3>Ads that ask for a call</h3><p>Seven ads end in "Talk to an expert" (or a technical, privacy or security expert). Only 3 point to the ungated sandbox, which is the lowest-friction, highest-proof offer Limina has.</p><div class="why"><b>Change</b>Cold readers get the sandbox. Warm readers get the call. Most readers on any given day are cold (rule 2 below).</div></div>
+    <div class="card"><div class="big">0</div><h3>Thought leader ads seen</h3><p>Patricia Thaine and Tyler appear only inside Message Ads. Thought leader ads (boosted posts from a person) had a median CTR of 2.68%, against 0.42% for single image ads, in one 161,256-ad study.</p><div class="why"><b>Change</b>Boost Patricia's posts. She is already a known voice in privacy, and people stop for faces, not logos.</div></div>
+  </div>
+</div></section>
+
+<section class="alt" id="rules"><div class="w">
+  <div class="k">02 · How the best do it</div>
+  <h2>8 rules I checked every ad against</h2>
+  <p class="lede">These rules come from LinkedIn's own ad specs, B2B marketing research and what the best B2B advertisers do. Each one has the technical reason, so it is not just taste.</p>
+
+  <div class="rule"><div class="n">1</div><div><h3>Win the first 150 characters</h3><p>On mobile, LinkedIn cuts the intro text and shows "...see more". Most people never tap it, so the hook and the reason to care must both sit before the cut.</p><div class="tech"><b>Technical:</b> LinkedIn's Sponsored Content specs recommend keeping intro text under 150 characters to avoid truncation, and headlines under about 70. In Limina's ad 1535868536, the visible part is the category promise plus "Talk to a Limina engineer (30 min, no deck):". The 99.5% proof point sits after the cut, where most readers never see it.</div></div></div>
+
+  <div class="rule"><div class="n">2</div><div><h3>Speak to the 95, convert the 5</h3><p>On any given day only about 5% of buyers are in market. The other 95% won't book a call, but they will remember you when the moment comes, if the ad tied Limina to that moment.</p><div class="tech"><b>Technical:</b> This is the 95:5 rule from Professor John Dawes (Ehrenberg-Bass), shared widely by the LinkedIn B2B Institute. For ads, it means cold audiences need memorable problem hooks and low-friction offers. "Book a call" asks the 95% for something they can't give yet.</div></div></div>
+
+  <div class="rule"><div class="n">3</div><div><h3>Own the buying moments</h3><p>People don't search for "de-identification". They hit a moment: "we're putting notes into an LLM", "security flagged a new vendor", "the redaction backlog is three weeks". Ads should name those moments word for word.</p><div class="tech"><b>Technical:</b> These moments are Category Entry Points (CEPs), a term coined by Jenni Romaniuk, who wrote the B2B Institute report on them. The brand that is linked to the most CEPs gets recalled first. Limina's best hooks (EHR notes, RAG pipeline) are already CEPs. Section 06 maps the rest.</div></div></div>
+
+  <div class="rule"><div class="n">4</div><div><h3>Match the ask to the temperature</h3><p>Cold readers get value with no strings (sandbox, guide). Warm readers (site visitors, video viewers, sandbox users) get the trial or the engineer call. Hot accounts get a message from a person.</p><div class="tech"><b>Technical:</b> LinkedIn Matched Audiences let you build each layer: website retargeting (Insight Tag), video viewers at 50%+, document ad openers, lead form openers and company lists for ABM. Each layer gets its own campaign with its own CTA, so the cost per result is measured against the right goal.</div></div></div>
+
+  <div class="rule"><div class="n">5</div><div><h3>Proof = a number + a name + a method</h3><p>"99.5%" is a claim. "99.5% accuracy on Providence Health's clinical notes" is proof. "Global pharma customer" reads as anonymous, and anonymous reads as unverified.</p><div class="tech"><b>Technical:</b> Privacy and security buyers are paid to doubt. Every number they can't trace becomes a question in the security review, which slows the deal down. A traceable number (customer, dataset, method or validator) answers the question before it is asked.</div></div></div>
+
+  <div class="rule"><div class="n">6</div><div><h3>One idea per ad</h3><p>A scroller gives an ad about a second. One idea gets read. Six ideas get skipped together.</p><div class="tech"><b>Technical:</b> The 1535868536 creative holds six claims: headline, accuracy, on-prem, four formats, speed and the call offer. The "100% Compliant" creative holds one. It is no surprise which one stops the thumb.</div></div></div>
+
+  <div class="rule"><div class="n">7</div><div><h3>Same look, every time</h3><p>Limina's ads already look like a family: navy, electric blue, logo top-left. That's a real asset. Add one recurring device that only Limina uses: the redaction bar, which becomes a tag.</p><div class="tech"><b>Technical:</b> Distinctive brand assets (colour, shape, type, a repeated device) let people recognise the brand without reading the logo. The B2B Institute's brand research calls this out as how ad memory builds across exposures.</div></div></div>
+
+  <div class="rule"><div class="n">8</div><div><h3>Judge ads on pipeline, not clicks</h3><p>High CTR feels good, but it isn't revenue. Track sandbox runs, account reach inside the target list, meetings and pipeline.</p><div class="tech"><b>Technical:</b> In ZenABM's 2026 dataset (211 B2B companies), CTR had a slightly <i>negative</i> link to pipeline (Spearman rho = -0.17), while spend had a positive one (rho = 0.57). Compare formats on eCTR (landing clicks only), because thought leader ad CTR also counts likes and "see more" taps.</div></div></div>
+
+  <p class="src">Sources: <a href="https://zenabm.com/blog/linkedin-ads-benchmarks-2026" target="_blank" rel="noopener">ZenABM, LinkedIn Ads Benchmarks 2026</a> (vendor data, 161,256 ads) · <a href="https://zenabm.com/blog/linkedin-thought-leader-ads-ultimate-guide" target="_blank" rel="noopener">ZenABM, Thought Leader Ads guide</a> · <a href="https://dreamdata.io/blog/the-95-5-rule-john-dawes" target="_blank" rel="noopener">Dreamdata on the 95:5 rule (John Dawes)</a> · <a href="https://business.linkedin.com/content/dam/lem/business/en/advertise/resources/b2b-institute/b2bi-cepinb2b-final.pdf" target="_blank" rel="noopener">LinkedIn B2B Institute, Category Entry Points in a B2B World</a> · <a href="https://www.clickminded.com/linkedin-ads-benchmarks/" target="_blank" rel="noopener">ClickMinded, LinkedIn Ads Benchmarks</a></p>
+</div></section>
+
+<section class="dark" id="formats"><div class="w">
+  <div class="k" style="color:var(--sky)">03 · Formats</div>
+  <h2>Which ad formats get clicked</h2>
+  <p class="lede">Median CTR by format across 161,256 B2B ads (ZenABM 2026). Limina runs single image, carousel, document and message ads today. The biggest format is missing.</p>
+  <div class="card" style="max-width:820px">
+    <div class="fmt"><span>Thought leader</span><div class="t"><div style="width:100%"></div></div><b>2.68%</b></div>
+    <div class="fmt"><span>Event</span><div class="t"><div style="width:20.5%"></div></div><b>0.55%</b></div>
+    <div class="fmt"><span>Document</span><div class="t"><div style="width:16%"></div></div><b>0.43%</b></div>
+    <div class="fmt"><span>Single image</span><div class="t"><div style="width:15.7%"></div></div><b>0.42%</b></div>
+    <div class="fmt"><span>Carousel</span><div class="t"><div style="width:12%"></div></div><b>0.32%</b></div>
+    <div class="fmt"><span>Video</span><div class="t"><div style="width:9%"></div></div><b>0.24%</b></div>
+    <p class="src" style="color:#aab3c9">Thought leader ad CTR counts every click (likes, comments, "see more"), so it reads higher than a landing-page-only CTR. Even on eCTR, the top thought leader ad in their gallery hit 4.69%. Use this to pick formats to test, not as a promise.</p>
+  </div>
+</div></section>
+
+<section id="audit"><div class="w">
+  <div class="k">04 · Every ad</div>
+  <h2>15 ads, one card each</h2>
+  <p class="lede">Each card shows the ad as it runs and four scores. <b>Hook</b> means it stops the scroll. <b>Clarity</b> means one idea. <b>Proof</b> means specific and traceable. <b>Fit</b> means the ask matches the reader's temperature. Then comes what to keep, what to change and the reason why. Copy is quoted from the Ad Library as it appears, cut-offs included.</p>
+  <div class="filt" id="filt"><button class="on" data-f="all">All 15</button><button data-f="img">Single image</button><button data-f="car">Carousel</button><button data-f="doc">Document</button><button data-f="msg">Message</button><button data-f="rw">Has a rewrite</button></div>
+  <div id="ads"></div>
+</div></section>
+
+<section class="alt" id="rewrites"><div class="w">
+  <div class="k">05 · Six rewrites</div>
+  <h2>New copy and new creative for the six ads with the most upside</h2>
+  <p class="lede">I didn't pick these at random. They're the ads where the hook is already strong (so a fix multiplies it) or where one change moves the ad to a cheaper, better offer. Every creative stays in Limina's look.</p>
+
+  <!-- RW1 -->
+  <div class="rw" id="rw1">
+    <div class="top"><span class="num">REWRITE 1 · AD 1652960426</span><h3>100% Compliant. 0% Useful. Now show the other half.</h3></div>
+    <p class="sub">The paradox is the best headline in the account. Right now the image only shows the problem (a blacked-out page), and the text repeats the same idea. The fix: show the useful version next to the blacked-out one, use the text for proof and send cold readers to the sandbox instead of a call.</p>
+    <div class="ba">
+      <div class="o"><span class="lab">As it runs</span>
+        <div class="li"><div class="hd"><div class="lg"></div><div><b>Limina</b><span>Promoted</span></div></div>
+        <div class="tx">Redacting everything keeps auditors happy and leaves your data science team with nothing to work with. Compliance shouldn't cost you the data. <span class="more">...see more</span></div>
+        <img src="img/compliant.jpg" alt="">
+        <div class="ft"><div><b>De-identify PHI and keep the context your AI models need</b><small>De-identify PII, PHI and PCI without destroying data utility. Talk to an expert.</small></div><a>Learn more</a></div></div>
+      </div>
+      <div class="n"><span class="lab">Rewrite</span>
+        <div class="li"><div class="hd"><div class="lg"></div><div><b>Limina</b><span>Promoted</span></div></div>
+        <div class="tx">Your redaction passed the audit. Then your data team opened the file and found nothing to use.
+
+Limina removes the person, not the meaning. Names, dates and IDs go. The diagnosis and the timeline stay.
+
+Paste a sample note in the sandbox. No login.</div>
+        <div class="cr">
+          <div class="lw"></div>
+          <div class="h" style="top:13cqw;font-size:6.4cqw">100% compliant. 0% useful.<br><em>Or both.</em></div>
+          <div class="note" style="left:5cqw;top:35cqw;width:42cqw"><small>Redact everything</small><span class="rd">Maria Hernandez</span> <span class="rd">03/14/58</span> <span class="rd">type 2 diabetes</span>, <span class="rd">A1c 8.1</span>. <span class="rd">Metformin 500mg</span> <span class="rd">since 2019</span>.</div>
+          <div class="note" style="right:5cqw;top:35cqw;width:42cqw"><small style="color:var(--blue)">Limina</small><span class="tg">[NAME]</span> <span class="tg">[DOB]</span> <span class="kp">type 2 diabetes</span>, <span class="kp">A1c 8.1</span>. <span class="kp">Metformin 500mg</span> since <span class="tg">[YEAR]</span>.</div>
+          <div class="cap" style="left:5cqw;top:77cqw;color:#ff8a80">Auditor happy · data dead</div>
+          <div class="cap" style="right:5cqw;top:77cqw;color:#6ee7b7">Auditor happy · data alive</div>
+          <div class="bt">TRY IT ON A SAMPLE NOTE →</div>
+        </div>
+        <div class="ft"><div><b>See what your redaction leaves behind</b><small>Ungated sandbox · sample notes included</small></div><a>Learn more</a></div></div>
+      </div>
+    </div>
+    <div class="dec">
+      <div><b>Why a side-by-side</b>The original asks the reader to imagine the better version. A before/after removes that work. The eye compares the two panels in under a second, and the comparison <i>is</i> the argument.</div>
+      <div><b>Why the text changed</b>The old text restated the image. The new first line (91 characters, well inside the 150 cut) adds a story the image can't tell: the moment the data team opens the file. That moment is a buying moment (a CEP).</div>
+      <div><b>Why the sandbox, not a call</b>A reader who has just had this thought is problem-aware, not vendor-ready. The sandbox lets them prove it on their own in two minutes, and a sandbox user is a far warmer retargeting audience than a click.</div>
+    </div>
+    <p class="verify">Before launch: run the exact sample sentence through the Limina sandbox and use the real output in the right-hand panel. What's shown here is illustrative.</p>
+  </div>
+
+  <!-- RW2 -->
+  <div class="rw" id="rw2">
+    <div class="top"><span class="num">REWRITE 2 · AD "IS HOPE A FEELING OR A PATIENT?"</span><h3>Turn the best hook into a series of three</h3></div>
+    <p class="sub">"Is Hope a feeling or a patient?" proves the product in one sentence: context is the hard part, and Limina reads context. It currently ends in "Talk to an expert". It should end with "try this exact sentence", because the reader is already curious about the answer.</p>
+    <div class="ba">
+      <div class="o"><span class="lab">As it runs</span>
+        <div class="li"><div class="hd"><div class="lg"></div><div><b>Limina</b><span>Promoted</span></div></div>
+        <div class="tx">Is Hope a feeling or a patient? Is April a month or her daughter? Your tool probably can't tell the difference.</div>
+        <div class="noimg">Creative not captured<br>(Ad Library rate-limited the detail page)</div>
+        <div class="ft"><div><b>De-identification that understands context like a person does</b><small>Context-aware PHI detection for clinical notes. Talk to an expert.</small></div><a>Learn more</a></div></div>
+      </div>
+      <div class="n"><span class="lab">Rewrite · ad 1 of 3</span>
+        <div class="li"><div class="hd"><div class="lg"></div><div><b>Limina</b><span>Promoted</span></div></div>
+        <div class="tx">Is Hope a feeling or a patient? A regex can't tell. A clinician can. So can Limina.
+
+Paste this sentence into our sandbox and watch which Hope disappears.</div>
+        <div class="cr">
+          <div class="lw"></div>
+          <div class="h">Is Hope a feeling <em>or a patient?</em></div>
+          <div class="note" style="left:6cqw;right:6cqw;top:40cqw;font-size:3.6cqw"><small>Clinical note</small>Hope was discharged on March 3. Her mother says there's still hope.</div>
+          <div class="note" style="left:6cqw;right:6cqw;top:62cqw;font-size:3.6cqw"><small style="color:var(--blue)">After Limina</small><span class="tg">[NAME_GIVEN]</span> was discharged on <span class="tg">[DATE]</span>. Her mother says there's still <span class="kp">hope</span>.</div>
+          <div class="bt">TRY THIS SENTENCE →</div>
+        </div>
+        <div class="ft"><div><b>One word, two meanings. Try it yourself.</b><small>Context-aware PHI detection · no login</small></div><a>Learn more</a></div></div>
+      </div>
+    </div>
+    <p style="margin:22px 0 8px;font-weight:600">The series: same layout, three sentences, rotated every 2 to 3 weeks</p>
+    <div class="series">
+      <div class="cr"><div class="lw"></div><div class="h">Is Hope a feeling <em>or a patient?</em></div><div class="note" style="left:6cqw;right:6cqw;top:48cqw;font-size:3.8cqw"><span class="tg">[NAME_GIVEN]</span> was discharged on <span class="tg">[DATE]</span>. Her mother says there's still <span class="kp">hope</span>.</div><div class="bt">TRY THIS SENTENCE →</div></div>
+      <div class="cr"><div class="lw"></div><div class="h">Is April a month <em>or her daughter?</em></div><div class="note" style="left:6cqw;right:6cqw;top:48cqw;font-size:3.8cqw"><span class="tg">[NAME_GIVEN]</span> drove her to the clinic on <span class="tg">[DATE]</span>, the same day as last <span class="kp">April</span>'s visit.</div><div class="bt">TRY THIS SENTENCE →</div></div>
+      <div class="cr"><div class="lw"></div><div class="h">Is Jordan a nurse <em>or a country?</em></div><div class="note" style="left:6cqw;right:6cqw;top:48cqw;font-size:3.8cqw">Nurse <span class="tg">[NAME_GIVEN]</span> noted the patient had just flown in from <span class="kp">Jordan</span>.</div><div class="bt">TRY THIS SENTENCE →</div></div>
+    </div>
+    <div class="dec">
+      <div><b>Why a series</b>A strong hook wears out from frequency, not quality. Three versions of the same idea keep the distinctive look and the mental "click" while resetting creative fatigue for the same audience.</div>
+      <div><b>Why the green tag matters</b>The win isn't only "Limina removed the name". It's "Limina kept the word that isn't PHI". Over-redaction is the pain in ad 1652960426, so this series quietly makes that point too. (A country isn't a Safe Harbor identifier. Only geography smaller than a state is.)</div>
+      <div><b>Why "try this sentence"</b>The hook creates a question in the reader's head. The best CTA answers that exact question. "Talk to an expert" answers a different one. Pre-load each sentence in the sandbox through a URL parameter so it's one tap.</div>
+    </div>
+    <p class="verify">Before launch: run all three sentences in the sandbox and match the creative to the real output. If the outputs differ, that's useful too, and the copy should follow the product.</p>
+  </div>
+
+  <!-- RW3 -->
+  <div class="rw" id="rw3">
+    <div class="top"><span class="num">REWRITE 3 · AD 1652931076</span><h3>Seven days to minutes, with a name on it</h3></div>
+    <p class="sub">"One tired reviewer away from a missed name" is a great human line, and the Day 7 calendar works at a glance. The weak spot is "Global pharma customer": anonymous proof reads as unverified to a skeptical buyer. Limina already has a public story to put a name on it.</p>
+    <div class="ba">
+      <div class="o"><span class="lab">As it runs</span>
+        <div class="li"><div class="hd"><div class="lg"></div><div><b>Limina</b><span>Promoted</span></div></div>
+        <div class="tx">Manual redaction is slow, expensive and one tired reviewer away from a missed name. <span class="more">...see more</span></div>
+        <img src="img/sevendays.jpg" alt="">
+        <div class="ft"><div><b>Get Redaction Down to Minutes. Talk to an Expert.</b><small>Automate PII, PHI and PCI redaction across documents and transcripts.</small></div><a>Learn more</a></div></div>
+      </div>
+      <div class="n"><span class="lab">Rewrite · named proof</span>
+        <div class="li"><div class="hd"><div class="lg"></div><div><b>Limina</b><span>Promoted</span></div></div>
+        <div class="tx">One tired reviewer. One missed name. That's all a breach needs.
+
+Boehringer Ingelheim's team went from 48 hours of manual redaction to minutes with Limina.
+
+Read how they did it.</div>
+        <div class="cr">
+          <div class="lw"></div>
+          <div class="h" style="font-size:6.6cqw">Manual redaction:<br><em>48 hours → minutes.</em></div>
+          <div class="note" style="left:6cqw;right:6cqw;top:42cqw;padding:4cqw">
+            <div style="display:flex;justify-content:space-between;font:600 2.6cqw 'JetBrains Mono';color:var(--mute);margin-bottom:2cqw"><span>BEFORE</span><span>AFTER</span></div>
+            <div style="display:flex;align-items:center;gap:2cqw"><div style="flex:1;height:5cqw;background:#ffd7d2;border-radius:1cqw;display:grid;place-items:center;font:600 3cqw 'JetBrains Mono';color:#b42318">48 HRS</div><div style="width:9cqw;height:5cqw;background:#cdeed8;border-radius:1cqw;display:grid;place-items:center;font:600 2.6cqw 'JetBrains Mono';color:#0f7a35">MIN</div></div>
+            <div style="margin-top:3cqw;font:600 3.4cqw 'Instrument Sans'">Boehringer Ingelheim</div>
+            <div style="font:500 2.6cqw 'JetBrains Mono';color:var(--mute)">Global pharma · customer story</div>
+          </div>
+          <div class="bt">READ THE STORY →</div>
+        </div>
+        <div class="ft"><div><b>How Boehringer Ingelheim cut redaction to minutes</b><small>Customer story · 3 min read</small></div><a>Learn more</a></div></div>
+      </div>
+    </div>
+    <div class="dec">
+      <div><b>Why name the customer</b>A named global pharma brand does two jobs. It proves the claim, and it borrows trust ("if their compliance team approved Limina, mine can too"). Anonymous proof does neither.</div>
+      <div><b>Why a bar instead of a calendar</b>The calendar shows the "before" only. A two-bar chart shows the gap, and the gap is the whole message. The eye reads relative length before it reads a single word.</div>
+      <div><b>Why a story, not a call</b>The reader who stops on this ad has a backlog. A customer story lets them build the internal case to send to their boss, which is the step that actually comes before a call.</div>
+    </div>
+    <p class="verify">Check first: the original says "seven days" for a global pharma customer. The public Boehringer Ingelheim result is 48 hours to minutes. If seven days is a different customer, keep seven days and add that customer's name, or the volume and method, instead. Never mix the two numbers.</p>
+  </div>
+
+  <!-- RW4 -->
+  <div class="rw" id="rw4">
+    <div class="top"><span class="num">REWRITE 4 · CAROUSEL "ONE MORE PARTY WITH YOUR DATA"</span><h3>The API paradox, told as a 5-card story</h3></div>
+    <p class="sub">This is the smartest argument in the account: sending patient data to a third-party API to protect it adds another party to your risk. The current card titles are abstract ("Every request crosses the line"). Carousels have the lowest median CTR of the formats Limina uses (0.32%), so each card has to make the reader want the next one.</p>
+    <div class="ba" style="margin-bottom:18px">
+      <div class="o"><span class="lab">As it runs</span>
+        <div class="li"><div class="hd"><div class="lg"></div><div><b>Limina</b><span>Promoted</span></div></div>
+        <div class="tx">Sending patient data to a third-party API to protect it adds another party to your risk assessment. Swipe to see the alt... <span class="more">see more</span></div>
+        <div class="car"><div><div class="noimg" style="aspect-ratio:1">Card 1</div><p>One more party with your data</p></div><div><div class="noimg" style="aspect-ratio:1">Card 2</div><p>Every request crosses the line</p></div><div><div class="noimg" style="aspect-ratio:1">Card 3</div><p>Runs in your infrastructure</p></div><div><div class="noimg" style="aspect-ratio:1">Card 4</div><p>Talk to a security expert</p></div></div></div>
+      </div>
+      <div class="n"><span class="lab">Rewrite · intro text</span>
+        <div class="li"><div class="hd"><div class="lg"></div><div><b>Limina</b><span>Promoted</span></div></div>
+        <div class="tx">To protect patient data, most teams send it... to someone else.
+
+That's one more BAA, one more vendor review and one more place the data lives. Swipe for the version where it never leaves.</div>
+        <div style="padding:0 14px 14px;font-size:13px;color:rgba(0,0,0,.6)">5 cards below →</div></div>
+      </div>
+    </div>
+    <div class="cars">
+      <div class="cr"><div class="lw"></div><div class="h" style="font-size:8cqw;top:22cqw">To protect patient data, you send it… <em>to someone else?</em></div><div class="ft2" style="left:6cqw;right:auto">1 / 5 · swipe →</div></div>
+      <div class="cr"><div class="lw"></div><div class="h" style="font-size:6.6cqw">Every request is a transfer.</div>
+        <div style="position:absolute;left:6cqw;right:6cqw;top:42cqw;display:flex;align-items:center;gap:2cqw;font:600 3.4cqw 'JetBrains Mono'"><div style="flex:1;border:.5cqw solid var(--sky);border-radius:2cqw;padding:3cqw;text-align:center">YOUR VPC</div><div style="color:#ff8a80">⇄</div><div style="flex:1;border:.5cqw dashed #ff8a80;border-radius:2cqw;padding:3cqw;text-align:center;color:#ff8a80">THEIR API</div></div>
+        <div style="position:absolute;left:6cqw;right:6cqw;top:66cqw;font:500 3.6cqw/1.4 'Instrument Sans';color:#c7cddd">+1 BAA · +1 vendor review · +1 log you don't own</div><div class="ft2" style="left:6cqw;right:auto">2 / 5</div></div>
+      <div class="cr"><div class="lw"></div><div class="h" style="font-size:6.6cqw">Limina runs where the data <em>already lives.</em></div>
+        <div style="position:absolute;left:6cqw;right:6cqw;top:46cqw;border:.5cqw solid var(--sky);border-radius:3cqw;padding:4cqw;font:600 3.4cqw 'JetBrains Mono'">YOUR VPC<div style="margin-top:3cqw;background:var(--blue);border-radius:2cqw;padding:3cqw;text-align:center">LIMINA CONTAINER</div></div><div class="ft2" style="left:6cqw;right:auto">3 / 5</div></div>
+      <div class="cr"><div class="lw"></div><div class="h" style="font-size:6.6cqw">Two Docker commands. <em>Then it's yours.</em></div>
+        <div style="position:absolute;left:6cqw;right:6cqw;top:46cqw;background:#060a16;border:1px solid rgba(255,255,255,.12);border-radius:2cqw;padding:4cqw;font:500 3cqw/1.7 'JetBrains Mono';color:#c7cddd"><span style="color:#6ee7b7">$</span> docker pull …<br><span style="color:#6ee7b7">$</span> docker run …<br><span style="color:var(--sky)">✓ listening on :8080</span></div><div class="ft2" style="left:6cqw;right:auto">4 / 5</div></div>
+      <div class="cr"><div class="lw"></div><div class="h" style="font-size:7cqw">Zero data leaves. <em>Try it on a sample note.</em></div><div class="bt">OPEN THE SANDBOX →</div><div class="ft2">5 / 5</div></div>
+    </div>
+    <div class="dec">
+      <div><b>Why open with a question mark</b>Card 1 states the paradox as a question the reader can't answer yet, which creates an open loop. The swipe is how they close it. Abstract titles ("One more party with your data") give the answer away on card 1.</div>
+      <div><b>Why diagrams</b>Security people think in architecture. A box-and-arrow drawing of "data leaves the VPC" lands faster than a sentence describing it, and it's the same picture they'll draw in the internal review.</div>
+      <div><b>Why end on the sandbox</b>Card 4 already proves it's easy (two commands). Card 5 should let them feel it. "Talk to a security expert" was a step backwards in effort at the exact moment the story made it look easy.</div>
+    </div>
+    <p class="verify">Card 4 shows the shape of the commands only. Use the real two commands from Limina's docs before launch.</p>
+  </div>
+
+  <!-- RW5 -->
+  <div class="rw" id="rw5">
+    <div class="top"><span class="num">REWRITE 5 · TYLER'S MESSAGE AD</span><h3>Short, human and one thing to do</h3></div>
+    <p class="sub">The original is short (good) and offers the ungated sandbox (very good). Three small things hold it back: a typo ("its"), a strong claim with no source ("most de-identified data is still traceable") and an inside reference ("3-unit-minimum billing tax") that only buyers of one specific competitor will get.</p>
+    <div class="ba">
+      <div class="o"><span class="lab">As it runs</span>
+        <div class="li"><div class="hd"><div class="lg p">TM</div><div><b>Tyler Munro</b><span>Sponsored · Limina</span></div></div>
+        <div class="msg">Hi %FIRSTNAME%,
+
+Quick one — most de-identified data is still traceable to a real person. Which means its still PHI.
+
+Limina redacts PII/PHI from text in seconds — no 3-unit-minimum billing tax, no black box.
+
+Want to see it? You can access the ungated sandbox below.</div></div>
+      </div>
+      <div class="n"><span class="lab">Rewrite</span>
+        <div class="li"><div class="hd"><div class="lg p">TM</div><div><b>Tyler Munro</b><span>Sponsored · Limina</span></div></div>
+        <div class="msgsub">Subject: Does anyone check the free text?</div>
+        <div class="msg">Hi %FIRSTNAME%,
+
+When your team strips names and MRNs from clinical data, does anyone check what's left in the free text?
+
+That's where PHI tends to slip through: a relative's name, a rare diagnosis, a small town.
+
+Our sandbox is open, no login. It comes with sample notes, so you can test it without touching real data.
+
+Tyler
+VP Marketing, Limina</div>
+        <span class="msgbtn">Open the sandbox</span></div>
+      </div>
+    </div>
+    <div class="dec">
+      <div><b>Why a question first</b>A Message Ad lands in the inbox next to messages from real colleagues. A question reads like a colleague. A claim ("most data is traceable") reads like an ad, and a skeptical reader wants a source for it.</div>
+      <div><b>Why "sample notes"</b>The biggest hidden friction in a PHI sandbox is "what do I paste?" Nobody should paste real PHI into a vendor's web page. Saying sample notes are included removes the reason not to click. If the sandbox doesn't have them yet, it's worth adding.</div>
+      <div><b>Where the billing line goes</b>"No 3-unit-minimum" is a great line for one segment: teams already paying that competitor. Run it as a separate variant aimed only at that segment (through a matched company list), where it hits hard instead of confusing everyone else.</div>
+    </div>
+  </div>
+
+  <!-- RW6 -->
+  <div class="rw" id="rw6">
+    <div class="top"><span class="num">REWRITE 6 · NEW FORMAT</span><h3>A thought leader ad from Patricia</h3></div>
+    <p class="sub">Limina doesn't run this format yet, and it had the highest median CTR in the benchmark. Patricia Thaine is already a recognised voice in privacy, and people stop for a face and a first-person sentence. This is a draft for Patricia to edit in her own voice. It reuses the Hope sentence so the brand ads and her post support each other.</p>
+    <div class="ba">
+      <div class="n"><span class="lab">Draft post (boosted as a thought leader ad)</span>
+        <div class="li"><div class="hd"><div class="lg p">PT</div><div><b>Patricia Thaine</b><span>Co-founder &amp; CEO, Limina · Promoted</span></div></div>
+        <div class="tx">Here's the sentence I use to explain why de-identification is still hard:
+
+"Hope was discharged on March 3. Her mother says there's still hope."
+
+One Hope is a patient. The other is a feeling.
+
+Remove both and the note loses meaning. Keep both and you've leaked a name. Rules and regex can't tell them apart, because the difference isn't in the word. It's in the sentence around it.
+
+That's the problem our team has worked on for years: reading context the way a clinician does, inside your own environment.
+
+If you want to see it, the sentence is pre-loaded in our sandbox. Link in the first comment.</div></div>
+      </div>
+      <div>
+        <div class="card" style="background:var(--ice)"><h3>How to run it</h3>
+          <p style="margin-bottom:10px"><b>Objective:</b> engagement first, then retarget the engagers with Rewrite 2 and the trial ad.</p>
+          <p style="margin-bottom:10px"><b>Audience:</b> privacy, security, data science and clinical informatics titles at the ABM target accounts, plus a broader healthcare and life sciences layer.</p>
+          <p style="margin-bottom:10px"><b>Budget test:</b> 4 to 6 of Patricia's posts at once, then keep boosting the top two (the setup ZenABM suggests for testing).</p>
+          <p><b>Measure:</b> eCTR and sandbox runs from the comment link, not likes. A thought leader ad's CTR counts likes and "see more" taps, so it always looks inflated next to a single image ad.</p>
+        </div>
+        <div class="dec" style="grid-template-columns:minmax(0,1fr)">
+          <div><b>Why no "someone asked me" opener</b>That opener is common, but it's often made up, and an expert audience can smell it. Starting with "the sentence I use" is true, and it gets to the point in eleven words.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section id="cep"><div class="w">
+  <div class="k">06 · Buying moments</div>
+  <h2>Which ad owns which moment</h2>
+  <p class="lede">The moments a buyer actually lives through, mapped to the ad that should own each one. Two moments have no ad yet.</p>
+  <div class="tw"><table>
+    <tr><th>The moment (in the buyer's words)</th><th>Who has it</th><th>Ad that owns it</th><th>Offer</th></tr>
+    <tr><td><b>"We're putting clinical notes into an LLM or RAG pipeline."</b></td><td>ML / data science lead</td><td>RAG document ad · Rewrite 2</td><td>Guide, then sandbox</td></tr>
+    <tr><td><b>"We cleaned the structured fields. The notes still name patients."</b></td><td>Data engineering, privacy</td><td>2026 EHR guide ad</td><td>Guide</td></tr>
+    <tr><td><b>"Our de-identified data came back useless."</b></td><td>Data science, research</td><td>Rewrite 1</td><td>Sandbox</td></tr>
+    <tr><td><b>"Security flagged another third-party processor."</b></td><td>CISO, security architect</td><td>Rewrite 4 · "every third-party processor" ad</td><td>Sandbox, then trial</td></tr>
+    <tr><td><b>"The redaction backlog is weeks long."</b></td><td>Privacy ops, legal ops</td><td>Rewrite 3 · manual redaction carousel</td><td>Customer story</td></tr>
+    <tr><td><b>"Legal needs Expert Determination for this dataset."</b></td><td>Privacy officer, counsel</td><td>Proof ad (99.96% with validator named)</td><td>Engineer call, 30 min, no deck</td></tr>
+    <tr><td><b>"Our data has to stay in-country."</b></td><td>CIO, public sector, FSI</td><td>Patricia's AI sovereignty message ad</td><td>Event, then field guide</td></tr>
+    <tr><td><b>"Call recordings are full of card numbers."</b> <span class="pill b">No ad yet</span></td><td>Contact centre, FSI compliance</td><td>New: PCI in transcripts</td><td>Sandbox with a transcript sample</td></tr>
+    <tr><td><b>"We want to share data with a research partner."</b> <span class="pill b">No ad yet</span></td><td>Research, data partnerships</td><td>New: data sharing without the data</td><td>Guide</td></tr>
+  </table></div>
+  <p class="src">Almost every ad today is about healthcare PHI. PII and PCI show up only in descriptions. If financial services is part of the ICP (two of the sample ABM accounts in my plan are), the PCI moment deserves its own ad set.</p>
+</div></section>
+
+<section class="dark" id="test"><div class="w">
+  <div class="k" style="color:var(--sky)">07 · Test plan</div>
+  <h2>How I would run it, so the data picks the winners</h2>
+  <p class="lede">Three temperature layers, each with its own ads, offer and success metric. Then four clean A/B tests that change one thing at a time.</p>
+  <div class="tw" style="margin-bottom:26px"><table>
+    <tr><th>Layer</th><th>Who</th><th>Ads</th><th>Offer</th><th>Success metric</th><th>Budget</th></tr>
+    <tr><td><b>Cold</b></td><td>Job functions (privacy, security, ML, clinical informatics) at target accounts, plus the wider industry</td><td>Patricia's thought leader ads, Hope series, Rewrite 1, EHR guide</td><td>Sandbox, guide</td><td>Sandbox runs per 1,000 impressions, account reach % of the list</td><td>~60%</td></tr>
+    <tr><td><b>Warm</b></td><td>Site visitors (90 days), video viewers 50%+, document openers, sandbox users</td><td>Rewrite 3 (named proof), Rewrite 4 (API carousel), free trial code ad</td><td>Free trial, customer story</td><td>Trials started, cost per trial</td><td>~30%</td></tr>
+    <tr><td><b>Hot</b></td><td>Pricing and docs visitors, trial users, accounts with MDR activity</td><td>Tyler's message ad (Rewrite 5), event invites, proof ad</td><td>Engineer call, 30 min, no deck</td><td>Meetings held, pipeline</td><td>~10%</td></tr>
+  </table></div>
+  <div class="g2">
+    <div class="card"><span class="num" style="color:var(--sky)">TEST A</span><h3>Call vs sandbox, same creative</h3><p>Run the Hope ad with "Talk to an expert" vs "Try this sentence". Judge on meetings and pipeline at 60 days, not clicks. This one test settles whether sandbox-first works for Limina.</p></div>
+    <div class="card"><span class="num" style="color:var(--sky)">TEST B</span><h3>Anonymous vs named proof</h3><p>"Global pharma customer" vs "Boehringer Ingelheim" on the same layout. Measures how much a name is worth with this audience.</p></div>
+    <div class="card"><span class="num" style="color:var(--sky)">TEST C</span><h3>Company page vs Patricia</h3><p>The same message posted from the Limina page and boosted from Patricia. Compare eCTR and sandbox runs, not raw CTR.</p></div>
+    <div class="card"><span class="num" style="color:var(--sky)">TEST D</span><h3>Number with method vs bare number</h3><p>"99.5%" vs "99.5% on real clinical notes" vs "99.96%, validated by Aetion". Finds the proof format a privacy buyer trusts most.</p></div>
+  </div>
+  <div class="card" style="margin-top:18px"><h3>House rules for every test</h3><p>One variable per test. Run each arm for at least 2 weeks and 100+ clicks before calling it (my working rule, so one good day doesn't decide anything). Refresh a creative when its CTR falls about 20% below its first two weeks, or when frequency in the same audience climbs past about 4 in a month. Today the free trial ad shows up 3 times in the 22 newest results, so it's a refresh candidate.</p></div>
+</div></section>
+
+<section class="alt"><div class="w">
+  <div class="k">08 · Before any ad ships</div>
+  <h2>A 10-point checklist</h2>
+  <ul class="cl">
+    <li>The hook and the reason to care fit in the first 150 characters.</li>
+    <li>The headline is under 70 characters and doesn't just repeat the image.</li>
+    <li>One idea per creative. Count the claims, and keep it to one or two.</li>
+    <li>Every number says what it measures (dataset, customer or validator).</li>
+    <li>The same number appears the same way everywhere (99.5% vs 99.96%).</li>
+    <li>The CTA matches the layer: cold gets the sandbox or guide, hot gets the call.</li>
+    <li>The button, headline and image all ask for the same thing.</li>
+    <li>Product output in a creative is real sandbox output, not a mock.</li>
+    <li>No em dashes or emoji bullets in the first lines. They read as templated.</li>
+    <li>UTM tags are on, so the tracker can tie the ad to sandbox runs and pipeline.</li>
+  </ul>
+</div></section>
+
+<footer><div class="w">
+  Prepared by Durva Thakkar for Limina's marketing team. Ads were read from the public <a href="https://www.linkedin.com/ad-library/search?accountOwner=limina" target="_blank" rel="noopener">LinkedIn Ad Library</a> in October 2026, and copy is quoted as shown there. Rewrites and creative are proposals. Product outputs shown in the mocks are illustrative until they're run in the Limina sandbox. See also: <a href="../plan/">the months 1 to 6 plan</a> · <a href="../abm/">the personalised ABM page</a>.
+</div></footer>
+
+<script>
+const ADS=[
+{id:"1652960426",f:"img",fmt:"Single image",stage:"Cold",cta:"Talk to an expert",img:"compliant.jpg",
+ tx:"Redacting everything keeps auditors happy and leaves your data science team with nothing to work with. Compliance shouldn't cost you the data.",
+ hl:"De-identify PHI and keep the context your AI models need",ds:"De-identify PII, PHI and PCI without destroying data utility. Talk to an expert.",
+ t:"100% Compliant. 0% Useful.",s:[5,4,2,2],
+ keep:"The creative headline. A paradox stops the thumb because the brain has to resolve it, and this one names the exact pain of over-redaction.",
+ ch:["The text restates the image instead of adding a second reason to click.","The image shows only the problem (blacked-out page). Show the useful version beside it.","The ad is problem-aware (cold), but it asks for an expert call. Send it to the sandbox instead.","The button says \"Learn more\" and the description says \"Talk to an expert\". That's two different asks."],
+ why:"The image's job is to stop the scroll. The text's job is to give the next reason to act. When both say the same thing, the 150 visible characters are spent twice.",rw:"rw1"},
+{id:"1535868536",f:"img",fmt:"Single image",stage:"Warm",cta:"Talk to a Limina engineer",img:"clinical.jpg",
+ tx:"Put your clinical data to work with AI — without the HIPAA risk.\nTalk to a Limina engineer (30 min, no deck):\n🏥 99.5% de-id on clinical text, in your VPC\n📋 HIPAA Safe Harbor and Expert Determination\n⚡ Most teams live in days, not months\nTalk to an expert →",
+ hl:"Turn clinical data into working AI — talk to a Limina expert",ds:"",
+ t:"Turn Clinical Data Into Working AI",s:[2,2,4,3],
+ keep:"\"30 min, no deck\". It's the best friction-reducing microcopy in the account, because it answers the buyer's real fear about a sales call. Use it on every call CTA.",
+ ch:["The opening line fails the swap test: put any competitor's logo on it and it still works. Lead with something only Limina can say.","The text says 99.5%, and the image says 99.96%. Label each one (\"on clinical text\" vs \"Expert Determination, validated by Aetion\") or pick one per ad.","The image holds six claims. Cut it to the one that matters most to this audience.","The proof sits below the \"see more\" cut on mobile."],
+ why:"Two numbers that disagree, side by side, make a privacy reviewer suspicious of both. One labelled number builds more trust than two unlabelled ones."},
+{id:"1535868546",f:"img",fmt:"Single image",stage:"Warm",cta:"Try Limina free",img:"freetrial.jpg",
+ tx:"Put PHI de-identification in your own VPC — free to try.\nSpin it up in minutes:\n🐳 Self-hosted, in your environment\n🎯 99.5% accuracy on real clinical text\n🔒 Zero data leaves your VPC\nTry Limina free →",
+ hl:"Try Limina free — PHI de-identification in your VPC",ds:"",
+ t:"From PHI to AI-Ready in One API Call",s:[3,4,4,5],
+ keep:"The terminal creative. Engineers trust a request and response more than any stock photo, and \"free to try\" is the right ask for this layer.",
+ ch:["It appears 3 times in the 22 newest results, which likely means high frequency to the same people. Rotate in 2 new inputs (a discharge summary, a call transcript).","Swap the easy example (a plain name and DOB) for a hard one (the Hope sentence). Easy cases are what regex already does. Hard cases prove context.","The first line of text repeats the headline. Use the space for the one thing the image can't show."],
+ why:"Creative fatigue is about frequency, not quality. Same audience plus same image means falling CTR and a rising cost per trial, even when the ad is good."},
+{id:"1648472716",f:"msg",fmt:"Message ad",stage:"Hot",cta:"参加しませんか (Join us?)",sender:"Genki Goto",
+ msg:"Japanese invitation from Genki Goto, head of Private AI Japan, to an invitation-only executive forum at the Palace Hotel Tokyo on 22 October. It names guests from MUFG Bank, SoftBank and Tokio Marine Holdings. The topics are data strategy and governance in the AI agent era, with networking after.",
+ s:[4,3,5,4],
+ keep:"A named person inviting you, named peer companies in the room, invitation-only and free. Social proof plus scarcity is the strongest event pattern there is.",
+ ch:["The body arrives as one dense paragraph. Break it into date, venue and format lines so it scans on a phone.","Send a short follow-up to non-openers 3 to 4 days later with one line and the link.","After the event, re-run it as \"the summary from the room\" to the people who didn't come."],
+ why:"Message Ads are read on mobile between real messages. Scannable structure decides whether the date and venue get seen at all. (I'm judging structure here, not the Japanese copy itself.)"},
+{id:"1652931076",f:"img",fmt:"Single image",stage:"Cold",cta:"Talk to a privacy expert",img:"sevendays.jpg",
+ tx:"Manual redaction is slow, expensive and one tired reviewer away from a missed name.",
+ hl:"Get Redaction Down to Minutes. Talk to an Expert.",ds:"Automate PII, PHI and PCI redaction across documents and transcripts.",
+ t:"Seven Days of Manual Redaction. Down to Minutes.",s:[4,4,2,3],
+ keep:"\"One tired reviewer away from a missed name\" is vivid and human, and the Day 7 calendar reads in a glance.",
+ ch:["\"Global pharma customer\" is anonymous proof. Name the customer, or give the volume and method.","The image says \"privacy expert\" and the headline says \"an Expert\". Use one phrase.","The headline is in Title Case while other ads use sentence case. Pick one house style."],
+ why:"A named customer proves the claim and lends their compliance team's trust to Limina. Anonymous proof does neither.",rw:"rw3"},
+{id:"vpc-processor",f:"img",fmt:"Single image",stage:"Warm",cta:"Talk to an expert",
+ tx:"Every third-party processor that touches patient data means another vendor review, another contract and another line in …",
+ hl:"Deploy Redaction in Your VPC. Talk to an Expert.",ds:"Self-hosted container for on-prem, your VPC or any major cloud. Two Docker commands to get running.",
+ t:"",s:[4,3,3,3],
+ keep:"\"Two Docker commands to get running\" is gold for an engineer. It turns \"self-hosted\" from scary into easy.",
+ ch:["The hook speaks to security and procurement (vendor reviews), but the proof speaks to engineers (Docker). Split it into two ads, one per persona.","Security version: lead with \"one less vendor review\" and end with the architecture diagram.","Engineer version: lead with the two commands and end with the free trial."],
+ why:"LinkedIn lets you target by job function, so each ad set can speak to one persona. One ad trying to reach both ends up half-relevant to each."},
+{id:"ehr-guide",f:"img",fmt:"Sponsored content",stage:"Cold",cta:"Get the guide",
+ tx:"You cleared every structured field. The notes still name the patient.\nGeneric tools miss PHI in free text. Inside:\n🗂️…",
+ hl:"The 2026 guide to de-identifying EHR data for HIPAA",ds:"",
+ t:"",s:[5,5,3,4],
+ keep:"Nearly everything. It's the best hook in the account: it names an exact moment (a CEP) in the buyer's own words, in 71 characters.",
+ ch:["If it's gated with a lead form, keep it to 3 pre-filled fields.","Follow up with the sandbox (\"try the hardest example from page 6\") within 24 hours, not a sales call.","Use it as the template for new hooks: \"You did X. Y still happens.\""],
+ why:"\"You did the right thing, and the problem is still there\" respects the reader's competence, then creates a gap. Experts respond to that, and they tune out \"you're doing it wrong\"."},
+{id:"api-carousel",f:"car",fmt:"Carousel",stage:"Warm",cta:"Talk to a security expert",
+ tx:"Sending patient data to a third-party API to protect it adds another party to your risk assessment. Swipe to see the alt…",
+ cards:["One more party with your data","Every request crosses the line","Runs in your infrastructure","Talk to a security expert"],
+ s:[3,4,2,3],
+ keep:"The argument. \"Using an API to protect data adds a processor\" is the smartest, most Limina-only point in the whole account.",
+ ch:["The card titles are abstract. Turn each one into a concrete visual (data flow, count of transfers, container inside the VPC).","Card 1 should ask a question that card 5 answers (an open loop).","End on the sandbox, not on a call."],
+ why:"Carousels have the lowest median CTR of the formats Limina uses (0.32%). Every card must earn the next swipe, so a story arc beats a list of statements.",rw:"rw4"},
+{id:"sandbox-q",f:"img",fmt:"Sponsored content",stage:"Cold",cta:"Try the sandbox",
+ tx:"How accurate is your PHI redaction, really? Find out in about two minutes.\nLimina's sandbox is open to everyone — no lo…",
+ hl:"",ds:"",t:"",s:[4,5,3,5],
+ keep:"The structure: a question that implies a test, a time cost (two minutes) and no login. This is the model ad for cold audiences.",
+ ch:["Say there are sample notes to try. \"What do I paste?\" is the hidden friction, since no one should paste real PHI into a web page.","Merge it with the near-duplicate \"See for yourself\" ad (below) and put the budget behind one."],
+ why:"Every unanswered \"how?\" between the click and the value costs conversions. Removing the paste question removes the last blocker."},
+{id:"sovereignty",f:"msg",fmt:"Message ad",stage:"Hot",cta:"Register",sender:"Patricia Thaine",
+ msg:"Hi %FIRSTNAME%,I'm hosting a conversation on October 27 about a question that keeps coming up in my work: How much control do organizations actually have over their AI stack? ... I'll be joined by Jaxson Khan (Senior Fellow at Munk School of Global Affairs, Former AI Policy Advisor, Government of Canada) and Logan Wolfe (Partner and Global Lead, AI Strategy and Sovereign Transformation, Kyndryl) ... We've also put together a field guide and 90-day roadmap that everyone who registers will receive.",
+ s:[4,4,5,5],
+ keep:"Named speakers with real credentials, the CEO in her own voice and a gift for every registrant (field guide plus 90-day roadmap). This is a near-perfect event message ad.",
+ ch:["Line breaks were lost in the body (\"%FIRSTNAME%,I'm\"). Check the formatting renders on mobile.","After 27 October, re-run it as \"watch the recording and get the field guide\" to the same list, minus registrants.","Cut clips of the speakers into short video ads for the cold layer."],
+ why:"The event's content keeps working long after the live date. The on-demand version reaches everyone who couldn't make the time slot, which is most people."},
+{id:"rag-doc",f:"doc",fmt:"Document ad (15 pages)",stage:"Cold",cta:"Download",
+ tx:"Want clinical notes in your RAG pipeline without the compliance exposure?\nDe-identify first, in your own environment. T…",
+ hl:"Put clinical notes into your LLM pipeline — without the PHI",ds:"",t:"",s:[4,4,3,4],
+ keep:"The topic. \"Clinical notes into RAG\" is one of the sharpest 2026 buying moments, and a 15-page document gives real depth.",
+ ch:["Design page 1 as an ad on its own, since it's the feed thumbnail and most people only see that page.","Let readers preview 3 to 5 pages before the lead form gate, so they see the value first.","Put one striking diagram on page 2 (where PHI leaks inside a RAG pipeline)."],
+ why:"Document ads show page 1 in the feed and can gate the rest with a lead form. The preview pages sell the gate. Too few, and nobody trusts it. All 15, and nobody needs to fill the form."},
+{id:"hope",f:"img",fmt:"Single image",stage:"Cold",cta:"Talk to an expert",
+ tx:"Is Hope a feeling or a patient? Is April a month or her daughter? Your tool probably can't tell the difference.",
+ hl:"De-identification that understands context like a person does",ds:"Context-aware PHI detection for clinical notes. Talk to an expert.",
+ t:"",s:[5,5,3,2],
+ keep:"The hook. It proves the product's hardest skill (context) in one sentence anyone can follow.",
+ ch:["End with \"try this exact sentence\" (pre-loaded in the sandbox) instead of \"Talk to an expert\".","Show the before and after in the creative.","Turn it into a series of three sentences."],
+ why:"The hook plants a question. The CTA should be the fastest way to answer it. A call answers a different question, three days later.",rw:"rw2"},
+{id:"manual-carousel",f:"car",fmt:"Carousel",stage:"Cold",cta:"Talk to a privacy expert",
+ tx:"Manual redaction takes days, and two reviewers can mark the same page two different ways. Swipe to see what changes when…",
+ cards:["Slow, costly and inconsistent","Every gap is an exposure risk","Automated, in minutes","Talk to a privacy expert"],
+ s:[4,3,2,3],
+ keep:"\"Two reviewers can mark the same page two different ways\" is a sharp, visual insight.",
+ ch:["Show it: two redacted copies of the same page, side by side, with the bars in different places. That one image is the ad.","It overlaps heavily with the \"seven days\" ad. Merge them, or make this one the inconsistency angle and that one the speed angle."],
+ why:"\"Inconsistent\" is abstract. Two different redactions of the same page are concrete and impossible to argue with."},
+{id:"tyler",f:"msg",fmt:"Message ad",stage:"Warm",cta:"Open the sandbox",sender:"Tyler Munro",
+ msg:"Hi %FIRSTNAME%,Quick one — most de-identified data is still traceable to a real person. Which means its still PHI.Limina redacts PII/PHI from text in seconds — no 3-unit-minimum billing tax, no black box.Want to see it? You can access the ungated sandbox below.",
+ s:[3,3,2,5],
+ keep:"Short, from a person, and the offer is the ungated sandbox. That's the right offer for a message ad.",
+ ch:["Fix the typo: \"its\" should be \"it's\".","\"Most de-identified data is still traceable\" needs a source or softer wording.","Move \"3-unit-minimum billing tax\" into a variant aimed only at that competitor's customers."],
+ why:"In an inbox, a claim reads as an ad and a question reads as a colleague. A typo in a privacy vendor's message quietly says \"we miss details\".",rw:"rw5"},
+{id:"sandbox-see",f:"img",fmt:"Sponsored content",stage:"Cold",cta:"Try the sandbox",
+ tx:"Want to see how well de-identification actually holds up on real clinical text? See for yourself.\nLimina's sandbox is o…",
+ hl:"",ds:"",t:"",s:[3,4,3,5],
+ keep:"The offer, the ungated sandbox.",
+ ch:["It's a near-duplicate of \"How accurate is your PHI redaction, really?\". Keep the stronger one, the question with a two-minute time cost.","If both stay, use this slot for a different angle (a transcript or PCI sample)."],
+ why:"Two near-identical ads split the budget and the learning. Neither gets enough data to tell you anything."}
+];
+const bars=n=>'<i>'+[1,2,3,4,5].map(k=>'<u class="'+(k<=n?'f':'')+'"></u>').join('')+'</i>';
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+function feed(a){
+  if(a.f==='msg') return `<div class="li"><div class="hd"><div class="lg p">${a.sender.split(' ').map(x=>x[0]).join('')}</div><div><b>${a.sender}</b><span>Sponsored · Limina</span></div></div><div class="msg">${esc(a.msg)}</div><span class="msgbtn">${a.cta}</span></div>`;
+  let media=a.img?`<img src="img/${a.img}" alt="${esc(a.t)}" loading="lazy">`:a.cards?`<div class="car">${a.cards.map((c,i)=>`<div><div class="noimg">Card ${i+1}</div><p>${c}</p></div>`).join('')}</div>`:`<div class="noimg">Creative not captured<br>(Ad Library detail page rate-limited)</div>`;
+  return `<div class="li"><div class="hd"><div class="lg"></div><div><b>Limina</b><span>Promoted</span></div></div><div class="tx">${esc(a.tx)}</div>${media}${a.hl||a.ds?`<div class="ft"><div><b>${esc(a.hl)}</b>${a.ds?`<small>${esc(a.ds)}</small>`:''}</div><a>Learn more</a></div>`:''}</div>`;
+}
+function render(f){
+  document.getElementById('ads').innerHTML=ADS.filter(a=>f==='all'||a.f===f||(f==='rw'&&a.rw)).map((a,i)=>`
+  <article class="ad"><div>${feed(a)}</div><div>
+    <div class="meta"><span class="pill">${a.fmt}</span><span class="pill b">${a.stage} layer</span><span class="pill">CTA: ${esc(a.cta)}</span>${/^\d+$/.test(a.id)?`<span class="pill">#${a.id}</span>`:''}${a.rw?'<span class="pill g">Rewrite below</span>':''}</div>
+    <h3>${esc((a.t||a.tx).split('\n')[0].replace(/…$/,'...'))}</h3>
+    <div class="sc"><div><span>Hook</span>${bars(a.s[0])}</div><div><span>Clarity</span>${bars(a.s[1])}</div><div><span>Proof</span>${bars(a.s[2])}</div><div><span>Fit</span>${bars(a.s[3])}</div></div>
+    <div class="kc"><div class="keep"><h4>Keep</h4>${a.keep}</div><div class="chg"><h4>Change</h4><ol>${a.ch.map(c=>`<li>${esc(c)}</li>`).join('')}</ol></div></div>
+    <div class="why"><b>Why</b>${a.why}</div>
+    ${a.rw?`<a class="go" href="#${a.rw}">See the rewrite →</a>`:''}
+  </div></article>`).join('');
+}
+render('all');
+document.getElementById('filt').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;document.querySelectorAll('#filt button').forEach(x=>x.classList.toggle('on',x===b));render(b.dataset.f)});
+</script>
+</body>
+</html>
