@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Limina · sample account page</title>
+<meta name="description" content="Sample personalised ABM page for Limina, made by Durva Thakkar. One template, a different page for every tier 1 account.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b1020;--blue:#2170f1;--sky:#8fb4ff;--ice:#f4f7fd;--line:#e3e8f5;--ink:#141a2e;--mute:#6b7590}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--ice);color:var(--ink);font:400 16.5px/1.6 "Instrument Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.mono{font-family:"JetBrains Mono",monospace}
+.w{width:min(1080px,100% - 32px);margin:0 auto}
+.sample{background:#ffe9a8;color:#5a4300;text-align:center;font:600 12.5px "JetBrains Mono";padding:8px 16px}
+.sample a{color:inherit}
+.top{background:var(--bg);color:#fff}
+.top .w{display:flex;align-items:center;justify-content:space-between;height:62px}
+.top img{height:22px}
+.top .x{font-size:13px;color:#aab3c9}
+.top .x b{color:#fff}
+.hero{background:radial-gradient(circle at 85% 0%,rgba(33,112,241,.45),transparent 50%),var(--bg);color:#fff;padding:56px 0 70px}
+.k{font:600 12px "JetBrains Mono";letter-spacing:.14em;text-transform:uppercase;color:var(--sky)}
+.hero h1{font-size:clamp(34px,5vw,58px);line-height:1.05;letter-spacing:-.03em;font-weight:600;margin:14px 0 16px;max-width:860px}
+.hero h1 span{color:var(--sky)}
+.hero p{color:#c7cddd;font-size:18px;max-width:720px}
+.cta{display:inline-flex;gap:8px;align-items:center;background:var(--sky);color:var(--bg);border-radius:999px;padding:13px 22px;font-weight:700;text-decoration:none;margin-top:24px;border:0;font-size:15px;cursor:pointer}
+.cta.gh{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);margin-left:8px}
+.who{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.who span{font:500 12.5px "JetBrains Mono";border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:5px 11px;color:#dfe5f3}
+section{padding:60px 0}
+h2{font-size:clamp(28px,3.4vw,40px);line-height:1.1;letter-spacing:-.02em;font-weight:600;margin:8px 0 18px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px}
+.card h3{font-size:18px;margin-bottom:6px}
+.card p,.card li{font-size:14.5px;color:#3a4460}
+.card ul{padding-left:18px}.card li{margin:4px 0}
+.card .ic{font-size:24px}
+.reg{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.reg span{background:#e8efff;color:var(--blue);border-radius:999px;padding:4px 10px;font:600 12px "JetBrains Mono"}
+.proof{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.proof div{background:var(--bg);color:#fff;border-radius:18px;padding:20px}
+.proof b{display:block;font-size:34px;letter-spacing:-.02em;color:var(--sky)}
+.proof span{font-size:14px;color:#c7cddd}
+.offer{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px;display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:start}
+.offer ol{padding-left:20px}.offer li{margin:6px 0;font-size:15px}
+form{display:grid;gap:10px}
+input,select{width:100%;font:400 15px "Instrument Sans";padding:11px 13px;border-radius:10px;border:1px solid var(--line);background:var(--ice)}
+form button{background:var(--blue);color:#fff;border:0;border-radius:10px;padding:13px;font:700 15px "Instrument Sans";cursor:pointer}
+.ok{display:none;background:#e3f6ec;color:#15803d;border-radius:10px;padding:12px;font-size:14px}
+.trk{font:500 12px "JetBrains Mono";color:var(--mute);background:var(--ice);border-radius:10px;padding:10px 12px;margin-top:12px;word-break:break-all}
+.switch{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;padding:26px 16px;background:#fff;border-top:1px solid var(--line)}
+.switch a{font:600 13px "JetBrains Mono";border:1px solid var(--line);border-radius:999px;padding:7px 12px;text-decoration:none;color:var(--ink)}
+.switch a.on{background:var(--ink);color:#fff}
+@media (max-width:860px){.g3,.proof,.g2,.offer{grid-template-columns:1fr}.cta.gh{margin-left:0}}
+</style>
+</head>
+<body>
+<div class="sample">SAMPLE ABM PAGE by Durva Thakkar for Limina · not sent to anyone · <a href="/limina/plan/#abm">back to the plan</a></div>
+<div class="top"><div class="w"><img src="../logo-white.svg" alt="Limina"><span class="x">Made for <b id="co1"></b></span></div></div>
+
+<header class="hero"><div class="w">
+  <div class="k" id="ind"></div>
+  <h1 id="h1"></h1>
+  <p id="lede"></p>
+  <a class="cta" href="#review">Book your 30-minute data review</a><a class="cta gh" href="https://www.getlimina.ai/en" target="_blank" rel="noopener">See how Limina works ↗</a>
+  <div class="who" id="who"></div>
+</div></header>
+
+<section><div class="w">
+  <div class="k" style="color:var(--blue)">Where sensitive data shows up</div>
+  <h2 id="h2u"></h2>
+  <div class="g3" id="uc"></div>
+</div></section>
+
+<section style="padding-top:0"><div class="w">
+  <div class="g2">
+    <div class="card"><h3>The rules you work under</h3><p id="regp"></p><div class="reg" id="reg"></div></div>
+    <div class="card"><h3>Why teams like yours choose Limina</h3><ul><li><b>Runs in your environment</b>: your VPC or on-prem, no third-party processing</li><li><b>Context, not just patterns</b>: 50+ entity types, 52 languages</li><li><b>Audit-ready outputs</b> for HIPAA, GDPR, CPRA, PCI-DSS and more</li><li><b>Data stays useful</b> for AI after it's de-identified</li></ul></div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="w">
+  <div class="proof"><div><b>99.5%</b><span>accuracy on PHI at Providence Health</span></div><div><b>48 hrs → mins</b><span>Boehringer Ingelheim's de-identification time</span></div><div><b id="peerb"></b><span id="peers"></span></div></div>
+</div></section>
+
+<section id="review" style="padding-top:0"><div class="w">
+  <div class="offer">
+    <div><div class="k" style="color:var(--blue)">For <span id="co2"></span> only</div><h2 style="margin-top:6px">A 30-minute data review, not a sales pitch.</h2>
+      <ol><li>Bring one AI use case your team is planning</li><li>We map where PII or PHI enters the pipeline</li><li>You leave with a one-page risk map, yours to keep</li></ol>
+      <p style="color:var(--mute);font-size:14px;margin-top:10px">With a Limina specialist and our Market Development Rep, who will follow up personally.</p></div>
+    <form id="f"><input placeholder="First name" required><input type="email" placeholder="Work email" required><select><option>I'm in privacy / compliance</option><option>I'm in security</option><option>I'm in data / AI</option><option>Other</option></select><button type="submit">Request my data review</button><div class="ok" id="ok">Thanks! (Sample page: nothing was sent.) In real life, this alerts the MDR instantly, with your account context.</div>
+      <div class="trk" id="trk"></div></form>
+  </div>
+</div></section>
+
+<div class="switch" id="sw"></div>
+
+<script>
+(function(){
+var A={
+ manulife:{co:'Manulife',ind:'Insurance · Canada',h:'Put Manulife’s most sensitive data to work in AI, <span>without it ever leaving your environment.</span>',lede:'For the privacy, security and data/AI teams at Manulife. Insurers sit on years of claims notes, call recordings and policy documents. That’s exactly the data that makes AI useful, and exactly the data regulators watch.',uc:[['📞','Call-centre recordings + transcripts','Redact names, policy numbers and health details before they reach an LLM or analytics.'],['📄','Claims notes + documents','De-identify unstructured claims files so underwriting and fraud models can learn from them.'],['🤖','Customer-facing AI assistants','Keep PII out of prompts and logs, in real time.']],reg:['PIPEDA','Quebec Law 25','OSFI guidelines','HIPAA (US business)'],regp:'Canadian privacy law, Quebec’s Law 25, OSFI’s expectations for federally regulated insurers, and HIPAA for health data in US operations.',peer:['Insurance','Zurich Insurance and Intact Insurance already trust Limina'],who:['CPO','CISO','Head of AI','Data governance']},
+ scotiabank:{co:'Scotiabank',ind:'Banking · Canada',h:'Help Scotiabank use its best data in AI, <span>with every prompt governed.</span>',lede:'For the privacy, security and data/AI teams at Scotiabank. Banks want AI on their richest data: complaints, chats, call transcripts and documents. Every one of those is full of personal and financial information.',uc:[['💬','Chat + complaint transcripts','Remove account numbers and personal details before analysis or model training.'],['🧾','Documents in RAG pipelines','De-identify statements and forms before they’re indexed for retrieval.'],['🛡️','Agentic workflows','Govern what sensitive data an AI agent can see and pass on, in real time.']],reg:['PIPEDA','Quebec Law 25','OSFI guidelines','PCI-DSS'],regp:'Canadian privacy law, Quebec’s Law 25, OSFI’s expectations for federally regulated banks, and PCI-DSS for card data.',peer:['Banking','RBC and MUFG Bank already trust Limina'],who:['CPO','CISO','Head of Data','Model risk']},
+ health:{co:'your health system',ind:'Healthcare · United States',h:'Train and run AI on clinical data, <span>with PHI governed at every step.</span>',lede:'For the privacy, security and data/AI teams at a US health system. Clinical notes, images and patient messages could transform care with AI, but only if PHI is handled properly first.',uc:[['🩺','Clinical notes','De-identify free-text notes for research and model training.'],['📨','Patient portal messages','Keep PHI out of AI triage and summarisation tools.'],['🔬','Research datasets','Expert-determination-ready outputs your compliance team can sign off.']],reg:['HIPAA','HIPAA expert determination','State privacy laws'],regp:'HIPAA, including expert determination for de-identified data, plus state privacy laws that apply to patient information.',peer:['99.5%','Accuracy on PHI at Providence Health'],who:['CPO','CISO','CMIO','Research data']}
+};
+var q=new URLSearchParams(location.search),key=q.get('a')||'manulife',a=A[key]||A.manulife;
+function $(i){return document.getElementById(i)}
+document.title='Limina for '+(key==='health'?'a US health system':a.co)+' · sample account page';
+$('co1').textContent=key==='health'?'a US health system':a.co;$('co2').textContent=a.co;$('ind').textContent=a.ind+' · sample account page';$('h1').innerHTML=a.h;$('lede').textContent=a.lede;
+$('who').innerHTML=a.who.map(function(x){return '<span>'+x+'</span>'}).join('');
+$('h2u').textContent='Three places this matters for '+a.co+'.';
+$('uc').innerHTML=a.uc.map(function(u){return '<div class="card"><div class="ic">'+u[0]+'</div><h3>'+u[1]+'</h3><p>'+u[2]+'</p></div>'}).join('');
+$('reg').innerHTML=a.reg.map(function(x){return '<span>'+x+'</span>'}).join('');$('regp').textContent=a.regp;
+$('peerb').textContent=a.peer[0];$('peers').textContent=a.peer[1];
+$('trk').textContent='Tracked as: account='+key+' · utm_source=linkedin · utm_medium=abm · utm_campaign=2027-q1_abm-tier1';
+$('f').addEventListener('submit',function(e){e.preventDefault();$('ok').style.display='block'});
+$('sw').innerHTML='<span class="mono" style="font-size:12px;color:var(--mute);align-self:center">Switch account:</span>'+Object.keys(A).map(function(k){return '<a class="'+(k===key?'on':'')+'" href="?a='+k+'">'+(k==='health'?'US health system':A[k].co)+'</a>'}).join('');
+})();
+</script>
+</body>
+</html>
