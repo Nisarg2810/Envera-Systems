@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Limina Live Demo · Durva for Limina</title>
+<meta name="description" content="A live demo built on Limina's public Community API: paste text, watch personal data get found, labelled and replaced in your browser. Built by Durva Thakkar.">
+<meta property="og:title" content="I built a live Limina demo">
+<meta property="og:description" content="Paste text, see every name, number and address Limina finds, then the safe version an AI model would see. Built by Durva Thakkar on the Community API.">
+<meta property="og:image" content="https://durvathakkar.com/limina/plan/share.jpg?v=1">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b1020;--bg2:#121a33;--blue:#2170f1;--sky:#8fb4ff;--ice:#f4f7fd;--line:#e3e8f5;--ink:#141a2e;--mute:#6b7590;--ok:#16a34a;--warn:#d97706;--bad:#dc2626}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--ice);color:var(--ink);font:400 16px/1.6 "Instrument Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.w{width:min(1180px,100% - 32px);margin:0 auto}
+.nav{position:sticky;top:0;z-index:40;background:rgba(11,16,32,.94);backdrop-filter:blur(8px);color:#fff}
+.nav .w{display:flex;align-items:center;gap:18px;height:58px}
+.nav b{font-weight:600;white-space:nowrap}.nav b i{color:var(--sky);font-style:normal}
+.nav .lk{display:flex;gap:16px;overflow-x:auto;margin-left:auto;font-size:14px;scrollbar-width:none}
+.nav .lk::-webkit-scrollbar{display:none}
+.nav .lk a{text-decoration:none;color:#aab3c9;white-space:nowrap}.nav .lk a:hover,.nav .lk a.on{color:#fff}
+.hero{background:radial-gradient(circle at 80% 0%,rgba(33,112,241,.35),transparent 50%),var(--bg);color:#fff;padding:56px 0 48px}
+.k{font:600 12px "JetBrains Mono";letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.hero .k{color:var(--sky)}
+.hero h1{font-size:clamp(34px,5vw,58px);line-height:1.05;letter-spacing:-.03em;font-weight:600;margin:14px 0 14px;max-width:900px}
+.hero h1 em{font-style:normal;background:var(--blue);padding:0 .14em;border-radius:6px}
+.hero p{color:#c7cddd;font-size:18px;max-width:760px}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:26px;max-width:900px}
+.steps div{border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:14px 16px;font-size:14.5px;color:#dfe5f3}
+.steps b{display:block;font:600 11px "JetBrains Mono";letter-spacing:.1em;color:var(--sky);margin-bottom:4px}
+section{padding:44px 0}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;min-width:0}
+h2{font-size:clamp(24px,3vw,34px);line-height:1.15;letter-spacing:-.02em;font-weight:600;margin:8px 0 10px}
+.lede{color:var(--mute);font-size:16.5px;max-width:760px;margin-bottom:22px}
+label.t{display:block;font:600 11px "JetBrains Mono";letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
+.keyrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.keyrow input[type=password],.keyrow input[type=text]{flex:1 1 280px;font:500 14px "JetBrains Mono";border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--ice);color:var(--ink);min-width:0}
+.keyrow .rem{font-size:14px;color:var(--mute);display:flex;gap:6px;align-items:center}
+.note{font-size:13.5px;color:var(--mute);margin-top:10px}
+.note a{color:var(--blue)}
+.presets{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.presets button,.modes button{font:600 13px "Instrument Sans";border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;cursor:pointer;color:var(--ink)}
+.presets button.on,.modes button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+textarea{width:100%;min-height:150px;font:400 15.5px/1.6 "Instrument Sans";border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:var(--ice);color:var(--ink);resize:vertical}
+.bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-top:14px}
+.modes{display:flex;flex-wrap:wrap;gap:8px}
+.go{font:600 15px "Instrument Sans";background:var(--blue);color:#fff;border:0;border-radius:12px;padding:12px 22px;cursor:pointer}
+.go:disabled{opacity:.55;cursor:wait}
+.err{display:none;margin-top:14px;padding:12px 14px;border-radius:12px;background:#fdecec;color:var(--bad);font-size:14.5px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:16px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.stat b{display:block;font:600 28px/1.1 "Instrument Sans";color:var(--blue);letter-spacing:-.02em}
+.stat span{font-size:13px;color:var(--mute)}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.out{font-size:15.5px;line-height:1.85;white-space:pre-wrap;word-wrap:break-word}
+mark{border-radius:5px;padding:1px 4px;font-weight:500}
+.tag{display:inline-block;font:600 10px "JetBrains Mono";letter-spacing:.04em;margin-left:4px;opacity:.75;vertical-align:1px}
+.mk{font:600 13.5px "JetBrains Mono";background:#e8f0fe;color:var(--blue);border-radius:5px;padding:1px 5px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font:600 11px "JetBrains Mono";letter-spacing:.08em;text-transform:uppercase;color:var(--mute);padding:8px 10px;border-bottom:1px solid var(--line)}
+td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;word-break:break-word}
+td.c{font-family:"JetBrains Mono";font-size:13px}
+.conf{display:inline-block;height:6px;border-radius:3px;background:var(--blue);vertical-align:middle;margin-right:6px}
+.flow{display:grid;grid-template-columns:minmax(0,1fr) 40px minmax(0,1fr);gap:10px;align-items:stretch}
+.flow .arr{display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--blue)}
+.dark{background:var(--bg);color:#fff}
+.dark .card{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1)}
+.dark .lede,.dark .note{color:#aab3c9}
+.dark label.t{color:var(--sky)}
+.dark .mk{background:rgba(143,180,255,.15);color:var(--sky)}
+.dark td,.dark th{border-color:rgba(255,255,255,.1)}
+.empty{color:var(--mute);font-size:15px}
+#results{display:none}
+.why{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.why h3{font-size:18px;font-weight:600;margin-bottom:6px}
+.why p{font-size:14.5px;color:var(--mute)}
+footer{padding:30px 0 50px;font-size:13.5px;color:var(--mute)}
+@media(max-width:820px){.steps,.why,.g2{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.flow{grid-template-columns:1fr}.flow .arr{transform:rotate(90deg);height:30px}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="w"><b>Durva <i>for Limina</i></b><div class="lk"><a href="../">Overview</a><a href="../plan/">6-month plan</a><a href="../ads/">Ads audit</a><a href="../webinar/">Webinar</a><a href="./" class="on">Live demo</a></div></div></nav>
+
+<header class="hero"><div class="w">
+  <div class="k">Hands-on · Community API</div>
+  <h1>I didn't just read about Limina. <em>I built on it.</em></h1>
+  <p>This page calls Limina's public Community API right from your browser. Paste any text, and you'll see every piece of personal data it finds, how sure it is, and the safe version an AI model would get instead.</p>
+  <div class="steps">
+    <div><b>01 · KEY</b>Grab a free Community key at portal.getlimina.ai and paste it below.</div>
+    <div><b>02 · TEXT</b>Pick a sample (all made up) or paste your own.</div>
+    <div><b>03 · RUN</b>See what was found, the redacted text, and the AI-safe prompt.</div>
+  </div>
+</div></header>
+
+<section><div class="w">
+  <div class="card">
+    <label class="t" for="key">Your Limina Community API key</label>
+    <div class="keyrow">
+      <input id="key" type="password" autocomplete="off" spellcheck="false" placeholder="Paste key here">
+      <button id="show" type="button" style="all:unset;cursor:pointer;font-size:13.5px;color:var(--blue)">Show</button>
+      <label class="rem"><input type="checkbox" id="rem"> Remember in this browser</label>
+    </div>
+    <p class="note">Your key goes only from your browser to <code>api.getlimina.ai</code>. It is never sent to this site and is not in the page code. No key yet? <a href="https://portal.getlimina.ai/" target="_blank" rel="noopener">Get one free</a> (sign up, then copy it from the portal).</p>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <label class="t">Text to scan</label>
+    <div class="presets" id="presets"></div>
+    <textarea id="txt" spellcheck="false"></textarea>
+    <div class="bar">
+      <div class="modes" id="modes">
+        <button data-m="MARKER" class="on">Labels [NAME_1]</button>
+        <button data-m="SYNTHETIC">Fake but realistic</button>
+        <button data-m="MASK">Mask ####</button>
+      </div>
+      <button class="go" id="go">Scan with Limina</button>
+    </div>
+    <div class="err" id="err"></div>
+  </div>
+</div></section>
+
+<div id="results">
+<section style="padding-top:0"><div class="w">
+  <div class="k">Result</div>
+  <h2>What Limina found</h2>
+  <div class="stats">
+    <div class="stat"><b id="sN">0</b><span>items of personal data</span></div>
+    <div class="stat"><b id="sT">0</b><span>different types</span></div>
+    <div class="stat"><b id="sL">-</b><span>language detected</span></div>
+    <div class="stat"><b id="sMs">-</b><span>round trip, measured here</span></div>
+  </div>
+  <div class="g2">
+    <div class="card"><label class="t">Original, with each find highlighted</label><div class="out" id="hl"></div></div>
+    <div class="card"><label class="t" id="outLbl">Redacted output</label><div class="out" id="red"></div></div>
+  </div>
+  <div class="card" style="margin-top:16px;overflow-x:auto">
+    <label class="t">Every detection</label>
+    <table><thead><tr><th>Found text</th><th>Type</th><th>Confidence</th><th>Replaced with</th></tr></thead><tbody id="tb"></tbody></table>
+  </div>
+</div></section>
+
+<section class="dark"><div class="w">
+  <div class="k" style="color:var(--sky)">Why it matters for AI</div>
+  <h2>What a chatbot would see</h2>
+  <p class="lede">This is the PrivateGPT idea in one picture. The model only gets the labelled text on the right. The real values stay on your side in the lookup table and get put back into the answer afterwards.</p>
+  <div class="flow">
+    <div class="card"><label class="t">Prompt the model receives</label><div class="out" id="safe"></div></div>
+    <div class="arr">→</div>
+    <div class="card" style="overflow-x:auto"><label class="t">Kept on your side (never sent to the model)</label><table><tbody id="map"></tbody></table></div>
+  </div>
+</div></section>
+</div>
+
+<section><div class="w">
+  <div class="k">Why I built this</div>
+  <h2>Three things I'd use it for in the role</h2>
+  <div class="why">
+    <div class="card"><h3>Webinar and event demos</h3><p>A live "paste anything" moment lands better than slides. The French sample shows the 52-language claim in seconds, which matters for Canadian buyers.</p></div>
+    <div class="card"><h3>Ads and landing pages</h3><p>A before and after of real output (made-up data) is a stronger creative than another "protect your data" line. It shows the product doing the work.</p></div>
+    <div class="card"><h3>Sales follow-ups</h3><p>Reps can send a prospect this kind of page with a sample from their own industry: a claims note for insurance, an intake form for healthcare, a KYC email for banking.</p></div>
+  </div>
+</div></section>
+
+<footer><div class="w">Built by Durva Thakkar on Limina's public Community API, as part of my application. Not an official Limina page. All sample text is made up. Source of the API format: <a href="https://github.com/privateai/deid-examples" target="_blank" rel="noopener">github.com/privateai/deid-examples</a>.</div></footer>
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const URL="https://api.getlimina.ai/community/v4/process/text";
+  const SAMPLES={
+    "Patient intake":"Hi, this is Sarah Mitchell calling from Toronto General. Patient James O'Connor, DOB March 14 1987, health card 4532-281-947-KT, was admitted on Oct 12 for chest pain. His wife Priya can be reached at 416-555-0193 or priya.oconnor@gmail.com. Billing to Visa 4111 1111 1111 1111, home address 88 Queen St W, Toronto ON M5H 2N2.",
+    "Insurance claim":"Claim #CLM-2026-88412 filed by Daniel Okafor (policy AB-55128, SIN 046 454 286) after a rear-end collision on Sept 3 near 1450 Bank St, Ottawa. Adjuster Mei Lin Chen spoke with him at 613-555-0142. Payout to RBC account 00123-456-7891234.",
+    "Bank KYC email":"Hello, I'm updating my file. Full name Olivia Grant-Ramos, born 22/07/1991, passport GK482913, new address 7 Harbour Lane, Halifax NS B3H 1A1. My work email is o.grant@northwind-logistics.ca and my cell is (902) 555-0168.",
+    "French support call":"Bonjour, je m'appelle Marc Tremblay, mon numéro est 514-555-0177 et j'habite au 1200 rue Sainte-Catherine, Montréal. Ma carte d'assurance maladie est TREM 8203 1514.",
+    "Prompt to a chatbot":"Write a polite follow-up email to Aisha Rahman (aisha.rahman@lakeview-dental.com) confirming her root canal on Nov 3 at 2pm with Dr. Paul Novak, and remind her the balance of $420 will go to her Mastercard ending 5521."
+  };
+  const PAL=["#e8f0fe:#1a56c4","#e7f6ec:#137a3b","#fdf0e1:#a35a06","#fbe9f1:#a3245e","#efeafd:#5b3cc4","#e3f6f8:#0d7480","#fdecec:#b42318","#f1f3f7:#3b4562"];
+  const colorOf={};let ci=0;
+  function col(t){if(!colorOf[t]){colorOf[t]=PAL[ci++%PAL.length].split(":")}return colorOf[t]}
+  const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{v==null?localStorage.removeItem(k):localStorage.setItem(k,v)}catch(e){}}};
+
+  // key
+  const saved=store.get("liminaKey");if(saved){$("key").value=saved;$("rem").checked=true}
+  $("show").onclick=()=>{const k=$("key");k.type=k.type==="password"?"text":"password";$("show").textContent=k.type==="password"?"Show":"Hide"};
+  $("rem").onchange=()=>store.set("liminaKey",$("rem").checked?$("key").value.trim():null);
+  $("key").oninput=()=>{if($("rem").checked)store.set("liminaKey",$("key").value.trim())};
+
+  // presets
+  const pre=$("presets");
+  Object.keys(SAMPLES).forEach((n,i)=>{const b=document.createElement("button");b.textContent=n;b.type="button";b.onclick=()=>{$("txt").value=SAMPLES[n];[...pre.children].forEach(x=>x.classList.toggle("on",x===b))};pre.appendChild(b);if(i===0)b.click()});
+
+  // modes
+  let mode="MARKER";
+  $("modes").querySelectorAll("button").forEach(b=>b.onclick=()=>{mode=b.dataset.m;$("modes").querySelectorAll("button").forEach(x=>x.classList.toggle("on",x===b))});
+
+  async function call(text,type){
+    const r=await fetch(URL,{method:"POST",headers:{"Content-Type":"application/json","x-api-key":$("key").value.trim()},body:JSON.stringify({text:[text],processed_text:{type}})});
+    const body=await r.text();
+    if(!r.ok){let m=body;try{const j=JSON.parse(body);m=j.message||j.Message||j.detail||body}catch(e){}throw new Error((r.status===401||r.status===403?"The API didn't accept that key. Check it's your Community key from the portal. ":"API error "+r.status+": ")+String(typeof m==="string"?m:JSON.stringify(m)).slice(0,300))}
+    const j=JSON.parse(body);return Array.isArray(j)?j[0]:j;
+  }
+  const br=v=>v==null||v===""?"":(/^\[.*\]$/.test(v)?v:"["+v+"]");
+  const best=e=>e.best_label||(e.labels?Object.entries(e.labels).sort((a,b)=>b[1]-a[1])[0][0]:"ENTITY");
+  const conf=e=>{const l=e.labels||{};return l[best(e)]??null};
+  const loc=e=>{const L=e.location||{};return [L.stt_idx??L.start??null,L.end_idx??L.end??null]};
+
+  function highlight(text,ents){
+    const spans=ents.map(e=>{const [s,t]=loc(e);return {s,t,e}}).filter(x=>x.s!=null&&x.t!=null).sort((a,b)=>a.s-b.s);
+    if(!spans.length)return esc(text);
+    let out="",p=0;
+    spans.forEach(({s,t,e})=>{if(s<p)return;const [bg,fg]=col(best(e));out+=esc(text.slice(p,s))+`<mark style="background:${bg};color:${fg}">${esc(text.slice(s,t))}<span class="tag">${esc(best(e))}</span></mark>`;p=t});
+    return out+esc(text.slice(p));
+  }
+  const markers=s=>esc(s).replace(/\[[A-Z_]+_\d+\]/g,m=>`<span class="mk">${m}</span>`);
+
+  $("go").onclick=async()=>{
+    const text=$("txt").value.trim();$("err").style.display="none";
+    if(!$("key").value.trim()){$("err").textContent="Paste your free Community API key first (portal.getlimina.ai).";$("err").style.display="block";return}
+    if(!text)return;
+    $("go").disabled=true;$("go").textContent="Scanning...";
+    try{
+      const t0=performance.now();
+      const m=await call(text,"MARKER");
+      const ms=Math.round(performance.now()-t0);
+      const out=mode==="MARKER"?m:await call(text,mode);
+      const ents=m.entities||[];
+      $("sN").textContent=ents.length;
+      $("sT").textContent=new Set(ents.map(best)).size;
+      const langs=m.languages_detected?Object.keys(m.languages_detected):[];
+      $("sL").textContent=langs.length?langs.join(", ").toUpperCase():"-";
+      $("sMs").textContent=ms+" ms";
+      $("hl").innerHTML=highlight(text,ents);
+      $("outLbl").textContent={MARKER:"Redacted output (labels)",SYNTHETIC:"Output with fake but realistic values",MASK:"Masked output"}[mode];
+      $("red").innerHTML=mode==="MARKER"?markers(m.processed_text):esc(out.processed_text);
+      const repl={};(out.entities||[]).forEach((e,i)=>{const [s]=loc(e);repl[s??i]=out.processed_text.slice(e.location?.stt_idx_processed??0,e.location?.end_idx_processed??0)});
+      $("tb").innerHTML=ents.length?ents.map((e,i)=>{const c=conf(e);const [s]=loc(e);const [bg,fg]=col(best(e));const r=mode==="MARKER"?br(e.processed_text):(repl[s??i]??"");return `<tr><td>${esc(e.text)}</td><td><mark style="background:${bg};color:${fg}">${esc(best(e))}</mark></td><td class="c">${c==null?"-":`<span class="conf" style="width:${Math.round(c*60)}px"></span>${Math.round(c*100)}%`}</td><td class="c">${esc(r)}</td></tr>`}).join(""):`<tr><td colspan="4" class="empty">Nothing found in this text.</td></tr>`;
+      $("safe").innerHTML=markers(m.processed_text);
+      const seen=new Set();
+      $("map").innerHTML=ents.filter(e=>e.processed_text&&!seen.has(e.processed_text)&&seen.add(e.processed_text)).map(e=>`<tr><td><span class="mk">${esc(br(e.processed_text))}</span></td><td>${esc(e.text)}</td></tr>`).join("")||`<tr><td class="empty">Nothing to keep back.</td></tr>`;
+      $("results").style.display="block";
+      $("results").scrollIntoView({behavior:"smooth"});
+    }catch(err){
+      $("err").textContent=err.message.includes("Failed to fetch")?"Couldn't reach the Limina API from this browser. Try again, or check your connection.":err.message;
+      $("err").style.display="block";
+    }finally{$("go").disabled=false;$("go").textContent="Scan with Limina"}
+  };
+})();
+</script>
+</body>
+</html>
