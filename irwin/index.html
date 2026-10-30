@@ -241,7 +241,10 @@
     .proof figure { padding: 20px 22px 20px 0; border-bottom: 1px solid var(--hair); }
     .proof figure + figure { padding-left: 22px; border-left: 1px solid var(--hair); }
     .proof blockquote { font-size: 19px; line-height: 1.4; font-weight: 500; }
-    .proof figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); }
+    .proof figcaption { margin-top: 14px; font-size: 14px; color: var(--muted); display: flex; align-items: center; gap: 12px; line-height: 1.35; }
+    .proof figcaption img { width: 44px; height: 44px; border-radius: 50%; flex: none; }
+    .proof figcaption b { display: block; color: var(--ink); font-weight: 700; font-size: 15px; }
+    .proof figure:nth-child(3) { padding-left: 0; border-left: 0; }
     @media (max-width: 760px) { .proof { grid-template-columns: 1fr; } .proof figure + figure { padding-left: 0; border-left: 0; } }
 
     .end { margin-top: 96px; background: var(--bedrock); color: var(--sand); }
@@ -738,8 +741,10 @@
         </div>
         <h3>What others have said about my work</h3>
         <div class="proof">
-          <figure><blockquote>"The ideas were spot on and you truly grasped the business and its needs!"</blockquote><figcaption>Colleen Pierre, VP of Marketing, Envera Systems, on <a href="../envera-systems/" target="_blank" rel="noopener">the site I made for her team</a></figcaption></figure>
-          <figure><blockquote>"Very clever. Appreciate the effort and creativity. Everyone in the office was impressed."</blockquote><figcaption>Tyler Munro, VP Marketing, Limina, on <a href="../limina/case-file/" target="_blank" rel="noopener">a case file I mailed them</a></figcaption></figure>
+          <figure><blockquote>"The ideas were spot on and you truly grasped the business and its needs!"</blockquote><figcaption><img src="img/colleen.jpg" alt="" width="44" height="44" loading="lazy"><span><b>Colleen Pierre</b>VP of Marketing, Envera Systems</span></figcaption></figure>
+          <figure><blockquote>"Very clever. Appreciate the effort and creativity. Everyone in the office was impressed."</blockquote><figcaption><img src="img/tyler.jpg" alt="" width="44" height="44" loading="lazy"><span><b>Tyler Munro</b>VP Marketing, Limina</span></figcaption></figure>
+          <figure><blockquote>"I am so utterly impressed by your passion, talent, and accomplishments."</blockquote><figcaption><img src="img/sara.jpg" alt="" width="44" height="44" loading="lazy"><span><b>Sara Lemmermeyer</b>Group Account Director, Rethink PR</span></figcaption></figure>
+          <figure><blockquote>"Your creativity and ideas are a real strength."</blockquote><figcaption><img src="img/ksenia.jpg" alt="" width="44" height="44" loading="lazy"><span><b>Ksenia Onosov</b>Recruiter, Forum Ventures</span></figcaption></figure>
         </div>
       </div>
     </section>
