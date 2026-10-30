@@ -1,0 +1,794 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fitzrovia, from hoarding to happy residents · Durva Thakkar</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Marketing Coordinator, Fitzrovia. An online curb appeal audit of the live portfolio, an offer matrix, a Rushden Station lifecycle plan, and the tools I'd use every week.">
+<meta property="og:title" content="Fitzrovia, I started with your online curb appeal.">
+<meta property="og:description" content="Nine live findings across fitzrovia.ca and the property sites, each with a fix. Plus the offer matrix, a Rushden Station plan and the weekly tools.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://durvathakkar.com/fitzrovia/">
+<meta property="og:image" content="https://durvathakkar.com/fitzrovia/share.jpg?v=1">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://durvathakkar.com/fitzrovia/share.jpg?v=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,300..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#02040c; --soft:#5d6068; --line:#e3ddd2; --bg:#fbf9f5; --beige:#ece6dd; --sage:#afcbc0; --sage-d:#5f8a7b;
+  --red:#ff4e31; --red-d:#d74028; --white:#fff;
+  --wide:'Archivo',sans-serif; --serif:'Source Serif 4',Georgia,serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--wide);font-stretch:100%;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.w{font-family:var(--wide);font-stretch:125%;text-transform:uppercase;letter-spacing:.01em}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.serif{font-family:var(--serif)}
+
+/* top */
+.bar{position:sticky;top:0;z-index:30;background:rgba(2,4,12,.94);color:#fff;backdrop-filter:blur(8px)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:54px;gap:12px}
+.bar b{font-stretch:125%;font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+.bar nav{display:flex;gap:18px;font-size:12.5px;overflow-x:auto;scrollbar-width:none}
+.bar nav a{text-decoration:none;color:#c9cbd1;white-space:nowrap}
+.bar nav a:hover{color:#fff}
+
+/* hero film */
+.hero{background:var(--ink);color:#fff;padding:56px 0 0;overflow:hidden}
+.hero .kick{color:var(--sage)}
+.hero h1{font-size:clamp(34px,6.2vw,72px);line-height:.96;font-weight:800;margin-top:16px;max-width:900px}
+.hero h1 span{color:var(--red)}
+.hero p.lede{font-family:var(--serif);font-size:clamp(18px,2.2vw,22px);line-height:1.5;margin-top:20px;max-width:680px;color:#d7d9de}
+.film{margin-top:40px;position:relative;border-top:1px solid #23262f}
+.stage{position:relative;height:440px}
+.stage svg{position:absolute;inset:0;width:100%;height:100%}
+.chips{position:absolute;inset:0;pointer-events:none}
+.chip{position:absolute;background:#fff;color:var(--ink);font-size:12.5px;font-weight:600;padding:7px 12px 7px 10px;border-radius:999px;display:flex;align-items:center;gap:8px;opacity:0;transform:translateY(10px) scale(.96);transition:opacity .45s,transform .45s;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.chip i{width:9px;height:9px;border-radius:50%;background:var(--red);flex:none}
+.chip.on{opacity:1;transform:none}
+.chip.dim{opacity:.32}
+.meter{position:absolute;right:24px;top:22px;text-align:right}
+.meter b{display:block;font-stretch:125%;font-weight:800;font-size:44px;line-height:1}
+.meter span{font-family:var(--mono);font-size:11px;color:#9da1aa;letter-spacing:.1em;text-transform:uppercase}
+.caption{position:absolute;left:24px;top:22px;max-width:330px}
+.caption .st{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--red);text-transform:uppercase}
+.caption h3{font-stretch:125%;font-weight:800;font-size:22px;text-transform:uppercase;margin-top:6px;line-height:1.05}
+.caption p{font-family:var(--serif);font-size:15px;color:#c9cbd1;margin-top:6px;line-height:1.45}
+.chap{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #23262f}
+.chap button{background:none;border:0;color:#8d919a;text-align:left;padding:14px 16px 16px;cursor:pointer;font:600 12px var(--wide);letter-spacing:.06em;text-transform:uppercase;position:relative;border-right:1px solid #23262f}
+.chap button:last-child{border-right:0}
+.chap button .pb{position:absolute;left:0;top:-1px;height:2px;background:var(--red);width:0}
+.chap button.cur{color:#fff}
+.chap button small{display:block;font:400 11px var(--mono);letter-spacing:.04em;text-transform:none;color:#6c707a;margin-top:2px}
+.replay{position:absolute;right:24px;bottom:16px;background:none;border:1px solid #3a3e48;color:#c9cbd1;border-radius:999px;padding:6px 12px;font:500 11.5px var(--mono);cursor:pointer}
+.replay:hover{border-color:#fff;color:#fff}
+
+/* sections */
+section{padding:84px 0 0}
+.sh{display:grid;grid-template-columns:90px 1fr;gap:10px;align-items:start}
+.sh .n{font-family:var(--mono);font-size:13px;color:var(--red);padding-top:10px}
+.sh h2{font-size:clamp(26px,3.8vw,42px);line-height:1;font-weight:800}
+.sh p{font-family:var(--serif);font-size:19px;line-height:1.5;margin-top:14px;color:#33363e;max-width:720px}
+.body{margin-left:100px}
+@media (max-width:760px){.sh{grid-template-columns:1fr}.sh .n{padding-top:0}.body{margin-left:0}}
+.stamp{display:inline-block;margin-top:14px;font-family:var(--mono);font-size:11.5px;color:var(--soft);border:1px dashed #c8c0b2;border-radius:6px;padding:4px 9px}
+
+/* audit */
+.score{display:grid;grid-template-columns:repeat(4,1fr);margin-top:28px;border:1.5px solid var(--ink);background:#fff}
+.score div{padding:18px 16px;border-right:1px solid var(--line)}
+.score div:last-child{border-right:0}
+.score b{display:block;font-stretch:125%;font-weight:800;font-size:34px;line-height:1}
+.score span{display:block;font-size:13px;color:var(--soft);margin-top:6px;line-height:1.35}
+.finds{margin-top:22px;display:grid;gap:12px}
+.fd{background:#fff;border:1px solid var(--line);border-radius:4px;display:grid;grid-template-columns:150px 1fr;overflow:hidden}
+.fd .lv{padding:16px;border-right:1px solid var(--line);background:#fdfcfa}
+.sev{display:inline-block;font:600 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:999px}
+.sev.h{background:#ffe2dc;color:#b32a14}.sev.m{background:#f6ead2;color:#8a5a00}.sev.l{background:#e3eee9;color:#3c6b5b}
+.fd .lv small{display:block;margin-top:8px;font-family:var(--mono);font-size:11px;color:var(--soft);line-height:1.45;word-break:break-word}
+.fd .tx{padding:16px 20px}
+.fd h3{font-size:17px;font-weight:700;line-height:1.3}
+.fd .ev{margin-top:8px;font-family:var(--mono);font-size:12.5px;background:var(--beige);border-radius:3px;padding:8px 10px;color:#33363e;line-height:1.5;word-break:break-word}
+.fd .ev mark{background:#ffd3c9;color:#a32510;padding:0 2px}
+.fd p{margin-top:8px;font-size:15px;color:#33363e}
+.fd p b{color:var(--ink)}
+@media (max-width:640px){.fd{grid-template-columns:1fr}.fd .lv{border-right:0;border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:center;flex-wrap:wrap}.fd .lv small{margin-top:0}.score{grid-template-columns:repeat(2,1fr)}.score div:nth-child(2){border-right:0}.score div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+
+table.t{width:100%;border-collapse:collapse;font-size:14px;background:#fff;border:1px solid var(--line)}
+table.t th{font:500 11px var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--soft);text-align:left;padding:10px 12px;border-bottom:1.5px solid var(--ink);background:#fdfcfa}
+table.t td{padding:10px 12px;border-bottom:1px solid #efe9df;vertical-align:top}
+table.t td.num,table.t th.num{text-align:right;font-variant-numeric:tabular-nums}
+.scroll{overflow-x:auto;margin-top:16px}
+.scroll table{min-width:720px}
+.diff{color:var(--red-d);font-weight:600}
+h3.sub{font-stretch:118%;font-weight:750;font-size:18px;margin:34px 0 4px;text-transform:uppercase}
+p.note{font-size:14px;color:var(--soft);margin-top:8px;max-width:760px}
+
+/* checklist */
+.ck{margin-top:14px;display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.ck label{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid var(--line);padding:11px 13px;border-radius:4px;font-size:14.5px;cursor:pointer;line-height:1.4}
+.ck input{margin-top:3px;accent-color:var(--red)}
+.ck label:has(input:checked){background:#eef5f2;border-color:var(--sage)}
+.ckbar{display:flex;align-items:center;gap:12px;margin-top:12px;font-family:var(--mono);font-size:12px;color:var(--soft)}
+.ckbar .tr{flex:1;height:6px;background:var(--beige);border-radius:3px;overflow:hidden}
+.ckbar .tr i{display:block;height:100%;width:0;background:var(--sage-d);transition:width .3s}
+@media (max-width:640px){.ck{grid-template-columns:1fr}}
+
+/* offers */
+.calc{margin-top:22px;display:grid;grid-template-columns:1.1fr 1fr;gap:0;border:1.5px solid var(--ink);background:#fff}
+.calc .in{padding:22px;border-right:1px solid var(--line);display:grid;gap:16px}
+.calc label{font:500 11.5px var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--soft);display:flex;justify-content:space-between}
+.calc label b{color:var(--ink);font-size:13px}
+.calc input[type=range]{width:100%;accent-color:var(--red);margin-top:6px}
+.calc select{width:100%;margin-top:6px;font:500 15px var(--wide);padding:8px 10px;border:1px solid var(--line);border-radius:3px;background:#fff}
+.calc .out{padding:22px;background:var(--ink);color:#fff;display:flex;flex-direction:column;justify-content:space-between;gap:16px}
+.calc .out .big{font-stretch:125%;font-weight:800;font-size:52px;line-height:1}
+.calc .out .big small{font-size:18px;font-weight:600}
+.calc .out p{font-family:var(--serif);color:#c9cbd1;font-size:15.5px;line-height:1.5}
+.calc .out .row{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12.5px;color:#c9cbd1;border-top:1px solid #23262f;padding-top:8px}
+.calc .ad{font-family:var(--serif);font-style:italic;color:#fff;font-size:17px;border-left:3px solid var(--red);padding-left:12px}
+@media (max-width:760px){.calc{grid-template-columns:1fr}.calc .in{border-right:0}}
+
+/* lifecycle */
+.life{margin-top:24px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1.5px solid var(--ink);background:#fff}
+.ph{padding:18px 16px;border-right:1px solid var(--line)}
+.ph:last-child{border-right:0}
+.ph .when{font-family:var(--mono);font-size:11px;color:var(--red);letter-spacing:.06em;text-transform:uppercase}
+.ph h4{font-stretch:125%;font-weight:800;font-size:16px;text-transform:uppercase;margin-top:6px;line-height:1.1}
+.ph .goal{font-family:var(--serif);font-style:italic;font-size:15px;color:#33363e;margin-top:8px;line-height:1.4}
+.ph ul{margin-top:10px;padding-left:16px;font-size:13.8px;line-height:1.45}
+.ph li+li{margin-top:5px}
+.ph .kpi{margin-top:12px;font-family:var(--mono);font-size:11.5px;background:var(--beige);padding:6px 8px;border-radius:3px;line-height:1.45}
+@media (max-width:860px){.life{grid-template-columns:1fr 1fr}.ph:nth-child(2){border-right:0}.ph:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+@media (max-width:540px){.life{grid-template-columns:1fr}.ph{border-right:0;border-bottom:1px solid var(--line)}}
+
+.ideas{margin-top:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.idea{background:#fff;border:1px solid var(--line);padding:16px;border-radius:4px}
+.idea .mono{color:var(--sage-d)}
+.idea h4{font-size:16px;margin-top:6px;line-height:1.3}
+.idea p{font-size:14.5px;color:#33363e;margin-top:6px}
+@media (max-width:760px){.ideas{grid-template-columns:1fr}}
+
+/* social */
+.cal{margin-top:20px;display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.post{background:#fff;border:1px solid var(--line);border-radius:4px;overflow:hidden;display:flex;flex-direction:column}
+.post .art{aspect-ratio:4/5;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:12px;color:#fff;overflow:hidden}
+.post .art .d{position:absolute;top:10px;left:10px;font:500 10.5px var(--mono);letter-spacing:.06em;background:rgba(255,255,255,.92);color:var(--ink);padding:2px 7px;border-radius:999px}
+.post .art b{font-stretch:125%;font-weight:800;font-size:15px;text-transform:uppercase;line-height:1.05}
+.post .art span{font-family:var(--serif);font-size:12.5px;opacity:.9;margin-top:4px;line-height:1.3}
+.post .m{padding:10px 12px;font-size:12.5px;line-height:1.4;color:#33363e}
+.post .m em{display:block;font:500 10.5px var(--mono);font-style:normal;color:var(--soft);letter-spacing:.05em;text-transform:uppercase;margin-bottom:3px}
+@media (max-width:900px){.cal{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:560px){.cal{grid-template-columns:repeat(2,1fr)}}
+
+/* budget */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-top:18px}
+.tabs button{border:1px solid var(--ink);background:#fff;border-radius:999px;padding:6px 13px;font:500 12px var(--mono);cursor:pointer}
+.tabs button[aria-pressed=true]{background:var(--ink);color:#fff}
+.st{font:600 10.5px var(--mono);padding:2px 8px;border-radius:999px;letter-spacing:.04em;white-space:nowrap}
+.st.paid{background:#e3eee9;color:#3c6b5b}.st.app{background:#f6ead2;color:#8a5a00}.st.open{background:#ffe2dc;color:#b32a14}
+.tot{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1.5px solid var(--ink);margin-top:12px;background:#fff}
+.tot>div{padding:14px 16px;border-right:1px solid var(--line)}
+.tot>div:last-child{border-right:0}
+.tot b{display:block;font-stretch:125%;font-weight:800;font-size:24px}
+.tot span{font-family:var(--mono);font-size:11px;color:var(--soft);letter-spacing:.06em;text-transform:uppercase}
+.bud{height:8px;background:var(--beige);margin-top:8px;border-radius:4px;overflow:hidden}
+.bud i{display:block;height:100%;background:var(--sage-d)}
+.bud i.over{background:var(--red)}
+
+/* dashboard */
+.dash{margin-top:20px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.kp{background:#fff;border:1px solid var(--line);padding:14px 16px;border-radius:4px}
+.kp span{font-family:var(--mono);font-size:11px;color:var(--soft);letter-spacing:.06em;text-transform:uppercase}
+.kp b{display:block;font-stretch:125%;font-weight:800;font-size:28px;margin-top:4px}
+.kp small{font-size:12.5px;color:var(--sage-d);font-weight:600}
+.kp small.dn{color:var(--red-d)}
+.funnel{margin-top:10px;background:#fff;border:1px solid var(--line);padding:18px;border-radius:4px}
+.fr{display:grid;grid-template-columns:150px 1fr 70px;gap:12px;align-items:center;font-size:13.5px;margin-top:8px}
+.fr .b{height:18px;background:var(--beige);position:relative}
+.fr .b i{position:absolute;left:0;top:0;bottom:0;background:var(--ink)}
+.fr:nth-child(odd) .b i{background:#2b2f3a}
+.fr .v{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.insight{margin-top:10px;background:var(--ink);color:#fff;padding:20px 22px;border-radius:4px}
+.insight .mono{color:var(--sage)}
+.insight p{font-family:var(--serif);font-size:17px;line-height:1.5;margin-top:8px}
+.insight ol{margin:10px 0 0 18px;font-size:15px;color:#d7d9de}
+.insight li+li{margin-top:6px}
+@media (max-width:760px){.dash{grid-template-columns:1fr 1fr}.fr{grid-template-columns:100px 1fr 54px}}
+
+/* ai */
+.ai{margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.box{background:#fff;border:1px solid var(--line);border-radius:4px;padding:16px 18px}
+.box .mono{color:var(--red-d)}
+.box h4{font-size:16px;margin-top:6px}
+.box pre{white-space:pre-wrap;font:400 12.5px/1.55 var(--mono);background:var(--beige);padding:12px;border-radius:3px;margin-top:10px;color:#2a2d35}
+.box p{font-size:14.5px;color:#33363e;margin-top:8px}
+.rv{margin-top:10px;border-left:3px solid var(--sage);padding:4px 0 4px 12px;font-family:var(--serif);font-size:15px;line-height:1.5}
+.rv.in{border-color:#c8c0b2;color:var(--soft);font-style:italic}
+.ok{display:inline-flex;gap:6px;margin-top:10px}
+.ok span{font:600 10.5px var(--mono);padding:3px 8px;border-radius:999px;background:#e3eee9;color:#3c6b5b}
+.ok span.w{background:#f6ead2;color:#8a5a00}
+@media (max-width:760px){.ai{grid-template-columns:1fr}}
+
+/* map */
+.map{margin-top:20px;border-top:1.5px solid var(--ink)}
+.mr{display:grid;grid-template-columns:1fr 1.2fr;gap:24px;padding:16px 0;border-bottom:1px solid var(--line)}
+.mr .jd{font-size:15px;font-weight:600}
+.mr .me{font-family:var(--serif);font-size:16px;line-height:1.5;color:#33363e}
+.mr .me a{color:var(--red-d)}
+@media (max-width:700px){.mr{grid-template-columns:1fr;gap:6px}}
+
+/* close */
+.honest{margin-top:24px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--sage-d);padding:18px 20px;font-family:var(--serif);font-size:17px;line-height:1.55}
+.close{margin-top:90px;background:var(--ink);color:#fff;padding:72px 0}
+.close h2{font-size:clamp(28px,4.4vw,52px);line-height:1;font-weight:800}
+.close h2 span{color:var(--red)}
+.close p{font-family:var(--serif);font-size:20px;color:#d7d9de;margin-top:16px;max-width:640px;line-height:1.5}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.cta a{text-decoration:none;font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;font-stretch:118%;padding:13px 20px;border-radius:999px;background:var(--red);color:#fff}
+.cta a.o{background:none;border:1.5px solid #fff}
+.foot{font-family:var(--mono);font-size:11.5px;color:#7d818b;margin-top:44px;line-height:1.6}
+@media (prefers-reduced-motion:reduce){.chip{transition:none}}
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  .bar b{font-size:11px;white-space:nowrap}
+  .bar nav{display:none}
+  .stage{height:470px}
+  .caption{left:16px;right:16px;max-width:none}
+  .caption h3{font-size:19px}
+  .caption p{font-size:14px}
+  .meter{right:16px;left:16px;top:118px;text-align:left;display:flex;align-items:baseline;gap:10px}
+  .meter b{font-size:32px}
+  .chip{font-size:11px;padding:5px 9px 5px 8px}
+  .chap{grid-template-columns:1fr 1fr}
+  .chap button{padding:10px 12px 12px;font-size:11px;min-width:0}
+  .chap button:nth-child(2){border-right:0}
+  .chap button:nth-child(-n+2){border-bottom:1px solid #23262f}
+  .chap button small{white-space:normal}
+  .replay{bottom:auto;top:12px;right:16px}
+  .tot{grid-template-columns:1fr}
+  .tot>div{border-right:0;border-bottom:1px solid var(--line)}
+  .dash .kp b{font-size:24px}
+  .sh p{font-size:17px}
+  .calc .out .big{font-size:42px}
+}
+</style>
+</head>
+<body>
+
+<div class="bar"><div class="wrap">
+  <b>Durva × Fitzrovia</b>
+  <nav>
+    <a href="#audit">Curb appeal</a><a href="#offers">Offers</a><a href="#rushden">Rushden</a><a href="#social">Social</a><a href="#budget">Budget</a><a href="#report">Reporting</a><a href="#ai">AI</a><a href="#fit">Fit</a>
+  </nav>
+</div></div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="mono kick">Marketing Coordinator · Toronto · Reporting to the VP, Marketing</div>
+    <h1 class="w">From hoarding<br>to <span>happy residents.</span></h1>
+    <p class="lede">The role covers a building's whole life, from pre-construction to stabilization. So this page does the same: a live audit of Fitzrovia's online curb appeal, the offers in one place, a launch plan for Rushden Station, and the tools I'd use every week.</p>
+  </div>
+
+  <div class="film" id="film" aria-label="Illustration: one building from pre-construction to stabilization">
+    <div class="stage">
+      <svg viewBox="0 0 1080 440" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#02040c"/><stop offset="1" stop-color="#0d111c"/></linearGradient>
+        </defs>
+        <rect width="1080" height="440" fill="url(#sky)"/>
+        <!-- city -->
+        <g fill="#141926">
+          <rect x="40" y="250" width="70" height="160"/><rect x="120" y="210" width="54" height="200"/><rect x="184" y="270" width="90" height="140"/>
+          <rect x="800" y="230" width="64" height="180"/><rect x="874" y="190" width="58" height="220"/><rect x="942" y="262" width="96" height="148"/>
+        </g>
+        <line x1="0" y1="410" x2="1080" y2="410" stroke="#3a3e48" stroke-width="1.5"/>
+        <!-- crane -->
+        <g id="crane" stroke="#ff4e31" stroke-width="3" fill="none" opacity="0">
+          <path d="M660 410 L660 70 M640 70 L820 70 M660 90 L700 70 M660 110 L740 70 M780 70 L780 120"/>
+          <rect x="770" y="120" width="20" height="10" fill="#ff4e31"/>
+        </g>
+        <!-- hoarding -->
+        <g id="hoard" opacity="0">
+          <rect x="400" y="350" width="280" height="60" fill="#ece6dd"/>
+          <rect x="400" y="350" width="10" height="60" fill="#ff4e31"/>
+          <text x="424" y="377" font-family="Archivo" font-stretch="125%" font-weight="800" font-size="15" fill="#02040c" letter-spacing="1">COMING WINTER 2027</text>
+          <text x="424" y="397" font-family="IBM Plex Mono" font-size="10.5" fill="#5d6068">Register for first access →</text>
+        </g>
+        <!-- tower -->
+        <g id="tower"></g>
+        <!-- welcome mat / gift -->
+        <g id="gift" opacity="0">
+          <rect x="566" y="384" width="26" height="22" fill="#ff4e31"/><rect x="577" y="384" width="4" height="22" fill="#fff"/><rect x="566" y="392" width="26" height="4" fill="#fff"/>
+        </g>
+      </svg>
+      <div class="caption"><div class="st" id="cStage">Stage 1 of 4</div><h3 id="cTitle">Pre-construction</h3><p id="cText">Hoarding goes up and a register-interest list starts filling, long before the first suite exists.</p></div>
+      <div class="meter"><b id="mVal">0</b><span id="mLab">on the interest list</span></div>
+      <div class="chips" id="chips"></div>
+    </div>
+    <div class="chap" id="chap">
+      <button data-i="0"><span class="pb"></span>Pre-construction<small>hoarding, interest list</small></button>
+      <button data-i="1"><span class="pb"></span>Launch<small>renderings, ILS, event</small></button>
+      <button data-i="2"><span class="pb"></span>Lease-up<small>tours, offers, move-ins</small></button>
+      <button data-i="3"><span class="pb"></span>Stabilization<small>reviews, renewals, stories</small></button>
+    </div>
+    <button class="replay" id="replay" hidden>Replay</button>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- 01 AUDIT -->
+<section id="audit">
+  <div class="sh"><span class="n">01</span><div>
+    <h2 class="w">Online curb appeal, audited</h2>
+    <p>The job post asks for someone to manage and audit Fitzrovia's online curb appeal. So I started there: fitzrovia.ca, every property page, and each property's own site. Everything below is live and can be checked in a minute.</p>
+    <span class="stamp">Checked Oct 31, 2026 · fitzrovia.ca/residential + 9 property sites</span>
+  </div></div>
+
+  <div class="body">
+    <div class="score">
+      <div><b>18</b><span>communities on the Find Your Home page</span></div>
+      <div><b>9</b><span>findings, each with a fix</span></div>
+      <div><b>5</b><span>buildings where the phone numbers don't match</span></div>
+      <div><b>~2 hrs</b><span>to fix most of it</span></div>
+    </div>
+
+    <div class="finds">
+      <div class="fd"><div class="lv"><span class="sev h">High</span><small>fitzrovia.ca/residential</small></div><div class="tx">
+        <h3>A placeholder listing is live, with a price</h3>
+        <div class="ev">MARLOW E · <mark>E FPN</mark>, TORONTO · $2,725 / MONTH · AVAILABLE<br>→ /residential/<mark>marlow-placeholder-3</mark></div>
+        <p><b>Fix:</b> unpublish the card, or finish it. A renter who clicks it lands on an empty page with Parker's phone number. Then check the CMS for placeholders 1 and 2.</p>
+      </div></div>
+
+      <div class="fd"><div class="lv"><span class="sev h">High</span><small>Google results · fitzrovia.ca + maddox.ca</small></div><div class="tx">
+        <h3>"6 Months Free Parker" in Maddox Cabbagetown's search snippet</h3>
+        <div class="ev">Limited-Time Offer: Two Months Free + 6 Months Free <mark>Parker</mark> + Complimentary In-Suite Wi-Fi.</div>
+        <p><b>Fix:</b> "Parking". It's in the meta description on both sites, so it's the line people read in Google before they click. Parker is also the name of a Fitzrovia building, so it reads like a mix-up.</p>
+      </div></div>
+
+      <div class="fd"><div class="lv"><span class="sev h">High</span><small>fitzrovia.ca vs. schema vs. property sites</small></div><div class="tx">
+        <h3>The same building shows up to three phone numbers</h3>
+        <p>Different numbers can be on purpose (call tracking by source). The job post says "testing site phone numbers", so the table below is the test sheet I'd ring through on day one.</p>
+      </div></div>
+
+      <div class="fd"><div class="lv"><span class="sev m">Medium</span><small>fitzrovia.ca/residential</small></div><div class="tx">
+        <h3>Two place names are misspelled on the listings page</h3>
+        <div class="ev">WAVERLEY QUEEN'S · <mark>KINSGTON</mark>, ONTARIO<br>LOXLEY · QUARTIER <mark>DE</mark> SPECTACLES, MONTREAL</div>
+        <p><b>Fix:</b> "Kingston" and "Quartier des Spectacles". The property page's own title already says "des". Small, but it's a premium brand and Montreal renters will notice.</p>
+      </div></div>
+
+      <div class="fd"><div class="lv"><span class="sev m">Medium</span><small>4 pre-construction pages</small></div><div class="tx">
+        <h3>Upcoming buildings share one generic description and one phone number</h3>
+        <div class="ev">Rushden Station · 135 St. Clair · Primrose Hill · Marlow E<br>"Fitzrovia offers a range of living options designed to meet the evolving needs..." · 647-799-9680</div>
+        <p><b>Fix:</b> each gets its own description ("Danforth Village, coming Winter 2027") and a register-interest line. Pre-construction is where the interest list starts, so these pages matter most early.</p>
+      </div></div>
+
+      <div class="fd"><div class="lv"><span class="sev m">Medium</span><small>sloanelife.ca · marlowlife.ca</small></div><div class="tx">
+        <h3>Sloane and Marlow have no share image</h3>
+        <div class="ev">og:image → not set</div>
+        <p><b>Fix:</b> add an og:image. When a leasing agent texts the link or a resident shares it, the preview shows up blank instead of the building. Five-minute fix, used every day.</p>
+      </div></div>
+
+      <div class="fd"><div class="lv"><span class="sev l">Low</span><small>parkerlife.ca</small></div><div class="tx">
+        <h3>Parker's page title repeats the name</h3>
+        <div class="ev">Life's Perfect Backdrop | Parker | <mark>Parker</mark></div>
+        <p><b>Fix:</b> "Life's Perfect Backdrop | Parker at Yonge &amp; Eglinton". It uses the space for the location people actually search for.</p>
+      </div></div>
+
+      <div class="fd"><div class="lv"><span class="sev l">Low</span><small>fitzrovia.ca property titles</small></div><div class="tx">
+        <h3>Two Montreal titles leave out the brand</h3>
+        <div class="ev">Loxley Mille Carré → "Student apartments for rent near McGill"<br>Maddox Dorchester → "Spacious apartments in Downtown Montreal"</div>
+        <p><b>Fix:</b> lead with "Loxley Mille Carré" and "Maddox Dorchester". Also, "student apartments" sits on a Loxley building while Waverley is the student brand. Worth checking with the VP which positioning is intended.</p>
+      </div></div>
+
+      <div class="fd"><div class="lv"><span class="sev l">Low</span><small>offers in meta descriptions</small></div><div class="tx">
+        <h3>Offers live in four places, and they drift</h3>
+        <p>The same promo sits on fitzrovia.ca, the property site, ILS listings and signage. When an offer ends, one of them usually keeps the old one. <b>Fix:</b> one offer sheet (section 02) that every channel copies from, checked weekly.</p>
+      </div></div>
+    </div>
+
+    <h3 class="sub">Phone number test sheet</h3>
+    <div class="scroll"><table class="t">
+      <thead><tr><th>Building</th><th>On fitzrovia.ca page</th><th>In Google's structured data</th><th>On the property site</th><th>Test call</th></tr></thead>
+      <tbody>
+        <tr><td><b>Elm-Ledbury</b></td><td>(647) 370-9013</td><td class="diff">647-692-1364</td><td>(647) 692-1364</td><td>To do</td></tr>
+        <tr><td><b>Sloane</b></td><td>(647) 372-0488</td><td>647-372-0488</td><td class="diff">647-697-8005</td><td>To do</td></tr>
+        <tr><td><b>Parker</b></td><td>(437) 747-8199</td><td class="diff">(647) 799-9680</td><td>(647) 799-9680</td><td>To do</td></tr>
+        <tr><td><b>Maddox Cabbagetown</b></td><td>(289) 914-2058</td><td class="diff">647-699-2396</td><td>(647) 699-2396</td><td>To do</td></tr>
+        <tr><td><b>Marlow</b></td><td>(437) 293-7619</td><td>437-293-7619</td><td class="diff">437-367-0104</td><td>To do</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">The test: does each number ring the right leasing office during and after hours, and is each call logged to the right source? Google reads the structured data number, so it should be the one you want in Maps and search.</p>
+
+    <h3 class="sub">The monthly curb appeal check</h3>
+    <p class="note">What I'd run on the first Monday of every month, per building. Tick through it; it remembers on this device.</p>
+    <div class="ck" id="ck">
+      <label><input type="checkbox">Google Business Profile: hours, photos, phone, offer post up to date</label>
+      <label><input type="checkbox">Reply to every new Google review within 48 hours</label>
+      <label><input type="checkbox">ILS listings match the offer sheet (price, offer, photos)</label>
+      <label><input type="checkbox">Property site: offer banner, floorplans and prices current</label>
+      <label><input type="checkbox">Book a tour form: submit a test, confirm it lands in the CRM</label>
+      <label><input type="checkbox">Test-call every number, in hours and after hours</label>
+      <label><input type="checkbox">Search the building name: snippet, typos, old offers</label>
+      <label><input type="checkbox">Share the link in a text: preview image shows</label>
+      <label><input type="checkbox">fitzrovia.ca card: status, price, neighbourhood spelled right</label>
+      <label><input type="checkbox">Log fixes and send a short note to the VP, Marketing</label>
+    </div>
+    <div class="ckbar"><span id="ckN">0 / 10</span><div class="tr"><i id="ckBar"></i></div></div>
+  </div>
+</section>
+
+<!-- 02 OFFERS -->
+<section id="offers">
+  <div class="sh"><span class="n">02</span><div>
+    <h2 class="w">Every offer, in one place</h2>
+    <p>Pulled from each property page's own description. This is the sheet every channel would copy from, so the ILS, the website and the signage never disagree.</p>
+    <span class="stamp">From fitzrovia.ca property pages · Oct 31, 2026</span>
+  </div></div>
+
+  <div class="body">
+    <div class="scroll"><table class="t">
+      <thead><tr><th>Building</th><th>Brand</th><th>Area</th><th class="num">From</th><th>Current offer (as written)</th></tr></thead>
+      <tbody>
+        <tr><td><b>Elm-Ledbury</b></td><td>The Collection</td><td>Queen &amp; Church</td><td class="num">$2,405</td><td>No offer in the description</td></tr>
+        <tr><td><b>Sloane</b></td><td>The Collection</td><td>Yorkdale</td><td class="num">$2,280</td><td>Up to 2.5 months free rent</td></tr>
+        <tr><td><b>Parker</b></td><td>The Collection</td><td>Yonge &amp; Eglinton</td><td class="num">$2,015</td><td>Up to 2.5 months free, up to 50,000 Aeroplan points, free Wi-Fi</td></tr>
+        <tr><td><b>Marlow</b></td><td>The Collection</td><td>Bloordale Village</td><td class="num">$2,725</td><td>Up to 2 months free</td></tr>
+        <tr><td><b>Waverley</b></td><td>Waverley</td><td>College &amp; Spadina</td><td class="num">$3,380</td><td>One month free, up to 50,000 Aeroplan points, Rogers Wi-Fi</td></tr>
+        <tr><td><b>Maddox Cabbagetown</b></td><td>Maddox</td><td>Cabbagetown South</td><td class="num">$2,055</td><td>Two months free, 6 months free parking, Wi-Fi</td></tr>
+        <tr><td><b>Maddox Tyndall</b></td><td>Maddox</td><td>Liberty Village</td><td class="num">$1,875</td><td>Two months free + $1,000</td></tr>
+        <tr><td><b>Loxley QdS</b></td><td>Loxley</td><td>Montreal</td><td class="num">$1,750</td><td>2 months free on select suites, Aeroplan points</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3 class="sub">Net effective rent, for ads and investor notes</h3>
+    <p class="note">"Two months free" means something different on a 12-month and a 14-month lease. This turns every offer into one comparable number.</p>
+    <div class="calc">
+      <div class="in">
+        <div><label>Building <b id="oName"></b></label><select id="oSel"></select></div>
+        <div><label>Monthly rent <b id="oRentV"></b></label><input type="range" id="oRent" min="1300" max="4000" step="5"></div>
+        <div><label>Months free <b id="oFreeV"></b></label><input type="range" id="oFree" min="0" max="3" step="0.5"></div>
+        <div><label>Lease term <b id="oTermV"></b></label><input type="range" id="oTerm" min="12" max="18" step="1" value="12"></div>
+      </div>
+      <div class="out">
+        <div><div class="mono" style="color:var(--sage)">Net effective rent</div><div class="big" id="oNer"></div></div>
+        <div class="row"><span>Saved over the lease</span><span id="oSave"></span></div>
+        <div class="row"><span>Effective discount</span><span id="oPct"></span></div>
+        <div class="ad" id="oAd"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 RUSHDEN -->
+<section id="rushden">
+  <div class="sh"><span class="n">03</span><div>
+    <h2 class="w">Rushden Station, stage by stage</h2>
+    <p>Rushden Station is under construction in Danforth Village, coming Winter 2027. Here's how I'd support the team from hoarding to stabilization, with what the coordinator owns at each step.</p>
+  </div></div>
+
+  <div class="body">
+    <div class="life">
+      <div class="ph"><div class="when">Now → launch</div><h4>Pre-construction</h4><p class="goal">Build the interest list before there's anything to tour.</p>
+        <ul><li>Hoarding artwork and a QR to register interest</li><li>A real Rushden page on fitzrovia.ca (finding #5)</li><li>Neighbourhood content: Danforth Village guides</li><li>Construction-milestone posts</li></ul>
+        <div class="kpi">KPI: interest-list sign-ups per week</div></div>
+      <div class="ph"><div class="when">~4 months out</div><h4>Launch</h4><p class="goal">Turn the list into first tours.</p>
+        <ul><li>Renderings, floorplans, pricing on site and ILS on the same day</li><li>Interest list gets first access, then paid media</li><li>Launch event with site staff; vendor run-of-show</li><li>Every PO raised in Yardi before work starts</li></ul>
+        <div class="kpi">KPI: tours booked, cost per tour</div></div>
+      <div class="ph"><div class="when">Opening → ~90%</div><h4>Lease-up</h4><p class="goal">Fill suites without leaning on discounts longer than needed.</p>
+        <ul><li>Weekly offer sheet, one source of truth</li><li>Lead source report: which channel signs leases</li><li>Move-in gifts and welcome kits</li><li>Ask happy movers for a review in week two</li></ul>
+        <div class="kpi">KPI: leases, cost per lease, occupancy</div></div>
+      <div class="ph"><div class="when">Stable</div><h4>Stabilization</h4><p class="goal">Keep residents, protect rent, feed the investor story.</p>
+        <ul><li>Monthly curb appeal check (section 01)</li><li>Resident stories and events for social</li><li>Renewal touchpoints with site staff</li><li>Data for investor reports</li></ul>
+        <div class="kpi">KPI: rating, renewals, net effective rent</div></div>
+    </div>
+
+    <h3 class="sub">Three ideas Rushden could own</h3>
+    <div class="ideas">
+      <div class="idea"><span class="mono">Hoarding</span><h4>The Danforth Wall</h4><p>The hoarding becomes a rotating gallery of Danforth Village spots, each with a QR that joins the interest list. It turns a construction fence into the building's first marketing channel.</p></div>
+      <div class="idea"><span class="mono">Partnerships</span><h4>Interest list = front row</h4><p>Fitzrovia is the official rental housing partner of the Blue Jays and Raptors. A draw for game tickets among early registrants gives people a reason to sign up a year before move-in.</p></div>
+      <div class="idea"><span class="mono">Move-in</span><h4>A local welcome</h4><p>Move-in gifts sourced from Danforth businesses. The gift is the first resident story, and those businesses usually share it.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 SOCIAL -->
+<section id="social">
+  <div class="sh"><span class="n">04</span><div>
+    <h2 class="w">One week on @fitzrovialife</h2>
+    <p>A sample schedule built on what Fitzrovia already talks about: the Rental Revolution, the Fitzrovia Standard, Live Lighter, resident stories, and the Blue Jays and Raptors partnerships.</p>
+  </div></div>
+  <div class="body">
+    <div class="cal">
+      <div class="post"><div class="art" style="background:linear-gradient(160deg,#02040c,#2b2f3a)"><span class="d">MON</span><b>Behind the build</b><span>Rushden Station, floor by floor</span></div><div class="m"><em>Reel · Rushden</em>Time-lapse from site photos, CTA to the interest list.</div></div>
+      <div class="post"><div class="art" style="background:linear-gradient(160deg,#ff4e31,#d74028)"><span class="d">TUE</span><b>Resident stories</b><span>"Why I picked Marlow"</span></div><div class="m"><em>Carousel · Marlow</em>One resident, five photos, their words.</div></div>
+      <div class="post"><div class="art" style="background:linear-gradient(160deg,#5f8a7b,#afcbc0)"><span class="d">WED</span><b>Live Lighter</b><span>Sunday reset in a Maddox suite</span></div><div class="m"><em>Reel · Maddox</em>Lifestyle, not listings. Soft CTA to tour.</div></div>
+      <div class="post"><div class="art" style="background:linear-gradient(160deg,#2b2f3a,#02040c)"><span class="d">THU</span><b>Front row</b><span>Game night, the Fitzrovia way</span></div><div class="m"><em>Story + post · Raptors</em>Partnership content with a resident ticket draw.</div></div>
+      <div class="post"><div class="art" style="background:linear-gradient(160deg,#ece6dd,#c9bfae);color:var(--ink)"><span class="d">FRI</span><b>The Fitzrovia Standard</b><span>Meet the team at Elm-Ledbury</span></div><div class="m"><em>Carousel · Service</em>The five-star hospitality story, told by staff.</div></div>
+    </div>
+    <p class="note">Sample plan. Posting times and formats would follow what the account's own insights say works.</p>
+  </div>
+</section>
+
+<!-- 05 BUDGET -->
+<section id="budget">
+  <div class="sh"><span class="n">05</span><div>
+    <h2 class="w">Budgets, orders and invoices</h2>
+    <p>Vendors get paid on time when every PO is raised before work starts and every invoice is matched to it. This is the tracker I'd keep next to Yardi, so Accounting and the VP see the same thing.</p>
+  </div></div>
+  <div class="body">
+    <div class="tabs" id="bTabs"><button aria-pressed="true" data-f="all">All</button><button aria-pressed="false" data-f="open">Invoice not received</button><button aria-pressed="false" data-f="app">Approved, not paid</button><button aria-pressed="false" data-f="paid">Paid</button></div>
+    <div class="scroll"><table class="t" id="bTable">
+      <thead><tr><th>PO</th><th>Building</th><th>Vendor type</th><th>Item</th><th class="num">PO amount</th><th class="num">Invoiced</th><th>Status</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+    <div class="tot">
+      <div><span>Budget (sample)</span><b id="tBud"></b></div>
+      <div><span>Committed</span><b id="tCom"></b><div class="bud"><i id="tBar"></i></div></div>
+      <div><span>Left to spend</span><b id="tLeft"></b></div>
+    </div>
+    <p class="note">Sample data to show the format. The rule I'd hold: no PO, no work; no match, no payment; anything over 90% of budget gets flagged to the VP that week.</p>
+  </div>
+</section>
+
+<!-- 06 REPORT -->
+<section id="report">
+  <div class="sh"><span class="n">06</span><div>
+    <h2 class="w">The monthly report, in one screen</h2>
+    <p>A dashboard is only useful if it ends in a decision. This is the format I'd bring: the numbers, then the three things to do about them.</p>
+  </div></div>
+  <div class="body">
+    <div class="dash">
+      <div class="kp"><span>Leads</span><b>412</b><small>+12% vs last month</small></div>
+      <div class="kp"><span>Tours</span><b>138</b><small>33% of leads</small></div>
+      <div class="kp"><span>Leases</span><b>41</b><small>30% of tours</small></div>
+      <div class="kp"><span>Cost per lease</span><b>$610</b><small class="dn">+8% vs last month</small></div>
+    </div>
+    <div class="funnel">
+      <div class="mono" style="color:var(--soft)">Leases by lead source · sample month · one building</div>
+      <div class="fr"><span>ILS</span><div class="b"><i style="width:88%"></i></div><span class="v">15</span></div>
+      <div class="fr"><span>Property website</span><div class="b"><i style="width:65%"></i></div><span class="v">11</span></div>
+      <div class="fr"><span>Google Business</span><div class="b"><i style="width:41%"></i></div><span class="v">7</span></div>
+      <div class="fr"><span>Paid social</span><div class="b"><i style="width:24%"></i></div><span class="v">4</span></div>
+      <div class="fr"><span>Referral / walk-in</span><div class="b"><i style="width:24%"></i></div><span class="v">4</span></div>
+    </div>
+    <div class="insight">
+      <div class="mono">What it means · for the VP and the investor report</div>
+      <p>Leads are up, but cost per lease rose because paid social brought volume, not leases.</p>
+      <ol><li>Move 20% of paid social to ILS featured placement for four weeks, then compare.</li><li>Google Business signs leases cheaply. Weekly offer posts and faster review replies.</li><li>Tour-to-lease is healthy at 30%, so the gap is earlier: speed to first reply on web leads.</li></ol>
+    </div>
+    <p class="note">Sample numbers to show the format, not Fitzrovia data.</p>
+  </div>
+</section>
+
+<!-- 07 AI -->
+<section id="ai">
+  <div class="sh"><span class="n">07</span><div>
+    <h2 class="w">AI that saves hours, with a human on every send</h2>
+    <p>The job post asks for someone who keeps up with AI tools. Here's where I'd use them, and where I wouldn't.</p>
+  </div></div>
+  <div class="body">
+    <div class="ai">
+      <div class="box"><span class="mono">Weekly</span><h4>Listing consistency check</h4>
+        <pre>Here are this week's offer sheet and the text of
+our ILS listing, property site and Google post for
+{building}. List every place where price, offer,
+dates or phone number differ from the offer sheet.
+Quote the exact text. Don't rewrite anything.</pre>
+        <p>The audit in section 01, done every week instead of every quarter.</p></div>
+      <div class="box"><span class="mono">Daily · review replies</span><h4>Drafts, never auto-posts</h4>
+        <div class="rv in">"Elevator was out for two days and nobody told us."</div>
+        <div class="rv">Thank you for flagging this, and we're sorry for the trouble. Two days without an update isn't the standard we hold ourselves to. Our team would like to hear more: please reach us at the leasing office so we can make it right.</div>
+        <div class="ok"><span>Brand voice ✓</span><span class="w">Site manager approves before posting</span></div></div>
+      <div class="box"><span class="mono">Per launch</span><h4>Brand-voice first drafts</h4>
+        <pre>Using the Fitzrovia brand guide pasted below,
+write 3 ILS headlines for {building} at {stage}.
+Audience: {audience}. Under 60 characters. No
+words on the guide's "don't use" list.</pre>
+        <p>Drafts in minutes; the brand guidelines and the VP still decide.</p></div>
+      <div class="box"><span class="mono">Where I wouldn't</span><h4>Anything with a number or a promise</h4>
+        <p>Prices, offers, investor figures and legal lines get typed from the source and checked by a person. AI can draft the sentence; it doesn't get to pick the number.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 FIT -->
+<section id="fit">
+  <div class="sh"><span class="n">08</span><div>
+    <h2 class="w">The job post, line by line</h2>
+    <p>What the role asks for, and where I've already done it.</p>
+  </div></div>
+  <div class="body">
+    <div class="map">
+      <div class="mr"><div class="jd">Audit online curb appeal: ILS, websites, tour forms, phone numbers</div><div class="me">Section 01 of this page. I'd rather show it than describe it.</div></div>
+      <div class="mr"><div class="jd">Print materials, collateral, move-in gifts, OOH</div><div class="me">I've designed and shipped printed mailers end to end: a sealed case file and a printed passport booklet, each with a matching digital version. For one B2B client, a printed mailer and a landing page for each of 45 companies helped book 4 sales calls and add $15,000+ to the pipeline.</div></div>
+      <div class="mr"><div class="jd">Support creative and messaging by project stage and audience</div><div class="me">Section 03. Every campaign I've run started with who it was for and what they needed to believe at that moment.</div></div>
+      <div class="mr"><div class="jd">Email, paid media, SEO, content marketing</div><div class="me">SEO and content are my core: blogs, LinkedIn, ghostwritten articles published in USA Wire and Mirror Review. I contributed to a 40% increase in sales at Rewynd.</div></div>
+      <div class="mr"><div class="jd">Organic social: posting and content schedules</div><div class="me">Section 04. I've planned and written calendars, carousels and LinkedIn posts for founders and brands.</div></div>
+      <div class="mr"><div class="jd">Reports, dashboards, investor insights</div><div class="me">Section 06: numbers first, then what to do. Google Analytics and HubSpot are tools I use.</div></div>
+      <div class="mr"><div class="jd">POs, invoices in Yardi, budgets</div><div class="me">Section 05. I haven't used Yardi yet. I'm organized with money and vendors, and I'd learn the system in the first week.</div></div>
+      <div class="mr"><div class="jd">Self-starter, relentlessly resourceful</div><div class="me">Nobody asked for this page. Kind words from people who've seen this kind of work: <span style="font-style:italic">"The ideas were spot on and you truly grasped the business and its needs!"</span> (Colleen Pierre, VP of Marketing, Envera Systems)</div></div>
+    </div>
+    <div class="honest"><b>To be straightforward:</b> my design tools today are Canva and Figma. InDesign, Illustrator and Photoshop are the first things I'd ramp up on, so print files and floorplans come out exactly to spec. And Yardi is new to me. Everything else on this page, I've done.</div>
+  </div>
+</section>
+
+</main>
+
+<section class="close">
+  <div class="wrap">
+    <h2 class="w">The fixes take an afternoon.<br><span>The habit is the job.</span></h2>
+    <p>I'd love 20 minutes to walk through the audit, and to hear which building is keeping the team busiest right now.</p>
+    <div class="cta">
+      <a href="mailto:durvathakker7@gmail.com?subject=Fitzrovia%20Marketing%20Coordinator">Email Durva</a>
+      <a class="o" href="https://www.linkedin.com/in/durvathakkar/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="o" href="https://durvathakkar.com/" target="_blank" rel="noopener">Portfolio</a>
+    </div>
+    <p class="foot">Findings were checked on fitzrovia.ca and the property websites on Oct 31, 2026, and may have changed since. Budget, social and reporting examples use sample data to show the format. Durva Thakkar, Toronto.</p>
+  </div>
+</section>
+
+<script>
+/* ---------- hero film ---------- */
+(function(){
+  var NS='http://www.w3.org/2000/svg', tower=document.getElementById('tower');
+  if(innerWidth<640)document.querySelector('.stage svg').setAttribute('preserveAspectRatio','xMidYMax slice');
+  var FL=12, X=430, W=200, FH=24, BASE=410, wins=[];
+  for(var f=0;f<FL;f++){
+    var y=BASE-(f+1)*FH, g=document.createElementNS(NS,'g');
+    g.setAttribute('class','fl'); g.style.opacity=0; g.style.transition='opacity .25s';
+    var r=document.createElementNS(NS,'rect'); r.setAttribute('x',X);r.setAttribute('y',y);r.setAttribute('width',W);r.setAttribute('height',FH-2);r.setAttribute('fill','#1c2130');
+    g.appendChild(r);
+    for(var c=0;c<6;c++){var w=document.createElementNS(NS,'rect');w.setAttribute('x',X+12+c*31);w.setAttribute('y',y+5);w.setAttribute('width',20);w.setAttribute('height',12);w.setAttribute('fill','#2b3142');w.style.transition='fill .3s';g.appendChild(w);wins.push(w);}
+    tower.appendChild(g);
+  }
+  var crown=document.createElementNS(NS,'rect');crown.setAttribute('x',X-6);crown.setAttribute('y',BASE-FL*FH-10);crown.setAttribute('width',W+12);crown.setAttribute('height',8);crown.setAttribute('fill','#ff4e31');crown.style.opacity=0;crown.style.transition='opacity .4s';tower.appendChild(crown);
+  // shuffle windows for lighting order
+  var order=wins.map(function(_,i){return i}); for(var i=order.length-1;i>0;i--){var j=(i*7919)%(i+1);var t=order[i];order[i]=order[j];order[j]=t;}
+
+  var floors=[].slice.call(tower.querySelectorAll('.fl'));
+  var chipsEl=document.getElementById('chips');
+  var CH=[
+    {t:'Pre-construction',x:'Hoarding goes up and a register-interest list starts filling, long before the first suite exists.',lab:'on the interest list',to:1200,
+      chips:[['Hoarding + QR',8,58],['Register-interest page',8,70],['Neighbourhood content',8,82]]},
+    {t:'Launch',x:'Renderings, floorplans and pricing go live everywhere on the same day. The interest list hears first.',lab:'tours booked',to:310,
+      chips:[['Renderings + floorplans',70,30],['ILS go-live',70,44],['Launch event',70,58],['POs raised in Yardi',70,72]]},
+    {t:'Lease-up',x:'Tours, offers and move-ins. One offer sheet keeps every channel saying the same thing.',lab:'leased',to:95,pct:true,
+      chips:[['Book a tour',8,58],['Offer sheet',8,70],['Move-in gift',70,58],['Lead source report',70,72]]},
+    {t:'Stabilization',x:'Reviews, renewals and resident stories. The data that goes into the investor report.',lab:'leased',to:96,pct:true,from:95,
+      chips:[['Google reviews',8,58],['Curb appeal check',8,70],['Resident stories',70,58],['Investor report',70,72]]}
+  ];
+  var DUR=[5200,5200,6200,5200], T0=null, cur=-1, raf, done=false;
+  var btns=[].slice.call(document.querySelectorAll('#chap button'));
+  var mVal=document.getElementById('mVal'), mLab=document.getElementById('mLab');
+  function el(id){return document.getElementById(id)}
+  function setChips(i){
+    chipsEl.innerHTML='';
+    CH[i].chips.forEach(function(c,k){
+      var d=document.createElement('div');d.className='chip';d.innerHTML='<i></i>'+c[0];
+      if(c[1]>50){d.style.right='4%'}else{d.style.left=(innerWidth<640?3:c[1])+'%'};d.style.top=(innerWidth<640?c[2]*0.7+2:c[2])+'%';chipsEl.appendChild(d);
+      setTimeout(function(){d.classList.add('on')},500+k*650);
+    });
+  }
+  function state(i,p){ // p 0..1 within chapter
+    var crane=el('crane'),hoard=el('hoard'),gift=el('gift');
+    crane.style.opacity = (i<=1)?1:0; crane.style.transition='opacity .6s';
+    hoard.style.opacity = (i===0)?1:(i===1?Math.max(0,1-p*2):0); hoard.style.transition='opacity .4s';
+    var built = i===0?0 : i===1?Math.round(p*FL) : FL;
+    floors.forEach(function(g,k){g.style.opacity=k<built?1:0});
+    crown.style.opacity = (i>=2)?1:0;
+    var lit = i<2?0 : i===2?Math.round(p*0.95*wins.length) : Math.round(0.96*wins.length);
+    order.forEach(function(idx,k){wins[idx].setAttribute('fill',k<lit?'#ffd38a':'#2b3142')});
+    gift.style.opacity=(i>=2&&p>.5)||i===3?1:0; gift.style.transition='opacity .4s';
+    var c=CH[i], from=c.from||0, v=Math.round(from+(c.to-from)*Math.min(1,p*1.15));
+    mVal.textContent = c.pct? v+'%' : v.toLocaleString();
+    mLab.textContent=c.lab;
+  }
+  function go(i){
+    cur=i; setChips(i);
+    el('cStage').textContent='Stage '+(i+1)+' of 4'; el('cTitle').textContent=CH[i].t; el('cText').textContent=CH[i].x;
+    btns.forEach(function(b,k){b.classList.toggle('cur',k===i);b.querySelector('.pb').style.width=k<i?'100%':'0'});
+  }
+  function tick(ts){
+    if(T0===null)T0=ts;
+    var e=ts-T0, acc=0, i=0;
+    while(i<4&&e>acc+DUR[i]){acc+=DUR[i];i++}
+    if(i>=4){state(3,1);btns[3].querySelector('.pb').style.width='100%';done=true;el('replay').hidden=false;return}
+    if(i!==cur)go(i);
+    var p=(e-acc)/DUR[i]; state(i,p); btns[i].querySelector('.pb').style.width=(p*100)+'%';
+    raf=requestAnimationFrame(tick);
+  }
+  function start(fromI){
+    cancelAnimationFrame(raf); el('replay').hidden=true; done=false; cur=-1;
+    var off=0; for(var k=0;k<fromI;k++)off+=DUR[k];
+    T0=null; var first=true;
+    raf=requestAnimationFrame(function(ts){T0=ts-off;tick(ts)});
+  }
+  btns.forEach(function(b,k){b.addEventListener('click',function(){start(k)})});
+  el('replay').addEventListener('click',function(){start(0)});
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){go(3);state(3,1);el('replay').hidden=false}
+  else{
+    var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){start(0);io.disconnect()}},{threshold:.3});
+    io.observe(document.getElementById('film'));
+  }
+})();
+
+/* ---------- checklist ---------- */
+(function(){
+  var boxes=[].slice.call(document.querySelectorAll('#ck input')), KEY='fz-ck';
+  var saved=[]; try{saved=JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){}
+  boxes.forEach(function(b,i){b.checked=!!saved[i];b.addEventListener('change',upd)});
+  function upd(){
+    var v=boxes.map(function(b){return b.checked}), n=v.filter(Boolean).length;
+    document.getElementById('ckN').textContent=n+' / '+boxes.length;
+    document.getElementById('ckBar').style.width=(n/boxes.length*100)+'%';
+    try{localStorage.setItem(KEY,JSON.stringify(v))}catch(e){}
+  }
+  upd();
+})();
+
+/* ---------- offer calculator ---------- */
+(function(){
+  var B=[['Sloane',2280,2.5],['Parker',2015,2.5],['Marlow',2725,2],['Waverley',3380,1],['Maddox Cabbagetown',2055,2],['Maddox Tyndall',1875,2],['Loxley QdS',1750,2]];
+  var sel=document.getElementById('oSel'), r=document.getElementById('oRent'), f=document.getElementById('oFree'), t=document.getElementById('oTerm');
+  B.forEach(function(b,i){var o=document.createElement('option');o.value=i;o.textContent=b[0];sel.appendChild(o)});
+  function money(n){return '$'+Math.round(n).toLocaleString()}
+  function pick(){var b=B[sel.value];r.value=b[1];f.value=b[2];t.value=12;calc()}
+  function calc(){
+    var rent=+r.value, free=+f.value, term=+t.value, b=B[sel.value];
+    var ner=rent*(term-free)/term, save=rent*free;
+    document.getElementById('oName').textContent=b[0];
+    document.getElementById('oRentV').textContent=money(rent);
+    document.getElementById('oFreeV').textContent=free+(free===1?' month':' months');
+    document.getElementById('oTermV').textContent=term+' months';
+    document.getElementById('oNer').innerHTML=money(ner)+'<small> /mo</small>';
+    document.getElementById('oSave').textContent=money(save);
+    document.getElementById('oPct').textContent=(free/term*100).toFixed(1)+'%';
+    document.getElementById('oAd').textContent = free>0 ? '"'+b[0]+': '+(free%1? free : free)+' months free. Effective rent from '+money(ner)+' on a '+term+'-month lease."' : '"'+b[0]+': suites from '+money(rent)+'."';
+  }
+  sel.addEventListener('change',pick); [r,f,t].forEach(function(x){x.addEventListener('input',calc)});
+  pick();
+})();
+
+/* ---------- budget tracker ---------- */
+(function(){
+  var rows=[
+    ['PO-1041','Rushden Station','Print + signage','Hoarding artwork, phase 1',18500,18500,'paid'],
+    ['PO-1042','Rushden Station','Creative studio','Renderings, 6 views',24000,12000,'app'],
+    ['PO-1043','Marlow','Photography','Amenity + suite shoot',6800,6800,'paid'],
+    ['PO-1044','Sloane','ILS','Featured listing, Q4',9000,0,'open'],
+    ['PO-1045','Maddox Tyndall','Gifting','Move-in gifts, 40 units',4400,4400,'app'],
+    ['PO-1046','Portfolio','Paid media','Paid social, November',15000,0,'open'],
+    ['PO-1047','Parker','Events','Resident game night',3200,3200,'paid']
+  ], BUDGET=110000, lab={paid:'Paid',app:'Approved, not paid',open:'Invoice not received'};
+  var tb=document.querySelector('#bTable tbody');
+  function money(n){return '$'+n.toLocaleString()}
+  function draw(fl){
+    tb.innerHTML='';
+    rows.filter(function(r){return fl==='all'||r[6]===fl}).forEach(function(r){
+      var tr=document.createElement('tr');
+      tr.innerHTML='<td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td>'+r[2]+'</td><td>'+r[3]+'</td><td class="num">'+money(r[4])+'</td><td class="num">'+money(r[5])+'</td><td><span class="st '+r[6]+'">'+lab[r[6]]+'</span></td>';
+      tb.appendChild(tr);
+    });
+  }
+  var com=rows.reduce(function(a,r){return a+r[4]},0);
+  document.getElementById('tBud').textContent=money(BUDGET);
+  document.getElementById('tCom').textContent=money(com);
+  document.getElementById('tLeft').textContent=money(BUDGET-com);
+  var bar=document.getElementById('tBar'); bar.style.width=Math.min(100,com/BUDGET*100)+'%'; if(com/BUDGET>.9)bar.classList.add('over');
+  [].slice.call(document.querySelectorAll('#bTabs button')).forEach(function(b,_,all){
+    b.addEventListener('click',function(){all.forEach(function(x){x.setAttribute('aria-pressed',x===b)});draw(b.dataset.f)});
+  });
+  draw('all');
+})();
+</script>
+</body>
+</html>
