@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ksenia, I took the feedback · Durva Thakkar</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Five campaign stories, told the way Ksenia suggested: the result first, then what was done.">
+<meta property="og:title" content="Ksenia, I took the feedback.">
+<meta property="og:description" content="Five campaign stories. Result first, then what I did.">
+<meta property="og:image" content="https://durvathakkar.com/ksenia/share.jpg?v=1">
+<meta property="og:url" content="https://durvathakkar.com/ksenia/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://durvathakkar.com/ksenia/share.jpg?v=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#121212; --soft:#55555c; --line:#e3e3e6; --bg:#ffffff; --tint:#f4f3f8;
+  --vi:#4b2bd6; --vi-soft:#ece8fd; --ok:#127a4a;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --sans:'Familjen Grotesk',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 18px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+.mono{font-family:var(--mono);font-size:12.5px;letter-spacing:.02em;color:var(--soft)}
+
+/* top bar */
+.bar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;gap:12px}
+.bar b{font-weight:600}
+.mode{display:flex;border:1px solid var(--ink);border-radius:999px;overflow:hidden;font-family:var(--mono);font-size:12.5px}
+.mode button{border:0;background:none;padding:7px 14px;cursor:pointer;font:inherit;color:var(--ink)}
+.mode button[aria-pressed="true"]{background:var(--ink);color:#fff}
+
+/* hero */
+header.hero{padding:88px 0 40px}
+.hero h1{font-size:clamp(44px,7.4vw,84px);line-height:.98;letter-spacing:-.035em;font-weight:700}
+.hero h1 span{color:var(--vi)}
+.hero p.lede{margin-top:28px;font-size:21px;max-width:640px;color:#2a2a2e}
+.hero p.lede + p{margin-top:14px;max-width:640px;color:var(--soft)}
+
+/* her notes */
+.notes{margin:44px 0 0;border-top:2px solid var(--ink)}
+.notes li{list-style:none;display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line)}
+.notes .n{font-family:var(--mono);font-size:13px;color:var(--vi)}
+.notes .done{font-family:var(--mono);font-size:12px;color:var(--ok);white-space:nowrap}
+
+/* scoreboard */
+section{padding:72px 0 0}
+h2{font-size:clamp(28px,4vw,40px);letter-spacing:-.025em;line-height:1.08;font-weight:700}
+h2 + p{margin-top:12px;color:var(--soft);max-width:620px}
+.score{margin-top:30px;display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--ink)}
+.score div{padding:22px 18px;border-right:1px solid var(--line)}
+.score div:last-child{border-right:0}
+.score strong{display:block;font-size:42px;line-height:1;letter-spacing:-.03em;font-weight:700}
+.score span{display:block;margin-top:10px;font-size:14.5px;line-height:1.35;color:var(--soft)}
+
+/* stories */
+.story{margin-top:28px;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.story-top{padding:26px 26px 22px}
+.tagrow{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.tag{font-family:var(--mono);font-size:12px;color:var(--soft)}
+.tag.who{color:var(--vi)}
+.result{margin-top:14px;font-size:clamp(23px,3vw,29px);line-height:1.22;letter-spacing:-.015em;font-weight:600}
+.result em{font-style:normal;background:var(--vi-soft);padding:0 4px;border-radius:3px}
+.more{border-top:1px solid var(--line);padding:22px 26px 26px;display:grid;grid-template-columns:150px 1fr;gap:16px 22px}
+.more dt{font-family:var(--mono);font-size:12.5px;color:var(--soft);padding-top:3px}
+.more dd ul{padding-left:18px}
+.more dd li+li{margin-top:6px}
+.dig{background:var(--tint);border-radius:4px;padding:14px 16px}
+.media{grid-column:1/-1}
+.media video{width:100%;display:block;border-radius:4px;background:#ddd}
+.media .mono{display:block;margin-top:8px}
+body.short .more{display:none}
+.toggle{margin-top:16px;background:none;border:0;font-family:var(--mono);font-size:12.5px;color:var(--vi);cursor:pointer;padding:0;text-decoration:underline;text-underline-offset:3px}
+body.short .toggle{display:inline-block}
+body:not(.short) .toggle{display:none}
+.story.open .more{display:grid !important}
+.story.open .toggle{display:none}
+
+/* honest */
+.honest{margin-top:30px;border-left:3px solid var(--vi);padding:4px 0 4px 22px;max-width:680px}
+.honest p+p{margin-top:12px}
+
+/* close */
+.close{margin:72px 0 0;padding:56px 0 72px;border-top:2px solid var(--ink)}
+.close h2{max-width:700px}
+.close p{margin-top:16px;max-width:620px;color:#2a2a2e}
+.btns{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 22px;border-radius:999px;border:1px solid var(--ink);text-decoration:none;font-weight:600;font-size:16px}
+.btn.fill{background:var(--ink);color:#fff}
+.btn:hover{background:var(--vi);border-color:var(--vi);color:#fff}
+footer{padding:0 0 40px}
+
+@media (max-width:700px){
+  body{font-size:17px}
+  header.hero{padding:56px 0 28px}
+  .hero p.lede{font-size:19px}
+  .score{grid-template-columns:1fr 1fr}
+  .score div:nth-child(2){border-right:0}
+  .score div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .more{grid-template-columns:1fr;gap:6px}
+  .more dd{margin-bottom:14px}
+  .story-top,.more{padding-left:18px;padding-right:18px}
+  .notes li{grid-template-columns:32px 1fr}
+  .notes .done{grid-column:2}
+  .bar .who-name{display:none}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="wrap">
+    <div><b>Durva Thakkar</b> <span class="mono who-name">&nbsp;for Ksenia Onosov, Forum Ventures</span></div>
+    <div class="mode" role="group" aria-label="Reading mode">
+      <button type="button" data-mode="short" aria-pressed="false">Short answers</button>
+      <button type="button" data-mode="full" aria-pressed="true">Full stories</button>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+
+<header class="hero">
+  <h1>Ksenia, I took<br>the <span>feedback.</span></h1>
+  <p class="lede">Tyler liked the Limina campaign. Where I lost it was the interview: when he asked for specifics, I went broad.</p>
+  <p>You told me how to fix that. So here is the interview again, done your way. Every story below starts with the result. Switch to "Short answers" at the top and you get only the results, the way I should have said them.</p>
+
+  <ol class="notes">
+    <li><span class="n">01</span><span>Start with the result, ideally in numbers. Then briefly what I did.</span><span class="done">done below</span></li>
+    <li><span class="n">02</span><span>If asked to dig deeper, walk through one concrete example, not several.</span><span class="done">done where I have one</span></li>
+    <li><span class="n">03</span><span>Prepare two or three campaign stories: the goal, my actions, the outcome.</span><span class="done">five, ready</span></li>
+  </ol>
+</header>
+
+<section id="results" aria-labelledby="h-results">
+  <h2 id="h-results">The results, before anything else</h2>
+  <p>Some of these are team results, and I say so on each story.</p>
+  <div class="score">
+    <div><strong>4</strong><span>sales calls booked from 50 target accounts</span></div>
+    <div><strong>$15K+</strong><span>active pipeline for a firm with zero clients</span></div>
+    <div><strong>40%</strong><span>sales increase that my campaign work contributed to</span></div>
+    <div><strong>1&nbsp;→&nbsp;1</strong><span>one comic book sent, one client signed</span></div>
+  </div>
+</section>
+
+<section id="stories" aria-labelledby="h-stories">
+  <h2 id="h-stories">Five stories, result first</h2>
+  <p>Each one: the result, the goal, what was done, and where I have one, a single example to dig into.</p>
+
+  <!-- 1 -->
+  <article class="story">
+    <div class="story-top">
+      <div class="tagrow"><span class="tag who">Team campaign · Elevraa</span><span class="tag">Cybersecurity · ABM · 3 months</span></div>
+      <p class="result"><em>4 sales calls</em> booked from 50 target accounts, plus 7 referral partnerships and $15,000+ in active pipeline, for a cybersecurity firm that had never closed a client.</p>
+      <button class="toggle" type="button">Show the full story</button>
+    </div>
+    <dl class="more">
+      <dt>Goal</dt>
+      <dd>Brahm Security launched in May 2025 with real expertise and no market presence. No clients, no audience, no pipeline. The goal was its first qualified sales conversations.</dd>
+      <dt>What we did</dt>
+      <dd><ul>
+        <li>Built the founder's thought leadership on LinkedIn first, so buyers saw his thinking before any outreach.</li>
+        <li>Picked 50 Bangalore software companies that ship code continuously, the buyers who feel the pain of slow security testing most.</li>
+        <li>Ran a multi-touch sequence per account: a useful resource to decision makers, content about that company's month, connecting with every decision maker, a follow-up, then a custom landing page.</li>
+        <li>In parallel, set up referral partnerships with providers who serve the same buyers.</li>
+      </ul></dd>
+      <dt>Outcome</dt>
+      <dd>4 sales-qualified calls, 7 referral partnerships and $15,000+ in active pipeline, in about 3 months.</dd>
+      <dt>One example</dt>
+      <dd class="dig">The order mattered most. Content went first, partnerships next, outreach last. By the time a prospect got a message, they had already seen the founder's thinking, so none of the 4 calls was a cold one.</dd>
+    </dl>
+  </article>
+
+  <!-- 2 -->
+  <article class="story">
+    <div class="story-top">
+      <div class="tagrow"><span class="tag who">Team campaign · Elevraa</span><span class="tag">Agency founders · Direct mail · 1 account</span></div>
+      <p class="result"><em>One package, one client.</em> Three agency co-founders who had ignored months of templated outreach took the meeting and signed.</p>
+      <button class="toggle" type="button">Show the full story</button>
+    </div>
+    <dl class="more">
+      <dt>Goal</dt>
+      <dd>Get a meeting with three founders of a marketing agency who were ignoring every cold message they got.</dd>
+      <dt>What we did</dt>
+      <dd><ul>
+        <li>Read years of their public posts and comments, going back to 2019, when almost nobody was reading them.</li>
+        <li>Turned it into a printed comic book: their college photos redrawn as illustrations and the founding story rebuilt chapter by chapter, with one story for each founder.</li>
+        <li>Closed the book with a section on where the agency could go next.</li>
+      </ul></dd>
+      <dt>Outcome</dt>
+      <dd>A meeting, then a signed client.</dd>
+      <dt>One example</dt>
+      <dd class="dig">In the meeting, one founder stopped mid-sentence and asked how we knew something the three of them had only discussed privately. Nothing had leaked. It came from piecing together years of public signals.</dd>
+      <div class="media">
+        <video src="img/digipple.mp4" poster="img/digipple.jpg" autoplay muted loop playsinline preload="metadata" aria-label="The printed comic book, The Birth of Digipple"></video>
+        <span class="mono">The book: "The Birth of Digipple: The Unlikely Origins"</span>
+      </div>
+    </dl>
+  </article>
+
+  <!-- 3 -->
+  <article class="story">
+    <div class="story-top">
+      <div class="tagrow"><span class="tag who">My internship · Rewynd Snacks</span><span class="tag">Snack brand · Social · Summer 2023</span></div>
+      <p class="result">The social campaigns, promo offers and giveaways I supported contributed to a <em>40% increase in sales.</em></p>
+      <button class="toggle" type="button">Show the full story</button>
+    </div>
+    <dl class="more">
+      <dt>Goal</dt>
+      <dd>More visibility and more sales for a snack brand in India.</dd>
+      <dt>What I did</dt>
+      <dd><ul>
+        <li>Supported the social campaigns, promotional offers and giveaways.</li>
+        <li>Kept the content calendar running so every activity went out on time.</li>
+        <li>Watched trends and customer engagement for content ideas.</li>
+        <li>Reviewed campaign results with the marketing lead to improve the next one.</li>
+      </ul></dd>
+      <dt>Outcome</dt>
+      <dd>A 40% increase in sales. I was the intern and the marketing lead owned the strategy, so I say "contributed to".</dd>
+    </dl>
+  </article>
+
+  <!-- 4 -->
+  <article class="story">
+    <div class="story-top">
+      <div class="tagrow"><span class="tag who">My role · Bsquaree, Toronto</span><span class="tag">Outreach · Discovery calls · Dec 2024 to May 2025</span></div>
+      <p class="result">The pain points I heard on <em>discovery calls became how we pitched</em> our services. No clean number on this one, so I won't invent one.</p>
+      <button class="toggle" type="button">Show the full story</button>
+    </div>
+    <dl class="more">
+      <dt>Goal</dt>
+      <dd>Reach the right prospective clients and bring in new business.</dd>
+      <dt>What I did</dt>
+      <dd><ul>
+        <li>Researched and identified target audiences, so the team contacted better-fit prospects.</li>
+        <li>Ran discovery calls to understand each client's pain points.</li>
+        <li>Fed those pain points back into how we positioned and described our services.</li>
+        <li>Managed direct communication with key stakeholders, and reviewed outreach results to improve messaging and response rates.</li>
+      </ul></dd>
+      <dt>Outcome</dt>
+      <dd>A sharper target list and a pitch built from what clients told us, not what we assumed. This is the closest I've worked to sales.</dd>
+    </dl>
+  </article>
+
+  <!-- 5 -->
+  <article class="story">
+    <div class="story-top">
+      <div class="tagrow"><span class="tag who">My own campaign · Envera Systems</span><span class="tag">Application as a campaign · 1 account</span></div>
+      <p class="result">The VP of Marketing called the ideas <em>"spot on"</em> and offered to recommend me to another agency.</p>
+      <button class="toggle" type="button">Show the full story</button>
+    </div>
+    <dl class="more">
+      <dt>Goal</dt>
+      <dd>Get the attention of the VP of Marketing at a security company, instead of sending a cover letter.</dd>
+      <dt>What I did</dt>
+      <dd><ul>
+        <li>Built an interactive site around her business: a content workspace and a 30-60-90 day plan.</li>
+        <li>Added a small map game about her monthly trips to Florida, so it was clearly made for her.</li>
+      </ul></dd>
+      <dt>Outcome</dt>
+      <dd>It didn't become a job, but she replied with "The ideas were spot on and you truly grasped the business and its needs!" and offered a recommendation. The same approach is what got me to Tyler.</dd>
+    </dl>
+  </article>
+</section>
+
+<section id="honest" aria-labelledby="h-honest">
+  <h2 id="h-honest">Being honest</h2>
+  <div class="honest">
+    <p>I'm early in my career. I haven't run big-budget campaigns or owned a pipeline target on my own yet.</p>
+    <p>The two biggest numbers on this page come from team work at Elevraa. The stories that are only mine are smaller.</p>
+    <p>What I can promise is the habit you pointed me to: the result first, then the work, one example at a time.</p>
+  </div>
+</section>
+
+<section class="close" id="next" aria-labelledby="h-next">
+  <h2 id="h-next">You said my strengths lean toward content and campaign creative. I agree.</h2>
+  <p>If a company in the Forum portfolio needs someone for content or campaigns, I'd love to hear about it. I'll make something for them the way I did for Limina, and this time I'll lead with the numbers.</p>
+  <div class="btns">
+    <a class="btn fill" href="mailto:durvathakker7@gmail.com?subject=Forum%20portfolio">Email me</a>
+    <a class="btn" href="https://durvathakkar.com/">durvathakkar.com</a>
+  </div>
+</section>
+
+<footer class="wrap"><p class="mono">Durva Thakkar · Barrie, Ontario · Thank you for the feedback, Ksenia.</p></footer>
+</main>
+
+<script>
+const body = document.body;
+const btns = document.querySelectorAll('.mode button');
+function setMode(m){
+  body.classList.toggle('short', m === 'short');
+  btns.forEach(b => b.setAttribute('aria-pressed', b.dataset.mode === m));
+  document.querySelectorAll('.story.open').forEach(s => s.classList.remove('open'));
+}
+btns.forEach(b => b.addEventListener('click', () => setMode(b.dataset.mode)));
+document.querySelectorAll('.toggle').forEach(t => t.addEventListener('click', () => t.closest('.story').classList.add('open')));
+</script>
+</body>
+</html>
