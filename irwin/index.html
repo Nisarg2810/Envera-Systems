@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Marissa, a discovery on Irwin · Durva Thakkar</title>
+  <meta name="description" content="A discovery on Irwin's marketing, done before asking for anything: what the team ships, where the podcast pipeline slows down, and the work I'd do, already done.">
+  <meta property="og:title" content="Marissa, I did the discovery first.">
+  <meta property="og:description" content="Winning IR has 11 episodes from 2026. Six have no write-up yet. Here's the next one, written, and the plan for the rest.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://durvathakkar.com/irwin/">
+  <meta property="og:image" content="https://durvathakkar.com/irwin/share.jpg?v=1">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://durvathakkar.com/irwin/share.jpg?v=1">
+  <meta name="theme-color" content="#1d2f49">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* Irwin's own brand tokens, taken from getirwin.com */
+    :root {
+      --bedrock: #1d2f49; --bedrock-2: #26395a; --sand: #e5dfd5; --sand-2: #efeae3; --white: #ffffff;
+      --blue: #0663b9; --copper: #f2975a; --coin: #e7b96e; --forest: #196659; --maroon: #80253b; --sky: #c3dfee; --khaki: #a19a8b;
+      --ink: #1d2f49; --soft: #4a5872; --muted: #7d8696; --rule: #1d2f49; --hair: #d6cfc3;
+      --sans: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+      --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--white); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { color: var(--blue); }
+    img { display: block; max-width: 100%; }
+    button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+    ::selection { background: var(--coin); color: var(--bedrock); }
+    :focus-visible { outline: 2px solid var(--copper); outline-offset: 2px; }
+    .num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+
+    /* ---------------- scene ---------------- */
+    .scene { background: var(--bedrock); color: var(--sand); position: relative; }
+    .scene-top { display: flex; justify-content: space-between; align-items: baseline; padding: 18px 28px 0; font-size: 14px; color: #b9c2d0; gap: 20px; flex-wrap: wrap; }
+    .scene-top b { color: var(--white); font-weight: 600; }
+    .scene-top .clocks { display: flex; gap: 22px; font-family: var(--mono); font-size: 12.5px; }
+    .scene-top .clocks span i { font-style: normal; color: var(--coin); }
+    .stage { max-width: 1320px; margin: 0 auto; padding: 10px 18px 0; }
+    svg.floor { width: 100%; height: auto; display: block; }
+    .floor text { font-family: var(--sans); }
+    .floor .lbl { font-size: 15px; font-weight: 600; fill: #ffffff; }
+    .floor .sub { font-size: 12px; fill: #aeb8c8; }
+    .floor .mono { font-family: var(--mono); font-size: 11px; fill: #aeb8c8; }
+    .floor .room { fill: none; stroke: #3c5277; stroke-width: 1.5; }
+    .floor .desk { fill: #2b4166; }
+    .floor .head { fill: var(--sand); }
+    .floor .badge { font-family: var(--mono); font-size: 10.5px; font-weight: 500; fill: var(--bedrock); }
+    .floor .durva .head { fill: var(--copper); }
+    /* little loops for each person's job */
+    @keyframes bob { 50% { transform: translateY(-2px); } }
+    @keyframes type { 0% { width: 0; } 60%, 100% { width: var(--w); } }
+    @keyframes rise { 0% { transform: scaleY(.2); } 50% { transform: scaleY(1); } 100% { transform: scaleY(.6); } }
+    @keyframes fly { 0% { transform: translate(0,0); opacity: 0; } 15% { opacity: 1; } 100% { transform: translate(var(--dx), var(--dy)); opacity: 0; } }
+    @keyframes wave { 0%,100% { transform: scaleY(.3); } 50% { transform: scaleY(1); } }
+    @keyframes blink { 50% { opacity: .25; } }
+    .bob { animation: bob 1.6s ease-in-out infinite; transform-box: fill-box; }
+    .bar-g { transform-box: fill-box; transform-origin: bottom; animation: rise 3s ease-in-out infinite; }
+    .wave { transform-box: fill-box; transform-origin: center; animation: wave .9s ease-in-out infinite; }
+    .env { animation: fly 2.6s linear infinite; }
+    .blink { animation: blink 1.4s steps(2) infinite; }
+    .tape { transition: transform .9s cubic-bezier(.5,0,.2,1), opacity .5s; }
+    .tape.gone { opacity: 0; }
+    .flow { stroke-dasharray: 6 6; opacity: 0; transition: opacity .6s; }
+    .flow.on { opacity: 1; animation: dash 1s linear infinite; }
+    @keyframes dash { to { stroke-dashoffset: -12; } }
+    .out { opacity: 0; transition: opacity .5s; }
+    .out.on { opacity: 1; }
+    .durva { transition: transform 2.2s cubic-bezier(.45,0,.2,1); }
+    .door { transition: transform .8s; transform-box: fill-box; transform-origin: left; }
+    .door.open { transform: scaleX(.15); }
+    .scene-cap { max-width: 1320px; margin: 0 auto; padding: 14px 28px 26px; display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: end; }
+    .scene-cap p { font-size: 15px; color: #c9d1dd; max-width: 760px; min-height: 48px; }
+    .scene-cap p b { color: var(--white); font-weight: 600; }
+    @media (max-width: 760px) {
+      .stage { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 6px; }
+      svg.floor { min-width: 860px; }
+      .scene-cap { grid-template-columns: 1fr; }
+      .scene-top .clocks { gap: 12px; font-size: 11.5px; }
+      .stage::after { content: "Swipe to see the whole floor"; display: block; font-size: 12px; color: #8d9cb4; padding: 6px 10px 0; }
+    }
+    .replay { font-size: 14px; color: var(--sand); border: 1px solid #4a6189; padding: 8px 14px; border-radius: 3px; white-space: nowrap; }
+    .replay:hover { background: var(--sand); color: var(--bedrock); }
+
+    /* ---------------- opening ---------------- */
+    .open { background: var(--sand); }
+    .open .in { max-width: 1320px; margin: 0 auto; padding: 56px 28px 64px; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 56px; }
+    .open h1 { font-size: clamp(54px, 8vw, 118px); line-height: .9; letter-spacing: -0.035em; font-weight: 800; }
+    .open h1 span { color: var(--blue); }
+    .open .lead { margin-top: 26px; font-size: clamp(19px, 1.7vw, 22px); line-height: 1.5; max-width: 760px; }
+    .open .lead + .lead { margin-top: 14px; }
+    .open aside { border-left: 2px solid var(--bedrock); padding-left: 22px; align-self: end; font-size: 15px; color: var(--soft); }
+    .open aside dl { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; }
+    .open aside dt { font-family: var(--mono); font-size: 13px; color: var(--ink); }
+    .open aside p { margin-top: 16px; }
+    @media (max-width: 900px) { .open .in { grid-template-columns: 1fr; gap: 30px; } }
+
+    /* ---------------- filing layout ---------------- */
+    .doc { max-width: 1320px; margin: 0 auto; padding: 0 28px; }
+    .item { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 0 48px; padding: 72px 0 0; }
+    .item > .side { position: sticky; top: 20px; align-self: start; }
+    .item > .side .no { color: var(--copper); }
+    .item > .side h2 { font-size: 30px; line-height: 1.05; letter-spacing: -0.02em; font-weight: 800; }
+    .item > .side p { margin-top: 12px; font-size: 14px; color: var(--muted); }
+    .item > .body { border-top: 3px solid var(--bedrock); padding-top: 22px; min-width: 0; }
+    .body > p { max-width: 760px; }
+    .body > p + p { margin-top: 14px; }
+    .body h3 { font-size: 23px; letter-spacing: -0.01em; font-weight: 700; margin: 34px 0 10px; line-height: 1.2; }
+    .body h3:first-child { margin-top: 0; }
+    .soft { color: var(--soft); }
+    .small { font-size: 14px; color: var(--muted); }
+    @media (max-width: 900px) { .item { grid-template-columns: 1fr; padding-top: 56px; } .item > .side { position: static; margin-bottom: 14px; } }
+
+    /* team */
+    .team { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .team th { text-align: left; font-weight: 600; font-size: 13px; color: var(--muted); padding: 8px 16px 8px 0; border-bottom: 1px solid var(--bedrock); }
+    .team td { padding: 13px 16px 13px 0; border-bottom: 1px solid var(--hair); vertical-align: top; }
+    .team td:first-child { white-space: nowrap; }
+    .team td b { font-weight: 700; display: block; }
+    .team td .where { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+    .team .guess { color: var(--soft); }
+    .wrap-x { overflow-x: auto; }
+
+    /* numbers */
+    .figs { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); margin: 22px 0; }
+    .figs div { padding: 18px 18px 18px 0; }
+    .figs div + div { padding-left: 18px; border-left: 1px solid var(--hair); }
+    .figs b { display: block; font-family: var(--mono); font-size: clamp(30px, 3.4vw, 44px); font-weight: 500; line-height: 1; letter-spacing: -0.02em; }
+    .figs span { display: block; margin-top: 8px; font-size: 14px; color: var(--soft); line-height: 1.4; }
+    @media (max-width: 760px) { .figs { grid-template-columns: 1fr 1fr; } .figs div:nth-child(3) { border-left: 0; padding-left: 0; } }
+
+    /* lag table */
+    .lag { width: 100%; border-collapse: collapse; font-size: 14.5px; margin-top: 10px; }
+    .lag th { text-align: left; font-weight: 600; font-size: 12.5px; color: var(--muted); padding: 8px 12px 8px 0; border-bottom: 1px solid var(--bedrock); }
+    .lag td { padding: 9px 12px 9px 0; border-bottom: 1px solid var(--hair); vertical-align: middle; }
+    .lag td.num { white-space: nowrap; }
+    .lag .gbar { position: relative; height: 10px; background: var(--sand-2); min-width: 120px; }
+    .lag .gbar i { position: absolute; left: 0; top: 0; bottom: 0; width: var(--w); background: var(--coin); }
+    .lag tr.none .gbar i { background: var(--maroon); }
+    .lag tr.none td:nth-child(4) { color: var(--maroon); font-weight: 600; }
+
+    /* gaps list */
+    .gaps { counter-reset: g; border-top: 1px solid var(--hair); }
+    .gap { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 16px; padding: 22px 0; border-bottom: 1px solid var(--hair); }
+    .gap::before { counter-increment: g; content: counter(g, decimal-leading-zero); font-family: var(--mono); font-size: 14px; color: var(--copper); padding-top: 4px; }
+    .gap h4 { font-size: 19px; font-weight: 700; line-height: 1.25; }
+    .gap p { margin-top: 6px; color: var(--soft); max-width: 760px; }
+
+    details.note { margin-top: 26px; border: 1px solid var(--hair); background: var(--sand-2); }
+    details.note summary { cursor: pointer; padding: 14px 18px; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 14px; }
+    details.note summary::-webkit-details-marker { display: none; }
+    details.note summary::after { content: "Open"; font-family: var(--mono); font-size: 12px; color: var(--blue); font-weight: 400; }
+    details.note[open] summary::after { content: "Close"; }
+    details.note .nb { padding: 0 18px 18px; font-size: 15px; color: var(--soft); }
+    details.note .nb p + p, details.note .nb ul { margin-top: 10px; }
+    details.note ul { padding-left: 18px; }
+    details.note code { font-family: var(--mono); font-size: 12.5px; background: #fff; padding: 1px 5px; color: var(--ink); word-break: break-all; }
+
+    /* role */
+    .role { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--bedrock); }
+    .role > div { padding: 22px; }
+    .role > div + div { border-left: 1px solid var(--bedrock); background: var(--sand-2); }
+    .role h4 { font-size: 15px; font-weight: 700; margin-bottom: 10px; }
+    .role ul { padding-left: 18px; display: grid; gap: 7px; font-size: 15.5px; }
+    .role .title { grid-column: 1 / -1; border-bottom: 1px solid var(--bedrock); padding: 18px 22px; background: var(--bedrock); color: var(--white); }
+    .role .title b { font-size: 22px; font-weight: 800; letter-spacing: -0.01em; }
+    .role .title span { display: block; color: #c4cddb; font-size: 14.5px; margin-top: 4px; }
+    @media (max-width: 760px) { .role { grid-template-columns: 1fr; } .role > div + div { border-left: 0; border-top: 1px solid var(--bedrock); } }
+
+    /* the article, in Irwin's blog shape */
+    .tabs { display: flex; flex-wrap: wrap; border-bottom: 1px solid var(--bedrock); }
+    .tabs button { padding: 10px 16px; font-size: 15px; font-weight: 600; color: var(--soft); border: 1px solid transparent; border-bottom: 0; margin-bottom: -1px; }
+    .tabs button[aria-selected="true"] { color: var(--ink); background: var(--white); border-color: var(--bedrock); }
+    .tabs button:hover { color: var(--ink); }
+    .panel { padding-top: 26px; }
+    .panel[hidden] { display: none; }
+    .art { max-width: 740px; }
+    .art .crumb { font-size: 13px; color: var(--muted); }
+    .art h1 { font-size: clamp(32px, 3.8vw, 46px); line-height: 1.08; letter-spacing: -0.025em; font-weight: 800; margin-top: 8px; }
+    .art .meta { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 14px; font-size: 14px; color: var(--muted); padding-bottom: 18px; border-bottom: 1px solid var(--hair); }
+    .art p { margin-top: 16px; font-size: 18px; line-height: 1.65; }
+    .art h2 { font-size: 25px; line-height: 1.2; letter-spacing: -0.015em; font-weight: 700; margin-top: 38px; }
+    .art blockquote { margin: 22px 0; padding-left: 18px; border-left: 3px solid var(--copper); font-size: 20px; line-height: 1.45; font-weight: 500; }
+    .art ol { margin-top: 14px; padding-left: 22px; display: grid; gap: 10px; font-size: 17.5px; }
+    .art .listen { display: inline-block; margin-top: 18px; padding: 10px 14px; background: var(--bedrock); color: var(--white); text-decoration: none; font-size: 15px; font-weight: 600; }
+    .art .listen:hover { background: var(--blue); }
+    .art .wc { margin-top: 30px; padding-top: 14px; border-top: 1px solid var(--hair); font-family: var(--mono); font-size: 12.5px; color: var(--muted); }
+
+    .kit { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 22px; }
+    .kit .li { background: #fff; border: 1px solid #dcdcdc; border-radius: 2px; padding: 16px 18px; font-size: 15px; line-height: 1.55; color: #191919; font-family: -apple-system, "Segoe UI", Roboto, sans-serif; }
+    .kit .li .h { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; }
+    .kit .li .av { width: 40px; height: 40px; background: var(--bedrock); color: #fff; display: grid; place-items: center; font: 600 12px var(--mono); }
+    .kit .li .h b { display: block; font-size: 14px; }
+    .kit .li .h span { font-size: 12px; color: #666; }
+    .kit .li p + p { margin-top: 9px; }
+    .kit .tag { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+    .kit .tag b { color: var(--ink); }
+    .card-ans { border: 1px solid var(--bedrock); padding: 20px; }
+    .card-ans h4 { font-size: 21px; font-weight: 800; }
+    .card-ans p { margin-top: 10px; font-size: 16px; }
+    .card-ans .src { font-size: 13px; color: var(--muted); margin-top: 12px; }
+    .clips { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .clips td { padding: 12px 14px 12px 0; border-bottom: 1px solid var(--hair); vertical-align: top; }
+    .clips td:first-child { font-family: var(--mono); font-size: 13px; color: var(--copper); width: 34px; }
+    .clips q { font-weight: 600; }
+    .s5 { border-top: 1px solid var(--hair); }
+    .s5 div { display: grid; grid-template-columns: 80px minmax(0,1fr); gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--hair); }
+    .s5 .e { font-family: var(--mono); font-size: 13px; color: var(--muted); padding-top: 3px; }
+    .s5 b { display: block; font-weight: 700; }
+    .s5 span { color: var(--soft); font-size: 15px; }
+    @media (max-width: 860px) { .kit { grid-template-columns: 1fr; } }
+
+    /* plan */
+    .plan { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .plan th { text-align: left; font-size: 13px; font-weight: 600; color: var(--muted); padding: 8px 14px 8px 0; border-bottom: 1px solid var(--bedrock); }
+    .plan td { padding: 14px 14px 14px 0; border-bottom: 1px solid var(--hair); vertical-align: top; }
+    .plan td:first-child { font-family: var(--mono); font-size: 13px; white-space: nowrap; color: var(--copper); }
+    .plan td ul { padding-left: 16px; display: grid; gap: 4px; }
+    .plan td:last-child { color: var(--soft); }
+    .meas { width: 100%; border-collapse: collapse; font-size: 15px; margin-top: 8px; }
+    .meas th { text-align: left; font-size: 13px; font-weight: 600; color: var(--muted); padding: 8px 14px 8px 0; border-bottom: 1px solid var(--bedrock); }
+    .meas td { padding: 12px 14px 12px 0; border-bottom: 1px solid var(--hair); vertical-align: top; }
+    .meas td.num { white-space: nowrap; }
+
+    /* risk factors */
+    .risk { border-top: 1px solid var(--hair); }
+    .risk div { padding: 18px 0; border-bottom: 1px solid var(--hair); }
+    .risk b { display: block; font-size: 18px; font-weight: 700; }
+    .risk p { margin-top: 6px; color: var(--soft); max-width: 760px; }
+
+    .proof { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--hair); }
+    .proof figure { padding: 20px 22px 20px 0; border-bottom: 1px solid var(--hair); }
+    .proof figure + figure { padding-left: 22px; border-left: 1px solid var(--hair); }
+    .proof blockquote { font-size: 19px; line-height: 1.4; font-weight: 500; }
+    .proof figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); }
+    @media (max-width: 760px) { .proof { grid-template-columns: 1fr; } .proof figure + figure { padding-left: 0; border-left: 0; } }
+
+    .end { margin-top: 96px; background: var(--bedrock); color: var(--sand); }
+    .end .in { max-width: 1320px; margin: 0 auto; padding: 64px 28px 30px; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 48px; }
+    .end h2 { font-size: clamp(44px, 6vw, 84px); line-height: .92; letter-spacing: -0.035em; font-weight: 800; color: var(--white); }
+    .end p { margin-top: 18px; color: #c4cddb; max-width: 640px; font-size: 18px; }
+    .end .acts { align-self: end; border-top: 1px solid #4a6189; }
+    .end .acts a { display: flex; justify-content: space-between; gap: 12px; padding: 14px 0; border-bottom: 1px solid #4a6189; color: var(--white); text-decoration: none; font-size: 18px; }
+    .end .acts a:hover { color: var(--coin); }
+    .end .acts small { font-family: var(--mono); font-size: 12px; color: #9fb0c8; }
+    .end .foot { grid-column: 1 / -1; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 13px; color: #8d9cb4; padding-top: 30px; }
+    @media (max-width: 900px) { .end .in { grid-template-columns: 1fr; } }
+
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+  </style>
+</head>
+<body>
+
+  <!-- ================= THE SCENE ================= -->
+  <section class="scene" aria-label="An illustration of the Irwin marketing team at work">
+    <div class="scene-top">
+      <span><b>Marissa,</b> this is your team, as best I can tell from the outside.</span>
+      <span class="clocks" aria-label="Local times"><span>Ottawa <i id="tOtt">--:--</i></span><span>Toronto <i id="tTor">--:--</i></span><span>London <i id="tLon">--:--</i></span><span>Lahore <i id="tLhe">--:--</i></span></span>
+    </div>
+    <div class="stage">
+      <svg class="floor" viewBox="0 0 1280 600" role="img" aria-labelledby="sceneTitle sceneDesc">
+        <title id="sceneTitle">Irwin's marketing team, desk by desk</title>
+        <desc id="sceneDesc">Eight people at work in different corners: brand, web and SEO, content in London and Lahore, demand generation, events, and the Winning IR studio. Podcast episodes pile up on a shelf in the middle. Then Durva walks in, takes the episodes, and turns each one into articles, posts, a newsletter and answer pages that flow to the rest of the team.</desc>
+        <defs>
+          <g id="person"><circle cx="0" cy="-26" r="11" fill="#e5dfd5"/><rect x="-15" y="-13" width="30" height="30" rx="9" fill="#c9bfae"/></g>
+          <g id="personD"><circle cx="0" cy="-26" r="11" fill="#f2975a"/><rect x="-15" y="-13" width="30" height="30" rx="9" fill="#f7c4a1"/></g>
+          <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#f2975a"/></marker>
+        </defs>
+
+        <!-- rooms -->
+        <rect class="room" x="20" y="20" width="300" height="170"/>
+        <rect class="room" x="340" y="20" width="300" height="170"/>
+        <rect class="room" x="660" y="20" width="290" height="170"/>
+        <rect class="room" x="970" y="20" width="290" height="170"/>
+        <rect class="room" x="20" y="210" width="300" height="170"/>
+        <rect class="room" x="970" y="210" width="290" height="170"/>
+        <rect class="room" x="20" y="400" width="440" height="180"/>
+        <rect class="room" x="820" y="400" width="440" height="180"/>
+
+        <!-- Brand: Morgan -->
+        <text class="lbl" x="36" y="46">Morgan</text><text class="sub" x="36" y="64">VP, Brand · Toronto</text>
+        <g transform="translate(70 150)"><rect class="desk" x="-40" y="0" width="80" height="16"/><g class="bob"><use href="#person"/></g><text class="badge" x="0" y="-22" text-anchor="middle">MC</text></g>
+        <g transform="translate(150 86)">
+          <rect width="150" height="80" fill="#26395a" stroke="#3c5277"/>
+          <text x="75" y="34" text-anchor="middle" font-size="17" font-weight="800" fill="#ffffff">Irwin</text>
+          <text x="75" y="54" text-anchor="middle" font-size="11" fill="#e7b96e" class="blink">a FactSet company</text>
+        </g>
+
+        <!-- Web & SEO: Chloe -->
+        <text class="lbl" x="356" y="46">Chloe</text><text class="sub" x="356" y="64">Web &amp; SEO · Toronto</text>
+        <g transform="translate(400 150)"><rect class="desk" x="-40" y="0" width="80" height="16"/><g class="bob" style="animation-delay:.4s"><use href="#person"/></g><text class="badge" x="0" y="-22" text-anchor="middle">CA</text></g>
+        <g transform="translate(470 80)">
+          <rect width="150" height="92" fill="#26395a" stroke="#3c5277"/><rect width="150" height="12" fill="#3c5277"/>
+          <rect class="bar-g" x="16" y="34" width="16" height="48" fill="#47a987"/>
+          <rect class="bar-g" x="42" y="44" width="16" height="38" fill="#47a987" style="animation-delay:.5s"/>
+          <rect class="bar-g" x="68" y="28" width="16" height="54" fill="#47a987" style="animation-delay:1s"/>
+          <rect class="bar-g" x="94" y="40" width="16" height="42" fill="#47a987" style="animation-delay:1.5s"/>
+          <text class="mono" x="118" y="30">llms</text><text class="mono" x="118" y="44">.txt</text>
+        </g>
+
+        <!-- Content London: Emily -->
+        <text class="lbl" x="676" y="46">Emily</text><text class="sub" x="676" y="64">Content · London</text>
+        <g transform="translate(720 150)"><rect class="desk" x="-40" y="0" width="80" height="16"/><g class="bob" style="animation-delay:.2s"><use href="#person"/></g><text class="badge" x="0" y="-22" text-anchor="middle">EH</text></g>
+        <g transform="translate(790 80)">
+          <rect width="140" height="92" fill="#f5f4f3"/>
+          <rect x="12" y="14" height="6" fill="#1d2f49" style="--w:110px; animation: type 3s steps(18) infinite"/>
+          <rect x="12" y="30" height="5" fill="#a19a8b" style="--w:96px; animation: type 3s .6s steps(16) infinite"/>
+          <rect x="12" y="44" height="5" fill="#a19a8b" style="--w:104px; animation: type 3s 1.2s steps(16) infinite"/>
+          <rect x="12" y="58" height="5" fill="#a19a8b" style="--w:70px; animation: type 3s 1.8s steps(12) infinite"/>
+          <text x="12" y="84" font-size="10" fill="#80253b" font-weight="600">1 episode → 1 article</text>
+        </g>
+
+        <!-- Content Lahore: Sana -->
+        <text class="lbl" x="986" y="46">Sana</text><text class="sub" x="986" y="64">Senior content · Lahore</text>
+        <g transform="translate(1030 150)"><rect class="desk" x="-40" y="0" width="80" height="16"/><g class="bob" style="animation-delay:.7s"><use href="#person"/></g><text class="badge" x="0" y="-22" text-anchor="middle">SB</text></g>
+        <g transform="translate(1100 82)">
+          <rect x="0" y="10" width="120" height="78" fill="#e5dfd5"/><rect x="8" y="4" width="120" height="78" fill="#efeae3"/><rect x="16" y="-2" width="120" height="78" fill="#ffffff"/>
+          <text x="26" y="22" font-size="11" font-weight="700" fill="#1d2f49">Book:</text>
+          <text x="26" y="38" font-size="10" fill="#4a5872">IR guide, part 2</text>
+        </g>
+
+        <!-- Studio: Mark -->
+        <text class="lbl" x="36" y="236">Mark</text><text class="sub" x="36" y="254">Hosts Winning IR</text>
+        <g transform="translate(80 340)"><rect class="desk" x="-40" y="0" width="80" height="16"/><g class="bob" style="animation-delay:.3s"><use href="#person"/></g><text class="badge" x="0" y="-22" text-anchor="middle">MF</text></g>
+        <g transform="translate(160 276)">
+          <rect x="0" y="0" width="20" height="40" rx="10" fill="#c3dfee"/><rect x="8" y="40" width="4" height="22" fill="#c3dfee"/>
+          <rect class="wave" x="40" y="10" width="6" height="26" fill="#e7b96e"/>
+          <rect class="wave" x="52" y="4" width="6" height="38" fill="#e7b96e" style="animation-delay:.15s"/>
+          <rect class="wave" x="64" y="12" width="6" height="22" fill="#e7b96e" style="animation-delay:.3s"/>
+          <rect class="wave" x="76" y="6" width="6" height="34" fill="#e7b96e" style="animation-delay:.45s"/>
+          <text class="mono" x="0" y="84">S6E06 aired Sep 3</text>
+        </g>
+
+        <!-- Demand gen: Julia -->
+        <text class="lbl" x="986" y="236">Julia</text><text class="sub" x="986" y="254">Demand gen</text>
+        <g transform="translate(1030 340)"><rect class="desk" x="-40" y="0" width="80" height="16"/><g class="bob" style="animation-delay:.9s"><use href="#person"/></g><text class="badge" x="0" y="-22" text-anchor="middle">JF</text></g>
+        <g transform="translate(1100 270)">
+          <path d="M0 0 H130 L90 50 V84 H40 V50 Z" fill="none" stroke="#c3dfee" stroke-width="2"/>
+          <g class="env" style="--dx:60px; --dy:60px"><rect x="10" y="-20" width="22" height="14" fill="#f5f4f3"/></g>
+          <g class="env" style="--dx:20px; --dy:64px; animation-delay:.9s"><rect x="80" y="-24" width="22" height="14" fill="#f5f4f3"/></g>
+          <g class="env" style="--dx:-10px; --dy:66px; animation-delay:1.7s"><rect x="100" y="-14" width="22" height="14" fill="#f5f4f3"/></g>
+        </g>
+
+        <!-- Events: Kim + Clarissa -->
+        <text class="lbl" x="36" y="426">Clarissa &amp; Kim</text><text class="sub" x="36" y="444">Events · Toronto</text>
+        <g transform="translate(80 540)"><rect class="desk" x="-40" y="0" width="80" height="16"/><g class="bob"><use href="#person"/></g><text class="badge" x="0" y="-22" text-anchor="middle">CS</text></g>
+        <g transform="translate(180 540)"><rect class="desk" x="-40" y="0" width="80" height="16"/><g class="bob" style="animation-delay:.5s"><use href="#person"/></g><text class="badge" x="0" y="-22" text-anchor="middle">KJ</text></g>
+        <g transform="translate(270 456)">
+          <rect width="160" height="96" fill="none" stroke="#c3dfee" stroke-width="2"/><rect width="160" height="22" fill="#0663b9"/>
+          <text x="80" y="15" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">Irwin · booth</text>
+          <rect x="16" y="62" width="30" height="30" fill="#a19a8b"/><rect x="50" y="62" width="30" height="30" fill="#a19a8b"/><rect class="bob" x="33" y="32" width="30" height="30" fill="#e7b96e"/>
+        </g>
+
+        <!-- Marissa -->
+        <text class="lbl" x="836" y="426">Marissa</text><text class="sub" x="836" y="444">VP, Head of Marketing · Ottawa</text>
+        <g transform="translate(880 540)"><rect class="desk" x="-40" y="0" width="80" height="16"/><g class="bob" style="animation-delay:.6s"><use href="#person"/></g><text class="badge" x="0" y="-22" text-anchor="middle">MH</text></g>
+        <g transform="translate(960 456)">
+          <rect width="270" height="100" fill="#f5f4f3"/>
+          <text x="14" y="24" font-size="13" font-weight="800" fill="#1d2f49">The Unhedged Marketer</text>
+          <text x="14" y="44" font-size="11" fill="#4a5872">More money, more problems: why the best</text>
+          <text x="14" y="60" font-size="11" fill="#4a5872">B2B software companies don't win because</text>
+          <text x="14" y="76" font-size="11" fill="#4a5872">they spend more.</text>
+          <rect x="14" y="86" height="4" fill="#f2975a" style="--w:200px; animation: type 4s steps(20) infinite"/>
+        </g>
+
+        <!-- the shelf -->
+        <g transform="translate(470 404)">
+          <rect x="0" y="0" width="340" height="176" fill="#16253b" stroke="#3c5277"/>
+          <text class="lbl" x="16" y="26">The shelf</text>
+          <text class="sub" x="16" y="44">Aired, no write-up yet</text>
+          <text id="shelfCount" x="324" y="40" text-anchor="end" font-family="IBM Plex Mono" font-size="34" fill="#f2975a">6</text>
+          <rect x="16" y="150" width="308" height="6" fill="#3c5277"/>
+          <g id="tapes">
+            <g class="tape" data-i="0"><rect x="22" y="106" width="44" height="42" fill="#c3dfee"/><text x="44" y="131" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#1d2f49">S5E01</text></g>
+            <g class="tape" data-i="1"><rect x="72" y="106" width="44" height="42" fill="#c3dfee"/><text x="94" y="131" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#1d2f49">S5E02</text></g>
+            <g class="tape" data-i="2"><rect x="122" y="106" width="44" height="42" fill="#c3dfee"/><text x="144" y="131" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#1d2f49">S5E03</text></g>
+            <g class="tape" data-i="3"><rect x="172" y="106" width="44" height="42" fill="#c3dfee"/><text x="194" y="131" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#1d2f49">S5E04</text></g>
+            <g class="tape" data-i="4"><rect x="222" y="106" width="44" height="42" fill="#c3dfee"/><text x="244" y="131" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#1d2f49">S5E05</text></g>
+            <g class="tape" data-i="5"><rect x="272" y="106" width="44" height="42" fill="#e7b96e"/><text x="294" y="131" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#1d2f49">S6E06</text></g>
+          </g>
+          <text id="lagTxt" class="mono" x="16" y="84">Aired → written up: about 97 days</text>
+        </g>
+
+        <!-- flows out after Durva arrives -->
+        <path class="flow" id="f1" d="M640 404 C 640 300, 760 260, 760 200" stroke="#f2975a" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+        <path class="flow" id="f2" d="M700 404 C 820 330, 1040 280, 1060 200" stroke="#f2975a" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+        <path class="flow" id="f3" d="M780 440 C 880 400, 940 330, 990 300" stroke="#f2975a" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+        <path class="flow" id="f4" d="M560 404 C 540 300, 500 240, 500 196" stroke="#f2975a" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+        <path class="flow" id="f5" d="M470 470 C 420 470, 420 500, 430 500" stroke="#f2975a" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+        <path class="flow" id="f6" d="M480 420 C 380 380, 300 330, 260 320" stroke="#f2975a" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+        <g class="out" id="o1"><rect x="700" y="214" width="122" height="22" fill="#f2975a"/><text x="761" y="229" text-anchor="middle" font-size="11" font-weight="700" fill="#1d2f49">articles, 1 a week</text></g>
+        <g class="out" id="o2"><rect x="1010" y="196" width="150" height="22" fill="#f2975a"/><text x="1085" y="211" text-anchor="middle" font-size="11" font-weight="700" fill="#1d2f49">S5 global IR guide</text></g>
+        <g class="out" id="o3"><rect x="1100" y="364" width="150" height="22" fill="#f2975a"/><text x="1175" y="379" text-anchor="middle" font-size="11" font-weight="700" fill="#1d2f49">newsletter + LinkedIn</text></g>
+        <g class="out" id="o4"><rect x="440" y="196" width="130" height="22" fill="#f2975a"/><text x="505" y="211" text-anchor="middle" font-size="11" font-weight="700" fill="#1d2f49">IR answer pages</text></g>
+        <g class="out" id="o5"><rect x="300" y="384" width="150" height="22" fill="#f2975a"/><text x="375" y="399" text-anchor="middle" font-size="11" font-weight="700" fill="#1d2f49">booth content, live</text></g>
+        <g class="out" id="o6"><rect x="168" y="364" width="120" height="22" fill="#f2975a"/><text x="228" y="379" text-anchor="middle" font-size="11" font-weight="700" fill="#1d2f49">clips + host posts</text></g>
+
+        <!-- door + Durva -->
+        <rect x="610" y="580" width="60" height="6" fill="#16253b"/>
+        <rect class="door" id="door" x="610" y="578" width="60" height="8" fill="#a19a8b"/>
+        <g class="durva" id="durva" transform="translate(640 660)">
+          <g class="bob"><use href="#personD"/></g><text class="badge" x="0" y="-22" text-anchor="middle">DT</text>
+          <text x="0" y="40" text-anchor="middle" font-size="13" font-weight="700" fill="#f2975a">Durva</text>
+        </g>
+      </svg>
+    </div>
+    <div class="scene-cap">
+      <p id="cap" aria-live="polite">Everyone's busy. Brand, web, two content desks in two time zones, demand gen, events. In the studio, Mark keeps recording Winning IR, and the episodes land on the shelf.</p>
+      <button class="replay" type="button" id="replay">Play it again</button>
+    </div>
+  </section>
+
+  <!-- ================= OPENING ================= -->
+  <section class="open">
+    <div class="in">
+      <div>
+        <h1>Marissa, I did the <span>discovery</span> first.</h1>
+        <p class="lead">You wrote that the job is to know your customer well enough to do their job in an emergency, and that most in-house teams skip discovery because they assume they've already done it. I took that literally. Before asking you for anything, I read Irwin the way a new hire would in month one.</p>
+        <p class="lead">What I found is a good team with one bottleneck I think I can clear. Below is the evidence, the role I'd want, and the work. I didn't just describe the work. The next article in your queue is written.</p>
+      </div>
+      <aside>
+        <dl class="num">
+          <dt>309</dt><dd>pages on getirwin.com, read</dd>
+          <dt>21</dt><dd>blog posts from 2026</dd>
+          <dt>11</dt><dd>Winning IR episodes from 2026</dd>
+          <dt>4,261</dt><dd>words of the S6E06 transcript</dd>
+          <dt>23</dt><dd>posts on The Unhedged Marketer</dd>
+        </dl>
+        <p>I'm Durva Thakkar, a content marketer in Ontario. Everything here is from public pages, checked on October 30, 2026. Where I'm guessing, I say so.</p>
+      </aside>
+    </div>
+  </section>
+
+  <main class="doc">
+
+    <!-- ITEM 1 -->
+    <section class="item" id="team">
+      <div class="side"><h2><span class="no">Item 1.</span> The team, from the outside</h2><p>From LinkedIn and the site. The right-hand column is my guess, not a fact.</p></div>
+      <div class="body">
+        <div class="wrap-x">
+          <table class="team">
+            <thead><tr><th>Who</th><th>Role</th><th>What I think they've been shipping</th></tr></thead>
+            <tbody>
+              <tr><td><b>Marissa Homère</b><span class="where">Ottawa</span></td><td>VP, Head of Marketing. 5 years at Irwin.</td><td class="guess">Leads the team. Writes The Unhedged Marketer on the side, 23 posts since June.</td></tr>
+              <tr><td><b>Morgan Craig</b><span class="where">Toronto</span></td><td>VP, Brand Marketing. 1 year in role, almost 5 at Irwin.</td><td class="guess">The "Irwin, a FactSet company" brand, and this year's launches: Corporate Connect in April, Irwin AI Insights in July.</td></tr>
+              <tr><td><b>Chloe A.</b><span class="where">Toronto</span></td><td>Senior Web &amp; SEO Marketing Manager.</td><td class="guess">The Webflow site. All 309 pages have a meta description, and there's an llms.txt, which most B2B sites still don't have.</td></tr>
+              <tr><td><b>Emily Holland</b><span class="where">London</span></td><td>Content Marketing Manager. 1 year at Irwin.</td><td class="guess">Probably the weekly article series built from Winning IR that started in mid-September, and the IR Society conference write-up in July.</td></tr>
+              <tr><td><b>Sana Bashir</b><span class="where">Lahore</span></td><td>Senior Content Specialist. 6 years at Irwin.</td><td class="guess">The long-form library: 30 ebooks and 31 customer stories.</td></tr>
+              <tr><td><b>Julia Ferreira</b><span class="where">Canada</span></td><td>Demand Generation Manager. 5 years at Irwin.</td><td class="guess">Campaigns, gated ebooks, webinar promotion, the HubSpot side.</td></tr>
+              <tr><td><b>Clarissa Schirosi</b><span class="where">Toronto</span></td><td>Event Marketing Manager. 2 years at Irwin.</td><td class="guess">Conference presence and Irwin's own sessions. Fall is busy.</td></tr>
+              <tr><td><b>Kim Jose</b><span class="where">Toronto</span></td><td>Event Marketing Manager. Joined about 2 months ago.</td><td class="guess">A second events hire usually means the event calendar is growing.</td></tr>
+              <tr><td><b>Mark Fasken</b><span class="where">Toronto</span></td><td>Co-founder and COO. Hosts Winning IR.</td><td class="guess">55 episodes across six seasons, with guests from AT&amp;T, Pfizer, Delta, Starbucks and Robinhood.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ITEM 2 -->
+    <section class="item" id="working">
+      <div class="side"><h2><span class="no">Item 2.</span> What's working</h2><p>Specifics, not adjectives.</p></div>
+      <div class="body">
+        <div class="figs">
+          <div><b>55</b><span>Winning IR episodes, each with a full transcript on the site, 4,000 to 8,500 words long</span></div>
+          <div><b>21</b><span>blog posts in 2026, after 24 in all of 2025</span></div>
+          <div><b>5</b><span>weekly articles since Sep 16, each built on one guest</span></div>
+          <div><b>309</b><span>of 309 pages with a meta description</span></div>
+        </div>
+        <p>The podcast is the best raw material Irwin has. A 7,000-word conversation with the head of IR at AT&amp;T or Pfizer is something no competitor can copy. Since mid-September the team has started turning those conversations into articles, one a week: Feldman, Bhonsle, Jain, Willett, then DeMartino on October 14.</p>
+        <p>The articles are good. They lead with the guest's own words, they're specific, and they don't sound like they came out of a model. The Willett piece ends with a line about her promotion coming "as an unprompted phone call from her CFO", which is exactly the kind of detail that makes a reader trust the rest.</p>
+        <p>The research program is working too. The State of IR in 2026 and the buy-side corporate access study give Irwin numbers of its own to talk about, which is what you argued for in "Your Investor Deck Is Better Than Your Website".</p>
+      </div>
+    </section>
+
+    <!-- ITEM 3 -->
+    <section class="item" id="gap">
+      <div class="side"><h2><span class="no">Item 3.</span> Where it slows down</h2><p>One bottleneck, and a few smaller things around it.</p></div>
+      <div class="body">
+        <h3>The podcast is recorded faster than it's written up.</h3>
+        <p>Here's every 2026 episode, when it aired, and when (or whether) it became an article. Dates come from the episode pages and the blog's published dates.</p>
+        <div class="wrap-x">
+          <table class="lag">
+            <thead><tr><th>Episode</th><th>Guest</th><th>Aired</th><th>Article</th><th>Days</th><th style="width:28%"></th></tr></thead>
+            <tbody>
+              <tr class="none"><td class="num">S5E01</td><td>Karen Bodner, BNY</td><td class="num">Jan 20</td><td>None yet</td><td class="num">283+</td><td><div class="gbar"><i style="--w:100%"></i></div></td></tr>
+              <tr class="none"><td class="num">S5E02</td><td>Salwa Gradl, du</td><td class="num">Jan 27</td><td>None yet</td><td class="num">276+</td><td><div class="gbar"><i style="--w:97%"></i></div></td></tr>
+              <tr class="none"><td class="num">S5E03</td><td>Damian Perry, Phoenix IR</td><td class="num">Feb 3</td><td>None yet</td><td class="num">269+</td><td><div class="gbar"><i style="--w:95%"></i></div></td></tr>
+              <tr class="none"><td class="num">S5E04</td><td>Craig Marks, Sandoz</td><td class="num">Feb 10</td><td>None yet</td><td class="num">262+</td><td><div class="gbar"><i style="--w:93%"></i></div></td></tr>
+              <tr class="none"><td class="num">S5E05</td><td>Jack Riehemann, Robinhood</td><td class="num">Feb 17</td><td>None yet</td><td class="num">255+</td><td><div class="gbar"><i style="--w:90%"></i></div></td></tr>
+              <tr><td class="num">S6E01</td><td>Brett Feldman, AT&amp;T</td><td class="num">Mar 10</td><td class="num">Sep 16</td><td class="num">190</td><td><div class="gbar"><i style="--w:67%"></i></div></td></tr>
+              <tr><td class="num">S6E02</td><td>Soham Bhonsle, Compass</td><td class="num">not shown</td><td class="num">Sep 23</td><td class="num">?</td><td></td></tr>
+              <tr><td class="num">S6E03</td><td>Samir Jain, Orange Group</td><td class="num">Jun 4</td><td class="num">Oct 1</td><td class="num">119</td><td><div class="gbar"><i style="--w:42%"></i></div></td></tr>
+              <tr><td class="num">S6E04</td><td>Sarah Willett, CCEP</td><td class="num">Jul 2</td><td class="num">Oct 6</td><td class="num">96</td><td><div class="gbar"><i style="--w:34%"></i></div></td></tr>
+              <tr><td class="num">S6E05</td><td>Francesca DeMartino, Pfizer</td><td class="num">Jul 9</td><td class="num">Oct 14</td><td class="num">97</td><td><div class="gbar"><i style="--w:34%"></i></div></td></tr>
+              <tr class="none"><td class="num">S6E06</td><td>Megan Light, NextDecade</td><td class="num">Sep 3</td><td>None yet (written below)</td><td class="num">57+</td><td><div class="gbar"><i style="--w:20%"></i></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top:18px">The gap is closing. It went from 190 days to about 97, and the weekly series is clearly the reason. But <b>6 of the 11 episodes from 2026 still have no article</b>, including all of Season 5, and each episode that does get written up becomes one article. A 7,000-word conversation can carry a lot more than that.</p>
+
+        <h3>Smaller things around it</h3>
+        <div class="gaps">
+          <div class="gap"><div><h4>One article per episode, then the episode is done.</h4><p>I couldn't find the episodes turning into a newsletter, LinkedIn posts, short clips, or pages that answer a single IR question. Megan Light's episode alone has at least six pieces in it (see Item 5).</p></div></div>
+          <div class="gap"><div><h4>Bylines say "Irwin".</h4><p>Every post I checked is credited to the company. The people doing the thinking, Mark as host and the writers, aren't named. Named authors are a trust signal for readers and for AI answer engines, and you already have the voices.</p></div></div>
+          <div class="gap"><div><h4>The Events page shows "Showing 0 events".</h4><p>With two event marketers and a busy fall, a visitor to getirwin.com/events sees an empty "Upcoming Events" list. Even a simple "Where to find us" list, and a recap after each conference, would turn the events work into something the site can show.</p></div></div>
+          <div class="gap"><div><h4>The content team works London and Lahore hours. The guests and the conferences are mostly in North America.</h4><p>That's a strength for coverage. It also means nobody on the content side is in the room at a Toronto or New York conference to capture a quote the same afternoon. That's an easy gap for someone in Ontario to fill.</p></div></div>
+        </div>
+
+        <details class="note">
+          <summary>A short note for Chloe (technical, two minutes to check)</summary>
+          <div class="nb">
+            <p>Chloe, the site's SEO basics are better than most I've seen, so these stood out. I'm sharing them privately in spirit, not as a gotcha.</p>
+            <ul>
+              <li><b>The canonical tag has a typo on 242 of 309 pages.</b> It's written <code>&lt;link rel="canonical" ref="https://getirwin.com/..."&gt;</code>, with <code>ref</code> instead of <code>href</code>, so search engines ignore it.</li>
+              <li><b>production.getirwin.com serves a full copy of the site</b>, with no noindex and its own robots.txt. The main robots.txt also points to <code>production.getirwin.com/sitemap.xml</code>. A copy of this page came up for me in a regular web search.</li>
+              <li><b>Both getirwin.com and www.getirwin.com return the full site.</b> The canonical says no-www, and the sitemap lists www.</li>
+              <li>The sitemap was last updated on October 8, so the Pfizer article from October 14 isn't in it yet.</li>
+            </ul>
+            <p>To check the first one: <code>curl -s https://www.getirwin.com/about | grep canonical</code></p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ITEM 4 -->
+    <section class="item" id="role">
+      <div class="side"><h2><span class="no">Item 4.</span> The role I'd ask for</h2><p>There's no open posting. This is the one I'd write.</p></div>
+      <div class="body">
+        <div class="role">
+          <div class="title"><b>Content &amp; SEO Specialist, North America</b><span>Reporting to you, working alongside Emily and Sana, based in Ontario</span></div>
+          <div>
+            <h4>I'd own</h4>
+            <ul>
+              <li>Every Winning IR episode becomes a full package within 7 days of airing: the article, LinkedIn posts for Irwin and for Mark, a newsletter section, 3 clips, and 1 or 2 answer pages.</li>
+              <li>Clearing the shelf: Season 5 as one global IR guide, and S6E06 this week.</li>
+              <li>A library of IR answer pages (self-planned NDRs, perception studies, 13F filings, corporate access) for search and AI answers, with Chloe.</li>
+              <li>Same-day content from North American conferences, with Clarissa and Kim.</li>
+              <li>A short monthly report: what shipped, what it did.</li>
+            </ul>
+          </div>
+          <div>
+            <h4>I wouldn't touch</h4>
+            <ul>
+              <li>Brand direction, which is Morgan's.</li>
+              <li>The site build and technical SEO, which is Chloe's. I'd feed her pages, not change her setup.</li>
+              <li>Long-form books and customer stories, which are Sana's, unless she wants help.</li>
+              <li>Campaign strategy, which is Julia's. I'd give her more to send.</li>
+              <li>Anything in a guest's name without the guest and Mark seeing it first.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ITEM 5 -->
+    <section class="item" id="work">
+      <div class="side"><h2><span class="no">Item 5.</span> The work, already done</h2><p>Built from the S6E06 transcript on your site. Every quote is checked against it.</p></div>
+      <div class="body">
+        <div class="tabs" role="tablist" aria-label="The work">
+          <button role="tab" type="button" aria-selected="true" aria-controls="p-art" id="t-art">The article</button>
+          <button role="tab" type="button" aria-selected="false" aria-controls="p-kit" id="t-kit">The package</button>
+          <button role="tab" type="button" aria-selected="false" aria-controls="p-s5" id="t-s5">Season 5 guide</button>
+        </div>
+
+        <!-- the article -->
+        <div class="panel" role="tabpanel" id="p-art" aria-labelledby="t-art">
+          <article class="art">
+            <div class="crumb">Blog / Investor Communications and Outreach / AI</div>
+            <h1>Your First Reader Is a Model Now: How Megan Light Writes Disclosures With AI in Mind</h1>
+            <div class="meta"><span>Draft for the Irwin blog</span><span>Based on Winning IR S6E06</span><span id="readTime">7 min read</span></div>
+
+            <p>A portfolio manager covering a few dozen companies can't read every release that lands in their inbox. Megan Light thinks a model is increasingly doing that first pass for them, and she has stopped treating it as a future problem. "I assume at this point, most of the time any material I make is going to be filtered through AI before it gets to an analyst," she says.</p>
+            <p>Light is Vice President of Investor Relations at NextDecade, a natural gas liquefaction company, a role she's held since August 2023. Before that she led IR, media relations and community relations at Archaea Energy from going public through the company's sale, and was Director of Investor Relations at Cheniere Energy. In total she's spent 20 years in energy, across upstream, midstream, LNG, oilfield services and renewable natural gas. That's a long time in an industry she once had no plans to join: "I always swore I would never move to Houston, I would never work in energy. And that is exactly where I landed."</p>
+            <p>In her conversation with Mark Fasken, she covers how energy IR has changed, why the generalist investor is a multi-year project, how her team plans its own non-deal roadshows, and what it means in practice to write for AI.</p>
+            <a class="listen" href="https://www.getirwin.com/winning-ir/s6e06-megan-light-from-nextdecade-on-energy-ir-shrinking-investor-pools-self-planned-ndrs-and-writing-for-ai" target="_blank" rel="noopener">Listen to Megan Light's Winning IR episode</a>
+
+            <h2>The game of telephone between your release and the investor</h2>
+            <p>Light's starting point is volume. Over her career, the amount of information investors have to process has only gone up. She saw "a huge step change during COVID when everything switched to virtual," and that increase "never went away." AI now sits on top of it.</p>
+            <p>So she treats every deliverable as something that has to survive a relay before a person reads it:</p>
+            <blockquote>"I just assume that I have to get through this game of telephone from my deliverable through the AI to the investment community. And is what's going through that game of telephone what I want to be going through it?"</blockquote>
+            <p>That question, whether the summary matches what you meant, is the whole idea. A release can be accurate and still come out the other side of a model with the wrong emphasis, a missing number, or the risk factor sitting where the headline should be.</p>
+
+            <h2>How she tests it today, after the fact</h2>
+            <p>Mark asked whether the process is to write a release, run it through a model, see what comes back and adjust it before it goes out. Light's answer: that's where she wants to get to, but it isn't where she is.</p>
+            <blockquote>"That is the ultimate goal. So right now we are only back testing because of security reasons and MNPI."</blockquote>
+            <p>Material non-public information can't go into a tool that isn't secured for it, and NextDecade doesn't yet have an internal model she can use before publication. So her team works backwards. Once a disclosure is public, they ask the models the kind of question an analyst would, for example "Analyze this company. What are the big points in its latest disclosure?", and compare the answer with what they meant to say. Where they have close relationships with investors, they also ask them directly. Then they adjust the next quarter's materials.</p>
+            <p>The changes that come out of it aren't exotic. Light says the main lesson, "to like beat a dead horse," is "just being clear and concise and easy to understand."</p>
+
+            <h2>A simple version of the back-test</h2>
+            <p>If you want to try what Light describes without new tools, a minimal version fits into the week after earnings. This is our outline, not hers:</p>
+            <ol>
+              <li>Before the release goes out, write down the three or four points you most want an investor to take away. Keep the list with the release.</li>
+              <li>Once it's public, ask two or three widely used AI assistants the same open question, something like "What are the most important points in this company's latest results?"</li>
+              <li>Compare each answer with your list. Note what was dropped, what was added, and what got more weight than you intended.</li>
+              <li>Keep the notes quarter over quarter. One odd summary is noise. The same miss three quarters in a row is a writing problem you can fix.</li>
+            </ol>
+            <p>Only test public documents. That's the line Light draws too.</p>
+
+            <h2>Simple is the strategy, even when the business isn't</h2>
+            <p>Clear writing matters more because attention is scarce. "We're in an inattention economy right now, and it is increasingly difficult to get people's focus," Light says. Her answer is to have news when you want attention, make that news easy to understand, and repeat yourself on purpose: clear objectives, regular updates against them, and the same routine slides and touch points on earnings calls and at conferences.</p>
+            <p>Energy makes that harder. NextDecade's LNG business has a construction period of four to five years, its own commercial structure and its own regulatory structure, and every other energy company is different again. Light's approach is to be explicit about two things: what NextDecade has in common with its direct peers, and what actually sets it apart. Or, as she puts it, "What is that true investment thesis that makes the company worth spending that time on putting the money to work with?"</p>
+
+            <h2>The elusive generalist is a three-year project</h2>
+            <p>Energy has become a smaller part of the S&amp;P 500, and there are far fewer energy-dedicated funds than there used to be. That pushes IR teams toward generalist investors, an idea that comes up in sell-side notes every few years. "In energy, sometimes we call this the elusive generalist investor," Light says, because it's much easier to talk about than to do.</p>
+            <p>In her experience, a generalist is "a minimum two to three-year investment, if not longer, before getting them into the stock." Her team sets meetings knowing a new name may not show up in the shareholder register for three or four years, and treats that as the cost of changing the shareholder base over time. Feedback from those meetings goes back to management: is the story simple enough, are we reaching the right people, are we on the road enough?</p>
+            <p>She's also looking at a different way to find targets: screening for companies with similar financial characteristics, even if the businesses have nothing in common, and then approaching their investors. NextDecade has 20-year take-or-pay contracts, which are rare in energy but common in infrastructure. "So we do frequently call ourselves energy infrastructure, but we should be out there talking to investors that do other types of infrastructure as well."</p>
+
+            <h2>Why she plans her own NDRs</h2>
+            <p>NextDecade still does conferences and sell-side roadshows. On top of that, Light's team now plans non-deal roadshows in-house, and the reason is control over who is in the room. When a bank or a covering analyst organises the trip, the meetings can lean toward that firm's priority clients. "[W]hen you're planning it internally, you have a hundred percent control over who you contact, who you reach out to."</p>
+            <p>The team behind it is Light and one analyst, who had run self-planned roadshows at a previous firm. They split one main target list by geography: Toronto and Chicago so far, London next, and possibly Boston later in the year. Their third self-planned NDR was scheduled for October.</p>
+            <p>She's careful not to oversell it. "It is a big resource requirement. It's not something that's gonna be right for everybody." It works for NextDecade partly because the company has eight research analysts covering it, which leaves calendar space. With 25 covering analysts, she points out, you'd already be choosing which conferences to skip.</p>
+
+            <h2>Execution fixes valuation</h2>
+            <p>Asked what separates an IR team with a seat at the table from a reactive one, Light starts with the business: "I believe that execution fixes valuation in almost every case." IR's part is to see across the company and across the market, and to bring back useful outside views, such as how a similar move by another company was received.</p>
+            <p>That also means filtering. "Not every piece of feedback that I get is worth telling my team," she says, and knowing which is which comes from time and exposure. She's candid about the part that never goes away: "I don't know what I don't know, and that's the thing that keeps me up at night more than anything else." Her defence is to keep asking good questions, and to think about messaging several moves ahead: "Is there something we're saying today that could be a pitfall nine months from now, right?"</p>
+
+            <h2>Why this episode is worth your time</h2>
+            <p>Most of the AI conversation in IR is about what AI can do for the IR team: drafting, summarising, prepping for earnings. Light's point is about what AI is already doing to your message before an investor sees it. She hasn't solved it, and she says so. Her team can only test after publication for now, and the fixes so far are plain ones about clarity and repetition. But they're checking, quarter by quarter, which is more than most teams can say about the first reader of their own disclosures.</p>
+            <p class="wc" id="wc"></p>
+          </article>
+        </div>
+
+        <!-- the package -->
+        <div class="panel" role="tabpanel" id="p-kit" aria-labelledby="t-kit" hidden>
+          <p class="soft" style="max-width:760px">The same episode, cut for the places your audience already is. One recording, eight pieces, the same week.</p>
+          <h3>LinkedIn</h3>
+          <div class="kit">
+            <div>
+              <p class="tag"><b>Irwin company page</b> · links to the article</p>
+              <div class="li">
+                <div class="h"><span class="av">IR</span><span><b>Irwin, a FactSet company</b><span>Software Development</span></span></div>
+                <p>Megan Light assumes a model reads NextDecade's disclosures before any analyst does.</p>
+                <p>So after each release, her team asks AI tools what they took away from it, compares that with what they meant to say, and adjusts the next one. They can't test before publishing yet, because of MNPI and data security, so for now it's a back-test.</p>
+                <p>Also in this week's Winning IR write-up: why a generalist investor is a two to three year project, and why her team now plans its own NDRs (Toronto, Chicago, London next).</p>
+                <p>Read it here: [article link]</p>
+              </div>
+            </div>
+            <div>
+              <p class="tag"><b>For Mark</b>, in his voice, for him to edit</p>
+              <div class="li">
+                <div class="h"><span class="av">MF</span><span><b>Mark Fasken</b><span>Co-founder &amp; COO, Irwin</span></span></div>
+                <p>Before we recorded, Megan Light told me she writes for AI, not for people. I asked her what that actually looks like on a Tuesday.</p>
+                <p>Her answer was more practical than I expected. Once something is public, she asks the models the questions an analyst would ask, checks whether the answer matches what NextDecade meant to say, and fixes the next quarter's materials. No magic, just checking.</p>
+                <p>The line I keep coming back to: "execution fixes valuation in almost every case."</p>
+                <p>Full episode in the comments.</p>
+              </div>
+            </div>
+          </div>
+
+          <h3>Newsletter section</h3>
+          <div class="card-ans" style="max-width:740px">
+            <h4>From the studio: writing for the first reader</h4>
+            <p>Megan Light (NextDecade) thinks most disclosures now go through a model before they reach an analyst. Her team checks what the models take away after each release and adjusts the next one. On this episode of Winning IR she also explains why NextDecade plans its own NDRs, and why she gives a generalist investor two to three years. <a href="#p-art">Read the write-up</a> or listen to the episode.</p>
+          </div>
+
+          <h3>Three clips</h3>
+          <table class="clips">
+            <tr><td>01</td><td><q>I always swore I would never move to Houston, I would never work in energy. And that is exactly where I landed.</q><br><span class="small">The cold open. Human, a little funny, under 15 seconds.</span></td></tr>
+            <tr><td>02</td><td><q>I just assume that I have to get through this game of telephone from my deliverable through the AI to the investment community.</q><br><span class="small">The idea of the episode. Pair it with on-screen text: "Your first reader is a model."</span></td></tr>
+            <tr><td>03</td><td><q>I don't know what I don't know, and that's the thing that keeps me up at night more than anything else.</q><br><span class="small">The one IROs will share. Good for Mark's account.</span></td></tr>
+          </table>
+
+          <h3>An answer page, for search and AI answers</h3>
+          <div class="card-ans" style="max-width:740px">
+            <h4>What is a self-planned NDR?</h4>
+            <p>A self-planned non-deal roadshow is a series of investor meetings that a company's own IR team organises, instead of a bank or a covering sell-side analyst. "Non-deal" means the company isn't raising money; the goal is relationships and understanding.</p>
+            <p>The main benefit is control over who you meet. Bank-organised roadshows can lean toward the bank's priority clients, while a self-planned trip can go straight to your own target list. The cost is time: the IR team handles targeting, outreach, scheduling and logistics itself. NextDecade's VP of IR, Megan Light, runs hers with one analyst and splits one target list by city. She notes it works best for companies with lighter sell-side coverage and more open calendar time.</p>
+            <p class="src">Source: Winning IR S6E06. Would link to the episode, the article, and Irwin's investor targeting page, with FAQPage schema.</p>
+          </div>
+        </div>
+
+        <!-- season 5 -->
+        <div class="panel" role="tabpanel" id="p-s5" aria-labelledby="t-s5" hidden>
+          <p class="soft" style="max-width:760px">Season 5 is five episodes on one theme: taking your story to investors outside your home market. Five separate articles would be fine. One guide that pulls them together is better, because it's the kind of page people bookmark and AI answers cite. Here's the outline, built from each episode page.</p>
+          <h3>Taking Your Equity Story Global: What Five IR Leaders Told Winning IR</h3>
+          <div class="s5">
+            <div><span class="e">S5E01</span><span><b>Start with the story. Karen Bodner, BNY.</b>The must-have parts of an equity narrative for global investors, and why "getting back to basics" was her top trend for IR teams going into 2026.</span></div>
+            <div><span class="e">S5E03</span><span><b>Pick your cities. Damian Perry, Phoenix IR.</b>What North American companies need to market themselves in Europe, which European cities give the best return on meetings, and how MiFID II changed corporate access.</span></div>
+            <div><span class="e">S5E04</span><span><b>Run the road. Craig Marks, Sandoz.</b>The logistics behind a good global roadshow, from city-by-city planning to private lunches, and how to keep brokers focused on the investors you actually want.</span></div>
+            <div><span class="e">S5E05</span><span><b>Scale it. Jack Riehemann, Robinhood.</b>How product and brand recognition drive international investor demand, and how to prepare for different regional expectations at scale.</span></div>
+            <div><span class="e">S5E02</span><span><b>See it from the other side. Salwa Gradl, du.</b>IR in the Middle East: a fast-growing IPO market, building IR processes with limited resources, and educating internal stakeholders on what IR is for.</span></div>
+          </div>
+          <p class="small" style="margin-top:14px">Plus: a one-page checklist for a first international roadshow, and five 60-second clips, one per guest. I'd write the full guide from the transcripts in my first two weeks.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ITEM 6 -->
+    <section class="item" id="plan">
+      <div class="side"><h2><span class="no">Item 6.</span> The first 90 days</h2><p>Discovery first, as you'd expect.</p></div>
+      <div class="body">
+        <div class="wrap-x">
+          <table class="plan">
+            <thead><tr><th>When</th><th>What</th><th>What you'd see</th></tr></thead>
+            <tbody>
+              <tr><td>Weeks 1–2</td><td><ul><li>A listening tour: everyone in Item 1, plus 3 or 4 customers if you're open to it</li><li>Listen to every 2026 episode in full</li><li>Publish the Megan Light article and package</li></ul></td><td>A one-page read-back of what I heard, including where my outside view was wrong</td></tr>
+              <tr><td>Weeks 3–6</td><td><ul><li>The Season 5 guide</li><li>The 7-day package becomes the standard for every new episode</li><li>The first 5 IR answer pages, with Chloe</li></ul></td><td>The shelf at zero. Every new episode ships within a week</td></tr>
+              <tr><td>Weeks 7–13</td><td><ul><li>Same-day content from the next conference, with Clarissa and Kim</li><li>Named bylines, if you want them</li><li>A monthly report on what each package did</li></ul></td><td>A repeatable rhythm, and numbers to decide what to keep</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>How we'd know it's working</h3>
+        <div class="wrap-x">
+          <table class="meas">
+            <thead><tr><th>Measure</th><th>Now</th><th>Day 90</th><th>Where it comes from</th></tr></thead>
+            <tbody>
+              <tr><td>2026 episodes with no write-up</td><td class="num">6 of 11</td><td class="num">0</td><td>The blog</td></tr>
+              <tr><td>Days from airing to article</td><td class="num">96 to 97 (latest two)</td><td class="num">7 or fewer</td><td>Publish dates</td></tr>
+              <tr><td>Pieces per episode</td><td class="num">1</td><td class="num">6 to 8</td><td>Content calendar</td></tr>
+              <tr><td>Search impressions on episode topics</td><td>Your baseline</td><td>A trend, not a promise</td><td>Search Console</td></tr>
+              <tr><td>Listens and demo requests from content</td><td>Your baseline</td><td>Tracked with UTMs</td><td>Spotify, Apple, HubSpot</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="small" style="margin-top:12px">The first three are things I control. The last two depend on a lot more than me, so I'd report them honestly rather than promise a number.</p>
+      </div>
+    </section>
+
+    <!-- ITEM 7 -->
+    <section class="item" id="risks">
+      <div class="side"><h2><span class="no">Item 7.</span> Risk factors</h2><p>Every good filing has them.</p></div>
+      <div class="body">
+        <div class="risk">
+          <div><b>I don't come from investor relations.</b><p>I'd be learning the vocabulary and the calendar on the job. What helps: 55 transcripts are the best IR course I could ask for, and I'd have listened to every 2026 episode before my first week ends.</p></div>
+          <div><b>I'm early in my career.</b><p>About two years in content, outreach and freelance writing. The work on this page is the honest measure of what I can do now. The rest I'd learn from a team that clearly knows what it's doing.</p></div>
+          <div><b>My read of your team is from the outside.</b><p>Item 1 is my best guess from LinkedIn and the site, and some of it will be wrong. That's why weeks 1 and 2 are listening, not shipping.</p></div>
+        </div>
+        <h3>What others have said about my work</h3>
+        <div class="proof">
+          <figure><blockquote>"The ideas were spot on and you truly grasped the business and its needs!"</blockquote><figcaption>Colleen Pierre, VP of Marketing, Envera Systems, on <a href="../envera-systems/" target="_blank" rel="noopener">the site I made for her team</a></figcaption></figure>
+          <figure><blockquote>"Very clever. Appreciate the effort and creativity. Everyone in the office was impressed."</blockquote><figcaption>Tyler Munro, VP Marketing, Limina, on <a href="../limina/case-file/" target="_blank" rel="noopener">a case file I mailed them</a></figcaption></figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="end">
+    <div class="in">
+      <div>
+        <h2>Twenty minutes, Marissa?</h2>
+        <p>I'd like to walk you through this and hear where my read is wrong. Ottawa, Toronto or a call, whichever is easiest. If the timing's not right, I'd still be glad if the Megan Light article is useful to Emily and Sana.</p>
+      </div>
+      <div class="acts">
+        <a href="mailto:durvathakker7@gmail.com?subject=Irwin%20discovery">durvathakker7@gmail.com <small>Email</small></a>
+        <a href="https://www.linkedin.com/in/durvathakkar/" target="_blank" rel="noopener">Durva Thakkar on LinkedIn <small>Message</small></a>
+        <a href="../">durvathakkar.com <small>Portfolio</small></a>
+      </div>
+      <div class="foot"><span>Public information only, checked October 30, 2026. Not affiliated with Irwin or FactSet.</span><span>Made for Marissa by Durva</span></div>
+    </div>
+  </footer>
+
+  <script>
+    const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+
+    /* clocks */
+    const zones = { tOtt: 'America/Toronto', tTor: 'America/Toronto', tLon: 'Europe/London', tLhe: 'Asia/Karachi' };
+    const tick = () => Object.entries(zones).forEach(([id, tz]) => { $('#' + id).textContent = new Date().toLocaleTimeString('en-CA', { hour: 'numeric', minute: '2-digit', timeZone: tz }); });
+    tick(); setInterval(tick, 20000);
+
+    /* the scene */
+    const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const cap = $('#cap'), durva = $('#durva'), door = $('#door'), count = $('#shelfCount'), lag = $('#lagTxt');
+    const tapes = $$('.tape'), flows = $$('.flow'), outs = $$('.out');
+    const desk = [[640, 470]]; // where Durva stops, at the shelf
+    let timers = [];
+    const at = (ms, fn) => timers.push(setTimeout(fn, ms));
+    function reset() {
+      timers.forEach(clearTimeout); timers = [];
+      durva.style.transform = 'translate(640px, 660px)';
+      door.classList.remove('open');
+      tapes.forEach(t => { t.classList.remove('gone'); t.style.transform = ''; });
+      flows.forEach(f => f.classList.remove('on')); outs.forEach(o => o.classList.remove('on'));
+      count.textContent = '6'; lag.textContent = 'Aired → written up: about 97 days';
+      cap.innerHTML = "Everyone's busy. Brand, web, two content desks in two time zones, demand gen, events. In the studio, Mark keeps recording Winning IR, and the episodes land on the shelf.";
+    }
+    function finalState() {
+      durva.style.transform = 'translate(640px, 560px)';
+      door.classList.add('open');
+      tapes.forEach(t => t.classList.add('gone'));
+      flows.forEach(f => f.classList.add('on')); outs.forEach(o => o.classList.add('on'));
+      count.textContent = '0'; lag.textContent = 'Aired → written up: 7 days';
+      cap.innerHTML = "<b>Nobody changes desks.</b> Every episode just keeps going after it airs: into articles, a guide, the newsletter, answer pages, clips, and the booth.";
+    }
+    function play() {
+      reset();
+      if (still) { finalState(); return; }
+      at(5200, () => { cap.innerHTML = "Six episodes from this year are still waiting for a write-up. The newest aired on September 3."; });
+      at(9000, () => { door.classList.add('open'); cap.innerHTML = "<b>Then someone new walks in,</b> based in Ontario, on North American hours."; });
+      at(9600, () => { durva.style.transform = 'translate(640px, 560px)'; });
+      tapes.forEach((t, i) => at(12200 + i * 650, () => {
+        t.style.transform = `translate(${170 - 50 * i}px, 60px) scale(.4)`; t.classList.add('gone');
+        count.textContent = String(5 - i);
+        if (flows[i]) flows[i].classList.add('on');
+        if (outs[i]) outs[i].classList.add('on');
+      }));
+      at(12200, () => { cap.innerHTML = "Each episode gets picked up within a week and turned into the pieces the rest of the team already needs."; });
+      at(16600, () => { lag.textContent = 'Aired → written up: 7 days'; finalState(); });
+    }
+    $('#replay').addEventListener('click', play);
+    // on phones, start the swipeable floor centred on the shelf
+    const stage = $('.stage'); if (stage.scrollWidth > stage.clientWidth) stage.scrollLeft = (stage.scrollWidth - stage.clientWidth) / 2;
+    // start when the scene is on screen
+    const io0 = new IntersectionObserver(es => { if (es[0].isIntersecting) { play(); io0.disconnect(); } }, { threshold: .35 });
+    io0.observe($('.scene'));
+
+    /* tabs */
+    const tabs = $$('[role="tab"]');
+    tabs.forEach(t => t.addEventListener('click', () => {
+      tabs.forEach(x => x.setAttribute('aria-selected', x === t));
+      $$('[role="tabpanel"]').forEach(p => p.hidden = p.id !== t.getAttribute('aria-controls'));
+    }));
+
+    /* word count of the article */
+    const words = $('.art').innerText.split(/\s+/).filter(Boolean).length;
+    $('#wc').textContent = `${words.toLocaleString()} words, written from the episode transcript. Quotes checked word for word.`;
+    $('#readTime').textContent = Math.round(words / 230) + ' min read';
+  </script>
+</body>
+</html>
