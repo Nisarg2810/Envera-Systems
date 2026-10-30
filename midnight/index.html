@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MC Skill Assessment · Durva Thakkar</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Marketing Coordinator skill assessment for Midnight Marketing: call recap, execution plan, creative brief, open questions and a draft of the Crestline case study.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#293C3E; --deep:#1B5765; --teal:#428393; --gold:#D4BD84; --orange:#FAA73F; --red:#EE3124; --cream:#FFF8EE;
+  --ink:#1c2526; --soft:#5b6a6c; --line:#e2ddd3; --bg:#fbf8f2;
+  --mono:'IBM Plex Mono',ui-monospace,monospace; --sans:'Figtree',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 16.5px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--deep)}
+.wrap{max-width:940px;margin:0 auto;padding:0 24px}
+.disp{font-family:'Archivo',sans-serif;font-stretch:122%;font-weight:800;text-transform:uppercase;letter-spacing:.005em}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+
+/* cover */
+.cover{background:var(--night);color:#fff;padding:64px 0 56px;position:relative;overflow:hidden}
+.cover:after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff3d6 0,#d4bd84 30%,transparent 31%);opacity:.9}
+.cover .mono{color:var(--gold)}
+.cover h1{font-size:clamp(34px,6vw,64px);line-height:.98;margin-top:18px;max-width:720px;position:relative;z-index:1}
+.cover h1 span{color:var(--orange)}
+.cover p{margin-top:18px;max-width:600px;color:#d5dfe0;font-size:17px;position:relative;z-index:1}
+.meta{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:30px;font-family:var(--mono);font-size:12.5px;color:#b9c8ca;position:relative;z-index:1}
+.meta b{color:#fff;font-weight:500}
+
+/* toc */
+.toc{position:sticky;top:0;z-index:20;background:rgba(251,248,242,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.toc .wrap{display:flex;gap:6px;overflow-x:auto;padding-top:10px;padding-bottom:10px;scrollbar-width:none}
+.toc a{flex:none;text-decoration:none;color:var(--ink);font-family:var(--mono);font-size:12px;padding:6px 11px;border:1px solid var(--line);border-radius:999px;background:#fff}
+.toc a:hover{border-color:var(--deep);color:var(--deep)}
+
+section{padding:64px 0 8px}
+.sec-h{display:flex;align-items:baseline;gap:14px;border-bottom:3px solid var(--night);padding-bottom:10px}
+.sec-h .n{font-family:var(--mono);font-size:13px;color:var(--teal)}
+.sec-h h2{font-size:clamp(24px,3.6vw,34px);line-height:1.05}
+.intro{margin-top:14px;color:var(--soft);max-width:680px}
+h3{font-family:'Archivo',sans-serif;font-stretch:112%;font-weight:750;font-size:18px;margin:30px 0 8px;color:var(--night)}
+
+/* call map */
+.tl{margin-top:26px;position:relative;padding-top:8px}
+.tl .track{height:6px;background:#e7e1d4;border-radius:3px;position:relative}
+.tl .track i{position:absolute;top:-5px;width:16px;height:16px;border-radius:50%;background:var(--deep);border:3px solid var(--bg);transform:translateX(-50%)}
+.tl .track i.hot{background:var(--red)}
+.tl .ends{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--soft);margin-top:6px}
+.moments{margin-top:18px;display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
+.mo{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.mo .t{font-family:var(--mono);font-size:12px;color:var(--deep);font-weight:600}
+.mo.hot{border-color:#f3b7b2;background:#fff8f7}
+.mo.hot .t{color:var(--red)}
+.mo b{display:block;margin-top:4px;font-size:15.5px}
+.mo p{margin-top:4px;font-size:14.5px;color:var(--soft);line-height:1.5}
+
+/* email */
+.mail{margin-top:24px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 1px 0 rgba(0,0,0,.03)}
+.mail .hd{padding:16px 22px;border-bottom:1px solid var(--line);font-size:14.5px;display:grid;grid-template-columns:70px 1fr;gap:4px 10px;background:#fdfcf9}
+.mail .hd span{color:var(--soft);font-family:var(--mono);font-size:12px;padding-top:2px}
+.mail .bd{padding:22px 24px 26px;font-size:15.5px}
+.mail .bd p+p,.mail .bd p+ul,.mail .bd ul+p,.mail .bd p+ol,.mail .bd ol+p,.mail .bd ul+h4,.mail .bd p+h4,.mail .bd ol+h4,.mail .bd table+h4{margin-top:12px}
+.mail h4{font-size:13px;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--deep);margin-top:18px}
+.mail ul,.mail ol{padding-left:20px;margin-top:6px}
+.mail li{margin-top:4px}
+.mail table{border-collapse:collapse;margin-top:8px;font-size:14.5px}
+.mail td{padding:5px 14px 5px 0;border-bottom:1px solid #f0ebe1;vertical-align:top}
+.mail td:first-child{font-weight:600;white-space:nowrap}
+.copy{float:right;font-family:var(--mono);font-size:11.5px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 11px;cursor:pointer;color:var(--deep)}
+
+/* plan */
+.callout{margin-top:20px;background:var(--cream);border:1px solid #f2dcb5;border-left:5px solid var(--orange);border-radius:8px;padding:16px 18px;font-size:15.5px}
+.callout b{color:#8a4b00}
+.gantt{margin-top:22px;overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:#fff}
+.gantt table{border-collapse:collapse;min-width:860px;width:100%;font-size:13px}
+.gantt th,.gantt td{border-bottom:1px solid #f0ebe1;border-right:1px solid #f4f0e8;padding:8px 6px;text-align:center}
+.gantt th{font-family:var(--mono);font-weight:500;font-size:11px;color:var(--soft);background:#fdfcf9}
+.gantt th.we{background:#f3efe6}
+.gantt td.we{background:#f8f5ee}
+.gantt td:first-child,.gantt th:first-child{text-align:left;padding-left:14px;white-space:nowrap;font-weight:600;color:var(--night);position:sticky;left:0;background:#fff;z-index:1}
+.gantt th:first-child{background:#fdfcf9}
+.g{display:block;height:14px;border-radius:3px;background:var(--teal)}
+.g.c{background:var(--deep)}.g.p{background:var(--gold)}.g.s{background:var(--orange)}.g.o{background:#a9bfc4}
+.g.x{background:var(--red);width:14px;height:14px;transform:rotate(45deg);margin:0 auto;border-radius:2px}
+.g.dot{width:12px;height:12px;border-radius:50%;margin:0 auto;background:var(--night)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:10px;font-size:13px;color:var(--soft)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+
+.days{margin-top:22px;display:grid;gap:10px}
+.day{display:grid;grid-template-columns:150px 1fr;gap:16px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 18px}
+.day .d{font-family:var(--mono);font-size:12.5px;color:var(--deep);font-weight:600;line-height:1.4}
+.day .d small{display:block;color:var(--soft);font-weight:400;margin-top:2px}
+.day.key{border-color:var(--red);box-shadow:inset 4px 0 0 var(--red)}
+.day.key .d{color:var(--red)}
+.day ul{padding-left:18px;font-size:15px}
+.day li+li{margin-top:3px}
+.who{font-family:var(--mono);font-size:11px;padding:1px 7px;border-radius:999px;margin-left:6px;white-space:nowrap;vertical-align:1px}
+.who.m{background:#e3eef0;color:var(--deep)}.who.c{background:#fcecd2;color:#8a4b00}.who.v{background:#ece7f7;color:#5a3c9a}
+
+table.grid{width:100%;border-collapse:collapse;margin-top:16px;font-size:14.5px;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+table.grid th{font-family:var(--mono);font-weight:500;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--soft);text-align:left;padding:10px 14px;background:#fdfcf9;border-bottom:1px solid var(--line)}
+table.grid td{padding:11px 14px;border-bottom:1px solid #f0ebe1;vertical-align:top}
+table.grid tr:last-child td{border-bottom:0}
+table.grid td:first-child{font-weight:600;color:var(--night);width:30%}
+
+/* brief */
+.brief{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.bf{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.bf.w{grid-column:1/-1}
+.bf h4{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);font-weight:600}
+.bf p,.bf ul{margin-top:6px;font-size:15px}
+.bf ul{padding-left:18px}.bf li+li{margin-top:3px}
+.smm{margin-top:6px;font-family:'Archivo',sans-serif;font-stretch:118%;font-weight:850;font-size:clamp(22px,3.4vw,32px);line-height:1.05;text-transform:uppercase;color:var(--night)}
+.smm span{color:var(--orange)}
+.hl{display:grid;gap:8px;margin-top:8px}
+.hl div{display:grid;grid-template-columns:28px 1fr;font-size:15px}
+.hl div b{font-family:var(--mono);color:var(--teal);font-weight:500}
+.statrow{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:10px}
+.statrow div{border-top:3px solid var(--night);padding-top:8px}
+.statrow b{display:block;font-family:'Archivo',sans-serif;font-stretch:115%;font-weight:850;font-size:24px;line-height:1}
+.statrow span{font-size:12.5px;color:var(--soft);line-height:1.35;display:block;margin-top:4px}
+
+/* gaps */
+.gaps{margin-top:22px;display:grid;gap:14px}
+.gg{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.gg .gh{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 18px;border-bottom:1px solid var(--line)}
+.gg .gh b{font-family:'Archivo',sans-serif;font-stretch:112%;font-size:16px}
+.tag{font-family:var(--mono);font-size:11px;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.tag.r{background:#fde4e2;color:#b3170d}.tag.a{background:#fcecd2;color:#8a4b00}.tag.g{background:#e3eef0;color:var(--deep)}
+.q{display:grid;grid-template-columns:30px 1fr;gap:6px;padding:12px 18px;border-bottom:1px solid #f3efe7}
+.q:last-child{border-bottom:0}
+.q .k{font-family:var(--mono);font-size:12px;color:var(--soft);padding-top:2px}
+.q b{font-weight:600}
+.q p{font-size:14.5px;color:var(--soft);margin-top:2px}
+
+/* draft */
+.pages{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pages figure{background:#8a9296;border-radius:10px;padding:14px}
+.pages img{display:block;width:100%;height:auto;background:#f6f4ef}
+.pages figcaption{font-family:var(--mono);font-size:11.5px;color:#eef1f2;margin-top:8px}
+.why{margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.why div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 16px;font-size:14.5px}
+.why b{display:block;font-size:15px;margin-bottom:4px;color:var(--night)}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;font-size:14.5px;padding:10px 16px;border-radius:999px;background:var(--night);color:#fff}
+.btn.o{background:#fff;color:var(--night);border:1.5px solid var(--night)}
+
+/* extras */
+.ex{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ex .bf p{color:var(--ink)}
+pre{white-space:pre-wrap;font-family:var(--mono);font-size:12.5px;line-height:1.55;background:#f7f3ea;border-radius:8px;padding:12px 14px;margin-top:8px;color:#36433f}
+
+footer{margin-top:72px;background:var(--night);color:#cfdadb;padding:36px 0;font-size:14.5px}
+footer b{color:#fff}
+
+@media (max-width:720px){
+  body{font-size:16px}
+  .brief,.pages,.why,.ex{grid-template-columns:1fr}
+  .statrow{grid-template-columns:repeat(2,1fr)}
+  .day{grid-template-columns:1fr;gap:6px}
+  .mail .bd{padding:18px 16px}
+  .mail .hd{padding:14px 16px}
+  .cover:after{width:260px;height:260px;right:-110px;top:-110px}
+  .wrap{padding:0 16px}
+}
+@media print{
+  .toc,.copy,.btns{display:none}
+  body{background:#fff;font-size:12.5px}
+  section{padding-top:28px;break-before:auto}
+  .cover{-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:36px 0}
+  .mail,.gg,.bf,.day,.mo,.why div{break-inside:avoid}
+  .pages{display:none}
+  .gantt table{min-width:0}
+  #plan,#brief,#gaps,#draft{break-before:page}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="wrap">
+    <div class="mono">Midnight Marketing · Marketing Coordinator Skill Assessment</div>
+    <h1 class="disp">Crestline case study, <span>ready for Midland.</span></h1>
+    <p>One four-minute voice note from Megan. Below: the recap I'd send her, the plan to get a printed case study into Midland on time, the creative brief, every gap that needs an answer first, and a first draft of the piece itself.</p>
+    <div class="meta">
+      <span>By <b>Durva Thakkar</b></span>
+      <span>Client <b>Megan</b></span>
+      <span>Printer deadline <b>Mon, Nov 9</b></span>
+      <span>Conference <b>Nov 14 to 16, Midland</b></span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc"><div class="wrap">
+  <a href="#heard">0 · What I heard</a>
+  <a href="#recap">1 · Recap email</a>
+  <a href="#plan">2 · Execution plan</a>
+  <a href="#brief">3 · Creative brief</a>
+  <a href="#gaps">4 · Gaps to clarify</a>
+  <a href="#draft">Extra · Draft case study</a>
+  <a href="#more">Extra · Sales kit</a>
+</div></nav>
+
+<main class="wrap">
+
+<!-- 0 -->
+<section id="heard">
+  <div class="sec-h"><span class="n">00</span><h2 class="disp">What I heard</h2></div>
+  <p class="intro">Megan's note was quick and a little scattered, which is normal for a busy client. These are the moments that change the work. The red ones are the easiest to miss and the most expensive to get wrong.</p>
+  <div class="tl">
+    <div class="track">
+      <i style="left:6%"></i><i style="left:20%"></i><i class="hot" style="left:31.5%"></i><i class="hot" style="left:46%"></i><i style="left:55%"></i><i class="hot" style="left:61%"></i><i style="left:75%"></i><i class="hot" style="left:86%"></i>
+    </div>
+    <div class="ends"><span>0:00</span><span>4:00</span></div>
+  </div>
+  <div class="moments">
+    <div class="mo"><span class="t">0:15</span><b>The ask: a Crestline case study</b><p>Best run data they've had. Sales keeps mentioning it but has nothing to hand anyone.</p></div>
+    <div class="mo"><span class="t">0:36 to 1:05</span><b>The numbers</b><p>Curve and lateral in one run, one BHA, no trips. Lateral about 10,500 ft at 92 ft/hr average. About 15% faster than offsets.</p></div>
+    <div class="mo hot"><span class="t">1:15</span><b>6 days is the wrong well</b><p>"Six" is Reeves County. Crestline is 4.5 days ahead of plan. Only 4.5 goes anywhere near this piece.</p></div>
+    <div class="mo hot"><span class="t">1:50</span><b>The series idea is parked</b><p>"Don't do anything with that." It goes in the recap as parked, and we don't act on it.</p></div>
+    <div class="mo"><span class="t">2:00</span><b>Format: printed, with weight</b><p>A handout for the conference, "not a flimsy brochure". Photos might exist; she'd have to ask around.</p></div>
+    <div class="mo hot"><span class="t">2:28</span><b>The real deadline is the 9th</b><p>Conference is the 14th to 16th in Midland, but the printer needs five business days. Files are due the 9th.</p></div>
+    <div class="mo"><span class="t">3:04</span><b>The market: price pressure</b><p>Bigger directional companies are cutting day rates. Sales is getting beaten on price. This shapes the message.</p></div>
+    <div class="mo hot"><span class="t">3:29</span><b>A second ask, tucked at the end</b><p>Refresh the one-pagers for the other three service lines. Small, but it needs its own timeline.</p></div>
+  </div>
+</section>
+
+<!-- 1 -->
+<section id="recap">
+  <div class="sec-h"><span class="n">01</span><h2 class="disp">Recap email</h2></div>
+  <p class="intro">Sent the same day as the voice note. Megan is travelling tomorrow, so it's built to be read on a phone: decisions and asks first, details after. I'd also text her the three urgent asks, since she said that's the best way to reach her.</p>
+
+  <div class="mail">
+    <div class="hd">
+      <span>To</span><div>Megan</div>
+      <span>Subject</span><div><b>Crestline case study: plan + 5 things we need (files to printer Nov 9)</b> <button class="copy" data-copy="mailbody">Copy email</button></div>
+    </div>
+    <div class="bd" id="mailbody">
+      <p>Hi Megan,</p>
+      <p>Thanks for the voice note. Here's what we heard, the plan, and what we need from you. Short version: one printed Crestline case study for Midland, with files at the printer by <b>Monday, Nov 9</b>. We're aiming for Friday, Nov 6 to leave a day of buffer.</p>
+
+      <h4>What you asked for</h4>
+      <ol>
+        <li>A printed Crestline case study to hand out at the Midland conference (Nov 14 to 16). Heavy and well made, not a flimsy brochure.</li>
+        <li>A refresh of the one-pagers for your other three service lines.</li>
+      </ol>
+
+      <h4>The Crestline story, as we understood it</h4>
+      <ul>
+        <li>Curve and lateral drilled in one run, with one BHA and no trips</li>
+        <li>Lateral of about 10,500 ft, averaging 92 ft/hr</li>
+        <li>About 15% faster than the offset wells</li>
+        <li>About 4.5 days ahead of plan (the 6 days is the Reeves County well, so we'll keep that out)</li>
+        <li>Crestline's drilling engineer said on the call that it saved them real money</li>
+      </ul>
+      <p>We'll check every number against the run report before anything goes to print.</p>
+
+      <h4>How we'll frame it</h4>
+      <p>Since the bigger directional companies are cutting day rates, the piece will lead with days saved, not day rate. A lower day rate is a discount. Four and a half fewer days is a real saving. That gives your sales team something to say when price comes up.</p>
+
+      <h4>Key dates</h4>
+      <table>
+        <tr><td>Wed, Nov 4</td><td>First draft (copy and layout) to you</td></tr>
+        <tr><td>Thu, Nov 5</td><td>Your feedback, one round, by noon</td></tr>
+        <tr><td>Fri, Nov 6</td><td>Your final OK, files to the printer</td></tr>
+        <tr><td>Mon, Nov 9</td><td>Printer's hard deadline (our backup day)</td></tr>
+        <tr><td>Tue, Nov 10</td><td>Digital version to your sales team</td></tr>
+        <tr><td>Fri, Nov 13</td><td>Printed copies delivered in Midland</td></tr>
+      </table>
+
+      <h4>What we need from you</h4>
+      <ol>
+        <li><b>By Mon, Nov 2:</b> Crestline's OK to use their name, logo and data. If they need more time or say no, we'll build an "a Permian operator" version so the date doesn't move.</li>
+        <li><b>By Mon, Nov 2:</b> the run report for the well, including the offset wells behind the 15%.</li>
+        <li><b>By Tue, Nov 3:</b> the drilling engineer's name and title, and whether they're OK being quoted.</li>
+        <li><b>By Tue, Nov 3:</b> any photos from the pad. If none turn up, the design works without them, so nothing waits on photos.</li>
+        <li><b>By Wed, Nov 4:</b> printer contact, how many copies, and where to ship in Midland (booth number or venue).</li>
+      </ol>
+
+      <h4>One quick question</h4>
+      <p>Do you need the refreshed one-pagers at the conference too? If yes, they also have to make the Nov 9 deadline. If not, we'll start them the week after Midland, when there's room to do them well.</p>
+
+      <h4>Parked</h4>
+      <p>The idea of a case study for every strong well. No action from us; it's yours for the next-quarter conversation.</p>
+
+      <p>Safe travels tomorrow. I'll text you the first three asks so they're easy to answer on the road.</p>
+      <p>Thanks,<br>Durva</p>
+    </div>
+  </div>
+</section>
+
+<!-- 2 -->
+<section id="plan">
+  <div class="sec-h"><span class="n">02</span><h2 class="disp">Execution plan</h2></div>
+  <p class="intro">Working back from the printer, not the conference. There are six working days between kickoff and the printer deadline, so the plan protects the two things that can't be rushed: Crestline's approval and the number check.</p>
+
+  <div class="callout"><b>The date math doesn't leave room.</b> Nov 14 is a Saturday. If files land Monday the 9th and the printer takes five business days, printing finishes Friday the 13th, the day before the conference opens, with no time left to ship to Midland. That's why we aim for Friday the 6th, and why "does five days include delivery?" is the first question for the printer. Nov 11 is Veterans Day, so I'd also check the printer and carrier are working that day.</div>
+
+  <div class="gantt"><table>
+    <thead><tr><th>Workstream</th><th>Mon 2</th><th>Tue 3</th><th>Wed 4</th><th>Thu 5</th><th>Fri 6</th><th class="we">wknd</th><th>Mon 9</th><th>Tue 10</th><th>Wed 11</th><th>Thu 12</th><th>Fri 13</th><th class="we">Sat 14 to Mon 16</th><th>Wed 18</th></tr></thead>
+    <tbody>
+      <tr><td>Inputs + approvals</td><td><span class="g c"></span></td><td><span class="g c"></span></td><td><span class="g c"></span></td><td><span class="g x"></span></td><td></td><td class="we"></td><td></td><td></td><td></td><td></td><td></td><td class="we"></td><td></td></tr>
+      <tr><td>Copy + design</td><td></td><td><span class="g"></span></td><td><span class="g dot"></span></td><td><span class="g"></span></td><td><span class="g x"></span></td><td class="we"></td><td></td><td></td><td></td><td></td><td></td><td class="we"></td><td></td></tr>
+      <tr><td>Print + shipping</td><td><span class="g p"></span></td><td></td><td><span class="g p"></span></td><td></td><td><span class="g p"></span></td><td class="we"></td><td><span class="g x"></span></td><td><span class="g p"></span></td><td><span class="g p"></span></td><td><span class="g p"></span></td><td><span class="g x"></span></td><td class="we"></td><td></td></tr>
+      <tr><td>Sales kit (digital)</td><td></td><td></td><td></td><td></td><td><span class="g s"></span></td><td class="we"></td><td><span class="g s"></span></td><td><span class="g x"></span></td><td></td><td></td><td></td><td class="we"></td><td></td></tr>
+      <tr><td>Conference</td><td></td><td></td><td></td><td></td><td></td><td class="we"></td><td></td><td></td><td></td><td></td><td></td><td class="we"><span class="g c"></span></td><td><span class="g dot"></span></td></tr>
+      <tr><td>One-pagers (phase 2)</td><td></td><td></td><td></td><td></td><td><span class="g o"></span></td><td class="we"></td><td></td><td></td><td></td><td></td><td></td><td class="we"></td><td><span class="g o"></span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="legend"><span><i style="background:var(--deep)"></i>Inputs and approvals</span><span><i style="background:var(--teal)"></i>Copy and design</span><span><i style="background:var(--gold)"></i>Print and logistics</span><span><i style="background:var(--orange)"></i>Sales kit</span><span><i style="background:#a9bfc4"></i>One-pagers</span><span><i style="background:var(--red);border-radius:2px"></i>Deadline</span><span><i style="background:var(--night);border-radius:50%"></i>Review or wrap-up</span></div>
+
+  <h3>Day by day</h3>
+  <div class="days">
+    <div class="day"><div class="d">Mon, Nov 2<small>Kickoff</small></div><ul>
+      <li>Recap email out; text Megan the three urgent asks <span class="who m">Midnight</span></li>
+      <li>Megan asks Crestline for permission (name, logo, data, quote) <span class="who c">Megan</span></li>
+      <li>Internal kickoff: brief to copywriter and designer, pull brand files and current one-pagers <span class="who m">Midnight</span></li>
+      <li>Send the printer specs and ask for a quote, stock availability, and whether five days includes delivery <span class="who v">Printer</span></li>
+    </ul></div>
+    <div class="day"><div class="d">Tue, Nov 3<small>Facts locked</small></div><ul>
+      <li>Check every number against the run report, including which offsets make up the 15% <span class="who m">Midnight</span></li>
+      <li>Copy v1 and layout direction. Photo decision by end of day: real photos if they're print quality, otherwise the well-path graphic <span class="who m">Midnight</span></li>
+      <li>Start the anonymized "Permian operator" version in parallel, so Crestline's answer can't stall us <span class="who m">Midnight</span></li>
+    </ul></div>
+    <div class="day"><div class="d">Wed, Nov 4<small>Draft to client</small></div><ul>
+      <li>v1 PDF to Megan with a short note on what to look at (numbers, quote, tone) <span class="who m">Midnight</span></li>
+      <li>Lock paper stock, quantity, quote and ship-to address with the printer <span class="who v">Printer</span></li>
+    </ul></div>
+    <div class="day"><div class="d">Thu, Nov 5<small>Feedback</small></div><ul>
+      <li>One consolidated round of feedback from Megan by noon <span class="who c">Megan</span></li>
+      <li>Crestline go/no-go by end of day. No answer means we print the anonymized version <span class="who c">Megan</span></li>
+      <li>v2 with changes in, internal proofread by someone who hasn't seen it yet <span class="who m">Midnight</span></li>
+    </ul></div>
+    <div class="day key"><div class="d">Fri, Nov 6<small>Our target</small></div><ul>
+      <li>Final OK from Megan by 2 PM <span class="who c">Megan</span></li>
+      <li>Preflight: 0.125" bleed, CMYK, 300 dpi images, fonts embedded, QR tested on two phones <span class="who m">Midnight</span></li>
+      <li>Files to the printer. Quick audit note on the three one-pagers: what looks dated and what needs new info <span class="who m">Midnight</span></li>
+    </ul></div>
+    <div class="day key"><div class="d">Mon, Nov 9<small>Printer deadline</small></div><ul>
+      <li>Backup day if anything slipped. Approve the printer's digital proof the same day <span class="who m">Midnight</span></li>
+      <li>Digital PDF and the QR landing page go live <span class="who m">Midnight</span></li>
+    </ul></div>
+    <div class="day"><div class="d">Tue, Nov 10<small>Sales kit</small></div><ul>
+      <li>Digital case study, a short talk track for price questions, and an email template to the sales team <span class="who m">Midnight</span></li>
+      <li>Optional: a "find us in Midland" LinkedIn post for Megan's company page <span class="who m">Midnight</span></li>
+    </ul></div>
+    <div class="day"><div class="d">Nov 11 to 13<small>Print and ship</small></div><ul>
+      <li>Check on the print run Wednesday; get tracking Thursday; confirm delivery in Midland Friday <span class="who v">Printer</span></li>
+      <li>Backup plan: someone travelling to Midland carries one box of copies <span class="who c">Megan</span></li>
+    </ul></div>
+    <div class="day"><div class="d">Nov 14 to 16<small>Conference</small></div><ul>
+      <li>Copies at the booth; QR scans tracked through UTM tags <span class="who c">Megan</span></li>
+    </ul></div>
+    <div class="day"><div class="d">Wed, Nov 18<small>Wrap-up</small></div><ul>
+      <li>Short report: copies handed out, QR scans, meetings booked, and what sales heard at the booth <span class="who m">Midnight</span></li>
+      <li>Start the one-pager refresh, done in about two weeks with one review round <span class="who m">Midnight</span></li>
+    </ul></div>
+  </div>
+
+  <h3>Risks and what we'd do</h3>
+  <table class="grid">
+    <tr><th>Risk</th><th>Plan</th></tr>
+    <tr><td>Crestline is slow or says no</td><td>Anonymized "Permian operator" version runs in parallel from Tuesday. Same design, swap one line.</td></tr>
+    <tr><td>Numbers in the run report don't match the call</td><td>Print only what the report confirms. Flag any difference to Megan in writing before the draft.</td></tr>
+    <tr><td>No usable photos</td><td>The design is built around a well-path graphic, so photos are a bonus, not a dependency.</td></tr>
+    <tr><td>Heavy stock or special finish adds days</td><td>Pick a stock the printer has in house by Wednesday. Skip finishes that add time.</td></tr>
+    <tr><td>Shipping misses Friday</td><td>Ship to the venue or hotel with tracking. Someone travelling carries a box as backup. The QR and the digital PDF still work at the booth.</td></tr>
+    <tr><td>Megan can't review while travelling</td><td>Name a backup approver on Monday. Keep the review to one clear PDF and three questions, so it's quick on a phone.</td></tr>
+  </table>
+</section>
+
+<!-- 3 -->
+<section id="brief">
+  <div class="sec-h"><span class="n">03</span><h2 class="disp">Creative brief</h2></div>
+  <p class="intro">One page the copywriter, designer and printer can all work from. Anything still waiting on Megan is listed under gaps.</p>
+
+  <div class="brief">
+    <div class="bf w"><h4>Project</h4><p><b>Crestline well case study.</b> Printed handout for the Midland conference (Nov 14 to 16), plus a digital version the sales team can send after calls.</p></div>
+
+    <div class="bf"><h4>Background</h4><p>The Crestline run is one of the best the client has had: curve and lateral in one run, no trips. Sales brings it up on calls but has nothing to leave behind. Meanwhile, bigger directional companies are cutting day rates and reps are losing ground on price.</p></div>
+    <div class="bf"><h4>Objective</h4><p>Give sales proof that moves the conversation from day rate to days and total well cost. At the booth, the piece should start conversations and lead to follow-up meetings.</p></div>
+
+    <div class="bf"><h4>Audience</h4><ul><li><b>Primary:</b> operator drilling engineers, drilling superintendents and managers at the conference. Technical, skeptical of marketing, trust numbers.</li><li><b>Secondary:</b> prospects on sales calls, and procurement weighing day rates.</li></ul></div>
+    <div class="bf"><h4>What we want them to do</h4><p>Keep the piece, scan the QR for the digital version, and talk to sales about their next curve and lateral.</p></div>
+
+    <div class="bf w"><h4>Single-minded message</h4><p class="smm">One run. No trips. <span>4.5 days back.</span></p><p style="margin-top:8px">The reason to believe: the numbers, from a named operator, checked against the run report. The idea underneath it: <b>the cheapest day is the one you don't need.</b></p></div>
+
+    <div class="bf w"><h4>Proof points (to verify against the run report)</h4>
+      <div class="statrow">
+        <div><b>1 run</b><span>curve + lateral, one BHA</span></div>
+        <div><b>0</b><span>trips</span></div>
+        <div><b>~10,500 ft</b><span>lateral length</span></div>
+        <div><b>92 ft/hr</b><span>average ROP in the lateral</span></div>
+        <div><b>~15%</b><span>faster than offset wells</span></div>
+      </div>
+      <p style="margin-top:10px">Plus: <b>4.5 days ahead of plan</b>, and a quote from Crestline's drilling engineer if approved. <b>Not</b> the 6 days (that's Reeves County).</p>
+    </div>
+
+    <div class="bf"><h4>Tone</h4><p>Plain, confident, engineer-to-engineer. Numbers do the talking. No hype words, no "revolutionary". Short sentences a busy superintendent can read in 30 seconds standing at a booth.</p></div>
+    <div class="bf"><h4>Headline options</h4><div class="hl"><div><b>A</b><span>One run. No trips. 4.5 days back. <i>(recommended)</i></span></div><div><b>B</b><span>The cheapest day is the one you don't need.</span></div><div><b>C</b><span>Curve to lateral, one BHA, zero trips.</span></div></div></div>
+
+    <div class="bf"><h4>Format and specs (to confirm with printer)</h4><ul>
+      <li>8.5" × 11", printed both sides</li>
+      <li>Heavy cover stock (about 130 lb / 350 gsm), matte, so it feels like a reference card, not a flyer</li>
+      <li>CMYK, 0.125" bleed, 300 dpi images</li>
+      <li>Upgrade if budget and time allow: 11" × 17" folded to four pages</li>
+      <li>Digital: same layout as a PDF under 2 MB for email</li>
+    </ul></div>
+    <div class="bf"><h4>Structure</h4><ul>
+      <li><b>Front:</b> headline, two-line story, well-path graphic, four big numbers</li>
+      <li><b>Back:</b> why it matters (days, not day rate), ask / what we did / result, speed vs. offsets, days vs. plan, engineer quote, "4.5 days × your spread cost", call to action with QR</li>
+    </ul></div>
+
+    <div class="bf"><h4>Must include</h4><ul>
+      <li>Client logo and brand (guidelines needed)</li>
+      <li>Crestline's written OK; engineer's OK for the quote</li>
+      <li>Short disclaimer: results from one well, conditions vary</li>
+      <li>QR with UTM tags, booth number, sales contact</li>
+    </ul></div>
+    <div class="bf"><h4>Must avoid</h4><ul>
+      <li>Naming or attacking competitors, or quoting day rates</li>
+      <li>Any Reeves County numbers</li>
+      <li>"Series" branding. That idea is parked</li>
+      <li>Any number the run report doesn't support</li>
+    </ul></div>
+
+    <div class="bf"><h4>How we'll measure it</h4><ul><li>Copies handed out (count left over)</li><li>QR scans and digital views, by UTM</li><li>Meetings booked from the conference</li><li>How many reps send the PDF in the next 30 days</li></ul></div>
+    <div class="bf"><h4>Timeline and approvals</h4><ul><li>Draft Wed Nov 4, feedback Thu Nov 5, final Fri Nov 6</li><li>Printer hard deadline Mon Nov 9</li><li><b>Approvers:</b> Megan (final), Crestline (name and data), drilling engineer (quote)</li><li><b>Budget:</b> to confirm</li></ul></div>
+  </div>
+</section>
+
+<!-- 4 -->
+<section id="gaps">
+  <div class="sec-h"><span class="n">04</span><h2 class="disp">Gaps to clarify</h2></div>
+  <p class="intro">Sorted by what blocks work. The first group has to be answered before copy is final; the second before files go to print; the third can wait.</p>
+
+  <div class="gaps">
+    <div class="gg">
+      <div class="gh"><b>Blocks the work</b><span class="tag r">Need by Mon to Tue</span></div>
+      <div class="q"><span class="k">01</span><div><b>Can we name Crestline?</b><p>Operators often keep well data private. We need written permission to use their name, logo and numbers. If not, is "a Permian operator" OK?</p></div></div>
+      <div class="q"><span class="k">02</span><div><b>Where's the run report?</b><p>We'll check 10,500 ft, 92 ft/hr and 4.5 days against it. Also: total footage in the run, well dates, and county or area.</p></div></div>
+      <div class="q"><span class="k">03</span><div><b>15% faster at what?</b><p>Rate of penetration, or days on the well? Compared to which offset wells, and how many? This is the claim competitors will poke at, so it has to be airtight.</p></div></div>
+      <div class="q"><span class="k">04</span><div><b>4.5 days against which plan?</b><p>Crestline's AFE or drilling plan? What were planned vs. actual days? This lets us draw the chart to scale.</p></div></div>
+      <div class="q"><span class="k">05</span><div><b>The drilling engineer's quote</b><p>Exact words, name, title, and their OK to be quoted. If they won't be named, can we use "Drilling Engineer, Crestline"?</p></div></div>
+      <div class="q"><span class="k">06</span><div><b>How much technical detail can we share?</b><p>Motor or rotary steerable, bit, parameters. Engineers will want it; it may also be something the client prefers to keep private.</p></div></div>
+    </div>
+
+    <div class="gg">
+      <div class="gh"><b>Needed before print</b><span class="tag a">Need by Wed</span></div>
+      <div class="q"><span class="k">07</span><div><b>The conference</b><p>Event name, booth number, expected traffic (this sets the quantity), and the exact shipping address. Also confirming the dates: Nov 14 to 16 runs Saturday to Monday.</p></div></div>
+      <div class="q"><span class="k">08</span><div><b>The printer</b><p>Their printer or ours? Does "five business days" include delivery to Midland? If it doesn't, the 9th is already too late.</p></div></div>
+      <div class="q"><span class="k">09</span><div><b>Budget</b><p>A number for printing and any finish upgrade, so we can choose stock and quantity once instead of going back and forth.</p></div></div>
+      <div class="q"><span class="k">10</span><div><b>Photos</b><p>Who has them, and are they high resolution (300 dpi at print size)? Do we need the crew's permission to show faces or rig names?</p></div></div>
+      <div class="q"><span class="k">11</span><div><b>Brand files</b><p>Logo files, fonts, colours and guidelines. Who besides Megan has to approve?</p></div></div>
+      <div class="q"><span class="k">12</span><div><b>The call to action</b><p>Who should a prospect contact: one rep, a general sales line, or a page on the website? Where should the QR point?</p></div></div>
+      <div class="q"><span class="k">13</span><div><b>Dollar value</b><p>Can we show what 4.5 days was worth in dollars, using Crestline's spread cost? If not, the "4.5 days × your spread cost" line lets readers do the math with their own number.</p></div></div>
+      <div class="q"><span class="k">14</span><div><b>Legal review</b><p>Does a performance claim need legal or compliance review on the client side? If yes, it needs a slot before Friday.</p></div></div>
+    </div>
+
+    <div class="gg">
+      <div class="gh"><b>Can wait</b><span class="tag g">After Midland</span></div>
+      <div class="q"><span class="k">15</span><div><b>One-pagers: timing</b><p>Needed for the conference, or after? This is the one answer we need now, because it decides whether they share the Nov 9 deadline.</p></div></div>
+      <div class="q"><span class="k">16</span><div><b>One-pagers: scope</b><p>Which three service lines? What feels dated: the look, the content, or both? Are the source files available (InDesign, Canva)? Is this covered by the current scope, or a separate estimate?</p></div></div>
+      <div class="q"><span class="k">17</span><div><b>Backup approver</b><p>Who can sign off if Megan is on the road and can't review?</p></div></div>
+      <div class="q"><span class="k">18</span><div><b>"Next month"</b><p>The plan assumes the conference is in November 2026. If the voice note was recorded earlier, every date shifts back with it.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- extra: draft -->
+<section id="draft">
+  <div class="sec-h"><span class="n">+</span><h2 class="disp">Extra: a first draft</h2></div>
+  <p class="intro">Not asked for, but it makes the brief easier to react to. A real draft of the front and back, using only what Megan said on the call. Anything unconfirmed is clearly marked; nothing is made up.</p>
+
+  <div class="pages">
+    <figure><img src="page-1.jpg" alt="Draft case study, front page" loading="lazy"><figcaption>Front · 8.5" × 11"</figcaption></figure>
+    <figure><img src="page-2.jpg" alt="Draft case study, back page" loading="lazy"><figcaption>Back · "the cheapest day"</figcaption></figure>
+  </div>
+  <div class="btns">
+    <a class="btn" href="Crestline-Case-Study-Draft.pdf" target="_blank" rel="noopener">Open the draft PDF</a>
+    <a class="btn o" href="case-study.html" target="_blank" rel="noopener">View full size</a>
+  </div>
+
+  <div class="why">
+    <div><b>Works without photos</b>The well-path graphic shows the whole story (curve, lateral, one run), so the design doesn't wait on someone finding a camera.</div>
+    <div><b>Answers the price question</b>The back page turns "4.5 days" into the reader's own money: 4.5 days times their spread cost. No invented dollar figures.</div>
+    <div><b>Easy to anonymize</b>If Crestline says no, "Crestline" becomes "a Permian operator" in three places and nothing else changes.</div>
+  </div>
+</section>
+
+<!-- extra: sales kit -->
+<section id="more">
+  <div class="sec-h"><span class="n">+</span><h2 class="disp">Extra: sales kit</h2></div>
+  <p class="intro">Megan said the sales team has "nothing to hand anybody" and is getting beaten up on price. The printed piece covers the booth; these cover the other 50 weeks of the year. Small, fast, and off the critical path.</p>
+
+  <div class="ex">
+    <div class="bf"><h4>Talk track: when price comes up</h4><pre>"I get it, day rates are coming down
+everywhere. The question is what the well
+costs, not the day.
+
+On Crestline's well we drilled the curve and
+the lateral in one run, no trips, and they
+finished four and a half days early.
+
+What's a day worth on your rig? Multiply
+that by four and a half."</pre></div>
+    <div class="bf"><h4>Follow-up email for reps</h4><pre>Subject: The Crestline run (1 page)
+
+Hi {first name},
+
+Good talking today. Here's the run I mentioned:
+curve and lateral in one run, one BHA, no trips,
+and 4.5 days ahead of plan.
+
+[Crestline case study, PDF]
+
+Happy to walk through how we'd plan your next
+curve and lateral.
+
+{rep name}</pre></div>
+    <div class="bf"><h4>QR tracking</h4><pre>utm_source=midland-conference
+utm_medium=print
+utm_campaign=crestline-case-study
+utm_content=booth-handout</pre><p style="margin-top:8px">The sales email PDF uses <b>utm_medium=email</b>, so we can see which one drives more visits.</p></div>
+    <div class="bf"><h4>Parked, on purpose</h4><p>Megan's idea of a case study for every strong well sounds like a great next-quarter project. She asked us to forget it, so we have. The only thing I'd do now is keep this layout clean and reusable, which costs nothing extra.</p></div>
+  </div>
+</section>
+
+</main>
+
+<footer><div class="wrap">
+  <b>Durva Thakkar</b> · Marketing Coordinator Skill Assessment for Midnight Marketing. Task 2 walkthrough video is attached to the submission email.
+</div></footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var el=document.getElementById(b.dataset.copy);
+    var subj=b.parentNode.querySelector('b').innerText;
+    var txt='Subject: '+subj+'\n\n'+el.innerText;
+    (navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject()).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy email'},1600)}).catch(function(){b.textContent='Select and copy'});
+  });
+});
+</script>
+</body>
+</html>

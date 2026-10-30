@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crestline case study, draft v0</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+@page{size:8.5in 11in;margin:0}
+:root{--ink:#14181a;--steel:#4c5a60;--line:#d5d9db;--paper:#f6f4ef;--acc:#e8692c;--acc-soft:#fbe3d6;--mono:'IBM Plex Mono',ui-monospace,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#8a9296;font-family:'Archivo',sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.sheet{width:8.5in;height:11in;margin:24px auto;background:var(--paper);position:relative;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.25)}
+@media print{body{background:none}.sheet{margin:0;box-shadow:none;page-break-after:always}}
+.pad{position:absolute;inset:.55in .6in}
+.draft{position:absolute;top:.22in;right:.6in;font:600 8pt var(--mono);letter-spacing:.08em;color:var(--acc);border:1.2px solid var(--acc);padding:3px 8px;border-radius:3px;text-transform:uppercase}
+.kick{font:600 8.5pt var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--steel)}
+.kick b{color:var(--acc)}
+h1{font-stretch:118%;font-weight:850;font-size:43pt;line-height:.95;letter-spacing:-.01em;margin-top:.16in;text-transform:uppercase}
+h1 span{color:var(--acc)}
+.sub{margin-top:.18in;font-size:12.5pt;line-height:1.42;max-width:5.6in;color:#2b3236}
+.hero{position:absolute;left:0;right:0;top:3.35in;height:4.1in}
+.hero svg{width:100%;height:100%}
+.stats{position:absolute;left:0;right:0;bottom:.55in;display:grid;grid-template-columns:repeat(4,1fr);border-top:2.5px solid var(--ink)}
+.stats div{padding:.14in .12in 0 0}
+.stats b{display:block;font-stretch:112%;font-weight:850;font-size:30pt;line-height:1}
+.stats b small{font-size:13pt;font-weight:700}
+.stats span{display:block;margin-top:5px;font-size:9pt;line-height:1.3;color:var(--steel)}
+.foot{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;font:500 7.5pt var(--mono);color:var(--steel);letter-spacing:.04em}
+
+/* back */
+h2{font-stretch:115%;font-weight:850;font-size:25pt;line-height:1;text-transform:uppercase;margin-top:.12in}
+h2 span{color:var(--acc)}
+.lead{margin-top:.12in;font-size:11pt;line-height:1.45;max-width:6.4in;color:#2b3236}
+.cols{margin-top:.28in;display:grid;grid-template-columns:repeat(3,1fr);gap:.22in;border-top:1.5px solid var(--ink);padding-top:.14in}
+.cols h3{font:600 8pt var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--acc)}
+.cols p{margin-top:.07in;font-size:10pt;line-height:1.42}
+.data{margin-top:.3in;display:grid;grid-template-columns:1fr 1fr;gap:.3in}
+.box{border:1.5px solid var(--ink);padding:.16in .18in;background:#fff}
+.box h4{font:600 8pt var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--steel)}
+.bar{margin-top:.12in}
+.bar .l{display:flex;justify-content:space-between;font-size:9pt;font-weight:600}
+.bar .t{height:.2in;background:#e7e9ea;margin-top:4px;position:relative}
+.bar .f{position:absolute;left:0;top:0;bottom:0;background:var(--steel)}
+.bar .f.a{background:var(--acc)}
+.bar .gap{position:absolute;top:0;bottom:0;border:1.5px dashed var(--acc);border-left:0;background:repeating-linear-gradient(45deg,transparent 0 4px,var(--acc-soft) 4px 8px)}
+.note{margin-top:.1in;font-size:8pt;color:var(--steel);line-height:1.35}
+.quote{margin-top:.3in;border-left:5px solid var(--acc);padding:.06in 0 .06in .2in}
+.quote p{font-stretch:105%;font-size:15pt;font-weight:700;line-height:1.25;color:#9aa3a7}
+.quote span{display:block;margin-top:.08in;font:500 8pt var(--mono);color:var(--steel);letter-spacing:.04em}
+.calc{margin-top:.3in;display:grid;grid-template-columns:auto 1fr;gap:.25in;align-items:center;background:var(--ink);color:#fff;padding:.2in .24in}
+.calc .eq{font-stretch:115%;font-weight:850;font-size:19pt;line-height:1.05;white-space:nowrap}
+.calc .eq span{color:var(--acc)}
+.calc p{font-size:9.5pt;line-height:1.42;color:#cdd3d5}
+.cta{position:absolute;left:0;right:0;bottom:.38in;display:grid;grid-template-columns:1fr auto;gap:.3in;align-items:end;border-top:2.5px solid var(--ink);padding-top:.16in}
+.cta b{display:block;font-stretch:115%;font-weight:850;font-size:17pt;text-transform:uppercase;line-height:1.05}
+.cta p{margin-top:.06in;font-size:9.5pt;color:var(--steel)}
+.qr{width:.95in;height:.95in;border:1.5px solid var(--ink);display:grid;place-items:center;text-align:center;font:600 6.5pt var(--mono);color:var(--steel);background:#fff;padding:4px}
+.legal{position:absolute;left:0;right:0;bottom:0;font:400 6.8pt var(--mono);color:var(--steel)}
+</style>
+</head>
+<body>
+
+<!-- FRONT -->
+<div class="sheet">
+  <div class="draft">Draft v0 · numbers to verify</div>
+  <div class="pad">
+    <div class="kick">Case study · <b>Crestline</b> · Curve + lateral</div>
+    <h1>One run.<br>No trips.<br><span>4.5 days back.</span></h1>
+    <p class="sub">Crestline needed a curve and a 10,500&nbsp;ft lateral. We drilled both with a single bottom hole assembly, without tripping once, and handed the well back four and a half days ahead of plan.</p>
+
+    <div class="hero">
+      <svg viewBox="0 0 730 390" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- ground -->
+        <line x1="0" y1="40" x2="730" y2="40" stroke="#14181a" stroke-width="2"/>
+        <g stroke="#c9cdcf" stroke-width="1">
+          <line x1="0" y1="120" x2="730" y2="120"/><line x1="0" y1="200" x2="730" y2="200"/><line x1="0" y1="280" x2="730" y2="280"/>
+        </g>
+        <!-- rig -->
+        <g stroke="#14181a" stroke-width="2.2" fill="none">
+          <path d="M70 40 L82 2 L94 40 M74 28 L90 28 M77 16 L87 16"/>
+        </g>
+        <!-- vertical (context, grey) -->
+        <path d="M82 40 L82 150" stroke="#4c5a60" stroke-width="5"/>
+        <!-- curve + lateral (the run) -->
+        <path d="M82 150 C82 250 130 300 230 302 L700 302" stroke="#e8692c" stroke-width="7" stroke-linecap="round"/>
+        <!-- one-run bracket -->
+        <path d="M82 340 L82 352 L700 352 L700 340" stroke="#14181a" stroke-width="1.5"/>
+        <text x="391" y="376" text-anchor="middle" font-family="IBM Plex Mono" font-size="13" font-weight="600" fill="#14181a" letter-spacing="1.5">ONE RUN · ONE BHA · ZERO TRIPS</text>
+        <!-- labels -->
+        <text x="98" y="100" font-family="IBM Plex Mono" font-size="11.5" fill="#4c5a60">VERTICAL</text>
+        <text x="130" y="230" font-family="IBM Plex Mono" font-size="11.5" font-weight="600" fill="#e8692c">CURVE</text>
+        <text x="440" y="288" font-family="IBM Plex Mono" font-size="11.5" font-weight="600" fill="#e8692c">LATERAL · ~10,500 FT · AVG 92 FT/HR</text>
+        <!-- bit -->
+        <circle cx="700" cy="302" r="9" fill="#14181a"/>
+        <circle cx="700" cy="302" r="3.5" fill="#e8692c"/>
+        <text x="700" y="278" text-anchor="end" font-family="IBM Plex Mono" font-size="10" fill="#4c5a60"></text>
+      </svg>
+    </div>
+
+    <div class="stats">
+      <div><b>1</b><span>run for the curve and the lateral, with one BHA</span></div>
+      <div><b>92<small> ft/hr</small></b><span>average rate of penetration in the lateral</span></div>
+      <div><b>15%</b><span>faster than the offset wells around it</span></div>
+      <div><b>4.5<small> days</small></b><span>ahead of Crestline's plan</span></div>
+    </div>
+    <div class="foot"><span>Client brand, logo and photography applied after guidelines arrive</span><span>1 / 2</span></div>
+  </div>
+</div>
+
+<!-- BACK -->
+<div class="sheet">
+  <div class="draft">Draft v0 · numbers to verify</div>
+  <div class="pad">
+    <div class="kick">Why it matters</div>
+    <h2>The cheapest day<br>is the one <span>you don't need.</span></h2>
+    <p class="lead">A lower day rate is a discount. Fewer days is a saving. On Crestline's well, keeping the curve and the lateral in one run removed the trips that usually eat days on this interval.</p>
+
+    <div class="cols">
+      <div><h3>The ask</h3><p>Drill the curve and a lateral of about 10,500&nbsp;ft for Crestline, on an interval where a trip between the two is normal.</p></div>
+      <div><h3>What we did</h3><p>Drilled the curve and the full lateral with one bottom hole assembly in a single run. No trips.</p></div>
+      <div><h3>The result</h3><p>Average lateral ROP of 92&nbsp;ft/hr, about 15% faster than the offset wells, and the well finished 4.5 days ahead of plan.</p></div>
+    </div>
+
+    <div class="data">
+      <div class="box">
+        <h4>Speed vs. offset wells</h4>
+        <div class="bar"><div class="l"><span>Offset wells (average)</span><span>100</span></div><div class="t"><div class="f" style="width:84%"></div></div></div>
+        <div class="bar"><div class="l"><span>Crestline</span><span>115</span></div><div class="t"><div class="f a" style="width:96.6%"></div></div></div>
+        <p class="note">Indexed: offset average = 100. Offset list and metric confirmed from the run report before print.</p>
+      </div>
+      <div class="box">
+        <h4>Days vs. plan</h4>
+        <div class="bar"><div class="l"><span>Plan</span><span></span></div><div class="t"><div class="f" style="width:100%"></div></div></div>
+        <div class="bar"><div class="l"><span>Actual</span><span>4.5 days early</span></div><div class="t"><div class="f a" style="width:80%"></div><div class="gap" style="left:80%;right:0"></div></div></div>
+        <p class="note">Bar lengths drawn to scale once planned and actual days are confirmed.</p>
+      </div>
+    </div>
+
+    <div class="quote">
+      <p>Reserved for Crestline's drilling engineer, in their own words, once they approve it.</p>
+      <span>Name · Title · Crestline</span>
+    </div>
+
+    <div class="calc">
+      <div class="eq">4.5 days <span>×</span><br>your spread cost</div>
+      <p>That is what this run gave back, before anyone talks about day rate. Bring us your next well plan and we will show you where the days are.</p>
+    </div>
+
+    <div class="cta">
+      <div><b>Planning a curve and lateral?</b><p>Find us in Midland, Nov 14 to 16. Scan for the digital version and a direct line to our team.</p></div>
+      <div class="qr">QR<br>digital version<br>+ UTM</div>
+    </div>
+    <p class="legal">Results from one well. Performance depends on formation, well design and conditions. Shared with Crestline's permission.</p>
+  </div>
+</div>
+
+</body>
+</html>
