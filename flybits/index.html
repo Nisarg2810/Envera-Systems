@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Durva × Flybits · The marketing audit</title>
+  <meta name="description" content="A deep, checkable marketing audit of flybits.com: what AI assistants and search engines can't see, what broke in the redesign, and a 90-day plan to fix it. By Durva Thakkar.">
+  <meta property="og:title" content="Durva × Flybits · The marketing audit">
+  <meta property="og:description" content="Canada's first agentic commerce transaction is a big story. Here's why most of flybits.com is invisible to AI assistants, and how to fix it in 90 days.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://durvathakkar.com/flybits/">
+  <meta property="og:image" content="https://durvathakkar.com/flybits/share.jpg?v=1">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://durvathakkar.com/flybits/share.jpg?v=1">
+  <meta name="theme-color" content="#06171c">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f4efe6; --paper: #fbf8f2; --ink: #141310; --soft: #4b473f; --muted: #857f73; --hair: #d9d1c3;
+      --deep: #06171c; --teal: #0f4c55; --cyan: #5fe0d3; --orange: #f26b3a; --green: #2f7a4f; --red: #c2412d; --amber: #b7791f; --lime: #d8e46c;
+      --serif: "Instrument Serif", Georgia, serif; --mono: "Geist Mono", ui-monospace, monospace;
+      --pad: clamp(16px, 4vw, 48px);
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+    body { background: var(--bg); color: var(--ink); font-family: "Geist", system-ui, sans-serif; font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+    ::selection { background: var(--cyan); color: var(--deep); }
+    :focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+    .mono { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 0 var(--pad); }
+    code, .code { font-family: var(--mono); font-size: 13px; }
+    .link { text-decoration: none; border-bottom: 1px solid currentColor; }
+    .link:hover { color: var(--orange); }
+
+    /* bar */
+    .bar { position: sticky; top: 0; z-index: 30; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px var(--pad); background: rgba(244,239,230,.88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--hair); }
+    .bar nav { display: flex; gap: clamp(12px, 2vw, 26px); font-size: 14px; }
+    .bar nav a { text-decoration: none; color: var(--soft); }
+    .bar nav a:hover { color: var(--ink); }
+    .pill { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; padding: 9px 16px; border-radius: 999px; text-decoration: none; box-shadow: inset 0 0 0 1px var(--ink); white-space: nowrap; transition: background .2s, color .2s; }
+    .pill:hover { background: var(--ink); color: var(--bg); }
+    .pill.solid { background: var(--ink); color: var(--bg); }
+    .pill.solid:hover { background: var(--orange); box-shadow: inset 0 0 0 1px var(--orange); }
+    @media (max-width: 900px) { .bar nav { display: none; } }
+
+    /* hero */
+    .hero { background: radial-gradient(120% 90% at 80% 0%, #0f4c55 0%, #06171c 60%); color: #e9f3f2; padding: clamp(56px, 9vw, 120px) 0 clamp(50px, 7vw, 90px); position: relative; overflow: hidden; }
+    .hero::after { content: ""; position: absolute; inset: 0; background: repeating-radial-gradient(circle at 85% 20%, transparent 0 22px, rgba(95,224,211,.06) 23px 24px); pointer-events: none; }
+    .hero .wrap { position: relative; z-index: 1; }
+    .hero .logos { display: flex; align-items: center; gap: 14px; color: #8fb3b0; }
+    .hero .logos img { height: 26px; width: auto; }
+    .hero h1 { margin-top: clamp(28px, 4vw, 44px); font-family: var(--serif); font-weight: 400; font-size: clamp(48px, 7.4vw, 112px); line-height: .92; letter-spacing: -0.03em; max-width: 1050px; }
+    .hero h1 em { color: var(--cyan); }
+    .hero .lede { margin-top: 26px; max-width: 720px; font-size: clamp(18px, 1.8vw, 21px); color: #b9d0ce; }
+    .hero .lede b { color: #fff; font-weight: 500; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: clamp(40px, 6vw, 70px); border-top: 1px solid rgba(255,255,255,.14); }
+    .stat { padding: 22px 22px 0 0; }
+    .stat + .stat { padding-left: 22px; border-left: 1px solid rgba(255,255,255,.14); }
+    .stat b { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(44px, 5vw, 68px); line-height: 1; color: #fff; }
+    .stat b small { font-size: .5em; color: #8fb3b0; }
+    .stat span { display: block; margin-top: 10px; font-size: 14px; color: #9fbcb9; line-height: 1.45; }
+    @media (max-width: 860px) { .stats { grid-template-columns: 1fr 1fr; } .stat:nth-child(3) { padding-left: 0; border-left: 0; } .stat { padding-bottom: 20px; } }
+
+    /* note */
+    .note { display: grid; grid-template-columns: 1fr 2fr; gap: clamp(20px, 4vw, 60px); padding: clamp(50px, 7vw, 90px) 0 0; }
+    .note h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(34px, 4vw, 52px); line-height: 1; }
+    .note p { color: var(--soft); }
+    .note p + p { margin-top: 14px; }
+    .note .sig { font-family: var(--serif); font-size: 28px; color: var(--ink); margin-top: 18px; }
+    @media (max-width: 800px) { .note { grid-template-columns: 1fr; } }
+
+    /* sections */
+    section.s { padding-top: clamp(70px, 10vw, 130px); }
+    .s-head { display: grid; grid-template-columns: 1fr 2fr; gap: 24px; align-items: end; padding-bottom: 20px; border-bottom: 1px solid var(--ink); margin-bottom: clamp(26px, 4vw, 44px); }
+    .s-head .mono { color: var(--muted); }
+    .s-head h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(42px, 6vw, 88px); line-height: .92; letter-spacing: -0.03em; }
+    .s-head h2 em { color: var(--teal); }
+    .s-head p { grid-column: 2; color: var(--soft); max-width: 640px; }
+    @media (max-width: 760px) { .s-head { grid-template-columns: 1fr; } .s-head p { grid-column: auto; } }
+
+    /* strengths */
+    .good { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .good div { background: var(--paper); border-radius: 8px; padding: 22px; box-shadow: 0 1px 0 rgba(20,19,16,.04); }
+    .good b { display: block; font-family: var(--serif); font-weight: 400; font-size: 24px; line-height: 1.1; margin-bottom: 8px; }
+    .good p { font-size: 15px; color: var(--soft); }
+    @media (max-width: 860px) { .good { grid-template-columns: 1fr; } }
+
+    /* scorecard */
+    .score { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .score th { text-align: left; font: 500 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding: 10px 12px 10px 0; border-bottom: 1px solid var(--ink); }
+    .score td { padding: 14px 12px 14px 0; border-bottom: 1px solid var(--hair); vertical-align: top; }
+    .score td:first-child { font-family: var(--mono); font-size: 12px; color: var(--muted); width: 44px; }
+    .score td b { font-weight: 500; }
+    .score a { text-decoration: none; }
+    .score a:hover b { color: var(--orange); }
+    .sev { display: inline-block; font: 500 10.5px var(--mono); letter-spacing: .08em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
+    .sev.hi { background: #f9dcd5; color: var(--red); } .sev.md { background: #f6e8cf; color: var(--amber); } .sev.lo { background: #e3ecdf; color: var(--green); }
+    .tblwrap { overflow-x: auto; }
+    @media (max-width: 700px) { .score .hide-m { display: none; } }
+
+    /* findings */
+    .f { border-top: 1px solid var(--ink); padding: clamp(28px, 4vw, 46px) 0; }
+    .f-top { display: grid; grid-template-columns: 90px 1fr auto; gap: 18px; align-items: baseline; }
+    .f-top .n { font-family: var(--serif); font-size: 46px; line-height: 1; color: var(--teal); }
+    .f-top h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(28px, 3.2vw, 44px); line-height: 1.04; letter-spacing: -0.015em; }
+    .f-grid { display: grid; grid-template-columns: 90px 1fr 1fr; gap: 18px clamp(20px, 3vw, 44px); margin-top: 24px; }
+    .f-grid > div { grid-column: 2 / span 2; }
+    .f-grid .two { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 3vw, 44px); }
+    .lbl { font: 500 11px var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; display: block; }
+    .f p, .f li { color: var(--soft); font-size: 16px; }
+    .f p + p { margin-top: 10px; }
+    .f ul, .f ol { padding-left: 20px; display: grid; gap: 6px; }
+    .f b { color: var(--ink); font-weight: 500; }
+    .result { background: #e3ecdf; border-radius: 8px; padding: 16px 18px; }
+    .result p { color: #23402f; }
+    .effort { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+    .effort span { font-size: 12.5px; padding: 4px 10px; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--hair); color: var(--soft); }
+    .effort span b { font-weight: 500; }
+    .bars { display: grid; gap: 12px; }
+    .bars .row { display: grid; grid-template-columns: 150px 1fr 96px; gap: 12px; align-items: center; font-size: 14px; }
+    .bars .track { height: 14px; border-radius: 999px; background: #e6dfd2; overflow: hidden; position: relative; }
+    .bars .track i { position: absolute; inset: 0 auto 0 0; width: var(--w); background: var(--teal); border-radius: 999px; }
+    .bars .row span:last-child { font-family: var(--mono); font-size: 12.5px; text-align: right; }
+    pre { background: var(--deep); color: #cfe7e4; border-radius: 8px; padding: 16px 18px; overflow-x: auto; font: 12.5px/1.6 var(--mono); }
+    pre .c { color: #6f9693; }
+    details.check { margin-top: 12px; }
+    details.check summary { cursor: pointer; font: 500 12px var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--teal); list-style: none; }
+    details.check summary::-webkit-details-marker { display: none; }
+    details.check summary::before { content: "+ "; }
+    details.check[open] summary::before { content: "− "; }
+    details.check pre { margin-top: 10px; }
+    .mini { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .mini th { text-align: left; font: 500 10.5px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding: 8px 10px 8px 0; border-bottom: 1px solid var(--hair); }
+    .mini td { padding: 9px 10px 9px 0; border-bottom: 1px solid var(--hair); vertical-align: top; color: var(--soft); }
+    .mini td code { word-break: break-all; color: var(--ink); }
+    .dead { color: var(--red); font-family: var(--mono); font-size: 12px; }
+    @media (max-width: 800px) { .f-top { grid-template-columns: 1fr; gap: 8px; } .f-grid { grid-template-columns: 1fr; } .f-grid > div { grid-column: auto; } .f-grid .two { grid-template-columns: 1fr; } .bars .row { grid-template-columns: 104px 1fr 84px; } }
+
+    /* drafts */
+    .tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px; }
+    .tabs button { font-size: 14px; padding: 8px 15px; border-radius: 999px; color: var(--soft); box-shadow: inset 0 0 0 1px var(--hair); }
+    .tabs button:hover { color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+    .tabs button[aria-pressed="true"] { background: var(--ink); color: var(--bg); box-shadow: none; }
+    .panel { background: var(--paper); border-radius: 8px; padding: clamp(18px, 3vw, 32px); }
+    .panel[hidden] { display: none; }
+    .panel h4 { font-family: var(--serif); font-weight: 400; font-size: 26px; line-height: 1.1; margin-bottom: 6px; }
+    .panel .sub { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+    .meta-row { padding: 14px 0; border-top: 1px solid var(--hair); }
+    .meta-row .u { font: 400 12px var(--mono); color: var(--teal); }
+    .meta-row .t { font-size: 18px; color: #1a0dab; margin-top: 4px; }
+    .meta-row .d { font-size: 14.5px; color: var(--soft); margin-top: 2px; }
+    .meta-row .cnt { font: 400 11px var(--mono); color: var(--muted); margin-top: 4px; }
+    .faq { border-top: 1px solid var(--hair); }
+    .faq details { border-bottom: 1px solid var(--hair); }
+    .faq summary { cursor: pointer; padding: 14px 0; font-weight: 500; list-style: none; display: flex; justify-content: space-between; gap: 14px; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; font-size: 20px; line-height: 1; color: var(--muted); }
+    .faq details[open] summary::after { content: "−"; }
+    .faq details p { padding: 0 0 16px; color: var(--soft); font-size: 15.5px; }
+    .post { max-width: 620px; background: #fff; border-radius: 10px; padding: 20px 22px; box-shadow: 0 1px 0 rgba(0,0,0,.06), 0 20px 40px -30px rgba(0,0,0,.4); font-size: 15px; line-height: 1.55; color: #1d1d1b; }
+    .post .h { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; }
+    .post .av { width: 42px; height: 42px; border-radius: 50%; background: var(--teal); color: #fff; display: grid; place-items: center; font: 500 13px var(--mono); }
+    .post .h b { display: block; font-size: 14.5px; }
+    .post .h span { font-size: 12.5px; color: #6b6b66; }
+    .post p + p { margin-top: 10px; }
+    .post-note { margin-top: 12px; font-size: 13px; color: var(--muted); }
+    .outline { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .outline div { border-top: 2px solid var(--teal); padding-top: 12px; }
+    .outline b { display: block; font-weight: 500; }
+    .outline p { font-size: 14.5px; color: var(--soft); margin-top: 4px; }
+    @media (max-width: 760px) { .outline { grid-template-columns: 1fr; } }
+
+    /* plan */
+    .plan { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .phase { background: var(--paper); border-radius: 8px; padding: 22px; display: flex; flex-direction: column; gap: 12px; }
+    .phase .when { font: 500 11px var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--orange); }
+    .phase h4 { font-family: var(--serif); font-weight: 400; font-size: 28px; line-height: 1.05; }
+    .phase ul { padding-left: 18px; display: grid; gap: 6px; font-size: 15px; color: var(--soft); }
+    .phase .out { margin-top: auto; padding-top: 12px; border-top: 1px dashed var(--hair); font-size: 14.5px; }
+    .phase .out b { display: block; font: 500 10.5px var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--green); margin-bottom: 4px; }
+    @media (max-width: 900px) { .plan { grid-template-columns: 1fr; } }
+
+    /* results */
+    .res { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .res th { text-align: left; font: 500 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding: 10px 14px 10px 0; border-bottom: 1px solid var(--ink); }
+    .res td { padding: 14px 14px 14px 0; border-bottom: 1px solid var(--hair); vertical-align: top; color: var(--soft); }
+    .res td:first-child { color: var(--ink); font-weight: 500; }
+    .res .now { color: var(--red); font-family: var(--mono); font-size: 13px; }
+    .res .tgt { color: var(--green); font-family: var(--mono); font-size: 13px; }
+    .honest { margin-top: 22px; padding: 18px 20px; border-left: 3px solid var(--orange); background: var(--paper); font-size: 15.5px; color: var(--soft); }
+    .honest b { color: var(--ink); font-weight: 500; }
+
+    /* me */
+    .me { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 4vw, 60px); }
+    .me h4 { font: 500 11px var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); padding-bottom: 10px; border-bottom: 1px solid var(--ink); margin-bottom: 6px; }
+    .me li { list-style: none; padding: 11px 0; border-bottom: 1px solid var(--hair); font-size: 15.5px; color: var(--soft); }
+    .me li b { color: var(--ink); font-weight: 500; }
+    @media (max-width: 800px) { .me { grid-template-columns: 1fr; } }
+
+    /* end */
+    .end { margin-top: clamp(80px, 11vw, 140px); background: var(--deep); color: #e9f3f2; padding: clamp(56px, 8vw, 110px) 0 28px; }
+    .end h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(56px, 9vw, 140px); line-height: .88; letter-spacing: -0.03em; }
+    .end h2 em { color: var(--cyan); }
+    .end .r { display: grid; grid-template-columns: 1.2fr 1fr; gap: 30px; margin-top: clamp(26px, 4vw, 48px); padding-top: 22px; border-top: 1px solid rgba(255,255,255,.14); }
+    .end p { color: #9fbcb9; max-width: 540px; }
+    .end .acts a { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,.14); font-size: clamp(17px, 1.8vw, 21px); text-decoration: none; }
+    .end .acts a:hover { color: var(--cyan); }
+    .end .acts small { font: 400 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: #6f9693; }
+    .end .foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-top: 60px; color: #6f9693; font-size: 13px; }
+    @media (max-width: 760px) { .end .r { grid-template-columns: 1fr; } }
+
+    .rv { opacity: 0; transform: translateY(16px); transition: opacity .7s cubic-bezier(.2,.8,.2,1), transform .7s cubic-bezier(.2,.8,.2,1); }
+    .rv.in { opacity: 1; transform: none; }
+    .bars .track i { transform-origin: left; transform: scaleX(0); transition: transform 1.2s cubic-bezier(.2,.8,.2,1) .2s; }
+    .in .bars .track i, .bars.in .track i { transform: scaleX(1); }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } .rv { opacity: 1; transform: none; } .bars .track i { transform: none; } }
+  </style>
+</head>
+<body>
+
+  <header class="bar">
+    <span class="mono">Durva × Flybits</span>
+    <nav aria-label="Sections">
+      <a href="#audit">The audit</a>
+      <a href="#drafts">Drafts</a>
+      <a href="#plan">90 days</a>
+      <a href="#results">Results</a>
+    </nav>
+    <a class="pill solid" href="#coffee">Let's talk</a>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="logos"><img src="img/flybits-white.svg" alt="Flybits" width="90" height="26"><span class="mono">× Durva Thakkar · Audit, Oct 30, 2026</span></div>
+      <h1>You just made Canada's first agentic commerce transaction. <em>Your website tells AI assistants only part of the story.</em></h1>
+      <p class="lede">I read flybits.com the way <b>Google, ChatGPT, Perplexity and LinkedIn</b> read it, page by page. The product story is strong. But a lot of it doesn't reach the machines that now decide who gets found. Here's exactly what I found, how to fix each piece, and what it can realistically do.</p>
+      <div class="stats">
+        <div class="stat"><b>16<small>/16</small></b><span>pages with no meta description, no social preview tags, no canonical and no schema</span></div>
+        <div class="stat"><b>79<small>%</small></b><span>of the News page's text is invisible to a crawler that doesn't run JavaScript</span></div>
+        <div class="stat"><b>222</b><span>old resource URLs in the archive. 30 of 30 I sampled now return 404</span></div>
+        <div class="stat"><b>0</b><span>owned pages explaining the Mastercard and Rogers Bank story. The News page links out to a press wire</span></div>
+      </div>
+    </div>
+  </section>
+
+  <main class="wrap">
+
+    <div class="note rv">
+      <h2>A note before you read.</h2>
+      <div>
+        <p>I'm Durva, a content marketer in Ontario. I focus on SEO, GEO (getting cited in AI answers), content and outreach. Instead of telling you what I'd do, I did the first two weeks of the job.</p>
+        <p>Everything below is checkable. I used tools anyone has: the raw HTML of each page, a headless Chrome render, your sitemap and robots file, and the Wayback Machine. Under each finding there's a "Check it yourself" box with the exact command. Where I'm not sure, I say so.</p>
+        <p>This isn't a teardown. Flybits has done things most companies never manage. The gaps are fixable, and most of them are fast.</p>
+        <p class="sig">Durva</p>
+      </div>
+    </div>
+
+    <!-- ============ WHAT'S WORKING ============ -->
+    <section class="s" id="working">
+      <div class="s-head rv">
+        <span class="mono">(01) What's already working</span>
+        <h2>The raw material <em>is excellent.</em></h2>
+        <p>Most B2B companies would trade a lot for any one of these. The audit below is about getting them seen.</p>
+      </div>
+      <div class="good">
+        <div class="rv"><b>A genuine first.</b><p>Canada's first agentic commerce transaction, with Mastercard and Rogers Bank, covered by Mastercard, Retail Insider and NCFA Canada. That's a category-defining story.</p></div>
+        <div class="rv"><b>A founder with a platform.</b><p>Hossein Rahnama writes in Maclean's, appears on Bloomberg, and speaks at MIT EmTech, FITC and the AI Education Exchange. Founder-led reach most startups can't buy.</p></div>
+        <div class="rv"><b>Research credibility.</b><p>Peer-reviewed work with Toronto Metropolitan University and MIT, a white paper, and a Living Digital Twin of Toronto. Proof, not claims.</p></div>
+        <div class="rv"><b>Logos and numbers.</b><p>FAB, Members 1st, Visa, Mastercard and TD on the homepage. Stats like +27% conversion, 4x engagement and $500K+ more loans a month for a credit union.</p></div>
+        <div class="rv"><b>A built-in lead magnet.</b><p>The Flybits Institute, the AI Readiness Framework and the Five AI Imperatives. "A zero-hype AI roadmap" is a great offer.</p></div>
+        <div class="rv"><b>A clear product story.</b><p>Platform, Living Lab, Agentic Banking, Agentic Commerce, Intent Match, Chronicles. Each has its own page and a sharp line.</p></div>
+      </div>
+    </section>
+
+    <!-- ============ SCORECARD ============ -->
+    <section class="s" id="audit">
+      <div class="s-head rv">
+        <span class="mono">(02) The audit</span>
+        <h2>Ten findings, <em>ranked by impact.</em></h2>
+        <p>Tap any row to jump to the evidence, the fix, the effort and what it should change.</p>
+      </div>
+      <div class="tblwrap rv">
+        <table class="score">
+          <thead><tr><th>#</th><th>Finding</th><th class="hide-m">Area</th><th>Impact</th><th class="hide-m">Effort</th></tr></thead>
+          <tbody>
+            <tr><td>01</td><td><a href="#f1"><b>Much of the content is invisible without JavaScript</b></a></td><td class="hide-m">GEO / SEO</td><td><span class="sev hi">High</span></td><td class="hide-m">Dev, 1 build change</td></tr>
+            <tr><td>02</td><td><a href="#f2"><b>No meta descriptions, social tags, canonicals or schema on any page</b></a></td><td class="hide-m">SEO / Social</td><td><span class="sev hi">High</span></td><td class="hide-m">Content + template</td></tr>
+            <tr><td>03</td><td><a href="#f3"><b>222 old URLs died in the redesign, with no redirects</b></a></td><td class="hide-m">SEO</td><td><span class="sev hi">High</span></td><td class="hide-m">Map + server rules</td></tr>
+            <tr><td>04</td><td><a href="#f4"><b>The biggest story lives on someone else's website</b></a></td><td class="hide-m">Content / GEO</td><td><span class="sev hi">High</span></td><td class="hide-m">Content</td></tr>
+            <tr><td>05</td><td><a href="#f5"><b>Two copies of the site: www and non-www</b></a></td><td class="hide-m">SEO</td><td><span class="sev md">Medium</span></td><td class="hide-m">Dev, 1 rule</td></tr>
+            <tr><td>06</td><td><a href="#f6"><b>The sitemap lists 16 pages and none of the articles</b></a></td><td class="hide-m">SEO</td><td><span class="sev md">Medium</span></td><td class="hide-m">Dev, small</td></tr>
+            <tr><td>07</td><td><a href="#f7"><b>Nothing written for AI answer engines</b></a></td><td class="hide-m">GEO / AEO</td><td><span class="sev md">Medium</span></td><td class="hide-m">Content</td></tr>
+            <tr><td>08</td><td><a href="#f8"><b>Live polish issues a buyer can see</b></a></td><td class="hide-m">Brand</td><td><span class="sev md">Medium</span></td><td class="hide-m">Quick fixes</td></tr>
+            <tr><td>09</td><td><a href="#f9"><b>The event engine went quiet</b></a></td><td class="hide-m">Events</td><td><span class="sev lo">Opportunity</span></td><td class="hide-m">Program</td></tr>
+            <tr><td>10</td><td><a href="#f10"><b>No owned audience loop</b></a></td><td class="hide-m">Demand gen</td><td><span class="sev lo">Opportunity</span></td><td class="hide-m">Program</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- F1 -->
+      <article class="f rv" id="f1">
+        <div class="f-top"><span class="n">01</span><h3>Much of your content is invisible to crawlers that don't run JavaScript.</h3><span class="sev hi">High</span></div>
+        <div class="f-grid"><div>
+          <span class="lbl">What I found</span>
+          <p>Your pages ship as templates. The raw HTML contains <b>nearly 1,600 placeholders</b> like <code>{{ a.title }}</code> and <code>{{ st.num }}</code> across the 16 sitemap pages, and JavaScript fills them in after the page loads. People see the finished page. But many crawlers read only the raw HTML, and most AI crawlers (the ones behind ChatGPT, Claude and Perplexity) don't run JavaScript. They see the placeholders.</p>
+          <p style="margin-top:16px"><span class="lbl">Share of words a no-JavaScript crawler can see</span></p>
+          <div class="bars">
+            <div class="row"><span>Homepage</span><span class="track"><i style="--w:69%"></i></span><span>682 / 991</span></div>
+            <div class="row"><span>Customer stories</span><span class="track"><i style="--w:38%"></i></span><span>399 / 1,047</span></div>
+            <div class="row"><span>News &amp; thinking</span><span class="track"><i style="--w:21%"></i></span><span>115 / 548</span></div>
+          </div>
+          <p style="margin-top:12px">So on the page that holds your customer stories, <b>62% of the words never reach those crawlers.</b> On the News page, it's 79%. The story you most want AI assistants to repeat is the hardest one for them to read.</p>
+          <details class="check"><summary>Check it yourself</summary>
+<pre><span class="c"># raw HTML: what a no-JS crawler gets</span>
+curl -s https://flybits.com/news-and-thinking | grep -c '{{'
+
+<span class="c"># rendered: what a browser shows</span>
+chrome --headless --dump-dom https://flybits.com/news-and-thinking</pre>
+          </details>
+        </div>
+        <div class="two">
+          <div>
+            <span class="lbl">The fix</span>
+            <ul>
+              <li><b>Render at build time.</b> The site is already static <code>.html</code> files, so the data can be written into the HTML when you build, instead of in the browser. Keep the JavaScript for interaction only.</li>
+              <li>If that's a bigger change, prerender just the 16 sitemap pages and the articles first.</li>
+              <li>Then re-test every page with the same two commands and keep the check in your deploy routine.</li>
+            </ul>
+            <div class="effort" style="margin-top:12px"><span><b>Who:</b> developer</span><span><b>Size:</b> one build-step change</span><span><b>Me:</b> test plan + page-by-page QA</span></div>
+          </div>
+          <div class="result"><span class="lbl" style="color:#3d6b50">What it changes</span><p>Every word on every page becomes readable to every crawler. That's the precondition for being quoted in AI answers and for Google indexing your content on the first pass. It doesn't guarantee citations. It removes the thing that blocks them.</p></div>
+        </div></div>
+      </article>
+
+      <!-- F2 -->
+      <article class="f rv" id="f2">
+        <div class="f-top"><span class="n">02</span><h3>No meta descriptions, social preview tags, canonicals or schema. On all 16 pages.</h3><span class="sev hi">High</span></div>
+        <div class="f-grid"><div>
+          <span class="lbl">What I found</span>
+          <table class="mini">
+            <thead><tr><th>Tag</th><th>Pages that have it</th><th>What happens without it</th></tr></thead>
+            <tbody>
+              <tr><td><code>meta description</code></td><td class="dead">0 / 16</td><td>Google writes your search snippet for you, often from cookie or nav text</td></tr>
+              <tr><td><code>og:title / og:image</code></td><td class="dead">0 / 16</td><td>A flybits.com link shared on LinkedIn has no designed preview. For a company whose founder posts and speaks often, that's every share</td></tr>
+              <tr><td><code>rel="canonical"</code></td><td class="dead">0 / 16</td><td>Search engines guess which version of a page is the real one (see finding 05)</td></tr>
+              <tr><td><code>JSON-LD schema</code></td><td class="dead">0 / 16</td><td>No Organization, Article or FAQ data for Google or AI systems to anchor facts to</td></tr>
+              <tr><td>Image <code>alt</code> text</td><td>101 / 182 images</td><td>81 images have no alt or an empty one, including 18 on the homepage</td></tr>
+            </tbody>
+          </table>
+          <details class="check"><summary>Check it yourself</summary>
+<pre>curl -s https://flybits.com/ | grep -c 'name="description"'   <span class="c"># 0</span>
+curl -s https://flybits.com/ | grep -c 'og:'                  <span class="c"># 0</span>
+curl -s https://flybits.com/ | grep -c 'ld+json'              <span class="c"># 0</span></pre>
+          </details>
+        </div>
+        <div class="two">
+          <div>
+            <span class="lbl">The fix</span>
+            <ul>
+              <li>One metadata block per page: title, description, canonical, Open Graph and Twitter tags, and a designed 1200×630 share image.</li>
+              <li>Organization schema sitewide, Article schema on articles, FAQPage schema where there are real Q&amp;As.</li>
+              <li>Alt text written for meaning, not file names.</li>
+              <li><b>I've already drafted the descriptions</b> for six key pages, plus the schema. <a class="link" href="#drafts">See them below.</a></li>
+            </ul>
+            <div class="effort" style="margin-top:12px"><span><b>Who:</b> me (copy) + dev (template)</span><span><b>Size:</b> days, not weeks</span></div>
+          </div>
+          <div class="result"><span class="lbl" style="color:#3d6b50">What it changes</span><p>You decide what your snippets and LinkedIn previews say, instead of Google and LinkedIn guessing. The usual outcome is a better click-through rate on the impressions you already get. Search Console will show the before and after.</p></div>
+        </div></div>
+      </article>
+
+      <!-- F3 -->
+      <article class="f rv" id="f3">
+        <div class="f-top"><span class="n">03</span><h3>222 old URLs died in the redesign, and nothing redirects them.</h3><span class="sev hi">High</span></div>
+        <div class="f-grid"><div>
+          <span class="lbl">What I found</span>
+          <p>The Wayback Machine has <b>222 archived URLs</b> under <code>flybits.com/resources/</code>: 180 blog posts, 19 webinars, 9 case studies, 8 ebooks and 3 events. I tested a random sample of 30. <b>All 30 now return 404.</b> Old links redirect to a version without the trailing slash, and that page doesn't exist.</p>
+          <p>Some of the lost pages are exactly what you're selling today:</p>
+          <table class="mini" style="margin-top:10px">
+            <thead><tr><th>Old URL (now 404)</th><th>Why it hurts</th><th>Redirect to</th></tr></thead>
+            <tbody>
+              <tr><td><code>/resources/blog/adapting-to-the-buy-with-ai-era-a-new-mandate-for-card-issuers-and-loyalty-teams/</code></td><td>Your earlier take on AI buying for card issuers. Written before the Mastercard story, now gone</td><td><code>/agentic-commerce</code></td></tr>
+              <tr><td><code>/resources/case-study/td-for-me-powered-by-flybits/</code></td><td>TD's logo is on your homepage, but its case study is dead</td><td><code>/customer-stories</code> (or restore it)</td></tr>
+              <tr><td><code>/resources/blog/agentic-ai-solution/</code></td><td>Still came up in a web search I ran today. Searchers land on a 404</td><td><code>/agentic-banking</code></td></tr>
+              <tr><td><code>/resources/blog/beyond-the-transaction-leveraging-zero-party-data-for-enhanced-customer-experiences/</code></td><td>Zero-party data is Intent Match's whole idea</td><td><code>/intent-match</code></td></tr>
+              <tr><td><code>/resources/ebook/managing-the-cardholder-lifecycle/</code></td><td>Same topic as Card Portfolio Intelligence</td><td><code>/card-portfolio-intelligence</code></td></tr>
+              <tr><td><code>/resources/event/flybits-airshow-2019/</code></td><td>Your own flagship event</td><td><code>/news-and-thinking</code></td></tr>
+            </tbody>
+          </table>
+          <details class="check"><summary>Check it yourself</summary>
+<pre><span class="c"># every archived URL under /resources/</span>
+curl "https://web.archive.org/cdx/search/cdx?url=flybits.com/resources/*&amp;fl=original&amp;collapse=urlkey&amp;filter=statuscode:200"
+
+<span class="c"># test one</span>
+curl -sIL https://flybits.com/resources/case-study/td-for-me-powered-by-flybits/ | grep HTTP</pre>
+          </details>
+        </div>
+        <div class="two">
+          <div>
+            <span class="lbl">The fix</span>
+            <ol>
+              <li>I build the full 222-row redirect map in a sheet: old URL, topic, new destination, keep or retire.</li>
+              <li><b>Restore</b> the best 10 to 15 (case studies, the AI-buying post, ebooks) as real pages. They're proof you already earned.</li>
+              <li><b>301 redirect</b> everything else to the closest current page, never all to the homepage.</li>
+              <li>Fix the trailing-slash rule so it doesn't create a second hop.</li>
+            </ol>
+            <div class="effort" style="margin-top:12px"><span><b>Who:</b> me (map + rewrites) + dev (rules)</span><span><b>Size:</b> 1 to 2 weeks</span></div>
+          </div>
+          <div class="result"><span class="lbl" style="color:#3d6b50">What it changes</span><p>Anyone who follows an old link (from a partner, a news article, an old email or a search result) lands on a live page instead of an error. Search engines can pass the trust those old pages earned to the new ones. Old-URL 404s go to zero.</p></div>
+        </div></div>
+      </article>
+
+      <!-- F4 -->
+      <article class="f rv" id="f4">
+        <div class="f-top"><span class="n">04</span><h3>Your biggest story lives on someone else's website.</h3><span class="sev hi">High</span></div>
+        <div class="f-grid"><div>
+          <span class="lbl">What I found</span>
+          <p>The News page leads with "Launching Canada's First Agentic Commerce Transaction" and links to the press release on <b>newswire.ca</b>. Mastercard has a page. Retail Insider and NCFA wrote about it. Flybits has no page of its own that explains it.</p>
+          <p>So when someone asks Google or ChatGPT "who did Canada's first agentic commerce transaction?" or "what is agentic commerce in Canada?", the sources available to quote are other people's pages. They frame the story around Mastercard and Rogers Bank.</p>
+        </div>
+        <div class="two">
+          <div>
+            <span class="lbl">The fix</span>
+            <ul>
+              <li>An owned <b>"Agentic commerce in Canada"</b> page on flybits.com: what happened, who did what, what's next, and what it means for card issuers. Written to be quoted.</li>
+              <li>An FAQ on it, marked up with FAQPage schema.</li>
+              <li>Link to it from the News page, the homepage card, the press kit and every founder post.</li>
+              <li>I've drafted the outline and the FAQ. <a class="link" href="#drafts">See below.</a></li>
+            </ul>
+            <div class="effort" style="margin-top:12px"><span><b>Who:</b> me</span><span><b>Size:</b> 1 week, with one review round</span></div>
+          </div>
+          <div class="result"><span class="lbl" style="color:#3d6b50">What it changes</span><p>Flybits becomes a primary source on the topic it pioneered in Canada. It also gives every founder post, sales email and talk one link that tells the full story in Flybits' words.</p></div>
+        </div></div>
+      </article>
+
+      <!-- F5 -->
+      <article class="f rv" id="f5">
+        <div class="f-top"><span class="n">05</span><h3>There are two copies of the site.</h3><span class="sev md">Medium</span></div>
+        <div class="f-grid"><div>
+          <span class="lbl">What I found</span>
+          <p><code>https://flybits.com/</code> and <code>https://www.flybits.com/</code> both return a full page (HTTP 200). Neither redirects to the other, and there's no canonical tag to say which one counts. Plain <code>http://www.flybits.com</code> goes to the www version, while the sitemap lists the non-www version.</p>
+          <details class="check"><summary>Check it yourself</summary>
+<pre>curl -sI https://flybits.com/      | head -1   <span class="c"># 200</span>
+curl -sI https://www.flybits.com/  | head -1   <span class="c"># 200</span></pre>
+          </details>
+        </div>
+        <div class="two">
+          <div><span class="lbl">The fix</span><p>Pick one (the sitemap already uses <code>flybits.com</code>). 301 every www URL to it, and add self-referencing canonicals (finding 02).</p><div class="effort" style="margin-top:12px"><span><b>Who:</b> dev</span><span><b>Size:</b> one rule</span></div></div>
+          <div class="result"><span class="lbl" style="color:#3d6b50">What it changes</span><p>Links and signals pile up on one version instead of being split across two. Analytics stop splitting too.</p></div>
+        </div></div>
+      </article>
+
+      <!-- F6 -->
+      <article class="f rv" id="f6">
+        <div class="f-top"><span class="n">06</span><h3>The sitemap lists 16 pages and none of your articles.</h3><span class="sev md">Medium</span></div>
+        <div class="f-grid"><div>
+          <span class="lbl">What I found</span>
+          <p><code>sitemap.xml</code> has the 16 navigation pages. Articles live at <code>/resources/articles/*.html</code> (the Toronto digital twin, the Maclean's piece, ATB Financial, Members 1st and more), plus <code>/card-portfolio-intelligence</code> and the resources hub. None of them are listed. There are no <code>lastmod</code> dates either, so crawlers can't tell what's new.</p>
+          <p>Smaller: <code>robots.txt</code> contains an internal note, "see CLAUDE.md §6". It's harmless, but it's a dev note on a public file.</p>
+        </div>
+        <div class="two">
+          <div><span class="lbl">The fix</span><p>Generate the sitemap from every live page at build time, with <code>lastmod</code>. Submit it in Google Search Console and Bing Webmaster Tools (Bing's index also powers Copilot and is used by other AI search tools). Clean the robots comment.</p><div class="effort" style="margin-top:12px"><span><b>Who:</b> dev + me</span><span><b>Size:</b> small</span></div></div>
+          <div class="result"><span class="lbl" style="color:#3d6b50">What it changes</span><p>New articles get discovered when they're published instead of whenever a crawler stumbles on them.</p></div>
+        </div></div>
+      </article>
+
+      <!-- F7 -->
+      <article class="f rv" id="f7">
+        <div class="f-top"><span class="n">07</span><h3>Nothing is written for AI answer engines.</h3><span class="sev md">Medium</span></div>
+        <div class="f-grid"><div>
+          <span class="lbl">What I found</span>
+          <p>Buyers in banking now ask assistants questions like "what is agentic banking?", "how do banks use zero-party data?" or "what is a living customer model?". Flybits has strong answers to all of these, but they're spread across product pages written as marketing, not as answers. The Industries and Careers pages have FAQ accordions, but there's no FAQ schema, and none of the FAQs answer category questions like these. There's no glossary, no comparison pages, and no <code>llms.txt</code> (it returns 404).</p>
+          <p>To be clear, <code>llms.txt</code> is a new convention and not every AI company reads it. I'd treat it as a cheap extra, not the fix. The real fix is answer-shaped content that crawlers can read (finding 01).</p>
+        </div>
+        <div class="two">
+          <div>
+            <span class="lbl">The fix</span>
+            <ul>
+              <li><b>Answer pages</b> for the 8 to 10 questions buyers actually ask, each with a two-sentence direct answer at the top, then depth.</li>
+              <li>A <b>glossary</b>: agentic commerce, agentic banking, zero-party data, living customer model (Chronicles), contextual AI, Living Lab.</li>
+              <li>Clear entity facts on About: founded in a research lab, founder, offices, partners. Organization schema to match.</li>
+              <li>Track AI referrals (chatgpt.com, perplexity.ai, copilot) as their own channel in analytics.</li>
+            </ul>
+            <div class="effort" style="margin-top:12px"><span><b>Who:</b> me</span><span><b>Size:</b> 2 pages a week</span></div>
+          </div>
+          <div class="result"><span class="lbl" style="color:#3d6b50">What it changes</span><p>Flybits has a quotable, crawlable answer for each question in its category. I can't promise any AI will cite it, nobody can. But I can run the same 20 prompts monthly and show you whether Flybits is mentioned, alongside AI referral traffic.</p></div>
+        </div></div>
+      </article>
+
+      <!-- F8 -->
+      <article class="f rv" id="f8">
+        <div class="f-top"><span class="n">08</span><h3>Small things a buyer can see.</h3><span class="sev md">Medium</span></div>
+        <div class="f-grid"><div>
+          <span class="lbl">What I found</span>
+          <ul>
+            <li><b>"Headline to come"</b> appears twice on the live Resources page, in the rendered page a visitor sees.</li>
+            <li>"<b>Finnovate</b> Spring 2021" is misspelled in two places (the event is Finovate).</li>
+            <li>The homepage loads a 513 KB photo and a 370 KB illustration. That's fine on office Wi-Fi, but slow on a phone.</li>
+            <li>81 images missing alt text (finding 02).</li>
+          </ul>
+        </div>
+        <div class="two">
+          <div><span class="lbl">The fix</span><p>A one-hour clean-up pass, then a pre-launch checklist so it doesn't come back. Compress the heavy images and serve WebP or AVIF.</p><div class="effort" style="margin-top:12px"><span><b>Who:</b> me + dev</span><span><b>Size:</b> an afternoon</span></div></div>
+          <div class="result"><span class="lbl" style="color:#3d6b50">What it changes</span><p>For a company selling "enterprise intelligence" to banks, polish is part of the pitch. A risk committee notices "Headline to come".</p></div>
+        </div></div>
+      </article>
+
+      <!-- F9 -->
+      <article class="f rv" id="f9">
+        <div class="f-top"><span class="n">09</span><h3>The event engine went quiet.</h3><span class="sev lo">Opportunity</span></div>
+        <div class="f-grid"><div>
+          <span class="lbl">What I found</span>
+          <p>Flybits used to run a real event program: <b>Flybits Airshow</b> in 2018 and 2019 (keynotes and panels with TD, NEXT Canada and Information Venture Partners), 19 webinars, the "Fintech Winedown" series, and Finovate demos every season. The most recent Flybits demo or hosted event on the Resources page is Finovate Spring 2021. The founder still speaks widely, but I couldn't find a recent event Flybits hosts itself.</p>
+        </div>
+        <div class="two">
+          <div>
+            <span class="lbl">The fix</span>
+            <ul>
+              <li><b>Airshow, smaller:</b> a 40-person, invite-only breakfast in Toronto for heads of cards, digital and data at Canadian banks and credit unions. Topic: "What agentic commerce means for issuers." Hossein speaks and the Living Lab demos.</li>
+              <li>A quarterly 30-minute <b>webinar</b> that becomes 1 article, 3 clips and 1 newsletter each time.</li>
+              <li>Turn every talk Hossein gives into an owned page with the slides, the clip and the key points.</li>
+            </ul>
+            <div class="effort" style="margin-top:12px"><span><b>Who:</b> me (run it) + founder (speak)</span><span><b>Size:</b> 6 weeks per event</span></div>
+          </div>
+          <div class="result"><span class="lbl" style="color:#3d6b50">What it changes</span><p>For an enterprise sale with a small number of accounts, one room of the right 40 people is worth more than thousands of clicks. Success is measured in meetings booked afterwards, not attendance.</p></div>
+        </div></div>
+      </article>
+
+      <!-- F10 -->
+      <article class="f rv" id="f10">
+        <div class="f-top"><span class="n">10</span><h3>There's no owned audience loop.</h3><span class="sev lo">Opportunity</span></div>
+        <div class="f-grid"><div>
+          <span class="lbl">What I found</span>
+          <p>There's a "Want more Flybits in your inbox?" signup, which is a good start. But there's no visible rhythm behind it: no dated newsletter archive, no series, no reason to come back. The Institute's AI Readiness Framework is the strongest lead magnet on the site, and it sits behind "Get in touch".</p>
+        </div>
+        <div class="two">
+          <div>
+            <span class="lbl">The fix</span>
+            <ul>
+              <li>A monthly newsletter, <b>"The Living Lab Notes"</b>: one idea from the lab, one customer result, one thing happening in agentic commerce.</li>
+              <li>A short, ungated <b>AI readiness self-check</b> (10 questions) that leads into an Institute conversation.</li>
+              <li>A founder LinkedIn rhythm of 2 posts a week, which I draft and Hossein approves, each pointing to an owned page.</li>
+            </ul>
+            <div class="effort" style="margin-top:12px"><span><b>Who:</b> me</span><span><b>Size:</b> ongoing, about 1 day a week</span></div>
+          </div>
+          <div class="result"><span class="lbl" style="color:#3d6b50">What it changes</span><p>Every press win, talk and article has somewhere to send people, and a way to stay in touch with them after.</p></div>
+        </div></div>
+      </article>
+    </section>
+
+    <!-- ============ DRAFTS ============ -->
+    <section class="s" id="drafts">
+      <div class="s-head rv">
+        <span class="mono">(03) Already drafted</span>
+        <h2>Not ideas. <em>Drafts you could ship.</em></h2>
+        <p>Written from public facts only. Anything that needs your team's input is marked.</p>
+      </div>
+      <div class="tabs rv" role="group" aria-label="Drafts" id="dTabs">
+        <button type="button" data-p="meta" aria-pressed="true">Meta descriptions</button>
+        <button type="button" data-p="faq" aria-pressed="false">Agentic commerce FAQ</button>
+        <button type="button" data-p="hub" aria-pressed="false">Explainer page outline</button>
+        <button type="button" data-p="li" aria-pressed="false">Founder LinkedIn post</button>
+        <button type="button" data-p="code" aria-pressed="false">Schema + llms.txt</button>
+      </div>
+
+      <div class="panel rv" data-panel="meta">
+        <h4>Search snippets for six key pages</h4>
+        <p class="sub">How each would look in Google. All under 160 characters, each using a proof point you already publish.</p>
+        <div id="metaList"></div>
+      </div>
+
+      <div class="panel" data-panel="faq" hidden>
+        <h4>Agentic commerce in Canada: FAQ</h4>
+        <p class="sub">For the owned explainer page, with FAQPage schema. Facts are from the Mastercard release and its coverage.</p>
+        <div class="faq">
+          <details><summary>What is agentic commerce?</summary><p>Agentic commerce is shopping where an AI agent acts for a person within limits they set. The agent can find a product, check it against a budget and complete the payment, with the customer in control of what it's allowed to do.</p></details>
+          <details><summary>What was Canada's first agentic commerce transaction?</summary><p>In September 2026, a Flybits-powered AI assistant acted on instructions from a Rogers Red Mastercard cardholder. It found an eligible product within a set budget and completed the purchase using Mastercard Agent Pay.</p></details>
+          <details><summary>Who did what in the transaction?</summary><p>Flybits provided the AI assistant and the reasoning behind its recommendation. Rogers Bank provided the card account. Mastercard processed the payment on its network through Mastercard Agent Pay.</p></details>
+          <details><summary>Can Rogers Bank customers use it today?</summary><p>Not yet. Rogers has said the service is in testing and isn't available to customers yet.</p></details>
+          <details><summary>Why does agentic commerce matter to card issuers?</summary><p>If agents start making purchases, the card the agent is set up to use wins the transaction. Issuers that can support agent payments, with clear customer controls, can stay at the centre of how their cardholders shop. <em>(Draft framing, to review with your team.)</em></p></details>
+          <details><summary>How does Flybits keep the customer in control?</summary><p><em>Needs your team's input.</em> I'd answer this with the specific controls (budgets, approvals, explanations of recommendations) in your own words, because it's the question risk teams will ask first.</p></details>
+        </div>
+      </div>
+
+      <div class="panel" data-panel="hub" hidden>
+        <h4>/agentic-commerce-canada</h4>
+        <p class="sub">An owned page that becomes the primary source. Around 1,200 words, rendered in HTML, with FAQ and Article schema.</p>
+        <div class="outline">
+          <div><b>1. The two-sentence answer</b><p>What happened, in plain language, at the very top. This is the part AI assistants quote.</p></div>
+          <div><b>2. How it worked</b><p>A simple diagram: cardholder sets limits, the Flybits assistant reasons and recommends, Agent Pay completes it, Rogers Bank's card is used.</p></div>
+          <div><b>3. Why it matters for issuers</b><p>Being the card agents use. Trust, controls and explainability as the moat.</p></div>
+          <div><b>4. What's next</b><p>Only what you're ready to say publicly. Link to Agentic Banking and Card Portfolio Intelligence.</p></div>
+          <div><b>5. FAQ</b><p>The six questions in the FAQ tab, plus two from your sales team's real calls.</p></div>
+          <div><b>6. Sources and press</b><p>The Mastercard release, newswire, coverage, and a press contact. Linking out builds trust.</p></div>
+        </div>
+      </div>
+
+      <div class="panel" data-panel="li" hidden>
+        <h4>A founder post that sends people to the owned page</h4>
+        <p class="sub">Draft for Hossein to edit in his own voice. The point is the link at the end.</p>
+        <div class="post">
+          <div class="h"><span class="av">HR</span><span><b>Hossein Rahnama</b><span>Founder &amp; CEO, Flybits</span></span></div>
+          <p>Most people's first question about AI agents buying things is not "can it?" It's "who's in control?"</p>
+          <p>That's the question we designed around when a Flybits-powered assistant completed Canada's first agentic commerce transaction with Mastercard and Rogers Bank. The cardholder set the limits. The assistant explained its recommendation. Mastercard Agent Pay completed the payment.</p>
+          <p>It's still in testing, and that's the right pace. Trust gets built in small, explainable steps.</p>
+          <p>We wrote up how it worked, what it means for card issuers, and the questions we hear most: flybits.com/agentic-commerce-canada</p>
+        </div>
+        <p class="post-note">Two posts a week like this, each pointing to a page Flybits owns.</p>
+      </div>
+
+      <div class="panel" data-panel="code" hidden>
+        <h4>Organization schema (sitewide)</h4>
+        <p class="sub">Only facts from your own site. Add sameAs links to your official profiles.</p>
+<pre>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Flybits",
+  "url": "https://flybits.com/",
+  "logo": "https://flybits.com/assets/logo/flybits-lockup-white.svg",
+  "description": "Flybits delivers contextual AI technology, expert teams, and a Living Lab model to help enterprises turn knowledge into working capability.",
+  "founder": { "@type": "Person", "name": "Hossein Rahnama" }
+}
+&lt;/script&gt;</pre>
+        <h4 style="margin-top:24px">llms.txt (starter)</h4>
+        <p class="sub">A plain map of the site for AI tools that read it. Cheap to add.</p>
+<pre># Flybits
+&gt; Contextual AI for banks and large enterprises: a no-code platform,
+&gt; expert teams and a Living Lab model.
+
+## Products
+- [Platform](https://flybits.com/our-platform)
+- [Agentic Commerce](https://flybits.com/agentic-commerce)
+- [Agentic Banking](https://flybits.com/agentic-banking)
+- [Intent Match](https://flybits.com/intent-match)
+- [Chronicles](https://flybits.com/chronicles)
+
+## Proof
+- [Customer stories](https://flybits.com/customer-stories)
+- [Lab results](https://flybits.com/lab-results)
+
+## Company
+- [About](https://flybits.com/about-us)
+- [Flybits Institute](https://flybits.com/flybits-institute)</pre>
+      </div>
+    </section>
+
+    <!-- ============ PLAN ============ -->
+    <section class="s" id="plan">
+      <div class="s-head rv">
+        <span class="mono">(04) The first 90 days</span>
+        <h2>From fixes <em>to a marketing engine.</em></h2>
+        <p>The order matters. There's no point writing for AI assistants until they can read the site.</p>
+      </div>
+      <div class="plan">
+        <div class="phase rv">
+          <span class="when">Days 1 to 30</span>
+          <h4>Make the site readable.</h4>
+          <ul>
+            <li>Build-time rendering for all pages (with dev)</li>
+            <li>Metadata, canonicals, share images and schema on every page</li>
+            <li>One host: 301 www to non-www</li>
+            <li>Full sitemap, Search Console and Bing Webmaster set up</li>
+            <li>Polish pass: placeholders, typos, alt text, image weight</li>
+            <li>Baseline everything (see Results)</li>
+          </ul>
+          <p class="out"><b>Done when</b>A no-JavaScript crawler sees 100% of every page, and all 16 pages have complete metadata.</p>
+        </div>
+        <div class="phase rv">
+          <span class="when">Days 31 to 60</span>
+          <h4>Own the story.</h4>
+          <ul>
+            <li>Ship the agentic commerce explainer + FAQ</li>
+            <li>222-URL redirect map live. Restore the best 10 to 15 pages (TD for Me first)</li>
+            <li>Glossary and 4 answer pages</li>
+            <li>Founder LinkedIn rhythm: 2 posts a week</li>
+            <li>Newsletter issue #1</li>
+          </ul>
+          <p class="out"><b>Done when</b>Old links land on live pages, and Flybits has its own primary source for its biggest story.</p>
+        </div>
+        <div class="phase rv">
+          <span class="when">Days 61 to 90</span>
+          <h4>Build the engine.</h4>
+          <ul>
+            <li>4 more answer pages, 1 new customer story</li>
+            <li>AI readiness self-check, leading into the Institute</li>
+            <li>Plan the first small Airshow breakfast</li>
+            <li>Monthly AI-visibility check: 20 buyer prompts across ChatGPT, Perplexity, Gemini and Copilot</li>
+            <li>A one-page monthly report for leadership</li>
+          </ul>
+          <p class="out"><b>Done when</b>There's a repeatable monthly rhythm, and numbers to show what's working.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RESULTS ============ -->
+    <section class="s" id="results">
+      <div class="s-head rv">
+        <span class="mono">(05) What it can do</span>
+        <h2>Results, <em>without the hype.</em></h2>
+        <p>Some of these are certain because they're fixes. The rest are measured, not promised.</p>
+      </div>
+      <div class="tblwrap rv">
+        <table class="res">
+          <thead><tr><th>What</th><th>Today</th><th>After 90 days</th><th>How we'd know</th></tr></thead>
+          <tbody>
+            <tr><td>Text a no-JS crawler can read</td><td class="now">21% to 69% (pages tested)</td><td class="tgt">100%, every page</td><td>The same curl test, run monthly</td></tr>
+            <tr><td>Pages with full metadata + schema</td><td class="now">0 / 16</td><td class="tgt">All pages, including articles</td><td>Crawl report</td></tr>
+            <tr><td>Old URLs returning 404</td><td class="now">30 / 30 sampled</td><td class="tgt">0. All 222 mapped</td><td>Redirect test script + Search Console</td></tr>
+            <tr><td>Owned page for the agentic commerce story</td><td class="now">None</td><td class="tgt">Live, with FAQ</td><td>Search Console impressions for the topic</td></tr>
+            <tr><td>Mentions in AI answers</td><td class="now">Not measured yet</td><td>Baseline + monthly trend</td><td>20 fixed buyer prompts across 4 assistants, logged monthly</td></tr>
+            <tr><td>AI referral traffic</td><td class="now">Not separated yet</td><td>Own channel in analytics</td><td>GA4 channel group for chatgpt.com, perplexity.ai, copilot</td></tr>
+            <tr><td>Search clicks and click-through rate</td><td class="now">Your Search Console baseline</td><td>Trend after the metadata ships</td><td>Search Console, before and after</td></tr>
+            <tr><td>Pipeline from marketing</td><td class="now">Your CRM baseline</td><td>Meetings from events + Institute</td><td>Source fields in the CRM</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="honest"><b>What I won't promise:</b> traffic numbers, rankings or AI citations by a date. Google and AI assistants decide what they show, and anyone who guarantees that is guessing. <b>What I can promise:</b> that nothing on Flybits' side stops them from finding, reading and quoting you, and a clear monthly report on what's moving.</p>
+    </section>
+
+    <!-- ============ ME ============ -->
+    <section class="s" id="me">
+      <div class="s-head rv">
+        <span class="mono">(06) Where I fit</span>
+        <h2>What I'd own, <em>and what I'd need.</em></h2>
+        <p>I can take marketing from almost nothing to a running engine. Here's the honest split.</p>
+      </div>
+      <div class="me rv">
+        <div>
+          <h4>I'd own</h4>
+          <ul>
+            <li><b>SEO and GEO:</b> metadata, schema, the redirect map, answer pages, AI-visibility tracking</li>
+            <li><b>Content:</b> the explainer, articles, customer stories, the newsletter</li>
+            <li><b>Founder content:</b> drafting Hossein's LinkedIn posts for his edit</li>
+            <li><b>Events:</b> running a small Airshow end to end, from list to follow-up</li>
+            <li><b>Reporting:</b> one monthly page leadership can read in two minutes</li>
+          </ul>
+        </div>
+        <div>
+          <h4>I'd need</h4>
+          <ul>
+            <li><b>A developer</b> for a few days in month one: build-time rendering, redirects, host rule</li>
+            <li><b>Access</b> to Search Console, analytics and the CRM to set baselines</li>
+            <li><b>30 minutes a week</b> with someone who knows the product deeply, for accuracy</li>
+            <li><b>Hossein's review</b> on anything in his name</li>
+            <li><b>Sign-off</b> on what can be said publicly about partners</li>
+          </ul>
+        </div>
+      </div>
+      <p class="honest" style="margin-top:28px">Some of what's been said about my work: <i>"The ideas were spot on and you truly grasped the business and its needs!"</i> Colleen Pierre, VP of Marketing, Envera Systems. <i>"Very clever. Appreciate the effort and creativity. Everyone in the office was impressed."</i> Tyler Munro, VP Marketing, Limina. <a class="link" href="../#campaigns">See the campaigns</a></p>
+    </section>
+  </main>
+
+  <footer class="end" id="coffee">
+    <div class="wrap">
+      <span class="mono" style="color:#6f9693">(07) Next step</span>
+      <h2 style="margin-top:16px">Want me to <em>start on 01?</em></h2>
+      <div class="r">
+        <p>I'd love 20 minutes to walk you through this, hear what I got wrong, and talk about how I could help. In Toronto over coffee, or on a call, whatever works for you.</p>
+        <div class="acts">
+          <a href="mailto:durvathakker7@gmail.com?subject=Flybits%20audit">durvathakker7@gmail.com <small>Email ↗</small></a>
+          <a href="https://www.linkedin.com/in/durvathakkar/" target="_blank" rel="noopener">Durva on LinkedIn <small>↗</small></a>
+          <a href="../">durvathakkar.com <small>Portfolio</small></a>
+        </div>
+      </div>
+      <div class="foot"><span>Audit run Oct 30, 2026, on the live site. Numbers will change as you ship.</span><span>Not affiliated with Flybits.</span></div>
+    </div>
+  </footer>
+
+  <script>
+    const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+    const META = [
+      ['flybits.com', 'Flybits: Contextual AI for Banks and Enterprises', 'Flybits builds contextual AI for banks and large enterprises: a no-code platform, expert teams and a Living Lab that takes ideas live in about 90 days.'],
+      ['flybits.com › agentic-commerce', 'Agentic Commerce for Card Issuers | Flybits', "How Flybits, Mastercard and Rogers Bank completed Canada's first agentic commerce transaction, and what it means for card issuers."],
+      ['flybits.com › intent-match', 'Intent Match: Zero-Party Data for Banks | Flybits', 'Intent Match asks customers what they want, captures zero-party data and acts on it. One bank saw a 27% lift in conversion.'],
+      ['flybits.com › customer-stories', 'Customer Stories: Banks and Credit Unions | Flybits', 'See how ATB Financial and a credit union adding $500K+ in loans a month use Flybits to personalize digital banking.'],
+      ['flybits.com › flybits-institute', 'Flybits Institute: Executive AI Education', 'Executive AI education and an AI Readiness Framework that gives your leadership team a zero-hype AI roadmap before anything gets built.'],
+      ['flybits.com › chronicles', 'Chronicles: Living Customer Models | Flybits', 'Chronicles builds a living model of each customer, so banks can make explainable, timely recommendations instead of relying on static profiles.']
+    ];
+    $('#metaList').innerHTML = META.map(([u, t, d]) => `<div class="meta-row"><div class="u">${u}</div><div class="t">${t}</div><div class="d">${d}</div><div class="cnt">${d.length} characters</div></div>`).join('');
+    $('#dTabs').addEventListener('click', e => {
+      const b = e.target.closest('button'); if (!b) return;
+      $$('#dTabs button').forEach(x => x.setAttribute('aria-pressed', x === b));
+      $$('[data-panel]').forEach(p => p.hidden = p.dataset.panel !== b.dataset.p);
+    });
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .1 });
+    $$('.rv, .bars').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
