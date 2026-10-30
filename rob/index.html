@@ -236,20 +236,9 @@
       </div>
     </section>
 
-    <section class="s" id="pow">
-      <div class="s-head rv">
-        <span class="mono">(02) Proof of work</span>
-        <h3>Don't take my word for it. <em>Look.</em></h3>
-      </div>
-      <div class="tabs rv" role="group" aria-label="Filter work" id="workTabs"></div>
-      <div class="gallery" id="gallery"></div>
-      <button class="pill more-btn" type="button" id="workMore" hidden></button>
-      <p class="note">All spec work: made to practise and to show what I can do. None of it is client work, and the brands you see aren't my clients.</p>
-    </section>
-
     <section class="s">
       <div class="s-head rv">
-        <span class="mono">(03) People who can vouch</span>
+        <span class="mono">(02) People who can vouch</span>
         <h3>Their words, <em>not mine.</em></h3>
       </div>
       <div class="vouch">
@@ -270,6 +259,17 @@
           <blockquote>"...one of the strongest pieces of work he's seen in this process." <small>On the ABM campaign I made for Limina</small></blockquote>
         </div>
       </div>
+    </section>
+
+    <section class="s" id="pow">
+      <div class="s-head rv">
+        <span class="mono">(03) Proof of work</span>
+        <h3>Don't take my word for it. <em>Look.</em></h3>
+      </div>
+      <div class="tabs rv" role="group" aria-label="Filter work" id="workTabs"></div>
+      <div class="gallery" id="gallery"></div>
+      <button class="pill more-btn" type="button" id="workMore" hidden></button>
+      <p class="note">All spec work: made to practise and to show what I can do. None of it is client work, and the brands you see aren't my clients.</p>
     </section>
 
     <section class="s">
@@ -327,7 +327,7 @@
       document.body.classList.remove('locked');
       setTimeout(() => curtain.remove(), 1200);
     }
-    document.getElementById('enter').addEventListener('click', lift);
+    document.getElementById('enter').addEventListener('click', () => { lift(); setTimeout(() => document.getElementById('made').scrollIntoView({ behavior: 'smooth' }), 650); });
     addEventListener('wheel', e => { if (e.deltaY > 8) lift(); }, { passive: true });
     let ty = 0;
     addEventListener('touchstart', e => ty = e.touches[0].clientY, { passive: true });
