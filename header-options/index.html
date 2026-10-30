@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Header options · Durva</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #0d0d0c; }
+  body { font-family: "Geist", system-ui, sans-serif; -webkit-font-smoothing: antialiased; color: #111; overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  button { font: inherit; cursor: pointer; border: 0; background: none; color: inherit; }
+  .opt { min-height: 100svh; position: relative; overflow: hidden; display: none; }
+  .opt.on { display: block; }
+  .mono { font-family: "Geist Mono", ui-monospace, monospace; }
+  .serif { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; }
+
+  /* ---------- switcher ---------- */
+  .sw { position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); z-index: 100; display: flex; align-items: center; gap: 4px; padding: 6px; border-radius: 999px; background: rgba(20,20,18,.86); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 20px 50px -20px rgba(0,0,0,.6), inset 0 0 0 1px rgba(255,255,255,.08); max-width: calc(100vw - 24px); }
+  .sw span { font: 500 11px "Geist Mono", monospace; letter-spacing: .1em; text-transform: uppercase; color: #8d897f; padding: 0 10px 0 12px; white-space: nowrap; }
+  .sw button { color: #cfcac2; font-size: 14px; padding: 9px 14px; border-radius: 999px; white-space: nowrap; transition: background .2s, color .2s; }
+  .sw button b { font-weight: 600; margin-right: 6px; color: #d8e46c; }
+  .sw button[aria-pressed="true"] { background: #fff; color: #111; }
+  .sw button[aria-pressed="true"] b { color: #111; }
+  @media (max-width: 720px) { .sw span, .sw button i { display: none; } .sw button { padding: 9px 13px; } .sw button b { margin: 0; } }
+
+  /* =========================================================
+     A · THE COVER (editorial magazine)
+     ========================================================= */
+  .oA { background: #f4efe6; color: #141310; }
+  .oA .bar { display: flex; justify-content: space-between; align-items: center; padding: 22px clamp(16px, 4vw, 48px); border-bottom: 1px solid #141310; }
+  .oA .bar .mono { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; }
+  .oA .bar nav { display: flex; gap: clamp(14px, 2.4vw, 32px); font-size: 14px; }
+  .oA .bar nav a { position: relative; }
+  .oA .bar nav a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -3px; height: 1px; background: currentColor; transition: right .3s; }
+  .oA .bar nav a:hover::after { right: 0; }
+  .oA .grid { display: grid; grid-template-columns: 1fr minmax(260px, 34vw); gap: clamp(20px, 4vw, 56px); padding: clamp(24px, 4vw, 48px) clamp(16px, 4vw, 48px) 110px; align-items: end; }
+  .oA h1 { font-size: clamp(76px, 15.5vw, 236px); line-height: .82; letter-spacing: -0.035em; }
+  .oA h1 i { display: block; padding-left: .55em; color: #2f7a4f; }
+  .oA .lines { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: clamp(28px, 4vw, 52px); border-top: 1px solid #141310; padding-top: 18px; }
+  .oA .lines div { font-size: 15px; line-height: 1.45; color: #4b473f; }
+  .oA .lines b { display: block; font: 500 11px "Geist Mono", monospace; letter-spacing: .12em; text-transform: uppercase; color: #141310; margin-bottom: 8px; }
+  .oA .lines a { border-bottom: 1px solid #141310; color: #141310; }
+  .oA .cover { position: relative; }
+  .oA .arch { border-radius: 999px 999px 18px 18px; overflow: hidden; background: #d8e46c; aspect-ratio: 4/5; }
+  .oA .arch img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
+  .oA .pull { position: absolute; left: -18%; bottom: 8%; width: 74%; background: #141310; color: #f4efe6; padding: 18px 20px; border-radius: 4px; transform: rotate(-3deg); box-shadow: 0 20px 40px -20px rgba(0,0,0,.5); }
+  .oA .pull p { font-size: clamp(19px, 1.7vw, 24px); line-height: 1.15; }
+  .oA .pull small { display: block; margin-top: 10px; font: 400 11px "Geist Mono", monospace; letter-spacing: .08em; text-transform: uppercase; color: #b8b2a6; }
+  .oA .issue { position: absolute; right: -10px; top: 6%; width: 92px; height: 92px; border-radius: 50%; background: #f25c3a; color: #fff; display: grid; place-items: center; text-align: center; font: 500 10px/1.25 "Geist Mono", monospace; letter-spacing: .08em; text-transform: uppercase; transform: rotate(12deg); }
+  @media (max-width: 860px) {
+    .oA .bar nav { display: none; }
+    .oA .grid { grid-template-columns: 1fr; }
+    .oA .cover { max-width: 360px; margin: 0 auto; width: 86%; }
+    .oA .pull { left: -10%; }
+    .oA .lines { grid-template-columns: 1fr; }
+  }
+
+  /* =========================================================
+     B · THE INDEX (dark, swiss, numbered nav + hover previews)
+     ========================================================= */
+  .oB { background: #0f0f0e; color: #ecebe6; }
+  .oB .top { display: flex; justify-content: space-between; align-items: center; padding: 22px clamp(16px, 4vw, 48px); font: 400 12px "Geist Mono", monospace; letter-spacing: .08em; text-transform: uppercase; color: #8d897f; gap: 16px; }
+  .oB .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #c6f36b; margin-right: 8px; box-shadow: 0 0 0 0 rgba(198,243,107,.6); animation: ping 2s infinite; vertical-align: 1px; }
+  @keyframes ping { 70% { box-shadow: 0 0 0 10px rgba(198,243,107,0); } 100% { box-shadow: 0 0 0 0 rgba(198,243,107,0); } }
+  .oB .body { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(24px, 5vw, 80px); padding: clamp(30px, 6vh, 70px) clamp(16px, 4vw, 48px) 120px; align-items: end; min-height: calc(100svh - 70px); }
+  .oB h1 { font-size: clamp(64px, 11vw, 168px); font-weight: 500; letter-spacing: -0.06em; line-height: .86; }
+  .oB h1 span { color: #c6f36b; }
+  .oB .intro { margin-top: 28px; max-width: 460px; font-size: 18px; line-height: 1.5; color: #a9a59c; }
+  .oB .intro b { color: #ecebe6; font-weight: 500; }
+  .oB .me { display: flex; align-items: center; gap: 14px; margin-top: 30px; }
+  .oB .me img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; filter: grayscale(1) contrast(1.05); }
+  .oB .me a { font-size: 15px; padding: 12px 18px; border-radius: 999px; background: #c6f36b; color: #0f0f0e; font-weight: 500; }
+  .oB .me a.ghost { background: transparent; color: #ecebe6; box-shadow: inset 0 0 0 1px #3a3934; }
+  .oB ol { list-style: none; border-top: 1px solid #2a2925; }
+  .oB li a { display: grid; grid-template-columns: 54px 1fr auto; align-items: baseline; padding: 20px 0; border-bottom: 1px solid #2a2925; transition: padding .35s cubic-bezier(.2,.8,.2,1), color .2s; color: #ecebe6; }
+  .oB li a .n { font: 400 12px "Geist Mono", monospace; color: #6e6a62; }
+  .oB li a .t { font-size: clamp(30px, 3.6vw, 52px); letter-spacing: -0.04em; line-height: 1; }
+  .oB li a .d { font-size: 14px; color: #6e6a62; text-align: right; }
+  .oB li a:hover { padding-left: 14px; color: #c6f36b; }
+  .oB .peek { position: fixed; z-index: 50; width: 240px; aspect-ratio: 4/5; border-radius: 14px; overflow: hidden; pointer-events: none; opacity: 0; transform: translate(-50%, -50%) scale(.85) rotate(-4deg); transition: opacity .25s, transform .35s cubic-bezier(.2,.8,.2,1); box-shadow: 0 30px 60px -20px rgba(0,0,0,.8); }
+  .oB .peek.show { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(-4deg); }
+  .oB .peek img { width: 100%; height: 100%; object-fit: cover; }
+  .oB .peek .q { position: absolute; inset: 0; background: #ecebe6; color: #111; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; font-family: "Instrument Serif", serif; font-size: 26px; line-height: 1.05; }
+  .oB .peek .q small { font: 400 11px "Geist Mono", monospace; letter-spacing: .06em; text-transform: uppercase; color: #6e6a62; }
+  @media (max-width: 860px) { .oB .body { grid-template-columns: 1fr; } .oB .top .hide-m { display: none; } .oB li a .d { display: none; } .oB .peek { display: none; } }
+
+  /* =========================================================
+     C · THE PROOF WALL (name left, moving wall of quotes + work)
+     ========================================================= */
+  .oC { background: #fbf8f3; color: #111110; }
+  .oC .top { position: relative; z-index: 3; display: flex; justify-content: space-between; align-items: center; padding: 20px clamp(16px, 4vw, 48px); }
+  .oC .logo { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 18px; letter-spacing: -0.02em; }
+  .oC .logo img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; }
+  .oC nav { display: flex; gap: 4px; padding: 5px; border-radius: 999px; background: #fff; box-shadow: 0 1px 0 rgba(0,0,0,.05), 0 10px 30px -18px rgba(0,0,0,.25); }
+  .oC nav a { font-size: 14px; padding: 8px 14px; border-radius: 999px; color: #5d5850; transition: background .2s, color .2s; }
+  .oC nav a:hover { background: #f1ede5; color: #111; }
+  .oC nav a.cta { background: #111; color: #fff; }
+  .oC .split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 60px); padding: 0 clamp(16px, 4vw, 48px); height: calc(100svh - 80px); min-height: 640px; }
+  .oC .left { align-self: center; padding-bottom: 60px; }
+  .oC .pill { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; padding: 6px 12px 6px 8px; border-radius: 999px; background: #e6f4e8; color: #25784a; font-weight: 500; }
+  .oC .pill i { width: 8px; height: 8px; border-radius: 50%; background: #2f9a5c; }
+  .oC h1 { margin-top: 22px; font-size: clamp(48px, 6.4vw, 96px); font-weight: 500; letter-spacing: -0.05em; line-height: .95; }
+  .oC h1 em { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; letter-spacing: -0.02em; color: #b5268f; }
+  .oC .left p { margin-top: 22px; font-size: 19px; line-height: 1.5; color: #5d5850; max-width: 470px; }
+  .oC .ctas { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 30px; }
+  .oC .ctas a { padding: 14px 20px; border-radius: 999px; font-size: 15px; font-weight: 500; background: #fff; box-shadow: inset 0 0 0 1px #e4ded3; }
+  .oC .ctas a.p { background: #111; color: #fff; box-shadow: none; }
+  .oC .wall { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; overflow: hidden; mask-image: linear-gradient(transparent, #000 12%, #000 88%, transparent); -webkit-mask-image: linear-gradient(transparent, #000 12%, #000 88%, transparent); }
+  .oC .col { display: flex; flex-direction: column; gap: 14px; animation: up 38s linear infinite; }
+  .oC .col.dn { animation-name: dn; animation-duration: 44s; }
+  .oC .wall:hover .col { animation-play-state: paused; }
+  @keyframes up { to { transform: translateY(-50%); } }
+  @keyframes dn { from { transform: translateY(-50%); } to { transform: translateY(0); } }
+  .oC .card { border-radius: 22px; padding: 20px; background: #fff; box-shadow: 0 1px 0 rgba(0,0,0,.04), 0 18px 40px -26px rgba(40,30,20,.35); }
+  .oC .card p { font-size: 16px; line-height: 1.4; letter-spacing: -0.01em; }
+  .oC .card .who { display: flex; align-items: center; gap: 10px; margin-top: 16px; font-size: 13px; color: #5d5850; line-height: 1.3; }
+  .oC .card .who img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+  .oC .card .who b { display: block; color: #111; font-weight: 600; }
+  .oC .card.dark { background: #111; color: #fff; } .oC .card.dark .who { color: #aaa49a; } .oC .card.dark .who b { color: #fff; }
+  .oC .card.img { padding: 0; overflow: hidden; }
+  .oC .card.img img { width: 100%; }
+  .oC .card.img span { display: block; padding: 12px 16px; font: 400 11px "Geist Mono", monospace; letter-spacing: .06em; text-transform: uppercase; color: #5d5850; }
+  @media (max-width: 860px) {
+    .oC nav a:not(.cta) { display: none; }
+    .oC .split { grid-template-columns: 1fr; height: auto; min-height: 0; }
+    .oC .left { padding: 30px 0 10px; }
+    .oC .wall { height: 520px; margin-bottom: 90px; }
+  }
+
+  /* =========================================================
+     D · THE LETTER (read the page, every link is a door)
+     ========================================================= */
+  .oD { background: #efe7da; color: #2a2620; }
+  .oD::before { content: ""; position: absolute; inset: 0; opacity: .35; mix-blend-mode: multiply; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); pointer-events: none; }
+  .oD .top { position: relative; display: flex; justify-content: space-between; padding: 22px clamp(16px, 4vw, 48px); font: 400 12px "Geist Mono", monospace; letter-spacing: .08em; text-transform: uppercase; color: #7a7164; }
+  .oD .top a:hover { color: #2a2620; }
+  .oD .paper { position: relative; max-width: 900px; margin: clamp(10px, 4vh, 40px) auto 120px; padding: 0 clamp(16px, 4vw, 48px); }
+  .oD .stamp { position: absolute; right: clamp(16px, 4vw, 48px); top: -6px; width: 120px; padding: 7px; background: #fff; transform: rotate(5deg); box-shadow: 0 10px 24px -12px rgba(0,0,0,.4); --m: radial-gradient(circle 5px at 50% 0, #0000 98%, #000) 50% / 14px 100%; }
+  .oD .stamp img { aspect-ratio: 4/5; object-fit: cover; background: #d8e46c; }
+  .oD .stamp small { display: block; text-align: center; font: 500 9px "Geist Mono", monospace; letter-spacing: .12em; text-transform: uppercase; padding-top: 6px; color: #7a7164; }
+  .oD .date { font: 400 13px "Geist Mono", monospace; color: #7a7164; }
+  .oD .letter { margin-top: 30px; font-family: "Instrument Serif", serif; font-size: clamp(30px, 4.3vw, 58px); line-height: 1.12; letter-spacing: -0.01em; max-width: 780px; }
+  .oD .letter p + p { margin-top: .55em; }
+  .oD .door { position: relative; display: inline; color: #2a2620; background-image: linear-gradient(var(--hl), var(--hl)); background-size: 100% .38em; background-position: 0 88%; background-repeat: no-repeat; transition: background-size .35s; cursor: pointer; }
+  .oD .door:hover, .oD .door:focus-visible { background-size: 100% 88%; outline: none; }
+  .oD .door .pop { position: absolute; left: 50%; bottom: calc(100% + 14px); width: 240px; transform: translate(-50%, 10px) rotate(-2deg); opacity: 0; pointer-events: none; transition: opacity .2s, transform .3s cubic-bezier(.2,.8,.2,1); z-index: 5; background: #fff; padding: 8px; border-radius: 6px; box-shadow: 0 24px 50px -20px rgba(0,0,0,.45); font-family: "Geist", sans-serif; font-size: 14px; line-height: 1.4; letter-spacing: 0; }
+  .oD .door .pop img { border-radius: 3px; }
+  .oD .door .pop .qt { padding: 10px 10px 6px; color: #2a2620; }
+  .oD .door .pop .qt small { display: block; margin-top: 8px; font: 400 10px "Geist Mono", monospace; letter-spacing: .08em; text-transform: uppercase; color: #7a7164; }
+  .oD .door:hover .pop, .oD .door:focus-visible .pop { opacity: 1; transform: translate(-50%, 0) rotate(-2deg); }
+  .oD .sign { margin-top: 34px; font-family: "Caveat", cursive; font-size: clamp(44px, 5vw, 64px); line-height: 1; color: #2f5bd8; transform: rotate(-4deg); display: inline-block; }
+  .oD .ps { margin-top: 26px; font-size: 15px; color: #7a7164; display: flex; gap: 18px; flex-wrap: wrap; }
+  .oD .ps a { border-bottom: 1px solid #b9ae9d; }
+  @media (max-width: 720px) { .oD .stamp { width: 84px; top: -14px; } .oD .door .pop { display: none; } .oD .letter { margin-top: 44px; } }
+
+  /* =========================================================
+     E · ASK ME (a calm prompt; navigation as questions)
+     ========================================================= */
+  .oE { background: #fafaf8; color: #121212; }
+  .oE .mesh { position: absolute; inset: -20%; background:
+      radial-gradient(40% 35% at 20% 25%, #e7f0b4 0%, transparent 60%),
+      radial-gradient(35% 35% at 82% 20%, #f8d9e9 0%, transparent 60%),
+      radial-gradient(40% 40% at 70% 85%, #d9e4ff 0%, transparent 60%),
+      radial-gradient(30% 30% at 15% 85%, #ffe6cf 0%, transparent 60%);
+    filter: blur(20px); animation: drift 22s ease-in-out infinite alternate; }
+  @keyframes drift { to { transform: translate(3%, -3%) rotate(6deg); } }
+  .oE .top { position: relative; display: flex; justify-content: space-between; align-items: center; padding: 20px clamp(16px, 4vw, 48px); font-size: 14px; }
+  .oE .top b { font-weight: 600; letter-spacing: -0.02em; font-size: 17px; }
+  .oE .top div { display: flex; gap: 22px; color: #5b5b57; }
+  .oE .top div a:hover { color: #121212; }
+  .oE .center { position: relative; max-width: 760px; margin: 0 auto; padding: clamp(30px, 9vh, 110px) 16px 140px; text-align: center; }
+  .oE .ava { position: relative; width: 92px; height: 92px; margin: 0 auto; }
+  .oE .ava img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: 50% 30%; box-shadow: 0 0 0 5px #fff, 0 20px 40px -18px rgba(0,0,0,.4); }
+  .oE .ava i { position: absolute; right: 2px; bottom: 6px; width: 18px; height: 18px; border-radius: 50%; background: #34c759; box-shadow: 0 0 0 4px #fff; }
+  .oE h1 { margin-top: 26px; font-size: clamp(40px, 6.2vw, 76px); font-weight: 500; letter-spacing: -0.05em; line-height: 1; }
+  .oE h1 em { font-family: "Instrument Serif", serif; font-weight: 400; letter-spacing: -0.02em; }
+  .oE .sub { margin-top: 18px; font-size: 18px; color: #5b5b57; }
+  .oE .box { margin: 34px auto 0; max-width: 620px; background: rgba(255,255,255,.82); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-radius: 24px; padding: 10px; text-align: left; box-shadow: 0 1px 0 rgba(0,0,0,.04), 0 30px 60px -30px rgba(30,30,60,.35), inset 0 0 0 1px rgba(0,0,0,.05); }
+  .oE .field { display: flex; align-items: center; gap: 12px; padding: 12px 14px; font-size: 18px; color: #9a9a94; }
+  .oE .field svg { flex: none; }
+  .oE .field .typed { color: #121212; }
+  .oE .field .caret { display: inline-block; width: 2px; height: 1.1em; background: #121212; vertical-align: -3px; animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .oE .chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 6px 8px 8px; }
+  .oE .chips button { font-size: 14px; padding: 9px 14px; border-radius: 999px; background: #f2f2ee; color: #2b2b28; transition: background .2s, transform .2s; }
+  .oE .chips button:hover { background: #e9e9e2; transform: translateY(-1px); }
+  .oE .chips button[aria-pressed="true"] { background: #121212; color: #fff; }
+  .oE .ans { display: none; margin: 6px 8px 8px; padding: 18px; border-radius: 18px; background: #fff; box-shadow: inset 0 0 0 1px #eee; animation: rise .35s cubic-bezier(.2,.8,.2,1); }
+  .oE .ans.on { display: block; }
+  @keyframes rise { from { opacity: 0; transform: translateY(8px); } }
+  .oE .ans p { font-size: 16px; line-height: 1.5; color: #3a3a36; }
+  .oE .ans .row { display: flex; gap: 10px; margin-top: 14px; overflow-x: auto; }
+  .oE .ans .row img { width: 110px; height: 136px; object-fit: cover; border-radius: 10px; flex: none; }
+  .oE .ans .who { display: flex; align-items: center; gap: 10px; margin-top: 12px; font-size: 13px; color: #6b6b66; }
+  .oE .ans .who img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; }
+  .oE .ans a.go { display: inline-block; margin-top: 14px; font-size: 14px; font-weight: 500; color: #121212; border-bottom: 1px solid #121212; }
+  @media (max-width: 640px) { .oE .top div a:not(:last-child) { display: none; } }
+</style>
+</head>
+<body>
+
+<!-- ======================= A ======================= -->
+<section class="opt oA on" id="A" aria-label="Option A, The Cover">
+  <div class="bar">
+    <span class="mono">Durva Thakkar · Vol. 01</span>
+    <nav><a href="../#work">Work</a><a href="../#kind-words">Kind words</a><a href="../#writing">Writing</a><a href="../#journey">About</a><a href="../#say-hi">Coffee</a></nav>
+    <span class="mono">Ontario, Canada</span>
+  </div>
+  <div class="grid">
+    <div>
+      <h1 class="serif">Durva<i>Thakkar.</i></h1>
+      <div class="lines">
+        <div><b>The role</b>Content marketer. SEO and GEO writing that ranks in search and shows up in AI answers.</div>
+        <div><b>The habit</b>When I want to work somewhere, I build them a page first. <a href="../#work">See the work</a></div>
+        <div><b>The ask</b>Looking for what's next in Canada. <a href="../#say-hi">Let's grab a coffee</a></div>
+      </div>
+    </div>
+    <div class="cover">
+      <div class="arch"><img src="../assets/durva-portrait.jpg" alt="Durva Thakkar"></div>
+      <div class="issue">Open<br>to<br>work</div>
+      <div class="pull"><p class="serif">"My goodness Durva, this and YOU are amazing! I'm beyond impressed."</p><small>Colleen Pierre · VP Marketing, Envera</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= B ======================= -->
+<section class="opt oB" id="B" aria-label="Option B, The Index">
+  <div class="top"><span><span class="dot"></span>Open to work</span><span class="hide-m">Content &amp; digital marketing</span><span id="clock">Ontario</span></div>
+  <div class="body">
+    <div>
+      <h1>Durva<br>Thakkar<span>.</span></h1>
+      <p class="intro"><b>Content marketer.</b> I write SEO and GEO content, start the conversations, and listen to the customers. When I want to work somewhere, I build them a page first.</p>
+      <div class="me"><img src="../assets/durva-headshot.jpg" alt=""><a href="../#say-hi">Grab a coffee</a><a class="ghost" href="../assets/Durva-Thakkar-Resume.pdf">Resume</a></div>
+    </div>
+    <ol>
+      <li><a href="../#work" data-peek="img:../assets/proof/spellbook-c1.jpg"><span class="n">01</span><span class="t">Work</span><span class="d">Posts, carousels, blogs</span></a></li>
+      <li><a href="../#kind-words" data-peek="q:Very clever. Everyone in the office was impressed.|Tyler Munro · Limina"><span class="n">02</span><span class="t">Kind words</span><span class="d">In their words</span></a></li>
+      <li><a href="../#writing" data-peek="img:../assets/proof/acre-blog.jpg"><span class="n">03</span><span class="t">Writing</span><span class="d">Published articles</span></a></li>
+      <li><a href="../#journey" data-peek="img:../assets/durva-portrait.jpg"><span class="n">04</span><span class="t">About</span><span class="d">India to Toronto</span></a></li>
+      <li><a href="../#say-hi" data-peek="q:Let's grab a coffee. In person or on a call.|Durva"><span class="n">05</span><span class="t">Coffee</span><span class="d">Say hi</span></a></li>
+    </ol>
+  </div>
+  <div class="peek" id="peek"></div>
+</section>
+
+<!-- ======================= C ======================= -->
+<section class="opt oC" id="C" aria-label="Option C, The Proof Wall">
+  <div class="top">
+    <a class="logo" href="../"><img src="../assets/durva-avatar.jpg" alt="">durva</a>
+    <nav><a href="../#work">Work</a><a href="../#kind-words">Kind words</a><a href="../#writing">Writing</a><a href="../#journey">About</a><a class="cta" href="../#say-hi">Coffee ☕</a></nav>
+  </div>
+  <div class="split">
+    <div class="left">
+      <span class="pill"><i></i>Open to work in Canada</span>
+      <h1>Don't take my word for it. <em>Take theirs.</em></h1>
+      <p>I'm Durva, a content marketer. I write SEO and GEO content that ranks, start real conversations, and when I want to work somewhere, I build them a page first.</p>
+      <div class="ctas"><a class="p" href="../#work">See the work</a><a href="../#say-hi">Grab a coffee</a><a href="../assets/Durva-Thakkar-Resume.pdf">Resume</a></div>
+    </div>
+    <div class="wall" aria-label="What people said, and some of the work">
+      <div class="col" id="colA"></div>
+      <div class="col dn" id="colB"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= D ======================= -->
+<section class="opt oD" id="D" aria-label="Option D, The Letter">
+  <div class="top"><a href="../">durvathakkar.com</a><a href="../assets/Durva-Thakkar-Resume.pdf">Resume ↗</a></div>
+  <div class="paper">
+    <div class="stamp"><img src="../assets/durva-portrait.jpg" alt="Durva Thakkar"><small>Ontario · CA</small></div>
+    <p class="date" id="today">Dear you,</p>
+    <div class="letter">
+      <p>Hi, I'm Durva. I write <a class="door" href="../#writing" style="--hl:#e9f19a">content that ranks<span class="pop"><img src="../assets/proof/acre-blog.jpg" alt=""></span></a>, start <a class="door" href="../#journey" style="--hl:#ffd9c2">conversations that convert<span class="pop"><span class="qt">Discovery calls in Toronto, outreach that sounds like a human wrote it.</span></span></a>, and listen to the customers.</p>
+      <p>When I want to work somewhere, I <a class="door" href="../#work" style="--hl:#d6e2ff">build them a page first<span class="pop"><img src="../assets/proof/spellbook-c1.jpg" alt=""></span></a>. Some people said <a class="door" href="../#kind-words" style="--hl:#f9d3e8">kind things<span class="pop"><span class="qt">"My goodness Durva, this and YOU are amazing! I'm beyond impressed."<small>Colleen Pierre · Envera Systems</small></span></span></a>.</p>
+      <p>If you're building something good, <a class="door" href="../#say-hi" style="--hl:#cdeccf">let's grab a coffee<span class="pop"><span class="qt">In person or on a call. I always say yes to the coffee.</span></span></a>.</p>
+    </div>
+    <span class="sign">Durva</span>
+    <div class="ps"><span>P.S.</span><a href="../#work">Work</a><a href="../#kind-words">Kind words</a><a href="../#writing">Writing</a><a href="../#journey">About</a></div>
+  </div>
+</section>
+
+<!-- ======================= E ======================= -->
+<section class="opt oE" id="E" aria-label="Option E, Ask Me">
+  <div class="mesh" aria-hidden="true"></div>
+  <div class="top"><b>durva</b><div><a href="../#work">Work</a><a href="../#kind-words">Kind words</a><a href="../assets/Durva-Thakkar-Resume.pdf">Resume</a></div></div>
+  <div class="center">
+    <div class="ava"><img src="../assets/durva-portrait.jpg" alt="Durva Thakkar"><i title="Open to work"></i></div>
+    <h1>Hi, I'm Durva. <em>What would you like to see?</em></h1>
+    <p class="sub">Content marketer in Ontario. Open to what's next.</p>
+    <div class="box">
+      <div class="field"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9a9a94" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span><span class="typed" id="typed"></span><span class="caret"></span></span></div>
+      <div class="chips" role="group" aria-label="Pick a question">
+        <button type="button" data-a="work" aria-pressed="false">Show me your work</button>
+        <button type="button" data-a="kind" aria-pressed="false">What do people say?</button>
+        <button type="button" data-a="pages" aria-pressed="false">Why build pages?</button>
+        <button type="button" data-a="coffee" aria-pressed="false">Can we chat?</button>
+      </div>
+      <div class="ans" data-for="work"><p>LinkedIn posts, Instagram carousels, blogs, case studies and campaign graphics.</p><div class="row"><img src="../assets/proof/spellbook-c1.jpg" alt=""><img src="../assets/proof/acre-a1.jpg" alt=""><img src="../assets/proof/spellbook-ig1.jpg" alt=""><img src="../assets/proof/acre-a3.jpg" alt=""></div><a class="go" href="../#work">See all the work →</a></div>
+      <div class="ans" data-for="kind"><p>"Very clever. Appreciate the effort and creativity. Everyone in the office was impressed."</p><div class="who"><img src="../assets/kind/tyler.jpg" alt="">Tyler Munro · VP Marketing, Limina</div><a class="go" href="../#kind-words">Read more kind words →</a></div>
+      <div class="ans" data-for="pages"><p>Because a resume tells you what I did. A page shows you how I think about your business, before we've even met.</p><a class="go" href="../#work">See an example →</a></div>
+      <div class="ans" data-for="coffee"><p>Always. In person or on a call. I always say yes to the coffee.</p><a class="go" href="../#say-hi">Say hi →</a></div>
+    </div>
+  </div>
+</section>
+
+<div class="sw" role="group" aria-label="Pick a header option">
+  <span>Header</span>
+  <button type="button" data-o="A" aria-pressed="true"><b>A</b><i>Cover</i></button>
+  <button type="button" data-o="B" aria-pressed="false"><b>B</b><i>Index</i></button>
+  <button type="button" data-o="C" aria-pressed="false"><b>C</b><i>Proof wall</i></button>
+  <button type="button" data-o="D" aria-pressed="false"><b>D</b><i>Letter</i></button>
+  <button type="button" data-o="E" aria-pressed="false"><b>E</b><i>Ask me</i></button>
+</div>
+
+<script>
+  // switcher (remembers via #hash)
+  const btns = [...document.querySelectorAll('.sw button')];
+  function show(o) {
+    document.querySelectorAll('.opt').forEach(s => s.classList.toggle('on', s.id === o));
+    btns.forEach(b => b.setAttribute('aria-pressed', b.dataset.o === o));
+    history.replaceState(null, '', '#' + o);
+    window.scrollTo(0, 0);
+  }
+  btns.forEach(b => b.addEventListener('click', () => show(b.dataset.o)));
+  const start = (location.hash || '').slice(1);
+  if (/^[A-E]$/.test(start)) show(start);
+  addEventListener('hashchange', () => { const h = location.hash.slice(1); if (/^[A-E]$/.test(h)) show(h); });
+  addEventListener('keydown', e => { const i = btns.findIndex(b => b.getAttribute('aria-pressed') === 'true'); if (e.key === 'ArrowRight') btns[(i + 1) % 5].click(); if (e.key === 'ArrowLeft') btns[(i + 4) % 5].click(); });
+
+  // B: clock + hover previews
+  const clock = document.getElementById('clock');
+  const tick = () => clock.textContent = 'Ontario ' + new Date().toLocaleTimeString('en-CA', { hour: 'numeric', minute: '2-digit', timeZone: 'America/Toronto' });
+  tick(); setInterval(tick, 30000);
+  const peek = document.getElementById('peek');
+  document.querySelectorAll('[data-peek]').forEach(a => {
+    a.addEventListener('mouseenter', () => {
+      const [kind, val] = [a.dataset.peek.slice(0, a.dataset.peek.indexOf(':')), a.dataset.peek.slice(a.dataset.peek.indexOf(':') + 1)];
+      if (kind === 'img') peek.innerHTML = '<img src="' + val + '" alt="">';
+      else { const [q, w] = val.split('|'); peek.innerHTML = '<div class="q">"' + q + '"<small>' + w + '</small></div>'; }
+      peek.classList.add('show');
+    });
+    a.addEventListener('mouseleave', () => peek.classList.remove('show'));
+    a.addEventListener('mousemove', e => { peek.style.left = e.clientX + 150 + 'px'; peek.style.top = e.clientY + 'px'; });
+  });
+
+  // C: proof wall
+  const q = (t, n, r, img, dark) => '<figure class="card' + (dark ? ' dark' : '') + '"><p>"' + t + '"</p><figcaption class="who"><img src="../assets/kind/' + img + '.jpg" alt=""><span><b>' + n + '</b>' + r + '</span></figcaption></figure>';
+  const w = (src, label) => '<figure class="card img"><img src="../assets/proof/' + src + '" alt=""><span>' + label + '</span></figure>';
+  const A = [
+    q('My goodness Durva, this and YOU are amazing! I\'m beyond impressed.', 'Colleen Pierre', 'VP of Marketing, Envera Systems', 'colleen', true),
+    w('spellbook-c1.jpg', 'Instagram carousel'),
+    q('Speaking with you on Wednesday was an absolute pleasure. I am so utterly impressed by your passion, talent, and accomplishments.', 'Sara Lemmermeyer', 'Group Account Director, Rethink PR', 'sara'),
+    w('acre-blog.jpg', 'Blog'),
+  ];
+  const B = [
+    w('acre-a1.jpg', 'Campaign graphic'),
+    q('Very clever. Appreciate the effort and creativity. Everyone in the office was impressed.', 'Tyler Munro', 'VP Marketing, Limina', 'tyler'),
+    w('case.jpg', 'Case study'),
+    q('Your creativity and ideas are a real strength.', 'Ksenia Onosov', 'Recruiter, Forum Ventures', 'ksenia', true),
+  ];
+  document.getElementById('colA').innerHTML = A.join('') + A.join('');
+  document.getElementById('colB').innerHTML = B.join('') + B.join('');
+
+  // D: date line
+  document.getElementById('today').textContent = new Date().toLocaleDateString('en-CA', { month: 'long', day: 'numeric', year: 'numeric' }) + ' · Dear you,';
+
+  // E: typed prompt + answers
+  const phrases = ['Show me your work', 'What do people say about you?', 'Why build a page for every company?', 'Can we grab a coffee?'];
+  const typed = document.getElementById('typed'); let pi = 0, ci = 0, del = false, paused = false;
+  (function type() {
+    if (!paused) {
+      const p = phrases[pi];
+      typed.textContent = p.slice(0, ci);
+      if (!del && ci < p.length) ci++; else if (!del) { del = true; return setTimeout(type, 1600); }
+      else if (ci > 0) ci--; else { del = false; pi = (pi + 1) % phrases.length; }
+    }
+    setTimeout(type, del ? 28 : 55);
+  })();
+  document.querySelectorAll('.oE .chips button').forEach(b => b.addEventListener('click', () => {
+    const on = b.getAttribute('aria-pressed') !== 'true';
+    document.querySelectorAll('.oE .chips button').forEach(x => x.setAttribute('aria-pressed', 'false'));
+    document.querySelectorAll('.oE .ans').forEach(a => a.classList.toggle('on', on && a.dataset.for === b.dataset.a));
+    b.setAttribute('aria-pressed', on);
+    paused = on; if (on) typed.textContent = b.textContent;
+  }));
+</script>
+</body>
+</html>
