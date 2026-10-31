@@ -266,7 +266,7 @@ pre.code{background:#0c0c0c;color:#e6e6e6;padding:16px;overflow:auto;max-height:
 .proof a{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;padding:18px 0;border-bottom:1px solid var(--l);text-decoration:none}
 .proof a b{font-size:22px;letter-spacing:-.03em;display:block;line-height:1.1}
 .proof a span{font-size:14.5px;color:var(--k2);display:block;margin-top:6px}
-.proof a q{display:block;font-size:14.5px;color:var(--k);margin-top:8px;font-style:italic}
+.proof a q{quotes:none;display:block;font-size:14.5px;color:var(--k);margin-top:8px;font-style:italic}
 .proof a em{font-style:normal;font-size:24px}
 .proof a:hover b{text-decoration:underline;text-underline-offset:4px}
 
@@ -327,7 +327,7 @@ footer .cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px
 <body>
 <div class="nav"><div class="wrap">
   <span class="lg">Durva <i>for</i> Leo</span>
-  <nav><a href="#audit">Missing</a><a href="#humankind">HumanKind</a><a href="#work">Work</a><a href="#news">News</a><a href="#found">Found</a><a href="#durva">Durva</a></nav>
+  <nav><a href="#audit">Missing</a><a href="#humankind">HumanKind</a><a href="#work">Work</a><a href="#news">News</a><a href="#found">Found</a><a href="#content">LinkedIn</a><a href="#durva">Durva</a></nav>
 </div></div>
 
 <header class="hero"><div class="wrap">
@@ -639,16 +639,107 @@ footer .cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px
   </div>
 </div></section>
 
-<!-- 06 DURVA -->
+
+<!-- 06 CONTENT -->
+<section id="content"><div class="wrap">
+  <div class="sh"><div><span class="n">06 · LinkedIn, run like a newsroom</span><h2>Four voices, one month, planned.</h2></div>
+    <p>Your leaders already say sharp things in press releases. On LinkedIn, where CMOs and recruits actually read them, the voices are mostly quiet. Here's November, planned post by post, with three long-form posts written in full, the first issue of a HumanKind newsletter, and the check every post passes before it goes out, so nothing reads like a machine wrote it.</p></div>
+  <div class="dk" data-dk="content">
+    <div class="dk-ix">
+      <button data-k="plan" class="on">November plan<small>19 posts, 5 voices</small></button>
+      <button data-k="ben">Long-form · Ben Tarr<small>5 years of HumanKind</small></button>
+      <button data-k="angus">Long-form · Angus Tucker<small>AI and the slog</small></button>
+      <button data-k="adriano">Long-form · Adriano Matos<small>first post as CCO</small></button>
+      <button data-k="news">HumanKind Notes, issue 1<small>LinkedIn newsletter</small></button>
+      <button data-k="human">The human check<small>paste any draft</small></button>
+    </div>
+
+    <div class="dk-p on" data-k="plan">
+      <span class="kick">Nov 2 to 27, 2026 · 19 posts and one deliberate pause</span>
+      <h3>Who posts what, and why it's them.</h3>
+      <div class="g4" style="margin-top:14px" id="cpWho"></div>
+      <div class="scroll"><table class="tbl" id="cpT"></table></div>
+      <div class="g2">
+        <div class="box s"><h5>How a post gets made</h5><ol>
+          <li>15-minute voice note or chat with the leader, or their own quote from a release.</li>
+          <li>I draft it in their words, not mine. Hi LEO can do the research and formatting.</li>
+          <li>Human check (last tab), then the leader edits and approves.</li>
+          <li>Posted from their own account. I handle the first-hour replies they ask me to.</li>
+        </ol></div>
+        <div class="box"><h5>What we measure</h5><ul>
+          <li>Comments from people at client-side brands, not likes.</li>
+          <li>HumanKind downloads and live-session requests from LinkedIn links.</li>
+          <li>Profile visits to the company page and the careers page.</li>
+          <li>Inbound messages that mention a post.</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="dk-p" data-k="ben">
+      <span class="kick">Ghostwritten for Ben Tarr · long-form, about 1,600 characters · for his approval</span>
+      <div class="g2">
+        <div class="li"><div class="h"><i>BT</i><div><b>Ben Tarr</b><small>President, Leo Group Canada</small></div></div><div class="tx" id="lfBen"></div></div>
+        <div><div class="box s"><h5>Built from</h5><ul><li>The 2026 study's own stats and themes.</li><li>Leo Burnett's line on the study page: "What helps people, helps business."</li><li>Ben's Hi LEO quote: AI as "an amplifier to our teams."</li></ul></div><div class="codehd"><span class="src" style="margin:0" id="lfBenN"></span><button class="cbtn" data-copy="lfBen">Copy</button></div><div id="lfBenH"></div></div>
+      </div>
+    </div>
+
+    <div class="dk-p" data-k="angus">
+      <span class="kick">Ghostwritten for Angus Tucker · long-form · for his approval</span>
+      <div class="g2">
+        <div class="li"><div class="h"><i>AT</i><div><b>Angus Tucker</b><small>Creative Chairman, Leo Toronto</small></div></div><div class="tx" id="lfAng"></div></div>
+        <div><div class="box s"><h5>Built from</h5><ul><li>His Hi LEO quote: "the slog... formatting, sourcing materials and video reference, combing through research."</li><li>His creative team quote: AI "as transformative a force as the internet was 30 years ago."</li><li>Your GPC scale, which he'd know by heart.</li></ul></div><div class="codehd"><span class="src" style="margin:0" id="lfAngN"></span><button class="cbtn" data-copy="lfAng">Copy</button></div><div id="lfAngH"></div></div>
+      </div>
+    </div>
+
+    <div class="dk-p" data-k="adriano">
+      <span class="kick">Ghostwritten for Adriano Matos · a first draft he rewrites in his own words</span>
+      <div class="g2">
+        <div class="li"><div class="h"><i>AM</i><div><b>Adriano Matos</b><small>Chief Creative Officer, Leo Toronto</small></div></div><div class="tx" id="lfAdr"></div></div>
+        <div><div class="box s"><h5>Built from</h5><ul><li>Public facts: Leo Burnett Chicago, Ogilvy, Grey Brazil. Campbell's, Beam Suntory, Meta.</li><li>His stated goal in LBB: a "global hub of creative excellence."</li><li>Leo Toronto's own story: AOY Silver, 20+ creative hires.</li></ul><p style="margin-top:8px">Anything personal, like why he said yes or what he's noticed in Toronto, has to come from him. This draft leaves room for it instead of guessing.</p></div><div class="codehd"><span class="src" style="margin:0" id="lfAdrN"></span><button class="cbtn" data-copy="lfAdr">Copy</button></div><div id="lfAdrH"></div></div>
+      </div>
+    </div>
+
+    <div class="dk-p" data-k="news">
+      <span class="kick">LinkedIn newsletter from the Leo Toronto page · monthly · subscribers get a notification</span>
+      <h3>HumanKind Notes</h3>
+      <p>One finding a month, what it means for brands, and one piece of work that gets it right. It keeps the study working all year, not just in launch week.</p>
+      <div class="em" style="margin-top:16px;max-width:720px">
+        <div class="meta"><b>HumanKind Notes · Issue 1 · November 2026</b><br>Hope is a habit now</div>
+        <div class="bd" id="nlBody"></div>
+      </div>
+      <div class="scroll"><table class="tbl" style="max-width:720px">
+        <tr><th>Issue</th><th>Finding</th><th>Work that gets it right</th></tr>
+        <tr><td>Nov</td><td>Mining for Hope · 70%</td><td>Pizza Hut Pizza WRMR</td></tr>
+        <tr><td>Dec</td><td>Being a Villager · 74%</td><td>Bell, on loneliness</td></tr>
+        <tr><td>Jan</td><td>Living Lighter · 33%</td><td>Meow Mix 12-hour jingle</td></tr>
+        <tr><td>Feb</td><td>AI Slippery Slop</td><td>Hi LEO, and how Leo uses AI</td></tr>
+        <tr><td>Mar</td><td>Nobody Puts Canada in a Corner</td><td>A local-first brand story</td></tr>
+      </table></div>
+    </div>
+
+    <div class="dk-p" data-k="human">
+      <span class="kick">Every post on this page passed it · try any draft</span>
+      <h3>Does it sound like a person?</h3>
+      <p>Readers, and LinkedIn's feed, are getting good at spotting AI-written posts. This check flags the usual tells: em dashes, the words AI loves, "it's not X, it's Y", tidy lists of three, flat sentence rhythm, and posts with no specifics. A post is ready when the leader would say it out loud.</p>
+      <div class="g2">
+        <div><textarea id="hcIn" style="width:100%;min-height:300px;border:1px solid var(--k);padding:14px;font:15px/1.5 var(--f);resize:vertical" placeholder="Paste a LinkedIn draft here"></textarea>
+          <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap"><button class="cbtn" data-load="ai">Load an AI-sounding draft</button><button class="cbtn o" data-load="ben">Load Ben's post</button></div></div>
+        <div id="hcOut"></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- 07 DURVA -->
 <section id="durva"><div class="wrap">
-  <div class="sh"><div><span class="n">06 · With what I've done, how I'd help</span><h2>I write the words that get found.</h2></div>
+  <div class="sh"><div><span class="n">07 · With what I've done, how I'd help</span><h2>I write the words that get found.</h2></div>
     <p>Leo makes the work. I make sure the work, the research and the people behind it are written down where clients, journalists, recruits and AI assistants are looking. Everything on this page is the job, done once.</p></div>
   <div class="me">
     <div>
       <div class="scroll"><table class="tbl" style="margin-top:0">
         <tr><th>What Leo needs</th><th>What I've done</th></tr>
         <tr><td><b>Case studies people and AI can read</b></td><td>SEO and GEO writing that ranks in search and shows up in AI answers. Two case pages written above.</td></tr>
-        <tr><td><b>Leadership voices on LinkedIn</b></td><td>Ghostwritten LinkedIn posts for founders, and ghostwritten articles published in USA Wire and Mirror Review.</td></tr>
+        <tr><td><b>Leadership voices on LinkedIn, that sound like them</b></td><td>Ghostwritten LinkedIn posts for founders, and ghostwritten articles published in USA Wire and Mirror Review.</td></tr>
         <tr><td><b>HumanKind reaching new business</b></td><td>Demand gen workspaces I built as applications for Limina and Envera: webinar pages, email sequences, ABM plans.</td></tr>
         <tr><td><b>A newsroom that keeps up</b></td><td>Content calendars with designed posts, captions and briefs, on my site. The missing post on this page took an afternoon.</td></tr>
         <tr><td><b>Ideas that get noticed</b></td><td>Applications sent as campaigns: a sealed case file with a UV-light message, a printed passport, an interactive site.</td></tr>
@@ -656,7 +747,7 @@ footer .cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px
       <h4 style="font-size:22px;margin-top:30px">My first 30 days</h4>
       <ol class="l">
         <li><b>Week 1:</b> HumanKind 2026 page as text, the follow-up emails live, Ben's post out.</li>
-        <li><b>Week 2:</b> the Adriano post and the three leadership posts, approved and published.</li>
+        <li><b>Week 2:</b> the Adriano post live, and the November LinkedIn plan running: three long-form posts and the first HumanKind Notes.</li>
         <li><b>Week 3:</b> titles, descriptions, share images and schema across the site. The leoburnett.ca redirect handed to IT.</li>
         <li><b>Week 4:</b> five case pages rewritten from the template, and the first AI answer check as a baseline.</li>
       </ol>
@@ -849,6 +940,138 @@ const PR=[
 (function(){const el=$('#pcL'),st=store.get('lb-pc')||{};el.innerHTML=PR.map((p,i)=>`<label class="${st[i]?'done':''}" style="border-color:#2a2a2a"><input type="checkbox" data-i="${i}" ${st[i]?'checked':''}><span class="t"><b style="color:#fff">"${esc(p[0])}"</b><small style="color:#9a9a9a">${esc(p[1])}</small></span><span class="tag ${st[i]?'g':''}">${st[i]?'Named':'Check'}</span></label>`).join('');el.style.borderColor='#2a2a2a';
  const up=()=>{const n=$$('input',el).filter(x=>x.checked).length;$('#pcP').style.width=(n/PR.length*100)+'%'};
  el.addEventListener('change',e=>{const i=e.target.dataset.i;st[i]=e.target.checked;const l=e.target.closest('label');l.classList.toggle('done',st[i]);const t=l.querySelector('.tag');t.textContent=st[i]?'Named':'Check';t.className='tag '+(st[i]?'g':'');store.set('lb-pc',st);up()});up();$('#pcP').parentNode.style.background='#1a1a1a'})();
+
+
+/* ---------- content section ---------- */
+const WHO=[
+ ['Leo Toronto page','Work, HumanKind stats, people, the newsletter','8 posts'],
+ ['Ben Tarr','The business case for HumanKind. The welcome.','3 posts'],
+ ['Adriano Matos','The new creative bar, in his words','3 posts'],
+ ['Angus Tucker · Adam Pickard','AI and craft, from inside the creative department','5 posts']
+];
+$('#cpWho').innerHTML=WHO.map(w=>`<div class="box"><h5>${esc(w[0])}</h5><p style="color:var(--k2)">${esc(w[1])}</p><span class="tag" style="margin-top:8px">${w[2]}</span></div>`).join('');
+const CP=[
+ ['Mon Nov 2','Leo Toronto','News','Adriano Matos joins as Chief Creative Officer','Link post to the newsroom article (section 04)'],
+ ['Tue Nov 3','Ben Tarr','Short post','Welcome, Adriano. Thank you, Angus.','Written in section 04'],
+ ['Wed Nov 4','Adriano Matos','Long-form','First post as CCO','Draft in this section'],
+ ['Thu Nov 5','Leo Toronto','Stat card','70%: hope is something you practise','Card from section 02'],
+ ['Fri Nov 6','Adam Pickard','Short post','"Good trouble": sketches that become real things','Written in section 04'],
+ ['Mon Nov 9','Ben Tarr','Long-form','Five years of asking Canadians what keeps them up','Draft in this section'],
+ ['Tue Nov 10','Leo Toronto','Newsletter','HumanKind Notes, issue 1: Hope is a habit now','Draft in this section'],
+ ['Wed Nov 11','No one','Pause','Remembrance Day. Nothing promotional goes out.',''],
+ ['Thu Nov 12','Angus Tucker','Long-form','Use the machines for the slog','Draft in this section'],
+ ['Fri Nov 13','Leo Toronto','Carousel','Pizza WRMR: brief, idea, where it travelled','Case page from section 03, cut to 6 slides'],
+ ['Mon Nov 16','Leo Toronto','Stat card','74%: showing up for others','Card from section 02'],
+ ['Tue Nov 17','Adriano Matos','Short post','What a good brief looks like to me','From a 15-minute chat with him'],
+ ['Wed Nov 18','Adam Pickard','60-second video','One idea, sketch to prototype, with Hi LEO','Screen recording + his voice-over'],
+ ['Thu Nov 19','Leo Toronto','Carousel','Meet three of the 20+ people who joined creative this year','Photo + one line each, their words'],
+ ['Fri Nov 20','Ben Tarr','Short post','Bring HumanKind to your team: the live session','Invite, one link'],
+ ['Mon Nov 23','Leo Toronto','Stat card','33%: going out to let loose','Card from section 02'],
+ ['Tue Nov 24','Angus Tucker','Carousel','The GPC scale, 1 to 10, with a line on each','From your About page, designed'],
+ ['Wed Nov 25','Leo Toronto','Carousel','Cheat on your Cheeseburger: the June 4 uniform stunt','Case page from section 03'],
+ ['Thu Nov 26','Adriano Matos','Short post','A piece of Canadian work he wishes Leo had made','His pick, his reasons'],
+ ['Fri Nov 27','Leo Toronto','Culture','Brinner season, and the month in work','Photos from the team']
+];
+$('#cpT').innerHTML='<tr><th>Day</th><th>Account</th><th>Format</th><th>Post</th><th>Source</th></tr>'+CP.map(r=>`<tr${r[1]==='No one'?' style="color:var(--m)"':''}><td style="white-space:nowrap">${r[0]}</td><td><b>${esc(r[1])}</b></td><td><span class="tag ${r[2]==='Long-form'?'g':r[2]==='Pause'?'':'a'}">${r[2]}</span></td><td>${esc(r[3])}</td><td style="color:var(--m)">${esc(r[4])}</td></tr>`).join('');
+
+const LF_BEN=`In 2022 we started asking Canadians a simple question. What's keeping you up at night?
+
+For four years the answers were heavy. Money. Loneliness. A feeling that things were getting harder and nobody was coming to fix them.
+
+This year, something moved.
+
+70% of young Canadians told us hope and happiness are something you practise, not something you wait for. That word stuck with me. Practise. Like a sport, or an instrument. Something you get better at by doing it badly first.
+
+They're practising in small ways. 74% of people said it matters to show up for others. A third of young Canadians are going to more parties and events, just to let loose and dance. More of them are spending at local businesses, where they can see what their money does.
+
+I think a lot of brands are still talking to the anxious Canadian of a few years ago. Careful tone. Soft reassurance. That person hasn't gone anywhere, but they're tired of being handled. The person we met this year wants a reason to feel good for a minute, and brands that show up when it counts.
+
+One finding I keep coming back to: AI use keeps climbing, and comfort with it isn't keeping up. Two years of concerns, and most of them are still there. It's part of why we built Hi LEO as an amplifier for our people and not as a shortcut.
+
+Leo Burnett put it simply. What helps people, helps business. Five years into this study, I still haven't found a better brief.
+
+The 2026 HumanKind Study is free on our site. If you'd rather hear it than read it, our strategy team will walk your team through it.
+
+Link in the comments.`;
+
+const LF_ANG=`Ask any creative what they're short of and the answer is almost always the same.
+
+Time.
+
+Look at where a creative week actually goes. Formatting decks. Hunting for video reference. Reading 60 pages of research to find the one line that matters. By the time all that's done, the actual thinking gets whatever's left of Thursday afternoon.
+
+At Leo Toronto we've been chipping away at that with Hi LEO, the AI agent everyone in the agency can use. It takes a lot of the slog. Adam Pickard, our Creative Director of Innovation, sits right in the creative department and turns sketches on a wall into things you can hold and test in days.
+
+People ask me if this makes creative people less important. I think it does the opposite.
+
+AI is going to be as big a shift as the internet was 30 years ago. I believe that. But I remember what happened after the internet arrived. Making things got cheaper and faster for everyone, and the ideas that actually cut through got rarer. And worth more.
+
+We judge our work on a scale that runs from 1, Destructive, to 10, Legendary. I've never seen a tool move a piece of work up that scale by itself. A person with a point of view does that. A team willing to argue about it does that.
+
+So let the machines have the slog. Spend the hours you get back on the part only people can do.
+
+That's a trade I'd make every time.`;
+
+const LF_ADR=`A few months ago I joined Leo Toronto as Chief Creative Officer.
+
+I've been lucky to work in some great creative rooms. Leo Burnett in Chicago. Ogilvy. Grey in Brazil. The best ones all had one thing in common: people wanted to send their best work there, because they knew it would get made properly.
+
+Toronto has that. This agency was No.2 in the country at Agency of the Year, and it has added more than 20 people to the creative department this year. You can feel it in the building.
+
+My job is easy to say and hard to do. Make Leo Toronto a global hub of creative excellence. A place the rest of the network looks to.
+
+Day to day, that's less glamorous than it sounds. Sharper briefs. Braver reviews. More time on the idea and less on the slog, which Hi LEO is already helping with. And a bar we keep even when nobody is watching.
+
+To everyone who joined this year, and everyone who was here making the work that got us noticed: thank you. Now let's make the next thing.
+
+If you make work you're proud of and want to make more of it, my inbox is open.`;
+
+$('#lfBen').textContent=LF_BEN;$('#lfAng').textContent=LF_ANG;$('#lfAdr').textContent=LF_ADR;
+
+$('#nlBody').innerHTML=`<div class="lgo">HumanKind Notes</div>
+<p>Every month we take one finding from The HumanKind™ Study 2026 and ask what it means for the brands we all work on.</p>
+<div class="st"><b>70%</b><span>of young Canadians believe hope and happiness are something you practise, not something you wait for.</span></div>
+<p><b>What we heard.</b> After four years of heavy answers, hope came back, and it came back as a habit. Small things, done on purpose: seeing friends, going out, showing up for people.</p>
+<p><b>What it means for brands.</b> Reassurance has had a long run. This audience wants something to do. Give people a small, real way to feel good, and make it easy to share.</p>
+<p><b>Work that gets it right.</b> Pizza Hut's Pizza WRMR turned the heat from a PS5 into a free, 3D-printable pizza warmer. Fans printed their own. It's a tiny, practical joy, and people talked about it because they could take part.</p>
+<p><b>One question for your next brief.</b> What could your audience do with your brand this month that would make them feel a little lighter?</p>
+<p><a class="btn" href="#">Download the 2026 study</a></p>
+<div class="sig">Next month: Being a Villager, and why 74% say showing up for others matters.</div>`;
+
+/* human check */
+const AIW=['delve','tapestry','landscape','navigate','navigating','leverage','unlock','elevate','game-changer','game changer','seamless','robust','foster','realm','embark','testament','pivotal','crucial','ever-evolving','fast-paced','synergy','harness','empower','cutting-edge','groundbreaking','revolutionize','in today\'s','let\'s dive','dive in','here\'s the thing','the truth is','at the end of the day','it\'s worth noting','moreover','furthermore','in conclusion','unleash','journey','paradigm','holistic approach','i\'m thrilled','thrilled to announce','excited to share','buckle up'];
+function hcheck(t){
+  const out=[];const low=t.toLowerCase();
+  const dash=(t.match(/[—–]/g)||[]).length;if(dash)out.push(['bad',`${dash} em/en dash${dash>1?'es':''}`,'The single biggest tell. Use a full stop or a comma.']);
+  const hits=AIW.filter(w=>low.includes(w));if(hits.length)out.push(['bad',`AI-favourite words: ${hits.slice(0,6).join(', ')}`,'Swap for the plain word a person would say.']);
+  const nx=(t.match(/\b(it'?s|this is|that'?s|is) not (just |only )?[^.!?\n]{1,50}[,;.]\s*(it'?s|it is)\b/gi)||[]).concat(t.match(/\bisn'?t just\b/gi)||[]);if(nx.length)out.push(['bad',`"Not X, it's Y" × ${nx.length}`,'Once can land. Twice reads like a template.']);
+  const tri=(t.match(/\b\w+, \w+,? and \w+\b/g)||[]).length;if(tri>1)out.push(['warn',`${tri} lists of three`,'Real speech is lumpier. Cut one item or split the list.']);
+  const em=(t.match(/\p{Extended_Pictographic}/gu)||[]).length;if(em>2)out.push(['warn',`${em} emoji`,'Leaders rarely use more than one.']);
+  const hs=(t.match(/#\w+/g)||[]).length;if(hs>3)out.push(['warn',`${hs} hashtags`,'Three at most, or none.']);
+  const sents=t.split(/(?<=[.!?])\s+|\n+/).map(s=>s.trim()).filter(s=>s.split(/\s+/).length>1);
+  const lens=sents.map(s=>s.split(/\s+/).length);const mean=lens.reduce((a,b)=>a+b,0)/(lens.length||1);const sd=Math.sqrt(lens.reduce((a,b)=>a+(b-mean)**2,0)/(lens.length||1));
+  if(lens.length>4&&sd<4.5)out.push(['warn',`Flat rhythm (sentence spread ${sd.toFixed(1)} words)`,'Mix a very short line with a longer one.']);
+  const nums=(t.match(/\d/g)||[]).length;if(t.length>300&&nums===0)out.push(['warn','No numbers, names or specifics','A real person mentions a real thing.']);
+  if(/^(ever wondered|imagine|in a world)/i.test(t.trim()))out.push(['warn','Template opener','Start with the point, or the moment.']);
+  const score=Math.max(0,100-out.reduce((a,o)=>a+(o[0]==='bad'?22:9),0));
+  return {out,score,sd,lens:lens.length,chars:t.length};
+}
+function hrender(){
+  const t=$('#hcIn').value;if(!t.trim()){$('#hcOut').innerHTML='<div class="box s"><p>Paste a draft, or load one of the examples.</p></div>';return}
+  const r=hcheck(t);
+  $('#hcOut').innerHTML=`<div class="box k"><div style="display:flex;justify-content:space-between;align-items:baseline"><b style="font-size:64px;letter-spacing:-.05em;line-height:1;color:${r.score>=85?'var(--g)':r.score>=60?'#f2c94c':'#ff6b5b'}">${r.score}</b><span class="mono" style="color:#9a9a9a">${r.chars} chars · ${r.lens} sentences</span></div><p style="margin-top:6px;color:#cfcfcf">${r.score>=85?'Reads like a person. Ready for the leader\'s edit.':r.score>=60?'Close. Fix the flags below.':'Reads machine-written. Rewrite before anyone sees it.'}</p></div>`+(r.out.length?r.out.map(o=>`<div style="border-bottom:1px solid var(--l);padding:12px 0"><span class="tag ${o[0]==='bad'?'r':'a'}">${o[0]==='bad'?'Fix':'Check'}</span> <b style="font-size:15px">${esc(o[1])}</b><p class="src" style="margin-top:4px">${esc(o[2])}</p></div>`).join(''):'<p class="src" style="margin-top:12px">No tells found.</p>');
+}
+$('#hcIn').addEventListener('input',hrender);
+const AIDRAFT=`In today's fast-paced landscape, creativity isn't just a nice-to-have — it's a game-changer. 🚀
+
+At Leo, we leverage cutting-edge AI to unlock seamless, robust, and transformative ideas that empower brands on their journey.
+
+It's not about technology, it's about people. Let's dive in! ✨🔥
+
+#AI #Creativity #Innovation #Marketing #Leadership`;
+document.addEventListener('click',e=>{const b=e.target.closest('[data-load]');if(!b)return;$('#hcIn').value=b.dataset.load==='ai'?AIDRAFT:LF_BEN;hrender()});
+hrender();
+[['lfBen',LF_BEN],['lfAng',LF_ANG],['lfAdr',LF_ADR]].forEach(([id,t])=>{const r=hcheck(t);$('#'+id+'N').textContent=t.length+' characters · human check '+r.score+'/100';$('#'+id+'H').innerHTML=r.out.length?'<p class="src">'+r.out.map(o=>esc(o[1])).join(' · ')+'</p>':'<p class="src">Human check: no tells found.</p>'});
 
 /* reveal */
 const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rio.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
