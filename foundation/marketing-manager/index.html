@@ -1,0 +1,1600 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Foundation, the first month as Marketing Manager · Durva Thakkar</title>
+<meta name="description" content="A full audit of foundationinc.co and a finished piece of work for every line of the Marketing Manager role: handoff SLA, paid, nurture, SEO fixes, Citation Conference campaign, dashboards and sales enablement.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Foundation, your first month of marketing, already shipped.">
+<meta property="og:description" content="20 live findings on foundationinc.co, each with the fix written. Plus the pipeline, campaign, reporting and enablement work for every line of the Marketing Manager role.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://durvathakkar.com/foundation/marketing-manager/">
+<meta property="og:image" content="https://durvathakkar.com/foundation/marketing-manager/share.jpg?v=1">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://durvathakkar.com/foundation/marketing-manager/share.jpg?v=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Nunito+Sans:ital,opsz,wght@0,6..12,400..800;1,6..12,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#151516;--ink2:#292929;--mut:#6b6b70;--line:#dcd8cb;--bg:#faf5ef;--bg2:#f3ece3;--card:#fff;--cor:#dd6052;--cor-d:#b9473a;--peach:#ffeae1;--blue:#246fc9;--navy:#132d7f;--teal:#0b354c;--grn:#3ea576;--amb:#d99a2b;--head:"Jost",system-ui,sans-serif;--body:"Nunito Sans",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{background:var(--bg);color:var(--ink);font:400 16.5px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--blue)}
+h1,h2,h3,h4{font-family:var(--head);font-weight:600;line-height:1.12;letter-spacing:-.01em}
+.mono{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase}
+.fn{font-family:var(--mono);font-size:.55em;vertical-align:super;color:var(--cor);font-weight:500;margin-left:2px}
+code,pre{font-family:var(--mono);font-size:12.5px}
+button{font:inherit;cursor:pointer}
+.wrap{max-width:1220px;margin:0 auto;padding:0 28px}
+
+/* bar */
+.bar{position:sticky;top:0;z-index:40;background:rgba(250,245,239,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:24px;height:56px}
+.bar b{font-family:var(--head);font-weight:700;font-size:15px;white-space:nowrap}
+.bar b i{font-style:normal;color:var(--cor)}
+.bar nav{display:flex;gap:18px;font-size:13.5px;overflow-x:auto;scrollbar-width:none;margin-left:auto}
+.bar nav::-webkit-scrollbar{display:none}
+.bar nav a{color:var(--ink2);text-decoration:none;white-space:nowrap;font-weight:600}
+.bar nav a:hover{color:var(--cor)}
+
+/* hero */
+.hero{padding:64px 0 40px}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:48px;align-items:center}
+.hero h1{font-size:clamp(38px,5.4vw,70px);font-weight:700;letter-spacing:-.025em}
+.hero h1 em{font-style:normal;color:var(--cor)}
+.hero .lede{font-size:18.5px;color:var(--ink2);margin:22px 0 0;max-width:560px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;font-size:13px;font-weight:600}
+.chip.c{background:var(--cor);border-color:var(--cor);color:#fff}
+.notes{margin-top:26px;border-top:1px solid var(--line);padding-top:12px;font-size:12.5px;color:var(--mut)}
+.notes p{display:flex;gap:6px}
+.notes p > span:first-child{font-family:var(--mono);color:var(--cor)}
+
+/* hero film */
+.film{background:var(--ink);border-radius:22px;padding:22px;color:#fff;position:relative;overflow:hidden;min-height:470px;box-shadow:0 30px 60px -30px rgba(21,21,22,.5)}
+.film .top{display:flex;justify-content:space-between;align-items:center}
+.film .top .mono{color:#a6a8b3}
+.film .ch{display:flex;gap:6px}
+.film .ch i{width:26px;height:4px;border-radius:2px;background:#333;overflow:hidden;position:relative}
+.film .ch i b{position:absolute;inset:0;width:0;background:var(--cor)}
+.fm-q{margin-top:22px;background:#232325;border-radius:14px;padding:14px 16px;font-size:15px;min-height:52px}
+.fm-q .cur{display:inline-block;width:8px;height:17px;background:var(--cor);vertical-align:-3px;margin-left:2px;animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.fm-a{margin-top:14px;font-size:14.5px;line-height:1.55;color:#e8e6e1;min-height:96px}
+.fm-a mark{background:none;color:#fff;font-weight:700}
+.fm-a sup{font-family:var(--mono);color:var(--cor);font-size:10px}
+.fm-src{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;min-height:26px}
+.fm-src span{font-family:var(--mono);font-size:10.5px;border:1px solid #3a3a3d;border-radius:6px;padding:3px 7px;color:#cfcfd4;opacity:0;transform:translateY(6px);transition:.4s}
+.fm-src span.on{opacity:1;transform:none}
+.fm-src span b{color:var(--cor);font-weight:500}
+.fm-pipe{margin-top:20px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.fm-st{background:#1f1f21;border:1px solid #2e2e31;border-radius:10px;padding:10px 8px;text-align:left;transition:.4s}
+.fm-st small{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:#8d8f99;text-transform:uppercase}
+.fm-st b{font-family:var(--head);font-size:22px;font-weight:600}
+.fm-st.on{border-color:var(--cor);background:#2a1d1b}
+.fm-dot{position:absolute;width:12px;height:12px;border-radius:50%;background:var(--cor);box-shadow:0 0 0 6px rgba(221,96,82,.25);opacity:0;transition:left .7s cubic-bezier(.6,0,.3,1),top .7s cubic-bezier(.6,0,.3,1),opacity .3s}
+.fm-cap{margin-top:16px;font-size:13px;color:#a6a8b3;min-height:40px}
+.fm-cap b{color:#fff}
+
+/* sections */
+section{padding:72px 0 24px}
+.sh{display:grid;grid-template-columns:90px minmax(0,1fr);gap:20px;margin-bottom:28px}
+.sh .n{font-family:var(--mono);font-size:13px;color:var(--cor);border-top:2px solid var(--cor);padding-top:8px}
+.sh h2{font-size:clamp(28px,3.6vw,44px);font-weight:700}
+.sh p{color:var(--ink2);max-width:780px;margin-top:12px;font-size:17px}
+.sh .jd{display:block;margin-top:10px;font-family:var(--mono);font-size:11.5px;color:var(--mut);letter-spacing:.03em}
+
+/* desk */
+.dk{display:grid;grid-template-columns:250px minmax(0,1fr);gap:0;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.dk-ix{background:var(--bg2);border-right:1px solid var(--line);padding:10px;display:flex;flex-direction:column;gap:2px}
+.dk-ix button{all:unset;cursor:pointer;display:block;padding:10px 12px;border-radius:10px;font-size:14px;font-weight:600;color:var(--ink2);line-height:1.3}
+.dk-ix button small{display:block;font-family:var(--mono);font-size:10.5px;color:var(--mut);font-weight:400;margin-top:3px;letter-spacing:.02em}
+.dk-ix button:hover{background:#fff}
+.dk-ix button.on{background:var(--ink);color:#fff}
+.dk-ix button.on small{color:#a6a8b3}
+.dk-p{display:none;padding:28px 30px 34px;min-width:0}
+.dk-p.on{display:block}
+.dk-p h3{font-size:24px;font-weight:700}
+.dk-p h4{font-size:16.5px;font-weight:600;margin:24px 0 8px}
+.dk-p > p,.dk-p .p{color:var(--ink2);margin-top:8px;max-width:820px}
+.dk-p .kick{font-family:var(--mono);font-size:11px;color:var(--cor);letter-spacing:.06em;text-transform:uppercase;display:block;margin-bottom:6px}
+.dk-p ul.l,.dk-p ol.l{margin:8px 0 0 20px;color:var(--ink2)}
+.dk-p ul.l li,.dk-p ol.l li{margin:4px 0}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:14px}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:14px}
+.box{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:#fff;min-width:0}
+.box.s{background:var(--bg)}
+.box.k{background:var(--ink);color:#fff;border-color:var(--ink)}
+.box.p{background:var(--peach);border-color:#f6cbbd}
+.box h5{font-family:var(--head);font-size:15.5px;font-weight:600;margin-bottom:6px}
+.box p,.box li{font-size:14.5px}
+.box ul{margin-left:18px}
+.tag{display:inline-block;font-family:var(--mono);font-size:10.5px;padding:2px 7px;border-radius:5px;background:var(--bg2);color:var(--ink2);letter-spacing:.03em;white-space:nowrap}
+.tag.r{background:#fbe1dc;color:var(--cor-d)}
+.tag.a{background:#fbefd6;color:#8a5a06}
+.tag.g{background:#dff1e7;color:#1d6b46}
+.tag.b{background:#dde9f8;color:var(--navy)}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;margin-top:12px}
+.tbl th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);font-weight:500;padding:8px 10px;border-bottom:1px solid var(--line);background:var(--bg)}
+.tbl td{padding:10px;border-bottom:1px solid #eee8de;vertical-align:top}
+.tbl td code{word-break:break-all}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.src{font-size:12px;color:var(--mut);margin-top:10px}
+.cbtn{border:1px solid var(--ink);background:var(--ink);color:#fff;border-radius:999px;padding:7px 14px;font-size:13px;font-weight:700}
+.cbtn.o{background:#fff;color:var(--ink)}
+.cbtn:hover{background:var(--cor);border-color:var(--cor);color:#fff}
+pre.code{background:#17171a;color:#e8e6e1;border-radius:12px;padding:16px;overflow:auto;max-height:420px;line-height:1.55;margin-top:10px;white-space:pre}
+pre.code .k{color:#f4a597}
+pre.code .s{color:#9bd1b4}
+pre.code .c{color:#7d7f88}
+.codehd{display:flex;justify-content:space-between;align-items:center;margin-top:16px;gap:10px;flex-wrap:wrap}
+
+/* audit */
+.au-top{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:18px}
+.au-top div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.au-top b{display:block;font-family:var(--head);font-size:34px;font-weight:700;line-height:1}
+.au-top span{font-size:13px;color:var(--mut)}
+.au-f{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.au-f button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;font-size:13px;font-weight:700}
+.au-f button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.au-l{display:flex;flex-direction:column;gap:10px}
+.au{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.au summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:30px 124px minmax(0,1fr) 24px;gap:12px;align-items:center;padding:14px 16px}
+.au summary::-webkit-details-marker{display:none}
+.au summary .i{font-family:var(--mono);font-size:12px;color:var(--mut)}
+.au summary h4{font-family:var(--body);font-size:15.5px;font-weight:700;line-height:1.35}
+.au summary h4 small{display:block;font-weight:400;color:var(--mut);font-size:13px;margin-top:2px}
+.au summary .pl{font-family:var(--mono);color:var(--cor);font-size:18px;transition:.2s}
+.au[open] summary .pl{transform:rotate(45deg)}
+.au .bd{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding:0 16px 16px 72px}
+.au .bd div{font-size:14px;color:var(--ink2);min-width:0}
+.au .bd div b{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);font-weight:500;margin-bottom:4px}
+.au .bd code{background:var(--bg);padding:1px 5px;border-radius:4px;word-break:break-all}
+
+/* serp */
+.serp{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:#fff}
+.serp .u{font-size:12.5px;color:#202124}
+.serp .u small{color:#4d5156;word-break:break-all}
+.serp .t{color:#1a0dab;font-size:18px;line-height:1.3;margin-top:4px;font-family:Arial,sans-serif}
+.serp .d{color:#4d5156;font-size:13.5px;margin-top:4px;font-family:Arial,sans-serif;line-height:1.5}
+.serp.bad .t{color:#6b6b70}
+.rw{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:10px}
+.rw .lab{font-family:var(--mono);font-size:10.5px;color:var(--mut);margin-bottom:6px;display:flex;justify-content:space-between;gap:8px}
+.cnt.ok{color:var(--grn)}.cnt.bad{color:var(--cor)}
+
+/* ads */
+.ad{border:1px solid var(--line);border-radius:12px;background:#fff;overflow:hidden;font-family:-apple-system,system-ui,sans-serif;font-size:13.5px}
+.ad .h{display:flex;gap:8px;align-items:center;padding:10px 12px}
+.ad .h i{width:34px;height:34px;border-radius:6px;background:var(--cor);color:#fff;display:grid;place-items:center;font-style:normal;font-weight:800;font-family:var(--head)}
+.ad .h b{font-size:13px;display:block}
+.ad .h small{color:#666;font-size:11.5px}
+.ad .tx{padding:0 12px 10px;color:#222;line-height:1.45}
+.ad .ft{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;background:#f4f2ee}
+.ad .ft b{font-size:13px;display:block}
+.ad .ft small{color:#666}
+.ad .ft span{border:1.5px solid var(--blue);color:var(--blue);border-radius:999px;padding:4px 12px;font-weight:700;font-size:12.5px;white-space:nowrap}
+.art{aspect-ratio:1/1;container-type:inline-size;position:relative;overflow:hidden}
+.art.k{background:var(--ink);color:#fff}
+.art.c{background:var(--cor);color:#fff}
+.art.e{background:var(--bg);color:var(--ink)}
+.art .pad{position:absolute;inset:0;padding:7cqw;display:flex;flex-direction:column}
+.art .lg{font-family:var(--head);font-weight:700;font-size:4.6cqw;letter-spacing:-.01em}
+.art .lg i{font-style:normal;color:var(--cor)}
+.art.c .lg i{color:var(--ink)}
+.art .hd{font-family:var(--head);font-weight:700;font-size:8.6cqw;line-height:1.02;letter-spacing:-.02em;margin-top:auto}
+.art .sb{font-size:3.6cqw;margin-top:3cqw;opacity:.85;line-height:1.35}
+.art .mdl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.6cqw;margin-top:5cqw}
+.art .mdl span{font-family:var(--mono);font-size:2.9cqw;border:1px solid rgba(255,255,255,.2);border-radius:1.4cqw;padding:1.6cqw 2cqw;display:flex;justify-content:space-between}
+.art .mdl span b{font-weight:500;color:#8d8f99}
+.art .mdl span.y b{color:#7fd3a7}
+.art .ft2{font-family:var(--mono);font-size:2.6cqw;opacity:.7;margin-top:4cqw}
+.art .big{font-family:var(--head);font-weight:700;font-size:30cqw;line-height:.85;letter-spacing:-.04em}
+
+/* email */
+.em{max-width:600px;margin:14px auto 0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;font-family:Arial,Helvetica,sans-serif}
+.em .meta{background:var(--bg2);padding:10px 14px;font-size:12.5px;color:#555;border-bottom:1px solid var(--line)}
+.em .meta b{color:#111}
+.em .bd{padding:26px 28px;font-size:15px;line-height:1.6;color:#222}
+.em .bd p{margin:0 0 14px}
+.em .lgo{font-family:var(--head);font-weight:700;font-size:20px;margin-bottom:18px}
+.em .lgo i{font-style:normal;color:var(--cor)}
+.em .card{background:var(--ink);color:#fff;border-radius:10px;padding:16px 18px;margin:16px 0}
+.em .card div{display:flex;justify-content:space-between;font-size:13.5px;padding:5px 0;border-bottom:1px solid #2e2e31}
+.em .card div:last-child{border:0}
+.em .card span{color:#a6a8b3;flex:0 0 auto}
+.em .card div{gap:16px}
+.em .card b{text-align:right;font-weight:600}
+.em .btn{display:inline-block;background:var(--cor);color:#fff;text-decoration:none;font-weight:700;padding:11px 20px;border-radius:999px}
+.em .sig{font-size:13.5px;color:#555;border-top:1px solid #eee;padding-top:14px;margin-top:18px}
+.seq{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+.seq button{all:unset;cursor:pointer;display:grid;grid-template-columns:62px minmax(0,1fr) auto;gap:12px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px 14px;background:#fff}
+.seq button.on{border-color:var(--ink);box-shadow:inset 3px 0 0 var(--cor)}
+.seq button b{font-size:14.5px;display:block}
+.seq button small{color:var(--mut);font-size:12.5px}
+
+/* calculators */
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:18px;margin-top:14px}
+.fld{display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
+.fld label{font-size:13px;font-weight:700;color:var(--ink2);display:flex;justify-content:space-between}
+.fld label output{font-family:var(--mono);color:var(--cor);font-weight:500}
+.fld input[type=number],.fld input[type=text],.fld select{border:1px solid var(--line);border-radius:10px;padding:9px 11px;font:inherit;font-size:14.5px;background:#fff;width:100%}
+.fld input[type=range]{accent-color:var(--cor);width:100%}
+.out{background:var(--ink);color:#fff;border-radius:14px;padding:18px 20px}
+.out .row{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid #2e2e31;font-size:14.5px}
+.out .row:last-of-type{border:0}
+.out .row span{color:#a6a8b3}
+.out .row b{font-family:var(--mono);font-weight:500}
+.out .verdict{margin-top:12px;padding:12px 14px;border-radius:10px;background:#232325;font-size:14px;line-height:1.5}
+.out .verdict b{color:var(--cor)}
+.funnel{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+.fu{display:grid;grid-template-columns:90px minmax(0,1fr) 110px;gap:10px;align-items:center;font-size:13.5px}
+.fu .b{height:26px;background:var(--bg2);border-radius:6px;position:relative;overflow:hidden}
+.fu .b i{position:absolute;left:0;top:0;bottom:0;background:var(--navy);border-radius:6px;transition:width .5s}
+.fu.w .b i{background:var(--cor)}
+.fu small{font-family:var(--mono);font-size:11px;color:var(--mut)}
+.fu input{width:100%;border:1px solid var(--line);border-radius:8px;padding:5px 8px;font:inherit;font-size:13.5px}
+
+/* checklist */
+.ck{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.ck label{display:grid;grid-template-columns:22px 70px minmax(0,1fr) auto;gap:10px;align-items:start;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:14px;cursor:pointer}
+.ck label.done{background:var(--bg);color:var(--mut)}
+.ck label.done span.t{text-decoration:line-through}
+.ck input{accent-color:var(--cor);margin-top:3px}
+.ck .w{font-family:var(--mono);font-size:11px;color:var(--cor);padding-top:2px}
+.prog{height:8px;background:var(--bg2);border-radius:4px;overflow:hidden;margin-top:12px}
+.prog i{display:block;height:100%;background:var(--grn);width:0;transition:.4s}
+
+/* dashboard */
+.db{background:#f5f8fa;border:1px solid #dfe3eb;border-radius:14px;padding:16px;margin-top:14px;font-family:-apple-system,system-ui,sans-serif}
+.db-h{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.db-h b{font-size:15px;color:#33475b}
+.db-h select{border:1px solid #cbd6e2;border-radius:6px;padding:6px 8px;font:inherit;font-size:13px;background:#fff}
+.db-k{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.db-k div{background:#fff;border:1px solid #dfe3eb;border-radius:8px;padding:12px}
+.db-k small{display:block;font-size:11.5px;color:#516f90;font-weight:600}
+.db-k b{display:block;font-size:24px;color:#33475b;margin-top:4px;font-weight:700}
+.db-k em{font-style:normal;font-size:11.5px;font-weight:700}
+.db-k em.u{color:#00a4bd}.db-k em.d{color:#f2545b}
+.db-g{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:10px;margin-top:10px}
+.db-g > div{background:#fff;border:1px solid #dfe3eb;border-radius:8px;padding:12px;min-width:0}
+.db-g h6{font-size:12.5px;color:#33475b;margin-bottom:8px;font-family:-apple-system,system-ui,sans-serif}
+.db svg{width:100%;height:auto;display:block}
+.db .tbl th{background:#f5f8fa}
+
+/* one pager */
+.op{max-width:760px;margin:16px auto 0;background:#fff;border:1px solid var(--line);box-shadow:0 20px 40px -24px rgba(0,0,0,.25);aspect-ratio:8.5/11;container-type:inline-size;position:relative;overflow:hidden}
+.op .in{position:absolute;inset:0;padding:6cqw;display:flex;flex-direction:column}
+.op .hd{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:1.5cqw;color:var(--mut);letter-spacing:.06em;text-transform:uppercase}
+.op .hd b{font-family:var(--head);font-size:2.6cqw;color:var(--ink);letter-spacing:0;text-transform:none}
+.op .hd b i{font-style:normal;color:var(--cor)}
+.op h2{font-family:var(--head);font-size:6cqw;font-weight:700;margin-top:4cqw;line-height:1.02;letter-spacing:-.02em}
+.op h2 em{font-style:normal;color:var(--cor)}
+.op .lede{font-size:2.1cqw;color:var(--ink2);margin-top:2cqw;max-width:80%}
+.op .cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2.4cqw;margin-top:4cqw}
+.op .cols div{border-top:.4cqw solid var(--ink);padding-top:1.6cqw}
+.op .cols b{font-family:var(--head);font-size:2.3cqw;display:block}
+.op .cols p{font-size:1.75cqw;color:var(--ink2);margin-top:.8cqw;line-height:1.45}
+.op .rm{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.4cqw;margin-top:4cqw}
+.op .rm div{background:var(--bg);border-radius:1.4cqw;padding:2cqw}
+.op .rm small{font-family:var(--mono);font-size:1.4cqw;color:var(--cor);letter-spacing:.06em}
+.op .rm p{font-size:1.8cqw;margin-top:.6cqw;line-height:1.4}
+.op .proof{margin-top:4cqw;background:var(--ink);color:#fff;border-radius:1.6cqw;padding:3cqw;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:3cqw;align-items:center}
+.op .proof b{font-family:var(--head);font-size:3cqw;line-height:1.1;display:block}
+.op .proof p{font-size:1.7cqw;color:#cfcfd4;margin-top:1cqw;line-height:1.45}
+.op .proof ul{list-style:none;font-family:var(--mono);font-size:1.5cqw;color:#cfcfd4}
+.op .proof li{padding:.7cqw 0;border-bottom:1px solid #2e2e31}
+.op .ftr{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid var(--line);padding-top:2cqw;font-size:1.7cqw}
+.op .ftr b{font-family:var(--head);font-size:2.4cqw}
+.op .ftr .cta{background:var(--cor);color:#fff;border-radius:99px;padding:1.2cqw 2.6cqw;font-weight:700}
+
+/* linkedin post mock */
+.li{border:1px solid var(--line);border-radius:12px;background:#fff;overflow:hidden;font-family:-apple-system,system-ui,sans-serif;max-width:520px}
+.li .h{display:flex;gap:10px;padding:12px 14px;align-items:center}
+.li .h i{width:42px;height:42px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-style:normal;font-weight:700;font-family:var(--head)}
+.li .h b{font-size:14px;display:block}
+.li .h small{font-size:12px;color:#666}
+.li .tx{padding:0 14px 12px;font-size:14px;line-height:1.5;color:#222;white-space:pre-line}
+
+/* gap note / footer */
+.gap{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 28px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px}
+.gap h3{font-size:22px;font-weight:700}
+.gap p{color:var(--ink2);margin-top:8px}
+footer{padding:60px 0 70px;margin-top:60px;background:var(--ink);color:#fff}
+footer h2{font-size:clamp(30px,4vw,50px);font-weight:700}
+footer h2 em{font-style:normal;color:var(--cor)}
+footer p{color:#cfcfd4;margin-top:12px;max-width:640px}
+footer .act{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+footer .act a{background:var(--cor);color:#fff;text-decoration:none;font-weight:700;padding:12px 20px;border-radius:999px}
+footer .act a.o{background:transparent;border:1px solid #555}
+footer small{display:block;margin-top:40px;color:#8d8f99;font-size:12.5px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(80px);background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;font-size:13.5px;transition:.3s;z-index:60}
+.toast.on{transform:translateX(-50%)}
+
+@media (max-width:980px){
+  .hero .wrap{grid-template-columns:minmax(0,1fr)}
+  .dk{grid-template-columns:minmax(0,1fr)}
+  .dk-ix{flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px solid var(--line);scrollbar-width:none}
+  .dk-ix::-webkit-scrollbar{display:none}
+  .dk-ix button{white-space:nowrap;flex:0 0 auto}
+  .dk-ix button small{display:none}
+  .au-top{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .db-k{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .db-g,.calc,.g3,.gap{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:680px){
+  .wrap{padding:0 16px}
+  .hero{padding:36px 0 20px}
+  .film{min-height:0;padding:16px}
+  .fm-pipe{grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}
+  .fm-st{padding:7px 5px}
+  .fm-st b{font-size:16px}
+  .fm-st small{font-size:8px}
+  .sh{grid-template-columns:minmax(0,1fr);gap:8px}
+  .sh .n{width:60px}
+  .dk-p{padding:20px 16px 24px}
+  .g2,.rw{grid-template-columns:minmax(0,1fr)}
+  .au summary{grid-template-columns:minmax(0,1fr) 20px;gap:6px}
+  .au summary .i{display:none}
+  .au summary .tg{grid-column:1;grid-row:1}
+  .au summary h4{grid-column:1}
+  .au summary .pl{grid-row:1/3;grid-column:2}
+  .au .bd{grid-template-columns:minmax(0,1fr);padding:0 16px 16px}
+  .fu{grid-template-columns:70px minmax(0,1fr) 84px}
+  .ck label{grid-template-columns:22px minmax(0,1fr)}
+  .ck .w{grid-column:2}
+  .ck label > span:last-child{grid-column:2}
+  .bar nav{display:none}
+  .scroll .tbl{min-width:640px}
+}
+@page{size:letter;margin:0}
+@media print{body.pop{background:#fff}body.pop *{visibility:hidden}body.pop #op,body.pop #op *{visibility:visible}body.pop #op{position:fixed;left:0;top:0;width:100vw;max-width:none;margin:0;border:0;box-shadow:none}}
+</style>
+</head>
+<body>
+<div class="bar"><div class="wrap">
+  <b>Durva Thakkar <i>×</i> Foundation</b>
+  <nav>
+    <a href="#audit">Audit</a><a href="#pipeline">Pipeline</a><a href="#site">Website &amp; SEO</a><a href="#campaigns">Campaigns</a><a href="#team">Team</a><a href="#reporting">Reporting</a><a href="#enable">Enablement</a><a href="#scorecard">Scorecard</a>
+  </nav>
+</div></div>
+
+<header class="hero"><div class="wrap">
+  <div>
+    <span class="mono" style="color:var(--cor)">Marketing Manager · Foundation · Remote</span>
+    <h1 style="margin-top:12px">Your first month of marketing, <em>already <span style="white-space:nowrap">shipped.<span class="fn">[1]</span></span></em></h1>
+    <p class="lede">I audited foundationinc.co end to end, then made a finished piece of work for every line of the role. That covers the handoff SLA with Sales, the paid campaign, the nurture emails, the redirect map, the schema and the Citation Conference plan. It also covers the dashboard, the Coordinator's development plan and the one-pager Sales takes into a third call.</p>
+    <div class="meta">
+      <span class="chip c">20 live findings, each with the fix</span>
+      <span class="chip">32 finished deliverables</span>
+      <span class="chip">7 calculators and tools</span>
+    </div>
+    <div class="notes">
+      <p><span>[1]</span><span class="t">Built Oct 31, 2026 from public data: 11 sitemaps, 1,210 URLs, 55 pages read in full, robots.txt, schema, forms and response times. Anything marked <b>sample</b> uses example numbers to show the format.</span></p>
+    </div>
+  </div>
+
+  <div class="film" id="film" aria-label="Animation: a buyer asks an AI assistant for a GEO agency, Foundation is cited, and the lead moves through the pipeline">
+    <div class="top"><span class="mono" id="fmLab">01 · The answer layer</span><div class="ch"><i><b></b></i><i><b></b></i><i><b></b></i></div></div>
+    <div class="fm-q"><span id="fmQ"></span><span class="cur"></span></div>
+    <div class="fm-a" id="fmA"></div>
+    <div class="fm-src" id="fmSrc"><span><b>[1]</b> foundationinc.co</span><span><b>[2]</b> reddit.com/r/SaaS</span><span><b>[3]</b> youtube.com</span><span><b>[4]</b> g2.com</span></div>
+    <div class="fm-pipe" id="fmPipe">
+      <div class="fm-st"><small>Visit</small><b data-v="0">0</b></div>
+      <div class="fm-st"><small>MQL</small><b data-v="0">0</b></div>
+      <div class="fm-st"><small>SAL</small><b data-v="0">0</b></div>
+      <div class="fm-st"><small>Opp</small><b data-v="0">0</b></div>
+      <div class="fm-st"><small>Won</small><b data-v="0">0</b></div>
+    </div>
+    <div class="fm-cap" id="fmCap"></div>
+    <i class="fm-dot" id="fmDot"></i>
+  </div>
+</div></header>
+
+<!-- 01 AUDIT -->
+<section id="audit"><div class="wrap">
+  <div class="sh"><span class="n">01</span><div>
+    <h2>The audit of foundationinc.co</h2>
+    <p>Every finding below was checked live on Oct 31, 2026, with the evidence and the fix written out. They're sorted by what they cost you: pipeline and indexing first, polish last. Tap a row to open it.</p>
+    <span class="jd">JD · Own the Foundation website · On-page and technical SEO · Monitor site health and fix issues proactively</span>
+  </div></div>
+  <div class="au-top">
+    <div><b>10</b><span>open job posts telling Google they're the GEO Strategist page</span></div>
+    <div><b>5</b><span>service pages competing for the same AI agency buyer</span></div>
+    <div><b>52/55</b><span>pages sharing one share image, uploaded Dec 2019</span></div>
+    <div><b>1.25s</b><span>median server response, on a cache hit</span></div>
+  </div>
+  <div class="au-f" id="auF">
+    <button class="on" data-f="all">All 20</button><button data-f="w">Fix this week</button><button data-f="m">Fix this month</button><button data-f="t">Test or tidy</button>
+  </div>
+  <div class="au-l" id="auL"></div>
+</div></section>
+
+<!-- 02 PIPELINE -->
+<section id="pipeline"><div class="wrap">
+  <div class="sh"><span class="n">02</span><div>
+    <h2>Pipeline, with Sales and Paid</h2>
+    <p>Six pieces you could take to the Monday sales meeting. They are the handoff agreement, the weekly review, a paid campaign built on your free audit, a pacing tool, a stall finder and the nurture series for audit requests that never booked a call.</p>
+    <span class="jd">JD · Lead handoff, MQL/SAL follow-up and pipeline reviews · Launch and improve paid campaigns · Find where pipeline stalls · Nurture and lifecycle email</span>
+  </div></div>
+  <div class="dk" data-dk="pipeline">
+    <div class="dk-ix">
+      <button data-k="sla" class="on">Lead handoff SLA<small>MQL → SAL, signed by Sales</small></button>
+      <button data-k="review">Weekly pipeline review<small>30 minutes, Tuesdays</small></button>
+      <button data-k="paid">Paid: the audit campaign<small>LinkedIn + Google</small></button>
+      <button data-k="pace">Budget pacing<small>measured on cost per SAL</small></button>
+      <button data-k="stall">Stall finder<small>volume, conversion or velocity</small></button>
+      <button data-k="nurture">Nurture series<small>5 emails, audit → call</small></button>
+    </div>
+
+    <div class="dk-p on" data-k="sla">
+      <span class="kick">Version 1, for Sales to mark up</span>
+      <h3>Lead handoff SLA: Marketing and Sales</h3>
+      <p>Your audit form already asks for website, three competitors, buyer questions, company size, budget, timeline and the prompt the buyer typed into an AI. That's enough to route and qualify on day one. This agreement turns it into rules both teams sign.</p>
+      <div class="scroll"><table class="tbl">
+        <tr><th>Stage</th><th>Definition</th><th>Who sets it</th><th>Clock</th></tr>
+        <tr><td><b>MQL</b></td><td>Audit request, "Book a call" or Citation Conference seat request from an in-house marketer at a B2B tech, SaaS or enterprise company. Company size and budget in the top two bands of the form, or a named target account.</td><td>HubSpot workflow, automatic</td><td>Instant</td></tr>
+        <tr><td><b>SAL</b></td><td>Sales has reached the person, confirmed fit and booked the audit walkthrough or discovery call.</td><td>AE, in HubSpot</td><td>First touch within <b>1 business hour</b>. Accept or reject within <b>1 business day</b>.</td></tr>
+        <tr><td><b>Opportunity</b></td><td>Discovery done, a problem worth a proposal confirmed, deal created with amount and close date.</td><td>AE</td><td>Within 10 business days of SAL</td></tr>
+        <tr><td><b>Recycled</b></td><td>Real fit, wrong timing. Goes to nurture with a reason and a date to re-check.</td><td>AE picks a reason</td><td>Re-check date required</td></tr>
+        <tr><td><b>Disqualified</b></td><td>Agency or competitor, student, job seeker, vendor pitch, under-size, duplicate, spam.</td><td>AE picks a reason</td><td>Same day</td></tr>
+      </table></div>
+      <div class="g2">
+        <div class="box"><h5>Routing</h5><ul>
+          <li><b>AI Visibility, Reddit, YouTube, Paid Media audit:</b> AE round robin, strategist cc'd. The competitors they named go straight into the audit brief.</li>
+          <li><b>Book a call:</b> AE round robin.</li>
+          <li><b>Citation Conference seat request:</b> events owner reviews the seat first. In-house buyers at target accounts are flagged to their AE.</li>
+          <li><b>Named target account:</b> to the account owner, skip the round robin.</li>
+        </ul></div>
+        <div class="box"><h5>What each team commits to</h5><ul>
+          <li><b>Marketing:</b> a weekly MQL target agreed each quarter. Complete records, with website, competitors and AI prompt filled. Rejection reasons reviewed every week.</li>
+          <li><b>Sales:</b> first touch inside the SLA. Every MQL dispositioned within 2 business days, with no "open" older than 48 hours. Notes on why deals stall.</li>
+        </ul></div>
+      </div>
+      <h4>HubSpot build list</h4>
+      <div class="scroll"><table class="tbl">
+        <tr><th>Object</th><th>Build</th></tr>
+        <tr><td>Workflow</td><td>Form submission + fit rules → Lifecycle stage = MQL, stamp <code>mql_date</code>, rotate owner, create task "First touch" due in 1 hour.</td></tr>
+        <tr><td>Properties</td><td><code>sal_date</code>, <code>rejection_reason</code> (required dropdown on reject), <code>recycle_check_date</code>, <code>first_touch_minutes</code> (calculated). Keep the form's <code>ai_prompt_asked</code> and <code>ai_assistant_referrer</code>.</td></tr>
+        <tr><td>Alert</td><td>Slack ping to #sales when an MQL is untouched at 60 minutes, then to the sales lead at 4 hours.</td></tr>
+        <tr><td>Report</td><td>MQL → SAL rate by source, median first-touch minutes, rejection reasons by source (feeds the weekly review).</td></tr>
+      </table></div>
+    </div>
+
+    <div class="dk-p" data-k="review">
+      <span class="kick">Template · sample rows</span>
+      <h3>Weekly pipeline review: 30 minutes, Tuesday</h3>
+      <p>One doc, the same order every week, decisions written down. The meeting is for decisions. Status updates go in the doc.</p>
+      <div class="g2">
+        <div class="box s"><h5>Agenda</h5><ol class="l">
+          <li><b>Numbers, 5 min.</b> MQLs vs target, MQL → SAL, median first touch, open SALs older than 7 days.</li>
+          <li><b>Stuck, 10 min.</b> Every deal past its stage age limit, one by one: what's the next step and who owns it.</li>
+          <li><b>What buyers said, 10 min.</b> New objections, competitors named in the audit forms, the AI prompts buyers typed.</li>
+          <li><b>Decisions, 5 min.</b> Max three, each with an owner and a date.</li>
+        </ol></div>
+        <div class="box"><h5>Stage age limits</h5>
+          <div class="scroll"><table class="tbl" style="margin-top:0">
+            <tr><th>Stage</th><th>Flag after</th></tr>
+            <tr><td>MQL, not touched</td><td>1 business hour</td></tr>
+            <tr><td>SAL, no meeting held</td><td>7 days</td></tr>
+            <tr><td>Audit delivered, no proposal</td><td>14 days</td></tr>
+            <tr><td>Proposal sent</td><td>21 days</td></tr>
+          </table></div>
+        </div>
+      </div>
+      <h4>This week's doc <span class="tag a">sample</span></h4>
+      <div class="scroll"><table class="tbl">
+        <tr><th>Item</th><th>What we saw</th><th>Decision</th><th>Owner · due</th></tr>
+        <tr><td>Speed to lead</td><td>Median first touch 3h 10m. Audit requests on Fridays waited until Monday.</td><td>Weekend audit requests get an auto-reply from the strategist with a calendar link.</td><td>Marketing Manager · Fri</td></tr>
+        <tr><td>Stuck: audit delivered</td><td>4 deals past 14 days. All four walkthroughs ran without the buyer's boss on the call.</td><td>Add "who else should see this?" to the booking form. AE invites them to the walkthrough.</td><td>Sales lead · next review</td></tr>
+        <tr><td>Buyer language</td><td>3 of 9 audit forms named the same competitor. Two buyers typed "best GEO agency for B2B SaaS".</td><td>Content Manager briefs a comparison page. Paid adds the phrase as an exact match.</td><td>Content Manager · 2 wks</td></tr>
+      </table></div>
+    </div>
+
+    <div class="dk-p" data-k="paid">
+      <span class="kick">Built with the Paid team · measured on pipeline</span>
+      <h3>Campaign: "Did ChatGPT name you?"</h3>
+      <p>The offer is your Free AI Visibility Audit, the strongest thing on the site. It's specific, it uses the buyer's own competitors, and it ends in a 90-day roadmap. Three LinkedIn ads test three reasons to click. Search catches the people already looking.</p>
+      <div class="g3" id="adGrid"></div>
+      <h4>Audience</h4>
+      <div class="g2">
+        <div class="box"><h5>LinkedIn, core</h5><ul>
+          <li><b>Function:</b> Marketing. <b>Seniority:</b> Director, VP, CXO.</li>
+          <li><b>Titles to layer:</b> Head of Demand Gen, Head of Content, VP Growth, SEO Lead, Head of Brand.</li>
+          <li><b>Company size:</b> 201 to 5,000.</li>
+          <li><b>Industries:</b> the ones on your solutions pages. Software, AI, martech, cybersecurity, developer tools, data and analytics.</li>
+          <li><b>Exclude:</b> current clients, agencies, students, job seekers.</li>
+        </ul></div>
+        <div class="box"><h5>Budget split, month one</h5><ul>
+          <li><b>60%</b> LinkedIn core (three ads, even rotation for 2 weeks, then winner takes 70%).</li>
+          <li><b>25%</b> Google Search, exact and phrase: <i>generative engine optimization agency, ai visibility agency, geo agency, ai search optimization agency</i>.</li>
+          <li><b>15%</b> retargeting site visitors from the GEO articles in the Lab.</li>
+          <li><b>Kill rule:</b> any ad set above 2× target cost per SAL after 30 clicks to the form.</li>
+        </ul></div>
+      </div>
+      <h4>Google responsive search ad <span class="mono" style="color:var(--mut)">headlines ≤ 30 · descriptions ≤ 90</span></h4>
+      <div class="scroll"><table class="tbl" id="rsa"></table></div>
+      <h4>Tracking</h4>
+      <pre class="code">https://foundationinc.co/ai-visibility-audit/?utm_source=linkedin&amp;utm_medium=paid_social&amp;utm_campaign=2026-11_ai-visibility-audit&amp;utm_content=did-chatgpt-name-you</pre>
+      <p class="src">Your audit form already stores utm_source through utm_content, gclid and cta_id as hidden fields, so every SAL can be traced back to the ad that created it.</p>
+    </div>
+
+    <div class="dk-p" data-k="pace">
+      <span class="kick">Tool · try your own numbers</span>
+      <h3>Budget pacing, judged on cost per SAL</h3>
+      <p>Clicks and form fills come cheap. This checks spend against the month and against what a sales-accepted lead is worth.</p>
+      <div class="calc">
+        <div>
+          <div class="fld"><label>Monthly budget (USD)<output id="pBo"></output></label><input type="range" id="pB" min="2000" max="60000" step="500" value="15000"></div>
+          <div class="fld"><label>Day of the month<output id="pDo"></output></label><input type="range" id="pD" min="1" max="30" value="18"></div>
+          <div class="fld"><label>Spent so far (USD)<output id="pSo"></output></label><input type="range" id="pS" min="0" max="60000" step="100" value="10400"></div>
+          <div class="fld"><label>SALs so far, from paid<output id="pLo"></output></label><input type="range" id="pL" min="0" max="60" value="9"></div>
+          <div class="fld"><label>Target cost per SAL (USD)<output id="pTo"></output></label><input type="range" id="pT" min="200" max="5000" step="50" value="1200"></div>
+        </div>
+        <div class="out" id="pOut"></div>
+      </div>
+    </div>
+
+    <div class="dk-p" data-k="stall">
+      <span class="kick">Tool · sample numbers, edit them</span>
+      <h3>Where is pipeline stalling?</h3>
+      <p>Pipeline breaks in three ways: not enough coming in (volume), too much falling out (conversion), or too slow moving through (velocity). Put in a month of numbers and the tool names the weakest stage and the test to run first.</p>
+      <div class="calc">
+        <div>
+          <div class="funnel" id="stIn"></div>
+          <p class="src">Counts per month. Days = median time spent in that stage. Targets come from the SLA.</p>
+        </div>
+        <div class="out" id="stOut"></div>
+      </div>
+    </div>
+
+    <div class="dk-p" data-k="nurture">
+      <span class="kick">Lifecycle · enrols when an audit is requested and no call is booked within 48 hours</span>
+      <h3>"From audit to conversation": five emails</h3>
+      <p>Each email gives the buyer something useful from your own Lab and case studies, and asks for one thing. It stops the moment they book or reply. Replies route to the owner, not a shared inbox.</p>
+      <div class="g2">
+        <div class="seq" id="nuSeq"></div>
+        <div id="nuEm"></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- 03 SITE -->
+<section id="site"><div class="wrap">
+  <div class="sh"><span class="n">03</span><div>
+    <h2>Website and SEO, fixed</h2>
+    <p>The fixes from the audit, written so a developer or I can ship them in the CMS this week. It covers rewrites, redirects, schema, robots.txt, the first conversion test, the weekly health check and how site SEO and the Lab share topics.</p>
+    <span class="jd">JD · Own the website · Keyword targeting, metadata, internal linking, schema, speed, indexation for search engines and AI crawlers · Improve conversion through testing · Work with the Content Manager</span>
+  </div></div>
+  <div class="dk" data-dk="site">
+    <div class="dk-ix">
+      <button data-k="rw" class="on">Titles, metas, H1s<small>7 rewrites, live counts</small></button>
+      <button data-k="redir">Redirects + internal links<small>CSV ready to import</small></button>
+      <button data-k="schema">Schema<small>Service, FAQ, JobPosting</small></button>
+      <button data-k="robots">robots.txt + llms.txt<small>for search and AI crawlers</small></button>
+      <button data-k="cro">Conversion tests<small>audit form first</small></button>
+      <button data-k="health">Weekly site health<small>GSC, GA4, Ahrefs, logs</small></button>
+      <button data-k="overlap">Site vs Lab<small>with the Content Manager</small></button>
+    </div>
+
+    <div class="dk-p on" data-k="rw">
+      <span class="kick">Before → after · counts update as you edit</span>
+      <h3>Seven rewrites</h3>
+      <p>Each one fixes a finding from the audit. The "after" titles and descriptions are editable. Click into any of them and the character counts update.</p>
+      <div id="rwL"></div>
+    </div>
+
+    <div class="dk-p" data-k="redir">
+      <span class="kick">301s · import into the Redirection plugin or WP Engine</span>
+      <h3>Redirect map</h3>
+      <div class="scroll"><table class="tbl" id="rdT"></table></div>
+      <div class="codehd"><span class="mono" style="color:var(--mut)">After the redirects: update nav and in-content links, drop the old URLs from the sitemap, request validation in Search Console.</span><button class="cbtn" id="rdCsv">Download CSV</button></div>
+      <h4>Internal links: send Lab readers to the audits</h4>
+      <p>Your most-read GEO guides link to service pages. None of the ones I checked link to a free audit, which is the offer that books calls. One contextual link each, placed in the first third of the article:</p>
+      <div class="scroll"><table class="tbl">
+        <tr><th>Article</th><th>Anchor text</th><th>Links to</th></tr>
+        <tr><td><code>/lab/generative-engine-optimization</code></td><td>see how often AI recommends you today</td><td><code>/ai-visibility-audit/</code></td></tr>
+        <tr><td><code>/lab/geo-metrics</code></td><td>get your citation share against three competitors</td><td><code>/ai-visibility-audit/</code></td></tr>
+        <tr><td><code>/lab/ai-visibility/</code></td><td>free AI visibility audit</td><td><code>/ai-visibility-audit/</code></td></tr>
+        <tr><td><code>/lab/ai-visibility-off-site-sources/</code></td><td>the Reddit threads AI quotes about you</td><td><code>/reddit-ai-visibility-audit/</code></td></tr>
+        <tr><td><code>/lab/youtube-ai-visibility</code></td><td>YouTube AI visibility audit</td><td><code>/youtube-ai-visibility-audit/</code></td></tr>
+        <tr><td><code>/lab/paid-media-ai-visibility/</code></td><td>find the budget your ads are wasting</td><td><code>/paid-media-audit/</code></td></tr>
+        <tr><td><code>/lab/geo-rfp</code></td><td>generative engine optimization agency</td><td><code>/services/generative-engine-optimization-agency</code></td></tr>
+      </table></div>
+    </div>
+
+    <div class="dk-p" data-k="schema">
+      <span class="kick">JSON-LD · paste into the page template</span>
+      <h3>Schema for service pages and job posts</h3>
+      <p>Your audit pages already carry Service, Offer and FAQPage markup. Your 34 service pages carry only WebPage and Breadcrumb. This rolls the audit-page pattern out to service pages, starting with AI Visibility. The FAQ copy is written to sit visibly on the page too, since markup has to match what's on the page.</p>
+      <div class="codehd"><b>/services/ai-visibility-agency: Service + FAQPage</b><button class="cbtn" data-copy="sc1">Copy</button></div>
+      <pre class="code" id="sc1"></pre>
+      <div class="codehd"><b>/careers/* template: JobPosting + a self-referencing canonical</b><button class="cbtn" data-copy="sc2">Copy</button></div>
+      <pre class="code" id="sc2"></pre>
+      <p class="src">Values for the Marketing Manager post come from the post itself: full-time, remote with 5 hours of EST overlap, base $60k to $90k CAD. The date and title come from WordPress so every career page fills its own.</p>
+    </div>
+
+    <div class="dk-p" data-k="robots">
+      <span class="kick">Two small files</span>
+      <h3>robots.txt and llms.txt</h3>
+      <div class="g2">
+        <div><div class="codehd"><b>robots.txt, today</b></div>
+<pre class="code"><span class="s">User-agent: *</span>
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+<span class="k">Crawl-delay: 10</span>
+Disallow: /products/linkedin-swipe-files/
+
+Sitemap: https://foundationinc.co/sitemap.xml</pre>
+          <p class="src"><code>Crawl-delay</code> is ignored by Google but honoured by Bing. Bing's index powers Copilot and is one of the sources behind ChatGPT search. Ten seconds a fetch caps Bingbot at 8,640 URLs a day, across 1,210 sitemap URLs plus every recrawl.</p>
+        </div>
+        <div><div class="codehd"><b>robots.txt, proposed</b><button class="cbtn" data-copy="rbNew">Copy</button></div>
+<pre class="code" id="rbNew"># Search engines and AI assistants are welcome.
+User-agent: *
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+Disallow: /products/linkedin-swipe-files/
+
+# Named so the policy is explicit and easy to change
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: PerplexityBot
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Bingbot
+Allow: /
+Disallow: /wp-admin/
+
+Sitemap: https://foundationinc.co/sitemap.xml</pre></div>
+      </div>
+      <div class="codehd"><b>/llms.txt (returns 404 today)</b><button class="cbtn" data-copy="llms">Copy</button></div>
+<pre class="code" id="llms"></pre>
+      <p class="src">llms.txt is cheap, but no major assistant has committed to reading it. Ship it, then check the WP Engine access logs for requests to it before giving it any more time.</p>
+    </div>
+
+    <div class="dk-p" data-k="cro">
+      <span class="kick">Test 1 of the backlog · try the variant</span>
+      <h3>A two-step audit form</h3>
+      <p>The AI Visibility Audit form collects 14 fields. Every one is useful to Sales, but not all of them are needed before someone commits. In the variant, step one asks only for what the audit itself needs. Step two asks for what routing needs, after the buyer has already said yes.</p>
+      <div class="g2">
+        <div class="box s" id="croForm"></div>
+        <div>
+          <div class="box"><h5>Test card</h5><ul>
+            <li><b>Hypothesis:</b> moving 9 fields after the commitment raises audit requests without lowering SAL rate.</li>
+            <li><b>Primary metric:</b> audit requests that become SALs, per 100 visitors. Not raw submissions.</li>
+            <li><b>Guardrail:</b> SAL rate must not drop more than 10%.</li>
+            <li><b>Partial capture:</b> step one alone creates the contact, so a drop-off at step two still gets an audit and a nurture.</li>
+          </ul></div>
+          <div class="box" style="margin-top:12px"><h5>How long it needs to run</h5>
+            <div class="fld"><label>Current conversion rate<output id="ssCo"></output></label><input type="range" id="ssC" min="0.5" max="10" step="0.1" value="2.5"></div>
+            <div class="fld"><label>Smallest lift worth finding<output id="ssLo"></output></label><input type="range" id="ssL" min="5" max="60" step="1" value="25"></div>
+            <div class="fld"><label>Weekly visitors to the page<output id="ssVo"></output></label><input type="range" id="ssV" min="200" max="10000" step="100" value="1500"></div>
+            <p id="ssOut" style="font-size:14.5px"></p>
+          </div>
+        </div>
+      </div>
+      <h4>Backlog, scored</h4>
+      <div class="scroll"><table class="tbl">
+        <tr><th>Test</th><th>Page</th><th>Why</th><th>Impact</th><th>Confidence</th><th>Ease</th></tr>
+        <tr><td>Two-step audit form</td><td>/ai-visibility-audit/</td><td>14 fields before the commitment</td><td>8</td><td>7</td><td>8</td></tr>
+        <tr><td>Promote the "prompt test" panel to every AI service page</td><td>5 AI service pages</td><td>The live model check is the most convincing thing on the audit page</td><td>7</td><td>6</td><td>6</td></tr>
+        <tr><td>Hero CTA: "Get a free audit" vs "See if ChatGPT recommends you"</td><td>Homepage</td><td>Outcome-led CTAs name the buyer's worry</td><td>6</td><td>5</td><td>9</td></tr>
+        <tr><td>Bitly result beside every audit form</td><td>4 audit pages</td><td>Proof at the point of decision</td><td>5</td><td>6</td><td>9</td></tr>
+        <tr><td>"Who else should see the audit?" field on booking</td><td>Booking flow</td><td>Walkthroughs without the buyer's boss stall</td><td>6</td><td>5</td><td>8</td></tr>
+      </table></div>
+    </div>
+
+    <div class="dk-p" data-k="health">
+      <span class="kick">Every Monday, 30 minutes</span>
+      <h3>Site health check</h3>
+      <p>The same five checks every week, so problems like the careers canonicals get caught in days, not months. Tick through it. It saves in your browser.</p>
+      <div class="ck" id="hcL"></div>
+      <div class="prog"><i id="hcP"></i></div>
+      <div class="codehd"><b>GA4 custom channel group: "AI assistants"</b><button class="cbtn" data-copy="ga4">Copy</button></div>
+      <pre class="code" id="ga4">Channel name:  AI assistants
+Condition:     Session source  matches regex
+^(chatgpt\.com|chat\.openai\.com|perplexity\.ai|www\.perplexity\.ai|gemini\.google\.com|copilot\.microsoft\.com|claude\.ai|chat\.mistral\.ai|meta\.ai)$
+Order:         place above "Referral" so these sessions don't fall into it</pre>
+      <p class="src">Your audit form already captures <code>ai_assistant_referrer</code>. With this channel in GA4, AI-referred sessions and the leads they create can be compared side by side.</p>
+    </div>
+
+    <div class="dk-p" data-k="overlap">
+      <span class="kick">Shared with the Content Manager</span>
+      <h3>One page per job: service pages sell, Lab articles teach</h3>
+      <p>Your site has 34 service pages and 856 Lab posts, so topics will overlap. The rule is simple. The page that should rank for a buying query is the service or audit page. The page that should rank for a learning query is the article. Each links to the other with descriptive anchor text.</p>
+      <div class="scroll"><table class="tbl">
+        <tr><th>Topic</th><th>Buying query → owner page</th><th>Learning query → owner article</th></tr>
+        <tr><td>AI visibility</td><td>"ai visibility agency" → <code>/services/ai-visibility-agency</code></td><td>"what is ai visibility" → <code>/lab/ai-visibility/</code></td></tr>
+        <tr><td>GEO</td><td>"geo agency" → <code>/services/generative-engine-optimization-agency</code></td><td>"what is generative engine optimization" → <code>/lab/generative-engine-optimization</code></td></tr>
+        <tr><td>Measurement</td><td>"ai visibility audit" → <code>/ai-visibility-audit/</code></td><td>"geo metrics" → <code>/lab/geo-metrics</code></td></tr>
+        <tr><td>Reddit</td><td>"reddit marketing agency" → <code>/services/reddit-agency</code></td><td>"reddit ai visibility" → <code>/lab/ai-visibility-off-site-sources/</code></td></tr>
+        <tr><td>YouTube</td><td>"b2b youtube agency" → <code>/services/youtube-marketing</code></td><td>"youtube ai visibility" → <code>/lab/youtube-ai-visibility</code></td></tr>
+        <tr><td>Buying GEO</td><td>(same service page)</td><td>"geo rfp" → <code>/lab/geo-rfp</code></td></tr>
+      </table></div>
+      <div class="g2">
+        <div class="box"><h5>Page templates we'd agree on</h5><ul>
+          <li><b>Service page:</b> H1 names the service and the buyer. Proof above the fold. One primary CTA, the matching audit. FAQ with schema. 2 to 3 links out to Lab guides.</li>
+          <li><b>Lab article:</b> answers the question in the first 100 words. One contextual link to the owner service or audit page in the first third.</li>
+        </ul></div>
+        <div class="box"><h5>Monthly overlap check</h5><ul>
+          <li>Search Console → queries where 2 or more Foundation URLs earn impressions.</li>
+          <li>If the wrong page wins a buying query: fix internal links first, then retitle. Merge only if both pages say the same thing.</li>
+          <li>Shared sheet with the Content Manager, one row per query, owner page agreed.</li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- 04 CAMPAIGNS -->
+<section id="campaigns"><div class="wrap">
+  <div class="sh"><span class="n">04</span><div>
+    <h2>Campaigns and go-to-market</h2>
+    <p>Your biggest moment of the next six months is already on the calendar: Citation Conference, Toronto, May 11 to 13, 2027. It anchors the campaign plan. Around it sit a webinar ready to run, a launch kit for LLM Advertising, Category Entry Points mapped to pages and ads, and the cross-team checklist that gets each launch out on time.</p>
+    <span class="jd">JD · Integrated campaigns for service launches, industry moments, thought leadership · Webinars, podcasts, partnerships, sponsorships · Coordinate Creative, Growth, Paid, Sales, Content · Brand-to-Demand and CEPs</span>
+  </div></div>
+  <div class="dk" data-dk="campaigns">
+    <div class="dk-ix">
+      <button data-k="cc" class="on">Citation Conference 2027<small>Nov → May, 200 seats</small></button>
+      <button data-k="web">Webinar, ready to run<small>Share of Model · Dec 10</small></button>
+      <button data-k="llm">Service launch kit<small>LLM Advertising</small></button>
+      <button data-k="part">Partners + sponsorships<small>scored on cost per SAL</small></button>
+      <button data-k="cep">Category Entry Points<small>8 buying moments, mapped</small></button>
+      <button data-k="launch">Cross-team launch checklist<small>T−21 to T+14</small></button>
+    </div>
+
+    <div class="dk-p on" data-k="cc">
+      <span class="kick">Industry moment · <span id="ccDays"></span></span>
+      <h3>Citation Conference 2027: fill the room, then turn the room into pipeline</h3>
+      <p>The page promises 200 marketing leaders, about 70% in-house, reviewed one at a time, with no recordings. That shapes the campaign. The pitch is the people in the room and the unpublished tactics, and the follow-up runs through Table Talks and the Midday Report, not session videos.</p>
+      <div class="scroll"><table class="tbl">
+        <tr><th>Phase</th><th>Dates</th><th>What ships</th><th>Measure</th></tr>
+        <tr><td><b>1 · Invite</b></td><td>Nov 2 to Dec 18, 2026</td><td>Hand-picked list from HubSpot: open opportunities, past audit requests, in-house Director+ subscribers. Personal note from Ross. Ross Simmonds Show segment on why you're building the room.</td><td>Seat requests from target accounts</td></tr>
+        <tr><td><b>2 · Speakers</b></td><td>Jan 11 to Feb 26, 2027</td><td>One speaker announcement a week (carousel brief in Team). Table Talk topics voted on by people who requested seats.</td><td>Requests per announcement, share rate</td></tr>
+        <tr><td><b>3 · Fill</b></td><td>Mar 1 to Apr 23</td><td>LinkedIn ads to in-house marketing leaders, Canada and US. Partner sends. Last-seats email to the waitlist.</td><td>Seats approved, % in-house (target 70%)</td></tr>
+        <tr><td><b>4 · Event week</b></td><td>May 11 to 13</td><td>Atmosphere and people, not session content (Off the Record means no cameras). Daily recap email to attendees. Sales at the tables as hosts, not pitchers.</td><td>Conversations logged per target account</td></tr>
+        <tr><td><b>5 · Follow-up</b></td><td>May 14 to Jun 30</td><td>Midday Report published. Table Talk notes sent to each table. AE follow-up within 5 business days for in-house buyers at target accounts, with an AI visibility audit offer.</td><td>Meetings within 30 days, pipeline sourced and influenced</td></tr>
+      </table></div>
+      <div class="g2">
+        <div class="li">
+          <div class="h"><i>F</i><div><b>Foundation</b><small>Promoted · Phase 3</small></div></div>
+          <div class="tx">200 seats. Reviewed one at a time.
+
+No expo hall. No recordings. No pitches from the stage.
+
+Just the marketing leaders who own how AI describes their brands, at tables of ten, trading the numbers they can't put on LinkedIn.
+
+Citation Conference. Toronto, May 11 to 13.</div>
+          <div class="art k" style="aspect-ratio:1.91/1"><div class="pad" style="padding:5cqw">
+            <div class="lg">Citation<i>[1]</i> Conference</div>
+            <div class="hd" style="font-size:7.4cqw">The room where AI visibility gets figured out.</div>
+            <div class="ft2">Toronto // May 11 to 13, 2027 // 200 seats</div>
+          </div></div>
+          <div class="ad"><div class="ft"><div><b>Request a seat</b><small>foundationinc.co</small></div><span>Apply</span></div></div>
+        </div>
+        <div>
+          <div class="box p"><h5>One message to fix first</h5><p>The site banner says "Get your ticket to Citation Conference Today" and the page footer says "Get Your Tickets Today." The page itself says seats are requested and reviewed one at a time. Tickets suggest anyone can buy in, and requests are what make the room feel exclusive. I'd use "Request a seat" everywhere.</p></div>
+          <div class="box" style="margin-top:12px"><h5>Owners</h5><ul>
+            <li><b>Creative:</b> speaker card system, ad set, event signage.</li>
+            <li><b>Coordinator:</b> weekly speaker posts, community replies, waitlist.</li>
+            <li><b>Paid:</b> Phase 3 LinkedIn, retargeting of page visitors.</li>
+            <li><b>Sales:</b> invite list review, table hosting, follow-up.</li>
+            <li><b>Content:</b> Midday Report write-up, recap article.</li>
+            <li><b>Me:</b> the plan, the dashboard, the weekly check-in, and the line between the event and pipeline.</li>
+          </ul></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dk-p" data-k="web">
+      <span class="kick">Thought leadership · ready to run</span>
+      <h3>Webinar: "Share of Model: what to show the board about AI visibility"</h3>
+      <p>Thursday, December 10, 2026, 12:00 ET, 45 minutes. It lands when budgets for next year get defended. Its topic is the measurement idea at the centre of Citation Conference, so it also warms the room for May.</p>
+      <div class="g2">
+        <div class="box"><h5>Registration page copy</h5>
+          <p><b>H1:</b> Your board is asking what the AI plan is. Here's what to show them.</p>
+          <p style="margin-top:6px"><b>Sub:</b> 45 minutes on measuring AI visibility: citation share, share of voice and sentiment, with real audit structures and the framework Foundation uses with clients.</p>
+          <p style="margin-top:6px"><b>You'll leave with:</b> the five numbers that belong in a board update, a 120-prompt test you can run yourself, and a one-page template for your Q1 plan.</p>
+          <p style="margin-top:6px"><b>Form:</b> name, work email, company website. Two optional fields: "Your top competitor" and "A question you'd ask ChatGPT about your category." Both feed the live Q&amp;A, and Sales sees them.</p>
+        </div>
+        <div class="box"><h5>Run of show</h5>
+          <div class="scroll"><table class="tbl" style="margin-top:0">
+            <tr><td>0:00</td><td>Why rankings stopped being the scoreboard</td></tr>
+            <tr><td>0:06</td><td>The five numbers: citation share, share of voice, prompts absent, sentiment, AI-referred pipeline</td></tr>
+            <tr><td>0:18</td><td>Live: one attendee's category tested across models (asked for in the form)</td></tr>
+            <tr><td>0:30</td><td>The board slide, filled in</td></tr>
+            <tr><td>0:36</td><td>Q&amp;A</td></tr>
+            <tr><td>0:44</td><td>One ask: request your audit</td></tr>
+          </table></div>
+        </div>
+      </div>
+      <h4>Promotion and follow-up</h4>
+      <div class="scroll"><table class="tbl">
+        <tr><th>When</th><th>What</th><th>Channel</th></tr>
+        <tr><td>T−21 · Nov 19</td><td>Announce: registration page live, Ross post, newsletter feature</td><td>LinkedIn, email</td></tr>
+        <tr><td>T−16 · Nov 24</td><td>Carousel: "5 numbers for your AI board slide"</td><td>LinkedIn (Coordinator)</td></tr>
+        <tr><td>T−7 · Dec 3</td><td>Invite to open opportunities and recycled leads, sent from their AE</td><td>Email from Sales</td></tr>
+        <tr><td>T−1 · Dec 9</td><td>Reminder with the one question to bring</td><td>Email</td></tr>
+        <tr><td>T+1 · Dec 11</td><td><b>Attended:</b> slides + board template + "want us to run this for you?" <b>No-show:</b> 12-minute cut + same template</td><td>Email, split</td></tr>
+        <tr><td>T+4 · Dec 14</td><td>MQL rule: attended + fits ICP, or asked a question → MQL, routed under the SLA</td><td>HubSpot</td></tr>
+      </table></div>
+    </div>
+
+    <div class="dk-p" data-k="llm">
+      <span class="kick">Service launch</span>
+      <h3>Launch kit: LLM Advertising</h3>
+      <p>The page is live: "ChatGPT began running ads in early 2026," and you pair it with organic citation work. A service launch needs more than a page, so this is the kit around it.</p>
+      <div class="g2">
+        <div class="box k"><h5 style="color:#fff">Positioning, one line</h5><p style="color:#e8e6e1">Paid placements inside AI answers, run on top of the citations you're already earning, so paid and organic make each other more credible.</p>
+        <h5 style="color:#fff;margin-top:14px">Who it's for</h5><p style="color:#e8e6e1">B2B tech and SaaS teams already working on AI visibility who want to be in the answer this quarter, not after six months of earned citations.</p></div>
+        <div class="box"><h5>Proof to use, from your own pages</h5><ul>
+          <li>165,000+ AI citations generated on the organic side.</li>
+          <li>Paid media run across Google, LinkedIn, Meta and Reddit.</li>
+          <li>Clutch 100, 5.0 on Clutch.</li>
+          <li>Adobe Analytics: traffic from AI sources converted 42% better than non-AI traffic (as cited on the page).</li>
+        </ul></div>
+      </div>
+      <h4>Launch sequence</h4>
+      <div class="scroll"><table class="tbl">
+        <tr><th>Week</th><th>Move</th></tr>
+        <tr><td>1</td><td>Sales enablement first: a 20-minute walkthrough, the one-pager and 5 objections with answers. AEs pitch it to 10 current AI visibility clients before any public push.</td></tr>
+        <tr><td>2</td><td>Ross post and Ross Simmonds Show segment: what the first AI ad tests showed. Newsletter feature.</td></tr>
+        <tr><td>3</td><td>Lab article: "What we learned running ads inside AI answers." It links to /services/llm-advertising/ and the Paid Media Audit.</td></tr>
+        <tr><td>4</td><td>Paid: retarget visitors to the AI visibility pages with the Paid Media Audit offer.</td></tr>
+        <tr><td>6</td><td>Review: pipeline created, proposals that include it, objections heard. Update the kit.</td></tr>
+      </table></div>
+    </div>
+
+    <div class="dk-p" data-k="part">
+      <span class="kick">Webinars, podcasts, partnerships, sponsorships</span>
+      <h3>Every partnership earns its place in pipeline</h3>
+      <p>Your audit page names three platform partners: Profound, Reddit and AirOps. Your shows are The Ross Simmonds Show and Scroll Stopper. Partners make good co-hosts. The conference Midday Report is "built from a partner dataset," which makes it the natural first co-marketing piece.</p>
+      <div class="g3">
+        <div class="box"><h5>Profound</h5><p>Co-author the Midday Report dataset. A joint webinar after the event on what the data shows.</p></div>
+        <div class="box"><h5>Reddit</h5><p>Table Talk host for the Reddit round. Case study angle from the InsurTech Reddit program, if the client approves.</p></div>
+        <div class="box"><h5>AirOps</h5><p>Ross Simmonds Show episode on content operations at scale, then cross-promotion to both audiences.</p></div>
+      </div>
+      <h4>Sponsorship scorecard <span class="tag">try it</span></h4>
+      <p class="p">Before saying yes to a booth, a newsletter slot or a podcast sponsorship, estimate it the same way.</p>
+      <div class="calc">
+        <div>
+          <div class="fld"><label>All-in cost (USD)<output id="spCo"></output></label><input type="range" id="spC" min="1000" max="80000" step="500" value="18000"></div>
+          <div class="fld"><label>ICP conversations you'll realistically have<output id="spNo"></output></label><input type="range" id="spN" min="5" max="300" step="5" value="60"></div>
+          <div class="fld"><label>% that become meetings<output id="spMo"></output></label><input type="range" id="spM" min="1" max="50" value="15"></div>
+          <div class="fld"><label>% of meetings Sales accepts<output id="spSo"></output></label><input type="range" id="spS" min="10" max="100" value="60"></div>
+          <div class="fld"><label>Target cost per SAL (USD)<output id="spTo"></output></label><input type="range" id="spT" min="200" max="5000" step="50" value="1200"></div>
+        </div>
+        <div class="out" id="spOut"></div>
+      </div>
+    </div>
+
+    <div class="dk-p" data-k="cep">
+      <span class="kick">Brand-to-Demand</span>
+      <h3>Eight Category Entry Points for Foundation</h3>
+      <p>A Category Entry Point is the moment a buyer starts thinking "we need an agency for this." Brand work makes Foundation the name that comes to mind in that moment. Demand work makes sure the right page, ad and sales line are waiting there. Each moment below is mapped to all three.</p>
+      <div class="scroll"><table class="tbl" id="cepT"></table></div>
+    </div>
+
+    <div class="dk-p" data-k="launch">
+      <span class="kick">For every campaign · tick it off, it saves in your browser</span>
+      <h3>Cross-team launch checklist</h3>
+      <p>Every launch gets the same checklist, with owners named, so nothing waits on a Slack thread.</p>
+      <div class="ck" id="lcL"></div>
+      <div class="prog"><i id="lcP"></i></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- 05 TEAM -->
+<section id="team"><div class="wrap">
+  <div class="sh"><span class="n">05</span><div>
+    <h2>Leading the Social Media &amp; Marketing Coordinator</h2>
+    <p>The goal set in the role is clear: grow the Coordinator toward owning social completely. Here's the plan that gets there, the brief format they'd receive from me, and the quality bar we'd both hold.</p>
+    <span class="jd">JD · Coach and mentor: goals, feedback, development plan · Delegate with clear briefs, owners, deadlines · Uphold creative quality with the Creative Director</span>
+  </div></div>
+  <div class="dk" data-dk="team">
+    <div class="dk-ix">
+      <button data-k="dev" class="on">90-day development plan<small>from executing to owning social</small></button>
+      <button data-k="brief">A real brief<small>speaker announcement carousel</small></button>
+      <button data-k="qa">Quality bar + feedback<small>before anything ships</small></button>
+    </div>
+
+    <div class="dk-p on" data-k="dev">
+      <span class="kick">Agreed together in week one, reviewed monthly</span>
+      <h3>From "I post what's approved" to "I own social"</h3>
+      <div class="g3">
+        <div class="box"><span class="tag b">Days 1–30 · Execute</span><h5 style="margin-top:8px">Learn the voice, ship with review</h5><ul>
+          <li>I approve every post before it goes out, with written notes.</li>
+          <li>They shadow two sales calls to hear how buyers talk.</li>
+          <li>Goal: 12 posts shipped on schedule, a swipe file of 20 Foundation posts that worked and why.</li>
+        </ul></div>
+        <div class="box"><span class="tag a">Days 31–60 · Plan</span><h5 style="margin-top:8px">Own the calendar, I approve weekly</h5><ul>
+          <li>They build the two-week calendar. I review it once, not post by post.</li>
+          <li>They run the Citation Conference speaker series end to end.</li>
+          <li>Goal: calendar on time 4 of 4 weeks, first monthly social report written by them.</li>
+        </ul></div>
+        <div class="box"><span class="tag g">Days 61–90 · Own</span><h5 style="margin-top:8px">Own results, I coach monthly</h5><ul>
+          <li>They set the social targets with me and own the numbers.</li>
+          <li>They pitch one experiment a month, such as a format, a channel or a series.</li>
+          <li>Goal: present the quarter's social results to the Head of Marketing themselves.</li>
+        </ul></div>
+      </div>
+      <h4>Weekly 1:1, 30 minutes, their agenda first</h4>
+      <div class="g2">
+        <div class="box s"><ol class="l">
+          <li><b>Their list:</b> what's blocking them, what they're proud of.</li>
+          <li><b>One piece of work, reviewed together:</b> what worked, what to change, why.</li>
+          <li><b>Next week:</b> priorities, and anything they want to take over.</li>
+          <li><b>Every 4th week:</b> development plan check, honest about pace.</li>
+        </ol></div>
+        <div class="box"><h5>Skills they'll own by day 90</h5><ul>
+          <li>Writing in Ross's and Foundation's voices without a rewrite.</li>
+          <li>Turning one Lab article into a week of social (Create once. Distribute forever.).</li>
+          <li>Reading LinkedIn and HubSpot social data and picking the next test.</li>
+          <li>Briefing Creative directly.</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="dk-p" data-k="brief">
+      <span class="kick">The format every delegated task arrives in</span>
+      <h3>Brief: Citation Conference speaker announcement, carousel</h3>
+      <div class="scroll"><table class="tbl">
+        <tr><td style="width:180px"><b>Owner</b></td><td>Social Media &amp; Marketing Coordinator</td></tr>
+        <tr><td><b>Reviewer</b></td><td>Marketing Manager (copy, claims) · Creative Director (design)</td></tr>
+        <tr><td><b>Why it matters</b></td><td>Speaker posts are the main driver of seat requests in Phase 2. Every post must make an in-house marketing leader think "I want to be at that table."</td></tr>
+        <tr><td><b>Audience</b></td><td>In-house Directors and VPs of marketing at B2B tech companies who own AI visibility.</td></tr>
+        <tr><td><b>Message</b></td><td>Who the speaker is, the one problem they've solved, and why you can only hear it in the room.</td></tr>
+        <tr><td><b>Must include</b></td><td>The conference footnote style ([1], mono labels). "Toronto // May 11 to 13, 2027". CTA "Request a seat". UTM: <code>utm_campaign=citation-2027_speakers</code>.</td></tr>
+        <tr><td><b>Must not</b></td><td>Promise recordings or slides (Off the Record has neither). Say "tickets". Quote numbers the speaker hasn't approved.</td></tr>
+        <tr><td><b>Deliverable</b></td><td>LinkedIn carousel, 6 slides, 1080×1350. Caption under 1,300 characters. Speaker-approved copy. Alt text for each slide.</td></tr>
+        <tr><td><b>Deadlines</b></td><td>Draft Tue, Jan 12, 2027 · Feedback Wed, Jan 13 · Speaker approval Fri, Jan 15 · Live Mon, Jan 18, 9:00 ET</td></tr>
+        <tr><td><b>Done means</b></td><td>Live, link tested, UTM working, speaker tagged, first-hour replies handled, numbers logged in the tracker at 7 days.</td></tr>
+      </table></div>
+    </div>
+
+    <div class="dk-p" data-k="qa">
+      <span class="kick">Shared with the Creative Director</span>
+      <h3>The quality bar, before anything ships</h3>
+      <div class="g2">
+        <div class="box"><h5>Checklist</h5><ul>
+          <li><b>Claim check:</b> every number has a source we can link to.</li>
+          <li><b>Voice:</b> sounds like Foundation. Direct, specific, no filler.</li>
+          <li><b>Brand:</b> colour, type and logo per the Creative Director's system.</li>
+          <li><b>Links:</b> clicked, UTM'd, landing on the right page.</li>
+          <li><b>Access:</b> alt text, captions on video, readable contrast.</li>
+          <li><b>One ask:</b> a single next step, the right one for the stage.</li>
+        </ul></div>
+        <div class="box s"><h5>How feedback is written</h5><p><b>Keep:</b> "The opening slide works. 'No page two' is the whole problem in three words."</p><p style="margin-top:8px"><b>Change:</b> "Slide 4 has three ideas. Keep the citation-share one and move the other two to the caption."</p><p style="margin-top:8px"><b>Why:</b> "People swipe a carousel in about two seconds a slide. One idea each is what gets them to slide 6 and the CTA."</p></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- 06 REPORTING -->
+<section id="reporting"><div class="wrap">
+  <div class="sh"><span class="n">06</span><div>
+    <h2>Funnel reporting leadership trusts</h2>
+    <p>The dashboard, the definitions behind every number, a monthly readout to the Head of Marketing, and the cadence that keeps it all from drifting.</p>
+    <span class="jd">JD · MQL volume, MQL → SAL, velocity, cost per SAL, influenced revenue · Dashboards in HubSpot · Paid, website, AI search, campaigns, email, enablement usage · Insights and next steps · Consistent cadence</span>
+  </div></div>
+  <div class="dk" data-dk="reporting">
+    <div class="dk-ix">
+      <button data-k="dash" class="on">The funnel dashboard<small>HubSpot layout · sample data</small></button>
+      <button data-k="defs">Metric dictionary<small>one definition per number</small></button>
+      <button data-k="memo">Monthly readout<small>to the Head of Marketing</small></button>
+      <button data-k="cad">Cadence<small>weekly, monthly, quarterly</small></button>
+    </div>
+
+    <div class="dk-p on" data-k="dash">
+      <span class="kick">Sample data · switch the channel</span>
+      <h3>Marketing funnel, last 6 months</h3>
+      <div class="db" id="db">
+        <div class="db-h"><b>Foundation · Marketing funnel</b><select id="dbCh"></select></div>
+        <div class="db-k" id="dbK"></div>
+        <div class="db-g">
+          <div><h6>MQLs and SALs by month</h6><svg id="dbBar" viewBox="0 0 520 220"></svg></div>
+          <div><h6>By source, last 6 months</h6><div class="scroll"><table class="tbl" id="dbT" style="margin-top:0;font-size:12.5px"></table></div></div>
+        </div>
+      </div>
+      <p class="src">Built from HubSpot lifecycle dates, deal amounts, ad spend synced from LinkedIn and Google, and the GA4 "AI assistants" channel. The numbers here are examples.</p>
+    </div>
+
+    <div class="dk-p" data-k="defs">
+      <span class="kick">Agreed with Sales, pinned in the dashboard</span>
+      <h3>Metric dictionary</h3>
+      <div class="scroll"><table class="tbl">
+        <tr><th>Metric</th><th>Definition</th><th>Formula</th><th>Source</th></tr>
+        <tr><td><b>MQL volume</b></td><td>Contacts entering MQL in the period, first time only</td><td>count(mql_date in period)</td><td>HubSpot lifecycle</td></tr>
+        <tr><td><b>MQL → SAL</b></td><td>Share of a period's MQLs accepted by Sales, measured 14 days after the period closes</td><td>SALs from cohort ÷ MQLs in cohort</td><td>HubSpot</td></tr>
+        <tr><td><b>Pipeline velocity</b></td><td>Pipeline value moving per day</td><td>(# opps × win rate × avg deal) ÷ cycle days</td><td>HubSpot deals</td></tr>
+        <tr><td><b>Cost per SAL</b></td><td>Paid spend divided by SALs from paid sources, by channel</td><td>spend ÷ paid SALs</td><td>Ad platforms + HubSpot</td></tr>
+        <tr><td><b>Marketing-sourced pipeline</b></td><td>Deals whose contact's first conversion was a marketing form or event</td><td>sum(deal amount) where original source = marketing</td><td>HubSpot</td></tr>
+        <tr><td><b>Marketing-influenced revenue</b></td><td>Closed-won deals where a contact engaged with a marketing touch in the 90 days before close</td><td>sum(closed won) with touch ≤ 90d</td><td>HubSpot attribution</td></tr>
+        <tr><td><b>AI search visibility</b></td><td>Citation share and share of voice for Foundation across your own 120-prompt set, monthly</td><td>from the audit method you sell</td><td>Profound</td></tr>
+        <tr><td><b>AI-referred sessions</b></td><td>Sessions in the GA4 "AI assistants" channel</td><td>count</td><td>GA4</td></tr>
+        <tr><td><b>Enablement usage</b></td><td>Assets attached or shared in active deals</td><td>deals with asset ÷ active deals</td><td>HubSpot documents</td></tr>
+      </table></div>
+    </div>
+
+    <div class="dk-p" data-k="memo">
+      <span class="kick">Sample numbers · the format, one page</span>
+      <h3>October readout: three things, three asks</h3>
+      <div class="box s" style="max-width:820px">
+        <p class="mono" style="color:var(--mut)">To: Head of Marketing · From: Marketing Manager · Nov 2, 2026</p>
+        <h5 style="margin-top:12px">The headline</h5>
+        <p>MQLs were up 15% and SALs flat. The extra volume came from webinar registrants outside our ICP. Paid is converting at the same rate, but speed to lead slipped on weekends.</p>
+        <h5 style="margin-top:14px">What we saw</h5>
+        <ol class="l">
+          <li><b>AI assistants are now our best-converting source:</b> 8 of 16 MQLs accepted, 50%, ahead of paid social at 33%. Most arrive through the GEO articles.</li>
+          <li><b>Weekend audit requests convert at half the weekday rate.</b> Median first touch for them is 58 hours.</li>
+          <li><b>Paid search cost per SAL fell 12%</b> after we cut the "AI marketing agency" phrase match, which was pulling in job seekers.</li>
+        </ol>
+        <h5 style="margin-top:14px">What I recommend</h5>
+        <ol class="l">
+          <li>Add the audit link to the 7 top GEO articles (internal linking plan ready, 2 hours of work).</li>
+          <li>Strategist auto-reply with calendar link on weekend audit requests. Test it for 4 weeks.</li>
+          <li>Tighten the webinar MQL rule to ICP + attended, so the MQL count stays honest.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="dk-p" data-k="cad">
+      <span class="kick">Same day, same format, every time</span>
+      <h3>Reporting cadence</h3>
+      <div class="scroll"><table class="tbl">
+        <tr><th>When</th><th>What</th><th>Who</th><th>Format</th></tr>
+        <tr><td>Monday</td><td>Site health check, paid pacing, weekend speed to lead</td><td>Me</td><td>Checklist + Slack note</td></tr>
+        <tr><td>Tuesday</td><td>Pipeline review</td><td>Me + Sales + Paid</td><td>Doc, 30 min</td></tr>
+        <tr><td>Friday</td><td>Week in numbers: MQL, SAL, spend, top post, top article</td><td>Me</td><td>5 lines in #marketing</td></tr>
+        <tr><td>1st business day</td><td>Monthly readout</td><td>Me → Head of Marketing</td><td>One page, three asks</td></tr>
+        <tr><td>Monthly</td><td>AI visibility re-measure, Foundation's own 120 prompts</td><td>Me + GEO team</td><td>Dashboard tile + note</td></tr>
+        <tr><td>Quarterly</td><td>Funnel review, targets for next quarter, Coordinator growth check</td><td>Marketing leadership + Sales</td><td>Deck, 10 slides max</td></tr>
+      </table></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- 07 ENABLEMENT -->
+<section id="enable"><div class="wrap">
+  <div class="sh"><span class="n">07</span><div>
+    <h2>Sales enablement and pre-sales</h2>
+    <p>For the second and third calls: the talk track, the objections, a one-pager for the AI Visibility program, the review checklist for audits and proposals, and the system that keeps it all current.</p>
+    <span class="jd">JD · SME on 2nd and 3rd calls (SEO, GEO, Reddit, distribution, content) · Review audits and proposals · Pitch decks, one-pagers, templates · Current messaging and proof · SOPs and playbooks · Capture buyer patterns</span>
+  </div></div>
+  <div class="dk" data-dk="enable">
+    <div class="dk-ix">
+      <button data-k="talk" class="on">Talk track, calls 2 and 3<small>GEO, Reddit, distribution</small></button>
+      <button data-k="obj">Objections<small>8, with answers</small></button>
+      <button data-k="one">One-pager<small>AI Visibility program</small></button>
+      <button data-k="rev">Audit + proposal review<small>before it reaches the buyer</small></button>
+      <button data-k="lib">Enablement library + SOP<small>owner and review date</small></button>
+      <button data-k="loop">Buyer insight loop<small>calls → content → sales</small></button>
+    </div>
+
+    <div class="dk-p on" data-k="talk">
+      <span class="kick">For the subject-matter seat on the call</span>
+      <h3>Talk track: "How does AI decide who to recommend?"</h3>
+      <p>The question that comes up on almost every second call. Five beats, each one tied to something Foundation can show the buyer.</p>
+      <div class="scroll"><table class="tbl">
+        <tr><th>Beat</th><th>Say</th><th>Show</th></tr>
+        <tr><td>1 · The shift</td><td>"When a buyer asks an AI for a shortlist, there's no page two. You're in the answer or you're not."</td><td>Their own category prompt, run live</td></tr>
+        <tr><td>2 · Where answers come from</td><td>"Models pull from what they've learned and what they find when they search: your site, Reddit, YouTube, reviews, the press."</td><td>The citation map from their audit</td></tr>
+        <tr><td>3 · Why you're missing</td><td>"Usually it's not your site. It's that the sources the model trusts don't mention you yet."</td><td>Prompts-absent count vs the leader</td></tr>
+        <tr><td>4 · What we do</td><td>"Fix what AI gets wrong on your own pages, earn mentions in the sources it trusts, then go after the prompts your competitors own."</td><td>The 90-day roadmap: 1–30, 31–60, 61–90</td></tr>
+        <tr><td>5 · How you'll know</td><td>"We re-measure monthly against this baseline, so you see exactly what moved, and we tie it to pipeline."</td><td>Bitly case study</td></tr>
+      </table></div>
+      <h4>Discovery questions for call 2</h4>
+      <ul class="l">
+        <li>Which three competitors do you lose deals to, and do buyers mention seeing them in ChatGPT?</li>
+        <li>Who in your company gets asked "what's our AI plan?", and what do they answer today?</li>
+        <li>What does your team do on Reddit today, if anything?</li>
+        <li>How do you report organic today, and would your CFO accept citation share as a number?</li>
+      </ul>
+    </div>
+
+    <div class="dk-p" data-k="obj">
+      <span class="kick">Living doc · Sales adds, I answer within 48 hours</span>
+      <h3>Objections, answered</h3>
+      <div class="au-l" id="objL"></div>
+    </div>
+
+    <div class="dk-p" data-k="one">
+      <span class="kick">Letter size · print or save as PDF</span>
+      <h3>One-pager: the AI Visibility program</h3>
+      <div class="codehd"><span class="mono" style="color:var(--mut)">Facts and proof from foundationinc.co</span><button class="cbtn" id="opPrint">Print / save PDF</button></div>
+      <div class="op" id="op"><div class="in">
+        <div class="hd"><b>Foundation<i>.</i></b><span>AI visibility · for B2B tech and SaaS</span></div>
+        <h2>Be the brand AI <em>names</em> when your buyers ask.</h2>
+        <p class="lede">We measure how ChatGPT, Gemini, Claude, Perplexity, Copilot and Google AI Overviews talk about your category. Then we earn your place in the answers and tie it to pipeline in your CRM.</p>
+        <div class="cols">
+          <div><b>Measure</b><p>Citation share, share of voice and sentiment against three competitors, across the questions your buyers actually ask.</p></div>
+          <div><b>Earn</b><p>On-site content and technical fixes, plus the sources models trust: Reddit, YouTube, earned media and reviews.</p></div>
+          <div><b>Prove</b><p>Monthly re-measurement against your baseline, reported next to the pipeline it creates.</p></div>
+        </div>
+        <div class="rm">
+          <div><small>DAYS 1–30</small><p>Fix the pages and facts AI gets wrong about you.</p></div>
+          <div><small>DAYS 31–60</small><p>Earn citations in the sources each model trusts.</p></div>
+          <div><small>DAYS 61–90</small><p>Win the prompts your competitors own today.</p></div>
+        </div>
+        <div class="proof">
+          <div><b>How Bitly became a top-cited brand in AI search</b><p>An integrated GEO program across on-site content, Reddit and YouTube strengthened Bitly's position in AI answers for link shorteners.</p></div>
+          <ul><li>165,000+ AI citations generated</li><li>Profound · Reddit · AirOps partner</li><li>Clutch 100 · 5.0 on Clutch</li></ul>
+        </div>
+        <div class="ftr"><div><b>Start with a free AI Visibility Audit</b><br>120 buyer questions · 6 models · 3 competitors · 90-day roadmap</div><span class="cta">foundationinc.co/ai-visibility-audit</span></div>
+      </div></div>
+    </div>
+
+    <div class="dk-p" data-k="rev">
+      <span class="kick">Reviewer and quality partner</span>
+      <h3>Audit and proposal review: 12 checks</h3>
+      <p>Every audit and proposal gets a 20-minute review before it reaches the buyer. Tick through it. It saves in your browser.</p>
+      <div class="ck" id="rvL"></div>
+      <div class="prog"><i id="rvP"></i></div>
+    </div>
+
+    <div class="dk-p" data-k="lib">
+      <span class="kick">SOP · the library Sales opens first</span>
+      <h3>Enablement library</h3>
+      <div class="scroll"><table class="tbl">
+        <tr><th>Asset</th><th>Stage</th><th>Owner</th><th>Review</th></tr>
+        <tr><td>Company pitch deck</td><td>Call 1</td><td>Marketing Manager</td><td>Quarterly</td></tr>
+        <tr><td>AI Visibility one-pager</td><td>Call 2</td><td>Marketing Manager</td><td>Quarterly</td></tr>
+        <tr><td>Service one-pagers: Reddit, YouTube, Digital PR, Paid, LLM Ads</td><td>Call 2</td><td>Marketing Manager</td><td>Quarterly</td></tr>
+        <tr><td>Audit templates: AI, Reddit, YouTube, Paid</td><td>Pre-sales</td><td>Strategy + me (review)</td><td>Every release</td></tr>
+        <tr><td>Proposal template + pricing language</td><td>Call 3</td><td>Sales lead + me</td><td>Quarterly</td></tr>
+        <tr><td>Case studies (Bitly, construction tech, InsurTech Reddit, event SaaS, home services)</td><td>All</td><td>Content Manager</td><td>When results update</td></tr>
+        <tr><td>Objection answers</td><td>All</td><td>Me</td><td>Weekly</td></tr>
+        <tr><td>Proof points sheet (citations, Clutch, partners)</td><td>All</td><td>Me</td><td>Monthly</td></tr>
+      </table></div>
+      <div class="g2">
+        <div class="box"><h5>Rules</h5><ul>
+          <li>One home, linked from HubSpot. If it's not in the library, it's not current.</li>
+          <li>Every asset shows its owner and the date it was last reviewed on the cover.</li>
+          <li>Old versions are archived, not deleted, and never shared.</li>
+        </ul></div>
+        <div class="box"><h5>Ad hoc requests</h5><ul>
+          <li>Sales asks in one Slack channel with: deal, stage, what the buyer asked.</li>
+          <li>Answered within 1 business day. If it comes up twice, it becomes a library asset.</li>
+          <li>Tracked monthly. The goal in the JD is fewer of these over time.</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="dk-p" data-k="loop">
+      <span class="kick">Calls → content → sales, monthly</span>
+      <h3>Buyer insight loop</h3>
+      <p>Your audit form already asks buyers what they typed into AI (<code>ai_prompt_asked</code>) and who they compete with. Those answers are the best market research Foundation gets, and they're arriving every day.</p>
+      <div class="g3">
+        <div class="box"><h5>Collect</h5><ul><li>Audit form prompts and competitors</li><li>Call notes tagged: objection, CEP, decision-maker</li><li>Webinar and conference questions</li></ul></div>
+        <div class="box"><h5>Sort, monthly</h5><ul><li>Top 10 prompts buyers typed</li><li>Competitors named most</li><li>New objections</li><li>Who signs: CMO, VP Growth, CFO</li></ul></div>
+        <div class="box"><h5>Ship back</h5><ul><li><b>Content Manager:</b> articles and comparison pages</li><li><b>Head of Marketing:</b> CEP and positioning shifts</li><li><b>Sales:</b> new answers in the objection doc</li></ul></div>
+      </div>
+      <h4>Monthly note, format <span class="tag a">sample</span></h4>
+      <div class="box s"><p><b>Buyer patterns, October.</b> "Best GEO agency for B2B SaaS" was the most-typed prompt (6 forms). Two new objections were about measuring AI visibility without our tools; answer drafted. CFOs joined 3 of 8 third calls, up from 1, so we need a one-slide ROI view for finance.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- 08 SCORECARD -->
+<section id="scorecard"><div class="wrap">
+  <div class="sh"><span class="n">08</span><div>
+    <h2>The scorecard, and the first 90 days</h2>
+    <p>Every KPI in the role, how it's measured, and what moves it first. Baselines get set in week one from your HubSpot and GA4, not guessed here.</p>
+    <span class="jd">JD · KPIs and measures of success</span>
+  </div></div>
+  <div class="scroll"><table class="tbl" style="background:#fff;border:1px solid var(--line);border-radius:14px">
+    <tr><th>KPI</th><th>Measured in</th><th>First lever</th><th>On this page</th></tr>
+    <tr><td><b>MQL volume · MQL → SAL</b></td><td>HubSpot lifecycle</td><td>Shared definitions + speed to lead</td><td><a href="#pipeline-sla">Handoff SLA</a></td></tr>
+    <tr><td><b>Velocity · cost per SAL</b></td><td>HubSpot deals + ad spend</td><td>Stage age limits, paid judged on SALs</td><td><a href="#pipeline-pace">Pacing</a> · <a href="#pipeline-stall">Stall finder</a></td></tr>
+    <tr><td><b>Marketing-influenced pipeline and revenue</b></td><td>HubSpot attribution</td><td>Conference and webinar follow-up</td><td><a href="#campaigns-cc">Citation Conference</a></td></tr>
+    <tr><td><b>Organic and AI visibility</b></td><td>GSC, Ahrefs, Profound, GA4</td><td>Canonicals, consolidation, schema, robots</td><td><a href="#audit">Audit</a> · <a href="#site-redir">Redirects</a></td></tr>
+    <tr><td><b>Website conversion rate</b></td><td>GA4 + HubSpot forms</td><td>Two-step audit form</td><td><a href="#site-cro">Conversion tests</a></td></tr>
+    <tr><td><b>Technical health (CWV, crawl, index)</b></td><td>GSC, Ahrefs, WP Engine</td><td>Weekly check, server response</td><td><a href="#site-health">Site health</a></td></tr>
+    <tr><td><b>Enablement adoption · Sales feedback</b></td><td>HubSpot documents, monthly survey</td><td>One library, owners, review dates</td><td><a href="#enable-lib">Library</a></td></tr>
+    <tr><td><b>Delivery speed · Coordinator growth</b></td><td>Plan vs shipped, development plan</td><td>Briefs, weekly 1:1</td><td><a href="#team-dev">Development plan</a></td></tr>
+  </table></div>
+  <div class="g3" style="margin-top:18px">
+    <div class="box"><span class="tag r">Days 1–30</span><h5 style="margin-top:8px">Fix and agree</h5><ul><li>Ship the P1 audit fixes: careers canonicals, homepage H1, /home/, AI page consolidation.</li><li>Handoff SLA signed by Sales. Dashboard v1 live.</li><li>Citation Conference Phase 1 invites out.</li><li>Development plan agreed with the Coordinator.</li></ul></div>
+    <div class="box"><span class="tag a">Days 31–60</span><h5 style="margin-top:8px">Test and enable</h5><ul><li>Two-step audit form test running. Schema on 34 service pages.</li><li>Nurture series live. Paid judged on cost per SAL.</li><li>One-pager, objections and library in Sales' hands.</li><li>Webinar run and followed up.</li></ul></div>
+    <div class="box"><span class="tag g">Days 61–90</span><h5 style="margin-top:8px">Scale what worked</h5><ul><li>First quarterly funnel review with targets.</li><li>Conference speaker series running, owned by the Coordinator.</li><li>LLM Advertising launch kit shipped.</li><li>Ready to take on more of the planning.</li></ul></div>
+  </div>
+
+  <div class="gap" style="margin-top:28px">
+    <div><h3>What I'd bring on day one</h3><p>I'm a content marketer who works across SEO, GEO and B2B content, and I write in other people's voices, including ghostwritten pieces published in USA Wire and Mirror Review. The tools I use today are HubSpot, Google Analytics, WordPress, Canva and Figma. I built this page from your public site in a day, and it's how I work: find what's broken, write the fix, ship it.</p></div>
+    <div><h3>Where I'd lean on the team early</h3><p>Your Ahrefs, Semrush, Profound and ad-platform data, which I can't see from outside. The numbers marked sample on this page are there to show the format. The real ones come from your accounts in week one, and some of my calls here may change once I see them. I'm in Ontario, so EST overlap is the whole day.</p></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <h2>The audit is free. <em>The roadmap starts Monday.</em></h2>
+  <p>If this is the kind of Marketing Manager Foundation needs, I'd love 20 minutes to walk you through it, starting with the careers canonical.</p>
+  <div class="act">
+    <a href="mailto:durvathakker7@gmail.com?subject=Foundation%20Marketing%20Manager">durvathakker7@gmail.com</a>
+    <a class="o" href="https://www.linkedin.com/in/durvathakkar/" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="o" href="https://durvathakkar.com/">durvathakkar.com</a>
+  </div>
+  <small>Made by Durva Thakkar for Foundation, Oct 31, 2026. Facts, quotes and page data from foundationinc.co, checked the same day. Foundation and Citation Conference are Foundation's names and marks. Numbers marked sample are illustrative.</small>
+</div></footer>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmt=n=>Math.round(n).toLocaleString('en-US');
+const usd=n=>'$'+fmt(n);
+const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('on');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('on'),1800)}
+
+/* ---------- desks + deep links ---------- */
+$$('.dk').forEach(dk=>{
+  const id=dk.dataset.dk;
+  dk.querySelectorAll('.dk-ix button').forEach(b=>b.addEventListener('click',()=>{show(dk,b.dataset.k);history.replaceState(null,'','#'+id+'-'+b.dataset.k)}));
+});
+function show(dk,k){
+  dk.querySelectorAll('.dk-ix button').forEach(b=>b.classList.toggle('on',b.dataset.k===k));
+  dk.querySelectorAll('.dk-p').forEach(p=>p.classList.toggle('on',p.dataset.k===k));
+  const on=dk.querySelector('.dk-ix button.on'); if(on&&on.scrollIntoView&&innerWidth<980){on.parentNode.scrollLeft=on.offsetLeft-16}
+}
+function fromHash(){
+  const h=decodeURIComponent(location.hash.slice(1)); if(!h)return;
+  const m=h.match(/^([a-z]+)-([a-z0-9]+)$/); if(!m)return;
+  const dk=$('.dk[data-dk="'+m[1]+'"]'); if(!dk||!dk.querySelector('.dk-p[data-k="'+m[2]+'"]'))return;
+  show(dk,m[2]); setTimeout(()=>dk.scrollIntoView({block:'start'}),60);
+}
+addEventListener('hashchange',fromHash);
+document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const h=a.getAttribute('href').slice(1);if(/^[a-z]+-[a-z0-9]+$/.test(h)){e.preventDefault();history.pushState(null,'','#'+h);fromHash()}});
+
+/* ---------- copy ---------- */
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const t=$('#'+b.dataset.copy).innerText;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>toast('Copied')).catch(()=>{const r=document.createRange();r.selectNodeContents($('#'+b.dataset.copy));getSelection().removeAllRanges();getSelection().addRange(r);toast('Selected, press Cmd+C')})});
+
+/* ---------- hero film ---------- */
+(function(){
+  const Q='Best AI visibility agency for a B2B SaaS company?';
+  const A='For B2B SaaS, <mark>Foundation</mark> is one of the most cited options<sup>[1]</sup>. Marketers on Reddit point to its GEO and Reddit work<sup>[2]</sup>, and its YouTube breakdowns explain the method<sup>[3]</sup>.';
+  const caps=['<b>Chapter 1.</b> A buyer asks an AI for a shortlist. There is no page two.','<b>Chapter 2.</b> Foundation is named and cited, from its own site, Reddit and YouTube.','<b>Chapter 3.</b> The click becomes pipeline: routed in an hour, accepted in a day, measured on revenue.'];
+  const labs=['01 · The answer layer','02 · Cited','03 · Pipeline in your CRM'];
+  const q=$('#fmQ'),a=$('#fmA'),src=$$('#fmSrc span'),st=$$('#fmPipe .fm-st'),cap=$('#fmCap'),lab=$('#fmLab'),bars=$$('#film .ch i b');
+  const vals=[1840,64,31,12,4];
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const wait=ms=>new Promise(r=>setTimeout(r,ms));
+  function bar(i,ms){bars.forEach((b,j)=>{b.style.transition='none';b.style.width=j<i?'100%':'0'});const b=bars[i];requestAnimationFrame(()=>{b.style.transition='width '+ms+'ms linear';b.style.width='100%'})}
+  function count(el,to,ms){const t0=performance.now();(function f(t){const p=Math.max(0,Math.min(1,(t-t0)/ms));el.textContent=fmt(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(t0)}
+  if(reduce){q.textContent=Q;a.innerHTML=A;src.forEach(s=>s.classList.add('on'));st.forEach((s,i)=>{s.classList.add('on');s.querySelector('b').textContent=fmt(vals[i])});cap.innerHTML=caps[2];return}
+  async function run(){
+    for(;;){
+      q.textContent='';a.innerHTML='';src.forEach(s=>s.classList.remove('on'));st.forEach(s=>{s.classList.remove('on');s.querySelector('b').textContent='0'});
+      lab.textContent=labs[0];cap.innerHTML=caps[0];bar(0,3200);
+      for(let i=1;i<=Q.length;i++){q.textContent=Q.slice(0,i);await wait(42)}
+      await wait(900);
+      lab.textContent=labs[1];cap.innerHTML=caps[1];bar(1,3600);
+      const words=A.split(' ');for(let i=1;i<=words.length;i++){a.innerHTML=words.slice(0,i).join(' ');await wait(70)}
+      for(const s of src){s.classList.add('on');await wait(220)}
+      await wait(900);
+      lab.textContent=labs[2];cap.innerHTML=caps[2];bar(2,4200);
+      for(let i=0;i<st.length;i++){st[i].classList.add('on');count(st[i].querySelector('b'),vals[i],600);await wait(650)}
+      await wait(2600);
+    }
+  }
+  const io=new IntersectionObserver(es=>{if(es[0].isIntersecting){io.disconnect();run()}});io.observe($('#film'));
+})();
+
+/* ---------- audit ---------- */
+const AU=[
+ ['w','Indexing','10 open job posts tell Google they are the GEO Strategist page','Including this Marketing Manager post.','The canonical tag on <code>/careers/marketing-manager</code> and 9 others points to <code>/careers/geo-strategist</code>: aeo-marketing-director, aeo-program-director, associate-aeo-marketing-director, associate-aeo-program-director, fractional-video-director, geo-specialist, group-aeo-marketing-director, senior-aeo-marketing-director, senior-aeo-program-director. None carry JobPosting schema.','Self-referencing canonical in the careers template, plus JobPosting schema so the roles can appear in Google for Jobs. Code is in Website → Schema.'],
+ ['w','On-page','The homepage has no H1','Your main line is an H3.','"Visibility in LLMs. Pipeline in your CRM." is marked up as <code>&lt;h3&gt;</code>. There is no <code>&lt;h1&gt;</code> on <code>/</code>.','Promote that line to the H1. No visual change needed, only the tag.'],
+ ['w','Duplication','The old homepage is still live at /home/','It says "content marketing agency," the positioning you moved on from.','<code>/home/</code> returns 200, is self-canonical, sits in the page sitemap and leads with "Your Content Marketing Engine Is About To Run As Smooth As Butter."','301 <code>/home/</code> to <code>/</code> and remove it from the sitemap.'],
+ ['w','Cannibalization','Five pages compete for the AI agency buyer','Two of them don\'t link to the free audit.','<code>/services/ai-visibility-agency</code>, <code>/generative-engine-optimization-agency</code>, <code>/ai-marketing-agency</code> ("AI Marketing Agency for Brands"), <code>/ai-agency</code> ("Artificial Intelligence Agency") and <code>/services/seo/</code> ("SEO &amp; AI Search Optimization for B2B"). <code>/ai-agency</code> and <code>/ai-marketing-agency</code> have no link to <code>/ai-visibility-audit/</code>.','Keep AI Visibility (the category) and GEO (the term). 301 the two older AI pages into AI Visibility. Retitle the SEO page to SEO alone.'],
+ ['w','Messaging','Citation Conference says "tickets" and "seats"','The banner sells tickets. The page reviews requests.','Sitewide banner: "Get your ticket to Citation Conference Today." Conference footer: "Get Your Tickets Today." The page itself: "200 Seats, reviewed one at a time" and "Request a seat."','Use "Request a seat" everywhere. It protects the exclusivity the event is built on.'],
+ ['m','Duplication','Two content strategy pages for one service','Both indexable, near-identical titles.','<code>/services/content-strategy-planning</code> ("Content Marketing Strategy for SaaS &amp; B2B Brands") and <code>/services/content-strategy-planning-2</code> ("Content Marketing Strategy For B2B SaaS | Foundation").','301 the "-2" page into the original, after moving any copy worth keeping.'],
+ ['m','Metadata','The design service page carries another page\'s title','It says "AI Marketing Agency for Ambitious Brands."','<code>/services/design-agency</code> title = <code>/services/ai-marketing-agency</code> title. The H1 is "Unlock the Power of Design for Your B2B Brand."','New title and description, written in Website → Titles.'],
+ ['m','Metadata','Two pages have no meta description','Including the CRO service page.','<code>/services/conversion-rate-optimization/</code> and <code>/resources/</code> return an empty description, so Google writes its own snippet.','Descriptions written in Website → Titles.'],
+ ['m','Canonical','/resources/ says it is /products/','Both URLs return 200.','<code>/resources/</code> (nav label "Resources", title "Products | Foundation Marketing") has <code>rel=canonical</code> → <code>/products/</code>.','Pick one URL, 301 the other, update the canonical and nav.'],
+ ['m','On-page','Two H1s still carry the old positioning or a pasted title','','<code>/services</code> H1: "Content Marketing Services". <code>/services/seo/</code> H1: "SEO &amp; AI Search Optimization for B2B | Foundation", with the title tag pasted in.','Rewrites in Website → Titles.'],
+ ['m','Schema','Service pages have no Service or FAQ schema','Your audit pages already do.','The 4 audit pages carry Service, Offer, FAQPage and BusinessAudience. The 34 service pages carry only WebPage, BreadcrumbList and Organization.','Roll the audit-page pattern out to service pages. JSON-LD in Website → Schema.'],
+ ['m','Social','52 of 55 pages share one link preview image','It was uploaded in Dec 2019.','<code>og:image</code> = <code>/wp-content/uploads/2019/12/Foundation-Homepage-Sharing-Image.png</code> on the homepage, every service page and every audit page checked.','A share card per template: service, audit, conference, Lab. Every link in Slack and LinkedIn starts selling.'],
+ ['m','Crawl','robots.txt slows down Bing, which feeds AI search','<code>Crawl-delay: 10</code>','Google ignores Crawl-delay. Bing honours it, and Bing\'s index powers Copilot and is one of the sources behind ChatGPT search. Ten seconds a fetch caps Bingbot at 8,640 requests a day across 1,210 sitemap URLs.','Remove the line and manage crawl rate in Bing Webmaster Tools if needed. New file in Website → robots.txt.'],
+ ['m','Speed','Server response is about 1.25 seconds, even from cache','Measured on 4 pages, median of 3 runs.','<code>/</code> 1.28s, <code>/ai-visibility-audit/</code> 1.29s, <code>/services/ai-visibility-agency</code> 1.25s, <code>/contact/</code> 1.26s. Headers show WP Engine, <code>x-cache: HIT</code>. Google rates under 0.8s as good.','Check edge caching and the CDN on WP Engine, then re-measure. Every page and form gets faster.'],
+ ['t','Accessibility','40 of 52 homepage images have empty alt text','','Includes the featured Lab article images in the menu.','Alt text for content images. Keep empty alt only for decorative ones.'],
+ ['t','Content','The Content Optimization service page is thin','About 135 words of body copy.','<code>/services/content-optimization/</code> versus 900 to 1,300 words on other service pages.','Expand it with the service template, or merge it into Content Strategy.'],
+ ['t','Internal links','Top GEO guides don\'t link to the free audits','Your highest-intent offer.','<code>/lab/generative-engine-optimization</code>, <code>/lab/geo-metrics</code> and <code>/lab/ai-visibility/</code> link to service pages, not to <code>/ai-visibility-audit/</code>.','Seven contextual links mapped in Website → Redirects + internal links.'],
+ ['t','Conversion','The AI Visibility Audit form asks for 14 fields','','Email, website, 3 competitors, buyer questions, help with, first and last name, job title, company size, budget, timeline, lead source, AI prompt asked.','Test a two-step form. Built in Website → Conversion tests.'],
+ ['t','AI crawlers','No llms.txt','Returns 404.','<code>/llms.txt</code> → 404 page.','Low effort, so ship it. Then check the logs before investing more. Draft in Website → robots.txt.'],
+ ['t','URLs','A live case study URL has a typo','','<code>/work/industry-into-21st-centry/</code> returns 200.','New slug <code>-century</code> with a 301 from the old one.']
+];
+const auL=$('#auL'),labP={w:['r','Fix this week'],m:['a','Fix this month'],t:['b','Test or tidy']};
+auL.innerHTML=AU.map((f,i)=>`<details class="au" data-p="${f[0]}"${i===0?' open':''}><summary><span class="i">${String(i+1).padStart(2,'0')}</span><span class="tg"><span class="tag ${labP[f[0]][0]}">${labP[f[0]][1]}</span></span><h4>${f[2]}${f[3]?`<small>${f[3]}</small>`:''}</h4><span class="pl">+</span></summary><div class="bd"><div><b>${esc(f[1])} · Evidence</b>${f[4]}</div><div><b>Fix</b>${f[5]}</div></div></details>`).join('');
+$$('#auF button').forEach(b=>b.addEventListener('click',()=>{$$('#auF button').forEach(x=>x.classList.toggle('on',x===b));const f=b.dataset.f;$$('.au',auL).forEach(d=>d.style.display=(f==='all'||d.dataset.p===f)?'':'none')}));
+$$('#auF button').forEach(b=>{const f=b.dataset.f;if(f!=='all')b.textContent+=' · '+AU.filter(x=>x[0]===f).length});
+
+/* ---------- paid ---------- */
+const ADS=[
+ {t:'When buyers ask ChatGPT for a shortlist, there is no page two. We\'ll show you which buyer questions you\'re missing from, who gets named instead, and what to fix first.',h:'Free AI Visibility Audit + 90-day roadmap',art:`<div class="art k"><div class="pad"><div class="lg">Foundation<i>.</i></div><div class="mdl"><span class="y">ChatGPT <b>Named</b></span><span>Gemini <b>Missing</b></span><span class="y">Claude <b>Named</b></span><span>Perplexity <b>Missing</b></span><span>Copilot <b>Missing</b></span><span>AI Overviews <b>Missing</b></span></div><div class="hd" style="font-size:7.6cqw">Named in 2 of 6.<br>Who got the other 4?</div><div class="ft2">Free AI visibility audit // 120 prompts // 6 models</div></div></div>`,v:'A · Proof'},
+ {t:'Ask ChatGPT for the best tool in your category. Did it name you, or your competitor? Our free audit tests 120 buyer questions across 6 AI models against 3 competitors you choose.',h:'See your citation share vs 3 competitors',art:`<div class="art c"><div class="pad"><div class="lg">Foundation<i>.</i></div><div class="hd" style="font-size:9.4cqw">"Best tool for a 500-person company?"</div><div class="sb">The AI answered. Were you in it?</div><div class="ft2" style="opacity:.9">Get the free audit →</div></div></div>`,v:'B · Question'},
+ {t:'Over 80% of software buyers now use AI to build their shortlist (G2 2026 Buyer Behavior Report). Find out if you\'re on it, and get a 90-day plan to get there.',h:'Are you on the AI shortlist?',art:`<div class="art e"><div class="pad"><div class="lg">Foundation<i>.</i></div><div class="big" style="margin-top:auto">80%<span style="color:var(--cor)">+</span></div><div class="sb" style="opacity:1">of software buyers use AI to build their shortlist.<sup style="font-family:var(--mono);color:var(--cor)">[1]</sup></div><div class="ft2">[1] G2 2026 Buyer Behavior Report</div></div></div>`,v:'C · Stat'}
+];
+$('#adGrid').innerHTML=ADS.map(a=>`<div><span class="tag" style="margin-bottom:6px">${a.v}</span><div class="ad" style="margin-top:6px"><div class="h"><i>F</i><div><b>Foundation</b><small>Promoted</small></div></div><div class="tx">${esc(a.t)}</div>${a.art}<div class="ft"><div><b>${esc(a.h)}</b><small>foundationinc.co</small></div><span>Request</span></div></div></div>`).join('');
+const RSA_H=['AI Visibility Agency for B2B','Get Cited by ChatGPT & Gemini','Free AI Visibility Audit','See Who AI Recommends Instead','120 Prompts. 6 AI Models.','GEO Agency for SaaS & Tech','165,000+ AI Citations Earned','Your 90-Day AI Roadmap','Clutch 100. Rated 5.0.','Pipeline From AI Search'];
+const RSA_D=['See how often ChatGPT, Gemini, Claude and Perplexity recommend you vs 3 competitors.','Citation share, share of voice and a 90-day roadmap. Free for B2B tech and SaaS.','We measure, earn and prove AI visibility, then tie it to pipeline in your CRM.','On-site fixes plus Reddit, YouTube and earned media. The sources AI trusts.'];
+$('#rsa').innerHTML='<tr><th>#</th><th>Headline</th><th>Chars</th><th>#</th><th>Description</th><th>Chars</th></tr>'+RSA_H.map((h,i)=>`<tr><td>${i+1}</td><td>${esc(h)}</td><td class="cnt ${h.length<=30?'ok':'bad'}">${h.length}</td>${RSA_D[i]?`<td>${i+1}</td><td>${esc(RSA_D[i])}</td><td class="cnt ${RSA_D[i].length<=90?'ok':'bad'}">${RSA_D[i].length}</td>`:'<td></td><td></td><td></td>'}</tr>`).join('');
+
+/* ---------- pacing ---------- */
+function pace(){
+  const B=+$('#pB').value,D=+$('#pD').value,S=+$('#pS').value,L=+$('#pL').value,T=+$('#pT').value;
+  $('#pBo').textContent=usd(B);$('#pDo').textContent=D;$('#pSo').textContent=usd(S);$('#pLo').textContent=L;$('#pTo').textContent=usd(T);
+  const ideal=B*D/30, pct=ideal?S/ideal*100:0, proj=D?S/D*30:0, cps=L?S/L:Infinity, projL=D?L/D*30:0;
+  let v;
+  if(cps>T*1.5) v=`<b>Hold spend.</b> Cost per SAL is ${usd(cps)}, ${Math.round(cps/T*10)/10}× target. Spending faster buys more of the wrong leads. Check rejection reasons by ad set and cut the worst before adding budget.`;
+  else if(pct>112) v=`<b>Overpacing.</b> You'll run out around day ${Math.max(1,Math.floor(B/(S/D)))}. Quality is ${cps<=T?'on target':'close to target'}, so cap daily spend at ${usd((B-S)/Math.max(1,30-D))} and keep the best ad sets running.`;
+  else if(pct<88&&cps<=T) v=`<b>Underpacing, and it's working.</b> Cost per SAL is under target. Raise daily caps on the winning ad set to about ${usd((B-S)/Math.max(1,30-D))} a day to use the budget.`;
+  else if(pct<88) v=`<b>Underpacing.</b> Before pushing spend, find out why. Is the audience too narrow, or are bids too low? Cost per SAL is ${isFinite(cps)?usd(cps):'not measurable yet'}.`;
+  else v=`<b>On pace and ${cps<=T?'on target':'slightly above target'}.</b> Leave it running. Review creative fatigue at the weekly check.`;
+  $('#pOut').innerHTML=`<div class="row"><span>Should have spent by day ${D}</span><b>${usd(ideal)}</b></div><div class="row"><span>Pace</span><b>${Math.round(pct)}%</b></div><div class="row"><span>Projected month spend</span><b>${usd(proj)}</b></div><div class="row"><span>Cost per SAL</span><b>${isFinite(cps)?usd(cps):'n/a'}</b></div><div class="row"><span>Projected SALs this month</span><b>${Math.round(projL)}</b></div><div class="verdict">${v}</div>`;
+}
+['pB','pD','pS','pL','pT'].forEach(i=>$('#'+i).addEventListener('input',pace));pace();
+
+/* ---------- stall finder ---------- */
+const ST=[['Visits','visits',4200,null,null],['MQL','mql',62,1.5,0],['SAL','sal',29,45,3],['Opp','opp',11,40,14],['Won','won',3,25,38]];
+const TG={mql:[1.5,0],sal:[45,2],opp:[40,14],won:[25,45]};
+$('#stIn').innerHTML=ST.map((s,i)=>`<div class="fu" data-i="${i}"><span><b>${s[0]}</b></span><div class="b"><i></i></div><div style="display:flex;gap:4px"><input type="number" min="0" value="${s[2]}" data-c="${i}" aria-label="${s[0]} count">${i>0?`<input type="number" min="0" value="${s[4]}" data-d="${i}" aria-label="${s[0]} days" title="days">`:''}</div></div>`).join('')+'<div class="fu"><span></span><small>count · days in stage</small><span></span></div>';
+function stall(){
+  const c=$$('#stIn [data-c]').map(x=>+x.value||0), d={};$$('#stIn [data-d]').forEach(x=>d[x.dataset.d]=+x.value||0);
+  const mx=Math.max(...c,1);
+  $$('#stIn .fu[data-i]').forEach((r,i)=>{r.querySelector('.b i').style.width=Math.max(2,Math.sqrt(c[i]/mx)*100)+'%'});
+  const keys=['mql','sal','opp','won'],rows=[];let worst=null,ws=0;
+  keys.forEach((k,j)=>{const i=j+1,rate=c[i-1]?c[i]/c[i-1]*100:0,[tr,td]=TG[k];const conv=rate/tr,vel=td?td/Math.max(d[i],.1):1;rows.push({n:ST[i][0],rate,tr,days:d[i],td,conv,vel});
+    const sc=Math.min(conv,vel);if(worst===null||sc<ws){worst=rows[rows.length-1];ws=sc;worst.kind=conv<=vel?'conversion':'velocity'}});
+  if(c[1]<40&&ws>.85){worst={n:'MQL',kind:'volume'}}
+  $$('#stIn .fu[data-i]').forEach((r,i)=>r.classList.toggle('w',worst&&ST[i][0]===worst.n));
+  const tests={
+   volume:'Volume is the constraint. Put the two-step audit form test live, add the audit links to the top 7 GEO articles, and move paid budget to the best-converting ad.',
+   conversion:{MQL:'Too few visitors convert. Run the two-step audit form test first.',SAL:'Sales is rejecting MQLs. Read the rejection reasons. If one reason is over 30%, fix the MQL rule or the targeting that feeds it.',Opp:'SALs aren\'t becoming opportunities. Add "who else should see the audit?" to booking, and bring the AE into the audit walkthrough.',Won:'Opportunities don\'t close. Review lost deals for the last objection, then arm Sales with the answer and a case study.'},
+   velocity:{MQL:'Leads wait too long before routing. Check the workflow and the form-to-CRM sync.',SAL:'Speed to lead is slow. Turn on the 60-minute Slack alert and add a weekend strategist auto-reply.',Opp:'Deals sit after the meeting. Set a 14-day stage age flag and a standard next step: audit walkthrough booked before the call ends.',Won:'Proposals stall. Add a mutual close plan to every proposal, with dates the buyer agrees to.'}
+  };
+  const tip=worst.kind==='volume'?tests.volume:tests[worst.kind][worst.n];
+  $('#stOut').innerHTML=rows.map(r=>`<div class="row"><span>${r.n}: ${Math.round(r.rate*10)/10}% conv · ${r.days}d</span><b style="color:${(r.conv<1||r.vel<1)?'#f4a597':'#9bd1b4'}">target ${r.tr}% · ${r.td}d</b></div>`).join('')+`<div class="verdict"><b>Weakest point: ${worst.n} ${worst.kind}.</b><br>${tip}</div>`;
+}
+$('#stIn').addEventListener('input',stall);stall();
+
+/* ---------- nurture ---------- */
+const NU=[
+ {d:'Day 0',s:'Your AI visibility audit is underway',p:'120 buyer questions, 6 models, your 3 competitors.',b:`<p>Hi {{ contact.firstname }},</p><p>Thanks for requesting your AI Visibility Audit. Here's what we're testing for {{ contact.company }}:</p><div class="card"><div><span>Buyer questions</span><b>120</b></div><div><span>Models</span><b>ChatGPT · Gemini · Claude · Perplexity · Copilot · AI Overviews</b></div><div><span>Competitors</span><b>the 3 you named</b></div><div><span>You get</span><b>Citation share, share of voice, sentiment, citation map, 90-day roadmap</b></div></div><p>One thing would make it sharper. Reply with the one question you'd most hate to see a competitor win in ChatGPT. We'll make sure it's in the set.</p><p><a class="btn" href="#">Book your walkthrough</a></p><p style="font-size:13.5px;color:#555">The walkthrough is 25 minutes with a strategist. Bring whoever owns your AI plan.</p>`},
+ {d:'Day 3',s:'Where AI gets its answers about your category',p:'Usually it isn\'t your website.',b:'<p>In most audits, the biggest share of citations comes from earned media and Reddit, not the brand\'s own site. That\'s why on-site SEO alone rarely moves AI answers.</p><p>Here\'s how we map the off-site sources that matter: <a href="https://foundationinc.co/lab/ai-visibility-off-site-sources/">AI visibility and off-site sources</a>.</p><p>Your audit will show this map for your category. Want to walk through it together? <a href="#">Pick a time</a>.</p>'},
+ {d:'Day 7',s:'How Bitly became a top-cited brand in AI search',p:'On-site content, Reddit and YouTube, working as one program.',b:'<p>Bitly already led its category. The question was whether AI answers would keep saying so.</p><p>An integrated GEO program across on-site content, Reddit and YouTube strengthened its position in AI answers for link shorteners. <a href="https://foundationinc.co/case-studies">Read the case study</a>.</p><p>When your audit is ready, we\'ll show you which of those three levers matters most for you.</p>'},
+ {d:'Day 12',s:'What to show your board about AI visibility',p:'Five numbers, one slide.',b:'<p>Most boards are now asking what the AI plan is. The answer needs numbers: citation share, share of voice, prompts you\'re absent from, sentiment, and AI-referred pipeline.</p><p>How we measure each one: <a href="https://foundationinc.co/lab/geo-metrics">GEO metrics</a>.</p><p>Your audit gives you a baseline for all five. <a href="#">Book the walkthrough</a> and we\'ll fill in the slide with you.</p>'},
+ {d:'Day 18',s:'Should I close your audit file?',p:'Plain text from your strategist.',b:'<p>Hi {{ contact.firstname }},</p><p>Your audit for {{ contact.company }} is ready, and we haven\'t walked through it yet. The most useful part is the 90-day roadmap, which only makes sense with context.</p><p>Want 25 minutes this week or next? <a href="#">Here\'s my calendar</a>. If the timing\'s wrong, reply "later" and I\'ll check back next quarter.</p><p>{{ owner.firstname }} {{ owner.lastname }}<br>Foundation</p>'}
+];
+function nu(i){
+  $$('#nuSeq button').forEach((b,j)=>b.classList.toggle('on',j===i));
+  const e=NU[i];
+  $('#nuEm').innerHTML=`<div class="em" style="margin-top:0"><div class="meta"><b>${esc(e.s)}</b> <span class="cnt ${e.s.length<=50?'ok':'bad'}">(${e.s.length})</span><br>${esc(e.p)}</div><div class="bd">${i===4?'':'<div class="lgo">Foundation<i>.</i></div>'}${e.b}${i===4?'':'<div class="sig">Foundation · AI visibility for B2B tech and SaaS<br>You\'re getting this because you requested an audit. <u>Unsubscribe</u></div>'}</div></div>`;
+}
+$('#nuSeq').innerHTML=NU.map((e,i)=>`<button><span class="mono" style="color:var(--cor)">${e.d}</span><span><b>${esc(e.s)}</b><small>${esc(e.p)}</small></span><span class="tag">${i===4?'Plain text':'HTML'}</span></button>`).join('')+'<p class="src">Exit: books a call, replies, or becomes SAL. Merge fields fill from HubSpot. Recycled leads get a quarterly check-in.</p>';
+$$('#nuSeq button').forEach((b,i)=>b.addEventListener('click',()=>nu(i)));nu(0);
+
+/* ---------- rewrites ---------- */
+const RW=[
+ {u:'foundationinc.co',p:'/',t0:'AI Visibility Agency for B2B Tech & SaaS | Foundation',d0:'Foundation Marketing is an AI visibility & GEO marketing agency that helps ambitious brands and enterprise companies drive pipeline through visibility in LLMs.',h0:'(no H1) · "Visibility in LLMs. Pipeline in your CRM." is an H3',t1:'AI Visibility Agency for B2B Tech & SaaS | Foundation',d1:'Foundation Marketing is an AI visibility & GEO marketing agency that helps ambitious brands and enterprise companies drive pipeline through visibility in LLMs.',h1:'Visibility in LLMs. Pipeline in your CRM.',n:'Title and description stay. Only the H1 tag moves, to the line that already says it best.'},
+ {u:'foundationinc.co › services',p:'/services/design-agency',t0:'AI Marketing Agency for Ambitious Brands',d0:'We deliver AI-driven marketing and growth strategies that optimize processes, deliver personalized experiences and maximize ROI.',h0:'Unlock the Power of Design for Your B2B Brand',t1:'B2B Design Agency for SaaS & Tech Brands | Foundation',d1:'Foundation designs the graphics, carousels, reports and sales assets B2B SaaS brands use to earn attention, citations and pipeline.',h1:'Design for B2B Brands That Want to Be Remembered',n:'The title and description both describe AI marketing, not design.'},
+ {u:'foundationinc.co › services',p:'/services/conversion-rate-optimization/',t0:'Conversion Rate Optimization for B2B SaaS',d0:'(none)',h0:'CRO Services For B2B SaaS',t1:'B2B SaaS Conversion Rate Optimization Agency | Foundation',d1:'Foundation tests the forms, CTAs, pages and offers on your B2B SaaS site so more of your visitors become sales conversations and pipeline.',h1:'CRO for B2B SaaS: More Pipeline From the Traffic You Already Have',n:'No description today.'},
+ {u:'foundationinc.co',p:'/resources/',t0:'Products | Foundation Marketing',d0:'(none)',h0:'Enhance Your Content Engine, Build A Better Pipeline, Retain…',t1:'B2B Marketing Templates, Reports & Tools | Foundation',d1:'Templates, research reports and tools from Foundation for B2B marketers working on content, distribution, SEO and AI visibility.',h1:'Templates, Reports and Tools for B2B Marketers',n:'Pair with the canonical fix: one URL for this page.'},
+ {u:'foundationinc.co › services',p:'/services/seo/',t0:'SEO & AI Search Optimization for B2B | Foundation',d0:'Rank in Google and get cited by AI. Foundation optimizes B2B brands for SEO and generative engines so buyers find you. Book a strategy call.',h0:'SEO & AI Search Optimization for B2B | Foundation',t1:'B2B SEO Agency for SaaS & Tech Companies | Foundation',d1:'Technical SEO, content and links for B2B SaaS and tech brands, built for search engines and the AI systems that read them.',h1:'SEO for B2B SaaS and Tech Companies',n:'The title tag was pasted into the H1. SEO now owns "SEO" and leaves "AI search" to the AI Visibility page.'},
+ {u:'foundationinc.co',p:'/services',t0:'SaaS & B2B Marketing Agency | Services',d0:'We combine research and creativity to develop content strategies, create content marketing assets, and distribute assets effectively.',h0:'Content Marketing Services',t1:'B2B Marketing Services for AI Visibility | Foundation',d1:'GEO, technical SEO, Reddit, YouTube, digital PR, paid media and sales enablement for B2B tech and SaaS brands. Visibility in LLMs, pipeline in your CRM.',h1:'Services That Turn AI Visibility Into Pipeline',n:'The hub still says content marketing.'},
+ {u:'foundationinc.co › careers',p:'/careers/marketing-manager',t0:'Marketing Manager',d0:'Marketing Manager: AI visibility marketing agency that drives pipeline growth for mid-market and enterprise B2Btech & SaaS companies',h0:'Marketing Manager',t1:'Marketing Manager (Remote) | Careers at Foundation',d1:'Run execution for Foundation\'s marketing engine: campaigns, website, SEO, paid and sales enablement. Remote, 5 hours EST overlap, $60k to $90k CAD base.',h1:'Marketing Manager',n:'Plus the canonical fix (it points to /careers/geo-strategist today) and the "B2Btech" typo.'}
+];
+$('#rwL').innerHTML=RW.map((r,i)=>`<div class="box" style="margin-top:14px"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap"><code>${esc(r.p)}</code><span class="src" style="margin:0">${esc(r.n)}</span></div><div class="rw"><div><div class="lab"><span>Before</span><span class="cnt">${r.t0.length} chars</span></div><div class="serp bad"><div class="u">Foundation<br><small>${esc(r.u)}</small></div><div class="t">${esc(r.t0)}</div><div class="d">${r.d0?esc(r.d0):'<i>Google writes its own snippet from page text.</i>'}</div></div><p class="src">H1: ${esc(r.h0)}</p></div><div><div class="lab"><span>After · edit me</span><span><span class="cnt" data-tc="${i}"></span> · <span class="cnt" data-dc="${i}"></span></span></div><div class="serp"><div class="u">Foundation<br><small>${esc(r.u)}</small></div><div class="t" contenteditable="true" spellcheck="false" data-t="${i}">${esc(r.t1)}</div><div class="d" contenteditable="true" spellcheck="false" data-d="${i}">${esc(r.d1)}</div></div><p class="src">H1: <b>${esc(r.h1)}</b></p></div></div></div>`).join('');
+function rwc(){$$('[data-t]').forEach(e=>{const n=e.innerText.trim().length,c=$(`[data-tc="${e.dataset.t}"]`);c.textContent='title '+n;c.className='cnt '+(n<=60&&n>=30?'ok':'bad')});$$('[data-d]').forEach(e=>{const n=e.innerText.trim().length,c=$(`[data-dc="${e.dataset.d}"]`);c.textContent='desc '+n;c.className='cnt '+(n<=160&&n>=110?'ok':'bad')})}
+$('#rwL').addEventListener('input',rwc);rwc();
+
+/* ---------- redirects ---------- */
+const RD=[['/home/','/','Old homepage, old positioning'],['/services/ai-agency','/services/ai-visibility-agency','Consolidate AI agency pages'],['/services/ai-marketing-agency','/services/ai-visibility-agency','Consolidate AI agency pages'],['/services/content-strategy-planning-2','/services/content-strategy-planning','Duplicate service page'],['/products/','/resources/','One URL for the resources hub, nav says Resources'],['/work/industry-into-21st-centry/','/work/industry-into-21st-century/','Typo in slug']];
+$('#rdT').innerHTML='<tr><th>From</th><th>To</th><th>Why</th><th>Type</th></tr>'+RD.map(r=>`<tr><td><code>${r[0]}</code></td><td><code>${r[1]}</code></td><td>${r[2]}</td><td>301</td></tr>`).join('');
+$('#rdCsv').addEventListener('click',()=>{const csv='source,target,regex,code\n'+RD.map(r=>`${r[0]},${r[1]},0,301`).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='foundation-redirects.csv';a.click()});
+
+/* ---------- schema ---------- */
+const FAQ=[
+ ['What does an AI visibility agency do?','An AI visibility agency measures how often AI assistants like ChatGPT, Gemini, Claude and Perplexity mention and recommend your brand, then improves it. Foundation fixes what AI gets wrong on your own pages, earns citations in the sources models trust, such as Reddit, YouTube and earned media, and ties the results to pipeline.'],
+ ['How do you measure AI visibility?','We test the questions your buyers ask across ChatGPT, Gemini, Claude, Perplexity, Microsoft Copilot and Google AI Overviews, then report citation share, share of voice and sentiment against your competitors. We re-measure monthly against that baseline.'],
+ ['How is GEO different from SEO?','SEO earns rankings and clicks on search results pages. Generative engine optimization earns mentions and citations inside AI answers. The two overlap, but AI answers draw heavily on off-site sources like Reddit, YouTube and the press, so GEO goes beyond your own website.'],
+ ['How long does it take to see results?','Our audits come with a 90-day roadmap: days 1 to 30 fix the pages and facts AI gets wrong, days 31 to 60 earn citations in trusted sources, and days 61 to 90 go after the prompts competitors own today.'],
+ ['Who is Foundation\'s AI visibility work for?','Mid-market and enterprise B2B tech and SaaS companies, including AI, martech, cybersecurity, developer tools and data and analytics brands.']
+];
+const sc1={"@context":"https://schema.org","@graph":[{"@type":"Service","@id":"https://foundationinc.co/services/ai-visibility-agency#service","name":"AI Visibility Agency for B2B Tech and SaaS","serviceType":"AI visibility and generative engine optimization","description":"Foundation helps B2B tech and SaaS brands get cited and recommended by ChatGPT, Gemini, Claude, Perplexity and Google AI Overviews, and turns that visibility into pipeline.","provider":{"@type":"Organization","name":"Foundation","url":"https://foundationinc.co/"},"areaServed":["US","CA","GB","AU"],"audience":{"@type":"BusinessAudience","audienceType":"B2B technology and SaaS marketing leaders"},"offers":{"@type":"Offer","name":"Free AI Visibility Audit","price":"0","priceCurrency":"USD","url":"https://foundationinc.co/ai-visibility-audit/"}},{"@type":"FAQPage","mainEntity":FAQ.map(f=>({"@type":"Question","name":f[0],"acceptedAnswer":{"@type":"Answer","text":f[1]}}))}]};
+$('#sc1').textContent='<script type="application/ld+json">\n'+JSON.stringify(sc1,null,2)+'\n</'+'script>';
+$('#sc2').textContent=`<!-- careers single template: header.php or the SEO plugin's canonical filter -->
+<link rel="canonical" href="<?php echo esc_url( get_permalink() ); ?>">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "JobPosting",
+  "title": "<?php echo esc_js( get_the_title() ); ?>",
+  "datePosted": "<?php echo get_the_date( 'c' ); ?>",
+  "employmentType": "FULL_TIME",
+  "jobLocationType": "TELECOMMUTE",
+  "applicantLocationRequirements": { "@type": "Country", "name": "Canada" },
+  "hiringOrganization": {
+    "@type": "Organization",
+    "name": "Foundation",
+    "sameAs": "https://foundationinc.co/"
+  },
+  "baseSalary": {
+    "@type": "MonetaryAmount",
+    "currency": "CAD",
+    "value": { "@type": "QuantitativeValue", "minValue": 60000, "maxValue": 90000, "unitText": "YEAR" }
+  },
+  "description": "<?php echo esc_js( wp_strip_all_tags( get_the_content() ) ); ?>"
+}
+</`+`script>`;
+$('#sc2').insertAdjacentHTML('afterend','<p class="src">The post says "Worldwide." Google needs at least one country in applicantLocationRequirements for a remote job, so list each country you hire in, starting with Canada.</p>');
+$('#llms').textContent=`# Foundation
+
+> Foundation is an AI visibility marketing agency that drives pipeline growth for mid-market and enterprise B2B tech and SaaS companies, through content engineered to distribute across LLMs, search, social, Reddit and every channel buyers use.
+
+## Free audits
+- [AI Visibility Audit](https://foundationinc.co/ai-visibility-audit/): citation share, share of voice and sentiment vs 3 competitors, with a 90-day roadmap
+- [Reddit AI Visibility Audit](https://foundationinc.co/reddit-ai-visibility-audit/)
+- [YouTube AI Visibility Audit](https://foundationinc.co/youtube-ai-visibility-audit/)
+- [Paid Media Audit](https://foundationinc.co/paid-media-audit/)
+
+## Services
+- [AI Visibility Agency](https://foundationinc.co/services/ai-visibility-agency)
+- [Generative Engine Optimization](https://foundationinc.co/services/generative-engine-optimization-agency)
+- [Technical SEO](https://foundationinc.co/services/technical-seo/)
+- [LLM Advertising](https://foundationinc.co/services/llm-advertising/)
+- [Reddit Marketing](https://foundationinc.co/services/reddit-agency)
+- [YouTube Marketing](https://foundationinc.co/services/youtube-marketing)
+- [Digital PR](https://foundationinc.co/services/digital-pr)
+- [Sales Enablement](https://foundationinc.co/services/sales-enablement)
+
+## Proof
+- [Case studies](https://foundationinc.co/case-studies)
+
+## Learn
+- [What is generative engine optimization](https://foundationinc.co/lab/generative-engine-optimization)
+- [GEO metrics](https://foundationinc.co/lab/geo-metrics)
+- [AI visibility](https://foundationinc.co/lab/ai-visibility/)
+
+## Company
+- [About](https://foundationinc.co/about/)
+- [Citation Conference 2027, Toronto, May 11 to 13](https://foundationinc.co/citation-conference-2027/)
+- [Contact](https://foundationinc.co/contact/)`;
+
+/* ---------- CRO form ---------- */
+let cs=1;
+function cro(){
+  $('#croForm').innerHTML=cs===1?`<span class="tag r">Variant · step 1 of 2</span><h5 style="margin-top:10px;font-size:19px">See how often AI recommends you</h5><div class="fld" style="margin-top:12px"><label>Work email</label><input type="text" placeholder="you@company.com"></div><div class="fld"><label>Company website</label><input type="text" placeholder="yourcompany.com"></div><div class="fld"><label>The competitor you lose to most</label><input type="text" placeholder="competitor.com"></div><button class="cbtn" id="croN">Start my audit →</button><p class="src">3 fields. The contact is created here.</p>`:`<span class="tag g">Step 2 of 2 · audit started</span><h5 style="margin-top:10px;font-size:19px">Make it sharper (optional)</h5><div class="fld" style="margin-top:12px"><label>Two more competitors</label><input type="text" placeholder="competitor.com, competitor.com"></div><div class="fld"><label>A question your buyers ask AI</label><input type="text" placeholder="Best SOC 2 tool for a 200-person SaaS company?"></div><div class="g2" style="margin-top:0"><div class="fld"><label>Name</label><input type="text"></div><div class="fld"><label>Job title</label><input type="text"></div></div><div class="g2" style="margin-top:0"><div class="fld"><label>Company size</label><select><option>200–500</option><option>500–1,000</option><option>1,000+</option></select></div><div class="fld"><label>Timeline</label><select><option>This quarter</option><option>Next quarter</option><option>Researching</option></select></div></div><button class="cbtn" id="croB">Finish</button> <button class="cbtn o" id="croR">Reset</button>`;
+  const n=$('#croN');if(n)n.onclick=()=>{cs=2;cro()};const b=$('#croB');if(b)b.onclick=()=>toast('Demo only. Nothing is sent.');const r=$('#croR');if(r)r.onclick=()=>{cs=1;cro()};
+}
+cro();
+function ss(){
+  const p=+$('#ssC').value/100,l=+$('#ssL').value/100,v=+$('#ssV').value;
+  $('#ssCo').textContent=(p*100).toFixed(1)+'%';$('#ssLo').textContent='+'+Math.round(l*100)+'%';$('#ssVo').textContent=fmt(v);
+  const p2=p*(1+l),pb=(p+p2)/2,za=1.96,zb=0.84;
+  const n=Math.ceil(Math.pow(za*Math.sqrt(2*pb*(1-pb))+zb*Math.sqrt(p*(1-p)+p2*(1-p2)),2)/Math.pow(p2-p,2));
+  const wk=Math.ceil(n*2/v);
+  $('#ssOut').innerHTML=`About <b>${fmt(n)}</b> visitors per variant, so <b>${wk} week${wk>1?'s':''}</b> at ${fmt(v)} a week. ${wk>8?'That\'s too long. Test a bigger change, or judge it on step-one completions first.':'Run full weeks only, and don\'t stop early on a good day.'}<br><span class="src">95% confidence, 80% power, two-sided.</span>`;
+}
+['ssC','ssL','ssV'].forEach(i=>$('#'+i).addEventListener('input',ss));ss();
+
+/* ---------- checklists ---------- */
+function checklist(id,key,items){
+  const el=$('#'+id),st=store.get(key)||{};
+  el.innerHTML=items.map((it,i)=>`<label class="${st[i]?'done':''}"><input type="checkbox" data-i="${i}" ${st[i]?'checked':''}><span class="w">${esc(it[0])}</span><span class="t">${it[1]}</span><span class="tag">${esc(it[2])}</span></label>`).join('');
+  const pr=$('#'+id.replace('L','P'));
+  const up=()=>{const n=$$('input',el).filter(x=>x.checked).length;pr.style.width=(n/items.length*100)+'%'};
+  el.addEventListener('change',e=>{const i=e.target.dataset.i;st[i]=e.target.checked;e.target.closest('label').classList.toggle('done',e.target.checked);store.set(key,st);up()});up();
+}
+checklist('hcL','fd-hc',[
+ ['Index','Search Console: pages indexed vs last week. New "Excluded" reasons, especially "Alternate page with proper canonical" on pages that should rank.','GSC'],
+ ['Crawl','Ahrefs Site Audit: new 4xx, redirect chains, canonical changes, orphan pages, missing titles and descriptions.','Ahrefs'],
+ ['Speed','Core Web Vitals report and server response on the homepage, the AI Visibility Audit and one service page.','GSC + curl'],
+ ['AI','WP Engine access logs: hits from OAI-SearchBot, ChatGPT-User, GPTBot, PerplexityBot, ClaudeBot and Bingbot. Any 4xx or 5xx served to them.','Logs'],
+ ['Convert','GA4: audit page conversion rate, form errors, sessions from the "AI assistants" channel. HubSpot: form submissions vs GA4 events match.','GA4 + HubSpot'],
+ ['Changes','Anything published or changed last week: titles, canonicals, noindex, schema still valid in the Rich Results Test.','CMS']
+]);
+checklist('lcL','fd-lc',[
+ ['T−21','Brief signed off: goal, audience, offer, KPI tied to pipeline, budget, owner per channel.','Marketing Manager'],
+ ['T−18','Creative brief to the Creative Director. Copy deck to the Content Manager.','Marketing Manager'],
+ ['T−14','Landing page built in the CMS, form mapped to HubSpot, UTMs and hidden fields tested.','Marketing Manager'],
+ ['T−12','Paid: audiences, ads, budget pacing plan, conversion events on SAL not form fill.','Paid team'],
+ ['T−10','Sales briefed: what the buyer will have seen, talk track, follow-up SLA, routing rule.','Sales'],
+ ['T−7','Social and email calendar locked. Coordinator has the briefs.','Coordinator'],
+ ['T−3','QA: every link, every UTM, mobile, form test submission reaches the right owner.','Marketing Manager'],
+ ['T−0','Launch. Ross and team posts. First-hour replies covered.','Coordinator + Ross'],
+ ['T+3','Early read: spend, CTR, conversion, MQLs, first Sales feedback. Fix what\'s broken.','Marketing Manager + Paid'],
+ ['T+14','Readout: pipeline created, cost per SAL, what to keep, what to cut. Library updated.','Marketing Manager']
+]);
+checklist('rvL','fd-rv',[
+ ['Fit','The problem in the first paragraph is the one the buyer said on the call, in their words.','Positioning'],
+ ['Fit','Competitors are the 3 the buyer named, not generic ones.','Accuracy'],
+ ['Data','Every number has a source and date. Prompt set and models are listed.','Accuracy'],
+ ['Data','Screenshots of AI answers are dated and the brand is spelled the way the buyer spells it.','Accuracy'],
+ ['Story','The top 3 findings are on page one. Detail comes after.','Clarity'],
+ ['Story','Each finding has a "so what" in revenue or pipeline terms, not just traffic.','Clarity'],
+ ['Plan','The 90-day roadmap matches the findings and names what Foundation does vs what the buyer does.','Positioning'],
+ ['Proof','One case study that matches their industry or size. No case study the buyer could mistake for a competitor.','Proof'],
+ ['Scope','Services named match the current service pages and pricing language.','Consistency'],
+ ['Brand','Template, fonts and colours current. No old "content marketing agency" language.','Brand'],
+ ['Ask','One clear next step with a date.','Clarity'],
+ ['Send','Sent from the AE with a 2-line summary in the email body. Opens tracked in HubSpot.','Sales']
+]);
+
+/* ---------- campaigns ---------- */
+(function(){const d=Math.ceil((new Date('2027-05-11T17:00:00-04:00')-new Date())/864e5);$('#ccDays').textContent=d>0?d+' days until Citation Eve':'Citation Eve is here'})();
+const CEP=[
+ ['Organic traffic dropped and AI Overviews took the clicks','"why is our organic traffic down in 2026"','/ai-visibility-audit/','"Traffic down? Find out who AI is sending your buyers to."','"Let\'s see where those clicks went, by model."'],
+ ['The board asked what the AI plan is','"how to measure ai visibility for board"','/lab/geo-metrics → audit','"Five numbers for your AI board slide."','"We\'ll give you the baseline for the slide."'],
+ ['A competitor shows up in ChatGPT and we don\'t','"why does chatgpt recommend [competitor]"','/ai-visibility-audit/ (competitor field)','"ChatGPT named them. Find out why."','"Name the competitor and we\'ll show the sources behind it."'],
+ ['Planning next year\'s budget','"geo agency rfp"','/lab/geo-rfp','"Writing a GEO RFP? Start here."','"Here\'s what to ask any GEO agency, including us."'],
+ ['The SEO agency only reports rankings','"seo agency that measures ai search"','/services/measurement-frameworks','"Rankings aren\'t the scoreboard anymore."','"What does your current report say about AI answers?"'],
+ ['Reddit threads are shaping our reputation','"how to fix negative reddit threads about brand"','/reddit-ai-visibility-audit/','"See the Reddit threads AI quotes to your buyers."','"One thread from 2023 can frame every answer."'],
+ ['We\'re moving upmarket','"content strategy for enterprise buyers"','construction tech case study','"Reach the VPs who sign seven-figure contracts."','"Here\'s how a construction tech leader did it."'],
+ ['New CMO, first 90 days','"first 90 days cmo ai search plan"','/audits/ → 90-day roadmap','"Your first 90 days, already mapped."','"The audit is the plan for your first quarter."']
+];
+$('#cepT').innerHTML='<tr><th>Buying moment</th><th>What they type into AI or Google</th><th>Page waiting</th><th>Ad hook</th><th>Sales line</th></tr>'+CEP.map(r=>`<tr><td><b>${esc(r[0])}</b></td><td>${esc(r[1])}</td><td><code>${esc(r[2])}</code></td><td>${esc(r[3])}</td><td>${esc(r[4])}</td></tr>`).join('');
+function sp(){
+  const C=+$('#spC').value,N=+$('#spN').value,M=+$('#spM').value/100,S=+$('#spS').value/100,T=+$('#spT').value;
+  $('#spCo').textContent=usd(C);$('#spNo').textContent=N;$('#spMo').textContent=Math.round(M*100)+'%';$('#spSo').textContent=Math.round(S*100)+'%';$('#spTo').textContent=usd(T);
+  const meet=N*M,sal=meet*S,cps=sal?C/sal:Infinity;
+  const ok=cps<=T,close=cps<=T*1.3;
+  $('#spOut').innerHTML=`<div class="row"><span>Meetings</span><b>${Math.round(meet*10)/10}</b></div><div class="row"><span>SALs</span><b>${Math.round(sal*10)/10}</b></div><div class="row"><span>Cost per SAL</span><b>${isFinite(cps)?usd(cps):'n/a'}</b></div><div class="row"><span>vs target</span><b>${isFinite(cps)?Math.round(cps/T*100)+'%':'n/a'}</b></div><div class="verdict">${ok?'<b>Yes.</b> It beats paid on cost per SAL. Book it, and pre-book meetings with target accounts before the event.':close?'<b>Maybe.</b> Close to target. Negotiate the price, or add a speaking slot or attendee list to raise the conversations.':'<b>Pass, or restructure.</b> At this cost the same money buys more SALs in paid. Ask for a sponsored session instead of a booth, or co-host with a partner.'}</div>`;
+}
+['spC','spN','spM','spS','spT'].forEach(i=>$('#'+i).addEventListener('input',sp));sp();
+
+/* ---------- dashboard ---------- */
+const MON=['May','Jun','Jul','Aug','Sep','Oct'];
+const CH={
+ 'All channels':{mql:[48,52,47,58,61,70],sal:[21,24,20,26,28,28],spend:[24000,25000,23500,26000,27000,28500],cyc:41,inf:1840000},
+ 'AI assistants':{mql:[6,7,9,11,13,16],sal:[3,4,5,6,7,8],spend:[0,0,0,0,0,0],cyc:34,inf:410000},
+ 'Organic search':{mql:[14,15,12,15,14,15],sal:[6,7,5,7,6,6],spend:[0,0,0,0,0,0],cyc:39,inf:520000},
+ 'Paid LinkedIn':{mql:[12,13,11,12,13,12],sal:[4,5,4,4,5,4],spend:[15000,15500,14500,16000,16500,17000],cyc:47,inf:260000},
+ 'Paid search':{mql:[6,7,6,8,8,8],sal:[3,3,2,4,4,5],spend:[9000,9500,9000,10000,10500,11500],cyc:38,inf:240000},
+ 'Events + webinars':{mql:[5,6,4,7,8,14],sal:[3,3,2,3,4,3],spend:[0,0,0,0,0,0],cyc:44,inf:300000},
+ 'Referral + partners':{mql:[5,4,5,5,5,5],sal:[2,2,2,2,2,2],spend:[0,0,0,0,0,0],cyc:36,inf:110000}
+};
+$('#dbCh').innerHTML=Object.keys(CH).map(k=>`<option>${k}</option>`).join('');
+function db(){
+  const k=$('#dbCh').value,d=CH[k],sum=a=>a.reduce((x,y)=>x+y,0);
+  const M=sum(d.mql),S=sum(d.sal),sp=sum(d.spend),lastM=d.mql[5],prevM=d.mql[4],rate=S/M*100,lastR=d.sal[5]/d.mql[5]*100,prevR=d.sal[4]/d.mql[4]*100;
+  const paidSal=k==='All channels'?sum(CH['Paid LinkedIn'].sal)+sum(CH['Paid search'].sal):S;
+  const cps=sp?sp/paidSal:0;
+  const dlt=(a,b,inv)=>{const v=Math.round((a-b)/b*100);const up=v>=0;return `<em class="${(up!==!!inv)?'u':'d'}">${up?'▲':'▼'} ${Math.abs(v)}% MoM</em>`};
+  $('#dbK').innerHTML=`<div><small>MQLs (Oct)</small><b>${lastM}</b>${dlt(lastM,prevM)}</div><div><small>MQL → SAL (Oct)</small><b>${Math.round(lastR)}%</b>${dlt(lastR,prevR)}</div><div><small>Sales cycle</small><b>${d.cyc}d</b><em class="u">median, 6 mo</em></div><div><small>Cost per SAL</small><b>${sp?usd(cps):'n/a'}</b><em class="u">${sp?'paid only':'no spend'}</em></div><div><small>Influenced revenue</small><b>$${(d.inf/1e6).toFixed(2)}M</b><em class="u">6 mo</em></div>`;
+  const mx=Math.max(...d.mql)*1.15,W=520,H=220,pl=30,pb=26,bw=(W-pl-10)/6;
+  let s='';for(let g=0;g<=4;g++){const y=H-pb-(H-pb-10)*g/4;s+=`<line x1="${pl}" x2="${W}" y1="${y}" y2="${y}" stroke="#eaf0f6"/><text x="${pl-6}" y="${y+4}" font-size="10" fill="#7c98b6" text-anchor="end">${Math.round(mx*g/4)}</text>`}
+  d.mql.forEach((v,i)=>{const x=pl+i*bw+bw*.18,h=(H-pb-10)*v/mx,h2=(H-pb-10)*d.sal[i]/mx;s+=`<rect x="${x}" y="${H-pb-h}" width="${bw*.3}" height="${h}" rx="3" fill="#132d7f"><title>${MON[i]} MQLs ${v}</title></rect><rect x="${x+bw*.32}" y="${H-pb-h2}" width="${bw*.3}" height="${h2}" rx="3" fill="#dd6052"><title>${MON[i]} SALs ${d.sal[i]}</title></rect><text x="${x+bw*.31}" y="${H-8}" font-size="11" fill="#516f90" text-anchor="middle">${MON[i]}</text>`});
+  s+=`<rect x="${W-130}" y="4" width="10" height="10" fill="#132d7f" rx="2"/><text x="${W-116}" y="13" font-size="11" fill="#33475b">MQL</text><rect x="${W-80}" y="4" width="10" height="10" fill="#dd6052" rx="2"/><text x="${W-66}" y="13" font-size="11" fill="#33475b">SAL</text>`;
+  $('#dbBar').innerHTML=s;
+  const rows=Object.keys(CH).filter(x=>x!=='All channels').map(x=>{const c=CH[x],m=sum(c.mql),sa=sum(c.sal);return [x,m,sa,sa/m*100]}).sort((a,b)=>b[3]-a[3]);
+  $('#dbT').innerHTML='<tr><th>Source</th><th>MQL</th><th>SAL</th><th>Rate</th></tr>'+rows.map(r=>`<tr${r[0]===k?' style="background:#fff4f2;font-weight:700"':''}><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${Math.round(r[3])}%</td></tr>`).join('');
+}
+$('#dbCh').addEventListener('change',db);db();
+
+/* ---------- objections ---------- */
+const OBJ=[
+ ['"Isn\'t this just SEO with a new name?"','Some of it is. AI answers lean on well-ranked, well-structured pages. But they also lean heavily on Reddit, YouTube, reviews and the press, which classic SEO doesn\'t touch. The audit shows how much of your category\'s citations come from off-site sources. That share is the part SEO alone can\'t reach.'],
+ ['"AI answers change every day. How can you measure that?"','By testing a fixed set of buyer questions across six models on a schedule, and tracking the share over time. Any single answer moves. The share across 120 prompts is stable enough to manage, the same way rankings were.'],
+ ['"We can do this in-house."','You might, and the audit is free either way. Teams usually find the measurement is the easy part. Earning mentions on Reddit and in publications takes people who do it every day. We\'ll show you exactly what the work is so you can decide.'],
+ ['"How does this become pipeline?"','We track it the same way you track any channel: AI-referred sessions in GA4, the AI prompt buyers tell us on forms, and the deals those contacts create in your CRM. We report visibility next to pipeline every month.'],
+ ['"We tried Reddit and got burned."','Most brands go in promoting. Reddit rewards being useful in threads that already exist. Our first step is a map of the threads AI quotes about your category, so the work starts where it matters, not where it\'s easy to post.'],
+ ['"It\'s too early. Our buyers don\'t use ChatGPT."','The G2 2026 Buyer Behavior Report found that over 80% of software buyers use AI to build their shortlist. The audit will tell you whether your category is the exception, with your own prompts.'],
+ ['"Your pricing is higher than other agencies."','Compare it with what you\'d pay to measure, create, distribute and earn citations across five channels separately. Then compare it with the pipeline from one deal won from an AI shortlist. We\'ll build that comparison with your numbers.'],
+ ['"How fast will we see results?"','The roadmap runs in three 30-day phases. Fixes to your own pages can show in weeks. Earned citations take longer. We re-measure monthly, so you see what moved, not just what we did.']
+];
+$('#objL').innerHTML=OBJ.map((o,i)=>`<details class="au"${i===0?' open':''}><summary style="grid-template-columns:minmax(0,1fr) 24px"><h4>${esc(o[0])}</h4><span class="pl">+</span></summary><div class="bd" style="grid-template-columns:minmax(0,1fr);padding:0 16px 16px"><div>${esc(o[1])}</div></div></details>`).join('');
+
+/* ---------- one-pager print ---------- */
+$('#opPrint').addEventListener('click',()=>{document.body.classList.add('pop');print();setTimeout(()=>document.body.classList.remove('pop'),400)});
+
+fromHash();
+})();
+</script>
+</body>
+</html>
