@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fitzrovia, from hoarding to happy residents · Durva Thakkar</title>
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="Marketing Coordinator, Fitzrovia. An online curb appeal audit of the live portfolio, an offer matrix, a Rushden Station lifecycle plan, and the tools I'd use every week.">
+<meta name="description" content="Marketing Coordinator, Fitzrovia. A live curb appeal audit, an offer matrix, a Rushden Station plan, a November social calendar, and a finished first piece for every line of the role.">
 <meta property="og:title" content="Fitzrovia, I started with your online curb appeal.">
 <meta property="og:description" content="Nine live findings across fitzrovia.ca and the property sites, each with a fix. Plus the offer matrix, a Rushden Station plan and the weekly tools.">
 <meta property="og:type" content="website">
@@ -259,6 +259,378 @@ p.note{font-size:14px;color:var(--soft);margin-top:8px;max-width:760px}
   .sh p{font-size:17px}
   .calc .out .big{font-size:42px}
 }
+
+/* ===== social month (ig-) ===== */
+.ig-art{container-type:inline-size;aspect-ratio:4/5;position:relative;overflow:hidden;background:#1c2130 center/cover no-repeat;color:#fff;display:flex;flex-direction:column;justify-content:flex-end}
+.ig-art.photo::after,.ig-art.reel::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,4,12,0) 38%,rgba(2,4,12,.82) 100%)}
+.ig-art .ov{position:relative;z-index:2;padding:7cqw 7cqw 9cqw}
+.ig-art .k{display:block;font:500 3.4cqw/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;opacity:.92}
+.ig-art .h{display:block;font-family:var(--wide);font-stretch:125%;font-weight:800;text-transform:uppercase;font-size:7cqw;line-height:.98;margin-top:2.4cqw;letter-spacing:.005em}
+.ig-art .s{display:block;font-family:var(--serif);font-size:4.4cqw;line-height:1.35;margin-top:3cqw;opacity:.92}
+.ig-art .wm{position:absolute;z-index:3;top:6cqw;right:6cqw;font:800 2.9cqw var(--wide);font-stretch:125%;letter-spacing:.14em}
+.ig-art .rb{position:absolute;z-index:3;left:7cqw;top:6cqw;width:9cqw;height:1.4cqw;background:var(--red)}
+.ig-art.type{background:var(--beige);color:var(--ink);justify-content:center}
+.ig-art.type .ov{padding:9cqw}
+.ig-art.type .h{font-size:10cqw}
+.ig-art.type .n{display:block;font:500 4cqw var(--mono);color:var(--red-d);margin-bottom:3cqw}
+.ig-art.type.ink{background:var(--ink);color:#fff}.ig-art.type.ink .h span{color:var(--red)}
+.ig-art.type.sage{background:var(--sage);color:var(--ink)}
+.ig-art.type.red{background:var(--red);color:#fff}
+.ig-art.type.white{background:#fff;color:var(--ink)}
+.ig-art.type .s{font-size:5cqw}
+.ig-art.split{background:var(--ink)!important}
+.ig-art.split .ph{position:absolute;left:0;right:0;top:0;height:62%;background:center/cover no-repeat}
+.ig-art.split .ov{background:var(--ink)}
+.ig-art.reel .play{position:absolute;z-index:3;left:50%;top:42%;width:15cqw;height:15cqw;margin:-7.5cqw 0 0 -7.5cqw;border-radius:50%;background:rgba(255,255,255,.88);display:grid;place-items:center}
+.ig-art.reel .play::before{content:"";border-left:4.6cqw solid var(--ink);border-top:3cqw solid transparent;border-bottom:3cqw solid transparent;margin-left:1.2cqw}
+.ig-art.offer{background:var(--red);justify-content:center}
+.ig-art.offer .ov{padding:9cqw}
+.ig-art.offer .h{font-size:13cqw}
+.ig-art.offer .k{font-size:3.8cqw}
+.ig-art:has(.ix) .wm{right:19cqw}
+.ig-art .ix{position:absolute;z-index:3;right:5cqw;top:5cqw;font:500 3.2cqw var(--mono);background:rgba(2,4,12,.55);color:#fff;border-radius:999px;padding:1cqw 2.6cqw}
+
+.ig-legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:20px;font-size:13px}
+.ig-legend span{display:inline-flex;align-items:center;gap:6px}
+.ig-legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
+.ig-mix{display:grid;grid-template-columns:repeat(4,1fr);border:1.5px solid var(--ink);background:#fff;margin-top:16px}
+.ig-mix div{padding:12px 14px;border-right:1px solid var(--line)}
+.ig-mix div:last-child{border-right:0}
+.ig-mix b{display:block;font-stretch:125%;font-weight:800;font-size:24px;line-height:1}
+.ig-mix span{font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
+.ig-cal{margin-top:14px;display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.ig-dow{font:500 11px var(--mono);letter-spacing:.08em;color:var(--soft);text-transform:uppercase;padding:0 2px 2px}
+.ig-day{background:#fff;border:1px solid var(--line);border-radius:4px;min-height:96px;padding:6px;display:flex;flex-direction:column;gap:5px;text-align:left;font:inherit;color:inherit}
+.ig-day .dn{font:600 12px var(--mono);color:var(--soft)}
+.ig-day.blank{background:none;border-style:dashed;border-color:#e7e1d6}
+.ig-day .sty{font-size:11.5px;line-height:1.35;color:var(--soft)}
+.ig-day .sty::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;border:1.5px solid var(--red);margin-right:5px;vertical-align:1px}
+button.ig-day{cursor:pointer;transition:transform .15s,box-shadow .15s}
+button.ig-day:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(2,4,12,.12)}
+button.ig-day .ig-art{border-radius:3px}
+.ig-day .meta{display:flex;align-items:center;justify-content:space-between;gap:4px;font:500 10.5px var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--soft)}
+.ig-day .meta i{width:8px;height:8px;border-radius:2px;flex:none}
+@media (max-width:760px){
+  .ig-cal{grid-template-columns:1fr 1fr;gap:8px}
+  .ig-dow,.ig-day.blank,.ig-day.sonly{display:none}
+  .ig-day .dn::after{content:attr(data-w);margin-left:6px}
+  .ig-mix{grid-template-columns:1fr 1fr}.ig-mix div:nth-child(2){border-right:0}.ig-mix div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+}
+.ig-stories{margin-top:14px;background:#fff;border:1px solid var(--line);border-radius:4px;padding:14px 16px;font-size:14px;display:none}
+@media (max-width:760px){.ig-stories{display:block}}
+.ig-stories ul{margin:8px 0 0 18px}.ig-stories li+li{margin-top:4px}
+
+/* modal */
+.ig-dlg{margin:auto;border:0;padding:0;background:transparent;max-width:min(980px,96vw);width:100%;max-height:94vh}
+.ig-dlg::backdrop{background:rgba(2,4,12,.72)}
+.ig-wrap{background:var(--bg);border-radius:8px;display:grid;grid-template-columns:400px 1fr;overflow:hidden;max-height:94vh}
+.ig-phone{background:#fff;border-right:1px solid var(--line);overflow:auto}
+.ig-hd{display:flex;align-items:center;gap:10px;padding:10px 12px}
+.ig-av{width:32px;height:32px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font:800 13px var(--wide);font-stretch:125%;box-shadow:0 0 0 2px #fff,0 0 0 3.5px var(--red)}
+.ig-hd b{font-size:13.5px;display:block;line-height:1.2}.ig-hd small{font-size:12px;color:var(--soft)}
+.ig-sl{position:relative;overflow:hidden}
+.ig-track{display:flex;transition:transform .35s ease}
+.ig-track>.ig-art{flex:0 0 100%}
+.ig-nav{position:absolute;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;border:0;background:rgba(255,255,255,.9);cursor:pointer;font:600 15px var(--wide);z-index:5;color:var(--ink)}
+.ig-nav.p{left:8px}.ig-nav.n{right:8px}
+.ig-nav[hidden]{display:none}
+.ig-dots{display:flex;justify-content:center;gap:4px;padding:8px 0 0}
+.ig-dots i{width:6px;height:6px;border-radius:50%;background:#cfd2d8}
+.ig-dots i.on{background:#0095f6}
+.ig-act{display:flex;gap:14px;padding:8px 12px 4px}
+.ig-act svg{width:23px;height:23px;fill:none;stroke:var(--ink);stroke-width:1.8}
+.ig-act .sv{margin-left:auto}
+.ig-cap{padding:4px 12px 16px;font-size:14px;line-height:1.45;white-space:pre-line}
+.ig-cap b{font-weight:700}
+.ig-cap .tg{color:#00376b}
+.ig-br{padding:22px 24px;overflow:auto}
+.ig-br .x{float:right;border:1px solid var(--ink);background:#fff;border-radius:999px;padding:5px 12px;font:500 12px var(--mono);cursor:pointer}
+.ig-br h3{font-stretch:125%;font-weight:800;font-size:22px;text-transform:uppercase;line-height:1.05;margin-top:6px;clear:both}
+.ig-br dl{display:grid;grid-template-columns:110px 1fr;gap:8px 14px;margin-top:16px;font-size:14px}
+.ig-br dt{font:500 11px var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--soft);padding-top:2px}
+.ig-br dd code{font:400 12px var(--mono);background:var(--beige);padding:2px 5px;border-radius:3px;word-break:break-all}
+.ig-br ol{margin:2px 0 0 18px}.ig-br ol li+li{margin-top:3px}
+.ig-br .pn{display:flex;gap:8px;margin-top:20px}
+.ig-br .pn button{border:1px solid var(--ink);background:#fff;border-radius:999px;padding:7px 14px;font:500 12px var(--mono);cursor:pointer}
+@media (max-width:800px){.ig-wrap{grid-template-columns:1fr;max-height:none}.ig-dlg{max-height:none;margin:12px auto}.ig-phone{border-right:0}.ig-br dl{grid-template-columns:1fr;gap:2px}.ig-br dd{margin-bottom:8px}}
+
+/* ===== the desk (dk-) ===== */
+.dk{display:grid;grid-template-columns:270px minmax(0,1fr);gap:30px;margin-top:28px}
+.dk-ix{position:sticky;top:66px;align-self:start;border-top:1.5px solid var(--ink);max-height:calc(100vh - 80px);overflow:auto}
+.dk-ix button{display:grid;grid-template-columns:26px 1fr;gap:4px;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:9px 6px 9px 4px;cursor:pointer;font:600 13.5px/1.3 var(--wide);color:#4a4d55;position:relative}
+.dk-ix button .no{font:500 11px var(--mono);color:var(--soft);padding-top:2px}
+.dk-ix button small{display:block;font:400 12px/1.35 var(--serif);color:var(--soft);margin-top:2px}
+.dk-ix button:hover{background:#fff}
+.dk-ix button[aria-selected=true]{background:#fff;color:var(--ink)}
+.dk-ix button[aria-selected=true]::before{content:"";position:absolute;left:-1px;top:0;bottom:0;width:3px;background:var(--red)}
+.dk-ix button[aria-selected=true] .no{color:var(--red)}
+.dk-p{display:none;animation:dkIn .35s ease}
+.dk-p code{word-break:break-all}
+.dk-p.on{display:block}
+@keyframes dkIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.dk-jd{font:500 12.5px/1.5 var(--mono);color:var(--soft);border-left:3px solid var(--red);padding:2px 0 2px 12px}
+.dk-jd b{color:var(--ink);font-weight:500}
+.dk-p h3{font-stretch:125%;font-weight:800;font-size:clamp(22px,2.6vw,30px);line-height:1.02;text-transform:uppercase;margin-top:14px}
+.dk-p>p.in{font-family:var(--serif);font-size:17px;line-height:1.5;color:#33363e;margin-top:10px;max-width:700px}
+.dk-p h4.lb{font:500 11.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--soft);margin:26px 0 8px}
+.dk-g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.dk-card{background:#fff;border:1px solid var(--line);border-radius:4px;padding:16px 18px}
+.dk-card h5{font-size:15px;font-weight:700}
+.dk-card p{font-size:14.5px;color:#33363e;margin-top:6px}
+.dk-ptr{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:18px;background:var(--ink);color:#fff;padding:18px 20px;border-radius:4px}
+.dk-ptr p{font-family:var(--serif);font-size:16px;flex:1;min-width:240px;color:#d7d9de}
+.dk-ptr a{background:var(--red);color:#fff;text-decoration:none;font:700 12.5px var(--wide);font-stretch:118%;letter-spacing:.06em;text-transform:uppercase;padding:10px 16px;border-radius:999px;white-space:nowrap}
+.dk-btn{border:1px solid var(--ink);background:#fff;border-radius:999px;padding:7px 14px;font:500 12px var(--mono);cursor:pointer}
+.dk-btn.pr{background:var(--ink);color:#fff}
+@media (max-width:860px){
+  .dk{grid-template-columns:minmax(0,1fr);gap:16px}
+  .dk-ix{position:sticky;top:0;z-index:20;background:var(--bg);display:flex;overflow-x:auto;border-top:0;border-bottom:1.5px solid var(--ink);max-height:none;scrollbar-width:none;padding:8px 0}
+  .dk-ix button{flex:none;width:auto;display:block;border:1px solid var(--line);border-radius:999px;padding:7px 12px;margin-right:6px;font-size:12.5px;white-space:nowrap;background:#fff}
+  .dk-ix button .no,.dk-ix button small{display:none}
+  .dk-ix button[aria-selected=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .dk-ix button[aria-selected=true]::before{display:none}
+  .dk-g2{grid-template-columns:minmax(0,1fr)}
+}
+
+/* program board */
+.pb-wrap{overflow-x:auto;margin-top:14px}
+table.pb{border-collapse:collapse;width:100%;min-width:720px;background:#fff;border:1px solid var(--line);font-size:13px}
+table.pb th{font:500 10.5px/1.3 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--soft);padding:9px 6px;border-bottom:1.5px solid var(--ink);text-align:center;background:#fdfcfa}
+table.pb th:first-child,table.pb td:first-child{text-align:left;padding-left:12px}
+table.pb td{border-bottom:1px solid #efe9df;padding:6px;text-align:center}
+table.pb td button{width:100%;border:0;border-radius:3px;padding:6px 2px;font:600 10.5px var(--mono);cursor:pointer;letter-spacing:.03em}
+.s0{background:#f1ece4;color:#8d8576}.s1{background:#f6ead2;color:#8a5a00}.s2{background:#dcebe4;color:#2f5e4e}
+table.pb td.pg{font:600 12px var(--mono);white-space:nowrap}
+.pb-tot{display:flex;align-items:center;gap:12px;margin-top:10px;font:500 12px var(--mono);color:var(--soft)}
+.pb-tot .tr{flex:1;height:8px;background:var(--beige);border-radius:4px;overflow:hidden}.pb-tot .tr i{display:block;height:100%;background:var(--sage-d);transition:width .3s}
+
+/* brand check */
+.bc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.bc textarea{width:100%;min-height:200px;border:1px solid var(--line);border-radius:4px;padding:14px;font:400 15px/1.55 var(--serif);background:#fff;resize:vertical}
+.bc .out{background:#fff;border:1px solid var(--line);border-radius:4px;padding:14px;font:400 15px/1.6 var(--serif);min-height:200px}
+.bc .out mark{background:#ffd3c9;color:#a32510;border-radius:2px;padding:0 2px}
+.bc .out mark.t{background:#f6ead2;color:#8a5a00}
+.bc ul{list-style:none;margin-top:10px;display:grid;gap:6px}
+.bc li{font-size:13.5px;background:#fff;border:1px solid var(--line);border-radius:4px;padding:8px 10px;display:flex;gap:8px;align-items:baseline}
+.bc li .sev{flex:none}
+.bc .acts{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+@media (max-width:760px){.bc{grid-template-columns:1fr}}
+
+/* email */
+.em-seq{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}
+.em-seq button{text-align:left;background:#fff;border:1px solid var(--line);border-radius:4px;padding:10px 12px;cursor:pointer;font:inherit}
+.em-seq button[aria-pressed=true]{border-color:var(--ink);box-shadow:inset 0 -3px 0 var(--red)}
+.em-seq .w{font:500 10.5px var(--mono);letter-spacing:.06em;color:var(--red-d);text-transform:uppercase}
+.em-seq b{display:block;font-size:13.5px;line-height:1.3;margin-top:3px}
+.em-client{margin-top:12px;border:1px solid #d9d3c8;border-radius:6px;background:#f3f1ed;overflow:hidden}
+.em-meta{background:#fff;padding:12px 16px;border-bottom:1px solid var(--line);font-size:13.5px;display:grid;gap:3px}
+.em-meta span{color:var(--soft);font:500 11px var(--mono);letter-spacing:.05em;text-transform:uppercase;display:inline-block;width:86px}
+.em-meta .cc{font:500 11px var(--mono);color:var(--sage-d)}
+.em-body{max-width:580px;margin:18px auto;background:#fff;font-family:var(--serif);color:#22252c}
+.em-top{background:var(--ink);padding:18px 26px;display:flex;justify-content:space-between;align-items:center}
+.em-top img{height:30px}
+.em-top span{font:500 10.5px var(--mono);color:#9da1aa;letter-spacing:.1em;text-transform:uppercase}
+.em-hero{aspect-ratio:16/9;background:center/cover no-repeat}
+.em-in{padding:26px 30px 8px}
+.em-in h4{font-family:var(--wide);font-stretch:125%;font-weight:800;text-transform:uppercase;font-size:26px;line-height:1;color:var(--ink)}
+.em-in p{font-size:16px;line-height:1.6;margin-top:12px}
+.em-3{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:22px 30px 0;border-top:1.5px solid var(--ink)}
+.em-3 div{padding:12px 10px 0 0}
+.em-3 small{font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--red-d)}
+.em-3 p{font-size:14px;line-height:1.45;margin-top:4px}
+.em-cta{display:inline-block;margin:24px 30px 0;background:var(--red);color:#fff;text-decoration:none;font:700 13px var(--wide);font-stretch:118%;letter-spacing:.08em;text-transform:uppercase;padding:13px 22px}
+.em-ft{margin-top:28px;padding:16px 30px 22px;border-top:1px solid var(--line);font:400 11.5px/1.6 var(--mono);color:var(--soft)}
+@media (max-width:640px){.em-seq{grid-template-columns:1fr 1fr}.em-3{grid-template-columns:1fr;margin:18px 20px 0}.em-in{padding:20px 20px 4px}.em-cta{margin:20px 20px 0}.em-ft{padding:14px 20px 18px}.em-in h4{font-size:22px}}
+
+/* ads */
+.ad-row{display:grid;grid-template-columns:minmax(0,340px) 200px 1fr;gap:16px;margin-top:14px;align-items:start}
+.ad-row .rsa{grid-column:1/-1}
+.rsa .cols{display:grid;grid-template-columns:1fr 1.4fr;gap:20px}
+.ad-fb{background:#fff;border:1px solid var(--line);border-radius:6px;overflow:hidden;font-size:13.5px}
+.ad-fb .hd{display:flex;gap:8px;align-items:center;padding:10px 12px}
+.ad-fb .hd .ig-av{width:30px;height:30px;font-size:12px;box-shadow:none}
+.ad-fb .hd small{display:block;color:var(--soft);font-size:11.5px}
+.ad-fb .tx{padding:0 12px 10px;line-height:1.45}
+.ad-fb .ft{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;background:#f3f1ed}
+.ad-fb .ft small{display:block;color:var(--soft);font-size:11px;text-transform:uppercase}
+.ad-fb .ft b{font-size:14px}
+.ad-fb .ft span{background:#e3e0da;border-radius:4px;padding:7px 12px;font-weight:600;font-size:13px;white-space:nowrap}
+.ad-st{aspect-ratio:9/16;border-radius:10px;overflow:hidden;position:relative;background:center/cover no-repeat;color:#fff;container-type:inline-size}
+.ad-st::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,4,12,.45),rgba(2,4,12,0) 25%,rgba(2,4,12,0) 55%,rgba(2,4,12,.85))}
+.ad-st>*{position:relative;z-index:2}
+.ad-st .tp{display:flex;gap:6px;align-items:center;padding:9cqw 7cqw 0;font-size:6.4cqw;font-weight:600}
+.ad-st .tp i{width:13cqw;height:13cqw;border-radius:50%;background:var(--ink);display:grid;place-items:center;font:800 5.5cqw var(--wide);font-style:normal}
+.ad-st .tp small{opacity:.8;font-weight:400}
+.ad-st .bt{position:absolute;left:0;right:0;bottom:0;padding:8cqw}
+.ad-st .bt b{font-stretch:125%;font-weight:800;text-transform:uppercase;font-size:10cqw;line-height:1;display:block}
+.ad-st .bt span{display:block;margin-top:6cqw;background:#fff;color:var(--ink);text-align:center;border-radius:999px;padding:4cqw;font-weight:700;font-size:6.6cqw}
+.rsa{background:#fff;border:1px solid var(--line);border-radius:4px;padding:14px 16px}
+.rsa .srp{border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:10px}
+.rsa .srp small{font-size:12px;color:#202124}
+.rsa .srp small b{font-weight:700}
+.rsa .srp .t{display:block;color:#1a0dab;font-size:18px;line-height:1.3;margin-top:4px}
+.rsa .srp p{font-size:13.5px;color:#4d5156;margin-top:3px}
+.rsa ul{list-style:none;display:grid;gap:3px;font-size:13px}
+.rsa li{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed #eee7dc;padding:3px 0}
+.rsa li em{font:500 11px var(--mono);font-style:normal;color:var(--sage-d);flex:none}
+.rsa li em.bad{color:var(--red-d)}
+.rsa .rt{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+@media (max-width:980px){.ad-row{grid-template-columns:1fr 1fr}}
+@media (max-width:700px){.rsa .cols{grid-template-columns:1fr}}
+@media (max-width:560px){.ad-row{grid-template-columns:1fr}.ad-st{max-width:240px}}
+.split-bar{display:flex;height:34px;border-radius:3px;overflow:hidden;margin-top:8px;font:600 11.5px var(--mono);color:#fff}
+.split-bar div{display:flex;align-items:center;padding:0 10px;white-space:nowrap;overflow:hidden}
+
+/* seo */
+.serp{background:#fff;border:1px solid var(--line);border-radius:4px;padding:16px 18px;font-family:arial,sans-serif}
+.serp .u{font-size:12.5px;color:#202124;display:flex;gap:8px;align-items:center}
+.serp .u i{width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font:800 11px var(--wide);font-style:normal}
+.serp .u small{display:block;color:#4d5156;font-size:12px;word-break:break-all}
+.serp .t{color:#1a0dab;font-size:19px;line-height:1.3;margin-top:6px;display:block}
+.serp p{color:#4d5156;font-size:14px;line-height:1.55;margin-top:4px}
+.serp .tag{font:600 10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px;display:inline-block;padding:2px 8px;border-radius:999px}
+.serp.bf .tag{background:#ffe2dc;color:#b32a14}.serp.af .tag{background:#e3eee9;color:#3c6b5b}
+.cnt{font:500 11px var(--mono);color:var(--soft);margin-top:8px}
+.doc{background:#fff;border:1px solid var(--line);border-radius:4px;padding:22px 26px}
+.doc .h1{font-stretch:118%;font-weight:800;font-size:22px;line-height:1.15}
+.doc .h2{font-weight:700;font-size:16px;margin-top:16px}
+.doc .tg{font:500 10px var(--mono);color:var(--red-d);background:#ffe9e4;border-radius:3px;padding:1px 5px;margin-right:6px;vertical-align:2px}
+.doc p{font-family:var(--serif);font-size:15.5px;line-height:1.6;margin-top:8px;color:#2a2d35}
+pre.code{white-space:pre-wrap;font:400 12px/1.55 var(--mono);background:var(--ink);color:#d7d9de;padding:14px 16px;border-radius:4px;overflow:auto;max-height:340px}
+pre.code .k{color:var(--sage)}pre.code .v{color:#ffb4a6}
+
+/* article */
+.art{background:#fff;border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.art .hero{aspect-ratio:21/9;background:center/cover no-repeat}
+.art .in{max-width:640px;margin:0 auto;padding:28px 24px 34px}
+.art .kk{font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--red-d)}
+.art h4{font-stretch:125%;font-weight:800;text-transform:uppercase;font-size:clamp(22px,3vw,30px);line-height:1.02;margin-top:8px}
+.art .dek{font-family:var(--serif);font-style:italic;font-size:18px;color:#4a4d55;margin-top:10px;line-height:1.45}
+.art h5{font-stretch:118%;font-weight:750;font-size:15px;text-transform:uppercase;letter-spacing:.02em;margin-top:24px}
+.art p{font-family:var(--serif);font-size:17px;line-height:1.65;margin-top:10px;color:#22252c}
+.art figure{margin:20px 0 4px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.art figure div{aspect-ratio:4/5;background:center/cover no-repeat;border-radius:2px}
+.art figcaption{grid-column:1/-1;font:400 12px var(--mono);color:var(--soft)}
+.art .end{margin-top:22px;border-top:1.5px solid var(--ink);padding-top:14px;font-family:var(--serif);font-size:16px}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1.5px solid var(--ink);background:#fff;margin-top:10px}
+.flow div{padding:12px 12px;border-right:1px solid var(--line);font-size:13.5px;line-height:1.4}
+.flow div:last-child{border-right:0}
+.flow small{display:block;font:500 10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--red-d);margin-bottom:4px}
+@media (max-width:760px){.flow{grid-template-columns:1fr}.flow div{border-right:0;border-bottom:1px solid var(--line)}}
+
+/* brief */
+.brief{background:#fff;border:1px solid var(--line);border-radius:4px;padding:22px 24px}
+.brief .row{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:10px 0;border-bottom:1px solid #efe9df;font-size:14.5px}
+.brief .row:last-child{border-bottom:0}
+.brief .row>span{font:500 11px var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--soft);padding-top:3px}
+.brief ul{margin-left:18px}
+@media (max-width:640px){.brief .row{grid-template-columns:1fr;gap:2px}}
+.tl{display:grid;grid-template-columns:repeat(8,1fr);gap:0;margin-top:10px;border-top:2px solid var(--ink)}
+.tl div{padding:10px 8px 0 0;font-size:12.5px;line-height:1.35;position:relative}
+.tl div::before{content:"";position:absolute;top:-6px;left:0;width:10px;height:10px;border-radius:50%;background:var(--red)}
+.tl b{display:block;font:600 11.5px var(--mono);color:var(--ink);margin-bottom:3px}
+@media (max-width:760px){.tl{grid-template-columns:1fr 1fr;row-gap:14px}}
+
+/* messaging */
+.mx-pick{display:flex;flex-wrap:wrap;gap:16px;margin-top:14px}
+.mx-pick div{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.mx-pick span{font:500 11px var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--soft);margin-right:4px}
+.mx-pick button{border:1px solid var(--ink);background:#fff;border-radius:999px;padding:6px 12px;font:500 12px var(--mono);cursor:pointer}
+.mx-pick button[aria-pressed=true]{background:var(--ink);color:#fff}
+.mx{display:grid;grid-template-columns:1.1fr 1fr;gap:0;margin-top:14px;border:1.5px solid var(--ink);background:#fff}
+.mx .ad{background:center/cover no-repeat;min-height:330px;position:relative;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:22px}
+.mx .ad::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,4,12,.1),rgba(2,4,12,.85))}
+.mx .ad>*{position:relative;z-index:2}
+.mx .ad small{font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;opacity:.9}
+.mx .ad b{font-stretch:125%;font-weight:800;text-transform:uppercase;font-size:clamp(24px,3vw,32px);line-height:.98;margin-top:8px}
+.mx .ad p{font-family:var(--serif);font-size:16px;margin-top:10px;max-width:420px}
+.mx .ad span.c{align-self:flex-start;margin-top:14px;background:var(--red);font:700 12px var(--wide);font-stretch:118%;letter-spacing:.07em;text-transform:uppercase;padding:9px 14px}
+.mx .why{padding:20px 22px;display:grid;gap:12px;align-content:start;font-size:14.5px}
+.mx .why small{display:block;font:500 10.5px var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--soft);margin-bottom:2px}
+.mx .why .bel{font-family:var(--serif);font-style:italic;font-size:17px}
+@media (max-width:760px){.mx{grid-template-columns:1fr}}
+
+/* print */
+.pr-ooh{display:grid;grid-template-columns:1fr 1.2fr;gap:24px;align-items:center;margin-top:14px}
+.wall{background:repeating-linear-gradient(0deg,#d9d2c4 0 1px,transparent 1px 34px),repeating-linear-gradient(90deg,#d9d2c4 0 1px,#ece6dd 1px 68px);padding:28px;border-radius:4px}
+.poster{aspect-ratio:2/3;background:var(--ink);color:#fff;display:flex;flex-direction:column;box-shadow:0 14px 34px rgba(2,4,12,.35);border:6px solid #2b2f3a;container-type:inline-size;max-width:330px;margin:0 auto}
+.poster .ph{flex:1.25;background:center/cover no-repeat}
+.poster .bt{padding:6cqw 7cqw 7cqw;display:flex;flex-direction:column;gap:3cqw}
+.poster .bt small{font:500 3.4cqw var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--sage)}
+.poster .bt b{font-stretch:125%;font-weight:800;text-transform:uppercase;font-size:16cqw;line-height:.9}
+.poster .bt b span{color:var(--red)}
+.poster .bt p{font-family:var(--serif);font-size:4.6cqw;line-height:1.35;color:#d7d9de}
+.poster .qrw{display:flex;align-items:center;gap:4cqw;margin-top:2cqw}
+.poster .qr{width:20cqw;background:#fff;color:var(--ink);padding:1.6cqw;flex:none}
+.poster .qr svg{display:block;width:100%}
+.poster .qrw span{font:500 3.2cqw/1.4 var(--mono);color:#c9cbd1}
+.poster .rl{height:6cqw;width:auto;align-self:flex-start;margin-top:1cqw}
+.hoard{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;margin-top:14px;background:#2b2f3a;padding:4px;border-radius:3px}
+.hoard>div{aspect-ratio:3/2;position:relative;overflow:hidden;background:center/cover no-repeat;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:16px}
+.hoard>div.ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,4,12,0) 35%,rgba(2,4,12,.8))}
+.hoard>div>*{position:relative;z-index:2}
+.hoard b{font-stretch:125%;font-weight:800;text-transform:uppercase;font-size:clamp(17px,1.9vw,22px);line-height:.95}
+.hoard small{font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;margin-top:6px;display:block}
+.hoard .q{background:var(--red);justify-content:flex-start;gap:14px;flex-direction:row;align-items:center}
+.hoard .q .qr{width:38%;max-width:110px;background:#fff;color:var(--ink);padding:5px;flex:none}
+.hoard .q .qr svg{display:block;width:100%}
+.hoard .q>div:last-child{flex:1;min-width:0}
+@media (max-width:640px){.hoard{grid-template-columns:1fr}.pr-ooh{grid-template-columns:1fr}}
+.card2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:14px}
+.mc{aspect-ratio:7/5;border-radius:3px;box-shadow:0 10px 26px rgba(2,4,12,.18);container-type:inline-size;overflow:hidden}
+.mc>div{padding:8cqw;height:100%;display:flex;flex-direction:column}
+.mc.f{background:var(--ink);color:#fff}.mc.f>div{justify-content:space-between}
+.mc.f small{font:500 3.2cqw var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--sage)}
+.mc.f b{font-stretch:125%;font-weight:800;text-transform:uppercase;font-size:12cqw;line-height:.9}
+.mc.f b span{color:var(--red)}
+.mc.b{background:#fbf9f5;color:var(--ink);border:1px solid var(--line)}.mc.b>div{font-family:var(--serif);font-size:4.3cqw;line-height:1.45}
+.mc.b h6{font:800 4.2cqw var(--wide);font-stretch:125%;text-transform:uppercase;letter-spacing:.02em}
+.mc.b ol{margin:2.4cqw 0 0 5cqw}
+.mc.b .sg{margin-top:auto;font-style:italic}
+@media (max-width:640px){.card2{grid-template-columns:1fr}}
+
+/* investor */
+.inv{display:grid;grid-template-columns:1.15fr 1fr;gap:14px;margin-top:14px}
+.inv svg{width:100%;height:auto;display:block}
+.inv .memo{background:#fff;border:1px solid var(--line);border-radius:4px;padding:18px 20px;font-size:14.5px}
+.inv .memo h5{font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+.inv .memo .hl{font-family:var(--serif);font-size:18px;line-height:1.45;margin-top:6px}
+.inv .memo ul{margin:10px 0 0 18px}.inv .memo li+li{margin-top:5px}
+.inv .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.inv .kpis div{background:var(--beige);border-radius:3px;padding:8px 10px}
+.inv .kpis b{display:block;font-stretch:125%;font-weight:800;font-size:20px}
+.inv .kpis span{font:500 10px var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--soft)}
+@media (max-width:760px){.inv{grid-template-columns:1fr}}
+
+/* reviews */
+.rvw{display:grid;gap:12px;margin-top:14px}
+.rvw .it{background:#fff;border:1px solid var(--line);border-radius:4px;display:grid;grid-template-columns:1fr 1.25fr}
+.rvw .q{padding:14px 16px;border-right:1px solid var(--line);background:#fdfcfa}
+.rvw .stars{color:#e8a33d;letter-spacing:2px;font-size:14px}
+.rvw .q p{font-size:14px;color:#33363e;margin-top:6px;font-style:italic}
+.rvw .q small{display:block;font:500 10.5px var(--mono);color:var(--soft);margin-top:8px;text-transform:uppercase;letter-spacing:.05em}
+.rvw .a{padding:14px 16px;font-family:var(--serif);font-size:15px;line-height:1.55}
+.rvw .a small{display:block;font:500 10.5px var(--mono);color:var(--sage-d);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;font-family:var(--mono)}
+@media (max-width:700px){.rvw .it{grid-template-columns:1fr}.rvw .q{border-right:0;border-bottom:1px solid var(--line)}}
+.rules{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.rules span{font:500 11.5px var(--mono);background:var(--beige);border-radius:999px;padding:4px 10px}
+
+/* huddle */
+.hud{background:#fff;border:1.5px solid var(--ink);margin-top:14px;max-width:760px}
+.hud .top{background:var(--ink);color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:flex-end;gap:10px;flex-wrap:wrap}
+.hud .top b{font-stretch:125%;font-weight:800;text-transform:uppercase;font-size:22px;line-height:1}
+.hud .top small{font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--sage)}
+.hud .off{background:var(--red);color:#fff;padding:14px 20px}
+.hud .off small{font:500 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;opacity:.9}
+.hud .off b{display:block;font-stretch:125%;font-weight:800;text-transform:uppercase;font-size:24px;line-height:1.05;margin-top:2px}
+.hud .gr{display:grid;grid-template-columns:1fr 1fr}
+.hud .gr>div{padding:16px 20px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14px}
+.hud .gr>div:nth-child(2n){border-right:0}
+.hud h6{font:500 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--red-d);margin-bottom:6px}
+.hud ol,.hud ul{margin-left:18px}.hud li+li{margin-top:4px}
+.hud label{display:flex;gap:8px;align-items:flex-start;margin-top:4px}
+.hud label input{accent-color:var(--red);margin-top:4px}
+@media (max-width:640px){.hud .gr{grid-template-columns:1fr}.hud .gr>div{border-right:0}}
 </style>
 </head>
 <body>
@@ -266,7 +638,7 @@ p.note{font-size:14px;color:var(--soft);margin-top:8px;max-width:760px}
 <div class="bar"><div class="wrap">
   <b>Durva × Fitzrovia</b>
   <nav>
-    <a href="#audit">Curb appeal</a><a href="#offers">Offers</a><a href="#rushden">Rushden</a><a href="#social">Social</a><a href="#budget">Budget</a><a href="#report">Reporting</a><a href="#ai">AI</a><a href="#fit">Fit</a>
+    <a href="#audit">Curb appeal</a><a href="#offers">Offers</a><a href="#rushden">Rushden</a><a href="#social">Social</a><a href="#budget">Budget</a><a href="#report">Reporting</a><a href="#ai">AI</a><a href="#work">The work</a>
   </nav>
 </div></div>
 
@@ -299,7 +671,7 @@ p.note{font-size:14px;color:var(--soft);margin-top:8px;max-width:760px}
         <g id="hoard" opacity="0">
           <rect x="400" y="350" width="280" height="60" fill="#ece6dd"/>
           <rect x="400" y="350" width="10" height="60" fill="#ff4e31"/>
-          <text x="424" y="377" font-family="Archivo" font-stretch="125%" font-weight="800" font-size="15" fill="#02040c" letter-spacing="1">COMING WINTER 2027</text>
+          <text x="424" y="377" font-family="Archivo" font-stretch="125%" font-weight="800" font-size="15" fill="#02040c" letter-spacing="1">COMING Q1 2027</text>
           <text x="424" y="397" font-family="IBM Plex Mono" font-size="10.5" fill="#5d6068">Register for first access →</text>
         </g>
         <!-- tower -->
@@ -368,7 +740,7 @@ p.note{font-size:14px;color:var(--soft);margin-top:8px;max-width:760px}
       <div class="fd"><div class="lv"><span class="sev m">Medium</span><small>4 pre-construction pages</small></div><div class="tx">
         <h3>Upcoming buildings share one generic description and one phone number</h3>
         <div class="ev">Rushden Station · 135 St. Clair · Primrose Hill · Marlow E<br>"Fitzrovia offers a range of living options designed to meet the evolving needs..." · 647-799-9680</div>
-        <p><b>Fix:</b> each gets its own description ("Danforth Village, coming Winter 2027") and a register-interest line. Pre-construction is where the interest list starts, so these pages matter most early.</p>
+        <p><b>Fix:</b> each gets its own description ("Danforth Village, coming Q1 2027") and a register-interest line. Pre-construction is where the interest list starts, so these pages matter most early.</p>
       </div></div>
 
       <div class="fd"><div class="lv"><span class="sev m">Medium</span><small>sloanelife.ca · marlowlife.ca</small></div><div class="tx">
@@ -472,7 +844,7 @@ p.note{font-size:14px;color:var(--soft);margin-top:8px;max-width:760px}
 <section id="rushden">
   <div class="sh"><span class="n">03</span><div>
     <h2 class="w">Rushden Station, stage by stage</h2>
-    <p>Rushden Station is under construction in Danforth Village, coming Winter 2027. Here's how I'd support the team from hoarding to stabilization, with what the coordinator owns at each step.</p>
+    <p>Rushden Station is under construction in Danforth Village, coming Q1 2027. Here's how I'd support the team from hoarding to stabilization, with what the coordinator owns at each step.</p>
   </div></div>
 
   <div class="body">
@@ -503,20 +875,42 @@ p.note{font-size:14px;color:var(--soft);margin-top:8px;max-width:760px}
 <!-- 04 SOCIAL -->
 <section id="social">
   <div class="sh"><span class="n">04</span><div>
-    <h2 class="w">One week on @fitzrovialife</h2>
-    <p>A sample schedule built on what Fitzrovia already talks about: the Rental Revolution, the Fitzrovia Standard, Live Lighter, resident stories, and the Blue Jays and Raptors partnerships.</p>
+    <h2 class="w">November on @fitzrovialife, ready to post</h2>
+    <p>Thirteen posts for November 2026, each written, designed and scheduled. They use Fitzrovia's own photography and facts, in Fitzrovia's look. Tap any day to see the post the way a follower would, with the caption, alt text, link and what it's meant to move.</p>
+    <span class="stamp">Photography from Fitzrovia's property websites · facts from fitzrovia.ca, Oct 31, 2026</span>
   </div></div>
   <div class="body">
-    <div class="cal">
-      <div class="post"><div class="art" style="background:linear-gradient(160deg,#02040c,#2b2f3a)"><span class="d">MON</span><b>Behind the build</b><span>Rushden Station, floor by floor</span></div><div class="m"><em>Reel · Rushden</em>Time-lapse from site photos, CTA to the interest list.</div></div>
-      <div class="post"><div class="art" style="background:linear-gradient(160deg,#ff4e31,#d74028)"><span class="d">TUE</span><b>Resident stories</b><span>"Why I picked Marlow"</span></div><div class="m"><em>Carousel · Marlow</em>One resident, five photos, their words.</div></div>
-      <div class="post"><div class="art" style="background:linear-gradient(160deg,#5f8a7b,#afcbc0)"><span class="d">WED</span><b>Live Lighter</b><span>Sunday reset in a Maddox suite</span></div><div class="m"><em>Reel · Maddox</em>Lifestyle, not listings. Soft CTA to tour.</div></div>
-      <div class="post"><div class="art" style="background:linear-gradient(160deg,#2b2f3a,#02040c)"><span class="d">THU</span><b>Front row</b><span>Game night, the Fitzrovia way</span></div><div class="m"><em>Story + post · Raptors</em>Partnership content with a resident ticket draw.</div></div>
-      <div class="post"><div class="art" style="background:linear-gradient(160deg,#ece6dd,#c9bfae);color:var(--ink)"><span class="d">FRI</span><b>The Fitzrovia Standard</b><span>Meet the team at Elm-Ledbury</span></div><div class="m"><em>Carousel · Service</em>The five-star hospitality story, told by staff.</div></div>
-    </div>
-    <p class="note">Sample plan. Posting times and formats would follow what the account's own insights say works.</p>
+    <div class="ig-mix" id="igMix"></div>
+    <div class="ig-legend" id="igLeg"></div>
+    <div class="ig-cal" id="igCal"></div>
+    <div class="ig-stories" id="igSto"></div>
+    <p class="note">Posts go out Monday, Wednesday and Friday, plus one partnership night, with Stories in between. Rushden Station gets one post a week so the interest list grows before launch; the buildings in lease-up get the rest. Times start from a sensible default and move to whatever the account's own insights show.</p>
   </div>
 </section>
+
+<dialog class="ig-dlg" id="igDlg">
+  <div class="ig-wrap">
+    <div class="ig-phone">
+      <div class="ig-hd"><div class="ig-av">F</div><div><b>fitzrovialife</b><small id="igLoc"></small></div></div>
+      <div class="ig-sl"><div class="ig-track" id="igTrack"></div><button class="ig-nav p" id="igP" aria-label="Previous slide">‹</button><button class="ig-nav n" id="igN" aria-label="Next slide">›</button></div>
+      <div class="ig-dots" id="igDots"></div>
+      <div class="ig-act">
+        <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-3.3-6.5L20 4l-.8 4.2A8 8 0 0 1 20 12z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M21 3 3 10l7 3 3 7z"/></svg>
+        <svg class="sv" viewBox="0 0 24 24"><path d="M6 3h12v18l-6-5-6 5z"/></svg>
+      </div>
+      <div class="ig-cap" id="igCap"></div>
+    </div>
+    <div class="ig-br">
+      <button class="x" id="igX">Close ✕</button>
+      <span class="mono" id="igWhen" style="color:var(--red-d)"></span>
+      <h3 id="igTitle"></h3>
+      <dl id="igDl"></dl>
+      <div class="pn"><button id="igPrev">← Previous post</button><button id="igNext">Next post →</button></div>
+    </div>
+  </div>
+</dialog>
 
 <!-- 05 BUDGET -->
 <section id="budget">
@@ -600,25 +994,345 @@ words on the guide's "don't use" list.</pre>
   </div>
 </section>
 
-<!-- 08 FIT -->
-<section id="fit">
+<!-- 08 THE WORK -->
+<section id="work">
   <div class="sh"><span class="n">08</span><div>
-    <h2 class="w">The job post, line by line</h2>
-    <p>What the role asks for, and where I've already done it.</p>
+    <h2 class="w">Every line of the role, started</h2>
+    <p>Each responsibility in the job post has a finished first piece below: written, designed and built for Fitzrovia, with Fitzrovia's own buildings, facts and photography. Pick a line.</p>
   </div></div>
-  <div class="body">
-    <div class="map">
-      <div class="mr"><div class="jd">Audit online curb appeal: ILS, websites, tour forms, phone numbers</div><div class="me">Section 01 of this page. I'd rather show it than describe it.</div></div>
-      <div class="mr"><div class="jd">Print materials, collateral, move-in gifts, OOH</div><div class="me">I've designed and shipped printed mailers end to end: a sealed case file and a printed passport booklet, each with a matching digital version. For one B2B client, a printed mailer and a landing page for each of 45 companies helped book 4 sales calls and add $15,000+ to the pipeline.</div></div>
-      <div class="mr"><div class="jd">Support creative and messaging by project stage and audience</div><div class="me">Section 03. Every campaign I've run started with who it was for and what they needed to believe at that moment.</div></div>
-      <div class="mr"><div class="jd">Email, paid media, SEO, content marketing</div><div class="me">SEO and content are my core: blogs, LinkedIn, ghostwritten articles published in USA Wire and Mirror Review. I contributed to a 40% increase in sales at Rewynd.</div></div>
-      <div class="mr"><div class="jd">Organic social: posting and content schedules</div><div class="me">Section 04. I've planned and written calendars, carousels and LinkedIn posts for founders and brands.</div></div>
-      <div class="mr"><div class="jd">Reports, dashboards, investor insights</div><div class="me">Section 06: numbers first, then what to do. Google Analytics and HubSpot are tools I use.</div></div>
-      <div class="mr"><div class="jd">POs, invoices in Yardi, budgets</div><div class="me">Section 05. I haven't used Yardi yet. I'm organized with money and vendors, and I'd learn the system in the first week.</div></div>
-      <div class="mr"><div class="jd">Self-starter, relentlessly resourceful</div><div class="me">Nobody asked for this page. Kind words from people who've seen this kind of work: <span style="font-style:italic">"The ideas were spot on and you truly grasped the business and its needs!"</span> (Colleen Pierre, VP of Marketing, Envera Systems)</div></div>
+
+  <div class="dk" id="dk">
+    <div class="dk-ix" role="tablist" aria-label="Job post responsibilities">
+      <button role="tab" data-p="prog"><span class="no">01</span><span>Portfolio programs<small>Winter offer rollout board</small></span></button>
+      <button role="tab" data-p="brand"><span class="no">02</span><span>Brand standards<small>A brand check for any draft</small></span></button>
+      <button role="tab" data-p="email"><span class="no">03</span><span>Email campaigns<small>Rushden interest-list series</small></span></button>
+      <button role="tab" data-p="paid"><span class="no">04</span><span>Paid media<small>Marlow lease-up ads</small></span></button>
+      <button role="tab" data-p="seo"><span class="no">05</span><span>SEO<small>Rushden Station page, rewritten</small></span></button>
+      <button role="tab" data-p="content"><span class="no">06</span><span>Content marketing<small>Neighbourhood guide, written</small></span></button>
+      <button role="tab" data-p="vendor"><span class="no">07</span><span>Vendors + internal teams<small>Photo shoot brief + timeline</small></span></button>
+      <button role="tab" data-p="social"><span class="no">08</span><span>Organic social<small>November, 13 posts</small></span></button>
+      <button role="tab" data-p="msg"><span class="no">09</span><span>Creative + messaging<small>By stage and audience</small></span></button>
+      <button role="tab" data-p="print"><span class="no">10</span><span>Print, OOH, signage, gifts<small>Poster, hoarding, move-in card</small></span></button>
+      <button role="tab" data-p="inv"><span class="no">11</span><span>Investor reports<small>Lease-up memo</small></span></button>
+      <button role="tab" data-p="rep"><span class="no">12</span><span>Online reputation<small>Review replies, ready</small></span></button>
+      <button role="tab" data-p="site"><span class="no">13</span><span>Programs with site staff<small>Leasing huddle sheet</small></span></button>
+      <button role="tab" data-p="ops"><span class="no">14</span><span>Reports, POs, budgets, AI<small>Sections 05 to 07</small></span></button>
     </div>
-    <div class="honest"><b>To be straightforward:</b> my design tools today are Canva and Figma. InDesign, Illustrator and Photoshop are the first things I'd ramp up on, so print files and floorplans come out exactly to spec. And Yardi is new to me. Everything else on this page, I've done.</div>
+
+    <div class="dk-pn">
+
+      <!-- 01 programs -->
+      <div class="dk-p" id="p-prog" role="tabpanel">
+        <div class="dk-jd">"Support the execution of multi-family marketing programs <b>across the portfolio</b>"</div>
+        <h3>Winter offer rollout, eight buildings, one board</h3>
+        <p class="in">A portfolio-wide change only lands when every touchpoint says the same thing on the same day. This is the board I'd run it from: one row per building, one column per place the offer lives. Click any cell to move it along.</p>
+        <div class="pb-wrap"><table class="pb" id="pbT"></table></div>
+        <div class="pb-tot"><span id="pbN"></span><div class="tr"><i id="pbBar"></i></div><button class="dk-btn" id="pbReset">Reset</button></div>
+        <p class="note">Sample progress. Order of work is left to right on purpose: the offer sheet is approved first, every other channel copies from it, and the site team is briefed before anything goes public.</p>
+      </div>
+
+      <!-- 02 brand -->
+      <div class="dk-p" id="p-brand" role="tabpanel">
+        <div class="dk-jd">"Adhere to Fitzrovia <b>brand guidelines</b> and ensure company and property branding standards are consistent across platforms"</div>
+        <h3>A brand check for any draft</h3>
+        <p class="in">Paste a listing, caption or email and it flags what breaks Fitzrovia's own usage on fitzrovia.ca. The draft below is stitched together from real lines live on the site today.</p>
+        <div class="bc">
+          <div><h4 class="lb" style="margin-top:0">Draft</h4><textarea id="bcIn" spellcheck="false">Limited-Time Offer: Two Months Free + 6 Months Free Parker! Experience the Fitzrovia Standard at Waverley Queen's, Kinsgton, or at Loxley, Quartier de Spectacles. Live lighter at Elm Ledbury. Call 647-799-9680 to book a tour.</textarea>
+            <div class="acts"><button class="dk-btn pr" id="bcFix">Apply all fixes</button><button class="dk-btn" id="bcReset">Reset draft</button></div></div>
+          <div><h4 class="lb" style="margin-top:0">What it flags <span id="bcN"></span></h4><div class="out" id="bcOut"></div><ul id="bcList"></ul></div>
+        </div>
+        <p class="note">The rules come from how fitzrovia.ca writes its own names today. With the real brand guide, the list gets longer and stricter; the habit stays the same.</p>
+      </div>
+
+      <!-- 03 email -->
+      <div class="dk-p" id="p-email" role="tabpanel">
+        <div class="dk-jd">"Assist in the coordination of digital marketing initiatives including <b>email campaigns</b>"</div>
+        <h3>Rushden Station interest-list series</h3>
+        <p class="in">Four emails that carry someone from "join the list" to "book the first tour". The first one is fully built below; the other three are planned with subject lines and timing.</p>
+        <div class="em-seq" id="emSeq">
+          <button aria-pressed="true" data-e="0"><span class="w">Day 0 · on sign-up</span><b>You're on the list</b></button>
+          <button aria-pressed="false" data-e="1"><span class="w">Day 7</span><b>The neighbourhood</b></button>
+          <button aria-pressed="false" data-e="2"><span class="w">Launch minus 6 weeks</span><b>First look: suites</b></button>
+          <button aria-pressed="false" data-e="3"><span class="w">Launch minus 1 week</span><b>Your early access</b></button>
+        </div>
+        <div class="em-client">
+          <div class="em-meta" id="emMeta"></div>
+          <div class="em-body" id="emBody"></div>
+        </div>
+        <p class="note">Each send gets a plain-text version, a mobile check, a test to two inboxes, and UTM tags so the monthly report can tell which email booked which tour.</p>
+      </div>
+
+      <!-- 04 paid -->
+      <div class="dk-p" id="p-paid" role="tabpanel">
+        <div class="dk-jd">"Assist in the coordination of digital marketing initiatives including <b>paid media</b>"</div>
+        <h3>Marlow lease-up: feed, story and search</h3>
+        <p class="in">One message across three placements: Marlow's amenities are the reason to tour, and the price is right there so nobody clicks through by surprise. Every line is checked against the platform's character limits as you read it.</p>
+        <div class="ad-row">
+          <div class="ad-fb">
+            <div class="hd"><div class="ig-av">F</div><div><b>Marlow by Fitzrovia</b><small>Sponsored</small></div></div>
+            <div class="tx">Three pools, a Hammam Spa and a cold plunge at Bloor and Dufferin. Light-filled suites at Marlow start from $2,725.</div>
+            <div class="ig-art photo" style="background-image:url(img/mw-pool.jpg)"><i class="rb"></i><span class="wm">MARLOW</span><div class="ov"><span class="k">Bloor + Dufferin</span><span class="h">Your pool is indoors now.</span></div></div>
+            <div class="ft"><div><small>marlowlife.ca</small><b>Book a tour at Marlow</b></div><span>Book now</span></div>
+          </div>
+          <div class="ad-st" style="background-image:url(img/mw-plunge.jpg)">
+            <div class="tp"><i>F</i>marlow <small>Sponsored</small></div>
+            <div class="bt"><b>Hot. Cold. Repeat.</b><span>Book a tour</span></div>
+          </div>
+          <div class="rsa">
+            <div class="srp"><small><b>Sponsored</b> · marlowlife.ca</small><span class="t" id="rsaT"></span><p id="rsaD"></p></div>
+            <div class="cols"><div><h4 class="lb" style="margin-top:0">Headlines · 30 max</h4><ul id="rsaH"></ul></div>
+            <div><h4 class="lb" style="margin-top:0">Descriptions · 90 max</h4><ul id="rsaDs"></ul></div></div>
+            <div class="rt"><span class="cnt" id="rsaOk"></span><button class="dk-btn" id="rsaShuf">Rotate preview</button></div>
+          </div>
+        </div>
+        <div class="dk-g2" style="margin-top:14px">
+          <div class="dk-card"><h5>Who sees it</h5><p>Renters along Line 2 and across the west end, people searching "apartments for rent Bloor Dufferin" and "Dufferin station apartments", and retargeting for anyone who visited marlowlife.ca without booking. Negative keywords: "condo for sale", "buy", "student residence".</p></div>
+          <div class="dk-card"><h5>Starting split, then rebalanced weekly</h5><div class="split-bar"><div style="width:45%;background:var(--ink)">Search 45%</div><div style="width:35%;background:var(--red)">Meta 35%</div><div style="width:20%;background:var(--sage-d)">Retarget 20%</div></div><p>Judged on cost per tour, not clicks. The channel that books tours cheapest gets the next week's extra 10%.</p></div>
+        </div>
+        <p class="note">UTM: <code style="font:400 12px var(--mono)">utm_source=meta&amp;utm_medium=paid_social&amp;utm_campaign=marlow_leaseup_q4&amp;utm_content=pool_feed</code>. Price from Marlow's page on fitzrovia.ca, Oct 31.</p>
+      </div>
+
+      <!-- 05 seo -->
+      <div class="dk-p" id="p-seo" role="tabpanel">
+        <div class="dk-jd">"Assist in the coordination of digital marketing initiatives including <b>SEO</b>"</div>
+        <h3>The Rushden Station page, rewritten for search</h3>
+        <p class="in">Today the page's title is just "Rushden Station" and its description is the generic Fitzrovia line shared by every upcoming building. Someone searching "apartments Main and Danforth" has no reason to find it. Here's the rewrite, ready to paste.</p>
+        <div class="dk-g2" style="margin-top:14px">
+          <div class="serp bf"><span class="tag">Today</span><div class="u"><i>F</i><div>Fitzrovia<small>https://www.fitzrovia.ca › residential › rushden-station</small></div></div><span class="t">Rushden Station</span><p>Fitzrovia offers a range of living options designed to meet the evolving needs of our residents, including furnished suites and flexible lease terms.</p></div>
+          <div class="serp af"><span class="tag">Rewrite</span><div class="u"><i>F</i><div>Fitzrovia<small>https://www.fitzrovia.ca › residential › rushden-station</small></div></div><span class="t" id="seoT">Rushden Station | Apartments for Rent at Main &amp; Danforth</span><p id="seoD">New rental apartments at Main and Danforth, Toronto. Studios to 3 bedrooms, 9' ceilings, free gigabit internet. Opening Q1 2027. Join the interest list.</p><div class="cnt" id="seoC"></div></div>
+        </div>
+        <h4 class="lb">Page copy</h4>
+        <div class="doc">
+          <div class="h1"><span class="tg">H1</span>Rushden Station: new rental apartments at Main and Danforth</div>
+          <p>Rushden Station is a new rental community at Main and Danforth in Toronto's Danforth Village, opening Q1 2027. Designed by bKL Architecture and part of The Collection by Fitzrovia, it brings studios to three-bedroom suites to one of the East End's best-connected corners, close to Main Street subway station on Line 2 and Danforth GO on the Lakeshore East line.</p>
+          <div class="h2"><span class="tg">H2</span>Suites at Rushden Station</div>
+          <p>9' ceilings, custom Italian-made millwork, KitchenAid® appliances with quartz finishes, and spa-inspired bathrooms with Kohler fixtures. Every suite comes with free gigabit internet, keyless entry and an ecobee thermostat.</p>
+          <div class="h2"><span class="tg">H2</span>Living at Main and Danforth</div>
+          <p>Local cafés, independent shops and green space, with rapid transit at the corner. <a href="#p-content" class="dk-jump" data-p="content" style="color:var(--red-d)">Read the neighbourhood guide</a>.</p>
+          <div class="h2"><span class="tg">H2</span>Rushden Station FAQ</div>
+          <p><b>When does Rushden Station open?</b> Q1 2027. <b>What suite types are there?</b> Studios, one, two and three bedrooms. <b>Where is it?</b> 6 Dawes Road, at Main and Danforth. <b>How do I hear first?</b> Join the interest list on this page.</p>
+        </div>
+        <div class="dk-g2" style="margin-top:14px">
+          <div><h4 class="lb" style="margin-top:0">Structured data (JSON-LD)</h4>
+<pre class="code">{
+  <span class="k">"@context"</span>: <span class="v">"https://schema.org"</span>,
+  <span class="k">"@type"</span>: <span class="v">"ApartmentComplex"</span>,
+  <span class="k">"name"</span>: <span class="v">"Rushden Station"</span>,
+  <span class="k">"url"</span>: <span class="v">"https://www.fitzrovia.ca/residential/rushden-station"</span>,
+  <span class="k">"address"</span>: {
+    <span class="k">"@type"</span>: <span class="v">"PostalAddress"</span>,
+    <span class="k">"streetAddress"</span>: <span class="v">"6 Dawes Road"</span>,
+    <span class="k">"addressLocality"</span>: <span class="v">"Toronto"</span>,
+    <span class="k">"addressRegion"</span>: <span class="v">"ON"</span>,
+    <span class="k">"postalCode"</span>: <span class="v">"M4C 5A7"</span>,
+    <span class="k">"addressCountry"</span>: <span class="v">"CA"</span>
+  },
+  <span class="k">"amenityFeature"</span>: [
+    {<span class="k">"@type"</span>: <span class="v">"LocationFeatureSpecification"</span>, <span class="k">"name"</span>: <span class="v">"Free gigabit internet"</span>, <span class="k">"value"</span>: true},
+    {<span class="k">"@type"</span>: <span class="v">"LocationFeatureSpecification"</span>, <span class="k">"name"</span>: <span class="v">"Keyless entry"</span>, <span class="k">"value"</span>: true}
+  ],
+  <span class="k">"brand"</span>: {<span class="k">"@type"</span>: <span class="v">"Brand"</span>, <span class="k">"name"</span>: <span class="v">"The Collection by Fitzrovia"</span>}
+}</pre></div>
+          <div><h4 class="lb" style="margin-top:0">Keyword map</h4>
+            <div class="scroll" style="margin-top:0"><table class="t" style="min-width:0">
+              <thead><tr><th>Search</th><th>Answered by</th></tr></thead>
+              <tbody>
+                <tr><td>apartments for rent Main and Danforth</td><td>Title, H1</td></tr>
+                <tr><td>Danforth Village rentals</td><td>Intro, guide</td></tr>
+                <tr><td>apartments near Main Street station</td><td>Intro, guide</td></tr>
+                <tr><td>new rental buildings East End Toronto</td><td>Guide, blog</td></tr>
+                <tr><td>Rushden Station Toronto</td><td>Title, FAQ</td></tr>
+              </tbody></table></div>
+            <div class="dk-card" style="margin-top:12px"><h5>Two facts to confirm before launch</h5><p>The page says "three striking towers" but lists four heights (29, 37, 39, 39 storeys). And total floor area (1,304,000 sq ft) shares its digits with the residence count (1,304), which looks like one was copied into the other. Both are quick checks with Development.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 06 content -->
+      <div class="dk-p" id="p-content" role="tabpanel">
+        <div class="dk-jd">"Assist in the coordination of digital marketing initiatives including <b>content marketing</b>"</div>
+        <h3>Main and Danforth, a first look</h3>
+        <p class="in">One useful article that does five jobs: it ranks for the neighbourhood, feeds the second interest-list email, gives social three posts, fills a Google Business update and gives the hoarding QR somewhere worth landing.</p>
+        <div class="art" style="margin-top:14px">
+          <div class="hero" style="background-image:url(img/rd-mainst.jpg);background-position:center 35%"></div>
+          <div class="in">
+            <span class="kk">Neighbourhood guide · Rushden Station</span>
+            <h4>Main and Danforth: a first look at the neighbourhood</h4>
+            <p class="dek">Where the East End's village feel meets two rapid-transit lines. A guide for everyone on the Rushden Station interest list.</p>
+            <p>Ask people what they love about the Danforth and the same words come up: local, walkable, easy. Main and Danforth, where Rushden Station opens in Q1 2027, has all three, plus something most neighbourhoods don't: two ways to get downtown fast.</p>
+            <h5>Getting around</h5>
+            <p>Main Street station puts Line 2 at the corner, with trains west along Bloor and Danforth to the Yonge line and the core. A short walk south, Danforth GO is on the Lakeshore East line, with direct trains to Union Station. For anyone who commutes, that is the whole pitch in two sentences.</p>
+            <h5>Everyday life on the Danforth</h5>
+            <p>Danforth Avenue is a high street in the old sense: cafés, independent shops and restaurants, with the daily errands in walking distance. It's the kind of place where the flower stand and the coffee order become part of the routine.</p>
+            <figure><div style="background-image:url(img/rd-flowers.jpg)"></div><div style="background-image:url(img/rd-ravine.jpg)"></div><figcaption>From Fitzrovia's own Rushden Station neighbourhood shoot.</figcaption></figure>
+            <h5>Green space</h5>
+            <p>The East End's parks and ravines are part of daily life here. Shaded paths and footbridges are close by, and so is room to slow down without leaving the city.</p>
+            <h5>The building</h5>
+            <p>Rushden Station is designed by bKL Architecture and part of The Collection by Fitzrovia. Suites run from studios to three bedrooms, with 9' ceilings, KitchenAid® appliances, Kohler fixtures and free gigabit internet in every home.</p>
+            <p class="end"><b>What happens next:</b> the interest list hears first about suite releases, pricing and opening dates. Join it on the Rushden Station page at fitzrovia.ca.</p>
+          </div>
+        </div>
+        <h4 class="lb">One article, five uses</h4>
+        <div class="flow">
+          <div><small>Search</small>Ranks for "Main and Danforth" and "Danforth Village rentals"; links to the Rushden page.</div>
+          <div><small>Email 2</small>The Day 7 email in the interest-list series is this guide, shortened.</div>
+          <div><small>Instagram</small>The Nov 2 carousel and the Nov 23 reel are cut from it.</div>
+          <div><small>Google</small>A Google Business update for the Rushden listing.</div>
+          <div><small>Hoarding</small>Where the QR on the construction fence sends people.</div>
+        </div>
+      </div>
+
+      <!-- 07 vendor -->
+      <div class="dk-p" id="p-vendor" role="tabpanel">
+        <div class="dk-jd">"Coordinate with <b>third-party marketing vendors</b> and internal teams to ensure deliverables are accurate, on time, and aligned with campaign objectives"</div>
+        <h3>Marlow winter shoot: the brief and the timeline</h3>
+        <p class="in">Most vendor problems start with a vague brief. This is the one I'd send a photographer for Marlow's winter content, the shoot the November reels draw from.</p>
+        <div class="brief" style="margin-top:14px">
+          <div class="row"><span>Objective</span><div>Winter lifestyle content for Marlow lease-up: show the amenities as the reason to choose Marlow in the cold months.</div></div>
+          <div class="row"><span>Deliverables</span><div><ul><li>40 edited stills: 25 amenities, 10 suites, 5 street and neighbourhood</li><li>6 vertical clips, 8 to 15 seconds, for Reels and Stories</li><li>All in 4:5, 9:16 and 16:9 crops for social, ILS and web</li></ul></div></div>
+          <div class="row"><span>Shot list</span><div><ul><li>Hammam Spa with visible steam</li><li>Cold plunge tubs at sunset, window in frame</li><li>Indoor pool, slow pan, dusk light</li><li>Golf simulator, full swing, ball flight on screen</li><li>Suite kitchen set for a dinner for six</li><li>Snow on a window, close-up B-roll</li><li>Lobby arrival, coat and boots, warm light</li></ul></div></div>
+          <div class="row"><span>People</span><div>Two to four models; signed releases for every person on camera. Residents only with written consent.</div></div>
+          <div class="row"><span>Usage</span><div>Perpetual, all channels including ILS, paid media, print and OOH. Credit line where the platform allows.</div></div>
+          <div class="row"><span>Files</span><div><code style="font:400 12px var(--mono)">MARLOW_AMEN_HAMMAM_2611_001.jpg</code>, delivered to the shared drive in the brand folder structure.</div></div>
+          <div class="row"><span>Sign-off</span><div>VP, Marketing approves the shot list; Operations confirms amenity closures; site manager notifies residents 72 hours ahead.</div></div>
+        </div>
+        <h4 class="lb">Timeline</h4>
+        <div class="tl">
+          <div><b>T−14</b>Brief to photographer</div>
+          <div><b>T−10</b>Quote in, PO raised in Yardi</div>
+          <div><b>T−7</b>Shot list signed off</div>
+          <div><b>T−3</b>Amenity holds, resident notice</div>
+          <div><b>T 0</b>Shoot day, run-of-show on site</div>
+          <div><b>T+5</b>Selects reviewed</div>
+          <div><b>T+10</b>Finals delivered</div>
+          <div><b>T+12</b>Invoice matched to PO, sent to Accounting</div>
+        </div>
+      </div>
+
+      <!-- 08 social -->
+      <div class="dk-p" id="p-social" role="tabpanel">
+        <div class="dk-jd">"Support our <b>organic social media</b> efforts including posting and creating content schedules"</div>
+        <h3>November, thirteen posts, written and designed</h3>
+        <p class="in">The full month is in section 04: a calendar for @fitzrovialife with every post designed, captioned, alt-texted and linked, plus Stories in between.</p>
+        <div class="dk-ptr"><p>Rushden Station gets a post a week to build the interest list. The lease-up buildings get the rest, through amenities, offers and the Raptors partnership.</p><a href="#social">Open the calendar</a></div>
+      </div>
+
+      <!-- 09 messaging -->
+      <div class="dk-p" id="p-msg" role="tabpanel">
+        <div class="dk-jd">"Support the creative and messaging process to ensure materials align with each property's <b>project stage</b> and effectively reach the <b>target audience</b>"</div>
+        <h3>Rushden Station: one building, nine messages</h3>
+        <p class="in">The same building sells differently to a commuter, a growing household and a long-time neighbour, and differently again before launch and during lease-up. Pick an audience and a stage.</p>
+        <div class="mx-pick">
+          <div id="mxA"><span>Audience</span><button aria-pressed="true" data-a="0">Commuters</button><button aria-pressed="false" data-a="1">Growing households</button><button aria-pressed="false" data-a="2">East End neighbours</button></div>
+          <div id="mxS"><span>Stage</span><button aria-pressed="true" data-s="0">Pre-construction</button><button aria-pressed="false" data-s="1">Launch</button><button aria-pressed="false" data-s="2">Lease-up</button></div>
+        </div>
+        <div class="mx" id="mxOut"></div>
+      </div>
+
+      <!-- 10 print -->
+      <div class="dk-p" id="p-print" role="tabpanel">
+        <div class="dk-jd">"Assist with the production and organization of marketing assets including <b>print materials, out of home campaigns</b>, floorplans, <b>signage</b>, renderings, <b>move-in gifts</b> and digital collateral"</div>
+        <h3>A platform poster, a hoarding run and a welcome card</h3>
+        <p class="in">Three pieces for three moments: a poster on the Main Street platform, steps from the site; the construction fence itself; and the card waiting on the counter on move-in day.</p>
+        <div class="pr-ooh">
+          <div class="wall"><div class="poster"><div class="ph" style="background-image:url(img/rd-towers.jpg)"></div><div class="bt"><small>Rushden Station · Coming Q1 2027</small><b>Your <span>stop.</span></b><p>New rental suites at Main and Danforth, a short walk from this platform. Studios to three bedrooms.</p><div class="qrw"><div class="qr"><svg viewBox="0 0 49 49" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M0 0h1v1h-1zM1 0h1v1h-1zM2 0h1v1h-1zM3 0h1v1h-1zM4 0h1v1h-1zM5 0h1v1h-1zM6 0h1v1h-1zM8 0h1v1h-1zM10 0h1v1h-1zM15 0h1v1h-1zM16 0h1v1h-1zM18 0h1v1h-1zM19 0h1v1h-1zM20 0h1v1h-1zM22 0h1v1h-1zM23 0h1v1h-1zM25 0h1v1h-1zM26 0h1v1h-1zM28 0h1v1h-1zM30 0h1v1h-1zM31 0h1v1h-1zM32 0h1v1h-1zM34 0h1v1h-1zM36 0h1v1h-1zM40 0h1v1h-1zM42 0h1v1h-1zM43 0h1v1h-1zM44 0h1v1h-1zM45 0h1v1h-1zM46 0h1v1h-1zM47 0h1v1h-1zM48 0h1v1h-1zM0 1h1v1h-1zM6 1h1v1h-1zM8 1h1v1h-1zM11 1h1v1h-1zM12 1h1v1h-1zM14 1h1v1h-1zM16 1h1v1h-1zM18 1h1v1h-1zM19 1h1v1h-1zM20 1h1v1h-1zM21 1h1v1h-1zM22 1h1v1h-1zM23 1h1v1h-1zM25 1h1v1h-1zM26 1h1v1h-1zM27 1h1v1h-1zM28 1h1v1h-1zM34 1h1v1h-1zM38 1h1v1h-1zM39 1h1v1h-1zM40 1h1v1h-1zM42 1h1v1h-1zM48 1h1v1h-1zM0 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM6 2h1v1h-1zM8 2h1v1h-1zM11 2h1v1h-1zM13 2h1v1h-1zM15 2h1v1h-1zM16 2h1v1h-1zM17 2h1v1h-1zM18 2h1v1h-1zM20 2h1v1h-1zM22 2h1v1h-1zM23 2h1v1h-1zM24 2h1v1h-1zM25 2h1v1h-1zM27 2h1v1h-1zM29 2h1v1h-1zM32 2h1v1h-1zM33 2h1v1h-1zM37 2h1v1h-1zM39 2h1v1h-1zM40 2h1v1h-1zM42 2h1v1h-1zM44 2h1v1h-1zM45 2h1v1h-1zM46 2h1v1h-1zM48 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM6 3h1v1h-1zM9 3h1v1h-1zM11 3h1v1h-1zM12 3h1v1h-1zM15 3h1v1h-1zM19 3h1v1h-1zM20 3h1v1h-1zM22 3h1v1h-1zM24 3h1v1h-1zM25 3h1v1h-1zM27 3h1v1h-1zM28 3h1v1h-1zM32 3h1v1h-1zM35 3h1v1h-1zM36 3h1v1h-1zM37 3h1v1h-1zM39 3h1v1h-1zM42 3h1v1h-1zM44 3h1v1h-1zM45 3h1v1h-1zM46 3h1v1h-1zM48 3h1v1h-1zM0 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM6 4h1v1h-1zM8 4h1v1h-1zM13 4h1v1h-1zM14 4h1v1h-1zM17 4h1v1h-1zM18 4h1v1h-1zM20 4h1v1h-1zM21 4h1v1h-1zM22 4h1v1h-1zM23 4h1v1h-1zM24 4h1v1h-1zM25 4h1v1h-1zM26 4h1v1h-1zM27 4h1v1h-1zM30 4h1v1h-1zM36 4h1v1h-1zM37 4h1v1h-1zM42 4h1v1h-1zM44 4h1v1h-1zM45 4h1v1h-1zM46 4h1v1h-1zM48 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM14 5h1v1h-1zM16 5h1v1h-1zM19 5h1v1h-1zM21 5h1v1h-1zM22 5h1v1h-1zM26 5h1v1h-1zM27 5h1v1h-1zM28 5h1v1h-1zM29 5h1v1h-1zM31 5h1v1h-1zM32 5h1v1h-1zM33 5h1v1h-1zM35 5h1v1h-1zM36 5h1v1h-1zM37 5h1v1h-1zM38 5h1v1h-1zM42 5h1v1h-1zM48 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h1v1h-1zM24 6h1v1h-1zM26 6h1v1h-1zM28 6h1v1h-1zM30 6h1v1h-1zM32 6h1v1h-1zM34 6h1v1h-1zM36 6h1v1h-1zM38 6h1v1h-1zM40 6h1v1h-1zM42 6h1v1h-1zM43 6h1v1h-1zM44 6h1v1h-1zM45 6h1v1h-1zM46 6h1v1h-1zM47 6h1v1h-1zM48 6h1v1h-1zM9 7h1v1h-1zM11 7h1v1h-1zM12 7h1v1h-1zM14 7h1v1h-1zM15 7h1v1h-1zM16 7h1v1h-1zM18 7h1v1h-1zM19 7h1v1h-1zM20 7h1v1h-1zM21 7h1v1h-1zM22 7h1v1h-1zM26 7h1v1h-1zM28 7h1v1h-1zM29 7h1v1h-1zM30 7h1v1h-1zM33 7h1v1h-1zM35 7h1v1h-1zM37 7h1v1h-1zM38 7h1v1h-1zM39 7h1v1h-1zM0 8h1v1h-1zM3 8h1v1h-1zM4 8h1v1h-1zM5 8h1v1h-1zM6 8h1v1h-1zM7 8h1v1h-1zM8 8h1v1h-1zM13 8h1v1h-1zM15 8h1v1h-1zM16 8h1v1h-1zM17 8h1v1h-1zM20 8h1v1h-1zM21 8h1v1h-1zM22 8h1v1h-1zM23 8h1v1h-1zM24 8h1v1h-1zM25 8h1v1h-1zM26 8h1v1h-1zM28 8h1v1h-1zM29 8h1v1h-1zM30 8h1v1h-1zM34 8h1v1h-1zM35 8h1v1h-1zM36 8h1v1h-1zM39 8h1v1h-1zM41 8h1v1h-1zM44 8h1v1h-1zM46 8h1v1h-1zM47 8h1v1h-1zM48 8h1v1h-1zM1 9h1v1h-1zM2 9h1v1h-1zM4 9h1v1h-1zM7 9h1v1h-1zM8 9h1v1h-1zM9 9h1v1h-1zM10 9h1v1h-1zM11 9h1v1h-1zM12 9h1v1h-1zM13 9h1v1h-1zM16 9h1v1h-1zM19 9h1v1h-1zM20 9h1v1h-1zM21 9h1v1h-1zM23 9h1v1h-1zM24 9h1v1h-1zM25 9h1v1h-1zM26 9h1v1h-1zM27 9h1v1h-1zM29 9h1v1h-1zM30 9h1v1h-1zM31 9h1v1h-1zM33 9h1v1h-1zM34 9h1v1h-1zM35 9h1v1h-1zM37 9h1v1h-1zM38 9h1v1h-1zM39 9h1v1h-1zM40 9h1v1h-1zM41 9h1v1h-1zM42 9h1v1h-1zM43 9h1v1h-1zM45 9h1v1h-1zM46 9h1v1h-1zM47 9h1v1h-1zM1 10h1v1h-1zM5 10h1v1h-1zM6 10h1v1h-1zM8 10h1v1h-1zM13 10h1v1h-1zM15 10h1v1h-1zM17 10h1v1h-1zM19 10h1v1h-1zM21 10h1v1h-1zM22 10h1v1h-1zM23 10h1v1h-1zM24 10h1v1h-1zM28 10h1v1h-1zM31 10h1v1h-1zM34 10h1v1h-1zM37 10h1v1h-1zM41 10h1v1h-1zM44 10h1v1h-1zM48 10h1v1h-1zM0 11h1v1h-1zM1 11h1v1h-1zM2 11h1v1h-1zM3 11h1v1h-1zM5 11h1v1h-1zM7 11h1v1h-1zM9 11h1v1h-1zM10 11h1v1h-1zM12 11h1v1h-1zM13 11h1v1h-1zM17 11h1v1h-1zM21 11h1v1h-1zM22 11h1v1h-1zM23 11h1v1h-1zM25 11h1v1h-1zM26 11h1v1h-1zM27 11h1v1h-1zM32 11h1v1h-1zM33 11h1v1h-1zM37 11h1v1h-1zM39 11h1v1h-1zM40 11h1v1h-1zM41 11h1v1h-1zM44 11h1v1h-1zM45 11h1v1h-1zM46 11h1v1h-1zM48 11h1v1h-1zM4 12h1v1h-1zM5 12h1v1h-1zM6 12h1v1h-1zM7 12h1v1h-1zM8 12h1v1h-1zM9 12h1v1h-1zM11 12h1v1h-1zM12 12h1v1h-1zM13 12h1v1h-1zM14 12h1v1h-1zM17 12h1v1h-1zM19 12h1v1h-1zM20 12h1v1h-1zM24 12h1v1h-1zM28 12h1v1h-1zM30 12h1v1h-1zM31 12h1v1h-1zM32 12h1v1h-1zM34 12h1v1h-1zM36 12h1v1h-1zM38 12h1v1h-1zM41 12h1v1h-1zM44 12h1v1h-1zM45 12h1v1h-1zM48 12h1v1h-1zM0 13h1v1h-1zM3 13h1v1h-1zM4 13h1v1h-1zM10 13h1v1h-1zM11 13h1v1h-1zM14 13h1v1h-1zM15 13h1v1h-1zM17 13h1v1h-1zM18 13h1v1h-1zM21 13h1v1h-1zM22 13h1v1h-1zM23 13h1v1h-1zM24 13h1v1h-1zM26 13h1v1h-1zM27 13h1v1h-1zM29 13h1v1h-1zM30 13h1v1h-1zM32 13h1v1h-1zM33 13h1v1h-1zM36 13h1v1h-1zM38 13h1v1h-1zM39 13h1v1h-1zM42 13h1v1h-1zM43 13h1v1h-1zM45 13h1v1h-1zM47 13h1v1h-1zM0 14h1v1h-1zM2 14h1v1h-1zM3 14h1v1h-1zM4 14h1v1h-1zM6 14h1v1h-1zM7 14h1v1h-1zM9 14h1v1h-1zM11 14h1v1h-1zM12 14h1v1h-1zM14 14h1v1h-1zM15 14h1v1h-1zM16 14h1v1h-1zM17 14h1v1h-1zM19 14h1v1h-1zM20 14h1v1h-1zM21 14h1v1h-1zM25 14h1v1h-1zM26 14h1v1h-1zM28 14h1v1h-1zM29 14h1v1h-1zM31 14h1v1h-1zM35 14h1v1h-1zM36 14h1v1h-1zM38 14h1v1h-1zM39 14h1v1h-1zM43 14h1v1h-1zM46 14h1v1h-1zM47 14h1v1h-1zM48 14h1v1h-1zM0 15h1v1h-1zM2 15h1v1h-1zM3 15h1v1h-1zM8 15h1v1h-1zM10 15h1v1h-1zM15 15h1v1h-1zM16 15h1v1h-1zM18 15h1v1h-1zM19 15h1v1h-1zM21 15h1v1h-1zM23 15h1v1h-1zM25 15h1v1h-1zM26 15h1v1h-1zM30 15h1v1h-1zM33 15h1v1h-1zM37 15h1v1h-1zM39 15h1v1h-1zM40 15h1v1h-1zM41 15h1v1h-1zM45 15h1v1h-1zM46 15h1v1h-1zM48 15h1v1h-1zM0 16h1v1h-1zM1 16h1v1h-1zM3 16h1v1h-1zM5 16h1v1h-1zM6 16h1v1h-1zM7 16h1v1h-1zM10 16h1v1h-1zM11 16h1v1h-1zM12 16h1v1h-1zM13 16h1v1h-1zM16 16h1v1h-1zM17 16h1v1h-1zM18 16h1v1h-1zM19 16h1v1h-1zM21 16h1v1h-1zM24 16h1v1h-1zM25 16h1v1h-1zM26 16h1v1h-1zM30 16h1v1h-1zM31 16h1v1h-1zM32 16h1v1h-1zM33 16h1v1h-1zM34 16h1v1h-1zM36 16h1v1h-1zM39 16h1v1h-1zM40 16h1v1h-1zM41 16h1v1h-1zM43 16h1v1h-1zM44 16h1v1h-1zM46 16h1v1h-1zM47 16h1v1h-1zM1 17h1v1h-1zM2 17h1v1h-1zM5 17h1v1h-1zM7 17h1v1h-1zM8 17h1v1h-1zM9 17h1v1h-1zM10 17h1v1h-1zM15 17h1v1h-1zM19 17h1v1h-1zM21 17h1v1h-1zM22 17h1v1h-1zM24 17h1v1h-1zM25 17h1v1h-1zM30 17h1v1h-1zM33 17h1v1h-1zM34 17h1v1h-1zM36 17h1v1h-1zM37 17h1v1h-1zM39 17h1v1h-1zM40 17h1v1h-1zM41 17h1v1h-1zM42 17h1v1h-1zM43 17h1v1h-1zM45 17h1v1h-1zM46 17h1v1h-1zM1 18h1v1h-1zM2 18h1v1h-1zM3 18h1v1h-1zM6 18h1v1h-1zM8 18h1v1h-1zM10 18h1v1h-1zM15 18h1v1h-1zM17 18h1v1h-1zM18 18h1v1h-1zM20 18h1v1h-1zM21 18h1v1h-1zM22 18h1v1h-1zM24 18h1v1h-1zM25 18h1v1h-1zM27 18h1v1h-1zM28 18h1v1h-1zM31 18h1v1h-1zM32 18h1v1h-1zM35 18h1v1h-1zM36 18h1v1h-1zM39 18h1v1h-1zM40 18h1v1h-1zM41 18h1v1h-1zM44 18h1v1h-1zM45 18h1v1h-1zM46 18h1v1h-1zM48 18h1v1h-1zM0 19h1v1h-1zM2 19h1v1h-1zM4 19h1v1h-1zM5 19h1v1h-1zM7 19h1v1h-1zM8 19h1v1h-1zM13 19h1v1h-1zM14 19h1v1h-1zM16 19h1v1h-1zM18 19h1v1h-1zM20 19h1v1h-1zM21 19h1v1h-1zM28 19h1v1h-1zM30 19h1v1h-1zM31 19h1v1h-1zM38 19h1v1h-1zM39 19h1v1h-1zM45 19h1v1h-1zM1 20h1v1h-1zM3 20h1v1h-1zM4 20h1v1h-1zM6 20h1v1h-1zM10 20h1v1h-1zM12 20h1v1h-1zM15 20h1v1h-1zM17 20h1v1h-1zM19 20h1v1h-1zM20 20h1v1h-1zM21 20h1v1h-1zM23 20h1v1h-1zM24 20h1v1h-1zM25 20h1v1h-1zM26 20h1v1h-1zM28 20h1v1h-1zM29 20h1v1h-1zM33 20h1v1h-1zM35 20h1v1h-1zM36 20h1v1h-1zM38 20h1v1h-1zM41 20h1v1h-1zM42 20h1v1h-1zM43 20h1v1h-1zM47 20h1v1h-1zM48 20h1v1h-1zM2 21h1v1h-1zM4 21h1v1h-1zM5 21h1v1h-1zM14 21h1v1h-1zM15 21h1v1h-1zM16 21h1v1h-1zM17 21h1v1h-1zM19 21h1v1h-1zM20 21h1v1h-1zM21 21h1v1h-1zM23 21h1v1h-1zM24 21h1v1h-1zM25 21h1v1h-1zM28 21h1v1h-1zM29 21h1v1h-1zM30 21h1v1h-1zM31 21h1v1h-1zM33 21h1v1h-1zM34 21h1v1h-1zM35 21h1v1h-1zM38 21h1v1h-1zM39 21h1v1h-1zM40 21h1v1h-1zM41 21h1v1h-1zM42 21h1v1h-1zM43 21h1v1h-1zM46 21h1v1h-1zM47 21h1v1h-1zM0 22h1v1h-1zM4 22h1v1h-1zM5 22h1v1h-1zM6 22h1v1h-1zM7 22h1v1h-1zM8 22h1v1h-1zM9 22h1v1h-1zM10 22h1v1h-1zM12 22h1v1h-1zM15 22h1v1h-1zM16 22h1v1h-1zM19 22h1v1h-1zM20 22h1v1h-1zM21 22h1v1h-1zM22 22h1v1h-1zM23 22h1v1h-1zM24 22h1v1h-1zM25 22h1v1h-1zM26 22h1v1h-1zM27 22h1v1h-1zM28 22h1v1h-1zM29 22h1v1h-1zM31 22h1v1h-1zM32 22h1v1h-1zM33 22h1v1h-1zM34 22h1v1h-1zM35 22h1v1h-1zM36 22h1v1h-1zM40 22h1v1h-1zM41 22h1v1h-1zM42 22h1v1h-1zM43 22h1v1h-1zM44 22h1v1h-1zM46 22h1v1h-1zM48 22h1v1h-1zM0 23h1v1h-1zM2 23h1v1h-1zM3 23h1v1h-1zM4 23h1v1h-1zM8 23h1v1h-1zM10 23h1v1h-1zM13 23h1v1h-1zM15 23h1v1h-1zM18 23h1v1h-1zM19 23h1v1h-1zM21 23h1v1h-1zM22 23h1v1h-1zM26 23h1v1h-1zM29 23h1v1h-1zM30 23h1v1h-1zM32 23h1v1h-1zM33 23h1v1h-1zM34 23h1v1h-1zM37 23h1v1h-1zM39 23h1v1h-1zM40 23h1v1h-1zM44 23h1v1h-1zM45 23h1v1h-1zM46 23h1v1h-1zM48 23h1v1h-1zM0 24h1v1h-1zM4 24h1v1h-1zM6 24h1v1h-1zM8 24h1v1h-1zM9 24h1v1h-1zM16 24h1v1h-1zM19 24h1v1h-1zM21 24h1v1h-1zM22 24h1v1h-1zM24 24h1v1h-1zM26 24h1v1h-1zM28 24h1v1h-1zM29 24h1v1h-1zM32 24h1v1h-1zM33 24h1v1h-1zM34 24h1v1h-1zM35 24h1v1h-1zM36 24h1v1h-1zM37 24h1v1h-1zM38 24h1v1h-1zM40 24h1v1h-1zM42 24h1v1h-1zM44 24h1v1h-1zM45 24h1v1h-1zM47 24h1v1h-1zM1 25h1v1h-1zM3 25h1v1h-1zM4 25h1v1h-1zM8 25h1v1h-1zM9 25h1v1h-1zM10 25h1v1h-1zM11 25h1v1h-1zM12 25h1v1h-1zM13 25h1v1h-1zM14 25h1v1h-1zM15 25h1v1h-1zM18 25h1v1h-1zM19 25h1v1h-1zM20 25h1v1h-1zM21 25h1v1h-1zM22 25h1v1h-1zM26 25h1v1h-1zM27 25h1v1h-1zM29 25h1v1h-1zM30 25h1v1h-1zM33 25h1v1h-1zM38 25h1v1h-1zM40 25h1v1h-1zM44 25h1v1h-1zM45 25h1v1h-1zM46 25h1v1h-1zM47 25h1v1h-1zM1 26h1v1h-1zM2 26h1v1h-1zM3 26h1v1h-1zM4 26h1v1h-1zM5 26h1v1h-1zM6 26h1v1h-1zM7 26h1v1h-1zM8 26h1v1h-1zM18 26h1v1h-1zM19 26h1v1h-1zM21 26h1v1h-1zM22 26h1v1h-1zM23 26h1v1h-1zM24 26h1v1h-1zM25 26h1v1h-1zM26 26h1v1h-1zM31 26h1v1h-1zM33 26h1v1h-1zM35 26h1v1h-1zM37 26h1v1h-1zM38 26h1v1h-1zM39 26h1v1h-1zM40 26h1v1h-1zM41 26h1v1h-1zM42 26h1v1h-1zM43 26h1v1h-1zM44 26h1v1h-1zM46 26h1v1h-1zM47 26h1v1h-1zM48 26h1v1h-1zM0 27h1v1h-1zM1 27h1v1h-1zM4 27h1v1h-1zM7 27h1v1h-1zM9 27h1v1h-1zM11 27h1v1h-1zM14 27h1v1h-1zM15 27h1v1h-1zM17 27h1v1h-1zM19 27h1v1h-1zM23 27h1v1h-1zM24 27h1v1h-1zM26 27h1v1h-1zM30 27h1v1h-1zM34 27h1v1h-1zM35 27h1v1h-1zM37 27h1v1h-1zM38 27h1v1h-1zM39 27h1v1h-1zM44 27h1v1h-1zM46 27h1v1h-1zM0 28h1v1h-1zM1 28h1v1h-1zM2 28h1v1h-1zM3 28h1v1h-1zM5 28h1v1h-1zM6 28h1v1h-1zM7 28h1v1h-1zM9 28h1v1h-1zM10 28h1v1h-1zM12 28h1v1h-1zM13 28h1v1h-1zM16 28h1v1h-1zM18 28h1v1h-1zM19 28h1v1h-1zM20 28h1v1h-1zM21 28h1v1h-1zM22 28h1v1h-1zM23 28h1v1h-1zM24 28h1v1h-1zM29 28h1v1h-1zM31 28h1v1h-1zM32 28h1v1h-1zM33 28h1v1h-1zM36 28h1v1h-1zM38 28h1v1h-1zM39 28h1v1h-1zM46 28h1v1h-1zM47 28h1v1h-1zM48 28h1v1h-1zM1 29h1v1h-1zM3 29h1v1h-1zM9 29h1v1h-1zM14 29h1v1h-1zM16 29h1v1h-1zM22 29h1v1h-1zM25 29h1v1h-1zM30 29h1v1h-1zM31 29h1v1h-1zM33 29h1v1h-1zM34 29h1v1h-1zM36 29h1v1h-1zM37 29h1v1h-1zM43 29h1v1h-1zM45 29h1v1h-1zM46 29h1v1h-1zM47 29h1v1h-1zM2 30h1v1h-1zM3 30h1v1h-1zM6 30h1v1h-1zM9 30h1v1h-1zM10 30h1v1h-1zM11 30h1v1h-1zM13 30h1v1h-1zM15 30h1v1h-1zM16 30h1v1h-1zM20 30h1v1h-1zM23 30h1v1h-1zM26 30h1v1h-1zM27 30h1v1h-1zM28 30h1v1h-1zM31 30h1v1h-1zM33 30h1v1h-1zM35 30h1v1h-1zM37 30h1v1h-1zM39 30h1v1h-1zM40 30h1v1h-1zM42 30h1v1h-1zM45 30h1v1h-1zM46 30h1v1h-1zM48 30h1v1h-1zM0 31h1v1h-1zM3 31h1v1h-1zM7 31h1v1h-1zM11 31h1v1h-1zM12 31h1v1h-1zM13 31h1v1h-1zM15 31h1v1h-1zM16 31h1v1h-1zM17 31h1v1h-1zM18 31h1v1h-1zM19 31h1v1h-1zM20 31h1v1h-1zM23 31h1v1h-1zM25 31h1v1h-1zM27 31h1v1h-1zM28 31h1v1h-1zM29 31h1v1h-1zM30 31h1v1h-1zM38 31h1v1h-1zM39 31h1v1h-1zM45 31h1v1h-1zM0 32h1v1h-1zM1 32h1v1h-1zM2 32h1v1h-1zM4 32h1v1h-1zM6 32h1v1h-1zM8 32h1v1h-1zM9 32h1v1h-1zM11 32h1v1h-1zM13 32h1v1h-1zM17 32h1v1h-1zM18 32h1v1h-1zM19 32h1v1h-1zM20 32h1v1h-1zM21 32h1v1h-1zM22 32h1v1h-1zM25 32h1v1h-1zM26 32h1v1h-1zM28 32h1v1h-1zM30 32h1v1h-1zM35 32h1v1h-1zM36 32h1v1h-1zM37 32h1v1h-1zM39 32h1v1h-1zM40 32h1v1h-1zM41 32h1v1h-1zM44 32h1v1h-1zM45 32h1v1h-1zM47 32h1v1h-1zM1 33h1v1h-1zM2 33h1v1h-1zM3 33h1v1h-1zM4 33h1v1h-1zM5 33h1v1h-1zM7 33h1v1h-1zM8 33h1v1h-1zM11 33h1v1h-1zM13 33h1v1h-1zM15 33h1v1h-1zM16 33h1v1h-1zM18 33h1v1h-1zM19 33h1v1h-1zM20 33h1v1h-1zM23 33h1v1h-1zM24 33h1v1h-1zM26 33h1v1h-1zM27 33h1v1h-1zM29 33h1v1h-1zM30 33h1v1h-1zM31 33h1v1h-1zM33 33h1v1h-1zM34 33h1v1h-1zM35 33h1v1h-1zM36 33h1v1h-1zM38 33h1v1h-1zM41 33h1v1h-1zM43 33h1v1h-1zM44 33h1v1h-1zM45 33h1v1h-1zM46 33h1v1h-1zM0 34h1v1h-1zM5 34h1v1h-1zM6 34h1v1h-1zM10 34h1v1h-1zM12 34h1v1h-1zM13 34h1v1h-1zM15 34h1v1h-1zM16 34h1v1h-1zM17 34h1v1h-1zM21 34h1v1h-1zM26 34h1v1h-1zM28 34h1v1h-1zM29 34h1v1h-1zM31 34h1v1h-1zM34 34h1v1h-1zM37 34h1v1h-1zM39 34h1v1h-1zM40 34h1v1h-1zM41 34h1v1h-1zM42 34h1v1h-1zM44 34h1v1h-1zM45 34h1v1h-1zM47 34h1v1h-1zM48 34h1v1h-1zM0 35h1v1h-1zM1 35h1v1h-1zM7 35h1v1h-1zM9 35h1v1h-1zM12 35h1v1h-1zM13 35h1v1h-1zM14 35h1v1h-1zM15 35h1v1h-1zM16 35h1v1h-1zM21 35h1v1h-1zM26 35h1v1h-1zM29 35h1v1h-1zM30 35h1v1h-1zM32 35h1v1h-1zM33 35h1v1h-1zM35 35h1v1h-1zM37 35h1v1h-1zM38 35h1v1h-1zM39 35h1v1h-1zM41 35h1v1h-1zM45 35h1v1h-1zM46 35h1v1h-1zM47 35h1v1h-1zM48 35h1v1h-1zM1 36h1v1h-1zM4 36h1v1h-1zM5 36h1v1h-1zM6 36h1v1h-1zM7 36h1v1h-1zM9 36h1v1h-1zM10 36h1v1h-1zM12 36h1v1h-1zM13 36h1v1h-1zM14 36h1v1h-1zM18 36h1v1h-1zM19 36h1v1h-1zM21 36h1v1h-1zM22 36h1v1h-1zM28 36h1v1h-1zM30 36h1v1h-1zM32 36h1v1h-1zM36 36h1v1h-1zM37 36h1v1h-1zM39 36h1v1h-1zM43 36h1v1h-1zM48 36h1v1h-1zM1 37h1v1h-1zM2 37h1v1h-1zM3 37h1v1h-1zM4 37h1v1h-1zM8 37h1v1h-1zM9 37h1v1h-1zM12 37h1v1h-1zM14 37h1v1h-1zM20 37h1v1h-1zM22 37h1v1h-1zM23 37h1v1h-1zM24 37h1v1h-1zM25 37h1v1h-1zM27 37h1v1h-1zM28 37h1v1h-1zM30 37h1v1h-1zM32 37h1v1h-1zM33 37h1v1h-1zM35 37h1v1h-1zM38 37h1v1h-1zM39 37h1v1h-1zM41 37h1v1h-1zM42 37h1v1h-1zM44 37h1v1h-1zM46 37h1v1h-1zM1 38h1v1h-1zM5 38h1v1h-1zM6 38h1v1h-1zM7 38h1v1h-1zM8 38h1v1h-1zM9 38h1v1h-1zM10 38h1v1h-1zM11 38h1v1h-1zM12 38h1v1h-1zM13 38h1v1h-1zM14 38h1v1h-1zM16 38h1v1h-1zM17 38h1v1h-1zM27 38h1v1h-1zM28 38h1v1h-1zM31 38h1v1h-1zM32 38h1v1h-1zM35 38h1v1h-1zM37 38h1v1h-1zM38 38h1v1h-1zM39 38h1v1h-1zM41 38h1v1h-1zM42 38h1v1h-1zM43 38h1v1h-1zM45 38h1v1h-1zM46 38h1v1h-1zM47 38h1v1h-1zM48 38h1v1h-1zM1 39h1v1h-1zM2 39h1v1h-1zM3 39h1v1h-1zM8 39h1v1h-1zM10 39h1v1h-1zM13 39h1v1h-1zM16 39h1v1h-1zM19 39h1v1h-1zM21 39h1v1h-1zM22 39h1v1h-1zM23 39h1v1h-1zM24 39h1v1h-1zM25 39h1v1h-1zM26 39h1v1h-1zM27 39h1v1h-1zM30 39h1v1h-1zM31 39h1v1h-1zM33 39h1v1h-1zM39 39h1v1h-1zM41 39h1v1h-1zM43 39h1v1h-1zM44 39h1v1h-1zM45 39h1v1h-1zM46 39h1v1h-1zM48 39h1v1h-1zM0 40h1v1h-1zM1 40h1v1h-1zM2 40h1v1h-1zM6 40h1v1h-1zM7 40h1v1h-1zM8 40h1v1h-1zM13 40h1v1h-1zM15 40h1v1h-1zM18 40h1v1h-1zM22 40h1v1h-1zM23 40h1v1h-1zM24 40h1v1h-1zM25 40h1v1h-1zM26 40h1v1h-1zM27 40h1v1h-1zM31 40h1v1h-1zM32 40h1v1h-1zM36 40h1v1h-1zM37 40h1v1h-1zM38 40h1v1h-1zM39 40h1v1h-1zM40 40h1v1h-1zM41 40h1v1h-1zM42 40h1v1h-1zM43 40h1v1h-1zM44 40h1v1h-1zM45 40h1v1h-1zM46 40h1v1h-1zM48 40h1v1h-1zM8 41h1v1h-1zM10 41h1v1h-1zM15 41h1v1h-1zM16 41h1v1h-1zM17 41h1v1h-1zM19 41h1v1h-1zM21 41h1v1h-1zM22 41h1v1h-1zM26 41h1v1h-1zM27 41h1v1h-1zM28 41h1v1h-1zM30 41h1v1h-1zM31 41h1v1h-1zM32 41h1v1h-1zM33 41h1v1h-1zM34 41h1v1h-1zM37 41h1v1h-1zM39 41h1v1h-1zM40 41h1v1h-1zM44 41h1v1h-1zM45 41h1v1h-1zM0 42h1v1h-1zM1 42h1v1h-1zM2 42h1v1h-1zM3 42h1v1h-1zM4 42h1v1h-1zM5 42h1v1h-1zM6 42h1v1h-1zM8 42h1v1h-1zM9 42h1v1h-1zM10 42h1v1h-1zM14 42h1v1h-1zM16 42h1v1h-1zM17 42h1v1h-1zM18 42h1v1h-1zM20 42h1v1h-1zM22 42h1v1h-1zM24 42h1v1h-1zM26 42h1v1h-1zM28 42h1v1h-1zM29 42h1v1h-1zM34 42h1v1h-1zM37 42h1v1h-1zM40 42h1v1h-1zM42 42h1v1h-1zM44 42h1v1h-1zM46 42h1v1h-1zM48 42h1v1h-1zM0 43h1v1h-1zM6 43h1v1h-1zM8 43h1v1h-1zM10 43h1v1h-1zM13 43h1v1h-1zM15 43h1v1h-1zM16 43h1v1h-1zM18 43h1v1h-1zM19 43h1v1h-1zM20 43h1v1h-1zM22 43h1v1h-1zM26 43h1v1h-1zM27 43h1v1h-1zM28 43h1v1h-1zM29 43h1v1h-1zM30 43h1v1h-1zM31 43h1v1h-1zM39 43h1v1h-1zM40 43h1v1h-1zM44 43h1v1h-1zM45 43h1v1h-1zM47 43h1v1h-1zM0 44h1v1h-1zM2 44h1v1h-1zM3 44h1v1h-1zM4 44h1v1h-1zM6 44h1v1h-1zM8 44h1v1h-1zM10 44h1v1h-1zM12 44h1v1h-1zM13 44h1v1h-1zM15 44h1v1h-1zM16 44h1v1h-1zM17 44h1v1h-1zM18 44h1v1h-1zM19 44h1v1h-1zM22 44h1v1h-1zM23 44h1v1h-1zM24 44h1v1h-1zM25 44h1v1h-1zM26 44h1v1h-1zM28 44h1v1h-1zM29 44h1v1h-1zM30 44h1v1h-1zM34 44h1v1h-1zM35 44h1v1h-1zM36 44h1v1h-1zM40 44h1v1h-1zM41 44h1v1h-1zM42 44h1v1h-1zM43 44h1v1h-1zM44 44h1v1h-1zM47 44h1v1h-1zM0 45h1v1h-1zM2 45h1v1h-1zM3 45h1v1h-1zM4 45h1v1h-1zM6 45h1v1h-1zM8 45h1v1h-1zM9 45h1v1h-1zM10 45h1v1h-1zM12 45h1v1h-1zM16 45h1v1h-1zM18 45h1v1h-1zM19 45h1v1h-1zM26 45h1v1h-1zM27 45h1v1h-1zM29 45h1v1h-1zM30 45h1v1h-1zM33 45h1v1h-1zM34 45h1v1h-1zM37 45h1v1h-1zM38 45h1v1h-1zM39 45h1v1h-1zM41 45h1v1h-1zM43 45h1v1h-1zM45 45h1v1h-1zM48 45h1v1h-1zM0 46h1v1h-1zM2 46h1v1h-1zM3 46h1v1h-1zM4 46h1v1h-1zM6 46h1v1h-1zM9 46h1v1h-1zM10 46h1v1h-1zM11 46h1v1h-1zM13 46h1v1h-1zM14 46h1v1h-1zM17 46h1v1h-1zM18 46h1v1h-1zM24 46h1v1h-1zM25 46h1v1h-1zM26 46h1v1h-1zM28 46h1v1h-1zM31 46h1v1h-1zM32 46h1v1h-1zM33 46h1v1h-1zM34 46h1v1h-1zM36 46h1v1h-1zM37 46h1v1h-1zM38 46h1v1h-1zM41 46h1v1h-1zM43 46h1v1h-1zM44 46h1v1h-1zM47 46h1v1h-1zM0 47h1v1h-1zM6 47h1v1h-1zM9 47h1v1h-1zM12 47h1v1h-1zM13 47h1v1h-1zM16 47h1v1h-1zM18 47h1v1h-1zM19 47h1v1h-1zM20 47h1v1h-1zM21 47h1v1h-1zM22 47h1v1h-1zM23 47h1v1h-1zM24 47h1v1h-1zM30 47h1v1h-1zM31 47h1v1h-1zM33 47h1v1h-1zM34 47h1v1h-1zM35 47h1v1h-1zM37 47h1v1h-1zM38 47h1v1h-1zM42 47h1v1h-1zM45 47h1v1h-1zM46 47h1v1h-1zM47 47h1v1h-1zM48 47h1v1h-1zM0 48h1v1h-1zM1 48h1v1h-1zM2 48h1v1h-1zM3 48h1v1h-1zM4 48h1v1h-1zM5 48h1v1h-1zM6 48h1v1h-1zM8 48h1v1h-1zM9 48h1v1h-1zM10 48h1v1h-1zM12 48h1v1h-1zM13 48h1v1h-1zM14 48h1v1h-1zM15 48h1v1h-1zM18 48h1v1h-1zM22 48h1v1h-1zM24 48h1v1h-1zM26 48h1v1h-1zM28 48h1v1h-1zM29 48h1v1h-1zM32 48h1v1h-1zM33 48h1v1h-1zM34 48h1v1h-1zM36 48h1v1h-1zM38 48h1v1h-1zM43 48h1v1h-1zM44 48h1v1h-1zM46 48h1v1h-1zM48 48h1v1h-1z"/></svg></div><span>Join the interest list<br>fitzrovia.ca</span></div></div></div></div>
+          <div><h4 class="lb" style="margin-top:0">Main Street station platform poster</h4><p style="font-family:var(--serif);font-size:16px;line-height:1.55">The poster only works in one place, which is why it works: the person reading it is already standing at Rushden Station's subway stop. The QR is real and tagged <code style="font:400 12px var(--mono)">utm_source=ooh</code>, so the report can show how many sign-ups came from one platform.</p><p class="note">Final size, placement and production specs come from the transit media vendor; artwork is built to their template.</p></div>
+        </div>
+        <h4 class="lb">Hoarding: three panels along Danforth</h4>
+        <div class="hoard">
+          <div class="ph" style="background-image:url(img/rd-nw.jpg)"><b>Coming Q1 2027</b><small>Rushden Station · Main + Danforth</small></div>
+          <div class="ph" style="background-image:url(img/rd-flowers.jpg)"><b>Hello, neighbour.</b><small>Coming soon to the Danforth</small></div>
+          <div class="q"><div class="qr"><svg viewBox="0 0 45 45" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M0 0h1v1h-1zM1 0h1v1h-1zM2 0h1v1h-1zM3 0h1v1h-1zM4 0h1v1h-1zM5 0h1v1h-1zM6 0h1v1h-1zM8 0h1v1h-1zM9 0h1v1h-1zM10 0h1v1h-1zM11 0h1v1h-1zM12 0h1v1h-1zM14 0h1v1h-1zM15 0h1v1h-1zM17 0h1v1h-1zM19 0h1v1h-1zM25 0h1v1h-1zM29 0h1v1h-1zM30 0h1v1h-1zM31 0h1v1h-1zM36 0h1v1h-1zM38 0h1v1h-1zM39 0h1v1h-1zM40 0h1v1h-1zM41 0h1v1h-1zM42 0h1v1h-1zM43 0h1v1h-1zM44 0h1v1h-1zM0 1h1v1h-1zM6 1h1v1h-1zM8 1h1v1h-1zM9 1h1v1h-1zM10 1h1v1h-1zM11 1h1v1h-1zM15 1h1v1h-1zM16 1h1v1h-1zM19 1h1v1h-1zM23 1h1v1h-1zM25 1h1v1h-1zM28 1h1v1h-1zM30 1h1v1h-1zM33 1h1v1h-1zM35 1h1v1h-1zM38 1h1v1h-1zM44 1h1v1h-1zM0 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM6 2h1v1h-1zM10 2h1v1h-1zM12 2h1v1h-1zM14 2h1v1h-1zM15 2h1v1h-1zM16 2h1v1h-1zM18 2h1v1h-1zM20 2h1v1h-1zM21 2h1v1h-1zM22 2h1v1h-1zM23 2h1v1h-1zM25 2h1v1h-1zM26 2h1v1h-1zM29 2h1v1h-1zM30 2h1v1h-1zM31 2h1v1h-1zM32 2h1v1h-1zM35 2h1v1h-1zM38 2h1v1h-1zM40 2h1v1h-1zM41 2h1v1h-1zM42 2h1v1h-1zM44 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM6 3h1v1h-1zM8 3h1v1h-1zM13 3h1v1h-1zM16 3h1v1h-1zM17 3h1v1h-1zM18 3h1v1h-1zM20 3h1v1h-1zM21 3h1v1h-1zM22 3h1v1h-1zM24 3h1v1h-1zM25 3h1v1h-1zM29 3h1v1h-1zM30 3h1v1h-1zM31 3h1v1h-1zM35 3h1v1h-1zM36 3h1v1h-1zM38 3h1v1h-1zM40 3h1v1h-1zM41 3h1v1h-1zM42 3h1v1h-1zM44 3h1v1h-1zM0 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM6 4h1v1h-1zM11 4h1v1h-1zM12 4h1v1h-1zM14 4h1v1h-1zM15 4h1v1h-1zM16 4h1v1h-1zM18 4h1v1h-1zM19 4h1v1h-1zM20 4h1v1h-1zM21 4h1v1h-1zM22 4h1v1h-1zM23 4h1v1h-1zM24 4h1v1h-1zM25 4h1v1h-1zM26 4h1v1h-1zM27 4h1v1h-1zM31 4h1v1h-1zM33 4h1v1h-1zM34 4h1v1h-1zM35 4h1v1h-1zM36 4h1v1h-1zM38 4h1v1h-1zM40 4h1v1h-1zM41 4h1v1h-1zM42 4h1v1h-1zM44 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM9 5h1v1h-1zM11 5h1v1h-1zM13 5h1v1h-1zM14 5h1v1h-1zM15 5h1v1h-1zM16 5h1v1h-1zM19 5h1v1h-1zM20 5h1v1h-1zM24 5h1v1h-1zM25 5h1v1h-1zM26 5h1v1h-1zM29 5h1v1h-1zM30 5h1v1h-1zM31 5h1v1h-1zM38 5h1v1h-1zM44 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h1v1h-1zM24 6h1v1h-1zM26 6h1v1h-1zM28 6h1v1h-1zM30 6h1v1h-1zM32 6h1v1h-1zM34 6h1v1h-1zM36 6h1v1h-1zM38 6h1v1h-1zM39 6h1v1h-1zM40 6h1v1h-1zM41 6h1v1h-1zM42 6h1v1h-1zM43 6h1v1h-1zM44 6h1v1h-1zM8 7h1v1h-1zM9 7h1v1h-1zM10 7h1v1h-1zM14 7h1v1h-1zM15 7h1v1h-1zM19 7h1v1h-1zM20 7h1v1h-1zM24 7h1v1h-1zM28 7h1v1h-1zM30 7h1v1h-1zM33 7h1v1h-1zM0 8h1v1h-1zM2 8h1v1h-1zM3 8h1v1h-1zM5 8h1v1h-1zM6 8h1v1h-1zM7 8h1v1h-1zM10 8h1v1h-1zM13 8h1v1h-1zM14 8h1v1h-1zM20 8h1v1h-1zM21 8h1v1h-1zM22 8h1v1h-1zM23 8h1v1h-1zM24 8h1v1h-1zM27 8h1v1h-1zM28 8h1v1h-1zM29 8h1v1h-1zM33 8h1v1h-1zM36 8h1v1h-1zM38 8h1v1h-1zM41 8h1v1h-1zM43 8h1v1h-1zM44 8h1v1h-1zM3 9h1v1h-1zM5 9h1v1h-1zM7 9h1v1h-1zM11 9h1v1h-1zM14 9h1v1h-1zM15 9h1v1h-1zM16 9h1v1h-1zM17 9h1v1h-1zM18 9h1v1h-1zM21 9h1v1h-1zM25 9h1v1h-1zM27 9h1v1h-1zM28 9h1v1h-1zM29 9h1v1h-1zM30 9h1v1h-1zM35 9h1v1h-1zM36 9h1v1h-1zM40 9h1v1h-1zM41 9h1v1h-1zM43 9h1v1h-1zM44 9h1v1h-1zM0 10h1v1h-1zM1 10h1v1h-1zM2 10h1v1h-1zM3 10h1v1h-1zM6 10h1v1h-1zM9 10h1v1h-1zM12 10h1v1h-1zM14 10h1v1h-1zM15 10h1v1h-1zM17 10h1v1h-1zM18 10h1v1h-1zM20 10h1v1h-1zM22 10h1v1h-1zM27 10h1v1h-1zM31 10h1v1h-1zM32 10h1v1h-1zM33 10h1v1h-1zM34 10h1v1h-1zM37 10h1v1h-1zM41 10h1v1h-1zM42 10h1v1h-1zM43 10h1v1h-1zM44 10h1v1h-1zM0 11h1v1h-1zM1 11h1v1h-1zM2 11h1v1h-1zM3 11h1v1h-1zM5 11h1v1h-1zM7 11h1v1h-1zM8 11h1v1h-1zM9 11h1v1h-1zM10 11h1v1h-1zM11 11h1v1h-1zM12 11h1v1h-1zM14 11h1v1h-1zM15 11h1v1h-1zM17 11h1v1h-1zM20 11h1v1h-1zM21 11h1v1h-1zM22 11h1v1h-1zM24 11h1v1h-1zM26 11h1v1h-1zM30 11h1v1h-1zM31 11h1v1h-1zM32 11h1v1h-1zM34 11h1v1h-1zM36 11h1v1h-1zM38 11h1v1h-1zM39 11h1v1h-1zM41 11h1v1h-1zM43 11h1v1h-1zM0 12h1v1h-1zM2 12h1v1h-1zM4 12h1v1h-1zM6 12h1v1h-1zM9 12h1v1h-1zM11 12h1v1h-1zM12 12h1v1h-1zM13 12h1v1h-1zM14 12h1v1h-1zM16 12h1v1h-1zM17 12h1v1h-1zM18 12h1v1h-1zM20 12h1v1h-1zM21 12h1v1h-1zM22 12h1v1h-1zM24 12h1v1h-1zM25 12h1v1h-1zM26 12h1v1h-1zM30 12h1v1h-1zM34 12h1v1h-1zM35 12h1v1h-1zM41 12h1v1h-1zM44 12h1v1h-1zM0 13h1v1h-1zM2 13h1v1h-1zM3 13h1v1h-1zM4 13h1v1h-1zM11 13h1v1h-1zM13 13h1v1h-1zM15 13h1v1h-1zM17 13h1v1h-1zM18 13h1v1h-1zM19 13h1v1h-1zM21 13h1v1h-1zM24 13h1v1h-1zM25 13h1v1h-1zM26 13h1v1h-1zM27 13h1v1h-1zM28 13h1v1h-1zM33 13h1v1h-1zM38 13h1v1h-1zM39 13h1v1h-1zM43 13h1v1h-1zM44 13h1v1h-1zM0 14h1v1h-1zM2 14h1v1h-1zM3 14h1v1h-1zM6 14h1v1h-1zM9 14h1v1h-1zM12 14h1v1h-1zM13 14h1v1h-1zM16 14h1v1h-1zM17 14h1v1h-1zM19 14h1v1h-1zM20 14h1v1h-1zM21 14h1v1h-1zM22 14h1v1h-1zM23 14h1v1h-1zM25 14h1v1h-1zM26 14h1v1h-1zM27 14h1v1h-1zM30 14h1v1h-1zM32 14h1v1h-1zM35 14h1v1h-1zM37 14h1v1h-1zM38 14h1v1h-1zM39 14h1v1h-1zM41 14h1v1h-1zM1 15h1v1h-1zM5 15h1v1h-1zM7 15h1v1h-1zM8 15h1v1h-1zM9 15h1v1h-1zM14 15h1v1h-1zM17 15h1v1h-1zM18 15h1v1h-1zM24 15h1v1h-1zM25 15h1v1h-1zM27 15h1v1h-1zM28 15h1v1h-1zM29 15h1v1h-1zM30 15h1v1h-1zM32 15h1v1h-1zM34 15h1v1h-1zM35 15h1v1h-1zM36 15h1v1h-1zM39 15h1v1h-1zM40 15h1v1h-1zM42 15h1v1h-1zM43 15h1v1h-1zM1 16h1v1h-1zM3 16h1v1h-1zM5 16h1v1h-1zM6 16h1v1h-1zM9 16h1v1h-1zM12 16h1v1h-1zM13 16h1v1h-1zM16 16h1v1h-1zM20 16h1v1h-1zM21 16h1v1h-1zM22 16h1v1h-1zM23 16h1v1h-1zM25 16h1v1h-1zM26 16h1v1h-1zM27 16h1v1h-1zM29 16h1v1h-1zM31 16h1v1h-1zM32 16h1v1h-1zM34 16h1v1h-1zM36 16h1v1h-1zM37 16h1v1h-1zM38 16h1v1h-1zM39 16h1v1h-1zM42 16h1v1h-1zM43 16h1v1h-1zM0 17h1v1h-1zM1 17h1v1h-1zM10 17h1v1h-1zM15 17h1v1h-1zM16 17h1v1h-1zM17 17h1v1h-1zM18 17h1v1h-1zM21 17h1v1h-1zM23 17h1v1h-1zM24 17h1v1h-1zM28 17h1v1h-1zM29 17h1v1h-1zM31 17h1v1h-1zM32 17h1v1h-1zM33 17h1v1h-1zM34 17h1v1h-1zM35 17h1v1h-1zM39 17h1v1h-1zM41 17h1v1h-1zM42 17h1v1h-1zM43 17h1v1h-1zM44 17h1v1h-1zM1 18h1v1h-1zM2 18h1v1h-1zM3 18h1v1h-1zM4 18h1v1h-1zM5 18h1v1h-1zM6 18h1v1h-1zM10 18h1v1h-1zM11 18h1v1h-1zM12 18h1v1h-1zM15 18h1v1h-1zM17 18h1v1h-1zM18 18h1v1h-1zM20 18h1v1h-1zM22 18h1v1h-1zM23 18h1v1h-1zM24 18h1v1h-1zM26 18h1v1h-1zM29 18h1v1h-1zM31 18h1v1h-1zM33 18h1v1h-1zM34 18h1v1h-1zM35 18h1v1h-1zM37 18h1v1h-1zM38 18h1v1h-1zM40 18h1v1h-1zM41 18h1v1h-1zM43 18h1v1h-1zM0 19h1v1h-1zM2 19h1v1h-1zM3 19h1v1h-1zM5 19h1v1h-1zM8 19h1v1h-1zM13 19h1v1h-1zM14 19h1v1h-1zM15 19h1v1h-1zM19 19h1v1h-1zM20 19h1v1h-1zM21 19h1v1h-1zM25 19h1v1h-1zM28 19h1v1h-1zM29 19h1v1h-1zM31 19h1v1h-1zM33 19h1v1h-1zM34 19h1v1h-1zM36 19h1v1h-1zM38 19h1v1h-1zM40 19h1v1h-1zM43 19h1v1h-1zM1 20h1v1h-1zM2 20h1v1h-1zM4 20h1v1h-1zM5 20h1v1h-1zM6 20h1v1h-1zM7 20h1v1h-1zM8 20h1v1h-1zM10 20h1v1h-1zM12 20h1v1h-1zM13 20h1v1h-1zM14 20h1v1h-1zM16 20h1v1h-1zM17 20h1v1h-1zM20 20h1v1h-1zM21 20h1v1h-1zM22 20h1v1h-1zM23 20h1v1h-1zM24 20h1v1h-1zM25 20h1v1h-1zM26 20h1v1h-1zM27 20h1v1h-1zM28 20h1v1h-1zM29 20h1v1h-1zM30 20h1v1h-1zM36 20h1v1h-1zM37 20h1v1h-1zM38 20h1v1h-1zM39 20h1v1h-1zM40 20h1v1h-1zM42 20h1v1h-1zM43 20h1v1h-1zM1 21h1v1h-1zM3 21h1v1h-1zM4 21h1v1h-1zM8 21h1v1h-1zM10 21h1v1h-1zM12 21h1v1h-1zM14 21h1v1h-1zM15 21h1v1h-1zM16 21h1v1h-1zM17 21h1v1h-1zM19 21h1v1h-1zM20 21h1v1h-1zM24 21h1v1h-1zM25 21h1v1h-1zM27 21h1v1h-1zM29 21h1v1h-1zM30 21h1v1h-1zM31 21h1v1h-1zM33 21h1v1h-1zM35 21h1v1h-1zM36 21h1v1h-1zM40 21h1v1h-1zM41 21h1v1h-1zM42 21h1v1h-1zM44 21h1v1h-1zM0 22h1v1h-1zM1 22h1v1h-1zM3 22h1v1h-1zM4 22h1v1h-1zM6 22h1v1h-1zM8 22h1v1h-1zM10 22h1v1h-1zM11 22h1v1h-1zM14 22h1v1h-1zM15 22h1v1h-1zM16 22h1v1h-1zM18 22h1v1h-1zM20 22h1v1h-1zM22 22h1v1h-1zM24 22h1v1h-1zM25 22h1v1h-1zM27 22h1v1h-1zM30 22h1v1h-1zM31 22h1v1h-1zM32 22h1v1h-1zM33 22h1v1h-1zM34 22h1v1h-1zM36 22h1v1h-1zM38 22h1v1h-1zM40 22h1v1h-1zM41 22h1v1h-1zM43 22h1v1h-1zM44 22h1v1h-1zM0 23h1v1h-1zM2 23h1v1h-1zM3 23h1v1h-1zM4 23h1v1h-1zM8 23h1v1h-1zM9 23h1v1h-1zM10 23h1v1h-1zM12 23h1v1h-1zM18 23h1v1h-1zM19 23h1v1h-1zM20 23h1v1h-1zM24 23h1v1h-1zM25 23h1v1h-1zM27 23h1v1h-1zM29 23h1v1h-1zM30 23h1v1h-1zM32 23h1v1h-1zM33 23h1v1h-1zM34 23h1v1h-1zM36 23h1v1h-1zM40 23h1v1h-1zM41 23h1v1h-1zM0 24h1v1h-1zM1 24h1v1h-1zM4 24h1v1h-1zM5 24h1v1h-1zM6 24h1v1h-1zM7 24h1v1h-1zM8 24h1v1h-1zM9 24h1v1h-1zM13 24h1v1h-1zM14 24h1v1h-1zM17 24h1v1h-1zM19 24h1v1h-1zM20 24h1v1h-1zM21 24h1v1h-1zM22 24h1v1h-1zM23 24h1v1h-1zM24 24h1v1h-1zM25 24h1v1h-1zM29 24h1v1h-1zM31 24h1v1h-1zM34 24h1v1h-1zM35 24h1v1h-1zM36 24h1v1h-1zM37 24h1v1h-1zM38 24h1v1h-1zM39 24h1v1h-1zM40 24h1v1h-1zM41 24h1v1h-1zM43 24h1v1h-1zM0 25h1v1h-1zM2 25h1v1h-1zM5 25h1v1h-1zM7 25h1v1h-1zM9 25h1v1h-1zM10 25h1v1h-1zM11 25h1v1h-1zM14 25h1v1h-1zM15 25h1v1h-1zM17 25h1v1h-1zM19 25h1v1h-1zM21 25h1v1h-1zM22 25h1v1h-1zM26 25h1v1h-1zM27 25h1v1h-1zM28 25h1v1h-1zM31 25h1v1h-1zM32 25h1v1h-1zM33 25h1v1h-1zM35 25h1v1h-1zM38 25h1v1h-1zM39 25h1v1h-1zM3 26h1v1h-1zM4 26h1v1h-1zM6 26h1v1h-1zM7 26h1v1h-1zM10 26h1v1h-1zM11 26h1v1h-1zM12 26h1v1h-1zM13 26h1v1h-1zM16 26h1v1h-1zM17 26h1v1h-1zM18 26h1v1h-1zM19 26h1v1h-1zM20 26h1v1h-1zM21 26h1v1h-1zM24 26h1v1h-1zM25 26h1v1h-1zM26 26h1v1h-1zM27 26h1v1h-1zM30 26h1v1h-1zM33 26h1v1h-1zM35 26h1v1h-1zM39 26h1v1h-1zM40 26h1v1h-1zM0 27h1v1h-1zM3 27h1v1h-1zM5 27h1v1h-1zM7 27h1v1h-1zM8 27h1v1h-1zM9 27h1v1h-1zM10 27h1v1h-1zM12 27h1v1h-1zM15 27h1v1h-1zM17 27h1v1h-1zM20 27h1v1h-1zM23 27h1v1h-1zM24 27h1v1h-1zM25 27h1v1h-1zM26 27h1v1h-1zM29 27h1v1h-1zM30 27h1v1h-1zM32 27h1v1h-1zM33 27h1v1h-1zM34 27h1v1h-1zM35 27h1v1h-1zM38 27h1v1h-1zM39 27h1v1h-1zM41 27h1v1h-1zM42 27h1v1h-1zM43 27h1v1h-1zM44 27h1v1h-1zM0 28h1v1h-1zM1 28h1v1h-1zM2 28h1v1h-1zM3 28h1v1h-1zM6 28h1v1h-1zM8 28h1v1h-1zM10 28h1v1h-1zM11 28h1v1h-1zM13 28h1v1h-1zM15 28h1v1h-1zM17 28h1v1h-1zM20 28h1v1h-1zM21 28h1v1h-1zM24 28h1v1h-1zM27 28h1v1h-1zM29 28h1v1h-1zM31 28h1v1h-1zM32 28h1v1h-1zM35 28h1v1h-1zM39 28h1v1h-1zM40 28h1v1h-1zM41 28h1v1h-1zM42 28h1v1h-1zM43 28h1v1h-1zM44 28h1v1h-1zM0 29h1v1h-1zM3 29h1v1h-1zM4 29h1v1h-1zM7 29h1v1h-1zM8 29h1v1h-1zM11 29h1v1h-1zM12 29h1v1h-1zM14 29h1v1h-1zM15 29h1v1h-1zM19 29h1v1h-1zM21 29h1v1h-1zM22 29h1v1h-1zM25 29h1v1h-1zM29 29h1v1h-1zM33 29h1v1h-1zM34 29h1v1h-1zM36 29h1v1h-1zM37 29h1v1h-1zM38 29h1v1h-1zM39 29h1v1h-1zM40 29h1v1h-1zM41 29h1v1h-1zM42 29h1v1h-1zM43 29h1v1h-1zM44 29h1v1h-1zM1 30h1v1h-1zM3 30h1v1h-1zM5 30h1v1h-1zM6 30h1v1h-1zM8 30h1v1h-1zM14 30h1v1h-1zM16 30h1v1h-1zM17 30h1v1h-1zM21 30h1v1h-1zM22 30h1v1h-1zM23 30h1v1h-1zM25 30h1v1h-1zM26 30h1v1h-1zM28 30h1v1h-1zM31 30h1v1h-1zM33 30h1v1h-1zM34 30h1v1h-1zM39 30h1v1h-1zM41 30h1v1h-1zM42 30h1v1h-1zM43 30h1v1h-1zM0 31h1v1h-1zM3 31h1v1h-1zM4 31h1v1h-1zM5 31h1v1h-1zM7 31h1v1h-1zM11 31h1v1h-1zM18 31h1v1h-1zM21 31h1v1h-1zM25 31h1v1h-1zM28 31h1v1h-1zM29 31h1v1h-1zM30 31h1v1h-1zM33 31h1v1h-1zM36 31h1v1h-1zM44 31h1v1h-1zM2 32h1v1h-1zM3 32h1v1h-1zM6 32h1v1h-1zM7 32h1v1h-1zM10 32h1v1h-1zM11 32h1v1h-1zM13 32h1v1h-1zM16 32h1v1h-1zM17 32h1v1h-1zM18 32h1v1h-1zM19 32h1v1h-1zM20 32h1v1h-1zM21 32h1v1h-1zM22 32h1v1h-1zM23 32h1v1h-1zM27 32h1v1h-1zM28 32h1v1h-1zM30 32h1v1h-1zM33 32h1v1h-1zM38 32h1v1h-1zM42 32h1v1h-1zM2 33h1v1h-1zM3 33h1v1h-1zM4 33h1v1h-1zM7 33h1v1h-1zM9 33h1v1h-1zM10 33h1v1h-1zM11 33h1v1h-1zM13 33h1v1h-1zM14 33h1v1h-1zM15 33h1v1h-1zM19 33h1v1h-1zM20 33h1v1h-1zM21 33h1v1h-1zM22 33h1v1h-1zM23 33h1v1h-1zM24 33h1v1h-1zM29 33h1v1h-1zM30 33h1v1h-1zM32 33h1v1h-1zM33 33h1v1h-1zM35 33h1v1h-1zM36 33h1v1h-1zM37 33h1v1h-1zM38 33h1v1h-1zM42 33h1v1h-1zM44 33h1v1h-1zM4 34h1v1h-1zM6 34h1v1h-1zM7 34h1v1h-1zM8 34h1v1h-1zM10 34h1v1h-1zM12 34h1v1h-1zM13 34h1v1h-1zM16 34h1v1h-1zM17 34h1v1h-1zM20 34h1v1h-1zM24 34h1v1h-1zM25 34h1v1h-1zM27 34h1v1h-1zM30 34h1v1h-1zM31 34h1v1h-1zM34 34h1v1h-1zM35 34h1v1h-1zM37 34h1v1h-1zM38 34h1v1h-1zM39 34h1v1h-1zM42 34h1v1h-1zM43 34h1v1h-1zM44 34h1v1h-1zM1 35h1v1h-1zM2 35h1v1h-1zM3 35h1v1h-1zM4 35h1v1h-1zM7 35h1v1h-1zM8 35h1v1h-1zM11 35h1v1h-1zM12 35h1v1h-1zM13 35h1v1h-1zM17 35h1v1h-1zM20 35h1v1h-1zM21 35h1v1h-1zM23 35h1v1h-1zM27 35h1v1h-1zM29 35h1v1h-1zM32 35h1v1h-1zM33 35h1v1h-1zM35 35h1v1h-1zM38 35h1v1h-1zM40 35h1v1h-1zM41 35h1v1h-1zM43 35h1v1h-1zM44 35h1v1h-1zM0 36h1v1h-1zM3 36h1v1h-1zM4 36h1v1h-1zM6 36h1v1h-1zM9 36h1v1h-1zM14 36h1v1h-1zM17 36h1v1h-1zM18 36h1v1h-1zM19 36h1v1h-1zM20 36h1v1h-1zM21 36h1v1h-1zM22 36h1v1h-1zM23 36h1v1h-1zM24 36h1v1h-1zM30 36h1v1h-1zM31 36h1v1h-1zM36 36h1v1h-1zM37 36h1v1h-1zM38 36h1v1h-1zM39 36h1v1h-1zM40 36h1v1h-1zM8 37h1v1h-1zM9 37h1v1h-1zM10 37h1v1h-1zM12 37h1v1h-1zM14 37h1v1h-1zM15 37h1v1h-1zM16 37h1v1h-1zM19 37h1v1h-1zM20 37h1v1h-1zM24 37h1v1h-1zM25 37h1v1h-1zM26 37h1v1h-1zM27 37h1v1h-1zM33 37h1v1h-1zM36 37h1v1h-1zM40 37h1v1h-1zM0 38h1v1h-1zM1 38h1v1h-1zM2 38h1v1h-1zM3 38h1v1h-1zM4 38h1v1h-1zM5 38h1v1h-1zM6 38h1v1h-1zM8 38h1v1h-1zM9 38h1v1h-1zM11 38h1v1h-1zM12 38h1v1h-1zM13 38h1v1h-1zM17 38h1v1h-1zM18 38h1v1h-1zM20 38h1v1h-1zM22 38h1v1h-1zM24 38h1v1h-1zM25 38h1v1h-1zM26 38h1v1h-1zM28 38h1v1h-1zM30 38h1v1h-1zM31 38h1v1h-1zM33 38h1v1h-1zM35 38h1v1h-1zM36 38h1v1h-1zM38 38h1v1h-1zM40 38h1v1h-1zM0 39h1v1h-1zM6 39h1v1h-1zM8 39h1v1h-1zM9 39h1v1h-1zM12 39h1v1h-1zM14 39h1v1h-1zM15 39h1v1h-1zM16 39h1v1h-1zM19 39h1v1h-1zM20 39h1v1h-1zM24 39h1v1h-1zM25 39h1v1h-1zM26 39h1v1h-1zM27 39h1v1h-1zM28 39h1v1h-1zM29 39h1v1h-1zM31 39h1v1h-1zM32 39h1v1h-1zM35 39h1v1h-1zM36 39h1v1h-1zM40 39h1v1h-1zM41 39h1v1h-1zM42 39h1v1h-1zM0 40h1v1h-1zM2 40h1v1h-1zM3 40h1v1h-1zM4 40h1v1h-1zM6 40h1v1h-1zM9 40h1v1h-1zM13 40h1v1h-1zM14 40h1v1h-1zM18 40h1v1h-1zM20 40h1v1h-1zM21 40h1v1h-1zM22 40h1v1h-1zM23 40h1v1h-1zM24 40h1v1h-1zM27 40h1v1h-1zM31 40h1v1h-1zM32 40h1v1h-1zM33 40h1v1h-1zM34 40h1v1h-1zM36 40h1v1h-1zM37 40h1v1h-1zM38 40h1v1h-1zM39 40h1v1h-1zM40 40h1v1h-1zM42 40h1v1h-1zM43 40h1v1h-1zM44 40h1v1h-1zM0 41h1v1h-1zM2 41h1v1h-1zM3 41h1v1h-1zM4 41h1v1h-1zM6 41h1v1h-1zM8 41h1v1h-1zM10 41h1v1h-1zM12 41h1v1h-1zM14 41h1v1h-1zM16 41h1v1h-1zM20 41h1v1h-1zM21 41h1v1h-1zM22 41h1v1h-1zM23 41h1v1h-1zM29 41h1v1h-1zM31 41h1v1h-1zM32 41h1v1h-1zM34 41h1v1h-1zM36 41h1v1h-1zM37 41h1v1h-1zM42 41h1v1h-1zM44 41h1v1h-1zM0 42h1v1h-1zM2 42h1v1h-1zM3 42h1v1h-1zM4 42h1v1h-1zM6 42h1v1h-1zM8 42h1v1h-1zM10 42h1v1h-1zM12 42h1v1h-1zM13 42h1v1h-1zM14 42h1v1h-1zM15 42h1v1h-1zM16 42h1v1h-1zM17 42h1v1h-1zM19 42h1v1h-1zM20 42h1v1h-1zM22 42h1v1h-1zM23 42h1v1h-1zM26 42h1v1h-1zM27 42h1v1h-1zM31 42h1v1h-1zM33 42h1v1h-1zM34 42h1v1h-1zM35 42h1v1h-1zM36 42h1v1h-1zM38 42h1v1h-1zM41 42h1v1h-1zM42 42h1v1h-1zM43 42h1v1h-1zM0 43h1v1h-1zM6 43h1v1h-1zM10 43h1v1h-1zM11 43h1v1h-1zM12 43h1v1h-1zM13 43h1v1h-1zM15 43h1v1h-1zM16 43h1v1h-1zM24 43h1v1h-1zM25 43h1v1h-1zM28 43h1v1h-1zM33 43h1v1h-1zM37 43h1v1h-1zM38 43h1v1h-1zM44 43h1v1h-1zM0 44h1v1h-1zM1 44h1v1h-1zM2 44h1v1h-1zM3 44h1v1h-1zM4 44h1v1h-1zM5 44h1v1h-1zM6 44h1v1h-1zM8 44h1v1h-1zM9 44h1v1h-1zM12 44h1v1h-1zM15 44h1v1h-1zM16 44h1v1h-1zM17 44h1v1h-1zM23 44h1v1h-1zM26 44h1v1h-1zM27 44h1v1h-1zM28 44h1v1h-1zM29 44h1v1h-1zM34 44h1v1h-1zM37 44h1v1h-1zM38 44h1v1h-1zM42 44h1v1h-1z"/></svg></div><div><b>Hear about it first.</b><small>Scan to join the interest list</small></div></div>
+        </div>
+        <h4 class="lb">Move-in welcome card · Marlow</h4>
+        <div class="card2">
+          <div class="mc f"><div><small>Marlow · Bloor + Dufferin</small><b>Welcome<br><span>home.</span></b><small>The Collection by Fitzrovia</small></div></div>
+          <div class="mc b"><div><h6>Your first week, sorted</h6><ol><li>Book your first Hammam session at the front desk.</li><li>Walk Bloor at golden hour and find your new coffee spot.</li><li>Tell us anything that isn't perfect yet. We'll fix it.</li></ol><span class="sg">From all of us at Marlow</span></div></div>
+        </div>
+        <p class="note">The card sits on top of the move-in gift. A week later, the site team asks how the first week went, which is the moment to ask for a review.</p>
+      </div>
+
+      <!-- 11 investor -->
+      <div class="dk-p" id="p-inv" role="tabpanel">
+        <div class="dk-jd">"Assist with detailed <b>investor reports</b> and draw data-driven conclusions and recommendations"</div>
+        <h3>Lease-up memo: one chart, one paragraph, three decisions</h3>
+        <p class="in">Investors read the first sentence and the chart. Both should say the same thing. Sample numbers below, to show the format.</p>
+        <div class="inv">
+          <div class="dk-card" style="padding:14px">
+            <svg viewBox="0 0 520 300" role="img" aria-label="Sample lease-up chart: actual leasing ahead of plan">
+              <g font-family="IBM Plex Mono" font-size="10" fill="#5d6068">
+                <text x="34" y="24">100%</text><text x="40" y="99">75%</text><text x="40" y="174">50%</text><text x="40" y="249">25%</text>
+                <text x="70" y="290">Wk 1</text><text x="190" y="290">Wk 8</text><text x="310" y="290">Wk 16</text><text x="440" y="290">Wk 24</text>
+              </g>
+              <g stroke="#ece6dd"><line x1="70" y1="20" x2="500" y2="20"/><line x1="70" y1="95" x2="500" y2="95"/><line x1="70" y1="170" x2="500" y2="170"/><line x1="70" y1="245" x2="500" y2="245"/></g>
+              <line x1="70" y1="270" x2="500" y2="270" stroke="#02040c" stroke-width="1.5"/>
+              <path d="M70 270 L180 222 L290 178 L400 140 L480 116" fill="none" stroke="#5d6068" stroke-width="2" stroke-dasharray="5 4"/>
+              <path d="M70 270 L130 246 L190 214 L250 182 L290 168 L320 162 L350 156 L400 130 L440 116 L480 104" fill="none" stroke="#ff4e31" stroke-width="3"/>
+              <rect x="290" y="40" width="64" height="230" fill="#ff4e31" opacity=".07"/>
+              <text x="296" y="54" font-family="IBM Plex Mono" font-size="9.5" fill="#d74028">Offer stepped</text><text x="296" y="66" font-family="IBM Plex Mono" font-size="9.5" fill="#d74028">2.5 → 2 months</text>
+              <circle cx="480" cy="104" r="4.5" fill="#ff4e31"/><text x="420" y="94" font-family="Archivo" font-weight="800" font-size="13" fill="#02040c">62%</text>
+              <text x="440" y="132" font-family="IBM Plex Mono" font-size="10" fill="#5d6068">plan 58%</text>
+            </svg>
+          </div>
+          <div class="memo">
+            <h5>Sample building · week 24 of lease-up</h5>
+            <p class="hl">Leasing is 4 points ahead of plan, but pace slowed for three weeks when the offer stepped down, so the next step-down should wait.</p>
+            <div class="kpis"><div><b>62%</b><span>leased vs 58% plan</span></div><div><b>$2,190</b><span>NER vs $2,150 plan</span></div><div><b>$540</b><span>cost per lease</span></div></div>
+            <ul><li>Hold 2 months free through week 30, then step down only if weekly leases stay above plan.</li><li>Move 15% of paid budget to ILS featured placements, where cost per lease is lowest.</li><li>Re-forecast stabilization to week 44, four weeks earlier than underwritten.</li></ul>
+          </div>
+        </div>
+        <p class="note">Sample data to show the format, not Fitzrovia's numbers. Net effective rent uses the same math as the calculator in section 02.</p>
+      </div>
+
+      <!-- 12 reputation -->
+      <div class="dk-p" id="p-rep" role="tabpanel">
+        <div class="dk-jd">"Manage and audit our 'online curb appeal', this includes <b>online reputation management</b>, ILS, property websites, tour booking forms, and testing site phone numbers"</div>
+        <h3>Four reviews, four replies, ready to approve</h3>
+        <p class="in">The audit of listings, sites, forms and phone numbers is section 01. Reputation is the other half: every review answered within 48 hours, in the building's voice, never the same reply twice.</p>
+        <div class="rules"><span>Reply within 48 hours</span><span>Name the specific thing</span><span>Own it, no excuses</span><span>One next step</span><span>Take details offline</span><span>Sign as the building team</span></div>
+        <div class="rvw">
+          <div class="it"><div class="q"><span class="stars">★★★★★</span><p>"Moved in last month and the concierge team has been amazing. Every request handled the same day."</p><small>Sample · Sloane</small></div><div class="a"><small>Reply</small>Thank you, and welcome home. We'll share this with the concierge team; same-day is exactly what we aim for, and it's good to hear it's landing. The front desk is always the fastest way to reach us. · The Sloane team</div></div>
+          <div class="it"><div class="q"><span class="stars">★★☆☆☆</span><p>"Love the amenities but two machines in the gym have been broken for weeks."</p><small>Sample · Marlow</small></div><div class="a"><small>Reply</small>Thank you for telling us. Equipment out of service for weeks isn't the standard we hold ourselves to. We've raised both machines with our operations team, and the front desk will have a repair date for you this week. · The Marlow team</div></div>
+          <div class="it"><div class="q"><span class="stars">★☆☆☆☆</span><p>"Booked a tour online and nobody showed up. Wasted my lunch break."</p><small>Sample · Parker</small></div><div class="a"><small>Reply</small>We're sorry. A missed tour costs you real time, and it shouldn't happen. We'd like to find out where the booking went wrong and offer you a private tour at a time that suits you. Please reach our leasing office and ask for the manager. · The Parker team</div></div>
+          <div class="it"><div class="q"><span class="stars">★★★★☆</span><p>"Great building, great location. Parking is pricey though."</p><small>Sample · Elm-Ledbury</small></div><div class="a"><small>Reply</small>Thank you for the kind words about the building and the neighbourhood. On parking, our leasing team can walk you through the current options and any offers that include it. · The Elm-Ledbury team</div></div>
+        </div>
+        <div class="dk-ptr"><p>The other half of curb appeal: nine live findings and a phone test sheet.</p><a href="#audit">Open the audit</a></div>
+      </div>
+
+      <!-- 13 site staff -->
+      <div class="dk-p" id="p-site" role="tabpanel">
+        <div class="dk-jd">"Support the planning and rollout of property marketing programs, promotions, and <b>collateral distribution in collaboration with site staff</b>"</div>
+        <h3>The Monday huddle sheet for the leasing team</h3>
+        <p class="in">Site teams sell the building every day. One page on Monday gives them the offer, the talking points and the checklist, and gives marketing what's happening on the ground by Friday.</p>
+        <div class="hud">
+          <div class="top"><b>Sloane · Week of Nov 23</b><small>Leasing huddle · Monday 9:00</small></div>
+          <div class="off"><small>This week's offer · from the offer sheet</small><b>Up to 2.5 months free on select suites</b></div>
+          <div class="gr">
+            <div><h6>Three things to mention on every tour</h6><ol><li>Direct TTC access at Yorkdale, and the 401 and 400 minutes away.</li><li>Rooftop pool and a Scandinavian-inspired spa with cold plunges.</li><li>The Raptors basketball court and the two-lane bowling lounge.</li></ol></div>
+            <div><h6>Three questions to ask</h6><ol><li>When do you need to move?</li><li>Which other buildings are you comparing?</li><li>What would make this an easy yes?</li></ol></div>
+            <div><h6>Collateral check</h6><label><input type="checkbox">Lobby easel shows this week's offer</label><label><input type="checkbox">Offer cards at the leasing desk</label><label><input type="checkbox">Last month's signage removed</label><label><input type="checkbox">Google Business post matches</label></div>
+            <div><h6>Back to marketing by Friday</h6><ul><li>Tours and leases this week</li><li>Top three objections heard</li><li>Any listing or price error a renter mentioned</li></ul></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 14 ops -->
+      <div class="dk-p" id="p-ops" role="tabpanel">
+        <div class="dk-jd">"Help prepare marketing <b>reports and dashboards</b>" · "Manage <b>purchase orders and invoice processing</b> in Yardi" · "Assist with developing and managing <b>marketing budgets</b>" · "Stay current with marketing trends, <b>AI tools</b>"</div>
+        <h3>Built above</h3>
+        <p class="in">These four have their own sections on this page.</p>
+        <div class="dk-g2" style="margin-top:14px">
+          <a class="dk-card" href="#budget" style="text-decoration:none"><h5>05 · POs, invoices, budget →</h5><p>A PO tracker with invoice status and budget left to spend, kept next to Yardi.</p></a>
+          <a class="dk-card" href="#report" style="text-decoration:none"><h5>06 · Monthly report →</h5><p>Leads to leases by source, then the three things to do about it.</p></a>
+          <a class="dk-card" href="#ai" style="text-decoration:none"><h5>07 · AI, with a human on every send →</h5><p>Weekly listing checks, review reply drafts, brand-voice first drafts.</p></a>
+          <a class="dk-card" href="#offers" style="text-decoration:none"><h5>02 · Offers in one place →</h5><p>The offer sheet every channel copies from, and the net effective rent math.</p></a>
+        </div>
+      </div>
+
+    </div>
   </div>
+
+  <div class="body"><div class="honest"><b>To be straightforward:</b> my design tools today are Canva and Figma. InDesign, Illustrator and Photoshop are the first things I'd ramp up on, so print files and floorplans come out exactly to spec. Yardi is new to me too. The rest of this page is work I can do from day one.</div></div>
 </section>
 
 </main>
@@ -632,7 +1346,7 @@ words on the guide's "don't use" list.</pre>
       <a class="o" href="https://www.linkedin.com/in/durvathakkar/" target="_blank" rel="noopener">LinkedIn</a>
       <a class="o" href="https://durvathakkar.com/" target="_blank" rel="noopener">Portfolio</a>
     </div>
-    <p class="foot">Findings were checked on fitzrovia.ca and the property websites on Oct 31, 2026, and may have changed since. Budget, social and reporting examples use sample data to show the format. Durva Thakkar, Toronto.</p>
+    <p class="foot">Findings were checked on fitzrovia.ca and the property websites on Oct 31, 2026, and may have changed since. Budget, reporting, investor and review examples use sample data to show the format. Photography is Fitzrovia's own, from its property websites, used here to show the work in Fitzrovia's look. Durva Thakkar, Toronto.</p>
   </div>
 </section>
 
@@ -789,6 +1503,303 @@ words on the guide's "don't use" list.</pre>
   });
   draw('all');
 })();
+
+/* ---------- November social calendar ---------- */
+(function(){
+  var PIL={rd:['Rushden Station','#ff4e31'],co:['The Collection','#02040c'],ll:['Live Lighter','#5f8a7b'],st:['The Fitzrovia Standard™','#b39a6b'],pa:['Partnerships','#4a6fa5'],of:['Offers','#e8a33d']};
+  var UTM='https://www.fitzrovia.ca/residential/';
+  var P=[
+    {d:2,b:'Rushden Station',slug:'rushden-station',p:'rd',f:'Carousel',tm:'12:00',goal:'Grow the Rushden Station interest list before launch',kpi:'Saves, link-in-bio clicks, interest-list sign-ups',c:'nov02_neighbourhood',
+     s:[{t:'photo',i:'rd-mainst',k:'Rushden Station · Main + Danforth',h:'Before the keys, the neighbourhood.',x:'Swipe for the East End →'},
+        {t:'photo',i:'rd-ravine',k:'Green space',h:'Ravine walks, close to home.'},
+        {t:'photo',i:'rd-patio',k:'On the Danforth',h:'Long lunches, local spots.'},
+        {t:'photo',i:'rd-shop',k:'Independent shops',h:'Shop small, around the corner.'},
+        {t:'photo',i:'rd-gallery',k:'Local culture',h:'A neighbourhood with character.'},
+        {t:'type',v:'ink',k:'Coming Q1 2027 · 6 Dawes Road',h:'Hear about it <span>first.</span>',x:'Join the Rushden Station interest list. Link in bio.'}],
+     cap:'Main and Danforth has always felt like a village. Local cafés, independent shops, green space, and the subway steps away.\n\nRushden Station joins the neighbourhood in Q1 2027. The interest list hears everything first: suite releases, pricing and opening dates.\n\nJoin through the link in bio.',tags:'#RushdenStation #DanforthVillage #EastEndTO',
+     alt:'Carousel of six: a couple on the Main Street subway platform, a footbridge over a ravine, friends on a Danforth patio, a woman browsing a boutique, a couple in a gallery, and a closing card for the Rushden Station interest list.'},
+    {d:4,b:'Marlow',slug:'marlow',p:'ll',f:'Reel',tm:'18:00',goal:'Turn amenity interest into tour bookings',kpi:'3-second holds, shares, tours booked from the link',c:'nov04_hammam_reel',
+     s:[{t:'reel',i:'mw-hammam',k:'Marlow · Hammam Spa',h:'Hot. Cold. Repeat.'},
+        {t:'photo',i:'mw-plunge',k:'0:04',h:'Cold plunge, city view.'},
+        {t:'photo',i:'mw-pool',k:'0:08',h:'Then a slow lap indoors.'},
+        {t:'type',v:'sage',k:'0:12',h:'November, handled.',x:'Book a tour at Marlow. Link in bio.'}],
+     beats:['0:00 Steam rolls through the Hammam. Text: "Hot."','0:04 Cut to the cold plunge at sunset. Text: "Cold."','0:08 Indoor pool, slow pan. Text: "Repeat."','0:12 End card: "November, handled." Book a tour.'],
+     cap:"November in Toronto, handled one floor down.\n\nMarlow's Hammam Spa, a Scandinavian-inspired cold plunge, a Finnish dry sauna and an indoor pool, all at Bloor and Dufferin.\n\nTry the circuit on a tour. Link in bio.",tags:'#MarlowLife #LiveLighter #Bloordale',
+     alt:"Reel: steam in Marlow's tiled Hammam Spa, two cold plunge tubs by a window at sunset, and an indoor pool with wood-slat ceiling."},
+    {d:6,b:'Sloane',slug:'sloane',p:'co',f:'Single image',tm:'09:00',goal:'Show Sloane to families comparing buildings',kpi:'Saves, shares, profile visits',c:'nov06_playroom',
+     s:[{t:'photo',i:'sl-play',k:'Sloane · Yorkdale',h:'Rainy Saturday? Sorted.'}],
+     cap:"Rainy Saturday plans, without leaving the building.\n\nSloane's amenities run on a resort-like scale, and the youngest residents get a space of their own. Steps from Yorkdale, with direct TTC access.\n\nBook a tour through the link in bio.",tags:'#SloaneLife #Yorkdale #TorontoFamilies',
+     alt:"Children at small tables inside Sloane's playroom, under a large arched doorway with cloud-shaped lights."},
+    {d:9,b:'All communities',slug:'',p:'st',f:'Carousel',tm:'12:00',goal:'Saveable value that positions how Fitzrovia buildings are run',kpi:'Saves and shares (the signals that widen reach)',c:'nov09_tour_questions',
+     s:[{t:'type',v:'',k:'Save this for your next tour',h:'5 questions to ask on any apartment tour.'},
+        {t:'type',v:'white',n:'01',h:'Who picks up at 2 a.m.?',x:'Ask how after-hours requests are handled, and by whom.'},
+        {t:'type',v:'white',n:'02',h:"What's included in the rent?",x:'Internet, utilities, parking, storage. Get it in writing.'},
+        {t:'type',v:'white',n:'03',h:'How fast are repairs, really?',x:'Ask for the typical response time, not the policy.'},
+        {t:'type',v:'white',n:'04',h:'Can I see the amenities in use?',x:'A gym at 7 p.m. tells you more than a photo.'},
+        {t:'type',v:'white',n:'05',h:'What does move-in day look like?',x:'Elevator booking, keys, a welcome. Day one sets the tone.'},
+        {t:'type',v:'ink',k:'The Fitzrovia Standard™',h:'Ask us <span>all five.</span>',x:'Book a tour at any Fitzrovia community.'}],
+     cap:"Saving this for your next tour? Good idea.\n\nThese five questions tell you how a building is run, not just how it looks. Ask them anywhere. Then ask us: our teams are happy to answer all five at every Fitzrovia community.",tags:'#TorontoRentals #ApartmentHunting #FitzroviaStandard',
+     alt:'Seven text slides listing five questions to ask on an apartment tour, ending with an invitation to ask Fitzrovia all five.'},
+    {d:12,b:'Elm-Ledbury',slug:'elm-ledbury',p:'pa',f:'Single image',tm:'19:00',goal:'Use the Raptors partnership to give the brand energy',kpi:'Comments, shares, story reposts',c:'nov12_home_court',
+     s:[{t:'photo',i:'el-court',k:'Elm-Ledbury · Queen + Church',h:'Home court.'}],
+     cap:"Game night has a home court.\n\nElm-Ledbury's North Court brings the game inside, right at Queen and Church. As the official rental housing partner of the Toronto Raptors, we'll be cheering all season.\n\nWho's in your starting five? Tell us below.",tags:'#ElmLedbury #WeTheNorth #FitzroviaLife',
+     alt:"Two residents playing basketball on Elm-Ledbury's indoor North Court, with the Raptors logo at centre court."},
+    {d:13,b:'Marlow',slug:'marlow',p:'co',f:'Single image',tm:'12:00',goal:'Suite interest for Marlow lease-up',kpi:'Link clicks, tours booked',c:'nov13_hosting',
+     s:[{t:'split',i:'mw-kitchen',k:'Marlow · Bloor + Dufferin',h:'Hosting season starts here.'}],
+     cap:"Hosting season starts in the kitchen.\n\nMarlow suites pair light-filled layouts with refined materials, and room for one more chair at the table. Studios to three bedrooms at Bloor and Dufferin.\n\nTour this weekend. Link in bio.",tags:'#MarlowLife #TorontoRentals #Bloordale',
+     alt:'A bright Marlow suite kitchen with a waterfall island, bar stools, pendant lights and city views.'},
+    {d:16,b:'Rushden Station',slug:'rushden-station',p:'rd',f:'Single image',tm:'12:00',goal:'Grow the interest list',kpi:'Link-in-bio clicks, sign-ups',c:'nov16_landmark',
+     s:[{t:'photo',i:'rd-towers',k:'Rushden Station · Coming Q1 2027',h:'A new landmark for the East End.'}],
+     cap:"A new landmark for the East End.\n\nDesigned by bKL Architecture, Rushden Station brings contemporary rental living to Main and Danforth, with suites from studios to three bedrooms.\n\nThe interest list gets first access. Join through the link in bio.",tags:'#RushdenStation #EastEndTO #TorontoArchitecture',
+     alt:'Rendering of the Rushden Station towers rising above a green park at Main and Danforth.'},
+    {d:18,b:'Marlow',slug:'marlow',p:'ll',f:'Reel',tm:'18:00',goal:'Reach new renters with a playful amenity moment',kpi:'Reach to non-followers, shares, tours booked',c:'nov18_golf_reel',
+     s:[{t:'reel',i:'mw-golf',k:'Marlow · Golf simulator',h:"Winter can't cancel your tee time."},
+        {t:'type',v:'',k:'0:09',h:'Swing season is year-round.',x:'Book a tour at Marlow. Link in bio.'}],
+     beats:['0:00 Snow on a window (from the winter shoot). Text: "Course closed?"','0:03 Cut to the simulator: full swing.','0:06 Ball flight on screen. Text: "Not here."','0:09 End card. Book a tour.'],
+     cap:"The course is closed. The golf simulator at Marlow isn't.\n\nSwing season is year-round at Bloor and Dufferin. Book a tour and bring your driver.",tags:'#MarlowLife #LiveLighter #TorontoGolf',
+     alt:"A resident mid-swing in Marlow's green-walled golf simulator room."},
+    {d:20,b:'Parker',slug:'parker',p:'co',f:'Single image',tm:'12:00',goal:'Weekend tours at Parker',kpi:'Link clicks, tours booked Sat–Sun',c:'nov20_view',
+     s:[{t:'photo',i:'pk-roof',k:'Parker · Yonge + Eglinton',h:"The pool's resting. The view isn't."}],
+     cap:"The rooftop pool is resting for the season. The view from Parker at Yonge and Eglinton works all year.\n\nBook a weekend tour through the link in bio.",tags:'#ParkerLife #YongeAndEglinton #TorontoViews',
+     alt:"Parker's rooftop pool deck with orange umbrellas, looking south over the Toronto skyline."},
+    {d:23,b:'Rushden Station',slug:'rushden-station',p:'rd',f:'Reel',tm:'08:00',goal:'Sell the location to commuters',kpi:'Shares, saves, interest-list sign-ups',c:'nov23_commute_reel',
+     s:[{t:'reel',i:'rd-mainst',k:'Rushden Station · Main + Danforth',h:'Your commute starts at Main Street.'},
+        {t:'photo',i:'rd-flowers',k:'0:06',h:'Flowers on the way home.'},
+        {t:'type',v:'red',k:'0:11',h:'Line 2 + Lakeshore East GO.',x:'Join the interest list. Link in bio.'}],
+     beats:['0:00 Main Street platform, a train pulls in. Text: "Your commute starts here."','0:04 Up the stairs to Danforth Avenue.','0:06 Picking up flowers on the way home.','0:11 End card: Line 2 + Danforth GO. Join the interest list.'],
+     cap:"Line 2 at Main Street station. Lakeshore East trains at Danforth GO. Rushden Station is close to both.\n\nOpening Q1 2027 at Main and Danforth. Join the interest list for first access.",tags:'#RushdenStation #TTC #EastEndTO',
+     alt:'A couple on the tiled Main Street subway platform, then a bouquet of fresh flowers, then a red card listing Line 2 and Lakeshore East GO.'},
+    {d:25,b:'All communities',slug:'',p:'ll',f:'Carousel',tm:'12:00',goal:'Show the portfolio’s amenities as one lifestyle',kpi:'Saves, comments, profile visits',c:'nov25_winter_list',
+     s:[{t:'type',v:'sage',k:'Live Lighter',h:'5 ways to enjoy a Toronto winter indoors.'},
+        {t:'photo',i:'mw-pool',k:'01 · Marlow',h:"Swim laps when it's minus ten."},
+        {t:'photo',i:'sl-spa',k:'02 · Sloane',h:'Make Sunday a spa day.'},
+        {t:'photo',i:'sl-kids',k:'03 · Sloane',h:'Play dates, any weather.'},
+        {t:'photo',i:'mw-suite',k:'04 · Marlow',h:'Stay in. Cook something slow.'},
+        {t:'photo',i:'rd-gallery',k:'05 · The Danforth',h:'Find a new gallery.'},
+        {t:'type',v:'ink',k:'Live Lighter',h:'Which one is <span>your Sunday?</span>',x:'Tell us in the comments.'}],
+     cap:"Five ways to enjoy a Toronto winter, mostly from the warm side of the window.\n\nWhich one is your Sunday? Tell us below.",tags:'#LiveLighter #FitzroviaLife #TorontoWinter',
+     alt:'Carousel: an indoor pool, a dark tiled spa, a children’s playroom, a suite kitchen, and a gallery visit, between two Live Lighter title cards.'},
+    {d:27,b:'Sloane + Parker',slug:'sloane',p:'of',f:'Single image',tm:'10:00',goal:'Convert Black Friday attention into leads',kpi:'Link clicks, leads, cost per lead vs. paid',c:'nov27_offer',
+     s:[{t:'offer',k:'This Friday · Sloane + Parker',h:'Up to 2.5 months free.',x:'On select suites. Terms apply.'}],
+     cap:"Skip the lineups. This Friday's best deal is a new home.\n\nUp to 2.5 months free on select suites at Sloane (Yorkdale) and Parker (Yonge and Eglinton). Terms apply; details at the link in bio.",tags:'#SloaneLife #ParkerLife #TorontoRentals',
+     note:'The offer is copied from the offer sheet (section 02) the morning it posts, so it can never drift from the ILS or the website.',
+     alt:'Red card reading "Up to 2.5 months free" for select suites at Sloane and Parker.'},
+    {d:30,b:'Rushden Station',slug:'rushden-station',p:'rd',f:'Carousel',tm:'12:00',goal:'Give the interest list a reason to stay warm into December',kpi:'Saves, link clicks, sign-ups',c:'nov30_suites',
+     s:[{t:'photo',i:'rd-ne',k:'Rushden Station · The suites',h:'Crafted for life on the Danforth.'},
+        {t:'type',v:'',n:'01',h:"9' ceilings.",x:'Warm, light-filled layouts with custom Italian-made millwork.'},
+        {t:'type',v:'',n:'02',h:'Free gigabit internet.',x:'Plus keyless entry and an ecobee thermostat.'},
+        {t:'type',v:'',n:'03',h:'KitchenAid® and quartz.',x:'Designer kitchens made for cooking and gathering.'},
+        {t:'type',v:'',n:'04',h:'Kohler in the bath.',x:'Spa-inspired bathrooms, a quiet place to unwind.'},
+        {t:'type',v:'ink',k:'Studios to 3 bedrooms',h:'Be first <span>in line.</span>',x:'Join the interest list. Link in bio.'}],
+     cap:"A first look at what's inside Rushden Station: 9' ceilings, free gigabit internet, KitchenAid® appliances and Kohler fixtures, from studios to three bedrooms.\n\nOpening Q1 2027 at Main and Danforth. The interest list hears first.",tags:'#RushdenStation #DanforthVillage #NewInTO',
+     alt:'A street-level rendering of Rushden Station, then four cards listing suite features, then an interest-list card.'}
+  ];
+  var STO={1:'Poll: Hammam or cold plunge?',3:'Reshare residents who tagged us',5:'Behind the scenes: winter shoot at Marlow',7:'Weekend tour times + link sticker',8:'Rushden countdown sticker',10:'Quiz: which tour question surprised you?',11:'Remembrance Day. 11:00 moment of silence, no promotion',14:'Weekend tour times + link sticker',15:'Reshare: best resident photo of the week',17:'Question box: ask us about Rushden Station',19:'Answers to Tuesday’s questions',21:'Weekend tour times + link sticker',22:'Reshare residents who tagged us',24:'Poll: which winter tip is yours?',26:'Heads up: Friday offer tomorrow',28:'Weekend tour times + link sticker',29:'November’s most-saved post'};
+  var DOW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  function esc(s){return s}
+  function art(sl,ix,total){
+    var bg=sl.i?'background-image:url(img/'+sl.i+'.jpg)':'';
+    var cls='ig-art '+sl.t+(sl.v?' '+sl.v:'');
+    var h='<div class="'+cls+'" style="'+(sl.t==='split'?'':bg)+'">';
+    if(sl.t==='split')h+='<div class="ph" style="'+bg+'"></div>';
+    if(sl.t!=='type'&&sl.t!=='offer')h+='<i class="rb"></i>';
+    h+='<span class="wm">FITZROVIA</span>';
+    if(sl.t==='reel')h+='<span class="play"></span>';
+    if(total>1&&ix===0)h+='<span class="ix">1/'+total+'</span>';
+    h+='<div class="ov">'+(sl.n?'<span class="n">'+sl.n+'</span>':'')+(sl.k?'<span class="k">'+sl.k+'</span>':'')+'<span class="h">'+sl.h+'</span>'+(sl.x?'<span class="s">'+sl.x+'</span>':'')+'</div></div>';
+    return h;
+  }
+  // mix
+  var fm={},pm={};P.forEach(function(p){fm[p.f]=(fm[p.f]||0)+1;pm[p.p]=(pm[p.p]||0)+1});
+  document.getElementById('igMix').innerHTML='<div><b>'+P.length+'</b><span>Feed posts</span></div><div><b>'+(fm['Reel']||0)+'</b><span>Reels</span></div><div><b>'+(fm['Carousel']||0)+'</b><span>Carousels</span></div><div><b>'+Object.keys(STO).length+'</b><span>Story days</span></div>';
+  document.getElementById('igLeg').innerHTML=Object.keys(PIL).map(function(k){return '<span><i style="background:'+PIL[k][1]+'"></i>'+PIL[k][0]+' · '+(pm[k]||0)+'</span>'}).join('');
+  // calendar: Nov 1 2026 is a Sunday
+  var cal=document.getElementById('igCal'),h='';
+  DOW.forEach(function(d){h+='<div class="ig-dow">'+d+'</div>'});
+  var byDay={};P.forEach(function(p,i){byDay[p.d]=i});
+  for(var d=1;d<=35;d++){
+    if(d>30){h+='<div class="ig-day blank"></div>';continue}
+    var w=DOW[(d-1)%7];
+    if(byDay[d]!==undefined){
+      var p=P[byDay[d]];
+      h+='<button class="ig-day" data-i="'+byDay[d]+'" aria-label="Open post for '+w+' Nov '+d+'"><span class="dn" data-w="'+w+' · '+p.f+'">'+d+'</span>'+art(p.s[0],0,p.s.length)+'<span class="meta"><span>'+p.f+'</span><i style="background:'+PIL[p.p][1]+'"></i></span></button>';
+    } else {
+      h+='<div class="ig-day sonly"><span class="dn">'+d+'</span>'+(STO[d]?'<span class="sty">'+STO[d]+'</span>':'')+'</div>';
+    }
+  }
+  cal.innerHTML=h;
+  document.getElementById('igSto').innerHTML='<b class="mono" style="color:var(--soft)">Stories between posts</b><ul>'+Object.keys(STO).map(function(d){return '<li><b>Nov '+d+'</b> · '+STO[d]+'</li>'}).join('')+'</ul>';
+  // modal
+  var dlg=document.getElementById('igDlg'),cur=0,sl=0;
+  function el(id){return document.getElementById(id)}
+  function link(p){return (p.slug?UTM+p.slug:'https://www.fitzrovia.ca/residential')+'?utm_source=instagram&utm_medium=organic_social&utm_campaign=nov2026&utm_content='+p.c}
+  function show(i){
+    cur=i;sl=0;var p=P[i],dt=new Date(2026,10,p.d);
+    el('igLoc').textContent=p.b==='All communities'?'Toronto, Ontario':p.b;
+    el('igTrack').innerHTML=p.s.map(function(s,k){return art(s,-1,p.s.length)}).join('');
+    el('igDots').innerHTML=p.s.length>1?p.s.map(function(_,k){return '<i'+(k===0?' class="on"':'')+'></i>'}).join(''):'';
+    el('igCap').innerHTML='<b>fitzrovialife</b> '+p.cap+'\n\n<span class="tg">'+p.tags+'</span>';
+    el('igWhen').textContent=DOW[dt.getDay()]+' · Nov '+p.d+' · '+p.tm+' · '+PIL[p.p][0];
+    el('igTitle').textContent=p.s[0].h.replace(/<[^>]+>/g,'');
+    var dl='<dt>Format</dt><dd>'+p.f+(p.s.length>1?' · '+p.s.length+(p.f==='Reel'?' scenes':' slides'):'')+'</dd><dt>Building</dt><dd>'+p.b+'</dd><dt>Goal</dt><dd>'+p.goal+'</dd><dt>Measure</dt><dd>'+p.kpi+'</dd>';
+    if(p.beats)dl+='<dt>Beat sheet</dt><dd><ol>'+p.beats.map(function(b){return '<li>'+b+'</li>'}).join('')+'</ol></dd>';
+    dl+='<dt>Link</dt><dd><code>'+link(p)+'</code></dd><dt>Alt text</dt><dd>'+p.alt+'</dd>';
+    if(p.note)dl+='<dt>Note</dt><dd>'+p.note+'</dd>';
+    el('igDl').innerHTML=dl; move(0);
+    if(!dlg.open)dlg.showModal();
+  }
+  function move(n){
+    var len=P[cur].s.length; sl=Math.max(0,Math.min(len-1,n));
+    el('igTrack').style.transform='translateX(-'+(sl*100)+'%)';
+    [].slice.call(el('igDots').children).forEach(function(d,k){d.classList.toggle('on',k===sl)});
+    el('igP').hidden=sl===0; el('igN').hidden=sl>=len-1;
+  }
+  cal.addEventListener('click',function(e){var b=e.target.closest('button.ig-day');if(b)show(+b.dataset.i)});
+  el('igP').onclick=function(){move(sl-1)}; el('igN').onclick=function(){move(sl+1)};
+  el('igX').onclick=function(){dlg.close()};
+  el('igPrev').onclick=function(){show((cur-1+P.length)%P.length)}; el('igNext').onclick=function(){show((cur+1)%P.length)};
+  dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
+  var tx=null; el('igTrack').addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
+  el('igTrack').addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)move(sl+(dx<0?1:-1));tx=null});
+  document.addEventListener('keydown',function(e){if(!dlg.open)return;if(e.key==='ArrowRight')move(sl+1);if(e.key==='ArrowLeft')move(sl-1)});
+})();
+
+/* ---------- the desk ---------- */
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.dk-ix button')), KEY='fz-dk';
+  function open(id,scroll){
+    tabs.forEach(function(t){t.setAttribute('aria-selected',t.dataset.p===id)});
+    [].slice.call(document.querySelectorAll('.dk-p')).forEach(function(p){p.classList.toggle('on',p.id==='p-'+id)});
+    var t=tabs.filter(function(t){return t.dataset.p===id})[0];
+    if(t&&t.scrollIntoView&&innerWidth<=860)t.parentNode.scrollTo({left:t.offsetLeft-16,behavior:'smooth'});
+    if(scroll){var top=document.getElementById('dk').getBoundingClientRect().top+scrollY-(innerWidth<=860?10:70);if(Math.abs(scrollY-top)>40)scrollTo({top:top,behavior:'smooth'})}
+    try{localStorage.setItem(KEY,id)}catch(e){}
+  }
+  tabs.forEach(function(t){t.addEventListener('click',function(){open(t.dataset.p,true)})});
+  [].slice.call(document.querySelectorAll('.dk-jump')).forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();open(a.dataset.p,true)})});
+  var start='prog'; try{start=localStorage.getItem(KEY)||'prog'}catch(e){}
+  var hm=location.hash.match(/^#work-(\w+)/); if(hm)start=hm[1];
+  if(!document.getElementById('p-'+start))start='prog';
+  open(start,false);
+})();
+
+/* program board */
+(function(){
+  var B=['Elm-Ledbury','Sloane','Parker','Marlow','Waverley','Maddox Cabbagetown','Maddox Tyndall','Loxley QdS'];
+  var C=['Offer sheet','fitzrovia.ca card','Property site','ILS listings','Google post','On-site signage','Site team briefed'];
+  var L=['To do','Doing','Live'], init=[[2,2,2,2,2,1,2],[2,2,2,1,1,0,2],[2,2,1,1,0,0,1],[2,2,2,2,2,2,2],[2,1,1,0,0,0,0],[2,2,1,0,1,0,1],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0]];
+  var S=init.map(function(r){return r.slice()}), T=document.getElementById('pbT');
+  function draw(){
+    var h='<thead><tr><th>Building</th>'+C.map(function(c){return '<th>'+c+'</th>'}).join('')+'<th>Done</th></tr></thead><tbody>', live=0;
+    B.forEach(function(b,i){
+      var n=S[i].filter(function(v){return v===2}).length; live+=n;
+      h+='<tr><td><b>'+b+'</b></td>'+S[i].map(function(v,j){return '<td><button class="s'+v+'" data-r="'+i+'" data-c="'+j+'" aria-label="'+b+', '+C[j]+': '+L[v]+'">'+L[v]+'</button></td>'}).join('')+'<td class="pg">'+n+'/'+C.length+'</td></tr>';
+    });
+    T.innerHTML=h+'</tbody>';
+    var all=B.length*C.length;
+    document.getElementById('pbN').textContent=live+' of '+all+' touchpoints live';
+    document.getElementById('pbBar').style.width=(live/all*100)+'%';
+  }
+  T.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var r=+b.dataset.r,c=+b.dataset.c;S[r][c]=(S[r][c]+1)%3;draw()});
+  document.getElementById('pbReset').onclick=function(){S=init.map(function(r){return r.slice()});draw()};
+  draw();
+})();
+
+/* brand check */
+(function(){
+  var R=[
+    {re:/Quartier de Spectacles/gi,to:'Quartier des Spectacles',why:'Neighbourhood name: "des", as on the Loxley page title.',s:'h'},
+    {re:/Kinsgton/gi,to:'Kingston',why:'Typo, live on the fitzrovia.ca listings page today.',s:'h'},
+    {re:/Months Free Parker/g,to:'Months Free Parking',why:'"Parker" is a Fitzrovia building. Live in Maddox Cabbagetown\'s search snippet.',s:'h'},
+    {re:/\b(?:[Tt]he )?Fitzrovia Standard(?!™)/g,to:'The Fitzrovia Standard™',why:'Written as "The Fitzrovia Standard™" everywhere on fitzrovia.ca.',s:'m'},
+    {re:/\bLive lighter\b/g,to:'Live Lighter',why:'Program name, capitalized as on fitzrovia.ca.',s:'m'},
+    {re:/\bElm Ledbury\b/g,to:'Elm-Ledbury',why:'Building name is hyphenated.',s:'m'},
+    {re:/\bMille Carre\b/g,to:'Mille Carré',why:'Building name keeps the accent.',s:'m'},
+    {re:/647-799-9680/g,to:'the building\'s own number',why:'Shared pre-construction line. Use the number from the offer sheet.',s:'h'},
+    {re:/!/g,to:'.',why:'Fitzrovia\'s own copy is calm and premium; no exclamation marks.',s:'l',t:1}
+  ];
+  var inp=document.getElementById('bcIn'), out=document.getElementById('bcOut'), list=document.getElementById('bcList'), orig=inp.value;
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+  function run(){
+    var txt=inp.value, marks=[], items=[];
+    R.forEach(function(r){
+      r.re.lastIndex=0; var m, hit=0;
+      while((m=r.re.exec(txt))){marks.push([m.index,m.index+m[0].length,r.t]);hit++}
+      if(hit)items.push('<li><span class="sev '+r.s+'">'+(r.s==='h'?'Fix':r.s==='m'?'Brand':'Tone')+'</span><span>'+r.why+(hit>1?' ('+hit+')':'')+'</span></li>');
+    });
+    marks.sort(function(a,b){return a[0]-b[0]});
+    var h='',p=0; marks.forEach(function(k){if(k[0]<p)return;h+=esc(txt.slice(p,k[0]))+'<mark'+(k[2]?' class="t"':'')+'>'+esc(txt.slice(k[0],k[1]))+'</mark>';p=k[1]});
+    out.innerHTML=h+esc(txt.slice(p));
+    list.innerHTML=items.join('')||'<li><span class="sev l">Clean</span><span>Nothing flagged. Ready for a second pair of eyes.</span></li>';
+    document.getElementById('bcN').textContent=items.length?'· '+marks.length:'';
+  }
+  document.getElementById('bcFix').onclick=function(){var t=inp.value;R.forEach(function(r){r.re.lastIndex=0;t=t.replace(r.re,r.to)});inp.value=t.replace(/\.\./g,'.');run()};
+  document.getElementById('bcReset').onclick=function(){inp.value=orig;run()};
+  inp.addEventListener('input',run); run();
+})();
+
+/* email series */
+(function(){
+  var E=[
+    {s:"You're on the list for Rushden Station",p:'First access to suites, pricing and opening dates at Main and Danforth.',
+     body:'<div class="em-top"><img src="img/rd-logo.png" alt="Rushden Station"><span>Interest list</span></div><div class="em-hero" style="background-image:url(img/rd-towers.jpg)"></div><div class="em-in"><h4>Welcome to the list.</h4><p>Thank you for joining the Rushden Station interest list. You\'ll hear from us before anyone else: suite releases, pricing, and the dates that matter.</p><p>Rushden Station is a new rental community at Main and Danforth, designed by bKL Architecture and part of The Collection by Fitzrovia. It opens in Q1 2027.</p></div><div class="em-3"><div><small>Where</small><p>6 Dawes Road, steps from Main Street station and close to Danforth GO.</p></div><div><small>Suites</small><p>Studios to three bedrooms, 9\' ceilings, free gigabit internet.</p></div><div><small>Next</small><p>A short guide to the neighbourhood, in your inbox next week.</p></div></div><a class="em-cta" href="#p-content" onclick="return false">See the neighbourhood</a><div class="em-ft">Fitzrovia · 6 Dawes Road, Toronto, ON M4C 5A7<br>You joined the Rushden Station interest list at fitzrovia.ca. Unsubscribe any time.</div>'},
+    {s:'Your future neighbourhood, block by block',p:'Cafés, green space, and two rapid-transit lines at Main and Danforth.',
+     body:'<div class="em-top"><img src="img/rd-logo.png" alt="Rushden Station"><span>The neighbourhood</span></div><div class="em-hero" style="background-image:url(img/rd-mainst.jpg);background-position:center 35%"></div><div class="em-in"><h4>Main and Danforth, up close.</h4><p>Line 2 at the corner, Lakeshore East trains at Danforth GO, and the Danforth\'s cafés and independent shops in walking distance. We put together a short guide to the neighbourhood around Rushden Station.</p></div><a class="em-cta" href="#p-content" onclick="return false">Read the guide</a><div class="em-ft">Built from the neighbourhood guide (line 06 of this page).</div>'},
+    {s:'First look: the suites at Rushden Station',p:"Studios to three bedrooms, 9' ceilings, KitchenAid® and Kohler.",
+     body:'<div class="em-top"><img src="img/rd-logo.png" alt="Rushden Station"><span>First look</span></div><div class="em-hero" style="background-image:url(img/rd-ne.jpg)"></div><div class="em-in"><h4>Crafted for life on the Danforth.</h4><p>9\' ceilings and custom Italian-made millwork. Designer kitchens with KitchenAid® appliances and quartz. Spa-inspired bathrooms with Kohler fixtures. Free gigabit internet, keyless entry and an ecobee thermostat in every suite.</p><p>Floorplans arrive in your inbox before they go public.</p></div><a class="em-cta" href="#" onclick="return false">See the suites</a><div class="em-ft">Sent when floorplans and renderings are approved for release.</div>'},
+    {s:'Your early access to Rushden Station is open',p:'The interest list books first. Here is your link to choose a tour time.',
+     body:'<div class="em-top"><img src="img/rd-logo.png" alt="Rushden Station"><span>Early access</span></div><div class="em-hero" style="background-image:url(img/rd-nw.jpg)"></div><div class="em-in"><h4>You\'re first in line.</h4><p>As promised, the interest list gets the first tour times at Rushden Station, before the public launch next week.</p><p>Choose a time that suits you. Our leasing team will meet you at 6 Dawes Road.</p></div><a class="em-cta" href="#" onclick="return false">Book my tour</a><div class="em-ft">Sent one week before public launch, with live tour booking.</div>'}
+  ];
+  var meta=document.getElementById('emMeta'), body=document.getElementById('emBody'), btns=[].slice.call(document.querySelectorAll('#emSeq button'));
+  function show(i){
+    var e=E[i];
+    btns.forEach(function(b,k){b.setAttribute('aria-pressed',k===i)});
+    meta.innerHTML='<div><span>From</span>Rushden Station by Fitzrovia</div><div><span>Subject</span><b>'+e.s+'</b> <i class="cc">'+e.s.length+' chars</i></div><div><span>Preheader</span>'+e.p+'</div>';
+    body.innerHTML=e.body;
+  }
+  btns.forEach(function(b,k){b.addEventListener('click',function(){show(k)})});
+  show(0);
+})();
+
+/* RSA */
+(function(){
+  var H=['Marlow at Bloor & Dufferin','Apartments for Rent, Bloordale','Steps from Dufferin Station','Studios to 3 Bedrooms','Three Pools + Hammam Spa','Suites from $2,725','Book a Tour Today','The Collection by Fitzrovia','Indoor Pool and Cold Plunge','Golf Simulator + Fitness'];
+  var D=['Rental suites at Bloor and Dufferin with three pools, a Hammam Spa and a cold plunge.','Light-filled studios to 3-bedroom suites, steps from TTC Dufferin Station. Book a tour.','Part of The Collection by Fitzrovia. Hospitality-driven service from move-in onward.','Hammam, Finnish sauna, golf simulator and a commercial-grade gym, all in one place.'];
+  function li(s,max){var n=s.length;return '<li><span>'+s.replace(/&/g,'&amp;')+'</span><em'+(n>max?' class="bad"':'')+'>'+n+'/'+max+'</em></li>'}
+  document.getElementById('rsaH').innerHTML=H.map(function(h){return li(h,30)}).join('');
+  document.getElementById('rsaDs').innerHTML=D.map(function(d){return li(d,90)}).join('');
+  var bad=H.filter(function(h){return h.length>30}).length+D.filter(function(d){return d.length>90}).length;
+  document.getElementById('rsaOk').textContent=bad?bad+' over the limit':'All '+(H.length+D.length)+' lines within limits';
+  var k=0;
+  function prev(){var a=H[k%H.length],b=H[(k+4)%H.length],c=H[(k+6)%H.length];document.getElementById('rsaT').textContent=a+' | '+b+' | '+c;document.getElementById('rsaD').textContent=D[k%D.length]}
+  document.getElementById('rsaShuf').onclick=function(){k++;prev()}; prev();
+})();
+
+/* messaging matrix */
+(function(){
+  var A=[
+    {n:'Commuters',who:'Young professionals working downtown or along Line 2',bel:'"I can live somewhere with a village feel and still get downtown fast."',proof:'Main Street station on Line 2, Danforth GO on Lakeshore East, free gigabit internet',img:'rd-mainst',
+     m:[['Main + Danforth. First access starts here.','Join the interest list for a first look at suites steps from Main Street station.','Paid social, hoarding QR, platform poster','Join the list'],
+        ['Line 2 at the corner. Gigabit in the suite.','Studios and one-bedrooms at Rushden Station, with free gigabit internet and keyless entry.','ILS, search, interest-list email','See the suites'],
+        ['Your commute just got shorter.','Move in close to Main Street station and Danforth GO. Tours this week.','Search, retargeting, ILS','Book a tour']]},
+    {n:'Growing households',who:'Couples and families who need more room but want to stay in the city',bel:'"There is room for the next chapter here, without moving to the suburbs."',proof:'Two and three-bedroom suites, 9\' ceilings, parks and ravines nearby',img:'rd-ravine',
+     m:[['Room to grow, in the East End.','Two and three-bedroom rental suites are coming to Main and Danforth.','Paid social, neighbourhood guide, email','Join the list'],
+        ['Three bedrooms. Nine-foot ceilings.','Floorplans are live. See which layout fits the next chapter.','Email, ILS, paid social','See floorplans'],
+        ['Space for the next chapter.','Tour a two or three-bedroom suite at Rushden Station this weekend.','ILS, retargeting, Google Business','Book a tour']]},
+    {n:'East End neighbours',who:'Long-time locals ready to rent instead of own, or to drop the upkeep',bel:'"I can stay in the neighbourhood I love and leave the maintenance to someone else."',proof:'Hospitality-driven service, KitchenAid® kitchens, Kohler bathrooms, right on the Danforth',img:'rd-patio',
+     m:[['Stay on the Danforth. Leave the upkeep.','A new rental community for the neighbourhood you already love.','Hoarding, local print, community events','Join the list'],
+        ['All of the Danforth. None of the shovelling.','KitchenAid® kitchens and spa-inspired Kohler bathrooms, with a team that takes care of the rest.','Email, local print, paid social','See the suites'],
+        ['Same neighbourhood. Easier living.','Book a private tour at Rushden Station, 6 Dawes Road.','Direct mail, Google Business, ILS','Book a private tour']]}
+  ];
+  var ST=['Pre-construction','Launch','Lease-up'], a=0, s=0, out=document.getElementById('mxOut');
+  function draw(){
+    var x=A[a], m=x.m[s];
+    out.innerHTML='<div class="ad" style="background-image:url(img/'+x.img+'.jpg)"><small>Rushden Station · '+ST[s]+'</small><b>'+m[0]+'</b><p>'+m[1]+'</p><span class="c">'+m[3]+'</span></div><div class="why"><div><small>Who</small>'+x.who+'</div><div><small>What they need to believe</small><span class="bel">'+x.bel+'</span></div><div><small>Proof from the building</small>'+x.proof+'</div><div><small>Where it runs</small>'+m[2]+'</div></div>';
+  }
+  function wire(id,set){[].slice.call(document.querySelectorAll('#'+id+' button')).forEach(function(b,k,all){b.addEventListener('click',function(){all.forEach(function(o){o.setAttribute('aria-pressed',o===b)});set(k);draw()})})}
+  wire('mxA',function(k){a=k}); wire('mxS',function(k){s=k}); draw();
+})();
+(function(){var t=document.getElementById('seoT').textContent.length,d=document.getElementById('seoD').textContent.length;document.getElementById('seoC').textContent='Title '+t+'/60 · Description '+d+'/160';})();
 </script>
 </body>
 </html>
