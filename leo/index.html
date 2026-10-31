@@ -1,0 +1,862 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hello Leo · Durva Thakkar</title>
+<meta name="description" content="leotoronto.com, read line by line: what search engines and AI can't see yet, and the finished fixes. HumanKind 2026 rebuilt, case studies written, the missing news, schema and more.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Hello Leo. Your work is an 8. Search can read a 2.">
+<meta property="og:description" content="17 live findings on leotoronto.com, and the finished fixes: HumanKind 2026 rebuilt as text, case studies written, the missing news, schema and leadership posts.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://durvathakkar.com/leo/">
+<meta property="og:image" content="https://durvathakkar.com/leo/share.jpg?v=1">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://durvathakkar.com/leo/share.jpg?v=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--k:#000;--k2:#313131;--m:#6f6f6f;--l:#e6e6e6;--bg:#fff;--bg2:#f4f4f2;--g:#55d43e;--g2:#2c9a33;--g3:#1d6b25;--gk:#0c0c0c;--f:"Inter Tight","Helvetica Neue",Helvetica,Arial,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg);color:var(--k);font:400 17px/1.55 var(--f);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+h1,h2,h3,h4{font-weight:700;letter-spacing:-.025em;line-height:1}
+button{font:inherit;cursor:pointer;color:inherit}
+code,pre{font-family:var(--mono);font-size:12.5px}
+.mono{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em}
+.wrap{max-width:1280px;margin:0 auto;padding:0 40px}
+
+/* nav like theirs */
+.nav{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.94);backdrop-filter:blur(8px)}
+.nav .wrap{display:flex;align-items:center;height:64px;gap:24px}
+.nav .lg{font-weight:700;font-size:17px;letter-spacing:-.02em;white-space:nowrap}
+.nav .lg i{font-style:normal;font-weight:400;color:var(--m)}
+.nav nav{margin-left:auto;display:flex;gap:26px;font-size:19px;letter-spacing:-.02em;overflow-x:auto;scrollbar-width:none}
+.nav nav::-webkit-scrollbar{display:none}
+.nav nav a{text-decoration:none;white-space:nowrap}
+.nav nav a:hover{text-decoration:underline;text-underline-offset:4px}
+
+/* hero */
+.hero{padding:70px 0 40px}
+.hero h1{font-size:clamp(78px,13.4vw,196px);line-height:.86;letter-spacing:-.055em}
+.hero .row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;margin-top:56px;align-items:end}
+.hero .lede{font-size:clamp(22px,2.3vw,30px);line-height:1.18;letter-spacing:-.02em;max-width:620px}
+.hero .lede b{font-weight:700}
+.hero .sub{color:var(--k2);margin-top:20px;max-width:580px}
+.hero .note{font-size:13px;color:var(--m);margin-top:18px;max-width:560px}
+
+/* GPC scale */
+.gpc{background:var(--gk);color:#fff;border-radius:0;padding:26px 28px 30px;position:relative;overflow:hidden}
+.gpc .t{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.gpc .t b{font-size:15px;font-weight:600}
+.gpc .t span{font-family:var(--mono);font-size:11px;color:#9a9a9a}
+.gpc .sc{position:relative;margin-top:62px;height:44px}
+.gpc .ticks{display:grid;grid-template-columns:repeat(10,1fr);height:100%;border-top:1px solid #333}
+.gpc .ticks i{font-style:normal;font-family:var(--mono);font-size:11px;color:#777;border-left:1px solid #333;padding:6px 0 0 6px}
+.gpc .mk{position:absolute;top:-52px;transform:translateX(-50%);transition:left 1.6s cubic-bezier(.6,0,.2,1);text-align:center;white-space:nowrap}
+.gpc .mk b{display:block;font-size:12.5px;font-weight:600;padding:5px 10px;border-radius:99px}
+.gpc .mk i{display:block;width:2px;height:58px;margin:4px auto 0}
+.gpc .mk.w b{background:var(--g);color:#000}.gpc .mk.w i{background:var(--g);margin:4px 0 0 auto}
+.gpc .mk.w{transform:translateX(calc(-100% + 1px));text-align:right}
+.gpc .mk.s{transform:translateX(-1px);text-align:left}
+.gpc .mk.s i{margin:4px 0 0 0}
+.gpc .mk b{display:inline-block}
+.gpc .mk.s b{background:#fff;color:#000}.gpc .mk.s i{background:#fff}
+.gpc .lab{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:22px}
+.gpc .lab div{border-top:1px solid #333;padding-top:10px;font-size:14px;color:#cfcfcf}
+.gpc .lab div b{display:block;color:#fff;font-size:20px;letter-spacing:-.02em;margin-bottom:4px}
+.gpc .lab div:first-child b{color:var(--g)}
+.gpc .q{font-size:12.5px;color:#8a8a8a;margin-top:18px}
+
+/* sections */
+section{padding:90px 0 20px}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:40px;align-items:end;margin-bottom:34px;border-top:1px solid var(--k);padding-top:18px}
+.sh .n{font-family:var(--mono);font-size:12px;color:var(--m);display:block;margin-bottom:16px}
+.sh h2{font-size:clamp(46px,6.6vw,96px);letter-spacing:-.05em;line-height:.9}
+.sh p{font-size:18px;color:var(--k2);line-height:1.5}
+.dark{background:var(--gk);color:#fff}
+.dark .sh{border-color:#fff}
+.dark .sh p{color:#cfcfcf}
+.dark .sh .n{color:#9a9a9a}
+
+/* desk */
+.dk{display:grid;grid-template-columns:260px minmax(0,1fr);border-top:1px solid var(--l)}
+.dark .dk{border-color:#2a2a2a}
+.dk-ix{border-right:1px solid var(--l);padding:14px 14px 14px 0;display:flex;flex-direction:column;gap:2px}
+.dark .dk-ix{border-color:#2a2a2a}
+.dk-ix button{all:unset;cursor:pointer;padding:10px 12px;font-size:19px;letter-spacing:-.02em;line-height:1.15;border-radius:2px}
+.dk-ix button small{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.02em;color:var(--m);margin-top:4px}
+.dk-ix button:hover{background:var(--bg2)}
+.dark .dk-ix button:hover{background:#1a1a1a}
+.dk-ix button.on{background:var(--k);color:#fff}
+.dk-ix button.on small{color:#aaa}
+.dark .dk-ix button.on{background:var(--g);color:#000}
+.dark .dk-ix button.on small{color:#1d4a1d}
+.dk-p{display:none;padding:22px 0 30px 34px;min-width:0}
+.dk-p.on{display:block}
+.dk-p h3{font-size:clamp(28px,3vw,40px);letter-spacing:-.035em;line-height:1.02}
+.dk-p h4{font-size:19px;letter-spacing:-.02em;margin:26px 0 8px;line-height:1.2}
+.dk-p > p,.dk-p .p{color:var(--k2);margin-top:10px;max-width:820px}
+.dark .dk-p > p,.dark .dk-p .p{color:#cfcfcf}
+.kick{font-family:var(--mono);font-size:11px;color:var(--m);display:block;margin-bottom:10px;letter-spacing:.03em}
+.dark .kick{color:var(--g)}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:16px}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:16px}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:16px}
+.box{border:1px solid var(--l);padding:18px 20px;min-width:0;background:#fff}
+.box.s{background:var(--bg2);border-color:var(--bg2)}
+.box.k{background:#000;color:#fff;border-color:#000}
+.dark .box{background:#141414;border-color:#2a2a2a;color:#e8e8e8}
+.box h5{font-size:17px;font-weight:700;letter-spacing:-.015em;margin-bottom:8px}
+.box p,.box li{font-size:15px}
+.box ul,.box ol{margin-left:18px}
+.box li{margin:3px 0}
+ul.l,ol.l{margin:10px 0 0 20px;color:var(--k2)}
+.dark ul.l,.dark ol.l{color:#cfcfcf}
+ul.l li,ol.l li{margin:4px 0}
+.tag{display:inline-block;font-family:var(--mono);font-size:10.5px;padding:3px 7px;background:var(--bg2);white-space:nowrap}
+.tag.r{background:#000;color:#fff}
+.tag.a{background:#e8e8e3}
+.tag.g{background:var(--g);color:#000}
+.tbl{width:100%;border-collapse:collapse;font-size:14.5px;margin-top:14px}
+.tbl th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--m);font-weight:400;padding:8px 10px 8px 0;border-bottom:1px solid var(--k)}
+.tbl td{padding:11px 10px 11px 0;border-bottom:1px solid var(--l);vertical-align:top}
+.dark .tbl th{border-color:#fff;color:#9a9a9a}
+.dark .tbl td{border-color:#2a2a2a}
+.tbl td code{word-break:break-all}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.src{font-size:12.5px;color:var(--m);margin-top:10px}
+.dark .src{color:#8a8a8a}
+.cbtn{border:1px solid var(--k);background:var(--k);color:#fff;padding:8px 16px;font-size:14px;font-weight:600;border-radius:99px}
+.cbtn.o{background:transparent;color:var(--k)}
+.cbtn:hover{background:var(--g);border-color:var(--g);color:#000}
+.dark .cbtn{background:var(--g);border-color:var(--g);color:#000}
+pre.code{background:#0c0c0c;color:#e6e6e6;padding:16px;overflow:auto;max-height:420px;line-height:1.55;margin-top:10px;white-space:pre}
+.dark pre.code{background:#151515;border:1px solid #2a2a2a}
+.codehd{display:flex;justify-content:space-between;align-items:center;margin-top:18px;gap:10px;flex-wrap:wrap}
+
+/* audit */
+.au-top{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid var(--k);margin-bottom:26px}
+.au-top div{padding:16px 18px 18px 0;border-right:1px solid var(--l)}
+.au-top div+div{padding-left:18px}
+.au-top div:last-child{border:0}
+.au-top b{display:block;font-size:clamp(40px,5vw,68px);letter-spacing:-.05em;line-height:1}
+.au-top span{font-size:14px;color:var(--k2);display:block;margin-top:6px}
+.au-f{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.au-f button{border:1px solid var(--k);background:#fff;border-radius:99px;padding:6px 14px;font-size:14px;font-weight:500}
+.au-f button.on{background:var(--k);color:#fff}
+.au{border-top:1px solid var(--l)}
+.au:last-child{border-bottom:1px solid var(--l)}
+.au summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:40px 128px minmax(0,1fr) 30px;gap:14px;align-items:baseline;padding:18px 0}
+.au summary::-webkit-details-marker{display:none}
+.au summary .i{font-family:var(--mono);font-size:12px;color:var(--m)}
+.au summary h4{font-size:clamp(19px,1.8vw,24px);letter-spacing:-.025em;line-height:1.15;font-weight:600}
+.au summary h4 small{display:block;font-size:15px;font-weight:400;color:var(--m);letter-spacing:0;margin-top:4px}
+.au summary .pl{font-size:26px;font-weight:300;transition:.2s;text-align:right}
+.au[open] summary .pl{transform:rotate(45deg)}
+.au .bd{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding:0 0 22px 182px}
+.au .bd div{font-size:15px;color:var(--k2);min-width:0}
+.au .bd b{display:block;font-family:var(--mono);font-size:10.5px;font-weight:400;color:var(--m);margin-bottom:6px;letter-spacing:.04em}
+.au .bd code{background:var(--bg2);padding:1px 5px;word-break:break-all}
+
+/* HumanKind visuals */
+.hk-page{background:#000;color:#fff;border:1px solid #2a2a2a;margin-top:16px;overflow:hidden}
+.hk-bar{display:flex;gap:6px;align-items:center;padding:9px 12px;background:#151515;border-bottom:1px solid #2a2a2a;font-family:var(--mono);font-size:11px;color:#888}
+.hk-bar i{width:9px;height:9px;border-radius:50%;background:#333}
+.hk-bar span{margin-left:10px;background:#0c0c0c;padding:3px 10px;border-radius:99px}
+.hk-in{padding:30px 32px}
+.hk-in h1{font-size:clamp(34px,4.6vw,60px);font-weight:400;letter-spacing:-.045em;line-height:.95}
+.hk-in .intro{color:#cfcfcf;font-size:15px;max-width:520px;margin-top:14px}
+.hk-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#2a2a2a;margin-top:26px;border:1px solid #2a2a2a}
+.hk-stats div{background:#000;padding:18px}
+.hk-stats b{display:block;font-size:clamp(44px,5vw,72px);font-weight:400;letter-spacing:-.06em;line-height:.9;color:var(--g)}
+.hk-stats span{font-size:13.5px;color:#cfcfcf;display:block;margin-top:8px}
+.hk-th{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:22px}
+.hk-th div{border-top:1px solid #333;padding-top:10px}
+.hk-th b{font-size:16px;font-weight:500;letter-spacing:-.02em;display:block}
+.hk-th p{font-size:12.5px;color:#a9a9a9;margin-top:6px;line-height:1.45}
+.hk-cta{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:24px;border-top:1px solid #333;padding-top:16px;flex-wrap:wrap}
+.hk-cta span{color:var(--g);font-weight:500}
+.card{aspect-ratio:4/5;container-type:inline-size;position:relative;overflow:hidden;background:#000;color:#fff}
+.card .in{position:absolute;inset:0;padding:7cqw;display:flex;flex-direction:column}
+.card .hd{display:flex;justify-content:space-between;font-size:4cqw;letter-spacing:-.02em}
+.card .hd b{font-weight:400}
+.card .num{font-size:42cqw;font-weight:400;letter-spacing:-.07em;line-height:.8;color:var(--g);margin-top:auto}
+.card .num sup{font-size:.36em;vertical-align:top;letter-spacing:-.02em;margin-left:1cqw}
+.card .cap{font-size:5.3cqw;line-height:1.15;letter-spacing:-.02em;margin-top:5cqw;max-width:92%}
+.card .ft{font-family:var(--mono);font-size:2.7cqw;color:#8a8a8a;margin-top:5cqw;display:flex;justify-content:space-between}
+.card .dot{position:absolute;border-radius:50%;background:conic-gradient(from 200deg,var(--g3),var(--g) 40%,var(--g2) 70%,var(--g3))}
+.card.w{background:var(--g);color:#000}
+.card.w .num{color:#000}
+.card.w .ft{color:#1d4a1d}
+
+/* LinkedIn post */
+.li{background:#fff;color:#111;border:1px solid var(--l);font-family:-apple-system,system-ui,sans-serif;max-width:560px}
+.li .h{display:flex;gap:10px;padding:14px 16px 8px;align-items:center}
+.li .h i{width:46px;height:46px;border-radius:50%;background:#000;color:#fff;display:grid;place-items:center;font-style:normal;font-weight:700;font-size:15px}
+.li .h b{font-size:14.5px;display:block}
+.li .h small{font-size:12px;color:#666;display:block;line-height:1.3}
+.li .tx{padding:4px 16px 16px;font-size:14.5px;line-height:1.5;white-space:pre-line}
+.li .ft{display:flex;justify-content:space-between;border-top:1px solid #eee;padding:10px 16px;font-size:12.5px;color:#666}
+
+/* email */
+.em{border:1px solid var(--l);background:#fff;max-width:640px;font-family:Arial,Helvetica,sans-serif;color:#111}
+.em .meta{background:var(--bg2);padding:10px 16px;font-size:12.5px;color:#555;border-bottom:1px solid var(--l)}
+.em .meta b{color:#000}
+.em .bd{padding:26px 30px;font-size:15px;line-height:1.6}
+.em .bd p{margin:0 0 14px}
+.em .lgo{font:700 22px var(--f);letter-spacing:-.03em;margin-bottom:18px}
+.em .st{background:#000;color:#fff;padding:18px 20px;margin:16px 0;display:flex;gap:16px;align-items:center}
+.em .st b{font:400 52px/0.85 var(--f);letter-spacing:-.06em;color:var(--g)}
+.em .st span{font-size:14px}
+.em .btn{display:inline-block;background:#000;color:#fff;text-decoration:none;font-weight:700;padding:11px 20px;border-radius:99px}
+.em .sig{font-size:13px;color:#666;border-top:1px solid #eee;padding-top:14px;margin-top:20px}
+.seq{display:flex;flex-direction:column;gap:0;margin-top:16px;border-top:1px solid var(--l)}
+.seq button{all:unset;cursor:pointer;display:grid;grid-template-columns:70px minmax(0,1fr);gap:12px;padding:12px 0;border-bottom:1px solid var(--l)}
+.seq button.on b{text-decoration:underline;text-underline-offset:4px}
+.seq button b{font-size:16px;letter-spacing:-.015em;display:block;line-height:1.25}
+.seq button small{color:var(--m);font-size:13px}
+
+/* case page mock */
+.cs{border:1px solid var(--l);background:#fff;margin-top:16px}
+.cs .cs-h{padding:28px 30px 0}
+.cs .cs-h .mono{color:var(--m)}
+.cs h1{font-size:clamp(34px,4.4vw,62px);letter-spacing:-.05em;line-height:.92;margin-top:10px}
+.cs .vid{margin:22px 30px 0;aspect-ratio:16/9;background:#000;color:#fff;display:grid;place-items:center;position:relative;overflow:hidden}
+.cs .vid span{font-family:var(--mono);font-size:12px;color:#aaa;position:absolute;left:16px;bottom:14px}
+.cs .vid b{width:64px;height:64px;border-radius:50%;border:2px solid #fff;display:grid;place-items:center;font-size:22px}
+.cs .facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin:22px 30px 0;border-top:1px solid #000}
+.cs .facts div{padding:10px 12px 10px 0;font-size:13.5px}
+.cs .facts b{display:block;font-family:var(--mono);font-size:10.5px;font-weight:400;color:var(--m);margin-bottom:4px}
+.cs .body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;padding:22px 30px 30px}
+.cs .body h5{font-size:22px;letter-spacing:-.03em;margin-bottom:8px}
+.cs .body p{font-size:15.5px;color:var(--k2);margin-bottom:12px}
+.cs .press{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.cs .press a{font-size:13px;border:1px solid var(--k);border-radius:99px;padding:4px 12px;text-decoration:none}
+.cs .press a:hover{background:var(--k);color:#fff}
+
+/* serp */
+.serp{border:1px solid var(--l);padding:14px 16px;background:#fff}
+.serp .u{font-size:12.5px;color:#202124;font-family:Arial,sans-serif}
+.serp .u small{color:#4d5156;word-break:break-all}
+.serp .t{color:#1a0dab;font-size:18px;line-height:1.3;margin-top:4px;font-family:Arial,sans-serif;letter-spacing:0;word-break:break-word}
+.serp .d{color:#4d5156;font-size:13.5px;margin-top:4px;font-family:Arial,sans-serif;line-height:1.5}
+.serp.bad .t{color:#70757a}
+.rw{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:10px}
+.rw .lab{font-family:var(--mono);font-size:10.5px;color:var(--m);margin-bottom:6px;display:flex;justify-content:space-between;gap:8px}
+.cnt.ok{color:var(--g2)}.cnt.bad{color:#c4271b}
+
+/* checklist */
+.ck{display:flex;flex-direction:column;margin-top:12px;border-top:1px solid var(--l)}
+.ck label{display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:12px;align-items:start;padding:12px 0;border-bottom:1px solid var(--l);font-size:15px;cursor:pointer}
+.ck label.done .t{color:var(--m)}
+.ck input{accent-color:var(--g2);margin-top:4px;width:16px;height:16px}
+.ck .t b{display:block;font-weight:600}
+.ck .t small{color:var(--m);font-size:13.5px}
+.prog{height:6px;background:var(--bg2);margin-top:12px}
+.prog i{display:block;height:100%;background:var(--g);width:0;transition:.4s}
+
+/* durva */
+.me{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px}
+.proof{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--k)}
+.proof a{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;padding:18px 0;border-bottom:1px solid var(--l);text-decoration:none}
+.proof a b{font-size:22px;letter-spacing:-.03em;display:block;line-height:1.1}
+.proof a span{font-size:14.5px;color:var(--k2);display:block;margin-top:6px}
+.proof a q{display:block;font-size:14.5px;color:var(--k);margin-top:8px;font-style:italic}
+.proof a em{font-style:normal;font-size:24px}
+.proof a:hover b{text-decoration:underline;text-underline-offset:4px}
+
+footer{background:#000;color:#fff;padding:80px 0 50px;margin-top:100px}
+footer h2{font-size:clamp(60px,10vw,150px);letter-spacing:-.055em;line-height:.86}
+footer h2 em{font-style:normal;color:var(--g)}
+footer p{color:#cfcfcf;margin-top:24px;max-width:640px;font-size:18px}
+footer .act{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+footer .act a{background:var(--g);color:#000;text-decoration:none;font-weight:600;padding:12px 22px;border-radius:99px}
+footer .act a.o{background:transparent;color:#fff;border:1px solid #555}
+footer .cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:70px;border-top:1px solid #333;padding-top:18px;font-size:13px;color:#8a8a8a}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(90px);background:#000;color:#fff;padding:10px 18px;border-radius:99px;font-size:14px;transition:.3s;z-index:60}
+.toast.on{transform:translateX(-50%)}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}
+.rv.in{opacity:1;transform:none}
+
+@media (max-width:1000px){
+  .hero .row,.sh,.me{grid-template-columns:minmax(0,1fr)}
+  .dk{grid-template-columns:minmax(0,1fr)}
+  .dk-ix{flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px solid var(--l);padding:10px 0;scrollbar-width:none}
+  .dark .dk-ix{border-color:#2a2a2a}
+  .dk-ix::-webkit-scrollbar{display:none}
+  .dk-ix button{white-space:nowrap;flex:0 0 auto;font-size:16px}
+  .dk-ix button small{display:none}
+  .dk-p{padding:22px 0 26px}
+  .au-top{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .au-top div:nth-child(2){border-right:0}
+  .au-top div:nth-child(3){padding-left:0}
+  .g3,.g4,.hk-th{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hk-th div:last-child{grid-column:1/-1}
+}
+@media (max-width:680px){
+  .wrap{padding:0 16px}
+  .nav nav{display:none}
+  .hero{padding:40px 0 20px}
+  .hero .row{margin-top:30px}
+  section{padding:64px 0 10px}
+  .g2,.g3,.g4,.rw,.cs .body,.hk-stats,.footer .cols{grid-template-columns:minmax(0,1fr)}
+  .hk-th{grid-template-columns:minmax(0,1fr)}
+  .cs .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cs .cs-h,.cs .body{padding-left:18px;padding-right:18px}
+  .cs .vid,.cs .facts{margin-left:18px;margin-right:18px}
+  .hk-in{padding:22px 18px}
+  .au summary{grid-template-columns:minmax(0,1fr) 24px;gap:6px}
+  .au summary .i{display:none}
+  .au summary .tg{grid-column:1;grid-row:1}
+  .au summary h4{grid-column:1}
+  .au summary .pl{grid-row:1/3;grid-column:2}
+  .au .bd{grid-template-columns:minmax(0,1fr);padding:0 0 18px}
+  .scroll .tbl{min-width:620px}
+  .gpc{padding:20px 16px 24px}
+  .gpc .mk b{font-size:11px;padding:4px 8px}
+  .gpc .lab{grid-template-columns:minmax(0,1fr)}
+  footer .cols{grid-template-columns:minmax(0,1fr)}
+}
+</style>
+</head>
+<body>
+<div class="nav"><div class="wrap">
+  <span class="lg">Durva <i>for</i> Leo</span>
+  <nav><a href="#audit">Missing</a><a href="#humankind">HumanKind</a><a href="#work">Work</a><a href="#news">News</a><a href="#found">Found</a><a href="#durva">Durva</a></nav>
+</div></div>
+
+<header class="hero"><div class="wrap">
+  <h1>Hello<br>Leo.</h1>
+  <div class="row">
+    <div>
+      <p class="lede">You're No.2 in the country. Your work moves people. <b>Search engines and AI assistants can barely see it.</b></p>
+      <p class="sub">I'm Durva, a content marketer in Ontario who writes for search and AI answers. I read leotoronto.com line by line. Below is what's missing, and the finished fix for each piece: the HumanKind Study rebuilt as text, your case studies written, the news your site hasn't published yet, and the code that tells AI who Leo is.</p>
+      <p class="note">Checked live on Oct 31, 2026: 502 sitemap URLs, 22 pages read in full, redirects, schema, share images and response times. Campaign facts come from your site and trade press, linked where used.</p>
+    </div>
+    <div class="gpc" id="gpc" aria-label="Leo's own GPC scale, from 1 Destructive to 10 Legendary, with two markers">
+      <div class="t"><b>Your GPC scale, used on your own website</b><span>1 Destructive → 10 Legendary</span></div>
+      <div class="sc">
+        <div class="ticks"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i><i>7</i><i>8</i><i>9</i><i>10</i></div>
+        <div class="mk w" id="mkW" style="left:5%"><b>The work</b><i></i></div>
+        <div class="mk s" id="mkS" style="left:5%"><b>What search + AI can read</b><i></i></div>
+      </div>
+      <div class="lab">
+        <div><b id="lbW">8 · Contagious</b>Pizza WRMR was covered by Tom's Hardware, Mental Floss and Yanko Design. Agency of the Year Silver, 2025.</div>
+        <div><b id="lbS">2 · Invisible</b>The HumanKind stats are pixels in one image. Recent case pages have about 20 words each.</div>
+      </div>
+      <p class="q">"2 – Invisible. This concept has no thinking." Your About page. The thinking is there. It just isn't written down where machines read.</p>
+    </div>
+  </div>
+</div></header>
+
+<!-- 01 MISSING -->
+<section id="audit"><div class="wrap">
+  <div class="sh"><div><span class="n">01 · What's missing</span><h2>17 things your site isn't saying.</h2></div>
+    <p>Sorted by what they cost you: first, what keeps your best thinking out of Google and AI answers; then what makes a share or a redirect look careless; then tidy-ups. Each one has the evidence and the fix. Tap to open.</p></div>
+  <div class="au-top">
+    <div><b>1</b><span>image holds the whole HumanKind 2026 page: 8,335 × 30,851 px, 956 KB</span></div>
+    <div><b>~20</b><span>words on your newest case pages: Pizza Hut and TD</span></div>
+    <div><b>0/22</b><span>pages with structured data telling AI who Leo is</span></div>
+    <div><b>4</b><span>redirect hops from www.leoburnett.ca, two of them temporary</span></div>
+  </div>
+  <div class="au-f" id="auF"><button class="on" data-f="all">All 17</button><button data-f="w">Costs visibility</button><button data-f="m">Costs polish</button><button data-f="t">Tidy</button></div>
+  <div id="auL"></div>
+</div></section>
+
+<!-- 02 HUMANKIND -->
+<section id="humankind" class="dark" style="padding-bottom:80px"><div class="wrap">
+  <div class="sh"><div><span class="n">02 · The HumanKind™ Study 2026</span><h2>Your best research, made quotable.</h2></div>
+    <p>Five years of HumanKind is the kind of proof AI assistants love to cite, but only if they can read it. Here is the page rebuilt as text and the stat cards, Ben's launch post, a press pitch, and the follow-up for everyone who downloads it.</p></div>
+  <div class="dk" data-dk="humankind">
+    <div class="dk-ix">
+      <button data-k="page" class="on">The page, as text<small>same design, readable</small></button>
+      <button data-k="cards">Stat cards<small>4 posts, ready to schedule</small></button>
+      <button data-k="ben">Ben's post<small>LinkedIn, ghostwritten</small></button>
+      <button data-k="follow">After the download<small>3 emails + the live session</small></button>
+      <button data-k="press">Press pitch<small>to Strategy, Campaign, LBB</small></button>
+    </div>
+
+    <div class="dk-p on" data-k="page">
+      <span class="kick">Rebuild of leotoronto.com/humankind2026 · same look, every word in HTML</span>
+      <h3>The design stays. The words move out of the PNG.</h3>
+      <p>Today the page is one tall image with text placed on top. The two biggest numbers, 70% and 33%, exist only in pixels, and there's no H1 and no canonical. The version below keeps your black-and-green design, puts every stat in real text, and adds Report and FAQ markup so search and AI can quote you with your name attached.</p>
+      <div class="hk-page">
+        <div class="hk-bar"><i></i><i></i><i></i><span>leotoronto.com/humankind2026</span></div>
+        <div class="hk-in">
+          <span class="mono" style="color:var(--g)">&lt;h1&gt;</span>
+          <h1>The HumanKind™ Study 2026</h1>
+          <p class="intro">The 5th annual HumanKind™ Study is more hopeful than you might think. This year we looked at the actions Canadians are taking to overcome the challenges they face today.</p>
+          <div class="hk-stats">
+            <div><b>70%</b><span>of young Canadians believe hope and happiness are something you practise, not something you wait for.</span></div>
+            <div><b>74%</b><span>of respondents say it's important to show up for others.</span></div>
+            <div><b>33%</b><span>of young Canadians say they're going to more parties or events where they can let loose, have fun or dance.</span></div>
+          </div>
+          <div class="hk-th">
+            <div><b>Mining for Hope</b><p>A revival in hope we haven't seen in 5 years of this study.</p></div>
+            <div><b>Being a Villager</b><p>Community isn't convenient, and Canadians are showing up anyway.</p></div>
+            <div><b>Living Lighter</b><p>Lightness, humour, and feeling good for just a minute.</p></div>
+            <div><b>AI Slippery Slop</b><p>AI use is up. Comfort with it isn't.</p></div>
+            <div><b>Nobody Puts Canada in a Corner</b><p>Spending local, where dollars shape culture and community.</p></div>
+          </div>
+          <div class="hk-cta"><span>Download the full study ↓</span><span class="mono" style="color:#888">"What helps people, helps business." Leo Burnett</span></div>
+        </div>
+      </div>
+      <div class="codehd"><b>JSON-LD for the page: Report + FAQPage</b><button class="cbtn" data-copy="hkLd">Copy</button></div>
+      <pre class="code" id="hkLd"></pre>
+      <h4>Three more changes to the page</h4>
+      <ul class="l">
+        <li><b>Title:</b> "The HumanKind Study 2026: What Young Canadians Hope For | Leo Toronto" (65 characters).</li>
+        <li><b>Share image:</b> the 70% card from the next tab, instead of the favicon crop that shows today.</li>
+        <li><b>Images:</b> split the 8,335 × 30,851 px PNG into section images with alt text, so phones stop downloading 956 KB up front.</li>
+      </ul>
+    </div>
+
+    <div class="dk-p" data-k="cards">
+      <span class="kick">4:5 · Instagram and LinkedIn · one stat per card</span>
+      <h3>One number per post. Four weeks of HumanKind.</h3>
+      <p>Each card carries one stat, the study's name and the download link. Captions are written underneath, and the alt text is the stat sentence.</p>
+      <div class="g4" id="hkCards"></div>
+    </div>
+
+    <div class="dk-p" data-k="ben">
+      <span class="kick">Ghostwritten for Ben Tarr, President, Leo Group Canada · in his voice from your own posts</span>
+      <h3>The launch post, from the top.</h3>
+      <div class="g2">
+        <div class="li">
+          <div class="h"><i>BT</i><div><b>Ben Tarr</b><small>President, Leo Group Canada</small><small>Now · 🌐</small></div></div>
+          <div class="tx" id="benTx"></div>
+          <div class="ft"><span>👍 ❤️ 💡</span><span>Ready to post</span></div>
+        </div>
+        <div>
+          <div class="box s"><h5>Why this works for Ben</h5><ul>
+            <li>It opens on the finding most likely to surprise a CMO: hope is up.</li>
+            <li>It links the study to his own line from the Hi LEO launch, that AI should amplify people, not replace them, using the "AI Slippery Slop" finding.</li>
+            <li>One ask: book the live presentation. That's the lead your form already offers.</li>
+          </ul></div>
+          <div class="box" style="margin-top:14px"><h5>Comment to pin</h5><p>"Download link and the 5 themes here: leotoronto.com/humankind2026. If you'd like us to walk your team through it live, tick the box on the form and we'll be in touch."</p></div>
+          <div class="codehd"><span class="mono" style="color:#9a9a9a" id="benN"></span><button class="cbtn" data-copy="benTx">Copy post</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dk-p" data-k="follow">
+      <span class="kick">Starts when someone downloads the study</span>
+      <h3>A download is a hand raised. Here's the follow-up.</h3>
+      <p>Your form asks for name, title and company, and offers a live presentation of the take-outs. That's a new business lead with a ready reason to meet. Three emails turn it into a conversation. They stop the moment someone replies or books.</p>
+      <div class="g2">
+        <div><div class="seq" id="fuSeq"></div><p class="src">Sent from a person on the strategy team, not "no-reply". The form posts to action.php, and I couldn't see an email tool on the page, so this would need a connection to whatever CRM new business uses.</p></div>
+        <div id="fuEm"></div>
+      </div>
+    </div>
+
+    <div class="dk-p" data-k="press">
+      <span class="kick">To trade editors · subject under 60 characters</span>
+      <h3>The pitch, with the story already found.</h3>
+      <div class="em" style="margin-top:16px">
+        <div class="meta"><b>Subject:</b> Young Canadians are more hopeful. Our 5th HumanKind data says why</div>
+        <div class="bd">
+          <p>Hi {first name},</p>
+          <p>After four years of tracking how Canadians cope, Leo Toronto's fifth HumanKind Study found something we hadn't seen before: hope is coming back, and young Canadians are working at it.</p>
+          <p><b>70%</b> of young Canadians say hope and happiness are something you practise, not something you wait for. <b>74%</b> say it matters to show up for others. And <b>33%</b> are going to more parties and events where they can let loose.</p>
+          <p>There's a harder thread too. AI use is rising, but comfort with it isn't. Concerns have stayed the same or got worse for two years running.</p>
+          <p>The angle for your readers: what brands should do with a more hopeful, more local, more AI-wary audience. Our strategy lead can walk you through the data this week, and the full study is attached.</p>
+          <p>Sarah Soteroff<br>Media Inquiries, Leo Toronto · 416-838-0077</p>
+        </div>
+      </div>
+      <p class="src">Sent from Sarah's address, as listed on your site. One editor at a time, each with an angle for their outlet. Strategy gets the data story, Campaign Canada the AI-wariness angle, LBB the creative implications. {first name} is the mail-merge field.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- 03 WORK -->
+<section id="work"><div class="wrap">
+  <div class="sh"><div><span class="n">03 · The work, written down</span><h2>Human work deserves more than a title.</h2></div>
+    <p>Your Work page says "Human work for human problems." The case pages behind it are a title and a video that loads on scroll, so a search engine, an AI assistant or a CMO skimming on a phone gets about 20 words. Two of them are written out below, from public facts. The template does the rest.</p></div>
+  <div class="dk" data-dk="work">
+    <div class="dk-ix">
+      <button data-k="warmr" class="on">Pizza Hut · Pizza WRMR<small>written from the coverage</small></button>
+      <button data-k="cheat">Pizza Hut · Cheat on your Cheeseburger<small>written from the coverage</small></button>
+      <button data-k="tpl">The case page template<small>+ CreativeWork schema</small></button>
+    </div>
+
+    <div class="dk-p on" data-k="warmr">
+      <span class="kick">leotoronto.com/pizza-hut-pizza-warmr · today: 17 words of text</span>
+      <div class="cs">
+        <div class="cs-h"><span class="mono">Work · Pizza Hut Canada · 2024</span><h1>Pizza WRMR: the PS5 runs hot. So does your pizza now.</h1></div>
+        <div class="vid"><b>▶</b><span>Your film stays exactly where it is</span></div>
+        <div class="facts">
+          <div><b>CLIENT</b>Pizza Hut Canada</div>
+          <div><b>LAUNCHED</b>Oct 28, 2024</div>
+          <div><b>WHAT</b>A free, 3D-printable console sleeve</div>
+          <div><b>DIRECTOR</b>Reid Marshall</div>
+        </div>
+        <div class="body">
+          <div><h5>The problem</h5><p>Gamers and pizza have one enemy in common: the pause. Stop to eat and you lose the game. Keep playing and the slice goes cold.</p>
+          <h5>The idea</h5><p>Use the heat the console already throws off. Pizza Hut Canada and a team of industrial designers built the Pizza WRMR, a sleeve that fits the PS5 Slim and keeps a slice warm while you play.</p></div>
+          <div><h5>How it ran</h5><p>It was never sold. Fans signed up, downloaded the free template and printed their own. That turned a product into a community project and kept the conversation going long after launch.</p>
+          <h5>Where it travelled</h5><div class="press"><a href="https://www.tomshardware.com/video-games/playstation/pizza-huts-new-pizza-warmer-uses-the-playstation-5s-heat-to-keep-your-pizza-hot-you-can-3d-print-the-new-pizzawarmr-for-free" target="_blank" rel="noopener">Tom's Hardware</a><a href="https://mentalfloss.com/pizza-hut-turns-playstation-into-a-pizza-warmer" target="_blank" rel="noopener">Mental Floss</a><a href="https://www.yankodesign.com/?p=520329" target="_blank" rel="noopener">Yanko Design</a><a href="https://gigazine.net/gsc_news/en/20241112-pizza-hut-ps5-pizza-warmer" target="_blank" rel="noopener">GIGAZINE</a><a href="https://lbbonline.com/news/elevate-your-gaming-experience-with-pizza-hut-canadas-ultimate-pizza-wrmr" target="_blank" rel="noopener">LBB</a></div>
+          <p class="src" style="margin-top:12px">Results: the client numbers (downloads, sales lift, earned reach) slot in here if Pizza Hut approves sharing them.</p></div>
+        </div>
+      </div>
+      <h4>Search snippet, before → after</h4>
+      <div class="rw">
+        <div><div class="lab"><span>Today</span></div><div class="serp bad"><div class="u">Leo Toronto<br><small>leotoronto.com › pizza-hut-pizza-warmr</small></div><div class="t">Pizza Hut – Pizza WARMR | Leo Toronto</div><div class="d">We're the network agency that walks like an independent. With a Stay Hungry mantra and a holistic, One Team, One Dream approach…</div></div></div>
+        <div><div class="lab"><span>Rewritten</span></div><div class="serp"><div class="u">Leo Toronto<br><small>leotoronto.com › pizza-hut-pizza-warmr</small></div><div class="t">Pizza Hut Pizza WRMR: A PS5 Pizza Warmer | Leo Toronto</div><div class="d">For Pizza Hut Canada, Leo turned the heat from a PS5 Slim into a free, 3D-printable sleeve that keeps your slice warm while you play.</div></div></div>
+      </div>
+      <p class="src">The page today says "WARMR". Pizza Hut and the press say "WRMR". People search for the name they saw, so the rewrite uses the client's spelling.</p>
+    </div>
+
+    <div class="dk-p" data-k="cheat">
+      <span class="kick">leotoronto.com/pizza-hut-cheat-on-your-cheeseburger · today: 21 words of text</span>
+      <div class="cs">
+        <div class="cs-h"><span class="mono">Work · Pizza Hut Canada · 2024</span><h1>Cheat on your Cheeseburger.</h1></div>
+        <div class="vid"><b>▶</b><span>Your film stays exactly where it is</span></div>
+        <div class="facts">
+          <div><b>CLIENT</b>Pizza Hut Canada</div>
+          <div><b>LAUNCHED</b>May 27, 2024</div>
+          <div><b>PRODUCT</b>Cheeseburger Melt, $9.99, 10 weeks</div>
+          <div><b>THE STUNT</b>June 4, in any Canadian Pizza Hut</div>
+        </div>
+        <div class="body">
+          <div><h5>The problem</h5><p>Pizza Hut launched a Cheeseburger Melt to go head-to-head with McDonald's, Wendy's, A&amp;W and Harvey's, in a category where burger loyalty runs deep.</p>
+          <h5>The idea</h5><p>Make it a temptation, not a menu item. Invite Canada to cheat on its cheeseburger, starting with the people who make them for a living.</p></div>
+          <div><h5>How it ran</h5><p>On June 4, anyone who walked into a Canadian Pizza Hut wearing their burger-chain work uniform got a Cheeseburger Melt free. The competitors' staff became the campaign's best spokespeople.</p>
+          <h5>Where it travelled</h5><div class="press"><a href="https://www.campaignlive.com/article/pizza-hut-canada-cheat-cheeseburger-leo-burnett-toronto/1874704" target="_blank" rel="noopener">Campaign</a><a href="https://strategyonline.ca/?p=289249" target="_blank" rel="noopener">Strategy</a><a href="https://lbbonline.com/news/pizza-hut-canada-makes-canadians-cheat-on-their-cheeseburgers" target="_blank" rel="noopener">LBB</a><a href="https://dailyhive.com/toronto/pizza-hut-cheeseburger-melt" target="_blank" rel="noopener">Daily Hive</a></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dk-p" data-k="tpl">
+      <span class="kick">For every case page from now on · 200 to 400 words</span>
+      <h3>Five blocks, one hour per case.</h3>
+      <div class="g3">
+        <div class="box"><h5>1 · Facts strip</h5><p>Client, year, what it is, markets, partners. The things a journalist or an AI assistant looks for first.</p></div>
+        <div class="box"><h5>2 · The problem</h5><p>One human tension in two sentences. Your GPC scale asks for a human purpose, so name it.</p></div>
+        <div class="box"><h5>3 · The idea</h5><p>The idea in one line, then how it works. This is the part people quote.</p></div>
+        <div class="box"><h5>4 · How it ran</h5><p>Channels, timing, the moment it took off.</p></div>
+        <div class="box"><h5>5 · What happened</h5><p>Client-approved numbers, awards, press links. Linking to coverage also builds the citations AI answers draw on.</p></div>
+        <div class="box k"><h5>Who writes it</h5><p>Me, from the brief, the case film and a 15-minute chat with the team. Account lead approves, client signs off on numbers.</p></div>
+      </div>
+      <div class="codehd"><b>CreativeWork schema, filled for Pizza WRMR</b><button class="cbtn" data-copy="cwLd">Copy</button></div>
+      <pre class="code" id="cwLd"></pre>
+    </div>
+  </div>
+</div></section>
+
+<!-- 04 NEWS -->
+<section id="news"><div class="wrap">
+  <div class="sh"><div><span class="n">04 · Leo right now</span><h2>The biggest news of 2026 isn't on your site.</h2></div>
+    <p>Your newsroom's last dated post is from December 2, 2025. Since then, trade press has covered a new Chief Creative Officer, more than 20 creative hires and a new Pizza Hut campaign. Prospects and recruits who check your site see none of it. Here is the missing post, three leadership posts, and a cadence that keeps the newsroom current.</p></div>
+  <div class="dk" data-dk="news">
+    <div class="dk-ix">
+      <button data-k="matos" class="on">The missing post<small>Adriano Matos, CCO</small></button>
+      <button data-k="voices">Leadership posts<small>Angus, Adam, Kohl</small></button>
+      <button data-k="cadence">Newsroom rhythm<small>12 weeks, planned</small></button>
+    </div>
+
+    <div class="dk-p on" data-k="matos">
+      <span class="kick">Draft for leotoronto.com/news · facts from trade coverage, quotes left for Adriano and Ben to write</span>
+      <div class="cs">
+        <div class="cs-h"><span class="mono">News · 2026</span><h1>Adriano Matos joins Leo Toronto as Chief Creative Officer.</h1></div>
+        <div class="body">
+          <div>
+            <p>Leo Toronto has appointed Adriano Matos as Chief Creative Officer, leading creative across every discipline in the agency. Angus Tucker, who led creative as CCO, becomes Creative Chairman.</p>
+            <p>Adriano brings a career built inside the network and around the world. He was Executive Vice President and Executive Creative Director at Leo Burnett Chicago, Global Executive Creative Director at Ogilvy, and Chief Creative Officer of Grey Brazil. He has led creative for brands including Campbell's, Beam Suntory and Meta.</p>
+          </div>
+          <div>
+            <p>The appointment comes in a year of growth for Leo Toronto's creative department, which has added more than 20 people in 2026, and follows the agency's Silver at Strategy's 2025 Agency of the Year awards.</p>
+            <p>His ambition for the Toronto office, as he told LBB, is to make it a "global hub of creative excellence."</p>
+            <p class="src">Two quotes go here before publishing: one from Ben Tarr on why Adriano, one from Adriano on what he wants Leo Toronto to make next.</p>
+          </div>
+        </div>
+      </div>
+      <p class="src">Sources: <a href="https://lbbonline.com/news/Leo-Toronto-Adriano-Matos-CCO-Angus-Tucker-Creative-Chairman-2026" target="_blank" rel="noopener">LBB, appointment</a> · <a href="https://lbbonline.com/news/Leo-Toronto-CCO-Adriano-Matos-Global-Hub-Creative-Excellence" target="_blank" rel="noopener">LBB, interview</a> · <a href="https://lbbonline.com/news/Leo-Toronto-Expands-Creative-Team" target="_blank" rel="noopener">LBB, creative team</a> · <a href="https://www.campaigncanada.ca/article/leo-toronto-hires-adriano-matos-to-lead-creative/418ax6wxe01tr3qndw3y5f5nmn" target="_blank" rel="noopener">Campaign Canada</a>. Titles to be confirmed by your comms team before publishing.</p>
+    </div>
+
+    <div class="dk-p" data-k="voices">
+      <span class="kick">Built from things they've already said on your site · each ready for their approval</span>
+      <h3>Three voices, three posts.</h3>
+      <div class="g3" id="voices"></div>
+    </div>
+
+    <div class="dk-p" data-k="cadence">
+      <span class="kick">One post a week · three kinds, rotated</span>
+      <h3>A newsroom that keeps up with the trade press.</h3>
+      <div class="scroll"><table class="tbl" id="cadT"></table></div>
+      <p class="src">Every post gets a real description, a share image and NewsArticle markup, so it shows up properly when someone shares it or searches for it.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- 05 FOUND -->
+<section id="found" class="dark" style="padding-bottom:80px"><div class="wrap">
+  <div class="sh"><div><span class="n">05 · Found by people and machines</span><h2>When a CMO asks AI for an agency.</h2></div>
+    <p>More marketers now start an agency search by asking ChatGPT, Gemini or Perplexity. Those answers lean on what your own site says plainly, and on how clearly the web knows that Leo Toronto, Leo Burnett Toronto and Leo Burnett Canada are the same agency. These are the fixes.</p></div>
+  <div class="dk" data-dk="found">
+    <div class="dk-ix">
+      <button data-k="titles" class="on">Titles + descriptions<small>6 core pages, live counts</small></button>
+      <button data-k="entity">Who Leo is, in code<small>Organization schema</small></button>
+      <button data-k="redirect">leoburnett.ca, in one hop<small>4 hops → 1</small></button>
+      <button data-k="prompts">The AI answer check<small>12 prompts, monthly</small></button>
+    </div>
+    <div class="dk-p on" data-k="titles">
+      <span class="kick">Edit any "after" line · counts update</span>
+      <h3>Your manifesto is a great line, but not a title tag.</h3>
+      <p>Today the homepage title is 232 characters and four pages share the manifesto as their description, line breaks included. The rewrites keep your voice and fit what Google shows.</p>
+      <div id="rwL"></div>
+    </div>
+    <div class="dk-p" data-k="entity">
+      <span class="kick">Homepage, in &lt;head&gt; · today: no structured data on any page checked</span>
+      <h3>One block of code that ties the names together.</h3>
+      <p>Your site uses Leo Toronto, Leo Burnett Toronto, Leo Burnett Canada and Leo Group Canada, and the footer reads © Leo Burnett Canada Ltd. People get it. Machines need it spelled out. This tells them it's one agency, with its history, its address, its people and its profiles.</p>
+      <div class="codehd"><b>Organization JSON-LD</b><button class="cbtn" data-copy="orgLd">Copy</button></div>
+      <pre class="code" id="orgLd"></pre>
+    </div>
+    <div class="dk-p" data-k="redirect">
+      <span class="kick">Measured Oct 31: 4.8 s median from typing the old address to the page</span>
+      <h3>Seventy years of links, sent through temporary signs.</h3>
+      <div class="scroll"><table class="tbl">
+        <tr><th>Hop</th><th>From</th><th>To</th><th>Status</th></tr>
+        <tr><td>1</td><td><code>http://www.leoburnett.ca</code></td><td><code>https://www.leoburnett.ca/</code></td><td>307 temporary</td></tr>
+        <tr><td>2</td><td><code>https://www.leoburnett.ca/</code></td><td><code>http://leoburnett.ca/</code></td><td>308, back to http</td></tr>
+        <tr><td>3</td><td><code>http://leoburnett.ca/</code></td><td><code>https://leoburnett.ca/</code></td><td>307 temporary</td></tr>
+        <tr><td>4</td><td><code>https://leoburnett.ca/</code></td><td><code>https://leotoronto.com/</code></td><td>301 permanent</td></tr>
+      </table></div>
+      <div class="box" style="margin-top:16px"><h5>The fix</h5><p>One permanent 301 from every version of leoburnett.ca (http, https, www, no www) straight to the same path on https://leotoronto.com, set at the DNS or edge layer. Paths already carry over, so <code>/lb-toronto-best-of-the-best-and-most-awarded-at-the-cmas</code> lands on the right page. It just takes four steps to get there. Then add leoburnett.ca as a "change of address" in Search Console.</p></div>
+    </div>
+    <div class="dk-p" data-k="prompts">
+      <span class="kick">Run monthly across ChatGPT, Gemini, Perplexity, Copilot · tick what Leo appears in</span>
+      <h3>Twelve questions a CMO actually asks.</h3>
+      <p>Record whether Leo is named, what's said about it, and which sources the answer cites. The sources tell you which pages and which press to strengthen next. Ticks save in your browser.</p>
+      <div class="ck" id="pcL"></div>
+      <div class="prog"><i id="pcP"></i></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- 06 DURVA -->
+<section id="durva"><div class="wrap">
+  <div class="sh"><div><span class="n">06 · With what I've done, how I'd help</span><h2>I write the words that get found.</h2></div>
+    <p>Leo makes the work. I make sure the work, the research and the people behind it are written down where clients, journalists, recruits and AI assistants are looking. Everything on this page is the job, done once.</p></div>
+  <div class="me">
+    <div>
+      <div class="scroll"><table class="tbl" style="margin-top:0">
+        <tr><th>What Leo needs</th><th>What I've done</th></tr>
+        <tr><td><b>Case studies people and AI can read</b></td><td>SEO and GEO writing that ranks in search and shows up in AI answers. Two case pages written above.</td></tr>
+        <tr><td><b>Leadership voices on LinkedIn</b></td><td>Ghostwritten LinkedIn posts for founders, and ghostwritten articles published in USA Wire and Mirror Review.</td></tr>
+        <tr><td><b>HumanKind reaching new business</b></td><td>Demand gen workspaces I built as applications for Limina and Envera: webinar pages, email sequences, ABM plans.</td></tr>
+        <tr><td><b>A newsroom that keeps up</b></td><td>Content calendars with designed posts, captions and briefs, on my site. The missing post on this page took an afternoon.</td></tr>
+        <tr><td><b>Ideas that get noticed</b></td><td>Applications sent as campaigns: a sealed case file with a UV-light message, a printed passport, an interactive site.</td></tr>
+      </table></div>
+      <h4 style="font-size:22px;margin-top:30px">My first 30 days</h4>
+      <ol class="l">
+        <li><b>Week 1:</b> HumanKind 2026 page as text, the follow-up emails live, Ben's post out.</li>
+        <li><b>Week 2:</b> the Adriano post and the three leadership posts, approved and published.</li>
+        <li><b>Week 3:</b> titles, descriptions, share images and schema across the site. The leoburnett.ca redirect handed to IT.</li>
+        <li><b>Week 4:</b> five case pages rewritten from the template, and the first AI answer check as a baseline.</li>
+      </ol>
+    </div>
+    <div class="proof">
+      <a href="https://durvathakkar.com/limina/case-file/" target="_blank" rel="noopener"><div><b>A confidential case file, for a privacy company</b><span>A UV flashlight reveal, then a full demand gen workspace.</span><q>"Very clever. Appreciate the effort and creativity. Everyone in the office was impressed." Tyler Munro, VP Marketing, Limina</q></div><em>↗</em></a>
+      <a href="https://durvathakkar.com/envera-systems/" target="_blank" rel="noopener"><div><b>An interactive site, instead of a cover letter</b><span>A content workspace and a 30-60-90 plan for Envera.</span><q>"The ideas were spot on and you truly grasped the business and its needs!" Colleen Pierre, VP of Marketing, Envera Systems</q></div><em>↗</em></a>
+      <a href="https://durvathakkar.com/" target="_blank" rel="noopener"><div><b>Everything else, in one place</b><span>LinkedIn posts, carousels, blogs, case studies, and the ghostwritten bylines.</span><q>"...one of the strongest pieces of work he's seen in this process." Ksenia Onosov, Recruiter, Forum Ventures</q></div><em>↗</em></a>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <h2>Stay hungry.<br><em>I am.</em></h2>
+  <p>I'd love 20 minutes with your team to walk through any of this, starting with HumanKind. It's the strongest thing on your site, and the one search can't read yet.</p>
+  <div class="act">
+    <a href="mailto:durvathakker7@gmail.com?subject=Leo%20Toronto">durvathakker7@gmail.com</a>
+    <a class="o" href="https://www.linkedin.com/in/durvathakkar/" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="o" href="https://durvathakkar.com/" target="_blank" rel="noopener">durvathakkar.com</a>
+  </div>
+  <div class="cols">
+    <span>Durva Thakkar · Content marketer · Ontario, Canada</span>
+    <span>Made for Leo Toronto, Oct 31, 2026. Leo, HumanKind™ and client names belong to their owners.</span>
+    <span>Site facts checked Oct 31, 2026 on leotoronto.com. Campaign facts from the linked trade coverage.</span>
+  </div>
+</div></footer>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('on');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('on'),1800)}
+
+/* desks + deep links */
+function show(dk,k){dk.querySelectorAll('.dk-ix button').forEach(b=>b.classList.toggle('on',b.dataset.k===k));dk.querySelectorAll('.dk-p').forEach(p=>p.classList.toggle('on',p.dataset.k===k));const on=dk.querySelector('.dk-ix button.on');if(on&&innerWidth<1000)on.parentNode.scrollLeft=on.offsetLeft-16}
+$$('.dk').forEach(dk=>dk.querySelectorAll('.dk-ix button').forEach(b=>b.addEventListener('click',()=>{show(dk,b.dataset.k);history.replaceState(null,'','#'+dk.dataset.dk+'-'+b.dataset.k)})));
+function fromHash(){const m=decodeURIComponent(location.hash.slice(1)).match(/^([a-z]+)-([a-z0-9]+)$/);if(!m)return;const dk=$('.dk[data-dk="'+m[1]+'"]');if(!dk||!dk.querySelector('.dk-p[data-k="'+m[2]+'"]'))return;show(dk,m[2]);setTimeout(()=>dk.scrollIntoView({block:'start'}),60)}
+addEventListener('hashchange',fromHash);
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const el=$('#'+b.dataset.copy);(navigator.clipboard?navigator.clipboard.writeText(el.innerText):Promise.reject()).then(()=>toast('Copied')).catch(()=>{const r=document.createRange();r.selectNodeContents(el);getSelection().removeAllRanges();getSelection().addRange(r);toast('Selected, press Cmd+C')})});
+
+/* GPC hero */
+(function(){
+  const W=$('#mkW'),S=$('#mkS'),pos=n=>((n-.5)*10)+'%';
+  const go=()=>{W.style.left=pos(8);S.style.left=pos(2)};
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){W.style.transition=S.style.transition='none';go();return}
+  const io=new IntersectionObserver(es=>{if(es[0].isIntersecting){io.disconnect();setTimeout(go,350)}});io.observe($('#gpc'));
+})();
+
+/* audit */
+const AU=[
+ ['w','HumanKind 2026 is one picture with words laid over it','Your two headline stats, 70% and 33%, exist only as pixels.','The page draws <code>HKS2026-LandingPage-Design.png</code> (8,335 × 30,851 px, 956 KB) and <code>mob.png</code> for phones, both with empty alt text, then positions text over them. The 70% and 33% figures are in the image only. 74% is the one stat in text. The page has no H1 and no canonical tag, and it shares a favicon crop.','The same design with every word and number in HTML, plus Report and FAQ markup. Built in section 02.'],
+ ['w','Your newest case pages are a title and a video','Pizza Hut Cheat on your Cheeseburger: 21 words. Pizza WRMR: 17. TD Super Portfolio: 21.','The film loads in an iframe on scroll (<code>src="about:blank"</code> until then), so search engines and AI see a headline and a share bar. No problem, no idea, no result, no press links.','Two pages written in section 03, plus a five-block template and CreativeWork markup.'],
+ ['w','Your newsroom stops in December 2025','Trade press has covered 2026. Your site hasn\'t.','Last dated post: Hi LEO, 2025.12.02. Not on leotoronto.com: Adriano Matos as CCO and Angus Tucker as Creative Chairman (LBB, Campaign Canada, mid-2026), 20+ creative hires (LBB, Aug 2026), Pizza Hut "Baked at 420" (Apr 2026). The Hi LEO post still introduces Angus as CCO.','The missing post, three leadership posts and a 12-week rhythm in section 04.'],
+ ['w','No page tells search or AI who Leo is','0 of 22 pages carry structured data.','No Organization, NewsArticle, CreativeWork or Report markup on any page checked, the homepage included.','Organization markup that ties Leo Toronto, Leo Burnett Toronto and Leo Burnett Canada together, in section 05.'],
+ ['w','The manifesto is doing a title tag\'s job','232 characters, and copied as the description on 4 pages.','Homepage <code>&lt;title&gt;</code> is the full manifesto. The same text, line breaks included, is the meta description on the homepage, the Pizza Hut pages and the TD page. Google shows about 60 characters of a title.','Rewrites for six core pages in section 05, and for the case pages in 03.'],
+ ['w','www.leoburnett.ca takes 4 hops to reach you','Two are temporary, and one drops back to http.','<code>http://www.leoburnett.ca</code> → 307 → <code>https://www.leoburnett.ca</code> → 308 → <code>http://leoburnett.ca</code> → 307 → <code>https://leoburnett.ca</code> → 301 → <code>leotoronto.com</code>. Median 4.8 s end to end on Oct 31.','One permanent 301 from every variant, plus a change of address in Search Console. Section 05.'],
+ ['m','A typo in your homepage title and description','"a level creativity"','The manifesto reads "to show the world a level creativity that will blow people\'s minds." It\'s missing "of", and it appears in the title, the description and every share of the homepage.','"a level of creativity".'],
+ ['m','Shares of your homepage show a favicon','6 of 22 pages, including HumanKind 2026.','<code>og:image</code> = <code>/wp-content/uploads/2025/08/cropped-favicon2025.png</code>. On LinkedIn, Slack and iMessage, a link to your flagship study previews as a cropped logo.','A share card per page type. For HumanKind, the 70% card in section 02.'],
+ ['m','Four names for one agency','Leo Toronto, Leo Burnett Toronto, Leo Burnett Canada, Leo Group Canada.','All four appear in titles and posts on the site. The footer says © 2026 Leo Burnett Canada Ltd. Your LinkedIn handle is <code>leoburnettto</code>.','Keep the history, and say it once: "Leo Toronto, formerly Leo Burnett Toronto" in the About copy and in the Organization markup.'],
+ ['m','"WARMR" on your site, "WRMR" everywhere else','','The case page and its title say "Pizza WARMR". Pizza Hut\'s release and the coverage say "Pizza WRMR", which is what people search for.','Use the client\'s spelling in the title, the H1 and the slug, with a redirect from the old URL.'],
+ ['m','HumanKind downloads may not get a follow-up','The "live presentation" checkbox is a new business lead.','The form posts to <code>action.php</code>. I couldn\'t see an email or CRM tool on the page, so if downloads aren\'t followed up, the people asking for a presentation may be waiting.','Three follow-up emails in section 02, sent from a person.'],
+ ['m','"No.2 in the country" gets 72 words','Your biggest proof point of 2025.','The AOY Silver post is two lines and a date. It doesn\'t name the work, the clients or the people.','A full post: the work that won, the people, what\'s next. One of the 12 weeks in section 04.'],
+ ['m','Section page descriptions are their H1 or a scrap','"Leo right now." "How to get human." "…[…]"','/news/ description: 14 characters. /about/: 17. /work/: 30. /culture/ uses a cut-off paragraph ending in "[…]".','Rewritten in section 05.'],
+ ['t','Two H1s on the homepage and on Culture','','Homepage: "Leo Toronto" and "Leo Design". Culture: "Leo human nature." and "Leo Values".','One H1 per page. The second becomes an H2, with no visual change.'],
+ ['t','A test page from 2022 is in your sitemap','/hello/','<code>/hello/</code>: H1 "Hello", a date (2022.11.09), a share bar, 15 words.','Unpublish it, or redirect it to the homepage, and drop it from the sitemap.'],
+ ['t','The sitemap has no dates','502 URLs, no lastmod.','<code>/sitemap.xml</code> lists 502 URLs in one file with no <code>&lt;lastmod&gt;</code>, so crawlers can\'t tell new posts from 2012 ones.','Turn on lastmod in the sitemap plugin, and split posts and pages.'],
+ ['t','News titles run to 147 characters','','"Leo Toronto Launches Hi LEO: An agentic solution that puts the power of AI\'s leading edge tools into the hands of every Leo employee" is the full title tag and the slug.','Keep the long H1. Use a short title, like "Leo Toronto launches Hi LEO, an AI agent for every employee".']
+];
+const lab={w:['r','Costs visibility'],m:['a','Costs polish'],t:['','Tidy']};
+$('#auL').innerHTML=AU.map((f,i)=>`<details class="au" data-p="${f[0]}"${i===0?' open':''}><summary><span class="i">${String(i+1).padStart(2,'0')}</span><span class="tg"><span class="tag ${lab[f[0]][0]}">${lab[f[0]][1]}</span></span><h4>${esc(f[1])}${f[2]?`<small>${esc(f[2])}</small>`:''}</h4><span class="pl">+</span></summary><div class="bd"><div><b>EVIDENCE</b>${f[3]}</div><div><b>FIX</b>${f[4]}</div></div></details>`).join('');
+$$('#auF button').forEach(b=>{const f=b.dataset.f;if(f!=='all')b.textContent+=' · '+AU.filter(x=>x[0]===f).length;b.addEventListener('click',()=>{$$('#auF button').forEach(x=>x.classList.toggle('on',x===b));$$('.au').forEach(d=>d.style.display=(f==='all'||d.dataset.p===f)?'':'none')})});
+
+/* HumanKind JSON-LD */
+const HKF=[
+ ['What is the HumanKind Study?','The HumanKind Study is Leo Toronto\'s annual research into what Canadians are feeling and how they are coping. 2026 is its fifth year.'],
+ ['What did the 2026 HumanKind Study find?','Hope is returning, especially among young Canadians. 70% of young Canadians believe hope and happiness are something you practise, not something you wait for, and 74% of respondents say it is important to show up for others.'],
+ ['What do Canadians think about AI in 2026?','AI use is rising, but comfort with it is not. Many of the concerns Canadians have had about AI over the past two years have stayed the same or worsened.'],
+ ['How can I get the full HumanKind Study?','Download it free from leotoronto.com/humankind2026, or ask Leo Toronto for a live presentation of the key take-outs for your team.']
+];
+$('#hkLd').textContent='<script type="application/ld+json">\n'+JSON.stringify({"@context":"https://schema.org","@graph":[{"@type":"Report","@id":"https://leotoronto.com/humankind2026/#report","name":"The HumanKind™ Study 2026","headline":"The HumanKind Study 2026: What Young Canadians Hope For","description":"Leo Toronto's fifth annual study of how Canadians are coping, and what they hope for: hope, community, lightness, AI concerns and local pride.","author":{"@type":"Organization","@id":"https://leotoronto.com/#org","name":"Leo Toronto"},"publisher":{"@id":"https://leotoronto.com/#org"},"inLanguage":"en-CA","spatialCoverage":{"@type":"Country","name":"Canada"},"about":["Consumer insights","Canadian consumers","Gen Z","Artificial intelligence"],"url":"https://leotoronto.com/humankind2026/"},{"@type":"FAQPage","mainEntity":HKF.map(f=>({"@type":"Question","name":f[0],"acceptedAnswer":{"@type":"Answer","text":f[1]}}))}]},null,2)+'\n</'+'script>';
+
+/* stat cards */
+const CARDS=[
+ {n:'70',c:'of young Canadians believe hope and happiness are something you practise, not something you wait for.',th:'Mining for Hope',w:0,cap:'Hope isn\'t something young Canadians are waiting on. It\'s something they practise. Five years into the HumanKind Study, it\'s the most hopeful finding yet. Full study at the link.'},
+ {n:'74',c:'of Canadians say it\'s important to show up for others.',th:'Being a Villager',w:1,cap:'Community isn\'t convenient. Canadians are showing up anyway. What that means for brands, in the 2026 HumanKind Study.'},
+ {n:'33',c:'of young Canadians are going to more parties and events where they can let loose.',th:'Living Lighter',w:0,cap:'A third of young Canadians are going out more, just to dance and let go. Lightness is the brief. More in HumanKind 2026.'},
+ {n:'5',u:'th',c:'year of asking Canadians what keeps them up at night. This one has more hope in it.',th:'The HumanKind™ Study',w:1,cap:'Five years. One question: what\'s keeping Canadians up at night? The 2026 answer surprised us. Download HumanKind 2026.'}
+];
+$('#hkCards').innerHTML=CARDS.map((k,i)=>`<div><div class="card${k.w?' w':''}"><span class="dot" style="width:46cqw;height:46cqw;right:-12cqw;top:${10+i*4}cqw;opacity:${k.w?.35:1}"></span><span class="dot" style="width:24cqw;height:24cqw;right:26cqw;top:${30+i*3}cqw;opacity:${k.w?.35:.9}"></span><div class="in"><div class="hd"><b>Leo</b><span>${esc(k.th)}</span></div><div class="num">${k.n}<sup>${k.u||'%'}</sup></div><div class="cap">${esc(k.c)}</div><div class="ft"><span>The HumanKind™ Study 2026</span><span>leotoronto.com</span></div></div></div><p class="src" style="color:#cfcfcf;font-size:13.5px;margin-top:10px">${esc(k.cap)}</p></div>`).join('');
+
+/* Ben */
+const BEN=`Five years ago we started asking Canadians what keeps them up at night.
+
+This year, for the first time, the answer had more hope in it.
+
+70% of young Canadians told us hope and happiness are something you practise, not something you wait for. 74% said it matters to show up for others. A third are going to more parties and events, just to let loose.
+
+That's a different audience from the one a lot of brands are still talking to.
+
+There's a harder finding too. AI use keeps going up, and comfort with it doesn't. It's why we built Hi LEO to amplify our people, not replace them. Canadians can feel the difference.
+
+The 2026 HumanKind™ Study is out now. If you'd like our strategy team to walk yours through it, we'll come to you.
+
+What helps people, helps business.
+
+#HumanKind #LeoToronto`;
+$('#benTx').textContent=BEN;$('#benN').textContent=BEN.length+' characters · under LinkedIn\'s 3,000';
+
+/* follow-up emails */
+const FU=[
+ {d:'Day 0',s:'Your copy of HumanKind 2026',p:'And the one finding we\'d start with.',b:`<p>Hi {first name},</p><p>Thanks for downloading The HumanKind™ Study 2026. Your copy is in your downloads folder.</p><p>If you only read one section, start with <b>Mining for Hope</b>:</p><div class="st"><b>70%</b><span>of young Canadians believe hope and happiness are something you practise, not something you wait for.</span></div><p>It changes how you'd talk to an audience most brands still treat as anxious.</p><p>If your team would like a 30-minute live walk-through of the take-outs for your category, just reply. We'll find a time.</p>`},
+ {d:'Day 5',s:'What HumanKind 2026 means for {company}',p:'Three questions to take to your next brief.',b:`<p>Hi {first name},</p><p>When we present HumanKind to marketing teams, three questions usually come up:</p><p><b>1. Are we talking to the anxious Canadian or the hopeful one?</b> 70% of young Canadians now see hope as a practice.<br><b>2. Where do we show up in community?</b> 74% say showing up for others matters.<br><b>3. How do we use AI without losing trust?</b> Comfort with AI hasn't kept up with use.</p><p>We'd be glad to answer them for {company} specifically. It's 30 minutes, at your office or on a call.</p><p><a class="btn" href="#">Book the live session</a></p>`},
+ {d:'Day 14',s:'Should we bring HumanKind to your team?',p:'Plain text, from a strategist.',b:`<p>Hi {first name},</p><p>Quick one. We're scheduling HumanKind 2026 presentations for the next few weeks. If your team would find it useful, reply with a couple of times that work and I'll set it up.</p><p>If not, no problem. The study is yours to keep.</p><p>{sender name}<br>Strategy, Leo Toronto</p>`}
+];
+function fu(i){$$('#fuSeq button').forEach((b,j)=>b.classList.toggle('on',j===i));const e=FU[i];$('#fuEm').innerHTML=`<div class="em"><div class="meta"><b>${esc(e.s)}</b><br>${esc(e.p)}</div><div class="bd">${i<2?'<div class="lgo">Leo</div>':''}${e.b}${i<2?'<div class="sig">Leo Toronto · 111 Queen St East, 4th Floor, Toronto, ON M5C 1S2<br>You\'re receiving this because you downloaded The HumanKind™ Study 2026. <u>Unsubscribe</u></div>':''}</div></div>`}
+$('#fuSeq').innerHTML=FU.map(e=>`<button><span class="mono" style="color:var(--g)">${e.d}</span><span><b style="color:#fff">${esc(e.s)}</b><small style="color:#9a9a9a">${esc(e.p)}</small></span></button>`).join('');
+$$('#fuSeq button').forEach((b,i)=>b.addEventListener('click',()=>fu(i)));fu(0);
+$$('#fuSeq button').forEach(b=>b.style.borderColor='#2a2a2a');$('#fuSeq').style.borderColor='#2a2a2a';
+
+/* CreativeWork LD */
+$('#cwLd').textContent='<script type="application/ld+json">\n'+JSON.stringify({"@context":"https://schema.org","@type":"CreativeWork","name":"Pizza WRMR","headline":"Pizza Hut Pizza WRMR: A PS5 Pizza Warmer","url":"https://leotoronto.com/pizza-hut-pizza-wrmr/","dateCreated":"2024-10-28","creator":{"@type":"Organization","@id":"https://leotoronto.com/#org","name":"Leo Toronto"},"sourceOrganization":{"@type":"Organization","name":"Pizza Hut Canada"},"description":"A free, 3D-printable console sleeve that uses the heat from a PS5 Slim to keep pizza warm while you play, created for Pizza Hut Canada.","genre":"Advertising campaign","subjectOf":[{"@type":"NewsArticle","url":"https://www.tomshardware.com/video-games/playstation/pizza-huts-new-pizza-warmer-uses-the-playstation-5s-heat-to-keep-your-pizza-hot-you-can-3d-print-the-new-pizzawarmr-for-free"},{"@type":"NewsArticle","url":"https://mentalfloss.com/pizza-hut-turns-playstation-into-a-pizza-warmer"}]},null,2)+'\n</'+'script>';
+
+/* voices */
+const VO=[
+ {i:'AT',n:'Angus Tucker',t:'Creative Chairman, Leo Toronto',x:`Agencies have been short on time for as long as I've been in advertising.
+
+Not short on ideas. Short on the hours to think about them.
+
+So much of a creative's week goes to the slog: formatting, sourcing references, digging through research. Hi LEO takes a lot of that off the table.
+
+What's left is the part nobody can automate. The idea. The judgement. The gut call that something is good.
+
+AI will be as big a shift as the internet was 30 years ago. Creative intuition will matter just as much on the other side of it.`,s:'From his quotes in your Hi LEO and creative team posts.'},
+ {i:'AP',n:'Adam Pickard',t:'Creative Director, Innovation, Leo Toronto',x:`I like to call my work "good trouble."
+
+Since I joined Leo Toronto, here's what's changed: ideas that used to live as sketches on the wall can now be built, tested and felt in days.
+
+That changes the conversation. You stop arguing about whether an idea could work and start looking at it.
+
+The tools are new. The job isn't. Make something people want to engage with, again and again.`,s:'From your creative team post: "good trouble", sketches on the wall becoming real things.'},
+ {i:'BT',n:'Ben Tarr',t:'President, Leo Group Canada',x:`Please welcome Adriano Matos to Leo Toronto as our Chief Creative Officer.
+
+Adriano has led creative at Leo Burnett Chicago, Ogilvy and Grey Brazil, on brands like Campbell's, Beam Suntory and Meta. Now he's bringing that to Toronto.
+
+And a big thank you to Angus Tucker, who becomes our Creative Chairman. The work we've made under Angus is why we're in a position to make this move.
+
+No.2 agency in the country last year. Stay hungry.`,s:'Facts from the trade coverage. For Ben to approve, as the newsroom post goes live.'}
+];
+$('#voices').innerHTML=VO.map((v,i)=>`<div><div class="li"><div class="h"><i>${v.i}</i><div><b>${esc(v.n)}</b><small>${esc(v.t)}</small></div></div><div class="tx" id="vo${i}">${esc(v.x)}</div></div><div class="codehd" style="margin-top:10px"><span class="src" style="margin:0;max-width:70%">${esc(v.s)}</span><button class="cbtn o" data-copy="vo${i}">Copy</button></div></div>`).join('');
+
+/* cadence */
+const CAD=[['Nov 2','People','Adriano Matos joins as Chief Creative Officer (written above)'],['Nov 9','Thinking','HumanKind: Mining for Hope, and what it means for brand tone'],['Nov 16','Work','Pizza Hut Pizza WRMR, rewritten (above)'],['Nov 23','People','Meet the 20+ people who joined creative in 2026'],['Nov 30','Thinking','HumanKind: AI Slippery Slop, and how Hi LEO answers it'],['Dec 7','Work','Pizza Hut Cheat on your Cheeseburger, rewritten (above)'],['Dec 14','Thinking','HumanKind: Being a Villager. Brands that show up'],['Dec 21','Culture','The year at Leo Toronto, from AOY Silver to Brinner'],['Jan 4','Work','Pizza Hut Baked at 420, written up'],['Jan 11','Thinking','HumanKind: Living Lighter. The case for joy in a heavy year'],['Jan 18','Work','TD Super Portfolio, rewritten'],['Jan 25','Thinking','HumanKind: Nobody Puts Canada in a Corner. Local is the new premium']];
+$('#cadT').innerHTML='<tr><th>Week of</th><th>Kind</th><th>Post</th></tr>'+CAD.map(r=>`<tr><td>${r[0]}</td><td><span class="tag ${r[1]==='Thinking'?'g':r[1]==='Work'?'r':'a'}">${r[1]}</span></td><td>${esc(r[2])}</td></tr>`).join('');
+
+/* rewrites */
+const MAN="We're the network agency that walks like an independent. With a Stay Hungry mantra and a holistic, One Team, One Dream approach, we're on a mission to show the world a level creativity that will blow people's minds.";
+const RW=[
+ {p:'/',t0:"Leo Toronto | We're the network agency that walks like an independent.  With a Stay Hungry mantra and a holistic,  One Team, One Dream approach, we're on a mission to show the world a level creativity  that will blow people's minds.",d0:MAN,t1:'Leo Toronto: Creative Agency, Formerly Leo Burnett Toronto',d1:'Leo Toronto is the network agency that walks like an independent. Creative for Pizza Hut, TD, Bell and Starbucks. Silver, 2025 Agency of the Year.'},
+ {p:'/work/',t0:'Work | Leo Toronto',d0:'Human work for human problems.',t1:'Our Work: Pizza Hut, TD, Bell, Starbucks | Leo Toronto',d1:'Human work for human problems. Campaigns, products and design from Leo Toronto for Pizza Hut, TD, Bell, Starbucks, Meow Mix and ecobee.'},
+ {p:'/about/',t0:'About | Leo Toronto',d0:'How to get human.',t1:'About Leo Toronto: HumanKind and the GPC Scale',d1:'Leo Toronto is a creative consultancy that puts creativity at the centre of strategy, design, advertising and product. Here is how we judge our work.'},
+ {p:'/news/',t0:'News | Leo Toronto',d0:'Leo right now.',t1:'News: Hires, Awards and Launches | Leo Toronto',d1:'Leo right now. New people, new work, awards and launches from Leo Toronto, formerly Leo Burnett Toronto.'},
+ {p:'/culture/',t0:'Culture | Leo Toronto',d0:'Leo human nature. The Brinner There was a time when the year-end Brinner Dinner was a black-tie affair. But now we put a lot more flitter in our glam. […]',t1:'Culture at Leo Toronto: Our Values and Traditions',d1:'Leo human nature. The values, traditions and people behind the work, from the year-end Brinner to the way we treat each other every day.'},
+ {p:'/humankind2026/',t0:'The 2026 HumanKind™ Study | Leo Toronto',d0:'We\'re thrilled to share that the 5th annual HumanKind™ Study is here, and it\'s more hopeful than you might think. This year, we\'re diving deeper…',t1:'The HumanKind Study 2026: What Young Canadians Hope For',d1:'Leo Toronto\'s 5th annual HumanKind Study: 70% of young Canadians say hope is something you practise. Download the 2026 findings free.'}
+];
+$('#rwL').innerHTML=RW.map((r,i)=>`<div style="margin-top:22px;border-top:1px solid #2a2a2a;padding-top:14px"><code style="color:var(--g)">${esc(r.p)}</code><div class="rw"><div><div class="lab"><span>Today</span><span>${r.t0.length} chars</span></div><div class="serp bad"><div class="u">Leo Toronto<br><small>leotoronto.com${esc(r.p==='/'?'':' › '+r.p.replace(/\//g,''))}</small></div><div class="t">${esc(r.t0.length>70?r.t0.slice(0,62)+' ...':r.t0)}</div><div class="d">${esc(r.d0.length>160?r.d0.slice(0,155)+'…':r.d0)}</div></div></div><div><div class="lab"><span>Rewritten · edit me</span><span><span class="cnt" data-tc="${i}"></span> · <span class="cnt" data-dc="${i}"></span></span></div><div class="serp"><div class="u">Leo Toronto<br><small>leotoronto.com${esc(r.p==='/'?'':' › '+r.p.replace(/\//g,''))}</small></div><div class="t" contenteditable="true" spellcheck="false" data-t="${i}">${esc(r.t1)}</div><div class="d" contenteditable="true" spellcheck="false" data-d="${i}">${esc(r.d1)}</div></div></div></div></div>`).join('');
+function rwc(){$$('[data-t]').forEach(e=>{const n=e.innerText.trim().length,c=$(`[data-tc="${e.dataset.t}"]`);c.textContent='title '+n;c.className='cnt '+(n<=60&&n>=30?'ok':'bad')});$$('[data-d]').forEach(e=>{const n=e.innerText.trim().length,c=$(`[data-dc="${e.dataset.d}"]`);c.textContent='desc '+n;c.className='cnt '+(n<=160&&n>=100?'ok':'bad')})}
+$('#rwL').addEventListener('input',rwc);rwc();
+$$('#rwL .cnt').forEach(c=>c.style.fontWeight='500');
+
+/* Organization LD */
+$('#orgLd').textContent='<script type="application/ld+json">\n'+JSON.stringify({"@context":"https://schema.org","@type":"Organization","@id":"https://leotoronto.com/#org","name":"Leo Toronto","alternateName":["Leo Burnett Toronto","Leo Burnett Canada","Leo Group Canada","Leo"],"legalName":"Leo Burnett Canada Ltd.","url":"https://leotoronto.com/","description":"Leo Toronto is a creative consultancy, the network agency that walks like an independent, putting creativity at the centre of strategy, design, advertising and product.","address":{"@type":"PostalAddress","streetAddress":"111 Queen St East, 4th Floor","addressLocality":"Toronto","addressRegion":"ON","postalCode":"M5C 1S2","addressCountry":"CA"},"telephone":"+1-416-925-5997","parentOrganization":{"@type":"Organization","name":"Publicis Groupe"},"sameAs":["https://www.linkedin.com/company/leoburnettto/","https://www.instagram.com/leotorontocanada","https://leoburnett.ca/"],"employee":[{"@type":"Person","name":"Ben Tarr","jobTitle":"President, Leo Group Canada"},{"@type":"Person","name":"Adriano Matos","jobTitle":"Chief Creative Officer"},{"@type":"Person","name":"Angus Tucker","jobTitle":"Creative Chairman"}],"award":"Agency of the Year, Silver, Strategy AOY Awards 2025","subjectOf":{"@type":"Report","@id":"https://leotoronto.com/humankind2026/#report"}},null,2)+'\n</'+'script>';
+
+/* prompts checklist */
+const PR=[
+ ['Best creative agencies in Toronto','The category question. Are you in the top five, and why?'],
+ ['Who made the Pizza Hut PS5 pizza warmer?','Does the answer credit Leo, and link to your page or someone else\'s?'],
+ ['Leo Burnett Toronto vs Leo Toronto, are they the same?','Tests whether the rebrand is understood.'],
+ ['Top advertising agencies in Canada 2026','Does "Agency of the Year Silver" come through?'],
+ ['Who is the Chief Creative Officer of Leo Toronto?','Should be Adriano Matos. Your site doesn\'t say so yet.'],
+ ['What is the HumanKind Study?','Is Leo named, and is a 2026 stat quoted?'],
+ ['How do young Canadians feel about the future?','Does HumanKind get cited as a source?'],
+ ['Agency for a bank brand campaign in Canada','Does your TD work surface?'],
+ ['Which Canadian agencies use AI in the creative process?','Does Hi LEO get mentioned?'],
+ ['Best QSR advertising in Canada','Pizza Hut, and who made it.'],
+ ['Creative agency with a design practice in Toronto','Leo Design: ROM, Cin Cin, Ahlo.'],
+ ['Is Leo Toronto a good place to work for creatives?','Culture, the 20+ hires, Glassdoor-style sources.']
+];
+(function(){const el=$('#pcL'),st=store.get('lb-pc')||{};el.innerHTML=PR.map((p,i)=>`<label class="${st[i]?'done':''}" style="border-color:#2a2a2a"><input type="checkbox" data-i="${i}" ${st[i]?'checked':''}><span class="t"><b style="color:#fff">"${esc(p[0])}"</b><small style="color:#9a9a9a">${esc(p[1])}</small></span><span class="tag ${st[i]?'g':''}">${st[i]?'Named':'Check'}</span></label>`).join('');el.style.borderColor='#2a2a2a';
+ const up=()=>{const n=$$('input',el).filter(x=>x.checked).length;$('#pcP').style.width=(n/PR.length*100)+'%'};
+ el.addEventListener('change',e=>{const i=e.target.dataset.i;st[i]=e.target.checked;const l=e.target.closest('label');l.classList.toggle('done',st[i]);const t=l.querySelector('.tag');t.textContent=st[i]?'Named':'Check';t.className='tag '+(st[i]?'g':'');store.set('lb-pc',st);up()});up();$('#pcP').parentNode.style.background='#1a1a1a'})();
+
+/* reveal */
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rio.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
+$$('.sh,.au-top,.proof').forEach(e=>{e.classList.add('rv');rio.observe(e)});
+setTimeout(()=>$$('.rv').forEach(e=>e.classList.add('in')),4000);
+
+fromHash();
+})();
+</script>
+</body>
+</html>
