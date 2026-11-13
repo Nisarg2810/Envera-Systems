@@ -304,9 +304,9 @@ body.filming{overflow:hidden}
 <body class="filming">
 <div id="film" role="dialog" aria-label="A 20-second intro film">
   <button class="f-skip" id="fSkip">Skip intro →</button>
-  <div class="f-sound">A 20-second hello · no sound</div>
+  <div class="f-sound">A hello</div>
   <div class="sc" id="s1"><div class="f-roll"></div><div class="f-strip">toronto. november 2026.</div><div class="f-small" style="color:#fff">a job post went up…</div></div>
-  <div class="sc" id="s2"><div class="f-big"><span class="f-w">marketing</span> <span class="f-w" style="transition-delay:.1s">and</span> <span class="f-w" style="transition-delay:.2s">commercial</span> <span class="f-w" style="transition-delay:.3s">specialist,</span> <span class="f-w" style="transition-delay:.45s;color:var(--blue)">canada.</span></div><div class="f-count"><span id="fNum">0</span>+<small>people applied. one of them made something.</small></div></div>
+  <div class="sc" id="s2"><div class="f-big"><span class="f-w">marketing</span> <span class="f-w" style="transition-delay:.1s">and</span> <span class="f-w" style="transition-delay:.2s">commercial</span> <span class="f-w" style="transition-delay:.3s">specialist,</span> <span class="f-w" style="transition-delay:.45s;color:var(--blue)">canada.</span></div></div>
   <div class="sc" id="s3"><div class="f-kim"><div class="ring"></div><img src="img/kim.jpg" alt="Kim"><span class="hand">👋</span><span class="lbl">100% kim</span></div><div class="f-big">hi kim.</div><div class="f-mid" style="color:#fff;text-shadow:0 3px 0 var(--ink)">this one's for you.</div></div>
   <div class="sc" id="s4"><div class="f-mid">so i packed the first few weeks of the job into a box.</div>
     <div class="f-pack"><div style="position:relative"><div class="f-box">who<br>gives a<br>crap</div><div id="fDrops"></div></div>
@@ -332,12 +332,10 @@ body.filming{overflow:hidden}
       <div class="roll p-check" style="--c1:#fff;--c2:var(--ink);left:34%;top:270px;animation-delay:.4s"><span class="lb">who<br>gives a<br>crap</span></div>
       <div class="roll p-wave" style="--c1:var(--pink);--c2:var(--red);left:64%;top:245px;--r:5deg;animation-delay:.8s"><span class="lb">who<br>gives a<br>crap</span></div>
       <div class="roll p-stripe" style="--c1:var(--yellow);--c2:var(--orange);left:19%;top:95px;--r:4deg;animation-delay:1.2s"><span class="lb">who<br>gives a<br>crap</span></div>
-      <div class="roll p-blob kimroll" style="--c1:var(--sky);--c2:var(--blue);left:49%;top:110px;--r:-4deg;animation-delay:1.6s"><span class="lb kimlb"><img src="img/kim.jpg" alt="Kim"></span><span class="kimtag">this one's<br>for kim</span></div>
+      <div class="roll p-blob" style="--c1:var(--sky);--c2:var(--blue);left:49%;top:110px;--r:-4deg;animation-delay:1.6s"><span class="lb">who<br>gives a<br>crap</span></div>
     </div>
   </div>
 </header>
-
-<div class="ticker" aria-hidden="true"><div class="tk"><span>50% of profits to toilets</span><span>🧻</span><span>canadian spelling, eh</span><span>🍁</span><span>no quebec shipping (yet)</span><span>🧻</span><span>free shipping over $40 in ON, AB, BC</span><span>🍁</span><span>made in barrie, ontario</span><span>🧻</span><span>50% of profits to toilets</span><span>🍁</span><span>canadian spelling, eh</span><span>🧻</span><span>no quebec shipping (yet)</span><span>🍁</span><span>free shipping over $40 in ON, AB, BC</span><span>🧻</span><span>made in barrie, ontario</span><span>🍁</span></div></div>
 
 <div class="wrap call" id="roll-call">
   <h2>the roll call.</h2>
@@ -659,10 +657,10 @@ $('#testList').innerHTML=TESTS.map((t,n)=>`<div class="test"><span class="ice" t
  function confetti(){const s3=$('#s3');for(let i=0;i<18;i++){const c=document.createElement('i');c.className='conf';c.style.left=Math.random()*100+'%';c.style.background=COLORS[i%7];c.style.animationDuration=(2.2+Math.random()*2)+'s';c.style.animationDelay=(Math.random()*1.2)+'s';s3.appendChild(c);T(5200,()=>c.remove())}}
  function play(){
   timers.forEach(clearTimeout);timers=[];film.style.display='';film.classList.remove('out');document.body.classList.add('filming');scrollTo(0,0);
-  $$('#film .sc').forEach(s=>s.classList.remove('on'));$('#fDrops').innerHTML='';$$('#fList li').forEach(l=>l.classList.remove('ok'));$('#fNum').textContent='0';
+  $$('#film .sc').forEach(s=>s.classList.remove('on'));$('#fDrops').innerHTML='';$$('#fList li').forEach(l=>l.classList.remove('ok'));
   const t0=performance.now();(function p(){const k=Math.min(1,(performance.now()-t0)/D);$('#fProg').style.width=k*100+'%';if(k<1)raf=requestAnimationFrame(p)})();
   T(50,()=>show('s1'));
-  T(3600,()=>{show('s2');let n=0;const iv=setInterval(()=>{n+=7;$('#fNum').textContent=Math.min(n,200);if(n>=200)clearInterval(iv)},18);timers.push(iv)});
+  T(3600,()=>show('s2'));
   T(7200,()=>{show('s3');confetti()});
   T(11000,()=>{show('s4');const box=$('#fDrops');for(let i=0;i<7;i++){const d=document.createElement('div');d.className='f-drop';d.style.background=COLORS[i];d.style.setProperty('--x',((i-3)*14)+'%');d.style.setProperty('--r',((i%2?1:-1)*(6+i*2))+'deg');box.appendChild(d);T(700+i*560,()=>{d.classList.add('in');$$('#fList li')[i].classList.add('ok')})}});
   T(16300,()=>show('s5'));
