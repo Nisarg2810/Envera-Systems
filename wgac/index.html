@@ -5,16 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hi Kim · Durva for Who Gives A Crap Canada</title>
 <meta name="robots" content="noindex">
-<meta name="description" content="Marketing and Commercial Specialist, Canada. The first few weeks of the job, already done: campaign board, agency WIP, a Canadian social calendar, a Canadian fit check, influencer review, budget tracker, B2B replies and a test backlog.">
+<meta name="description" content="Marketing and Commercial Specialist, Canada. The first few weeks of the job, already done: campaign board, agency WIP, a Canadian social calendar, a Canadian fit check, influencer review, B2B replies and a test backlog.">
 <meta property="og:title" content="Hi Kim. I give a crap about this job.">
-<meta property="og:description" content="Eight finished pieces of the Marketing and Commercial Specialist role, made for Who Gives A Crap Canada.">
+<meta property="og:description" content="Seven finished pieces of the Marketing and Commercial Specialist role, made for Who Gives A Crap Canada.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://durvathakkar.com/wgac/">
-<meta property="og:image" content="https://durvathakkar.com/wgac/share.jpg?v=1">
+<meta property="og:image" content="https://durvathakkar.com/wgac/share.jpg?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://durvathakkar.com/wgac/share.jpg?v=1">
+<meta name="twitter:image" content="https://durvathakkar.com/wgac/share.jpg?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
@@ -69,7 +69,7 @@ img{max-width:100%;display:block}
 .call{padding:56px 0 30px}
 .call h2{font-size:clamp(30px,4vw,48px);font-weight:900;text-transform:lowercase}
 .call p{max-width:640px}
-.rolls{display:grid;grid-template-columns:repeat(8,1fr);gap:14px;margin-top:30px}
+.rolls{display:grid;grid-template-columns:repeat(7,1fr);gap:14px;margin-top:30px}
 .rc{text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
 .rc .roll{position:relative;width:100%;max-width:110px;height:120px;transition:transform .2s}
 .rc:hover .roll{transform:translateY(-8px) rotate(-4deg)}
@@ -190,14 +190,100 @@ dialog::backdrop{background:rgba(28,28,28,.55)}
 .q{background:#fff;border:2px solid var(--ink);border-radius:18px;padding:16px;margin-bottom:12px;font-size:15px}
 .q b{display:block;font-family:Rubik;margin-top:6px;font-size:14px}
 footer{background:var(--blue);color:#fff;padding:70px 0 40px;border-top:2px solid var(--ink)}
-footer h2{font-size:clamp(40px,7vw,96px);font-weight:900;line-height:.92;text-transform:lowercase}
-footer .pill{border-color:#fff}
+footer h2{font-size:clamp(32px,7vw,96px);font-weight:900;line-height:.92;text-transform:lowercase}
+footer .pill{border-color:#fff;margin:6px 6px 0 0;max-width:100%;overflow-wrap:anywhere}
 footer .small{opacity:.85;margin-top:40px}
+
+
+/* kim roll */
+.kimlb{width:78px!important;height:78px!important;overflow:hidden;padding:0;background:#fff!important}
+.kimlb img{width:100%;height:100%;object-fit:cover}
+.kimtag{position:absolute;right:-70px;top:-46px;background:var(--pink);border:2px solid var(--ink);border-radius:14px;padding:6px 10px;font:800 13px/1.05 Rubik;transform:rotate(8deg);white-space:nowrap}
+.kimtag::after{content:"";position:absolute;left:14px;bottom:-9px;width:14px;height:14px;background:var(--pink);border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(45deg)}
+/* headline pop */
+.pop span{display:inline-block;opacity:0;transform:translateY(40px) rotate(6deg);animation:popin .6s cubic-bezier(.2,1.6,.4,1) forwards}
+.pop span:nth-child(1){animation-delay:.05s}.pop span:nth-child(2){animation-delay:.12s}.pop span:nth-child(3){animation-delay:.19s}.pop span:nth-child(4){animation-delay:.26s}.pop span:nth-child(5){animation-delay:.33s}.pop span:nth-child(6){animation-delay:.45s}.pop span:nth-child(7){animation-delay:.52s}.pop span:nth-child(8){animation-delay:.59s}.pop span:nth-child(9){animation-delay:.66s}
+@keyframes popin{to{opacity:1;transform:none}}
+body.filming .pop span{animation-play-state:paused}
+/* ticker */
+.ticker{background:var(--ink);color:#fff;overflow:hidden;border-bottom:2px solid var(--ink);padding:12px 0}
+.tk{display:flex;gap:28px;width:max-content;animation:tick 38s linear infinite;font:800 18px Rubik;text-transform:lowercase}
+@keyframes tick{to{transform:translateX(-50%)}}
+/* roll call idle wobble */
+.rc .roll{animation:wob 4s ease-in-out infinite}
+.rc:nth-child(2) .roll{animation-delay:.3s}.rc:nth-child(3) .roll{animation-delay:.6s}.rc:nth-child(4) .roll{animation-delay:.9s}.rc:nth-child(5) .roll{animation-delay:1.2s}.rc:nth-child(6) .roll{animation-delay:1.5s}.rc:nth-child(7) .roll{animation-delay:1.8s}
+@keyframes wob{0%,100%{transform:rotate(0)}25%{transform:rotate(-3deg) translateY(-4px)}75%{transform:rotate(3deg)}}
+.rc:hover .roll{animation:none}
+/* scroll reveal */
+.rv{opacity:0;transform:translateY(34px) scale(.98);transition:opacity .7s ease,transform .7s cubic-bezier(.2,1.3,.4,1)}
+.rv.seen{opacity:1;transform:none}
+.sh .num{transition:transform .8s cubic-bezier(.2,1.6,.4,1)}
+.sh.rv:not(.seen) .num{transform:rotate(-180deg) scale(.3)}
+.post.rv:nth-child(5n+2){transition-delay:.07s}.post.rv:nth-child(5n+3){transition-delay:.14s}.post.rv:nth-child(5n+4){transition-delay:.21s}.post.rv:nth-child(5n+5){transition-delay:.28s}
+
+/* ===== FILM ===== */
+body.filming{overflow:hidden}
+#film{position:fixed;inset:0;z-index:100;background:var(--blue);overflow:hidden;font-family:Rubik;color:var(--ink);transition:transform 1s cubic-bezier(.7,0,.3,1)}
+#film.out{transform:translateY(-100%)}
+#film .sc{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;opacity:0;visibility:hidden;transition:opacity .45s,visibility .45s}
+#film .sc.on{opacity:1;visibility:visible}
+.f-big{font-weight:900;font-size:clamp(38px,8vw,112px);line-height:.92;letter-spacing:-.03em;text-transform:lowercase}
+.f-mid{font-weight:800;font-size:clamp(20px,3vw,34px);text-transform:lowercase;margin-top:16px}
+.f-small{font:700 clamp(14px,1.8vw,19px) "DM Sans";margin-top:12px}
+.f-w{display:inline-block;opacity:0;transform:translateY(50px) rotate(5deg);transition:all .55s cubic-bezier(.2,1.6,.4,1)}
+.on .f-w{opacity:1;transform:none}
+/* scene 1: roll rolls in and unrolls */
+#s1{background:var(--blue);color:#fff}
+.f-roll{width:clamp(120px,18vw,200px);height:clamp(120px,18vw,200px);border-radius:50%;border:3px solid var(--ink);position:relative;transform:translateX(-80vw) rotate(-720deg);transition:transform 1.6s cubic-bezier(.2,.9,.3,1);background:radial-gradient(circle,#d9cfb6 0 18%,var(--ink) 18% 20%,transparent 20%),conic-gradient(var(--green) 0 25%,#fff 0 50%,var(--green) 0 75%,#fff 0);box-shadow:0 8px 0 var(--ink)}
+.on .f-roll{transform:none}
+.f-strip{height:clamp(54px,8vw,80px);background:#fff;color:var(--ink);border:3px solid var(--ink);border-radius:8px;display:flex;align-items:center;justify-content:center;font:900 clamp(15px,3.6vw,40px) Rubik;text-transform:lowercase;margin-top:26px;width:0;padding:0 10px;overflow:hidden;white-space:nowrap;transition:width 1.4s cubic-bezier(.5,0,.2,1) 1.4s;box-shadow:0 6px 0 var(--ink)}
+.on .f-strip{width:min(86vw,900px)}
+/* scene 2 */
+#s2{background:var(--cream)}
+.f-count{margin-top:22px;font:900 clamp(40px,7vw,90px) Rubik;color:var(--blue)}
+.f-count small{display:block;font:700 clamp(14px,1.8vw,18px) "DM Sans";color:var(--ink)}
+/* scene 3: kim */
+#s3{--c1:var(--green);--c2:#2fd35c;background:radial-gradient(circle at 50% 50%,var(--c2) 26%,transparent 28%) 0 0/34px 34px,var(--c1);color:#fff}
+.f-kim{position:relative;width:clamp(180px,30vmin,300px);aspect-ratio:1;transform:scale(0) rotate(-30deg);transition:transform .9s cubic-bezier(.2,1.7,.4,1) .2s}
+.on .f-kim{transform:none}
+.f-kim img{position:absolute;inset:14%;width:72%;height:72%;border-radius:50%;object-fit:cover;border:4px solid var(--ink)}
+.f-kim .ring{position:absolute;inset:0;border-radius:50%;border:4px solid var(--ink);background:repeating-conic-gradient(var(--pink) 0 15deg,var(--red) 0 30deg);animation:spin 10s linear infinite;-webkit-mask:radial-gradient(circle,transparent 57%,#000 58%);mask:radial-gradient(circle,transparent 57%,#000 58%)}
+.f-kim .hand{position:absolute;right:-6%;top:2%;font-size:clamp(40px,7vmin,70px);animation:wave 1s ease-in-out infinite;transform-origin:70% 70%}
+@keyframes wave{50%{transform:rotate(20deg)}}
+.f-kim .lbl{position:absolute;left:50%;bottom:-6%;transform:translateX(-50%) rotate(-4deg);background:var(--yellow);color:var(--ink);border:3px solid var(--ink);border-radius:999px;padding:6px 16px;font:900 clamp(16px,2.4vw,24px) Rubik;white-space:nowrap}
+#s3 .f-big{margin-top:30px;text-shadow:0 4px 0 var(--ink)}
+.conf{position:absolute;top:-60px;width:26px;height:34px;border:2px solid var(--ink);border-radius:6px;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(115vh) rotate(540deg)}}
+/* scene 4: packing the box */
+#s4{background:var(--cream);justify-content:flex-start;padding-top:7vh}
+#s4 .f-mid{margin-top:0;max-width:820px;font-size:clamp(22px,3.4vw,40px);font-weight:900}
+.f-pack{position:relative;display:flex;gap:clamp(16px,4vw,60px);align-items:flex-end;margin-top:calc(4vh + clamp(70px,10vw,110px))}
+.f-box{position:relative;width:clamp(220px,34vw,380px);height:clamp(150px,22vw,240px);background:#c9a56b;border:3px solid var(--ink);border-radius:10px;box-shadow:0 8px 0 var(--ink);display:grid;place-items:center;font:900 clamp(26px,4vw,46px)/.9 Rubik;text-transform:lowercase;z-index:2}
+.f-box::before,.f-box::after{content:"";position:absolute;top:-3px;width:50%;height:44%;background:#b8935a;border:3px solid var(--ink);transform-origin:top;transition:transform .6s}
+.f-box::before{left:-3px;border-radius:10px 0 0 0;transform:rotateX(180deg) translateY(2px) skewX(-8deg);transform-origin:top left}
+.f-box::after{right:-3px;border-radius:0 10px 0 0;transform:rotateX(180deg) translateY(2px) skewX(8deg);transform-origin:top right}
+.f-drop{position:absolute;left:50%;bottom:30%;width:clamp(36px,5vw,56px);height:clamp(44px,6vw,66px);margin-left:calc(clamp(36px,5vw,56px)/-2);border:3px solid var(--ink);border-radius:9px;z-index:1;transform:translateY(-70vh) rotate(var(--r));transition:transform .55s cubic-bezier(.5,0,.7,1.4)}
+.f-drop.in{transform:translateY(0) translateX(var(--x)) rotate(var(--r))}
+.f-list{list-style:none;margin:0;padding:0;text-align:left;font:800 clamp(14px,1.9vw,20px) Rubik}
+.f-list li{opacity:.25;transition:opacity .3s;margin:6px 0;text-transform:lowercase}
+.f-list li.ok{opacity:1}
+.f-list li.ok::before{content:"✓ ";color:var(--green)}
+/* scene 5 */
+#s5{background:var(--yellow)}
+.f-stamp{margin-top:26px;border:4px solid var(--red);color:var(--red);border-radius:12px;padding:10px 20px;font:900 clamp(18px,3vw,30px) Rubik;text-transform:uppercase;transform:rotate(-8deg) scale(3);opacity:0;transition:all .45s cubic-bezier(.3,1.6,.5,1) .5s}
+.on .f-stamp{transform:rotate(-8deg) scale(1);opacity:1}
+.f-go{margin-top:30px;font:800 20px Rubik;background:var(--ink);color:#fff;border:0;border-radius:999px;padding:16px 28px;cursor:pointer;box-shadow:0 6px 0 rgba(0,0,0,.25)}
+/* controls */
+.f-skip{position:absolute;right:16px;top:16px;z-index:5;font:800 14px Rubik;background:#fff;border:2px solid var(--ink);border-radius:999px;padding:9px 16px;cursor:pointer}
+.f-prog{position:absolute;left:0;bottom:0;height:6px;background:var(--ink);width:0;z-index:5}
+.f-sound{position:absolute;left:16px;bottom:18px;z-index:5;font:800 13px Rubik;background:rgba(255,255,255,.85);border:2px solid var(--ink);border-radius:999px;padding:8px 14px}
+@media (max-width:640px){.f-pack{flex-direction:column;align-items:center}.f-list{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}.kimtag{right:-40px}}
 
 @media (max-width:980px){
   .hero .wrap,.big-idea,.grid2,.me,.dlg,.ba{grid-template-columns:1fr}
   .stack{height:300px}
-  .rolls{grid-template-columns:repeat(4,1fr)}
+  .rolls{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+  .rc b{font-size:12.5px}
   .cal{grid-template-columns:repeat(2,1fr)}
   .grid3,.tests{grid-template-columns:1fr}
   .rag{grid-template-columns:repeat(2,1fr)}
@@ -215,19 +301,30 @@ footer .small{opacity:.85;margin-top:40px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
-<body>
+<body class="filming">
+<div id="film" role="dialog" aria-label="A 20-second intro film">
+  <button class="f-skip" id="fSkip">Skip intro →</button>
+  <div class="f-sound">A 20-second hello · no sound</div>
+  <div class="sc" id="s1"><div class="f-roll"></div><div class="f-strip">toronto. november 2026.</div><div class="f-small" style="color:#fff">a job post went up…</div></div>
+  <div class="sc" id="s2"><div class="f-big"><span class="f-w">marketing</span> <span class="f-w" style="transition-delay:.1s">and</span> <span class="f-w" style="transition-delay:.2s">commercial</span> <span class="f-w" style="transition-delay:.3s">specialist,</span> <span class="f-w" style="transition-delay:.45s;color:var(--blue)">canada.</span></div><div class="f-count"><span id="fNum">0</span>+<small>people applied. one of them made something.</small></div></div>
+  <div class="sc" id="s3"><div class="f-kim"><div class="ring"></div><img src="img/kim.jpg" alt="Kim"><span class="hand">👋</span><span class="lbl">100% kim</span></div><div class="f-big">hi kim.</div><div class="f-mid" style="color:#fff;text-shadow:0 3px 0 var(--ink)">this one's for you.</div></div>
+  <div class="sc" id="s4"><div class="f-mid">so i packed the first few weeks of the job into a box.</div>
+    <div class="f-pack"><div style="position:relative"><div class="f-box">who<br>gives a<br>crap</div><div id="fDrops"></div></div>
+    <ul class="f-list" id="fList"><li>a holiday campaign</li><li>the agency wip</li><li>a canadian social calendar</li><li>a canadian fit check</li><li>an influencer review</li><li>the b2b inbox</li><li>what to test next</li></ul></div></div>
+  <div class="sc" id="s5"><div class="f-big"><span class="f-w">delivered.</span><br><span class="f-w" style="transition-delay:.15s">as regular as you are.</span></div><div class="f-stamp">from durva · barrie, on 🍁</div><button class="f-go" id="fGo">unroll it →</button></div>
+  <div class="f-prog" id="fProg"></div>
+</div>
 
-<div class="bar">Made for Kim and the Who Gives A Crap Canada team · <a href="#roll-call">Skip to the work</a></div>
+<div class="bar">Made for Kim and the Who Gives A Crap Canada team · <a href="#roll-call">Skip to the work</a> · <a href="#" id="replay">Replay the film</a></div>
 
 <header class="hero">
   <div class="wrap">
     <div>
       <span class="tag">Marketing and Commercial Specialist, Canada</span>
-      <h1 style="margin-top:18px">hi kim. i give a <span class="u">crap</span> about this job.</h1>
-      <p class="lede">I'm Durva, a content and social marketer in Barrie, Ontario. I made the first few weeks of this role already: a holiday campaign board, an agency WIP, a Canadian social calendar, a Canadian fit check, an influencer pitch review, a budget tracker, B2B replies and a list of tests to run next.</p>
+      <h1 style="margin-top:18px" class="pop"><span>hi</span> <span>kim.</span> <span>i</span> <span>give</span> <span>a</span> <span class="u">crap</span> <span>about</span> <span>this</span> <span>job.</span></h1>
+      <p class="lede">I'm Durva, a content and social marketer in Barrie, Ontario. I made the first few weeks of this role already: a holiday campaign board, an agency WIP, a Canadian social calendar, a Canadian fit check, an influencer pitch review, B2B replies and a list of tests to run next.</p>
       <a class="pill blue" href="#roll-call">Unroll the work ↓</a>
       <a class="pill" href="#me" style="margin-left:6px">Who's Durva?</a>
-      <div class="meta"><span>Barrie, ON · 1 hr to Toronto</span><span>Open work permit</span><span>Canadian spelling, eh</span></div>
     </div>
     <div class="stack" aria-hidden="true">
       <div class="sticker">50% of<br>profits<br>to toilets</div>
@@ -235,23 +332,24 @@ footer .small{opacity:.85;margin-top:40px}
       <div class="roll p-check" style="--c1:#fff;--c2:var(--ink);left:34%;top:270px;animation-delay:.4s"><span class="lb">who<br>gives a<br>crap</span></div>
       <div class="roll p-wave" style="--c1:var(--pink);--c2:var(--red);left:64%;top:245px;--r:5deg;animation-delay:.8s"><span class="lb">who<br>gives a<br>crap</span></div>
       <div class="roll p-stripe" style="--c1:var(--yellow);--c2:var(--orange);left:19%;top:95px;--r:4deg;animation-delay:1.2s"><span class="lb">who<br>gives a<br>crap</span></div>
-      <div class="roll p-blob" style="--c1:var(--sky);--c2:var(--blue);left:49%;top:110px;--r:-4deg;animation-delay:1.6s"><span class="lb">who<br>gives a<br>crap</span></div>
+      <div class="roll p-blob kimroll" style="--c1:var(--sky);--c2:var(--blue);left:49%;top:110px;--r:-4deg;animation-delay:1.6s"><span class="lb kimlb"><img src="img/kim.jpg" alt="Kim"></span><span class="kimtag">this one's<br>for kim</span></div>
     </div>
   </div>
 </header>
 
+<div class="ticker" aria-hidden="true"><div class="tk"><span>50% of profits to toilets</span><span>🧻</span><span>canadian spelling, eh</span><span>🍁</span><span>no quebec shipping (yet)</span><span>🧻</span><span>free shipping over $40 in ON, AB, BC</span><span>🍁</span><span>made in barrie, ontario</span><span>🧻</span><span>50% of profits to toilets</span><span>🍁</span><span>canadian spelling, eh</span><span>🧻</span><span>no quebec shipping (yet)</span><span>🍁</span><span>free shipping over $40 in ON, AB, BC</span><span>🧻</span><span>made in barrie, ontario</span><span>🍁</span></div></div>
+
 <div class="wrap call" id="roll-call">
   <h2>the roll call.</h2>
-  <p>One roll for each part of the job post. Pick one, or just keep scrolling. The holiday dates are real (Nov 19 to Dec 31, 2026). Budget and performance numbers are samples, set up so real ones drop straight in.</p>
+  <p>One roll for each part of the job post. Pick one, or just keep scrolling. The holiday dates are real (Nov 19 to Dec 31, 2026). Campaign and performance numbers are samples, set up so real ones drop straight in.</p>
   <div class="rolls">
     <a class="rc" href="#campaign"><div class="roll p-dots" style="--c1:var(--green);--c2:#fff"><span class="lb">01</span></div><b>Campaign delivery</b></a>
     <a class="rc" href="#agency"><div class="roll p-check" style="--c1:#fff;--c2:var(--ink)"><span class="lb">02</span></div><b>Agency WIP</b></a>
     <a class="rc" href="#calendar"><div class="roll p-wave" style="--c1:var(--pink);--c2:var(--red)"><span class="lb">03</span></div><b>Social calendar</b></a>
     <a class="rc" href="#fit"><div class="roll p-stripe" style="--c1:var(--yellow);--c2:var(--orange)"><span class="lb">04</span></div><b>Canadian fit check</b></a>
     <a class="rc" href="#influencer"><div class="roll p-blob" style="--c1:var(--sky);--c2:var(--blue)"><span class="lb">05</span></div><b>Influencer review</b></a>
-    <a class="rc" href="#budget"><div class="roll p-dots" style="--c1:var(--red);--c2:var(--pink)"><span class="lb">06</span></div><b>Budget tracker</b></a>
-    <a class="rc" href="#b2b"><div class="roll p-check" style="--c1:var(--lime);--c2:var(--green)"><span class="lb">07</span></div><b>B2B inbox</b></a>
-    <a class="rc" href="#tests"><div class="roll p-wave" style="--c1:var(--blue);--c2:var(--sky)"><span class="lb">08</span></div><b>What to test next</b></a>
+    <a class="rc" href="#b2b"><div class="roll p-check" style="--c1:var(--lime);--c2:var(--green)"><span class="lb">06</span></div><b>B2B inbox</b></a>
+    <a class="rc" href="#tests"><div class="roll p-wave" style="--c1:var(--blue);--c2:var(--sky)"><span class="lb">07</span></div><b>What to test next</b></a>
   </div>
 </div>
 
@@ -399,22 +497,10 @@ footer .small{opacity:.85;margin-top:40px}
   </div>
 </section>
 
-<!-- 06 BUDGET -->
-<section class="s" id="budget">
-  <div class="wrap">
-    <div class="sh"><div class="num" style="background:var(--red)">06</div><div><h2>every dollar, tracked.</h2><div class="jd"><b>The job:</b> maintain the Canadian marketing budget tracker.</div></div></div>
-    <p class="intro">Planned, committed and actual for each line, in CAD. Committed is what's signed. Actual is what's invoiced. The gap between them is where surprises hide. Edit any number and it recalculates. These are sample numbers.</p>
-    <div class="card bud">
-      <div class="scroll"><table class="tbl" id="budT"><thead><tr><th>Line</th><th>Planned</th><th>Committed</th><th>Actual</th><th>Left to commit</th><th>Spent</th><th></th></tr></thead><tbody></tbody><tfoot></tfoot></table></div>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px"><button class="pill ink" id="csv">Download CSV</button><span class="small" id="budNote" style="align-self:center"></span></div>
-    </div>
-  </div>
-</section>
-
-<!-- 07 B2B -->
+<!-- 06 B2B -->
 <section class="s" id="b2b">
   <div class="wrap">
-    <div class="sh"><div class="num" style="background:var(--green)">07</div><div><h2>the business inbox.</h2><div class="jd"><b>The job:</b> handle inbound Canadian B2B enquiries, from bulk requests to reorders.</div></div></div>
+    <div class="sh"><div class="num" style="background:var(--green)">06</div><div><h2>the business inbox.</h2><div class="jd"><b>The job:</b> handle inbound Canadian B2B enquiries, from bulk requests to reorders.</div></div></div>
     <p class="intro">Every enquiry gets sorted, answered within one business day, and logged so we can see what businesses want. These are the five types I'd expect, and the reply each one gets.</p>
     <div class="tabs" id="b2bTabs"></div>
     <div class="grid2">
@@ -424,10 +510,10 @@ footer .small{opacity:.85;margin-top:40px}
   </div>
 </section>
 
-<!-- 08 TESTS -->
+<!-- 07 TESTS -->
 <section class="s" id="tests">
   <div class="wrap">
-    <div class="sh"><div class="num" style="background:var(--blue2)">08</div><div><h2>what to test next.</h2><div class="jd"><b>The job:</b> use dashboards and data to work out what to test next.</div></div></div>
+    <div class="sh"><div class="num" style="background:var(--blue2)">07</div><div><h2>what to test next.</h2><div class="jd"><b>The job:</b> use dashboards and data to work out what to test next.</div></div></div>
     <p class="intro">Six tests for Canada, ranked by ICE (impact, confidence, ease, out of 10 each). Each starts from something real on the Canadian site or in your launch research, and has a rule for what we'd do with the result.</p>
     <div class="tests" id="testList"></div>
   </div>
@@ -439,7 +525,7 @@ footer .small{opacity:.85;margin-top:40px}
     <div class="sh"><div class="num" style="background:var(--ink)">+</div><div><h2>small things i noticed.</h2><div class="jd">From ca.whogivesacrap.org, checked Nov 14, 2026. All small, all easy wins.</div></div></div>
     <ul class="notes card" style="padding-left:40px">
       <li><b>Garbage or trash?</b> The Canadian homepage uses both words (and "Trash, compost and pet poo!"). Canadians mostly say garbage bags and search for them that way. Picking one helps search and feels more local.</li>
-      <li><b>A home for business enquiries.</b> The AU footer links to Wholesale, a Discount program and an Affiliate program. The Canadian site doesn't have these yet, so a one-page "Who Gives A Crap for business" in Canada would give bulk and office enquiries somewhere to land (copy for it is in roll 07).</li>
+      <li><b>A home for business enquiries.</b> The AU footer links to Wholesale, a Discount program and an Affiliate program. The Canadian site doesn't have these yet, so a one-page "Who Gives A Crap for business" in Canada would give bulk and office enquiries somewhere to land (copy for it is in roll 06).</li>
       <li><b>Free shipping is regional.</b> The shipping page is clear that free shipping over $40 is for Ontario, Alberta and BC. The homepage says "most orders over $40", which is true, and a province note there would save some confused carts in Manitoba and Nova Scotia.</li>
     </ul>
   </div>
@@ -464,13 +550,12 @@ footer .small{opacity:.85;margin-top:40px}
     <p style="font-size:19px;max-width:620px;margin:20px 0 26px">Kim, if any of this is useful, I'd love 15 minutes to hear what the Canadian team needs most in the first 90 days. Coffee in Toronto works too.</p>
     <a class="pill ink" href="mailto:durvathakker7@gmail.com?subject=Who%20Gives%20A%20Crap%20Canada%20%C2%B7%20Marketing%20and%20Commercial%20Specialist">durvathakker7@gmail.com</a>
     <a class="pill" style="color:var(--ink)" href="https://www.linkedin.com/in/durvathakkar/" target="_blank" rel="noopener">Durva on LinkedIn ↗</a>
-    <p class="small">Made by Durva Thakkar for Who Gives A Crap Canada. Product photos are Who Gives A Crap's own, from ca.whogivesacrap.org. The campaign, budget, pitch and performance numbers are samples. Facts about Who Gives A Crap come from your Canadian site and your October 2025 launch release.</p>
+    <p class="small">Made by Durva Thakkar for Who Gives A Crap Canada. Product photos are Who Gives A Crap's own, from ca.whogivesacrap.org. The campaign, pitch and performance numbers are samples. Facts about Who Gives A Crap come from your Canadian site and your October 2025 launch release.</p>
   </div>
 </footer>
 
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-const money=n=>'$'+Math.round(n).toLocaleString('en-CA');
 
 /* 01 board */
 const BOARD=[
@@ -541,15 +626,6 @@ const low=CRIT.map((c,i)=>[c[0],+$('#s'+i).value]).filter(x=>x[1]<=3).map(x=>x[0
 $('#memo').textContent=`To: Kim\nRe: Toronto home and lifestyle creator, Gift Edition\n\nRecommendation: ${v[0]} (${s}/100).\n\nWhy: strong fit with the brand's humour, and 61% of the audience is Canadian, mostly in Ontario, where we ship free over $40. Comments show people actually ask about products.\n\n${low.length?'Watch: '+low.join(', ')+'.\n\n':''}Changes before sign-off: add paid usage for 30 days so we can boost the Reel in ON, AB and BC (agency to quote, est. $800 to $1,200). Ask for no other paper or cleaning brand within 30 days either side. Script must include the boreal fact and the 50% line.\n\nDisclosure: "Paid partnership" label plus #ad in the first line.`}
 CRIT.forEach((c,i)=>$('#s'+i).oninput=inf);inf();
 
-/* 06 budget */
-const BUD=[['Influencer',18000,15500,9800],['Paid social',14000,14000,8420],['PR agency',9000,9000,6000],['Toronto pop-up',8500,7900,2150],['Content and production',6000,4200,3100],['Product for seeding and gifting',3500,2800,2800],['Contingency',1000,0,0]];
-function bud(){const tb=$('#budT tbody');tb.innerHTML=BUD.map((r,i)=>{const left=r[1]-r[2],pct=r[1]?Math.min(100,r[3]/r[1]*100):0,w=r[2]>r[1]?'Over plan':r[3]>r[2]?'Invoiced more than signed':'';return `<tr><td><b>${r[0]}</b></td>${[1,2,3].map(j=>`<td><input type="number" value="${r[j]}" data-i="${i}" data-j="${j}" aria-label="${r[0]}"></td>`).join('')}<td class="${left<0?'warn':''}">${money(left)}</td><td><div class="barw"><i style="width:${pct}%"></i></div><span class="small">${Math.round(pct)}%</span></td><td class="warn">${w}</td></tr>`}).join('');
-const t=[1,2,3].map(j=>BUD.reduce((a,r)=>a+r[j],0));$('#budT tfoot').innerHTML=`<tr class="tot"><td>Total</td><td>${money(t[0])}</td><td>${money(t[1])}</td><td>${money(t[2])}</td><td>${money(t[0]-t[1])}</td><td>${Math.round(t[2]/t[0]*100)}% spent</td><td></td></tr>`;
-$('#budNote').textContent=`${money(t[1]-t[2])} signed but not yet invoiced. Plan for it before Dec 31.`;
-$$('#budT input').forEach(n=>n.onchange=()=>{BUD[n.dataset.i][n.dataset.j]=+n.value||0;bud()})}
-bud();
-$('#csv').onclick=()=>{const rows=[['Line','Planned','Committed','Actual','Left to commit'],...BUD.map(r=>[r[0],r[1],r[2],r[3],r[1]-r[2]])];const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([rows.map(r=>r.join(',')).join('\n')],{type:'text/csv'}));a.download='wgac-canada-budget.csv';a.click()};
-
 /* 07 b2b */
 const B2B=[
  {t:'Bulk order',to:'office.manager@(a Toronto company)',s:'Re: Toilet paper for our office',b:`<p>Hi Priya,</p><p>Thanks for thinking of us for the office! For 15 washrooms, I'd suggest the 48-roll box of 100% Recycled Toilet Paper. The rolls are triple length, so you'll change them a lot less often.</p><p>Two options:</p><ul><li><b>One-off order:</b> 48 rolls for $69 CAD, free shipping in Ontario.</li><li><b>Subscription:</b> set the delivery schedule to your usage, and skip or change it anytime. $10 off the first box.</li></ul><p>If you need more than 10 boxes at once or an invoice in your company's name, reply with the quantity and your address and I'll send a quote within one business day.</p><p>And every order helps fund toilets and clean water. Your team can feel good about that one.</p><p>Durva<br>Who Gives A Crap Canada</p>`,side:`<h4>Triage</h4><p><b>Signals:</b> "office", "team", "bulk", quantities over 4 boxes.</p><p><b>Reply within:</b> 1 business day.</p><p><b>Goal:</b> a subscription, not a one-off.</p><p><b>Log:</b> company size, province, product, quote sent, won or lost.</p>`},
@@ -573,6 +649,37 @@ const TESTS=[
 ];
 TESTS.sort((a,b)=>(b.i+b.c+b.e)-(a.i+a.c+a.e));
 $('#testList').innerHTML=TESTS.map((t,n)=>`<div class="test"><span class="ice" title="Impact ${t.i}, confidence ${t.c}, ease ${t.e}">${t.i+t.c+t.e}</span><span class="tag">Test ${n+1}</span><h4>${t.h}</h4><dl><dt>Why now</dt><dd>${t.why}</dd><dt>The test</dt><dd>${t.test}</dd><dt>Measure</dt><dd>${t.m}</dd><dt>Decision rule</dt><dd>${t.rule}</dd></dl></div>`).join('');
+
+/* ===== FILM ===== */
+(function(){
+ const film=$('#film');let timers=[],raf;const D=20500;
+ const COLORS=['var(--green)','var(--pink)','var(--yellow)','var(--sky)','var(--red)','var(--lime)','var(--orange)'];
+ function show(id){$$('#film .sc').forEach(s=>s.classList.toggle('on',s.id===id))}
+ function T(ms,fn){timers.push(setTimeout(fn,ms))}
+ function end(){timers.forEach(clearTimeout);timers=[];cancelAnimationFrame(raf);film.classList.add('out');document.body.classList.remove('filming');setTimeout(()=>{film.style.display='none'},1000);try{sessionStorage.setItem('wgacFilm','1')}catch(e){}}
+ function confetti(){const s3=$('#s3');for(let i=0;i<18;i++){const c=document.createElement('i');c.className='conf';c.style.left=Math.random()*100+'%';c.style.background=COLORS[i%7];c.style.animationDuration=(2.2+Math.random()*2)+'s';c.style.animationDelay=(Math.random()*1.2)+'s';s3.appendChild(c);T(5200,()=>c.remove())}}
+ function play(){
+  timers.forEach(clearTimeout);timers=[];film.style.display='';film.classList.remove('out');document.body.classList.add('filming');scrollTo(0,0);
+  $$('#film .sc').forEach(s=>s.classList.remove('on'));$('#fDrops').innerHTML='';$$('#fList li').forEach(l=>l.classList.remove('ok'));$('#fNum').textContent='0';
+  const t0=performance.now();(function p(){const k=Math.min(1,(performance.now()-t0)/D);$('#fProg').style.width=k*100+'%';if(k<1)raf=requestAnimationFrame(p)})();
+  T(50,()=>show('s1'));
+  T(3600,()=>{show('s2');let n=0;const iv=setInterval(()=>{n+=7;$('#fNum').textContent=Math.min(n,200);if(n>=200)clearInterval(iv)},18);timers.push(iv)});
+  T(7200,()=>{show('s3');confetti()});
+  T(11000,()=>{show('s4');const box=$('#fDrops');for(let i=0;i<7;i++){const d=document.createElement('div');d.className='f-drop';d.style.background=COLORS[i];d.style.setProperty('--x',((i-3)*14)+'%');d.style.setProperty('--r',((i%2?1:-1)*(6+i*2))+'deg');box.appendChild(d);T(700+i*560,()=>{d.classList.add('in');$$('#fList li')[i].classList.add('ok')})}});
+  T(16300,()=>show('s5'));
+  T(D,end);
+ }
+ $('#fSkip').onclick=end;$('#fGo').onclick=end;
+ $('#replay').onclick=e=>{e.preventDefault();play()};
+ let seen=false;try{seen=sessionStorage.getItem('wgacFilm')==='1'}catch(e){}
+ if(seen||matchMedia('(prefers-reduced-motion: reduce)').matches||location.hash){film.style.display='none';document.body.classList.remove('filming')}else play();
+ addEventListener('keydown',e=>{if(e.key==='Escape'&&document.body.classList.contains('filming'))end()});
+})();
+
+/* ===== scroll reveal ===== */
+(function(){const els=$$('.sh,.card,.post,.test,.q,.big-idea,.mail,.rag div,.ba .card');els.forEach(e=>e.classList.add('rv'));
+ if(!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('seen'));return}
+ const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('seen');io.unobserve(x.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});els.forEach(e=>io.observe(e))})();
 </script>
 </body>
 </html>
