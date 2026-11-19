@@ -363,7 +363,7 @@ details.code pre{margin:0;background:var(--code);color:#e2e8f0;font:500 12.5px/1
           <h4 style="margin-top:16px">Partner reports</h4>
           <div id="pfiles"></div>
           <h4 style="margin-top:16px">Rules</h4>
-          <div class="small" style="line-height:1.5">Match on order ID. Flag any partner whose gap is over 2%. Invoice only what's matched. Fee and tax are placeholders for real contract terms.</div>
+          <div class="small" style="line-height:1.5">Match on order ID. Hold the invoice if the gap is over 2% or more than 5 orders don't match. Otherwise invoice what's matched and send a note. Fee and tax are placeholders for real contract terms.</div>
         </div>
         <div class="out">
           <div class="console" id="log"><span class="dim">$ autopilot run --period 2026-11</span><br><span class="dim">Ready. Press "Run month-end".</span></div>
