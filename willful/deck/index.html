@@ -13,8 +13,8 @@
 *{box-sizing:border-box;margin:0}
 html,body{background:#0d1424;height:100%}
 body{font-family:Figtree,system-ui,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;overflow:hidden}
-.stage{position:fixed;inset:0;display:grid;place-items:center}
-.deck{width:1920px;height:1080px;position:relative;transform-origin:center center}
+.stage{position:fixed;inset:0;overflow:hidden}
+.deck{width:1920px;height:1080px;position:absolute;left:50%;top:50%;transform-origin:center center}
 .slide{position:absolute;inset:0;background:#fff;overflow:hidden;opacity:0;pointer-events:none;transition:opacity .45s ease}
 .slide.on{opacity:1;pointer-events:auto}
 .pad{position:absolute;inset:0;padding:110px 130px}
@@ -143,7 +143,7 @@ body.embed .ctrl{bottom:10px}
   html,body{background:#fff;overflow:visible;height:auto}
   @page{size:1920px 1080px;margin:0}
   .stage{position:static;display:block}
-  .deck{transform:none!important;height:auto}
+  .deck{transform:none!important;height:auto;position:static}
   .slide{position:relative;opacity:1;width:1920px;height:1080px;page-break-after:always;break-after:page}
   .ctrl{display:none}
 }
@@ -323,7 +323,7 @@ body.embed .ctrl{bottom:10px}
 <script>
 const deck=document.getElementById('deck'),S=[...document.querySelectorAll('.slide')];let i=0;
 if(new URLSearchParams(location.search).has('embed'))document.body.classList.add('embed');
-function fit(){const s=Math.min(innerWidth/1920,innerHeight/1080);deck.style.transform=`scale(${s})`}
+function fit(){const s=Math.min(innerWidth/1920,innerHeight/1080);deck.style.transform=`translate(-50%,-50%) scale(${s})`}
 function go(n){i=(n+S.length)%S.length;S.forEach((s,k)=>s.classList.toggle('on',k===i));document.getElementById('pg').textContent=(i+1)+' / '+S.length}
 document.getElementById('pv').onclick=()=>go(i-1);document.getElementById('nx').onclick=()=>go(i+1);
 document.getElementById('fs').onclick=()=>{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()};
