@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Durva's Will · for Willful</title>
+<meta name="description" content="A two-minute will, made with Willful in mind. Everything Durva will do (and learn) as your Partnerships Coordinator.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Let's make Durva's will. (The willingness kind.)">
+<meta property="og:description" content="Two minutes, six steps, one signed document: everything Durva will do and learn as Willful's Partnerships Coordinator.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://durvathakkar.com/willful/">
+<meta property="og:image" content="https://durvathakkar.com/willful/share.jpg?v=1">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Homemade+Apple&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#0064dc;--navy:#004eb6;--ink:#4a4a4a;--dark:#222;--muted:#70707a;--line:#dcdfe5;--grey:#ecedef;--ice:#e2f6ff;--amber:#e39f3a;--yellow:#ffdc1e;--paper:#fffdf7}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font:400 17px/1.55 Figtree,system-ui,sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+button{font-family:inherit}
+img{max-width:100%;display:block}
+a{color:var(--blue)}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:30;background:#fff;border-bottom:1px solid var(--line)}
+.top .in{max-width:1180px;margin:0 auto;padding:0 22px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.mark{display:flex;align-items:center;gap:10px;font:800 20px Figtree;color:var(--dark);text-decoration:none}
+.mark i{width:30px;height:30px;border-radius:8px;background:var(--blue);display:grid;place-items:center;color:#fff;font:800 16px Figtree;font-style:normal}
+.mark small{font:600 13px Figtree;color:var(--muted)}
+.save{font:600 14px Figtree;color:var(--muted);display:flex;align-items:center;gap:8px}
+.save b{width:8px;height:8px;border-radius:50%;background:#2fb36b;display:inline-block}
+.bar{height:4px;background:var(--grey)}
+.bar i{display:block;height:100%;width:0;background:var(--blue);transition:width .5s ease}
+
+/* layout */
+.app{max-width:1180px;margin:0 auto;padding:30px 22px 80px;display:grid;grid-template-columns:250px 1fr;gap:40px}
+.side{position:sticky;top:100px;align-self:start}
+.side h4{font:700 12px Figtree;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.steps{list-style:none;margin:0;padding:0}
+.steps li{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;font-weight:600;color:var(--muted);cursor:default}
+.steps li .n{width:26px;height:26px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font:700 13px Figtree;flex:none}
+.steps li.on{background:var(--ice);color:var(--dark)}
+.steps li.on .n{border-color:var(--blue);color:var(--blue)}
+.steps li.done{color:var(--dark);cursor:pointer}
+.steps li.done .n{background:var(--blue);border-color:var(--blue);color:#fff}
+.help{margin-top:22px;background:var(--grey);border-radius:16px;padding:16px;font-size:14px}
+.help b{color:var(--dark)}
+.help img{width:46px;height:46px;border-radius:50%;object-fit:cover;margin-bottom:8px}
+@media(max-width:900px){.app{grid-template-columns:1fr;gap:10px;padding-top:18px}.side{position:static}.steps{display:flex;overflow-x:auto;gap:6px;padding-bottom:6px}.steps li{white-space:nowrap;padding:8px 10px;font-size:14px}.help{display:none}}
+
+/* panels */
+.panel{display:none;animation:in .45s ease}
+.panel.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.eyebrow{font:700 13px Figtree;letter-spacing:1px;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
+h1{font:800 clamp(34px,4.6vw,54px)/1.08 Figtree;color:var(--dark);margin:0 0 16px;letter-spacing:-.5px}
+h2{font:800 clamp(26px,3.2vw,36px)/1.15 Figtree;color:var(--dark);margin:0 0 10px}
+.lead{font-size:20px;max-width:640px;margin:0 0 22px}
+.hint{font-size:15px;color:var(--muted);margin:0 0 20px;max-width:640px}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--blue);color:#fff;border:0;border-radius:10px;padding:14px 24px;font:700 17px Figtree;cursor:pointer;text-decoration:none;transition:background .15s,transform .15s}
+.btn:hover{background:var(--navy);transform:translateY(-1px)}
+.btn:disabled{background:#a9b9d3;cursor:not-allowed;transform:none}
+.btn.ghost{background:#fff;color:var(--blue);box-shadow:inset 0 0 0 2px var(--blue)}
+.btn.ghost:hover{background:var(--ice)}
+.nav{display:flex;gap:12px;align-items:center;margin-top:28px;flex-wrap:wrap}
+.back{background:none;border:0;color:var(--muted);font:600 15px Figtree;cursor:pointer;padding:10px 4px}
+
+/* intro */
+.intro{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
+.intro .card{background:var(--paper);border:1px solid #efe6cf;border-radius:18px;padding:24px;transform:rotate(1.5deg);box-shadow:0 18px 40px rgba(0,40,100,.10);font-family:'Libre Baskerville',serif;font-size:14px;line-height:1.7}
+.intro .card h3{font:700 17px 'Libre Baskerville',serif;text-align:center;margin:0 0 12px;color:var(--dark)}
+.intro .card p{margin:0 0 10px}
+.intro .card .sig{font-family:'Homemade Apple',cursive;font-size:22px;color:var(--navy);margin-top:6px}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 6px}
+.facts span{background:var(--ice);border-radius:999px;padding:7px 14px;font:600 14px Figtree;color:var(--navy)}
+@media(max-width:900px){.intro{grid-template-columns:1fr}.intro .card{transform:none}}
+
+/* question bits */
+.q{margin:22px 0}
+.q label.t{display:block;font:700 16px Figtree;color:var(--dark);margin-bottom:8px}
+.field{border:2px solid var(--line);border-radius:12px;padding:13px 15px;font:600 17px Figtree;color:var(--dark);min-height:52px;background:#fff;display:flex;align-items:center}
+.field .cur{display:inline-block;width:2px;height:20px;background:var(--blue);margin-left:2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.opts{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.opt{border:2px solid var(--line);border-radius:14px;background:#fff;padding:16px 18px;text-align:left;cursor:pointer;font:600 16px Figtree;color:var(--dark);display:flex;gap:12px;align-items:flex-start;transition:border-color .15s,background .15s}
+.opt:hover{border-color:#9dbbe6}
+.opt .r{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);flex:none;margin-top:1px;display:grid;place-items:center}
+.opt.sq .r{border-radius:6px}
+.opt.sel{border-color:var(--blue);background:#f3f8ff}
+.opt.sel .r{border-color:var(--blue);background:var(--blue)}
+.opt.sel .r:after{content:"";width:8px;height:8px;border-radius:50%;background:#fff}
+.opt.sq.sel .r:after{width:10px;height:6px;border-radius:0;background:none;border-left:2.5px solid #fff;border-bottom:2.5px solid #fff;transform:rotate(-45deg) translate(1px,-1px)}
+.opt small{display:block;font-weight:500;color:var(--muted);font-size:14px;margin-top:2px}
+@media(max-width:640px){.opts{grid-template-columns:1fr}}
+.reply{display:none;margin-top:14px;background:var(--ice);border-radius:14px;padding:14px 16px;font-size:16px;color:var(--dark);border-left:4px solid var(--blue)}
+.reply.on{display:block;animation:in .35s ease}
+.reply b{color:var(--navy)}
+
+/* executor */
+.exec{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.person{border:2px solid var(--line);border-radius:16px;padding:18px;background:#fff;cursor:pointer;text-align:left;transition:border-color .15s,background .15s}
+.person:hover{border-color:#9dbbe6}
+.person .av{width:52px;height:52px;border-radius:50%;background:var(--ice);display:grid;place-items:center;font:800 18px Figtree;color:var(--navy);margin-bottom:10px}
+.person b{display:block;color:var(--dark);font-size:17px}
+.person span{font-size:14px;color:var(--muted)}
+.person.sel{border-color:var(--blue);background:#f3f8ff}
+.person.nope{opacity:.55}
+@media(max-width:760px){.exec{grid-template-columns:1fr}}
+
+/* gifts preview */
+.gifts{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(max-width:640px){.gifts{grid-template-columns:1fr}}
+.preview{margin-top:18px;border:1px solid var(--line);border-radius:18px;overflow:hidden;display:none}
+.preview.on{display:block;animation:in .35s ease}
+.preview .ph{background:var(--grey);padding:10px 16px;font:700 13px Figtree;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between}
+.preview .pb{padding:18px}
+.mini-mail{max-width:520px;margin:0 auto;border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:15px}
+.mini-mail .mh{background:var(--blue);color:#fff;padding:14px 18px;font:800 18px Figtree;display:flex;justify-content:space-between;align-items:center}
+.mini-mail .mh span{font:600 12px Figtree;opacity:.85}
+.mini-mail .mb{padding:16px 18px}
+.mini-mail .cta{display:inline-block;background:var(--amber);color:#fff;border-radius:8px;padding:9px 16px;font-weight:700;margin-top:4px}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.tile{background:var(--ice);border-radius:12px;padding:12px}
+.tile b{display:block;font:800 24px Figtree;color:var(--dark)}
+.tile span{font-size:13px}
+@media(max-width:640px){.tiles{grid-template-columns:1fr 1fr}}
+.list{margin:0;padding-left:20px}
+.list li{margin-bottom:6px}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font:600 14px Figtree}
+.flow span{background:var(--ice);border-radius:10px;padding:8px 12px;color:var(--navy)}
+.flow i{font-style:normal;color:var(--muted)}
+.onepager{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;max-width:560px;margin:0 auto;font-size:13.5px}
+.onepager .l{background:var(--blue);color:#fff;padding:18px}
+.onepager .l h5{font:800 19px/1.2 Figtree;margin:0 0 8px}
+.onepager .r{padding:18px}
+.onepager .r p{margin:0 0 8px}
+.tag{display:inline-block;background:var(--yellow);color:var(--dark);border-radius:999px;font:700 11px Figtree;padding:2px 9px;letter-spacing:.4px;text-transform:uppercase}
+
+/* learning */
+.learn{display:grid;gap:10px}
+.lrow{display:grid;grid-template-columns:90px 1fr auto;gap:14px;align-items:center;border:2px solid var(--line);border-radius:14px;padding:12px 16px;cursor:pointer;background:#fff;transition:border-color .15s,background .15s;text-align:left;font:inherit;color:inherit}
+.lrow:hover{border-color:#9dbbe6}
+.lrow .w{font:800 13px Figtree;color:var(--blue);text-transform:uppercase;letter-spacing:.6px}
+.lrow b{color:var(--dark)}
+.lrow small{display:block;color:var(--muted);font-size:14px}
+.lrow .ck{width:26px;height:26px;border-radius:8px;border:2px solid var(--line)}
+.lrow.sel{border-color:var(--blue);background:#f3f8ff}
+.lrow.sel .ck{background:var(--blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10l3 3 7-7' stroke='white' stroke-width='3' fill='none'/%3E%3C/svg%3E") center/16px no-repeat;border-color:var(--blue)}
+@media(max-width:640px){.lrow{grid-template-columns:1fr auto}.lrow .w{grid-column:1/-1}}
+.meter{margin-top:16px;display:flex;align-items:center;gap:14px;font:700 15px Figtree;color:var(--dark)}
+.meter .m{flex:1;height:12px;border-radius:999px;background:var(--grey);overflow:hidden}
+.meter .m i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--amber));transition:width .4s}
+
+/* wishes */
+textarea{width:100%;min-height:90px;border:2px solid var(--line);border-radius:12px;padding:13px 15px;font:500 16px Figtree;color:var(--dark);resize:vertical}
+textarea:focus,.field:focus-within{outline:none;border-color:var(--blue)}
+
+/* document */
+.docwrap{background:var(--grey);border-radius:22px;padding:clamp(14px,3vw,36px)}
+.doc{background:var(--paper);max-width:760px;margin:0 auto;padding:clamp(22px,5vw,56px);box-shadow:0 20px 50px rgba(0,30,80,.12);font-family:'Libre Baskerville',serif;font-size:15.5px;line-height:1.8;color:#2b2b2b;position:relative}
+.doc h3{font:700 clamp(20px,2.6vw,26px)/1.3 'Libre Baskerville',serif;text-align:center;margin:0 0 6px;letter-spacing:.5px}
+.doc .sub{text-align:center;font-style:italic;color:#666;margin-bottom:26px}
+.doc ol{padding-left:22px;margin:0 0 20px}
+.doc ol li{margin-bottom:12px;padding-left:4px}
+.doc ol li b{font-weight:700}
+.doc .clause-h{font:700 13px Figtree;letter-spacing:1.2px;text-transform:uppercase;color:var(--blue);margin:24px 0 8px}
+.sigs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+.sigbox{border-top:1.5px solid #2b2b2b;padding-top:6px;font:600 12.5px Figtree;color:#555;position:relative}
+.sigbox canvas{position:absolute;left:0;bottom:calc(100% + 2px);width:100%;height:70px;cursor:crosshair;touch-action:none;border-radius:8px;background:repeating-linear-gradient(90deg,transparent 0 8px,rgba(0,100,220,.05) 8px 9px)}
+.sigbox .durva-sig{position:absolute;left:0;bottom:calc(100% + 4px);font-family:'Homemade Apple',cursive;font-size:24px;color:var(--navy);white-space:nowrap;overflow:hidden;width:0;transition:width 2.2s steps(30)}
+.sigbox .durva-sig.go{width:100%}
+.sigbox .clr{position:absolute;right:0;top:6px;background:none;border:0;color:var(--blue);font:600 12px Figtree;cursor:pointer}
+@media(max-width:640px){.sigs{grid-template-columns:1fr;gap:96px;margin-top:100px}}
+.sigspace{height:80px}
+.stamp{position:absolute;right:30px;top:30px;border:3px solid #c0392b;color:#c0392b;font:800 15px Figtree;letter-spacing:2px;padding:8px 14px;border-radius:8px;transform:rotate(-12deg) scale(1.6);opacity:0;transition:all .35s cubic-bezier(.2,1.6,.4,1)}
+.stamp.on{opacity:.9;transform:rotate(-12deg) scale(1)}
+.after{display:none;margin-top:26px;text-align:center}
+.after.on{display:block;animation:in .4s ease}
+.after h2{margin-bottom:6px}
+.after p{max-width:620px;margin:0 auto 18px}
+.after .row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.me{display:flex;gap:14px;align-items:center;justify-content:center;margin:20px 0}
+.me img{width:64px;height:64px;border-radius:50%;object-fit:cover}
+.me div{text-align:left;font-size:15px}
+.fine{font-size:13px;color:var(--muted);text-align:center;margin-top:30px}
+
+@media print{
+  .top,.side,.nav,.after,.fine,.panel:not(#p6),.p6-head{display:none!important}
+  .app{display:block;padding:0}
+  .panel#p6{display:block!important}
+  .docwrap{background:none;padding:0}
+  .doc{box-shadow:none}
+  .sigbox canvas{background:none}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="in">
+    <a class="mark" href="#" onclick="go(0);return false"><i>D</i><span>Durva's Will <small>· made for Willful</small></span></a>
+    <div class="save"><b></b><span id="saveTxt">Progress saved</span></div>
+  </div>
+  <div class="bar"><i id="bar"></i></div>
+</header>
+
+<div class="app">
+  <aside class="side">
+    <h4>Your progress</h4>
+    <ol class="steps" id="steps">
+      <li data-s="1"><span class="n">1</span>About Durva</li>
+      <li data-s="2"><span class="n">2</span>Executor</li>
+      <li data-s="3"><span class="n">3</span>Gifts</li>
+      <li data-s="4"><span class="n">4</span>Growth</li>
+      <li data-s="5"><span class="n">5</span>Wishes</li>
+      <li data-s="6"><span class="n">6</span>Review &amp; sign</li>
+    </ol>
+    <div class="help">
+      <img src="../assets/durva-headshot.jpg" alt="Durva">
+      <b>Questions?</b> Durva is here to help, any day of the week (no 9 to 5 limit). <a href="mailto:durvathakker7@gmail.com?subject=Willful%20%C2%B7%20Partnerships%20Coordinator">Email her</a>.
+    </div>
+  </aside>
+
+  <main>
+    <!-- 0 INTRO -->
+    <section class="panel on" id="p0">
+      <div class="intro">
+        <div>
+          <div class="eyebrow">Hi Arnaud and Erin 👋</div>
+          <h1>Let's make Durva's will.<br><span style="color:var(--blue)">The willingness kind.</span></h1>
+          <p class="lead">Willful helps Canadians make a will in about 20 minutes. This one takes two. Answer six quick questions and you'll end up with a signed document of everything I will do, and everything I will learn, as your Partnerships Coordinator.</p>
+          <div class="facts"><span>6 steps</span><span>About 2 minutes</span><span>Free updates, forever</span></div>
+          <div class="nav"><button class="btn" onclick="go(1)">Get started →</button></div>
+        </div>
+        <div class="card">
+          <h3>The Will of Durva Thakkar</h3>
+          <p>I, Durva Thakkar, of Barrie, Ontario, being of sound mind and extremely excited, declare this to be my will…</p>
+          <p style="opacity:.55">I will… <br>I will… <br>I will…</p>
+          <div class="sig">Durva Thakkar</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1 ABOUT -->
+    <section class="panel" id="p1">
+      <div class="eyebrow">Step 1 of 6 · About Durva</div>
+      <h2>First, let's get to know Durva.</h2>
+      <p class="hint">Just like your onboarding: the basics first, so everything after is personal.</p>
+      <div class="q"><label class="t">Full legal name</label><div class="field" id="f1"></div></div>
+      <div class="q"><label class="t">Where does Durva live?</label><div class="field" id="f2"></div></div>
+      <div class="q"><label class="t">Legally able to work in Canada, and happy fully remote?</label><div class="field" id="f3"></div></div>
+      <div class="q">
+        <label class="t">One more. In the great Willful dog debate, Durva sides with…</label>
+        <div class="opts" id="dog">
+          <button class="opt" data-v="erin"><span class="r"></span><span>Erin<small>Get the dog.</small></span></button>
+          <button class="opt" data-v="kevin"><span class="r"></span><span>Kevin<small>Staunchly no dog.</small></span></button>
+        </div>
+        <div class="reply" id="dogR"></div>
+      </div>
+      <div class="nav"><button class="back" onclick="go(0)">← Back</button><button class="btn" id="n1" onclick="go(2)" disabled>Save and continue →</button></div>
+    </section>
+
+    <!-- 2 EXECUTOR -->
+    <section class="panel" id="p2">
+      <div class="eyebrow">Step 2 of 6 · Executor</div>
+      <h2>Who will Durva work alongside every single day?</h2>
+      <p class="hint">An executor carries out your wishes. On a two-person partnerships team, it's the person you build everything with.</p>
+      <div class="exec" id="exec">
+        <button class="person" data-v="arnaud"><div class="av">AV</div><b>Arnaud Vézina</b><span>Partnerships Manager. One of The Peak's Emerging Leaders, 2026.</span></button>
+        <button class="person" data-v="robot"><div class="av">🤖</div><b>A robot</b><span>Writes the reports. Can't laugh at your jokes.</span></button>
+        <button class="person" data-v="nobody"><div class="av">?</div><b>Nobody</b><span>Wait to be assigned work.</span></button>
+      </div>
+      <div class="reply" id="execR"></div>
+      <div class="nav"><button class="back" onclick="go(1)">← Back</button><button class="btn" id="n2" onclick="go(3)" disabled>Save and continue →</button></div>
+    </section>
+
+    <!-- 3 GIFTS -->
+    <section class="panel" id="p3">
+      <div class="eyebrow">Step 3 of 6 · Gifts</div>
+      <h2>What will Durva leave to the partnerships team?</h2>
+      <p class="hint">Pick as many as you like. Each one adds a clause to the will, and shows you a little of what it looks like.</p>
+      <div class="gifts" id="gifts">
+        <button class="opt sq" data-g="ops"><span class="r"></span><span>Smooth operations<small>Orders, month-end, invoices, follow-ups</small></span></button>
+        <button class="opt sq" data-g="auto"><span class="r"></span><span>Workflows that run themselves<small>Docs, automation, AI where it helps</small></span></button>
+        <button class="opt sq" data-g="decks"><span class="r"></span><span>Decks and one-pagers<small>For partners and advisors</small></span></button>
+        <button class="opt sq" data-g="assets"><span class="r"></span><span>Campaign assets, shipped on time<small>Statics, short video, co-branded email, social</small></span></button>
+        <button class="opt sq" data-g="advisors"><span class="r"></span><span>Willful for Professionals support<small>Inbound advisor calls and materials</small></span></button>
+        <button class="opt sq" data-g="numbers"><span class="r"></span><span>Honest numbers<small>Partner revenue, volume, what's working</small></span></button>
+      </div>
+      <div class="preview" id="prev"><div class="ph"><span id="prevT">Preview</span><span>sample</span></div><div class="pb" id="prevB"></div></div>
+      <div class="nav"><button class="back" onclick="go(2)">← Back</button><button class="btn" id="n3" onclick="go(4)" disabled>Save and continue →</button></div>
+    </section>
+
+    <!-- 4 GROWTH -->
+    <section class="panel" id="p4">
+      <div class="eyebrow">Step 4 of 6 · Growth</div>
+      <h2>And what will Durva learn, fast?</h2>
+      <p class="hint">This is the part I'm most excited about. Tick what you'd want first. (Spoiler: I'll do all of it.)</p>
+      <div class="learn" id="learn">
+        <button class="lrow" data-l="0"><span class="w">Before day 1</span><span><b>Make my own will on Willful</b><small>So I know every screen a partner's customer sees, and where they might get stuck.</small></span><span class="ck"></span></button>
+        <button class="lrow" data-l="1"><span class="w">Week 1</span><span><b>Read The Inheritance Gap Report, twice</b><small>Then pull out the three lines every advisor should hear on a call.</small></span><span class="ck"></span></button>
+        <button class="lrow" data-l="2"><span class="w">Week 1</span><span><b>Learn the Willful for Professionals dashboard</b><small>Import a test client, send an invite, follow it to the end.</small></span><span class="ck"></span></button>
+        <button class="lrow" data-l="3"><span class="w">Weeks 2 to 4</span><span><b>Sit in on every advisor call I can</b><small>Write down the questions they ask, so the next deck answers them first.</small></span><span class="ck"></span></button>
+        <button class="lrow" data-l="4"><span class="w">Every day</span><span><b>French, 20 minutes a day</b><small>It's a bonus point on the job post. I'd like to earn it.</small></span><span class="ck"></span></button>
+        <button class="lrow" data-l="5"><span class="w">Every week</span><span><b>One short-form video edit</b><small>Basic editing is the floor. I want it to be a strength.</small></span><span class="ck"></span></button>
+        <button class="lrow" data-l="6"><span class="w">Month 1</span><span><b>Estate planning basics, properly</b><small>Enough to never say the wrong thing to a partner or a customer.</small></span><span class="ck"></span></button>
+      </div>
+      <div class="meter"><span>Willingness</span><div class="m"><i id="meter"></i></div><span id="meterT">0%</span></div>
+      <div class="nav"><button class="back" onclick="go(3)">← Back</button><button class="btn" id="n4" onclick="go(5)" disabled>Save and continue →</button></div>
+    </section>
+
+    <!-- 5 WISHES -->
+    <section class="panel" id="p5">
+      <div class="eyebrow">Step 5 of 6 · Final wishes</div>
+      <h2>Any final wishes?</h2>
+      <p class="hint">Durva has three. You can add one of your own, and it goes straight into the document.</p>
+      <div class="reply on" style="background:#fff;border:2px solid var(--line);border-left:4px solid var(--amber)">
+        <p style="margin:0 0 8px"><b>1.</b> That partners and advisors always feel looked after, because people only make a will with someone they trust.</p>
+        <p style="margin:0 0 8px"><b>2.</b> That no campaign ever ships late because of me.</p>
+        <p style="margin:0"><b>3.</b> That direct feedback comes early and often. I'd much rather fix something on day 2 than find out on day 20.</p>
+      </div>
+      <div class="q"><label class="t" for="wish">Your wish for your next Partnerships Coordinator (optional)</label><textarea id="wish" maxlength="220" placeholder="e.g. Please learn our partner names by Friday."></textarea></div>
+      <div class="nav"><button class="back" onclick="go(4)">← Back</button><button class="btn" onclick="go(6)">Review my document →</button></div>
+    </section>
+
+    <!-- 6 REVIEW -->
+    <section class="panel" id="p6">
+      <div class="p6-head">
+        <div class="eyebrow">Step 6 of 6 · Review &amp; sign</div>
+        <h2>Here's the document. Review it, then sign as a witness.</h2>
+        <p class="hint">Willful wills need two witnesses. Draw your signature in the boxes below, with a mouse or a finger.</p>
+      </div>
+      <div class="docwrap">
+        <div class="doc" id="doc">
+          <div class="stamp" id="stamp">SIGNED · WITNESSED</div>
+          <h3>THE WILL OF DURVA THAKKAR</h3>
+          <div class="sub">regarding the role of Partnerships Coordinator at Willful</div>
+          <p>I, <b>Durva Thakkar</b>, of Barrie, Ontario, legally able to work in Canada and very happy to do it remotely, being of sound mind and extremely excited, declare this to be my will. I revoke all earlier cover letters.</p>
+          <div id="clauses"></div>
+          <div class="sigspace"></div>
+          <div class="sigs">
+            <div class="sigbox"><span class="durva-sig" id="dsig">Durva Thakkar</span>Durva Thakkar, the willing</div>
+            <div class="sigbox"><canvas id="c1"></canvas><button class="clr" data-c="c1">clear</button>Witness 1 · Arnaud Vézina</div>
+            <div class="sigbox"><canvas id="c2"></canvas><button class="clr" data-c="c2">clear</button>Witness 2 · Erin Bury</div>
+          </div>
+          <p style="font-size:12.5px;color:#777;margin:22px 0 0;font-family:Figtree">Signed on <span id="today"></span>. Free, unlimited updates as the job changes.</p>
+        </div>
+      </div>
+      <div class="nav p6-nav"><button class="back" onclick="go(5)">← Back</button><button class="btn" id="signBtn" onclick="seal()" disabled>Witness and seal it</button><button class="btn ghost" onclick="window.print()">Print it, Willful-style</button></div>
+      <div class="after" id="after">
+        <h2>Signed. Now let's make it real.</h2>
+        <p>Thank you for clicking all the way through. I'd love 30 minutes with you, Arnaud, and I'll bring questions, not a pitch.</p>
+        <div class="me"><img src="../assets/durva-headshot.jpg" alt="Durva Thakkar"><div><b>Durva Thakkar</b><br>Barrie, Ontario · open to remote</div></div>
+        <div class="row">
+          <a class="btn" href="mailto:durvathakker7@gmail.com?subject=Willful%20%C2%B7%20Partnerships%20Coordinator">durvathakker7@gmail.com</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/durvathakkar/" target="_blank" rel="noopener">Durva on LinkedIn ↗</a>
+        </div>
+      </div>
+      <p class="fine">Not a legal document, obviously. For a real one, Willful is very good. 🙂</p>
+    </section>
+  </main>
+</div>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const state={step:0,max:0,dog:null,exec:null,gifts:new Set(),learn:new Set()};
+
+/* nav */
+function go(n){
+  $$('.panel').forEach(p=>p.classList.remove('on'));$('#p'+n).classList.add('on');
+  state.step=n;state.max=Math.max(state.max,n);
+  $('#bar').style.width=(n/6*100)+'%';
+  $$('#steps li').forEach(li=>{const s=+li.dataset.s;li.classList.toggle('on',s===n);li.classList.toggle('done',s<n||(s<=state.max&&s!==n))});
+  $('#saveTxt').textContent='Progress saved';
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(n===1)typeAll();
+  if(n===6)build();
+}
+$$('#steps li').forEach(li=>li.onclick=()=>{const s=+li.dataset.s;if(s<=state.max)go(s)});
+
+/* step 1 typing */
+let typed=false;
+function type(el,txt,d){return new Promise(r=>{let i=0;el.innerHTML='<span></span><i class="cur"></i>';const sp=el.firstChild;const t=setInterval(()=>{sp.textContent=txt.slice(0,++i);if(i>=txt.length){clearInterval(t);el.querySelector('.cur').remove();setTimeout(r,d)}},38)})}
+async function typeAll(){if(typed)return;typed=true;await type($('#f1'),'Durva Thakkar',200);await type($('#f2'),'Barrie, Ontario',200);await type($('#f3'),'Yes, and yes. My desk is ready.',100)}
+$$('#dog .opt').forEach(b=>b.onclick=()=>{$$('#dog .opt').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');state.dog=b.dataset.v;
+  $('#dogR').innerHTML=state.dog==='erin'?'<b>Noted.</b> I will also make a very persuasive one-pager about it. Partner decks are part of the job, after all.':'<b>Brave.</b> I will respect the founding team\'s position, and quietly send Erin pictures of puppies.';
+  $('#dogR').classList.add('on');$('#n1').disabled=false});
+
+/* step 2 */
+$$('#exec .person').forEach(b=>b.onclick=()=>{const v=b.dataset.v;
+  if(v!=='arnaud'){b.classList.add('nope');$('#execR').innerHTML=v==='robot'?'<b>Close, but no.</b> I will use AI to work faster every day. It just can\'t be the one you build things with. Try again?':'<b>Not on a two-person team.</b> The job post says it best: no waiting to be assigned work. Try again?';$('#execR').classList.add('on');return}
+  $$('#exec .person').forEach(x=>x.classList.remove('sel','nope'));b.classList.add('sel');state.exec=v;
+  $('#execR').innerHTML='<b>Arnaud it is.</b> On a two-person team, I will be the half that makes your half easier: you lead the partners, I keep every brief, asset, invoice and report moving, and I tell you early when something is off.';
+  $('#execR').classList.add('on');$('#n2').disabled=false});
+
+/* step 3 */
+const P={
+ ops:['Month-end, the boring-in-a-good-way way',`<div class="flow"><span>Partner orders in</span><i>→</i><span>Checked against the partner sheet</span><i>→</i><span>Reconciled by day 3</span><i>→</i><span>Invoices out by day 5</span><i>→</i><span>Follow-up on day 15 if unpaid</span></div><p style="margin:14px 0 0;font-size:15px">One checklist, one owner, and a note to Arnaud when it's done, not when it's late.</p>`],
+ auto:['A workflow I\'d automate first',`<ol class="list"><li><b>New partner signs:</b> a Notion page is created from a template, with brief, contacts, links and launch date.</li><li><b>Campaign brief approved:</b> tasks and due dates appear for each asset, with the partner's brand notes attached.</li><li><b>Month-end:</b> partner numbers pulled into one sheet, and AI drafts the summary I then check and rewrite.</li></ol><p style="margin:10px 0 0;font-size:14px;color:var(--muted)">AI drafts, I decide. Every number gets checked by a human (me).</p>`],
+ decks:['A partner one-pager',`<div class="onepager"><div class="l"><span class="tag" style="margin-bottom:10px">For advisors</span><h5>Help every client plan ahead. Without becoming an estate expert.</h5><p style="margin:0;font-size:13px;opacity:.9">Willful for Professionals</p></div><div class="r"><p><b>No implementation fees.</b> Tiered subscriptions for the right fit.</p><p><b>Three steps:</b> import clients, send invites, they make a will and power of attorney online.</p><p><b>You get:</b> a dedicated contact, co-branded marketing and training.</p><p style="color:var(--blue);font-weight:700;margin:0">partners@willful.co</p></div></div>`],
+ assets:['A co-branded email',`<div class="mini-mail"><div class="mh">Willful <span>× your partner</span></div><div class="mb"><p style="margin:0 0 8px"><b>You plan for retirement. Have you planned for your family?</b></p><p style="margin:0 0 10px">As a [Partner] client, you can make your legal will and power of attorney online with Willful, at a special price. Most people finish in about 20 minutes.</p><span class="cta">Start my will →</span><p style="margin:12px 0 0;font-size:12.5px;color:var(--muted)">Plus a 15-second Reel cut and two static posts from the same message, all shipped the same week.</p></div></div>`],
+ advisors:['Before and after an advisor call',`<div class="tiles" style="grid-template-columns:1fr 1fr"><div class="tile"><span class="tag">Before</span><p style="margin:8px 0 0;font-size:14px">Their firm, book size and province. The one-pager and the Inheritance Gap Report ready to send. Three questions to ask them.</p></div><div class="tile"><span class="tag">After</span><p style="margin:8px 0 0;font-size:14px">Same-day recap email with next steps. CRM updated. Their questions added to our FAQ doc, so the next deck answers them first.</p></div></div>`],
+ numbers:['The Monday numbers',`<div class="tiles"><div class="tile"><span>Partner-sourced revenue</span><b>$ ___</b><span>vs last month</span></div><div class="tile"><span>Transactions</span><b>___</b><span>by partner</span></div><div class="tile"><span>Best channel</span><b>___</b><span>email, in-app, advisor</span></div></div><p style="margin:12px 0 0;font-size:15px">Blank on purpose: I'd fill it with your real numbers. Plus one honest line every week: <i>what worked, what didn't, what I'd change.</i></p>`]
+};
+$$('#gifts .opt').forEach(b=>b.onclick=()=>{const g=b.dataset.g;
+  if(state.gifts.has(g)){state.gifts.delete(g);b.classList.remove('sel')}else{state.gifts.add(g);b.classList.add('sel');$('#prevT').textContent=P[g][0];$('#prevB').innerHTML=P[g][1];$('#prev').classList.add('on')}
+  $('#n3').disabled=state.gifts.size===0;$('#saveTxt').textContent='Saving…';setTimeout(()=>$('#saveTxt').textContent='Progress saved',500)});
+
+/* step 4 */
+$$('#learn .lrow').forEach(b=>b.onclick=()=>{const l=b.dataset.l;state.learn.has(l)?state.learn.delete(l):state.learn.add(l);b.classList.toggle('sel');
+  const p=Math.round(state.learn.size/7*100);$('#meter').style.width=Math.max(p,8)+'%';$('#meterT').textContent=state.learn.size===7?'100% (told you)':p+'%';$('#n4').disabled=state.learn.size===0});
+
+/* build doc */
+const G={
+ ops:'I will run partner operations so smoothly nobody notices them: order processing, month-end reconciliations by day three, invoices, briefs and every follow-up.',
+ auto:'I will turn anything we do twice into a documented, repeatable workflow, and automate the routine parts with AI and good software, checking every number myself.',
+ decks:'I will make partner decks, one-pagers and performance updates that look like Willful and read like a person wrote them.',
+ assets:'I will design and ship campaign assets across static, short-form video, co-branded email and social, on time, with everyone who needs to know kept in the loop.',
+ advisors:'I will support Willful for Professionals: prepare for inbound advisor calls, follow up the same day, and keep our sales materials sharp.',
+ numbers:'I will track partner-sourced revenue and transaction volume, build reporting across every channel, and say plainly what is working and what is not.'
+};
+const L=['make my own will on Willful before my first day','read The Inheritance Gap Report until I can explain it on a call','learn the Willful for Professionals dashboard inside out in week one','sit in on every advisor call I can and turn their questions into better materials','practise French for twenty minutes a day','edit one short-form video every week','learn estate planning basics properly, so I never say the wrong thing to a partner'];
+function build(){
+  let h='<div class="clause-h">Article 1 · My executor</div><ol><li>I appoint <b>Arnaud Vézina</b>, Partnerships Manager, as the person I build everything with. I will make his half of a two-person team lighter, never heavier.</li></ol>';
+  h+='<div class="clause-h">Article 2 · Gifts to the partnerships team</div><ol>'+[...state.gifts].map(g=>'<li>'+G[g]+'</li>').join('')+'</ol>';
+  if(state.learn.size){h+='<div class="clause-h">Article 3 · What I will learn</div><ol><li>I will '+[...state.learn].sort().map(i=>L[i]).join('; I will ')+'.</li></ol>'}
+  const w=$('#wish').value.trim();
+  h+='<div class="clause-h">Article 4 · Final wishes</div><ol><li>That partners and advisors always feel looked after.</li><li>That no campaign ships late because of me.</li><li>That feedback comes early, directly, and often.</li>'+(w?'<li><i>Added by the witness:</i> '+w.replace(/[<>&]/g,'')+'</li>':'')+'</ol>';
+  if(state.dog)h+='<div class="clause-h">Article 5 · Miscellaneous</div><ol><li>'+(state.dog==='erin'?'I side with Erin. Willful should get a dog.':'I side with Kevin, for now. My position on dogs is open to revision.')+'</li></ol>';
+  $('#clauses').innerHTML=h;
+  setTimeout(()=>$('#dsig').classList.add('go'),400);
+  sizeCanvases();
+}
+$('#today').textContent=new Date().toLocaleDateString('en-CA',{year:'numeric',month:'long',day:'numeric'});
+
+/* signature pads */
+const drawn={c1:false,c2:false};
+function sizeCanvases(){['c1','c2'].forEach(id=>{const c=$('#'+id);const r=c.getBoundingClientRect();if(!r.width)return;const d=window.devicePixelRatio||1;if(c.width!==Math.round(r.width*d)){c.width=r.width*d;c.height=r.height*d;const x=c.getContext('2d');x.scale(d,d);x.lineWidth=2.2;x.lineCap='round';x.lineJoin='round';x.strokeStyle='#004eb6';drawn[id]=false;check()}})}
+['c1','c2'].forEach(id=>{const c=$('#'+id);let on=false,lx,ly;
+  const pt=e=>{const r=c.getBoundingClientRect();return [e.clientX-r.left,e.clientY-r.top]};
+  c.addEventListener('pointerdown',e=>{on=true;[lx,ly]=pt(e);c.setPointerCapture(e.pointerId)});
+  c.addEventListener('pointermove',e=>{if(!on)return;const [x,y]=pt(e);const g=c.getContext('2d');g.beginPath();g.moveTo(lx,ly);g.lineTo(x,y);g.stroke();lx=x;ly=y;drawn[id]=true;check()});
+  ['pointerup','pointerleave','pointercancel'].forEach(t=>c.addEventListener(t,()=>on=false));
+});
+$$('.clr').forEach(b=>b.onclick=()=>{const c=$('#'+b.dataset.c);c.getContext('2d').clearRect(0,0,c.width,c.height);drawn[b.dataset.c]=false;check()});
+function check(){$('#signBtn').disabled=!(drawn.c1||drawn.c2);$('#signBtn').textContent=drawn.c1&&drawn.c2?'Witness and seal it':drawn.c1||drawn.c2?'Seal it (one witness is fine here)':'Witness and seal it'}
+function seal(){$('#stamp').classList.add('on');$('#after').classList.add('on');$('#bar').style.width='100%';$$('#steps li').forEach(li=>{li.classList.add('done');li.classList.remove('on')});setTimeout(()=>$('#after').scrollIntoView({behavior:'smooth',block:'center'}),500)}
+window.addEventListener('resize',()=>{if(state.step===6)sizeCanvases()});
+</script>
+</body>
+</html>
