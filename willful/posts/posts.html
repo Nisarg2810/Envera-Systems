@@ -1,0 +1,156 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#0064dc;--deep:#06183a;--ink:#3d4250;--muted:#7a8091;--ice:#e2f6ff;--mist:#f4f7fb;--yellow:#ffdc1e;--amber:#e39f3a}
+*{box-sizing:border-box;margin:0}
+body{background:#ccc;font-family:Figtree;-webkit-font-smoothing:antialiased}
+.p{width:1080px;height:1350px;position:relative;overflow:hidden;margin:0 0 40px}
+.logo{height:48px}
+.logo.w{filter:brightness(0) invert(1)}
+.lock{display:flex;align-items:center;gap:16px}
+.lock span{font:300 34px Figtree;color:var(--muted)}
+.lock b{font:800 28px Figtree;color:var(--deep);border:3px dashed rgba(6,24,58,.25);border-radius:12px;padding:4px 16px}
+.h{font:900 104px/0.98 Figtree;letter-spacing:-3.5px;color:var(--deep)}
+.sub{font:600 36px/1.35 Figtree;color:var(--ink)}
+.btn{display:inline-block;background:var(--blue);color:#fff;font:800 34px Figtree;border-radius:18px;padding:24px 38px}
+
+/* 1 new baby */
+#p1{background:var(--ice)}
+#p1 .img{position:absolute;left:20px;right:-40px;top:40px;height:780px;background:url(../img/how4.png) center/contain no-repeat}
+#p1 .txt{position:absolute;left:80px;right:80px;bottom:90px}
+#p1 .h{font-size:96px}
+#p1 .h em{font-style:normal;color:var(--blue)}
+
+/* 2 twenty minutes */
+#p2{background:var(--deep);color:#fff}
+#p2 .big{position:absolute;left:70px;top:190px;font:900 520px/0.8 Figtree;letter-spacing:-30px;color:var(--yellow)}
+#p2 .min{position:absolute;left:84px;top:620px;font:900 120px Figtree;letter-spacing:-4px;color:#fff}
+#p2 .ill{position:absolute;right:70px;top:420px;width:330px}
+#p2 .txt{position:absolute;left:84px;right:84px;bottom:110px}
+#p2 .txt p{font:600 44px/1.3 Figtree;color:rgba(255,255,255,.9)}
+#p2 .txt p b{color:#fff}
+#p2 .top{position:absolute;left:84px;top:80px}
+
+/* 3 carousel cover */
+#p3{background:#fff}
+#p3 .top{position:absolute;left:80px;top:80px;right:80px;display:flex;justify-content:space-between;align-items:center}
+#p3 .tag{font:800 24px Figtree;letter-spacing:3px;text-transform:uppercase;color:var(--blue)}
+#p3 .h{position:absolute;left:80px;right:80px;top:200px;font-size:92px}
+#p3 .h em{font-style:normal;color:var(--blue)}
+#p3 .chips{position:absolute;left:80px;right:80px;top:600px;display:flex;flex-direction:column;gap:18px}
+#p3 .chip{display:flex;align-items:center;gap:26px;background:var(--mist);border-radius:26px;padding:20px 30px;font:800 40px Figtree;color:var(--deep)}
+#p3 .chip i{flex:none;width:64px;height:64px;border-radius:18px;background:var(--blue);color:#fff;display:grid;place-items:center;font:900 32px Figtree;font-style:normal}
+#p3 .chip:nth-child(n+4){opacity:.35;filter:blur(2px)}
+#p3 .swipe{position:absolute;right:80px;bottom:56px;background:var(--yellow);border-radius:999px;padding:18px 30px;font:800 30px Figtree;color:var(--deep)}
+
+/* 4 notes app */
+#p4{background:#f2f2f7}
+#p4 .phone{position:absolute;left:110px;right:110px;top:90px;bottom:250px;background:#fff;border-radius:60px;box-shadow:0 40px 80px rgba(0,0,0,.12);padding:70px 70px}
+#p4 .nb{display:flex;justify-content:space-between;font:600 32px -apple-system,Figtree;color:#e0a100;margin-bottom:36px}
+#p4 .nt{font:800 58px -apple-system,Figtree;color:#111;margin-bottom:10px}
+#p4 .nd{font:500 26px -apple-system,Figtree;color:#999;margin-bottom:40px}
+#p4 .ni{display:flex;align-items:center;gap:26px;font:500 44px -apple-system,Figtree;color:#111;padding:16px 0}
+#p4 .ni i{width:48px;height:48px;border-radius:50%;border:3px solid #c7c7cc;flex:none;display:grid;place-items:center}
+#p4 .ni.d{color:#aaa;text-decoration:line-through}
+#p4 .ni.d i{background:#e0a100;border-color:#e0a100}
+#p4 .ni.d i:after{content:"";width:18px;height:10px;border-left:4px solid #fff;border-bottom:4px solid #fff;transform:rotate(-45deg) translate(2px,-2px)}
+#p4 .ni.hl{background:#fff6cc;margin:0 -20px;padding:16px 20px;border-radius:18px;font-weight:700}
+#p4 .hand{position:absolute;right:120px;top:850px;font:600 58px Caveat;color:var(--blue);transform:rotate(-6deg)}
+#p4 .foot{position:absolute;left:110px;right:110px;bottom:90px;display:flex;justify-content:space-between;align-items:center}
+#p4 .foot p{font:700 34px Figtree;color:var(--deep)}
+
+/* 5 co-branded */
+#p5{background:#fff}
+#p5 .top{position:absolute;left:80px;top:80px}
+#p5 .img{position:absolute;left:-70px;right:-30px;top:150px;height:780px;background:url(../img/how1.png) center/contain no-repeat}
+#p5 .txt{position:absolute;left:80px;right:80px;bottom:90px}
+#p5 .h{font-size:84px;margin-bottom:22px}
+#p5 .badge{display:inline-block;background:var(--yellow);font:800 28px Figtree;color:var(--deep);border-radius:999px;padding:12px 26px;margin-bottom:24px}
+
+/* 6 french */
+#p6{background:var(--blue);color:#fff}
+#p6 .img{position:absolute;inset:0 0 520px 0;background:url(../img/hero.jpg) 30% 30%/cover}
+#p6 .img:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,100,220,0) 55%,var(--blue) 100%)}
+#p6 .card{position:absolute;right:70px;top:560px;background:#fff;border-radius:28px;padding:28px 34px;width:480px;box-shadow:0 30px 60px rgba(0,0,0,.2)}
+#p6 .card small{font:800 20px Figtree;letter-spacing:2px;color:var(--blue)}
+#p6 .card b{display:block;font:800 34px Figtree;color:var(--deep);margin:6px 0 14px}
+#p6 .card .bar{height:12px;border-radius:999px;background:var(--ice);overflow:hidden}
+#p6 .card .bar i{display:block;height:100%;width:100%;background:var(--blue)}
+#p6 .txt{position:absolute;left:80px;right:80px;bottom:100px}
+#p6 .h{color:#fff;font-size:94px;margin-bottom:22px}
+#p6 .h em{font-style:normal;color:var(--yellow)}
+#p6 .sub{color:rgba(255,255,255,.9)}
+#p6 .top{position:absolute;left:80px;bottom:520px}
+</style></head><body>
+
+<div class="p" id="p1">
+  <div class="img"></div>
+  <div class="txt">
+    <div class="h">New baby.<br>New chapter.<br><em>New will.</em></div>
+    <p class="sub" style="margin:26px 0 36px">Name a guardian and update your will in about 20 minutes. Changes are always free.</p>
+    <img class="logo" src="../img/logo.png" alt="">
+  </div>
+</div>
+
+<div class="p" id="p2">
+  <div class="top"><img class="logo w" src="../img/logo.png" alt=""></div>
+  <img class="ill" src="../img/nav3.png" alt="" style="border-radius:40px;opacity:.95">
+  <div class="big">20</div>
+  <div class="min">minutes.</div>
+  <div class="txt"><p>That's about how long most people take to make a <b>legal will</b> with Willful.</p><p style="margin-top:22px">Less time than you've spent thinking about doing it.</p></div>
+</div>
+
+<div class="p" id="p3">
+  <div class="top"><span class="tag">Swipe · 1 / 6</span><img class="logo" src="../img/logo.png" alt="" style="height:40px"></div>
+  <div class="h">5 things your will takes care of <em>that you haven't thought about.</em></div>
+  <div class="chips">
+    <div class="chip"><i>1</i>Who raises your kids</div>
+    <div class="chip"><i>2</i>Who looks after your pet</div>
+    <div class="chip"><i>3</i>Who gets the family cottage</div>
+    <div class="chip"><i>4</i>Who's in charge of it all</div>
+    <div class="chip"><i>5</i>How you'd like to be remembered</div>
+  </div>
+  <div class="swipe">Swipe →</div>
+</div>
+
+<div class="p" id="p4">
+  <div class="phone">
+    <div class="nb"><span>‹ Notes</span><span>Done</span></div>
+    <div class="nt">adult stuff ✅</div>
+    <div class="nd">Today at 9:41 PM</div>
+    <div class="ni d"><i></i>open a TFSA</div>
+    <div class="ni d"><i></i>book the dentist</div>
+    <div class="ni d"><i></i>renew passport</div>
+    <div class="ni d"><i></i>buy a plant (it lived!)</div>
+    <div class="ni hl"><i></i>make a will</div>
+  </div>
+  <div class="hand">20 min, tonight →</div>
+  <div class="foot"><p>The last one's the easiest.</p><img class="logo" src="../img/logo.png" alt=""></div>
+</div>
+
+<div class="p" id="p5">
+  <div class="top lock"><img class="logo" src="../img/logo.png" alt=""><span>×</span><b>Partner</b></div>
+  <div class="img"></div>
+  <div class="txt">
+    <div class="badge">For Partner customers</div>
+    <div class="h">Your will, done. At a special price.</div>
+    <span class="btn">Start my will →</span>
+  </div>
+</div>
+
+<div class="p" id="p6">
+  <div class="img"></div>
+  <div class="card"><small>ÉTAPE 3 SUR 3</small><b>Votre succession</b><div class="bar"><i></i></div></div>
+  <div class="top lock"><img class="logo w" src="../img/logo.png" alt=""><span style="color:rgba(255,255,255,.7)">×</span><b style="color:#fff;border-color:rgba(255,255,255,.45)">Partenaire</b></div>
+  <div class="txt">
+    <div class="h">Votre testament, <em>en 20 minutes environ.</em></div>
+    <p class="sub">Un prix exclusif pour les clients de [Partenaire].</p>
+  </div>
+</div>
+
+<script>
+const id=new URLSearchParams(location.search).get('id');
+if(id){document.querySelectorAll('.p').forEach(p=>{if(p.id!==id)p.remove()});document.body.style.background='transparent';document.querySelector('.p').style.margin='0'}
+</script>
+</body></html>

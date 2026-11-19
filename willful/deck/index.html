@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Willful × Partner · Partnership proposal</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#0064dc;--navy:#0b2552;--deep:#06183a;--ink:#3d4250;--muted:#7a8091;--line:#e3e6ec;--ice:#e2f6ff;--mist:#f4f7fb;--yellow:#ffdc1e;--amber:#e39f3a}
+*{box-sizing:border-box;margin:0}
+html,body{background:#0d1424;height:100%}
+body{font-family:Figtree,system-ui,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;overflow:hidden}
+.stage{position:fixed;inset:0;display:grid;place-items:center}
+.deck{width:1920px;height:1080px;position:relative;transform-origin:center center}
+.slide{position:absolute;inset:0;background:#fff;overflow:hidden;opacity:0;pointer-events:none;transition:opacity .45s ease}
+.slide.on{opacity:1;pointer-events:auto}
+.pad{position:absolute;inset:0;padding:110px 130px}
+.eyebrow{font:700 22px Figtree;letter-spacing:3px;text-transform:uppercase;color:var(--blue)}
+.h1{font:900 104px/0.98 Figtree;letter-spacing:-3.5px;color:var(--deep)}
+.h2{font:800 76px/1.03 Figtree;letter-spacing:-2.4px;color:var(--deep)}
+.h3{font:800 34px/1.15 Figtree;letter-spacing:-.6px;color:var(--deep)}
+.body{font:500 28px/1.5 Figtree;color:var(--ink)}
+.small{font:500 21px/1.5 Figtree;color:var(--muted)}
+.foot{position:absolute;left:130px;right:130px;bottom:52px;display:flex;justify-content:space-between;align-items:center;font:600 18px Figtree;color:var(--muted)}
+.foot img{height:26px}
+.dark .foot{color:rgba(255,255,255,.6)}
+.lock{display:flex;align-items:center;gap:22px}
+.lock img{height:54px}
+.lock .x{font:300 44px Figtree;color:var(--muted)}
+.lock .p{font:800 34px Figtree;color:var(--deep);border:3px dashed #c9cfda;border-radius:14px;padding:6px 20px}
+.dark{background:var(--deep)!important;color:#fff}
+.dark .h1,.dark .h2,.dark .h3{color:#fff}
+.dark .body{color:rgba(255,255,255,.85)}
+.blue{background:var(--blue)!important;color:#fff}
+.blue .h1,.blue .h2,.blue .h3{color:#fff}
+.blue .eyebrow{color:var(--yellow)}
+.pill{display:inline-block;font:700 18px Figtree;letter-spacing:1.5px;text-transform:uppercase;padding:10px 20px;border-radius:999px;background:var(--ice);color:var(--blue)}
+
+/* s1 cover */
+.cover .left{position:absolute;left:130px;top:110px;bottom:110px;width:860px;display:flex;flex-direction:column;justify-content:space-between}
+.cover .photo{position:absolute;right:0;top:0;bottom:0;width:900px;background:url(../img/hero.jpg) 30% center/cover}
+.cover .photo:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#fff 0,rgba(255,255,255,0) 22%)}
+.cover .card{position:absolute;right:90px;bottom:120px;background:#fff;border-radius:22px;box-shadow:0 30px 70px rgba(6,24,58,.25);padding:26px 30px;width:430px;z-index:2}
+.cover .card b{display:block;font:800 26px Figtree;color:var(--deep);margin-bottom:6px}
+.cover .card .bar{height:10px;border-radius:999px;background:var(--ice);overflow:hidden;margin:14px 0 8px}
+.cover .card .bar i{display:block;height:100%;width:78%;background:var(--blue)}
+
+/* s2 */
+.s2 .grid{position:absolute;left:130px;right:130px;top:250px;display:grid;grid-template-columns:1.05fr .95fr;gap:90px;align-items:center}
+.s2 .ill{background:var(--ice);border-radius:40px;height:620px;display:grid;place-items:center;overflow:hidden}
+.s2 .ill img{width:92%}
+.quote{font:800 52px/1.15 Figtree;letter-spacing:-1.4px;color:var(--deep)}
+.quote span{color:var(--blue)}
+
+/* s3 three wins */
+.wins{position:absolute;left:130px;right:130px;top:330px;display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.win{background:var(--mist);border-radius:30px;padding:50px 46px;height:560px;display:flex;flex-direction:column;gap:20px}
+.win .ic{width:100px;height:100px;border-radius:24px;background:var(--blue);display:grid;place-items:center}
+.win .ic svg{width:44px;height:44px;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.win:nth-child(2) .ic{background:var(--deep)}.win:nth-child(3) .ic{background:var(--amber)}
+
+/* s4 numbers */
+.nums{position:absolute;left:130px;right:130px;top:400px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:2px solid rgba(255,255,255,.18)}
+.n{padding:46px 40px 0 0}
+.n b{display:block;font:900 120px/1 Figtree;letter-spacing:-4px;color:#fff}
+.n b em{font-style:normal;color:var(--yellow)}
+.n span{display:block;font:600 24px/1.35 Figtree;color:rgba(255,255,255,.75);margin-top:16px;max-width:320px}
+.trusted{position:absolute;left:130px;right:130px;bottom:150px;display:flex;align-items:center;gap:40px;font:800 40px Figtree;color:#fff}
+.trusted small{font:600 20px Figtree;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.trusted i{width:8px;height:8px;border-radius:50%;background:var(--yellow);display:block}
+
+/* s5 journey */
+.journey{position:absolute;left:130px;right:130px;top:340px;display:grid;grid-template-columns:repeat(4,1fr);gap:34px}
+.step{display:flex;flex-direction:column;gap:18px}
+.step .shot{height:400px;border-radius:26px;background:var(--mist) center/contain no-repeat;position:relative}
+.step .k{font:800 20px Figtree;color:var(--blue);letter-spacing:2px}
+.step .t{font:800 30px/1.2 Figtree;color:var(--deep);letter-spacing:-.5px}
+.step .d{font:500 21px/1.45 Figtree;color:var(--muted)}
+
+/* s6 models */
+.models{position:absolute;left:130px;right:130px;top:340px;display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+.model{border:2px solid var(--line);border-radius:30px;padding:48px 44px;height:580px;display:flex;flex-direction:column;position:relative}
+.model.rec{border-color:var(--blue);box-shadow:0 30px 60px rgba(0,100,220,.12)}
+.model .tag{position:absolute;top:-20px;left:40px;background:var(--yellow);font:800 17px Figtree;letter-spacing:1.5px;text-transform:uppercase;padding:8px 16px;border-radius:999px;color:var(--deep)}
+.model .lv{font:800 20px Figtree;letter-spacing:2px;color:var(--blue);text-transform:uppercase}
+.model ul{margin:26px 0 0;padding-left:28px;font:500 27px/1.65 Figtree}
+.model .eff{margin-top:auto;font:700 20px Figtree;color:var(--muted);border-top:2px solid var(--line);padding-top:18px}
+
+/* s7 co-brand mock */
+.s7 .browser{position:absolute;right:110px;top:150px;width:1000px;height:760px;border-radius:24px;background:#fff;box-shadow:0 50px 100px rgba(6,24,58,.18);overflow:hidden;border:1px solid var(--line)}
+.browser .chrome{height:54px;background:var(--mist);display:flex;align-items:center;gap:10px;padding:0 22px}
+.browser .chrome i{width:14px;height:14px;border-radius:50%;background:#d6dbe4}
+.browser .chrome span{margin-left:16px;background:#fff;border-radius:999px;padding:8px 22px;font:600 17px Figtree;color:var(--muted)}
+.lp{display:grid;grid-template-columns:1fr 1fr;height:calc(100% - 54px)}
+.lp .l{padding:56px 50px;display:flex;flex-direction:column;gap:22px}
+.lp .lk{display:flex;align-items:center;gap:14px}
+.lp .lk img{height:30px}.lp .lk b{font:800 22px Figtree;color:var(--deep);border:2px dashed #c9cfda;border-radius:8px;padding:2px 10px}
+.lp h4{font:900 50px/1.04 Figtree;letter-spacing:-1.6px;color:var(--deep)}
+.lp .price{display:flex;align-items:baseline;gap:14px}
+.lp .price b{font:900 44px Figtree;color:var(--blue)}
+.lp .price s{font:600 24px Figtree;color:var(--muted)}
+.lp .cta{background:var(--blue);color:#fff;font:800 22px Figtree;border-radius:12px;padding:18px 26px;align-self:flex-start}
+.lp .r{background:url(../img/hero.jpg) 35% center/cover}
+.s7 .copy{position:absolute;left:130px;top:250px;width:560px;display:flex;flex-direction:column;gap:30px}
+.chk{display:flex;gap:16px;align-items:flex-start;font:600 25px/1.35 Figtree}
+.chk i{flex:none;width:36px;height:36px;border-radius:50%;background:var(--ice);display:grid;place-items:center;color:var(--blue);font:900 20px Figtree;font-style:normal}
+
+/* s8 timeline */
+.tl{position:absolute;left:130px;right:130px;top:360px}
+.tl .rail{height:6px;background:var(--line);border-radius:999px;position:relative;margin:0 0 50px}
+.tl .rail i{position:absolute;left:0;top:0;bottom:0;width:100%;background:linear-gradient(90deg,var(--blue),#5aa9ff);border-radius:999px}
+.tl .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+.ph{position:relative}
+.ph:before{content:"";position:absolute;top:-72px;left:0;width:34px;height:34px;border-radius:50%;background:#fff;border:6px solid var(--blue)}
+.ph .w{font:800 22px Figtree;letter-spacing:2px;color:var(--blue);text-transform:uppercase;margin-bottom:12px}
+.ph .t{font:800 40px/1.15 Figtree;color:var(--deep);letter-spacing:-.7px;margin-bottom:16px}
+.ph ul{padding-left:26px;font:500 25px/1.6 Figtree}
+
+/* s9 measure */
+.dash{position:absolute;left:130px;right:130px;top:360px;display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+.kp{background:var(--mist);border-radius:28px;padding:36px}
+.kp span{font:700 20px Figtree;color:var(--muted);letter-spacing:.5px}
+.kp b{display:block;font:900 70px/1.05 Figtree;color:var(--deep);letter-spacing:-2px;margin:12px 0 8px}
+.kp em{font:700 20px Figtree;font-style:normal;color:#1e9e62}
+.chart{position:absolute;left:130px;right:130px;top:640px;height:270px;display:flex;align-items:flex-end;gap:22px;border-bottom:2px solid var(--line)}
+.chart div{flex:1;background:var(--ice);border-radius:14px 14px 0 0;position:relative}
+.chart div.hi{background:var(--blue)}
+.chart div span{position:absolute;bottom:-40px;left:0;right:0;text-align:center;font:600 18px Figtree;color:var(--muted)}
+
+/* s10 close */
+.close .photo{position:absolute;top:70px;bottom:70px;right:80px;width:860px;background:url(../img/how4.png) center/contain no-repeat}
+.close .copy{position:absolute;left:130px;top:200px;width:760px}
+
+/* controls */
+.ctrl{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);display:flex;gap:10px;align-items:center;background:rgba(13,20,36,.85);backdrop-filter:blur(8px);padding:8px 10px;border-radius:999px;z-index:5;font:600 14px Figtree;color:#fff}
+.ctrl button,.ctrl a{background:rgba(255,255,255,.12);border:0;color:#fff;font:700 14px Figtree;border-radius:999px;padding:8px 14px;cursor:pointer;text-decoration:none}
+.ctrl button:hover,.ctrl a:hover{background:rgba(255,255,255,.22)}
+body.embed .ctrl{bottom:10px}
+@media print{
+  html,body{background:#fff;overflow:visible;height:auto}
+  @page{size:1920px 1080px;margin:0}
+  .stage{position:static;display:block}
+  .deck{transform:none!important;height:auto}
+  .slide{position:relative;opacity:1;width:1920px;height:1080px;page-break-after:always;break-after:page}
+  .ctrl{display:none}
+}
+</style>
+</head>
+<body>
+<div class="stage"><div class="deck" id="deck">
+
+<!-- 1 COVER -->
+<section class="slide cover on">
+  <div class="photo"></div>
+  <div class="card"><span class="small" style="font-size:17px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue)">Step 3 of 3</span><b>Your estate</b><div class="bar"><i></i></div><span class="small" style="font-size:17px">About 3 minutes left</span></div>
+  <div class="left">
+    <div class="lock"><img src="../img/logo.png" alt="Willful"><span class="x">×</span><span class="p">Partner</span></div>
+    <div>
+      <div class="eyebrow" style="margin-bottom:28px">Partnership proposal</div>
+      <div class="h1">Peace of mind,<br>built into the<br>relationship you<br>already have.</div>
+    </div>
+    <div class="small">Prepared for [Partner] · Willful Partnerships</div>
+  </div>
+</section>
+
+<!-- 2 THE MOMENT -->
+<section class="slide s2">
+  <div class="pad">
+    <div class="eyebrow">The opportunity</div>
+  </div>
+  <div class="grid">
+    <div>
+      <div class="quote">Your customers plan for retirement, a home, their kids' education.<br><span>Very few have planned for what happens to all of it.</span></div>
+      <p class="body" style="margin-top:40px;max-width:760px">Estate planning is the conversation people keep putting off. It's also a moment where a trusted brand can show up and make it easy.</p>
+    </div>
+    <div class="ill"><img src="../img/faq.png" alt="" style="width:78%"></div>
+  </div>
+  <div class="foot"><img src="../img/logo.png" alt=""><span>Willful × Partner · 02</span></div>
+</section>
+
+<!-- 3 THREE WINS -->
+<section class="slide">
+  <div class="pad">
+    <div class="eyebrow">What the partnership does</div>
+    <div class="h2" style="margin-top:22px;max-width:1500px">One offer. Three wins for your business.</div>
+  </div>
+  <div class="wins">
+    <div class="win"><div class="ic"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8L12 21.2l8.8-8.8a5.5 5.5 0 0 0 0-7.8z"/></svg></div><div class="h3">Deeper engagement</div><p class="body" style="font-size:24px">A meaningful reason to reach out that isn't a product push. Customers remember who helped them protect their family.</p></div>
+    <div class="win"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div><div class="h3">New revenue</div><p class="body" style="font-size:24px">A partner offer your customers value, with a revenue share or referral model that fits how you already sell.</p></div>
+    <div class="win"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div><div class="h3">A real, urgent need, solved</div><p class="body" style="font-size:24px">A legal will and power of attorney, online, in about 20 minutes. No lawyer needed for most estates.</p></div>
+  </div>
+  <div class="foot"><img src="../img/logo.png" alt=""><span>Willful × Partner · 03</span></div>
+</section>
+
+<!-- 4 WILLFUL AT A GLANCE -->
+<section class="slide dark">
+  <div class="pad">
+    <div class="eyebrow" style="color:var(--yellow)">Willful at a glance</div>
+    <div class="h2" style="margin-top:22px">Canada's online estate planning platform.</div>
+  </div>
+  <div class="nums">
+    <div class="n"><b>500k<em>+</em></b><span>Canadians have trusted Willful with their estate documents</span></div>
+    <div class="n"><b>10<em>/10</em></b><span>Canadian provinces, with documents built to each province's laws</span></div>
+    <div class="n"><b>2022</b><span>First online will provider licensed by the Law Society of Ontario</span></div>
+    <div class="n"><b>~20<em>m</em></b><span>For most people to make a customized legal will</span></div>
+  </div>
+  <div class="trusted"><small>Trusted partner of</small><span>Scotiabank</span><i></i><span>CIBC</span><i></i><span>Wealthsimple</span></div>
+  <div class="foot"><span style="font:800 26px Figtree;color:#fff">willful.</span><span>Willful × Partner · 04</span></div>
+</section>
+
+<!-- 5 JOURNEY -->
+<section class="slide">
+  <div class="pad">
+    <div class="eyebrow">The customer experience</div>
+    <div class="h2" style="margin-top:22px">From "I should do that" to done, in one sitting.</div>
+  </div>
+  <div class="journey">
+    <div class="step"><div class="shot" style="background-image:url(../img/how1.png)"></div><div class="k">01</div><div class="t">Answer simple questions</div><div class="d">Plain-language questions about their wishes, guardians and gifts.</div></div>
+    <div class="step"><div class="shot" style="background-image:url(../img/how2.png)"></div><div class="k">02</div><div class="t">Review, then pay</div><div class="d">They see every document first, and only pay when they're happy.</div></div>
+    <div class="step"><div class="shot" style="background-image:url(../img/how4.png)"></div><div class="k">03</div><div class="t">Print and sign</div><div class="d">Clear, step-by-step signing instructions make it legally valid.</div></div>
+    <div class="step"><div class="shot" style="background-image:url(../img/how3.png)"></div><div class="k">04</div><div class="t">Free updates for life</div><div class="d">New baby, new home, new province: changes are always free.</div></div>
+  </div>
+  <div class="foot"><img src="../img/logo.png" alt=""><span>Willful × Partner · 05</span></div>
+</section>
+
+<!-- 6 MODELS -->
+<section class="slide">
+  <div class="pad">
+    <div class="eyebrow">Ways to partner</div>
+    <div class="h2" style="margin-top:22px">Start simple. Go deeper when it works.</div>
+  </div>
+  <div class="models">
+    <div class="model"><div class="lv">Option 1</div><div class="h3" style="margin-top:12px">Referral offer</div><ul><li>Unique partner link and price</li><li>Willful-built email and social assets</li><li>Monthly sign-up report</li></ul><div class="eff">Live in about 2 weeks</div></div>
+    <div class="model rec"><span class="tag">Recommended</span><div class="lv">Option 2</div><div class="h3" style="margin-top:12px">Co-branded experience</div><ul><li>Co-branded landing page and onboarding</li><li>Campaign across email, in-app and social</li><li>Shared launch plan and monthly review</li></ul><div class="eff">Live in about 6 weeks</div></div>
+    <div class="model"><div class="lv">Option 3</div><div class="h3" style="margin-top:12px">Embedded in your journeys</div><ul><li>Offer shown at key life moments</li><li>Advisor access through Willful for Professionals</li><li>Quarterly business reviews</li></ul><div class="eff">Scoped together</div></div>
+  </div>
+  <div class="foot"><img src="../img/logo.png" alt=""><span>Willful × Partner · 06</span></div>
+</section>
+
+<!-- 7 CO-BRAND MOCK -->
+<section class="slide s7" style="background:var(--mist)">
+  <div class="pad"><div class="eyebrow">What your customers see</div></div>
+  <div class="copy">
+    <div class="h2" style="font-size:66px">Your brand. Our platform. Their peace of mind.</div>
+    <div class="chk"><i>✓</i>A landing page with your logo and your customers' price</div>
+    <div class="chk"><i>✓</i>The full Willful experience, start to finish</div>
+    <div class="chk"><i>✓</i>Tracking built in, so every completion is counted</div>
+  </div>
+  <div class="browser">
+    <div class="chrome"><i></i><i></i><i></i><span>willful.co/partner</span></div>
+    <div class="lp">
+      <div class="l">
+        <div class="lk"><img src="../img/logo.png" alt=""><span style="font:300 26px Figtree;color:var(--muted)">×</span><b>Partner</b></div>
+        <h4>An exclusive offer for Partner customers.</h4>
+        <p style="font:500 21px/1.5 Figtree">Make your legal will and power of attorney online, in about 20 minutes.</p>
+        <div style="display:inline-flex;align-self:flex-start;background:var(--yellow);color:var(--deep);font:800 20px Figtree;border-radius:999px;padding:10px 20px">Special pricing for Partner customers</div>
+        <span class="cta">Start my will →</span>
+        <span class="small" style="font-size:16px">Trusted by 500,000+ Canadians</span>
+      </div>
+      <div class="r"></div>
+    </div>
+  </div>
+  <div class="foot"><img src="../img/logo.png" alt=""><span>Willful × Partner · 07</span></div>
+</section>
+
+<!-- 8 TIMELINE -->
+<section class="slide">
+  <div class="pad">
+    <div class="eyebrow">Launch plan</div>
+    <div class="h2" style="margin-top:22px">Six weeks from yes to live.</div>
+  </div>
+  <div class="tl">
+    <div class="rail"><i></i></div>
+    <div class="cols">
+      <div class="ph"><div class="w">Weeks 1–2</div><div class="t">Set up</div><ul><li>Agreement signed</li><li>Partner link and tracking</li><li>Co-branded page built</li></ul></div>
+      <div class="ph"><div class="w">Weeks 3–4</div><div class="t">Create</div><ul><li>Email, in-app and social assets</li><li>English and French</li><li>Partner and compliance review</li></ul></div>
+      <div class="ph"><div class="w">Week 5</div><div class="t">Launch</div><ul><li>First send to customers</li><li>Social and in-app go live</li><li>Daily check on numbers</li></ul></div>
+      <div class="ph"><div class="w">Week 6</div><div class="t">Learn</div><ul><li>First results report</li><li>What worked, what didn't</li><li>Plan for month two</li></ul></div>
+    </div>
+  </div>
+  <div style="position:absolute;left:130px;right:130px;top:790px;display:grid;grid-template-columns:1fr 1fr;gap:34px">
+    <div style="background:var(--ice);border-radius:26px;padding:30px 36px"><div class="h3" style="font-size:28px;margin-bottom:8px">Willful handles</div><p class="body" style="font-size:23px">Landing page, tracking, every creative asset, the launch checklist and the monthly report.</p></div>
+    <div style="background:var(--mist);border-radius:26px;padding:30px 36px"><div class="h3" style="font-size:28px;margin-bottom:8px">You handle</div><p class="body" style="font-size:23px">One approval round, your brand and compliance review, and the send to your customers.</p></div>
+  </div>
+  <div class="foot"><img src="../img/logo.png" alt=""><span>Willful × Partner · 08</span></div>
+</section>
+
+<!-- 9 MEASURE -->
+<section class="slide">
+  <div class="pad">
+    <div class="eyebrow">How we'll measure it</div>
+    <div class="h2" style="margin-top:22px">One report, every month. No surprises.</div>
+  </div>
+  <div class="dash">
+    <div class="kp"><span>Completed plans</span><b>2,058</b><em>▲ 12% vs last month</em></div>
+    <div class="kp"><span>Partner revenue</span><b>$50.8k</b><em>▲ 13% vs last month</em></div>
+    <div class="kp"><span>Visit → start</span><b>18%</b><em>▲ 2 pts</em></div>
+    <div class="kp"><span>Start → complete</span><b>64%</b><em>▲ 3 pts</em></div>
+  </div>
+  <div class="chart"><div style="height:38%"><span>Jun</span></div><div style="height:46%"><span>Jul</span></div><div style="height:58%"><span>Aug</span></div><div style="height:63%"><span>Sep</span></div><div class="hi" style="height:72%"><span>Oct</span></div><div class="hi" style="height:84%"><span>Nov</span></div></div>
+  <div class="foot"><img src="../img/logo.png" alt=""><span>Illustrative numbers · Willful × Partner · 09</span></div>
+</section>
+
+<!-- 10 CLOSE -->
+<section class="slide close blue">
+  <div class="photo"></div>
+  <div class="copy">
+    <div class="eyebrow">Next step</div>
+    <div class="h1" style="margin-top:28px;font-size:84px">Let's make peace of mind part of what you offer.</div>
+    <p class="body" style="color:rgba(255,255,255,.88);margin-top:36px;max-width:720px">A 30-minute working session to pick the right model and a launch date.</p>
+    <p style="font:800 34px Figtree;color:#fff;margin-top:40px">partners@willful.co</p>
+  </div>
+  <div class="foot"><span style="font:800 26px Figtree;color:#fff">willful.</span><span style="color:rgba(255,255,255,.7)">Willful × Partner · 10</span></div>
+</section>
+
+</div></div>
+
+<div class="ctrl" id="ctrl"><button id="pv">←</button><span id="pg">1 / 10</span><button id="nx">→</button><button id="fs">Full screen</button><a href="willful-partner-deck.pdf" download>PDF</a></div>
+
+<script>
+const deck=document.getElementById('deck'),S=[...document.querySelectorAll('.slide')];let i=0;
+if(new URLSearchParams(location.search).has('embed'))document.body.classList.add('embed');
+function fit(){const s=Math.min(innerWidth/1920,innerHeight/1080);deck.style.transform=`scale(${s})`}
+function go(n){i=(n+S.length)%S.length;S.forEach((s,k)=>s.classList.toggle('on',k===i));document.getElementById('pg').textContent=(i+1)+' / '+S.length}
+document.getElementById('pv').onclick=()=>go(i-1);document.getElementById('nx').onclick=()=>go(i+1);
+document.getElementById('fs').onclick=()=>{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()};
+addEventListener('keydown',e=>{if(['ArrowRight',' ','PageDown'].includes(e.key))go(i+1);if(['ArrowLeft','PageUp'].includes(e.key))go(i-1)});
+document.querySelector('.stage').addEventListener('click',e=>{if(e.target.closest('.ctrl'))return;go(e.clientX>innerWidth/2?i+1:i-1)});
+addEventListener('resize',fit);fit();
+{const q=new URLSearchParams(location.search);if(q.has('s'))go(+q.get('s')-1)}
+if(new URLSearchParams(location.search).has('shot'))document.getElementById('ctrl').style.display='none';
+</script>
+</body>
+</html>
