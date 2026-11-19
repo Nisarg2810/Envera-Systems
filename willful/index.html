@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Durva's Will · for Willful</title>
-<meta name="description" content="A two-minute will, made with Willful in mind. Everything Durva will do (and learn) as your Partnerships Coordinator.">
+<meta name="description" content="Durva's will, and the first month of the Partnerships Coordinator job, already done for Willful.">
 <meta name="robots" content="noindex">
-<meta property="og:title" content="Let's make Durva's will. (The willingness kind.)">
-<meta property="og:description" content="Two minutes, six steps, one signed document: everything Durva will do and learn as Willful's Partnerships Coordinator.">
+<meta property="og:title" content="The Will of Durva Thakkar (and the first month of the job, done)">
+<meta property="og:description" content="Month-end reconciliation, automations, a partner deck, advisor call kit, co-branded campaigns in English and French, and a partner report. Made for Willful.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://durvathakkar.com/willful/">
-<meta property="og:image" content="https://durvathakkar.com/willful/share.jpg?v=1">
+<meta property="og:image" content="https://durvathakkar.com/willful/share.jpg?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -18,442 +18,566 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Homemade+Apple&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-:root{--blue:#0064dc;--navy:#004eb6;--ink:#4a4a4a;--dark:#222;--muted:#70707a;--line:#dcdfe5;--grey:#ecedef;--ice:#e2f6ff;--amber:#e39f3a;--yellow:#ffdc1e;--paper:#fffdf7}
+:root{--blue:#0064dc;--navy:#004eb6;--ink:#4a4a4a;--dark:#222;--muted:#70707a;--line:#dcdfe5;--grey:#f3f4f6;--ice:#e2f6ff;--amber:#e39f3a;--yellow:#ffdc1e;--paper:#fffdf7;--green:#1e9e62;--red:#d64535}
 *{box-sizing:border-box}
-html,body{margin:0}
-body{font:400 17px/1.55 Figtree,system-ui,sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
-button{font-family:inherit}
+html{scroll-behavior:smooth}
+body{margin:0;font:400 17px/1.6 Figtree,system-ui,sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:var(--blue)}
-
-/* top bar */
-.top{position:sticky;top:0;z-index:30;background:#fff;border-bottom:1px solid var(--line)}
-.top .in{max-width:1180px;margin:0 auto;padding:0 22px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:14px}
-.mark{display:flex;align-items:center;gap:10px;font:800 20px Figtree;color:var(--dark);text-decoration:none}
-.mark i{width:30px;height:30px;border-radius:8px;background:var(--blue);display:grid;place-items:center;color:#fff;font:800 16px Figtree;font-style:normal}
-.mark small{font:600 13px Figtree;color:var(--muted)}
-.save{font:600 14px Figtree;color:var(--muted);display:flex;align-items:center;gap:8px}
-.save b{width:8px;height:8px;border-radius:50%;background:#2fb36b;display:inline-block}
-.bar{height:4px;background:var(--grey)}
-.bar i{display:block;height:100%;width:0;background:var(--blue);transition:width .5s ease}
-
-/* layout */
-.app{max-width:1180px;margin:0 auto;padding:30px 22px 80px;display:grid;grid-template-columns:250px 1fr;gap:40px}
-.side{position:sticky;top:100px;align-self:start}
-.side h4{font:700 12px Figtree;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
-.steps{list-style:none;margin:0;padding:0}
-.steps li{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;font-weight:600;color:var(--muted);cursor:default}
-.steps li .n{width:26px;height:26px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font:700 13px Figtree;flex:none}
-.steps li.on{background:var(--ice);color:var(--dark)}
-.steps li.on .n{border-color:var(--blue);color:var(--blue)}
-.steps li.done{color:var(--dark);cursor:pointer}
-.steps li.done .n{background:var(--blue);border-color:var(--blue);color:#fff}
-.help{margin-top:22px;background:var(--grey);border-radius:16px;padding:16px;font-size:14px}
-.help b{color:var(--dark)}
-.help img{width:46px;height:46px;border-radius:50%;object-fit:cover;margin-bottom:8px}
-@media(max-width:900px){.app{grid-template-columns:1fr;gap:10px;padding-top:18px}.side{position:static}.steps{display:flex;overflow-x:auto;gap:6px;padding-bottom:6px}.steps li{white-space:nowrap;padding:8px 10px;font-size:14px}.help{display:none}}
-
-/* panels */
-.panel{display:none;animation:in .45s ease}
-.panel.on{display:block}
-@keyframes in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-.eyebrow{font:700 13px Figtree;letter-spacing:1px;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
-h1{font:800 clamp(34px,4.6vw,54px)/1.08 Figtree;color:var(--dark);margin:0 0 16px;letter-spacing:-.5px}
-h2{font:800 clamp(26px,3.2vw,36px)/1.15 Figtree;color:var(--dark);margin:0 0 10px}
-.lead{font-size:20px;max-width:640px;margin:0 0 22px}
-.hint{font-size:15px;color:var(--muted);margin:0 0 20px;max-width:640px}
-.btn{display:inline-flex;align-items:center;gap:10px;background:var(--blue);color:#fff;border:0;border-radius:10px;padding:14px 24px;font:700 17px Figtree;cursor:pointer;text-decoration:none;transition:background .15s,transform .15s}
-.btn:hover{background:var(--navy);transform:translateY(-1px)}
-.btn:disabled{background:#a9b9d3;cursor:not-allowed;transform:none}
+button{font-family:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+h1,h2,h3,h4{color:var(--dark);margin:0;line-height:1.15}
+h2{font:800 clamp(28px,3.6vw,40px)/1.12 Figtree;letter-spacing:-.4px}
+h3{font:800 21px Figtree}
+p{margin:0 0 12px}
+.tag{display:inline-block;background:var(--yellow);color:var(--dark);border-radius:999px;font:700 11px Figtree;padding:3px 10px;letter-spacing:.5px;text-transform:uppercase;vertical-align:middle}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;border:0;border-radius:10px;padding:12px 20px;font:700 16px Figtree;cursor:pointer;text-decoration:none;transition:background .15s}
+.btn:hover{background:var(--navy)}
 .btn.ghost{background:#fff;color:var(--blue);box-shadow:inset 0 0 0 2px var(--blue)}
-.btn.ghost:hover{background:var(--ice)}
-.nav{display:flex;gap:12px;align-items:center;margin-top:28px;flex-wrap:wrap}
-.back{background:none;border:0;color:var(--muted);font:600 15px Figtree;cursor:pointer;padding:10px 4px}
+.btn.sm{padding:8px 14px;font-size:14px;border-radius:8px}
+.muted{color:var(--muted)}
+.small{font-size:14px}
 
-/* intro */
-.intro{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
-.intro .card{background:var(--paper);border:1px solid #efe6cf;border-radius:18px;padding:24px;transform:rotate(1.5deg);box-shadow:0 18px 40px rgba(0,40,100,.10);font-family:'Libre Baskerville',serif;font-size:14px;line-height:1.7}
-.intro .card h3{font:700 17px 'Libre Baskerville',serif;text-align:center;margin:0 0 12px;color:var(--dark)}
-.intro .card p{margin:0 0 10px}
-.intro .card .sig{font-family:'Homemade Apple',cursive;font-size:22px;color:var(--navy);margin-top:6px}
-.facts{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 6px}
-.facts span{background:var(--ice);border-radius:999px;padding:7px 14px;font:600 14px Figtree;color:var(--navy)}
-@media(max-width:900px){.intro{grid-template-columns:1fr}.intro .card{transform:none}}
+/* nav */
+nav{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;gap:16px}
+.mark{display:flex;align-items:center;gap:10px;font:800 18px Figtree;color:var(--dark);text-decoration:none}
+.mark i{width:28px;height:28px;border-radius:8px;background:var(--blue);display:grid;place-items:center;color:#fff;font:800 15px Figtree;font-style:normal}
+.mark small{font:600 13px Figtree;color:var(--muted)}
+nav .links{display:flex;gap:18px;font:600 14.5px Figtree;overflow-x:auto}
+nav .links a{color:var(--ink);text-decoration:none;white-space:nowrap}
+nav .links a:hover{color:var(--blue)}
+@media(max-width:900px){nav .links{display:none}.mark small{display:none}}
 
-/* question bits */
-.q{margin:22px 0}
-.q label.t{display:block;font:700 16px Figtree;color:var(--dark);margin-bottom:8px}
-.field{border:2px solid var(--line);border-radius:12px;padding:13px 15px;font:600 17px Figtree;color:var(--dark);min-height:52px;background:#fff;display:flex;align-items:center}
-.field .cur{display:inline-block;width:2px;height:20px;background:var(--blue);margin-left:2px;animation:blink 1s steps(1) infinite}
-@keyframes blink{50%{opacity:0}}
-.opts{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.opt{border:2px solid var(--line);border-radius:14px;background:#fff;padding:16px 18px;text-align:left;cursor:pointer;font:600 16px Figtree;color:var(--dark);display:flex;gap:12px;align-items:flex-start;transition:border-color .15s,background .15s}
-.opt:hover{border-color:#9dbbe6}
-.opt .r{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);flex:none;margin-top:1px;display:grid;place-items:center}
-.opt.sq .r{border-radius:6px}
-.opt.sel{border-color:var(--blue);background:#f3f8ff}
-.opt.sel .r{border-color:var(--blue);background:var(--blue)}
-.opt.sel .r:after{content:"";width:8px;height:8px;border-radius:50%;background:#fff}
-.opt.sq.sel .r:after{width:10px;height:6px;border-radius:0;background:none;border-left:2.5px solid #fff;border-bottom:2.5px solid #fff;transform:rotate(-45deg) translate(1px,-1px)}
-.opt small{display:block;font-weight:500;color:var(--muted);font-size:14px;margin-top:2px}
-@media(max-width:640px){.opts{grid-template-columns:1fr}}
-.reply{display:none;margin-top:14px;background:var(--ice);border-radius:14px;padding:14px 16px;font-size:16px;color:var(--dark);border-left:4px solid var(--blue)}
-.reply.on{display:block;animation:in .35s ease}
-.reply b{color:var(--navy)}
+/* letter */
+.letter-sec{background:linear-gradient(180deg,var(--ice),#fff);padding:50px 0 60px}
+.letter-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:center}
+.letter-grid>*{min-width:0}
+.hi{font:700 14px Figtree;letter-spacing:1px;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+.letter-grid h1{font:800 clamp(34px,4.4vw,52px)/1.08 Figtree;letter-spacing:-.6px;margin-bottom:16px}
+.letter-grid h1 span{color:var(--blue)}
+.lead{font-size:19px;max-width:520px}
+.jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.jump a{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 13px;font:600 14px Figtree;color:var(--dark);text-decoration:none}
+.jump a:hover{border-color:var(--blue);color:var(--blue)}
+.will{background:var(--paper);border:1px solid #eee3c8;box-shadow:0 24px 50px rgba(0,40,100,.12);padding:clamp(24px,4vw,44px);font-family:'Libre Baskerville',serif;font-size:15.5px;line-height:1.85;color:#2b2b2b;position:relative;transform:rotate(.6deg)}
+.will h3{font:700 19px 'Libre Baskerville',serif;text-align:center;letter-spacing:.6px;margin-bottom:4px}
+.will .sub{text-align:center;font-style:italic;color:#777;font-size:13.5px;margin-bottom:20px}
+.will p{margin:0 0 10px}
+.will ol{margin:0 0 12px;padding-left:22px}
+.will li{margin-bottom:4px}
+.will .sig{font-family:'Homemade Apple',cursive;font-size:24px;color:var(--navy);margin-top:16px}
+.will .line{border-top:1.5px solid #2b2b2b;width:240px;max-width:100%;font:600 12px Figtree;color:#666;padding-top:4px}
+@media(max-width:900px){.letter-grid{grid-template-columns:1fr}.will{transform:none}}
 
-/* executor */
-.exec{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.person{border:2px solid var(--line);border-radius:16px;padding:18px;background:#fff;cursor:pointer;text-align:left;transition:border-color .15s,background .15s}
-.person:hover{border-color:#9dbbe6}
-.person .av{width:52px;height:52px;border-radius:50%;background:var(--ice);display:grid;place-items:center;font:800 18px Figtree;color:var(--navy);margin-bottom:10px}
-.person b{display:block;color:var(--dark);font-size:17px}
-.person span{font-size:14px;color:var(--muted)}
-.person.sel{border-color:var(--blue);background:#f3f8ff}
-.person.nope{opacity:.55}
-@media(max-width:760px){.exec{grid-template-columns:1fr}}
+/* sections */
+section.s{padding:70px 0 10px}
+.sh{display:flex;gap:16px;align-items:flex-start;margin-bottom:8px}
+.num{flex:none;width:52px;height:52px;border-radius:14px;background:var(--blue);color:#fff;display:grid;place-items:center;font:800 20px Figtree}
+.kick{font:700 13px Figtree;letter-spacing:1px;text-transform:uppercase;color:var(--blue)}
+.jd{background:var(--grey);border-left:4px solid var(--amber);border-radius:0 12px 12px 0;padding:10px 16px;font-size:15px;margin:12px 0 24px;max-width:860px}
+.jd b{color:var(--dark)}
+.card{border:1px solid var(--line);border-radius:18px;padding:22px;background:#fff;min-width:0}
+.card.ice{background:var(--ice);border-color:transparent}
+.card.grey{background:var(--grey);border-color:transparent}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:900px){.g2,.g3{grid-template-columns:1fr}}
+.g2>*,.g3>*{min-width:0}
+.why{font-size:15px;color:var(--muted);margin-top:10px}
+.why b{color:var(--dark)}
 
-/* gifts preview */
-.gifts{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-@media(max-width:640px){.gifts{grid-template-columns:1fr}}
-.preview{margin-top:18px;border:1px solid var(--line);border-radius:18px;overflow:hidden;display:none}
-.preview.on{display:block;animation:in .35s ease}
-.preview .ph{background:var(--grey);padding:10px 16px;font:700 13px Figtree;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between}
-.preview .pb{padding:18px}
-.mini-mail{max-width:520px;margin:0 auto;border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:15px}
-.mini-mail .mh{background:var(--blue);color:#fff;padding:14px 18px;font:800 18px Figtree;display:flex;justify-content:space-between;align-items:center}
-.mini-mail .mh span{font:600 12px Figtree;opacity:.85}
-.mini-mail .mb{padding:16px 18px}
-.mini-mail .cta{display:inline-block;background:var(--amber);color:#fff;border-radius:8px;padding:9px 16px;font-weight:700;margin-top:4px}
-.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.tile{background:var(--ice);border-radius:12px;padding:12px}
-.tile b{display:block;font:800 24px Figtree;color:var(--dark)}
-.tile span{font-size:13px}
-@media(max-width:640px){.tiles{grid-template-columns:1fr 1fr}}
-.list{margin:0;padding-left:20px}
-.list li{margin-bottom:6px}
-.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font:600 14px Figtree}
-.flow span{background:var(--ice);border-radius:10px;padding:8px 12px;color:var(--navy)}
-.flow i{font-style:normal;color:var(--muted)}
-.onepager{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;max-width:560px;margin:0 auto;font-size:13.5px}
-.onepager .l{background:var(--blue);color:#fff;padding:18px}
-.onepager .l h5{font:800 19px/1.2 Figtree;margin:0 0 8px}
-.onepager .r{padding:18px}
-.onepager .r p{margin:0 0 8px}
-.tag{display:inline-block;background:var(--yellow);color:var(--dark);border-radius:999px;font:700 11px Figtree;padding:2px 9px;letter-spacing:.4px;text-transform:uppercase}
+/* tables */
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table.t{width:100%;border-collapse:collapse;font-size:14.5px}
+table.t th{text-align:left;font:700 12px Figtree;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);padding:9px 10px;border-bottom:2px solid var(--line);white-space:nowrap}
+table.t td{padding:10px;border-bottom:1px solid var(--line);white-space:nowrap}
+table.t td.num{text-align:right;font-variant-numeric:tabular-nums}
+table.t th.num{text-align:right}
+table.t tr.flag td{background:#fff6e6}
+.pill{display:inline-block;border-radius:999px;padding:2px 10px;font:700 12px Figtree;white-space:nowrap}
+.ok{background:#e3f6ec;color:var(--green)}.warn{background:#fff1d6;color:#a96c00}.bad{background:#fde7e4;color:var(--red)}.info{background:var(--ice);color:var(--navy)}
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:10px}
 
-/* learning */
-.learn{display:grid;gap:10px}
-.lrow{display:grid;grid-template-columns:90px 1fr auto;gap:14px;align-items:center;border:2px solid var(--line);border-radius:14px;padding:12px 16px;cursor:pointer;background:#fff;transition:border-color .15s,background .15s;text-align:left;font:inherit;color:inherit}
-.lrow:hover{border-color:#9dbbe6}
-.lrow .w{font:800 13px Figtree;color:var(--blue);text-transform:uppercase;letter-spacing:.6px}
-.lrow b{color:var(--dark)}
-.lrow small{display:block;color:var(--muted);font-size:14px}
-.lrow .ck{width:26px;height:26px;border-radius:8px;border:2px solid var(--line)}
-.lrow.sel{border-color:var(--blue);background:#f3f8ff}
-.lrow.sel .ck{background:var(--blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10l3 3 7-7' stroke='white' stroke-width='3' fill='none'/%3E%3C/svg%3E") center/16px no-repeat;border-color:var(--blue)}
-@media(max-width:640px){.lrow{grid-template-columns:1fr auto}.lrow .w{grid-column:1/-1}}
-.meter{margin-top:16px;display:flex;align-items:center;gap:14px;font:700 15px Figtree;color:var(--dark)}
-.meter .m{flex:1;height:12px;border-radius:999px;background:var(--grey);overflow:hidden}
-.meter .m i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--amber));transition:width .4s}
+/* invoice */
+.invoice{border:1px solid var(--line);border-radius:14px;padding:24px;font-size:14.5px;background:#fff;display:none}
+.invoice.on{display:block;animation:in .35s ease}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.invoice .ih{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.invoice .logo{font:800 22px Figtree;color:var(--blue)}
 
-/* wishes */
-textarea{width:100%;min-height:90px;border:2px solid var(--line);border-radius:12px;padding:13px 15px;font:500 16px Figtree;color:var(--dark);resize:vertical}
-textarea:focus,.field:focus-within{outline:none;border-color:var(--blue)}
+/* mail */
+.mail{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;min-width:0}
+.mail .mh{background:var(--grey);padding:10px 16px;font-size:13.5px;line-height:1.55}
+.mail .mb{padding:16px 18px;font-size:15px}
+.mail .mb p{margin:0 0 10px}
 
-/* document */
-.docwrap{overflow:hidden;background:var(--grey);border-radius:22px;padding:clamp(14px,3vw,36px)}
-.doc{background:var(--paper);max-width:760px;margin:0 auto;padding:clamp(22px,5vw,56px);box-shadow:0 20px 50px rgba(0,30,80,.12);font-family:'Libre Baskerville',serif;font-size:15.5px;line-height:1.8;color:#2b2b2b;position:relative}
-.doc h3{font:700 clamp(20px,2.6vw,26px)/1.3 'Libre Baskerville',serif;text-align:center;margin:0 0 6px;letter-spacing:.5px}
-.doc .sub{text-align:center;font-style:italic;color:#666;margin-bottom:26px}
-.doc ol{padding-left:22px;margin:0 0 20px}
-.doc ol li{margin-bottom:12px;padding-left:4px}
-.doc ol li b{font-weight:700}
-.doc .clause-h{font:700 13px Figtree;letter-spacing:1.2px;text-transform:uppercase;color:var(--blue);margin:24px 0 8px}
-.sigs{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px}
+/* workflow */
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0 14px}
+.node{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:9px 12px;font:600 14px Figtree;color:var(--dark);display:flex;align-items:center;gap:8px}
+.node i{font-style:normal;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-size:14px;flex:none}
+.node.trig i{background:#e3f6ec}.node.ai i{background:#efe6ff}.node.app i{background:var(--ice)}.node.human i{background:#fff1d6}
+.arr{color:var(--muted);font-weight:700}
+.prompt{background:#1d2333;color:#d8e1f5;border-radius:12px;padding:14px 16px;font:500 13.5px/1.6 ui-monospace,Menlo,monospace;white-space:pre-wrap;overflow-wrap:break-word}
+.prompt b{color:#ffd76a}
+
+/* deck */
+.deck{position:relative;min-width:0}
+.slide{aspect-ratio:16/9;border-radius:14px;overflow:hidden;display:none;position:relative;border:1px solid var(--line)}
+.slide.on{display:flex;animation:in .3s ease}
+.slide .sl{padding:clamp(16px,3.5vw,40px);display:flex;flex-direction:column;justify-content:center;width:100%}
+.slide h4{font:800 clamp(18px,2.6vw,32px)/1.12 Figtree;margin-bottom:10px}
+.slide p,.slide li{font-size:clamp(12px,1.4vw,16px)}
+.slide ul{margin:6px 0 0;padding-left:18px}
+.s-blue{background:var(--blue);color:#fff}.s-blue h4{color:#fff}
+.s-ice{background:var(--ice)}
+.s-white{background:#fff}
+.deckbar{display:flex;justify-content:space-between;align-items:center;margin-top:10px;font:600 14px Figtree}
+.dots{display:flex;gap:6px}
+.dots i{width:8px;height:8px;border-radius:50%;background:var(--line);display:block;cursor:pointer}
+.dots i.on{background:var(--blue)}
+.bigstat{font:800 clamp(28px,4.4vw,58px)/1 Figtree}
+.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+.steps3 div{background:#fff;border-radius:12px;padding:12px;font-size:clamp(11px,1.2vw,14px)}
+.steps3 b{display:block;color:var(--blue);font-size:22px}
+
+/* one-pager */
+.onep{border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:14px;background:#fff;min-width:0}
+.onep .top{background:var(--blue);color:#fff;padding:20px}
+.onep .top h4{color:#fff;font:800 22px/1.2 Figtree;margin:6px 0}
+.onep .body{padding:18px 20px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.onep .body h5{font:800 14px Figtree;color:var(--dark);margin:0 0 6px}
+.onep .body ul{margin:0;padding-left:18px}
+.onep .foot{background:var(--grey);padding:12px 20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-weight:600}
+@media(max-width:600px){.onep .body{grid-template-columns:1fr}}
+
+/* tabs */
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.tabs button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 14px;font:600 14px Figtree;cursor:pointer;color:var(--dark)}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.tabp{display:none}.tabp.on{display:block;animation:in .3s ease}
+.qa{border-bottom:1px solid var(--line);padding:10px 0}
+.qa b{display:block;color:var(--dark)}
+
+/* social posts */
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.post{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+.post .art{aspect-ratio:4/5;display:flex;flex-direction:column;justify-content:space-between;padding:20px}
+.post .art h4{font:800 25px/1.12 Figtree}
+.post .art .wm{font:800 15px Figtree}
+.post .cap{padding:12px 14px;font-size:13.5px}
+@media(max-width:900px){.posts{grid-template-columns:1fr}}
+.story{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.frame{background:var(--grey);border-radius:12px;padding:10px;font-size:12.5px}
+.frame .ph{aspect-ratio:9/16;border-radius:8px;color:#fff;display:flex;align-items:flex-end;padding:8px;font:700 12px/1.3 Figtree;margin-bottom:6px}
+.frame b{color:var(--dark)}
+@media(max-width:900px){.story{grid-template-columns:repeat(3,1fr)}}
+.lang{display:inline-flex;background:#fff;border-radius:999px;padding:3px}
+.lang button{border:0;background:none;padding:5px 13px;border-radius:999px;font:700 13px Figtree;cursor:pointer;color:var(--ink)}
+.lang button.on{background:var(--blue);color:#fff}
+
+/* gantt */
+.gantt{font-size:13.5px}
+.gr{display:grid;grid-template-columns:170px 1fr 120px;gap:10px;align-items:center;margin-bottom:7px}
+.gr .bar{height:20px;background:var(--grey);border-radius:999px;position:relative}
+.gr .bar i{position:absolute;top:0;bottom:0;border-radius:999px}
+.gx{display:grid;grid-template-columns:170px 1fr 120px;gap:10px;font-size:12px;color:var(--muted);margin-bottom:6px}
+.gx div:nth-child(2){display:flex;justify-content:space-between}
+@media(max-width:700px){.gr,.gx{grid-template-columns:110px 1fr}.gr>div:last-child,.gx>div:last-child{display:none}}
+
+/* ideas */
+.ideas{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.idea{border:1px solid var(--line);border-radius:16px;padding:18px;background:#fff}
+.idea .k{font:700 12px Figtree;letter-spacing:.6px;text-transform:uppercase;color:var(--amber)}
+.idea h4{font:800 18px Figtree;margin:4px 0 6px}
+.idea p{font-size:15px;margin:0 0 6px}
+@media(max-width:900px){.ideas{grid-template-columns:1fr}.idea{grid-column:auto!important}}
+
+/* dashboard */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
+.kpi{background:var(--grey);border-radius:14px;padding:14px}
+.kpi span{font-size:13px}
+.kpi b{display:block;font:800 26px Figtree;color:var(--dark)}
+.kpi em{font-style:normal;font:700 13px Figtree}
+.up{color:var(--green)}.down{color:var(--red)}
+@media(max-width:700px){.kpis{grid-template-columns:1fr 1fr}}
+.bars{display:grid;gap:9px}
+.brow{display:grid;grid-template-columns:150px 1fr 70px;gap:10px;align-items:center;font-size:14px}
+.brow .bt{height:22px;background:var(--grey);border-radius:6px;overflow:hidden}
+.brow .bt i{display:block;height:100%;background:var(--blue);border-radius:6px;transition:width .5s}
+.brow .v{text-align:right;font-weight:700;color:var(--dark)}
+@media(max-width:600px){.brow{grid-template-columns:96px 1fr 52px;font-size:13px}}
+
+/* close */
+.close{padding:80px 0 60px;text-align:center}
+.close h2{margin-bottom:8px}
+.sigs{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:760px;margin:90px auto 20px;text-align:left}
 .sigbox{border-top:1.5px solid #2b2b2b;padding-top:6px;font:600 12.5px Figtree;color:#555;position:relative}
 .sigbox canvas{position:absolute;left:0;bottom:calc(100% + 2px);width:100%;height:70px;cursor:crosshair;touch-action:none;border-radius:8px;background:repeating-linear-gradient(90deg,transparent 0 8px,rgba(0,100,220,.05) 8px 9px)}
-.sigbox .durva-sig{position:absolute;left:0;bottom:calc(100% + 4px);font-family:'Homemade Apple',cursive;font-size:clamp(16px,1.7vw,21px);color:var(--navy);white-space:nowrap;clip-path:inset(0 100% 0 0);transition:clip-path 2.2s steps(30)}
-.sigbox .durva-sig.go{clip-path:inset(0 0 0 0)}
+.sigbox .ds{position:absolute;left:0;bottom:calc(100% + 6px);font-family:'Homemade Apple',cursive;font-size:21px;color:var(--navy);white-space:nowrap}
 .sigbox .clr{position:absolute;right:4px;bottom:calc(100% + 50px);background:rgba(255,255,255,.85);border:0;border-radius:6px;padding:1px 6px;color:var(--blue);font:600 11px Figtree;cursor:pointer;z-index:2}
-@media(max-width:640px){.sigs{grid-template-columns:1fr;gap:96px;margin-top:100px}}
-.sigspace{height:80px}
-.stamp{position:absolute;right:30px;top:30px;border:3px solid #c0392b;color:#c0392b;font:800 15px Figtree;letter-spacing:2px;padding:8px 14px;border-radius:8px;transform:rotate(-12deg) scale(1.6);opacity:0;transition:all .35s cubic-bezier(.2,1.6,.4,1)}
-.stamp.on{opacity:.9;transform:rotate(-12deg) scale(1)}
-.after{display:none;margin-top:26px;text-align:center}
-.after.on{display:block;animation:in .4s ease}
-.after h2{margin-bottom:6px}
-.after p{max-width:620px;margin:0 auto 18px}
-.after .row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.me{display:flex;gap:14px;align-items:center;justify-content:center;margin:20px 0}
+@media(max-width:640px){.sigs{grid-template-columns:1fr;gap:96px}}
+.stamp{display:inline-block;border:3px solid var(--red);color:var(--red);font:800 15px Figtree;letter-spacing:2px;padding:8px 14px;border-radius:8px;transform:rotate(-8deg) scale(1.5);opacity:0;transition:all .35s cubic-bezier(.2,1.6,.4,1)}
+.stamp.on{opacity:.9;transform:rotate(-8deg) scale(1)}
+.me{display:flex;gap:14px;align-items:center;justify-content:center;margin:26px 0}
 .me img{width:64px;height:64px;border-radius:50%;object-fit:cover}
 .me div{text-align:left;font-size:15px}
-.fine{font-size:13px;color:var(--muted);text-align:center;margin-top:30px}
-
-@media print{
-  .top,.side,.nav,.after,.fine,.panel:not(#p6),.p6-head{display:none!important}
-  .app{display:block;padding:0}
-  .panel#p6{display:block!important}
-  .docwrap{background:none;padding:0}
-  .doc{box-shadow:none}
-  .sigbox canvas{background:none}
-}
-.app>*{min-width:0}
-.doc{overflow-wrap:break-word}
-@media(max-width:640px){.mark small{display:none}.save span{display:none}.top .in{height:56px}}
+.fine{font-size:13px;color:var(--muted);margin-top:26px}
 </style>
 </head>
 <body>
 
-<header class="top">
-  <div class="in">
-    <a class="mark" href="#" onclick="go(0);return false"><i>D</i><span>Durva's Will <small>· made for Willful</small></span></a>
-    <div class="save"><b></b><span id="saveTxt">Progress saved</span></div>
+<nav>
+  <div class="wrap">
+    <a class="mark" href="#top"><i>D</i><span>Durva's Will <small>· made for Willful</small></span></a>
+    <div class="links">
+      <a href="#ops">Operations</a><a href="#auto">Automation</a><a href="#deck">Deck</a><a href="#advisors">Advisors</a><a href="#campaign">Campaign</a><a href="#ideas">Ideas</a><a href="#report">Reporting</a>
+    </div>
+    <a class="btn sm" href="mailto:durvathakker7@gmail.com?subject=Willful%20%C2%B7%20Partnerships%20Coordinator">Email Durva</a>
   </div>
-  <div class="bar"><i id="bar"></i></div>
+</nav>
+
+<header class="letter-sec" id="top">
+  <div class="wrap letter-grid">
+    <div>
+      <div class="hi">Hi Arnaud and Erin 👋</div>
+      <h1>I wrote my will.<br><span>Then I did the job.</span></h1>
+      <p class="lead">Everything below is the Partnerships Coordinator role, done before asking for it. A month-end close, the automations, a partner deck, an advisor call kit, a co-branded campaign in English and French, and the report you'd get from me on a Monday.</p>
+      <div class="jump"><a href="#ops">Month-end</a><a href="#auto">Automations</a><a href="#deck">Partner deck</a><a href="#advisors">Advisor calls</a><a href="#campaign">Campaign</a><a href="#ideas">Activation ideas</a><a href="#report">Reporting</a></div>
+    </div>
+    <div class="will">
+      <h3>THE WILL OF DURVA THAKKAR</h3>
+      <div class="sub">on the matter of the Partnerships Coordinator role</div>
+      <p>I, Durva Thakkar, of Barrie, Ontario, being of sound mind and wanting this job quite a lot, declare this to be my will.</p>
+      <p>To Willful's partnerships team, I leave the following:</p>
+      <ol>
+        <li>The boring parts, done well, so Arnaud can spend his time with partners.</li>
+        <li>Every campaign out on the date we agreed, and a heads-up the moment one isn't.</li>
+        <li>Numbers that are right, and updates that say plainly what's working and what isn't.</li>
+        <li>My French, which is a real start and getting better every week.</li>
+        <li>A promise to learn estate planning properly, starting with making my own will on Willful.</li>
+      </ol>
+      <p>The rest of this page is my proof. I did the work first.</p>
+      <div class="sig">Durva Thakkar</div>
+      <div class="line">Durva Thakkar, the willing</div>
+    </div>
+  </div>
 </header>
 
-<div class="app">
-  <aside class="side">
-    <h4>Your progress</h4>
-    <ol class="steps" id="steps">
-      <li data-s="1"><span class="n">1</span>About Durva</li>
-      <li data-s="2"><span class="n">2</span>Executor</li>
-      <li data-s="3"><span class="n">3</span>Gifts</li>
-      <li data-s="4"><span class="n">4</span>Growth</li>
-      <li data-s="5"><span class="n">5</span>Wishes</li>
-      <li data-s="6"><span class="n">6</span>Review &amp; sign</li>
-    </ol>
-    <div class="help">
-      <img src="../assets/durva-headshot.jpg" alt="Durva">
-      <b>Questions?</b> Durva is here to help, any day of the week (no 9 to 5 limit). <a href="mailto:durvathakker7@gmail.com?subject=Willful%20%C2%B7%20Partnerships%20Coordinator">Email her</a>.
+<!-- 01 OPS -->
+<section class="s" id="ops">
+  <div class="wrap">
+    <div class="sh"><div class="num">01</div><div><div class="kick">Partnership operations</div><h2>October month-end, closed</h2></div></div>
+    <div class="jd"><b>The job post:</b> "Run operations smoothly, from order processing and month-end reconciliations to invoicing, briefs, and follow-ups."</div>
+    <div class="card">
+      <div class="toolbar"><h3>Reconciliation · October <span class="tag">sample numbers</span></h3><div class="small muted">Partner report vs what Willful recorded. Anything off by more than 2% gets flagged.</div></div>
+      <div class="scroll"><table class="t" id="recon"><thead><tr><th>Partner</th><th class="num">Partner says</th><th class="num">Willful recorded</th><th class="num">Gap</th><th>Status</th><th></th></tr></thead><tbody></tbody></table></div>
+      <p class="small muted" style="margin:10px 0 0">Click "Invoice" on any matched row to build the invoice.</p>
     </div>
-  </aside>
-
-  <main>
-    <!-- 0 INTRO -->
-    <section class="panel on" id="p0">
-      <div class="intro">
-        <div>
-          <div class="eyebrow">Hi Arnaud and Erin 👋</div>
-          <h1>Let's make Durva's will.<br><span style="color:var(--blue)">The willingness kind.</span></h1>
-          <p class="lead">Willful helps Canadians make a will in about 20 minutes. This one takes two. Answer six quick questions and you'll end up with a signed document of everything I will do, and everything I will learn, as your Partnerships Coordinator.</p>
-          <div class="facts"><span>6 steps</span><span>About 2 minutes</span><span>Free updates, forever</span></div>
-          <div class="nav"><button class="btn" onclick="go(1)">Get started →</button></div>
-        </div>
-        <div class="card">
-          <h3>The Will of Durva Thakkar</h3>
-          <p>I, Durva Thakkar, of Barrie, Ontario, being of sound mind and extremely excited, declare this to be my will…</p>
-          <p style="opacity:.55">I will… <br>I will… <br>I will…</p>
-          <div class="sig">Durva Thakkar</div>
+    <div class="g2" style="margin-top:18px">
+      <div>
+        <div class="invoice" id="inv"></div>
+        <div class="card grey" id="invHint"><h3 style="margin-bottom:6px">Invoice preview</h3><p class="muted" style="margin:0">Pick a matched partner above and the invoice builds itself from the reconciled numbers.</p></div>
+      </div>
+      <div class="mail">
+        <div class="mh"><b>To:</b> ops contact, investing app partner <span class="tag">sample</span><br><b>Subject:</b> October numbers: 6 orders to check together</div>
+        <div class="mb">
+          <p>Hi Priya,</p>
+          <p>Thanks for sending October over. We're nearly matched: your report shows 418 completed plans and ours shows 412.</p>
+          <p>I've attached the 6 order IDs that are on your side but not ours. My guess is they were started on the 31st and finished on November 1, so they'll land in November for us. Could you check two of them on your end?</p>
+          <p>Once we agree, I'll send the invoice the same day. No rush before Friday.</p>
+          <p>Thank you!<br>Durva, Partnerships, Willful</p>
         </div>
       </div>
-    </section>
+    </div>
+    <div class="card ice" style="margin-top:18px">
+      <h3 style="margin-bottom:10px">The month-end checklist I'd run</h3>
+      <div class="g3 small">
+        <div><b>Days 1 to 2</b><br>Pull Willful's completed orders by partner code. Ask every partner for their report. Log who has sent it.</div>
+        <div><b>Day 3</b><br>Match line by line. Flag any gap over 2%. Send the partner the order IDs, never just a total.</div>
+        <div><b>Days 4 to 5</b><br>Invoices out for everything matched. One summary line per partner to Arnaud. Follow up on day 15 if unpaid.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- 1 ABOUT -->
-    <section class="panel" id="p1">
-      <div class="eyebrow">Step 1 of 6 · About Durva</div>
-      <h2>First, let's get to know Durva.</h2>
-      <p class="hint">Just like your onboarding: the basics first, so everything after is personal.</p>
-      <div class="q"><label class="t">Full legal name</label><div class="field" id="f1"></div></div>
-      <div class="q"><label class="t">Where does Durva live?</label><div class="field" id="f2"></div></div>
-      <div class="q"><label class="t">Legally able to work in Canada, and happy fully remote?</label><div class="field" id="f3"></div></div>
-      <div class="q">
-        <label class="t">One more. In the great Willful dog debate, Durva sides with…</label>
-        <div class="opts" id="dog">
-          <button class="opt" data-v="erin"><span class="r"></span><span>Erin<small>Get the dog.</small></span></button>
-          <button class="opt" data-v="kevin"><span class="r"></span><span>Kevin<small>Staunchly no dog.</small></span></button>
+<!-- 02 AUTOMATION -->
+<section class="s" id="auto">
+  <div class="wrap">
+    <div class="sh"><div class="num">02</div><div><div class="kick">Workflows and AI</div><h2>Three automations, ready to build</h2></div></div>
+    <div class="jd"><b>The job post:</b> "Build repeatable scalable workflows, keep documentation up to date, and automate routine tasks using AI and modern software tools."</div>
+    <div class="card" style="margin-bottom:16px">
+      <h3>1. A new advisor signs up for Willful for Professionals</h3>
+      <div class="flow">
+        <span class="node trig"><i>⚡</i>Advisor signs up</span><span class="arr">→</span>
+        <span class="node app"><i>📇</i>Added to the CRM with firm and province</span><span class="arr">→</span>
+        <span class="node app"><i>✉️</i>Welcome email and one-pager</span><span class="arr">→</span>
+        <span class="node human"><i>⏱</i>Day 7: no client invites sent?</span><span class="arr">→</span>
+        <span class="node app"><i>📅</i>Nudge with a 15-minute setup call link</span>
+      </div>
+      <p class="why"><b>Why:</b> an advisor who never sends a first invite is the easiest one to lose, and the easiest one to save.</p>
+    </div>
+    <div class="card" style="margin-bottom:16px">
+      <h3>2. The month-end report, drafted for me</h3>
+      <div class="flow">
+        <span class="node trig"><i>📅</i>1st of the month</span><span class="arr">→</span>
+        <span class="node app"><i>📊</i>Partner numbers pulled into one sheet</span><span class="arr">→</span>
+        <span class="node ai"><i>✨</i>AI drafts the summary</span><span class="arr">→</span>
+        <span class="node human"><i>👀</i>I check every number</span><span class="arr">→</span>
+        <span class="node app"><i>💬</i>Sent to Arnaud</span>
+      </div>
+      <div class="prompt"><b>The prompt I'd use:</b>
+You're helping write a monthly partnerships update for Willful.
+Here is this month's data by partner, and last month's: {table}
+Write 5 short bullet points in plain English. No hype.
+1. The biggest change, and the likely reason.
+2. One thing that worked.
+3. One thing that didn't.
+4. Any partner with a reconciliation gap over 2%.
+5. One question Arnaud should ask the team.
+Never invent a number. If something is unclear, write "check this".</div>
+    </div>
+    <div class="card">
+      <h3>3. From an approved brief to tasks with dates</h3>
+      <div class="flow">
+        <span class="node trig"><i>✅</i>Partner approves a brief</span><span class="arr">→</span>
+        <span class="node app"><i>🗂</i>Notion page from a template</span><span class="arr">→</span>
+        <span class="node app"><i>📌</i>One task per asset, with due dates</span><span class="arr">→</span>
+        <span class="node human"><i>🔔</i>Reminder 2 days before each date</span>
+      </div>
+      <p class="why"><b>Why:</b> nobody should have to remember a launch date. The tool should do it for us.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 03 DECK -->
+<section class="s" id="deck">
+  <div class="wrap">
+    <div class="sh"><div class="num">03</div><div><div class="kick">Decks and one-pagers</div><h2>A partner deck and an advisor one-pager</h2></div></div>
+    <div class="jd"><b>The job post:</b> "Create professional partner decks, one-pagers, and clear performance updates."</div>
+    <div class="g2" style="align-items:start">
+      <div class="deck">
+        <div class="slide s-blue on"><div class="sl"><span class="tag" style="align-self:flex-start;margin-bottom:12px">For a new partner</span><h4>Your customers already plan their money. Help them plan for their family.</h4><p style="opacity:.9;margin:0">Willful × [Partner] · Partnership proposal</p></div></div>
+        <div class="slide s-ice"><div class="sl"><h4>Estate planning is the conversation people keep putting off.</h4><p>Your customers already trust you with their money. That makes you the right place to start it.</p><p class="small muted" style="margin:0">(This slide gets Willful's own research numbers.)</p></div></div>
+        <div class="slide s-white"><div class="sl"><h4>Why Willful</h4><div style="display:flex;gap:22px;flex-wrap:wrap;margin:6px 0"><div><div class="bigstat" style="color:var(--blue)">500k+</div><span class="small">Canadians trust Willful</span></div><div><div class="bigstat" style="color:var(--blue)">All</div><span class="small">Canadian provinces</span></div><div><div class="bigstat" style="color:var(--blue)">~20</div><span class="small">minutes to a legal will</span></div></div><p class="small" style="margin:0">Trusted by Scotiabank, CIBC and Wealthsimple.</p></div></div>
+        <div class="slide s-ice"><div class="sl"><h4>How it works for you</h4><div class="steps3"><div><b>1</b>We co-brand the experience and the emails</div><div><b>2</b>Your customers get a partner price</div><div><b>3</b>You get a monthly report on sign-ups and completions</div></div></div></div>
+        <div class="slide s-white"><div class="sl"><h4>Launch plan: 6 weeks</h4><ul><li>Weeks 1 to 2: agreement, tracking link, co-branded page</li><li>Weeks 3 to 4: email, in-app message and social assets</li><li>Week 5: launch to customers</li><li>Week 6: first results, and what we change</li></ul></div></div>
+        <div class="slide s-blue"><div class="sl"><h4>Let's plan the launch together.</h4><p style="opacity:.9">partners@willful.co</p></div></div>
+        <div class="deckbar"><button class="btn sm ghost" id="prev">← Prev</button><div class="dots" id="dots"></div><button class="btn sm" id="next">Next →</button></div>
+      </div>
+      <div class="onep">
+        <div class="top"><span class="tag">Willful for Professionals</span><h4>The easiest way to help your clients plan ahead.</h4><div style="opacity:.9;font-size:14px">One page for advisors, to leave behind after a call.</div></div>
+        <div class="body">
+          <div><h5>What your clients get</h5><ul><li>A legal will and power of attorney, online</li><li>Clear signing instructions</li><li>Free updates as life changes</li></ul></div>
+          <div><h5>What you get</h5><ul><li>No implementation fees</li><li>Tiered subscriptions and referral discounts</li><li>A dedicated contact and co-branded marketing</li></ul></div>
+          <div><h5>How it works</h5><ul><li>Import your clients</li><li>Send them an invite</li><li>They finish in their own time</li></ul></div>
+          <div><h5>Good to know</h5><ul><li>Around 80 to 90% of Canadian estates likely don't need a lawyer</li><li>Available in every province</li></ul></div>
         </div>
-        <div class="reply" id="dogR"></div>
+        <div class="foot"><span>partners@willful.co</span><span style="color:var(--blue)">willful.co/professionals</span></div>
       </div>
-      <div class="nav"><button class="back" onclick="go(0)">← Back</button><button class="btn" id="n1" onclick="go(2)" disabled>Save and continue →</button></div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- 2 EXECUTOR -->
-    <section class="panel" id="p2">
-      <div class="eyebrow">Step 2 of 6 · Executor</div>
-      <h2>Who will Durva work alongside every single day?</h2>
-      <p class="hint">An executor carries out your wishes. On a two-person partnerships team, it's the person you build everything with.</p>
-      <div class="exec" id="exec">
-        <button class="person" data-v="arnaud"><div class="av">AV</div><b>Arnaud Vézina</b><span>Partnerships Manager. One of The Peak's Emerging Leaders, 2026.</span></button>
-        <button class="person" data-v="robot"><div class="av">🤖</div><b>A robot</b><span>Writes the reports. Can't laugh at your jokes.</span></button>
-        <button class="person" data-v="nobody"><div class="av">?</div><b>Nobody</b><span>Wait to be assigned work.</span></button>
-      </div>
-      <div class="reply" id="execR"></div>
-      <div class="nav"><button class="back" onclick="go(1)">← Back</button><button class="btn" id="n2" onclick="go(3)" disabled>Save and continue →</button></div>
-    </section>
+<!-- 04 ADVISORS -->
+<section class="s" id="advisors">
+  <div class="wrap">
+    <div class="sh"><div class="num">04</div><div><div class="kick">Willful for Professionals</div><h2>The advisor call kit</h2></div></div>
+    <div class="jd"><b>The job post:</b> "Support our Willful for Professionals platform for financial advisors, including supporting with inbound sales materials and meetings."</div>
+    <div class="card">
+      <div class="tabs" id="advTabs"><button class="on" data-t="a1">Before the call</button><button data-t="a2">On the call</button><button data-t="a3">Tough questions</button><button data-t="a4">After the call</button></div>
+      <div class="tabp on" id="a1"><div class="g2"><div><h3 style="margin-bottom:8px">Prep sheet (5 minutes)</h3><ul><li>Firm, province, size of book, who they serve (young families? retirees?)</li><li>How they found us: inbound form, webinar, referral</li><li>Ready to send: the one-pager and The Inheritance Gap Report</li><li>Goal for the call: one client invite sent this week</li></ul></div><div class="mail"><div class="mh"><b>Calendar invite note</b> <span class="tag">sample</span></div><div class="mb"><p>Hi Daniel, looking forward to Thursday! In 20 minutes we'll show you the dashboard, how a client invite works, and what your clients see. Bring any client situation you're unsure about.</p><p style="margin:0">Durva, Willful</p></div></div></div></div>
+      <div class="tabp" id="a2"><h3 style="margin-bottom:8px">Discovery questions</h3><ol><li>How do estate planning conversations come up with your clients today?</li><li>What happens when a client says "I'll get to my will later"?</li><li>Which clients would you invite first?</li><li>Do you work with your clients' adult children yet?</li><li>What would make this an easy yes for your practice?</li></ol><p class="why"><b>Then:</b> show the dashboard and send one test invite to their own email, live, so they see exactly what a client gets.</p></div>
+      <div class="tabp" id="a3"><div class="qa"><b>"Are online wills actually legal?"</b>Yes. A Willful will is legal in Canada once it's signed and witnessed properly, and every will comes with clear signing instructions.</div><div class="qa"><b>"Is my clients' data safe?"</b>Willful uses strong encryption, runs regular audits, and works with brands like Scotiabank, CIBC and Wealthsimple. Documents aren't stored on Willful's servers.</div><div class="qa"><b>"What if a client's estate is complicated?"</b>Around 80 to 90% of Canadian estates likely don't need a lawyer. For trusts, business succession or assets overseas, we'd point them to an estate lawyer.</div><div class="qa" style="border:0"><b>"Is this going to replace me?"</b>No. It gives you a reason to have the conversation, and keeps you in the middle of it.</div></div>
+      <div class="tabp" id="a4"><div class="mail"><div class="mh"><b>To:</b> Daniel (advisor) <span class="tag">sample</span> · <b>Sent:</b> same day</div><div class="mb"><p>Hi Daniel,</p><p>Thanks for your time today. Here's what we covered and the two next steps:</p><p>1. Your dashboard is set up. Send your first three invites to the clients you mentioned (the young family and the two recent retirees).<br>2. I'll check in next Thursday to see how they went.</p><p>The one-pager and The Inheritance Gap Report are attached, in case they're useful with clients.</p><p style="margin:0">Durva</p></div></div><p class="why"><b>Plus:</b> the CRM is updated the same day, and any new question goes into our FAQ doc so the next deck answers it first.</p></div>
+    </div>
+  </div>
+</section>
 
-    <!-- 3 GIFTS -->
-    <section class="panel" id="p3">
-      <div class="eyebrow">Step 3 of 6 · Gifts</div>
-      <h2>What will Durva leave to the partnerships team?</h2>
-      <p class="hint">Pick as many as you like. Each one adds a clause to the will, and shows you a little of what it looks like.</p>
-      <div class="gifts" id="gifts">
-        <button class="opt sq" data-g="ops"><span class="r"></span><span>Smooth operations<small>Orders, month-end, invoices, follow-ups</small></span></button>
-        <button class="opt sq" data-g="auto"><span class="r"></span><span>Workflows that run themselves<small>Docs, automation, AI where it helps</small></span></button>
-        <button class="opt sq" data-g="decks"><span class="r"></span><span>Decks and one-pagers<small>For partners and advisors</small></span></button>
-        <button class="opt sq" data-g="assets"><span class="r"></span><span>Campaign assets, shipped on time<small>Statics, short video, co-branded email, social</small></span></button>
-        <button class="opt sq" data-g="advisors"><span class="r"></span><span>Willful for Professionals support<small>Inbound advisor calls and materials</small></span></button>
-        <button class="opt sq" data-g="numbers"><span class="r"></span><span>Honest numbers<small>Partner revenue, volume, what's working</small></span></button>
-      </div>
-      <div class="preview" id="prev"><div class="ph"><span id="prevT">Preview</span><span>sample</span></div><div class="pb" id="prevB"></div></div>
-      <div class="nav"><button class="back" onclick="go(2)">← Back</button><button class="btn" id="n3" onclick="go(4)" disabled>Save and continue →</button></div>
-    </section>
+<!-- 05 CAMPAIGN -->
+<section class="s" id="campaign">
+  <div class="wrap">
+    <div class="sh"><div class="num">05</div><div><div class="kick">Campaign execution</div><h2>One partner campaign, every asset</h2></div></div>
+    <div class="jd"><b>The job post:</b> "Design and produce campaign assets across multiple mediums, including static graphics, short-form video, co-branded emails, and social channels."</div>
+    <p style="max-width:760px"><b>The brief:</b> a co-branded campaign for a bank partner's customers, built around the moments when people actually think about a will. <span class="tag">sample</span></p>
 
-    <!-- 4 GROWTH -->
-    <section class="panel" id="p4">
-      <div class="eyebrow">Step 4 of 6 · Growth</div>
-      <h2>And what will Durva learn, fast?</h2>
-      <p class="hint">This is the part I'm most excited about. Tick what you'd want first. (Spoiler: I'll do all of it.)</p>
-      <div class="learn" id="learn">
-        <button class="lrow" data-l="0"><span class="w">Before day 1</span><span><b>Make my own will on Willful</b><small>So I know every screen a partner's customer sees, and where they might get stuck.</small></span><span class="ck"></span></button>
-        <button class="lrow" data-l="1"><span class="w">Week 1</span><span><b>Read The Inheritance Gap Report, twice</b><small>Then pull out the three lines every advisor should hear on a call.</small></span><span class="ck"></span></button>
-        <button class="lrow" data-l="2"><span class="w">Week 1</span><span><b>Learn the Willful for Professionals dashboard</b><small>Import a test client, send an invite, follow it to the end.</small></span><span class="ck"></span></button>
-        <button class="lrow" data-l="3"><span class="w">Weeks 2 to 4</span><span><b>Sit in on every advisor call I can</b><small>Write down the questions they ask, so the next deck answers them first.</small></span><span class="ck"></span></button>
-        <button class="lrow" data-l="4"><span class="w">Every day</span><span><b>French, 20 minutes a day</b><small>It's a bonus point on the job post. I'd like to earn it.</small></span><span class="ck"></span></button>
-        <button class="lrow" data-l="5"><span class="w">Every week</span><span><b>One short-form video edit</b><small>Basic editing is the floor. I want it to be a strength.</small></span><span class="ck"></span></button>
-        <button class="lrow" data-l="6"><span class="w">Month 1</span><span><b>Estate planning basics, properly</b><small>Enough to never say the wrong thing to a partner or a customer.</small></span><span class="ck"></span></button>
+    <div class="g2" style="align-items:start;margin-bottom:24px">
+      <div class="mail">
+        <div class="mh" style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><span><b>Co-branded email</b> · to bank customers</span><span class="lang" id="lang"><button class="on" data-l="en">EN</button><button data-l="fr">FR</button></span></div>
+        <div style="background:var(--blue);color:#fff;padding:14px 18px;font:800 18px Figtree;display:flex;justify-content:space-between;gap:10px">Willful <span style="font:600 13px Figtree;opacity:.9">× [Bank partner]</span></div>
+        <div class="mb" id="emailBody"></div>
       </div>
-      <div class="meter"><span>Willingness</span><div class="m"><i id="meter"></i></div><span id="meterT">0%</span></div>
-      <div class="nav"><button class="back" onclick="go(3)">← Back</button><button class="btn" id="n4" onclick="go(5)" disabled>Save and continue →</button></div>
-    </section>
+      <div class="card ice">
+        <h3 style="margin-bottom:8px">Why the French version is there</h3>
+        <p>Willful is available in Quebec, and any national partner has French-speaking customers. I have a real start in French and I'm working on it every week, so French versions wouldn't have to wait in a queue.</p>
+        <p class="small muted" style="margin:0">Every French asset would still get a native-speaker check before it goes out.</p>
+      </div>
+    </div>
 
-    <!-- 5 WISHES -->
-    <section class="panel" id="p5">
-      <div class="eyebrow">Step 5 of 6 · Final wishes</div>
-      <h2>Any final wishes?</h2>
-      <p class="hint">Durva has three. You can add one of your own, and it goes straight into the document.</p>
-      <div class="reply on" style="background:#fff;border:2px solid var(--line);border-left:4px solid var(--amber)">
-        <p style="margin:0 0 8px"><b>1.</b> That partners and advisors always feel looked after, because people only make a will with someone they trust.</p>
-        <p style="margin:0 0 8px"><b>2.</b> That no campaign ever ships late because of me.</p>
-        <p style="margin:0"><b>3.</b> That direct feedback comes early and often. I'd much rather fix something on day 2 than find out on day 20.</p>
-      </div>
-      <div class="q"><label class="t" for="wish">Your wish for your next Partnerships Coordinator (optional)</label><textarea id="wish" maxlength="220" placeholder="e.g. Please learn our partner names by Friday."></textarea></div>
-      <div class="nav"><button class="back" onclick="go(4)">← Back</button><button class="btn" onclick="go(6)">Review my document →</button></div>
-    </section>
+    <h3 style="margin-bottom:12px">Static social posts (4:5)</h3>
+    <div class="posts">
+      <div class="post"><div class="art" style="background:var(--blue);color:#fff"><span class="wm">Willful</span><h4 style="color:#fff">New baby?<br>New to-do list.<br><span style="color:var(--yellow)">Add one thing.</span></h4><span style="font-weight:600;font-size:14px">Name a guardian in about 20 minutes.</span></div><div class="cap">Nobody wants to think about it. Everyone's glad they did. Make your will with Willful, at a special price for [Partner] customers.</div></div>
+      <div class="post"><div class="art" style="background:var(--ice)"><span class="wm" style="color:var(--blue)">Willful</span><h4>You named a beneficiary for your TFSA.<br><span style="color:var(--blue)">Who gets everything else?</span></h4><span style="font-weight:600;font-size:14px;color:var(--dark)">Your will covers the rest.</span></div><div class="cap">A will makes sure the rest of your wishes are clear too. Start online, finish in one sitting.</div></div>
+      <div class="post"><div class="art" style="background:var(--yellow)"><span class="wm" style="color:var(--dark)">Willful</span><h4>"We'll do our wills after the trip."<br><span style="color:var(--navy)">Do them before.</span></h4><span style="font-weight:600;font-size:14px;color:var(--dark)">About 20 minutes. Free updates as life changes.</span></div><div class="cap">A big trip is often when people remember they don't have a will. Beat the reminder.</div></div>
+    </div>
 
-    <!-- 6 REVIEW -->
-    <section class="panel" id="p6">
-      <div class="p6-head">
-        <div class="eyebrow">Step 6 of 6 · Review &amp; sign</div>
-        <h2>Here's the document. Review it, then sign as a witness.</h2>
-        <p class="hint">Willful wills need two witnesses. Draw your signature in the boxes below, with a mouse or a finger.</p>
+    <h3 style="margin:28px 0 12px">Short-form video: 20-second storyboard</h3>
+    <div class="story">
+      <div class="frame"><div class="ph" style="background:linear-gradient(160deg,#3b4a6b,#1d2333)">"We'll do it later."</div><b>0-2s</b> Couple on the couch, laptop closed.</div>
+      <div class="frame"><div class="ph" style="background:linear-gradient(160deg,#0064dc,#004eb6)">"Later" keeps moving</div><b>2-5s</b> Calendar pages flip. Text on screen.</div>
+      <div class="frame"><div class="ph" style="background:linear-gradient(160deg,#e39f3a,#c27a1c)">Kid runs in</div><b>5-8s</b> Real life happens. Fast cut.</div>
+      <div class="frame"><div class="ph" style="background:linear-gradient(160deg,#1e9e62,#127a4a)">Laptop opens</div><b>8-13s</b> Screen: Willful questions, one tap each.</div>
+      <div class="frame"><div class="ph" style="background:linear-gradient(160deg,#0064dc,#3b8cf0)">"Wait, that's it?"</div><b>13-17s</b> Relief. Laptop closes.</div>
+      <div class="frame"><div class="ph" style="background:#fff;color:var(--blue);border:1px solid var(--line)">Willful × Partner</div><b>17-20s</b> Logo lock-up, partner price.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 ON TIME -->
+<section class="s" id="ontime">
+  <div class="wrap">
+    <div class="sh"><div class="num">06</div><div><div class="kick">Shipping on time</div><h2>A timeline everyone can see</h2></div></div>
+    <div class="jd"><b>The job post:</b> "Ship campaigns on time while keeping internal parties informed, aligned, and accountable."</div>
+    <div class="card">
+      <div class="gantt">
+        <div class="gx"><div></div><div><span>Week 1</span><span>Week 2</span><span>Week 3</span><span>Week 4</span><span>Week 5</span></div><div>Owner</div></div>
+        <div class="gr"><div>Brief signed off</div><div class="bar"><i style="left:0;width:12%;background:var(--navy)"></i></div><div>Arnaud</div></div>
+        <div class="gr"><div>Copy, EN and FR</div><div class="bar"><i style="left:10%;width:22%;background:var(--blue)"></i></div><div>Durva</div></div>
+        <div class="gr"><div>Design and video edit</div><div class="bar"><i style="left:20%;width:30%;background:var(--amber)"></i></div><div>Durva</div></div>
+        <div class="gr"><div>Partner review</div><div class="bar"><i style="left:50%;width:15%;background:#9aa6b8"></i></div><div>Partner</div></div>
+        <div class="gr"><div>Compliance check</div><div class="bar"><i style="left:55%;width:15%;background:var(--red)"></i></div><div>Willful + partner</div></div>
+        <div class="gr"><div>Launch</div><div class="bar"><i style="left:78%;width:6%;background:var(--green)"></i></div><div>Everyone</div></div>
+        <div class="gr"><div>First results</div><div class="bar"><i style="left:84%;width:16%;background:var(--blue)"></i></div><div>Durva</div></div>
       </div>
-      <div class="docwrap">
-        <div class="doc" id="doc">
-          <div class="stamp" id="stamp">SIGNED · WITNESSED</div>
-          <h3>THE WILL OF DURVA THAKKAR</h3>
-          <div class="sub">regarding the role of Partnerships Coordinator at Willful</div>
-          <p>I, <b>Durva Thakkar</b>, of Barrie, Ontario, legally able to work in Canada and very happy to do it remotely, being of sound mind and extremely excited, declare this to be my will. I revoke all earlier cover letters.</p>
-          <div id="clauses"></div>
-          <div class="sigspace"></div>
-          <div class="sigs">
-            <div class="sigbox"><span class="durva-sig" id="dsig">Durva Thakkar</span>Durva Thakkar, the willing</div>
-            <div class="sigbox"><canvas id="c1"></canvas><button class="clr" data-c="c1">clear</button>Witness 1 · Arnaud Vézina</div>
-            <div class="sigbox"><canvas id="c2"></canvas><button class="clr" data-c="c2">clear</button>Witness 2 · Erin Bury</div>
-          </div>
-          <p style="font-size:12.5px;color:#777;margin:22px 0 0;font-family:Figtree">Signed on <span id="today"></span>. Free, unlimited updates as the job changes.</p>
-        </div>
+    </div>
+    <div class="mail" style="margin-top:16px">
+      <div class="mh"><b>#partnerships · Tuesday update</b> <span class="tag">sample</span></div>
+      <div class="mb"><p><b>Bank campaign, week 3:</b> on track to launch on the 24th.</p><p style="margin:0">✅ EN and FR copy approved.<br>🟡 The partner's brand team has the static posts, due back Thursday. I'll follow up Wednesday afternoon if we haven't heard.<br>🔴 Need from Arnaud: yes or no on the partner price line by Friday, or the email moves a week.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 IDEAS -->
+<section class="s" id="ideas">
+  <div class="wrap">
+    <div class="sh"><div class="num">07</div><div><div class="kick">Fresh activations</div><h2>Five partner ideas I'd bring to the table</h2></div></div>
+    <div class="jd"><b>The job post:</b> "Bring fresh, practical creative ideas to the table for new partner activations."</div>
+    <div class="ideas">
+      <div class="idea"><div class="k">Moment-based</div><h4>The beneficiary moment</h4><p>When a customer names a beneficiary on a TFSA or RRSP, show a gentle "what about everything else?" message with the Willful offer.</p><p class="small muted">Practical because the partner already owns the moment. We just add one message.</p></div>
+      <div class="idea"><div class="k">Seasonal</div><h4>Do your taxes, do your will</h4><p>A March and April push with tax-filing partners. Same mindset, same sitting: finally getting the grown-up paperwork done.</p><p class="small muted">Practical because tax season already has people's attention.</p></div>
+      <div class="idea"><div class="k">Life event</div><h4>New home, new will</h4><p>Mortgage partners add the offer to the "keys in hand" email. A home is often the biggest thing someone owns, and that's when they think about protecting it.</p><p class="small muted">Practical because it's one line in an email the partner already sends.</p></div>
+      <div class="idea"><div class="k">Advisors</div><h4>The next-generation invite</h4><p>Advisors invite their clients' adult children to make a will. It builds a relationship with the family before the money moves.</p><p class="small muted">Practical because it's exactly the gap The Inheritance Gap Report is about.</p></div>
+      <div class="idea" style="grid-column:1/-1"><div class="k">Workplace</div><h4>Benefits enrolment season</h4><p>Offer Willful to group benefits providers as a perk employees can add during enrolment. Start with one provider and one pilot employer, measure completions, then grow it.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 REPORTING -->
+<section class="s" id="report">
+  <div class="wrap">
+    <div class="sh"><div class="num">08</div><div><div class="kick">Performance and impact</div><h2>The partner report, every Monday</h2></div></div>
+    <div class="jd"><b>The job post:</b> "Track partner-sourced revenue and transaction volume. Build and refine reporting across all partnership channels. Share honest, straightforward updates on what is working and what isn't."</div>
+    <div class="card">
+      <div class="toolbar"><h3>Partner dashboard <span class="tag">sample numbers</span></h3><div class="tabs" id="mTabs" style="margin:0"><button data-m="0">August</button><button data-m="1">September</button><button class="on" data-m="2">October</button></div></div>
+      <div class="kpis" id="kpis"></div>
+      <div class="g2">
+        <div><h4 style="margin-bottom:10px">Transactions by partner</h4><div class="bars" id="byPartner"></div></div>
+        <div><h4 style="margin-bottom:10px">Transactions by channel</h4><div class="bars" id="byChannel"></div></div>
       </div>
-      <div class="nav p6-nav"><button class="back" onclick="go(5)">← Back</button><button class="btn" id="signBtn" onclick="seal()" disabled>Witness and seal it</button><button class="btn ghost" onclick="window.print()">Print it, Willful-style</button></div>
-      <div class="after" id="after">
-        <h2>Signed. Now let's make it real.</h2>
-        <p>Thank you for clicking all the way through. I'd love 30 minutes with you, Arnaud, and I'll bring questions, not a pitch.</p>
-        <div class="me"><img src="../assets/durva-headshot.jpg" alt="Durva Thakkar"><div><b>Durva Thakkar</b><br>Barrie, Ontario · open to remote</div></div>
-        <div class="row">
-          <a class="btn" href="mailto:durvathakker7@gmail.com?subject=Willful%20%C2%B7%20Partnerships%20Coordinator">durvathakker7@gmail.com</a>
-          <a class="btn ghost" href="https://www.linkedin.com/in/durvathakkar/" target="_blank" rel="noopener">Durva on LinkedIn ↗</a>
-        </div>
-      </div>
-      <p class="fine">Not a legal document, obviously. For a real one, Willful is very good. 🙂</p>
-    </section>
-  </main>
-</div>
+    </div>
+    <div class="mail" style="margin-top:16px">
+      <div class="mh"><b>To:</b> Arnaud · <b>Subject:</b> <span id="noteSub">October partnerships: what worked, what didn't</span> <span class="tag">sample</span></div>
+      <div class="mb" id="note"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section class="close" id="sign">
+  <div class="wrap">
+    <h2>That's the will, and the work.</h2>
+    <p class="lead" style="margin:0 auto">If any of it is useful, I'd love 30 minutes with you, Arnaud. And if you want to witness the will, sign below. It's not legally binding, but it is fun.</p>
+    <div class="sigs">
+      <div class="sigbox"><span class="ds">Durva Thakkar</span>Durva Thakkar</div>
+      <div class="sigbox"><canvas id="c1"></canvas><button class="clr" data-c="c1">clear</button>Witness · Arnaud Vézina</div>
+      <div class="sigbox"><canvas id="c2"></canvas><button class="clr" data-c="c2">clear</button>Witness · Erin Bury</div>
+    </div>
+    <div style="height:60px;display:grid;place-items:center"><span class="stamp" id="stamp">SIGNED · WITNESSED</span></div>
+    <div class="me"><img src="../assets/durva-headshot.jpg" alt="Durva Thakkar"><div><b>Durva Thakkar</b><br>Barrie, Ontario · happy fully remote</div></div>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a class="btn" href="mailto:durvathakker7@gmail.com?subject=Willful%20%C2%B7%20Partnerships%20Coordinator">durvathakker7@gmail.com</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/durvathakkar/" target="_blank" rel="noopener">Durva on LinkedIn ↗</a>
+    </div>
+    <p class="fine">Partners, names and numbers marked "sample" are made up to show the format. And this isn't a legal will. For a real one, Willful is very good.</p>
+  </div>
+</section>
 
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-const state={step:0,max:0,dog:null,exec:null,gifts:new Set(),learn:new Set()};
+const money=n=>'$'+n.toLocaleString('en-CA',{minimumFractionDigits:2,maximumFractionDigits:2});
 
-/* nav */
-function go(n){
-  $$('.panel').forEach(p=>p.classList.remove('on'));$('#p'+n).classList.add('on');
-  state.step=n;state.max=Math.max(state.max,n);
-  $('#bar').style.width=(n/6*100)+'%';
-  $$('#steps li').forEach(li=>{const s=+li.dataset.s;li.classList.toggle('on',s===n);li.classList.toggle('done',s<n||(s<=state.max&&s!==n))});
-  $('#saveTxt').textContent='Progress saved';
-  window.scrollTo({top:0,behavior:'smooth'});
-  if(n===1)typeAll();
-  if(n===6)build();
-}
-$$('#steps li').forEach(li=>li.onclick=()=>{const s=+li.dataset.s;if(s<=state.max)go(s)});
+/* 01 reconciliation */
+const R=[
+ ['National bank partner',1284,1281,'National bank partner','BNK'],
+ ['Investing app partner',418,412,'Investing app partner','INV'],
+ ['Credit union (Quebec)',96,96,'Credit union (Quebec)','CU'],
+ ['Advisor firms (W4P)',237,236,'Advisor firms (W4P)','W4P'],
+ ['Employer benefits pilot',41,33,'Employer benefits pilot','EMP'],
+];
+const RATE=12.5;
+function recon(){$('#recon tbody').innerHTML=R.map((r,i)=>{const gap=r[1]-r[2],pct=Math.abs(gap)/r[1]*100;const st=pct>2?'<span class="pill bad">Check '+Math.abs(gap)+' orders</span>':gap?'<span class="pill warn">Within 2%</span>':'<span class="pill ok">Matched</span>';return `<tr class="${pct>2?'flag':''}"><td><b>${r[0]}</b></td><td class="num">${r[1].toLocaleString()}</td><td class="num">${r[2].toLocaleString()}</td><td class="num">${gap>0?'+'+gap:gap}</td><td>${st}</td><td>${pct>2?'<span class="small muted">Email sent</span>':`<button class="btn sm ghost" data-i="${i}">Invoice</button>`}</td></tr>`}).join('');
+ $$('#recon button').forEach(b=>b.onclick=()=>invoice(+b.dataset.i))}
+recon();
+function invoice(i){const r=R[i],q=r[2],sub=q*RATE,tax=sub*.13;$('#invHint').style.display='none';const el=$('#inv');el.classList.add('on');
+ el.innerHTML=`<div class="ih"><div><div class="logo">Willful</div><div class="small muted">partners@willful.co</div></div><div style="text-align:right"><b>INVOICE</b><br><span class="small">WF-2026-10-${r[4]}</span><br><span class="small muted">Issued Nov 5, 2026 · Due Dec 5, 2026</span></div></div>
+ <p class="small" style="margin:0 0 10px"><b>Bill to:</b> ${r[3]} <span class="tag">sample</span></p>
+ <div class="scroll"><table class="t"><thead><tr><th>Item</th><th class="num">Qty</th><th class="num">Rate</th><th class="num">Amount</th></tr></thead><tbody><tr><td>Completed estate plans, October 2026</td><td class="num">${q.toLocaleString()}</td><td class="num">${money(RATE)}</td><td class="num">${money(sub)}</td></tr><tr><td>HST (13%)</td><td></td><td></td><td class="num">${money(tax)}</td></tr><tr><td><b>Total</b></td><td></td><td></td><td class="num"><b>${money(sub+tax)}</b></td></tr></tbody></table></div>
+ <p class="small muted" style="margin:12px 0 0">Matched against the partner's October report on Nov 3. Rate and tax are stand-ins for the real contract terms.</p>`}
 
-/* step 1 typing */
-let typed=false;
-function type(el,txt,d){return new Promise(r=>{let i=0;el.innerHTML='<span></span><i class="cur"></i>';const sp=el.firstChild;const t=setInterval(()=>{sp.textContent=txt.slice(0,++i);if(i>=txt.length){clearInterval(t);el.querySelector('.cur').remove();setTimeout(r,d)}},38)})}
-async function typeAll(){if(typed)return;typed=true;await type($('#f1'),'Durva Thakkar',200);await type($('#f2'),'Barrie, Ontario',200);await type($('#f3'),'Yes, and yes. My desk is ready.',100)}
-$$('#dog .opt').forEach(b=>b.onclick=()=>{$$('#dog .opt').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');state.dog=b.dataset.v;
-  $('#dogR').innerHTML=state.dog==='erin'?'<b>Noted.</b> I will also make a very persuasive one-pager about it. Partner decks are part of the job, after all.':'<b>Brave.</b> I will respect the founding team\'s position, and quietly send Erin pictures of puppies.';
-  $('#dogR').classList.add('on');$('#n1').disabled=false});
+/* 03 deck */
+const slides=$$('.slide');let si=0;$('#dots').innerHTML=slides.map((_,i)=>`<i data-i="${i}"></i>`).join('');
+function show(n){si=(n+slides.length)%slides.length;slides.forEach((s,i)=>s.classList.toggle('on',i===si));$$('#dots i').forEach((d,i)=>d.classList.toggle('on',i===si))}
+$('#prev').onclick=()=>show(si-1);$('#next').onclick=()=>show(si+1);$$('#dots i').forEach(d=>d.onclick=()=>show(+d.dataset.i));show(0);
 
-/* step 2 */
-$$('#exec .person').forEach(b=>b.onclick=()=>{const v=b.dataset.v;
-  if(v!=='arnaud'){b.classList.add('nope');$('#execR').innerHTML=v==='robot'?'<b>Close, but no.</b> I will use AI to work faster every day. It just can\'t be the one you build things with. Try again?':'<b>Not on a two-person team.</b> The job post says it best: no waiting to be assigned work. Try again?';$('#execR').classList.add('on');return}
-  $$('#exec .person').forEach(x=>x.classList.remove('sel','nope'));b.classList.add('sel');state.exec=v;
-  $('#execR').innerHTML='<b>Arnaud it is.</b> On a two-person team, I will be the half that makes your half easier: you lead the partners, I keep every brief, asset, invoice and report moving, and I tell you early when something is off.';
-  $('#execR').classList.add('on');$('#n2').disabled=false});
+/* 04 tabs */
+$$('#advTabs button').forEach(b=>b.onclick=()=>{$$('#advTabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');$$('#advisors .tabp').forEach(p=>p.classList.toggle('on',p.id===b.dataset.t))});
 
-/* step 3 */
-const P={
- ops:['Month-end, the boring-in-a-good-way way',`<div class="flow"><span>Partner orders in</span><i>→</i><span>Checked against the partner sheet</span><i>→</i><span>Reconciled by day 3</span><i>→</i><span>Invoices out by day 5</span><i>→</i><span>Follow-up on day 15 if unpaid</span></div><p style="margin:14px 0 0;font-size:15px">One checklist, one owner, and a note to Arnaud when it's done, not when it's late.</p>`],
- auto:['A workflow I\'d automate first',`<ol class="list"><li><b>New partner signs:</b> a Notion page is created from a template, with brief, contacts, links and launch date.</li><li><b>Campaign brief approved:</b> tasks and due dates appear for each asset, with the partner's brand notes attached.</li><li><b>Month-end:</b> partner numbers pulled into one sheet, and AI drafts the summary I then check and rewrite.</li></ol><p style="margin:10px 0 0;font-size:14px;color:var(--muted)">AI drafts, I decide. Every number gets checked by a human (me).</p>`],
- decks:['A partner one-pager',`<div class="onepager"><div class="l"><span class="tag" style="margin-bottom:10px">For advisors</span><h5>Help every client plan ahead. Without becoming an estate expert.</h5><p style="margin:0;font-size:13px;opacity:.9">Willful for Professionals</p></div><div class="r"><p><b>No implementation fees.</b> Tiered subscriptions for the right fit.</p><p><b>Three steps:</b> import clients, send invites, they make a will and power of attorney online.</p><p><b>You get:</b> a dedicated contact, co-branded marketing and training.</p><p style="color:var(--blue);font-weight:700;margin:0">partners@willful.co</p></div></div>`],
- assets:['A co-branded email',`<div class="mini-mail"><div class="mh">Willful <span>× your partner</span></div><div class="mb"><p style="margin:0 0 8px"><b>You plan for retirement. Have you planned for your family?</b></p><p style="margin:0 0 10px">As a [Partner] client, you can make your legal will and power of attorney online with Willful, at a special price. Most people finish in about 20 minutes.</p><span class="cta">Start my will →</span><p style="margin:12px 0 0;font-size:12.5px;color:var(--muted)">Plus a 15-second Reel cut and two static posts from the same message, all shipped the same week.</p></div></div>`],
- advisors:['Before and after an advisor call',`<div class="tiles" style="grid-template-columns:1fr 1fr"><div class="tile"><span class="tag">Before</span><p style="margin:8px 0 0;font-size:14px">Their firm, book size and province. The one-pager and the Inheritance Gap Report ready to send. Three questions to ask them.</p></div><div class="tile"><span class="tag">After</span><p style="margin:8px 0 0;font-size:14px">Same-day recap email with next steps. CRM updated. Their questions added to our FAQ doc, so the next deck answers them first.</p></div></div>`],
- numbers:['The Monday numbers',`<div class="tiles"><div class="tile"><span>Partner-sourced revenue</span><b>$ ___</b><span>vs last month</span></div><div class="tile"><span>Transactions</span><b>___</b><span>by partner</span></div><div class="tile"><span>Best channel</span><b>___</b><span>email, in-app, advisor</span></div></div><p style="margin:12px 0 0;font-size:15px">Blank on purpose: I'd fill it with your real numbers. Plus one honest line every week: <i>what worked, what didn't, what I'd change.</i></p>`]
+/* 05 email EN/FR */
+const EM={
+ en:`<p style="font:800 19px/1.3 Figtree;color:var(--dark)">You plan for retirement. Have you planned for your family?</p><p>Hi Sam,</p><p>As a [Bank partner] customer, you can make your legal will and power of attorney online with Willful, at a special price.</p><p>Most people finish in about 20 minutes, and you can update it for free whenever life changes.</p><p><span class="btn sm" style="background:var(--amber)">Start my will →</span></p><p class="small muted" style="margin:0">Trusted by 500,000+ Canadians, and built with estate lawyers across the country.</p>`,
+ fr:`<p style="font:800 19px/1.3 Figtree;color:var(--dark)">Vous planifiez votre retraite. Avez-vous pensé à votre famille?</p><p>Bonjour Sam,</p><p>En tant que client de [Banque partenaire], vous pouvez préparer votre testament et vos documents de planification successorale en ligne avec Willful, à un prix exclusif.</p><p>La plupart des gens terminent en 20 minutes environ, et vous pouvez faire des mises à jour gratuitement quand votre vie change.</p><p><span class="btn sm" style="background:var(--amber)">Commencer mon testament →</span></p><p class="small muted" style="margin:0">Plus de 500 000 Canadiens font confiance à Willful, conçu avec des avocats spécialisés en successions partout au pays.</p>`
 };
-$$('#gifts .opt').forEach(b=>b.onclick=()=>{const g=b.dataset.g;
-  if(state.gifts.has(g)){state.gifts.delete(g);b.classList.remove('sel')}else{state.gifts.add(g);b.classList.add('sel');$('#prevT').textContent=P[g][0];$('#prevB').innerHTML=P[g][1];$('#prev').classList.add('on')}
-  $('#n3').disabled=state.gifts.size===0;$('#saveTxt').textContent='Saving…';setTimeout(()=>$('#saveTxt').textContent='Progress saved',500)});
+function lang(l){$('#emailBody').innerHTML=EM[l];$$('#lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===l))}
+$$('#lang button').forEach(b=>b.onclick=()=>lang(b.dataset.l));lang('en');
 
-/* step 4 */
-$$('#learn .lrow').forEach(b=>b.onclick=()=>{const l=b.dataset.l;state.learn.has(l)?state.learn.delete(l):state.learn.add(l);b.classList.toggle('sel');
-  const p=Math.round(state.learn.size/7*100);$('#meter').style.width=Math.max(p,8)+'%';$('#meterT').textContent=state.learn.size===7?'100% (told you)':p+'%';$('#n4').disabled=state.learn.size===0});
+/* 08 dashboard */
+const M=[
+ {name:'August',rev:41200,tx:1688,adv:31,gaps:0,partners:[1110,402,88,61,27],ch:[930,520,238]},
+ {name:'September',rev:44850,tx:1834,adv:36,gaps:0,partners:[1190,409,91,118,26],ch:[990,545,299]},
+ {name:'October',rev:50750,tx:2058,adv:44,gaps:1,partners:[1281,412,96,236,33],ch:[1050,560,448]}
+];
+const PN=['National bank','Investing app','Credit union (QC)','Advisor firms','Benefits pilot'],CN=['Partner email','In-app / web','Advisor invites'];
+const NOTES=[
+ `<p>Hi Arnaud, August in short:</p><p><b>Worked:</b> the bank partner's summer email brought in the most completions of any single send this year.</p><p><b>Didn't:</b> advisor invites are slow. Most new advisors haven't sent their first invite yet.</p><p><b>Next:</b> turn on the day-7 nudge for new advisors.</p><p style="margin:0">Durva</p>`,
+ `<p>Hi Arnaud, September in short:</p><p><b>Worked:</b> the day-7 nudge. Advisor transactions nearly doubled, from 61 to 118.</p><p><b>Didn't:</b> the benefits pilot is flat. Employees don't seem to know it exists.</p><p><b>Next:</b> ask the pilot employer for one mention in their internal newsletter.</p><p style="margin:0">Durva</p>`,
+ `<p>Hi Arnaud, October in short:</p><p><b>Worked:</b> advisor firms doubled again, from 118 to 236. Advisor invites are now our fastest-growing channel.</p><p><b>Didn't:</b> the benefits pilot numbers don't match. The employer reports 41 completions and we see 33. I've sent them the order IDs.</p><p><b>Honest take:</b> the investing app has been flat for three months. I think the offer is buried in their app. Worth asking them for one in-app placement test in November?</p><p style="margin:0">Durva</p>`
+];
+function dash(m){const d=M[m],p=M[Math.max(m-1,0)];const ch=(a,b)=>m===0?'<em class="muted">first month tracked</em>':((a-b)>=0?'<em class="up">▲ ':'<em class="down">▼ ')+Math.abs((a-b)/b*100).toFixed(0)+'% vs last month</em>';
+ $('#kpis').innerHTML=`<div class="kpi"><span>Partner-sourced revenue</span><b>${'$'+d.rev.toLocaleString()}</b>${ch(d.rev,p.rev)}</div><div class="kpi"><span>Transactions</span><b>${d.tx.toLocaleString()}</b>${ch(d.tx,p.tx)}</div><div class="kpi"><span>Active advisors</span><b>${d.adv}</b>${ch(d.adv,p.adv)}</div><div class="kpi"><span>Reconciliation gaps</span><b>${d.gaps}</b><em class="${d.gaps?'down':'up'}">${d.gaps?'Benefits pilot, emailed':'All matched'}</em></div>`;
+ const mx=Math.max(...M[2].partners);$('#byPartner').innerHTML=d.partners.map((v,i)=>`<div class="brow"><span>${PN[i]}</span><div class="bt"><i style="width:${v/mx*100}%"></i></div><span class="v">${v.toLocaleString()}</span></div>`).join('');
+ const mc=Math.max(...M[2].ch);$('#byChannel').innerHTML=d.ch.map((v,i)=>`<div class="brow"><span>${CN[i]}</span><div class="bt"><i style="width:${v/mc*100}%;background:${['var(--blue)','var(--amber)','var(--green)'][i]}"></i></div><span class="v">${v.toLocaleString()}</span></div>`).join('');
+ $('#note').innerHTML=NOTES[m];$('#noteSub').textContent=d.name+' partnerships: what worked, what didn\'t';$$('#mTabs button').forEach(b=>b.classList.toggle('on',+b.dataset.m===m))}
+$$('#mTabs button').forEach(b=>b.onclick=()=>dash(+b.dataset.m));dash(2);
 
-/* build doc */
-const G={
- ops:'I will run partner operations so smoothly nobody notices them: order processing, month-end reconciliations by day three, invoices, briefs and every follow-up.',
- auto:'I will turn anything we do twice into a documented, repeatable workflow, and automate the routine parts with AI and good software, checking every number myself.',
- decks:'I will make partner decks, one-pagers and performance updates that look like Willful and read like a person wrote them.',
- assets:'I will design and ship campaign assets across static, short-form video, co-branded email and social, on time, with everyone who needs to know kept in the loop.',
- advisors:'I will support Willful for Professionals: prepare for inbound advisor calls, follow up the same day, and keep our sales materials sharp.',
- numbers:'I will track partner-sourced revenue and transaction volume, build reporting across every channel, and say plainly what is working and what is not.'
-};
-const L=['make my own will on Willful before my first day','read The Inheritance Gap Report until I can explain it on a call','learn the Willful for Professionals dashboard inside out in week one','sit in on every advisor call I can and turn their questions into better materials','practise French for twenty minutes a day','edit one short-form video every week','learn estate planning basics properly, so I never say the wrong thing to a partner'];
-function build(){
-  let h='<div class="clause-h">Article 1 · My executor</div><ol><li>I appoint <b>Arnaud Vézina</b>, Partnerships Manager, as the person I build everything with. I will make his half of a two-person team lighter, never heavier.</li></ol>';
-  h+='<div class="clause-h">Article 2 · Gifts to the partnerships team</div><ol>'+[...state.gifts].map(g=>'<li>'+G[g]+'</li>').join('')+'</ol>';
-  if(state.learn.size){h+='<div class="clause-h">Article 3 · What I will learn</div><ol><li>I will '+[...state.learn].sort().map(i=>L[i]).join('; I will ')+'.</li></ol>'}
-  const w=$('#wish').value.trim();
-  h+='<div class="clause-h">Article 4 · Final wishes</div><ol><li>That partners and advisors always feel looked after.</li><li>That no campaign ships late because of me.</li><li>That feedback comes early, directly, and often.</li>'+(w?'<li><i>Added by the witness:</i> '+w.replace(/[<>&]/g,'')+'</li>':'')+'</ol>';
-  if(state.dog)h+='<div class="clause-h">Article 5 · Miscellaneous</div><ol><li>'+(state.dog==='erin'?'I side with Erin. Willful should get a dog.':'I side with Kevin, for now. My position on dogs is open to revision.')+'</li></ol>';
-  $('#clauses').innerHTML=h;
-  setTimeout(()=>$('#dsig').classList.add('go'),400);
-  sizeCanvases();
-}
-$('#today').textContent=new Date().toLocaleDateString('en-CA',{year:'numeric',month:'long',day:'numeric'});
-
-/* signature pads */
+/* signatures */
 const drawn={c1:false,c2:false};
-function sizeCanvases(){['c1','c2'].forEach(id=>{const c=$('#'+id);const r=c.getBoundingClientRect();if(!r.width)return;const d=window.devicePixelRatio||1;if(c.width!==Math.round(r.width*d)){c.width=r.width*d;c.height=r.height*d;const x=c.getContext('2d');x.scale(d,d);x.lineWidth=2.2;x.lineCap='round';x.lineJoin='round';x.strokeStyle='#004eb6';drawn[id]=false;check()}})}
-['c1','c2'].forEach(id=>{const c=$('#'+id);let on=false,lx,ly;
-  const pt=e=>{const r=c.getBoundingClientRect();return [e.clientX-r.left,e.clientY-r.top]};
-  c.addEventListener('pointerdown',e=>{on=true;[lx,ly]=pt(e);c.setPointerCapture(e.pointerId)});
-  c.addEventListener('pointermove',e=>{if(!on)return;const [x,y]=pt(e);const g=c.getContext('2d');g.beginPath();g.moveTo(lx,ly);g.lineTo(x,y);g.stroke();lx=x;ly=y;drawn[id]=true;check()});
-  ['pointerup','pointerleave','pointercancel'].forEach(t=>c.addEventListener(t,()=>on=false));
-});
-$$('.clr').forEach(b=>b.onclick=()=>{const c=$('#'+b.dataset.c);c.getContext('2d').clearRect(0,0,c.width,c.height);drawn[b.dataset.c]=false;check()});
-function check(){$('#signBtn').disabled=!(drawn.c1||drawn.c2);$('#signBtn').textContent=drawn.c1&&drawn.c2?'Witness and seal it':drawn.c1||drawn.c2?'Seal it (one witness is fine here)':'Witness and seal it'}
-function seal(){$('#stamp').classList.add('on');$('#after').classList.add('on');$('#bar').style.width='100%';$$('#steps li').forEach(li=>{li.classList.add('done');li.classList.remove('on')});setTimeout(()=>$('#after').scrollIntoView({behavior:'smooth',block:'center'}),500)}
-window.addEventListener('resize',()=>{if(state.step===6)sizeCanvases()});
+function size(){['c1','c2'].forEach(id=>{const c=$('#'+id),r=c.getBoundingClientRect(),d=devicePixelRatio||1;if(!r.width)return;c.width=r.width*d;c.height=r.height*d;const x=c.getContext('2d');x.scale(d,d);x.lineWidth=2.2;x.lineCap='round';x.lineJoin='round';x.strokeStyle='#004eb6'})}
+size();addEventListener('resize',size);
+['c1','c2'].forEach(id=>{const c=$('#'+id);let on=false,lx,ly;const pt=e=>{const r=c.getBoundingClientRect();return[e.clientX-r.left,e.clientY-r.top]};
+ c.addEventListener('pointerdown',e=>{on=true;[lx,ly]=pt(e);c.setPointerCapture(e.pointerId)});
+ c.addEventListener('pointermove',e=>{if(!on)return;const[x,y]=pt(e),g=c.getContext('2d');g.beginPath();g.moveTo(lx,ly);g.lineTo(x,y);g.stroke();lx=x;ly=y;drawn[id]=true});
+ ['pointerup','pointercancel'].forEach(t=>c.addEventListener(t,()=>{if(on&&drawn[id])$('#stamp').classList.add('on');on=false}))});
+$$('.clr').forEach(b=>b.onclick=()=>{const c=$('#'+b.dataset.c);c.getContext('2d').clearRect(0,0,c.width,c.height);drawn[b.dataset.c]=false;if(!drawn.c1&&!drawn.c2)$('#stamp').classList.remove('on')});
 </script>
 </body>
 </html>
