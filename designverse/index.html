@@ -50,7 +50,7 @@ img{max-width:100%;display:block}
 .hero .ctl button:hover{color:#fff;border-color:var(--p1)}
 
 .stage{position:relative;width:100%;aspect-ratio:16/9;border-radius:22px;background:radial-gradient(ellipse at 50% -10%,#231c3f,#0d0b15 62%);border:1px solid #2a2540;overflow:hidden;container-type:inline-size}
-@media(max-width:700px){.stage{aspect-ratio:9/15}}
+@media(max-width:700px){.stage{aspect-ratio:10/17}}
 .prog{position:absolute;left:0;bottom:0;height:3px;background:var(--grad);width:0;z-index:9}
 .sc{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:5cqi;opacity:0;visibility:hidden;transition:opacity .5s,visibility 0s .5s}
 .sc.on{opacity:1;visibility:visible;transition:opacity .5s}
@@ -60,69 +60,101 @@ img{max-width:100%;display:block}
 .t-line small{display:block;font:400 1.7cqi "JetBrains Mono";color:var(--mist);letter-spacing:.06em;margin-bottom:1.2cqi;text-transform:uppercase}
 @container (max-width:640px){.t-line{font-size:8.4cqi}.t-line small{font-size:3.2cqi}}
 
-/* board */
-.board{justify-content:space-between;padding:3.2cqi 3.4cqi 3cqi}
-.cap{min-height:3.6cqi;font:600 2.5cqi/1.25 "Space Grotesk";color:#fff;transition:opacity .35s;letter-spacing:-.01em}
+/* board v2 */
+.board{justify-content:flex-start;align-items:stretch;padding:2.4cqi 3cqi 2.6cqi;gap:1.6cqi}
+.cap{min-height:6.4cqi;display:flex;align-items:center;justify-content:center;text-align:center;font:600 2.7cqi/1.25 "Space Grotesk";color:#fff;transition:opacity .35s;letter-spacing:-.01em;padding:0 4cqi}
 .cap b{color:var(--lime);font-weight:600}
-.gina{display:flex;align-items:center;gap:1.6cqi;background:#16131f;border:1px solid #2e2a40;border-radius:999px;padding:.7cqi 2cqi .7cqi .7cqi;opacity:0;transform:scale(.9);transition:.5s}
-.gina.on{opacity:1;transform:none}
-.gina img{width:5.6cqi;height:5.6cqi;border-radius:50%;object-fit:cover;object-position:50% 25%;border:.25cqi solid var(--p1)}
+.row1{display:grid;grid-template-columns:24cqi 1fr;gap:2cqi;flex:1;min-height:0}
+.gcol{display:flex;flex-direction:column;gap:1cqi;opacity:0;transform:translateX(-2cqi);transition:.6s}
+.gcol.on{opacity:1;transform:none}
+.gina{display:flex;align-items:center;gap:1.2cqi;background:#16131f;border:1px solid #2e2a40;border-radius:1.4cqi;padding:1cqi;transition:.4s}
+.gina img{width:6.4cqi;height:6.4cqi;border-radius:50%;object-fit:cover;object-position:50% 25%;border:.25cqi solid var(--p1);flex:none;transition:.4s}
 .gina div{text-align:left;font:600 1.7cqi/1.2 "Space Grotesk";color:#fff}
-.gina small{display:block;font:400 1.25cqi Inter;color:var(--mist)}
-.gina .cnt{margin-left:1.2cqi;font:600 1.25cqi "JetBrains Mono";background:#2a1f12;color:#ffb35c;border-radius:999px;padding:.4cqi 1cqi;opacity:0;transition:.3s}
-.gina .cnt.on{opacity:1}
-.gina.busy{animation:wob .5s infinite}
-.gina.calm .cnt{background:#1d2a0e;color:var(--lime)}
-@keyframes wob{0%,100%{transform:rotate(0)}25%{transform:rotate(-1deg)}75%{transform:rotate(1deg)}}
-.mid{display:grid;grid-template-columns:1fr auto 1fr;gap:2cqi;align-items:center;width:100%;flex:1;margin:1cqi 0}
-.col{display:flex;flex-direction:column;gap:1cqi}
-.col.l{align-items:flex-end}.col.r{align-items:flex-start}
-.bub{max-width:26cqi;background:#1b1828;border:1px solid #332e48;border-radius:1.2cqi;padding:.8cqi 1.2cqi;text-align:left;font:500 1.35cqi/1.35 Inter;color:#e9e6f5;opacity:0;transform:translateY(1cqi) scale(.96);transition:.4s;position:relative}
-.bub.on{opacity:1;transform:none}
-.bub i{display:block;font:600 1.05cqi "JetBrains Mono";font-style:normal;color:var(--p1);margin-bottom:.2cqi;letter-spacing:.03em}
-.bub em{position:absolute;right:-.8cqi;top:-.9cqi;font:700 1.1cqi "JetBrains Mono";font-style:normal;background:var(--lime);color:#111;border-radius:999px;padding:.2cqi .8cqi;opacity:0;transform:scale(.5);transition:.3s}
-.bub.fin{border-color:#4d6a12;background:#141a0b;color:#a9a6bb}
-.bub.fin em{opacity:1;transform:none}
-.slot{width:23cqi;height:11cqi;border:.25cqi dashed #4a4463;border-radius:1.6cqi;display:grid;place-items:center;opacity:0;transform:scale(.85);transition:.5s;position:relative}
+.gina small{display:block;font:400 1.2cqi Inter;color:var(--mist)}
+.gcol.late .gina img{filter:grayscale(.6) brightness(.75)}
+.gcol.late .gina{border-color:#6b3a1c}
+.desk{flex:1;background:#13101b;border:1px dashed #3a3550;border-radius:1.4cqi;padding:1cqi;display:flex;flex-direction:column;gap:.6cqi;min-height:0}
+.desk-h{display:flex;justify-content:space-between;align-items:center;font:600 1.05cqi "JetBrains Mono";color:var(--muted);letter-spacing:.05em;text-transform:uppercase}
+.clk{font:600 1.15cqi "JetBrains Mono";color:var(--mist);background:#1d1a29;border-radius:999px;padding:.2cqi .8cqi;transition:.3s}
+.gcol.late .clk{background:#3a1d0c;color:#ffb35c}
+.gcol.calm .clk{background:#1d2a0e;color:var(--lime)}
+.pile{list-style:none;display:flex;flex-direction:column;gap:.5cqi}
+.pile li{font:500 1.15cqi/1.3 Inter;color:#e9e6f5;background:#1f1b2c;border:1px solid #332e48;border-radius:.8cqi;padding:.5cqi .8cqi;animation:drop .45s ease-out both;display:flex;justify-content:space-between;gap:.6cqi}
+.pile li.fin{background:#141a0b;border-color:#4d6a12;color:#a9a6bb}
+.pile li.fin:after{content:"✓ done";color:var(--lime);font:700 1cqi "JetBrains Mono";flex:none}
+.pile .empty{color:var(--muted);font-size:1.15cqi;border:0;background:none;animation:none;padding:.2cqi 0}
+@keyframes drop{from{opacity:0;transform:translateY(-1.5cqi)}to{opacity:1;transform:none}}
+.center{position:relative;display:grid;place-items:center;min-width:0}
+.spot{width:min(100%,54cqi);background:#17142a;border:1px solid #3a3456;border-radius:1.8cqi;padding:2cqi 2.4cqi;text-align:left;opacity:0;transform:translateY(1.5cqi) scale(.97);transition:.5s;position:absolute}
+.spot.on{opacity:1;transform:none}
+.spot .who{display:flex;align-items:center;gap:1cqi;font:600 1.3cqi "JetBrains Mono";color:var(--p1);letter-spacing:.03em;margin-bottom:1.2cqi}
+.spot .who svg{width:3.6cqi;height:3.6cqi;border-radius:50%}
+.spot .task{font:600 2.5cqi/1.3 "Space Grotesk";color:#fff;letter-spacing:-.01em}
+.spot .cost{margin-top:1.4cqi;font:500 1.6cqi/1.4 Inter;color:#ffb35c;display:flex;gap:.8cqi;align-items:flex-start;opacity:0;transform:translateY(.6cqi);transition:.45s}
+.spot .cost:before{content:"⏱";flex:none}
+.spot.cost-on .cost{opacity:1;transform:none}
+.slot{width:34cqi;height:12cqi;border:.25cqi dashed #4a4463;border-radius:1.8cqi;display:grid;place-items:center;opacity:0;transform:scale(.85);transition:.5s;position:relative}
 .slot.on{opacity:1;transform:none}
 .slot .q{font:600 5cqi "Space Grotesk";color:#4a4463;animation:pulse 1.2s infinite}
 @keyframes pulse{50%{opacity:.35}}
-.slot .me{position:absolute;inset:0;display:flex;align-items:center;gap:1.2cqi;padding:1cqi 1.4cqi;background:var(--grad);border-radius:1.4cqi;opacity:0;transform:translateY(-8cqi);transition:.6s cubic-bezier(.3,1.5,.5,1)}
+.slot .me{position:absolute;inset:0;display:flex;align-items:center;gap:1.6cqi;padding:1.2cqi 2cqi;background:var(--grad);border-radius:1.6cqi;opacity:0;transform:translateY(-8cqi);transition:.7s cubic-bezier(.3,1.5,.5,1)}
 .slot.filled{border-color:transparent}
 .slot.filled .q{display:none}
 .slot.filled .me{opacity:1;transform:none}
-.slot .me img{width:6.4cqi;height:6.4cqi;border-radius:50%;object-fit:cover;object-position:50% 20%;border:.25cqi solid #fff;flex:none}
-.slot .me div{text-align:left;font:600 1.6cqi/1.15 "Space Grotesk";color:#fff}
-.slot .me small{display:block;font:400 1.15cqi/1.3 Inter;color:#eee6ff;margin-top:.3cqi}
-.roles{display:grid;grid-template-columns:repeat(5,1fr);gap:1.2cqi;width:100%}
-.role{background:#15121e;border:1px solid #2e2a40;border-radius:1.2cqi;padding:1.1cqi 1cqi;opacity:0;transform:translateY(2cqi);transition:.45s;position:relative;text-align:left}
-.role.on{opacity:1;transform:none}
-.role b{display:block;font:600 1.45cqi/1.2 "Space Grotesk";color:#fff}
-.role small{display:block;font:400 1.1cqi "JetBrains Mono";color:var(--muted);margin-top:.3cqi}
-.role s{display:inline-block;margin-top:.7cqi;transform:rotate(-3deg) scale(1.6);opacity:0;white-space:nowrap;text-decoration:none;font:700 1.05cqi "JetBrains Mono";color:#ff8a8a;border:.18cqi solid #ff8a8a;border-radius:.5cqi;padding:.1cqi .6cqi;background:#1a0f12;transition:.3s}
-.role.stamp s{opacity:1;transform:rotate(-3deg) scale(1)}
-.role.ok{border-color:#4d6a12}
+.slot .me img{width:8.4cqi;height:8.4cqi;border-radius:50%;object-fit:cover;object-position:50% 20%;border:.3cqi solid #fff;flex:none}
+.slot .me div{text-align:left;font:600 2.2cqi/1.15 "Space Grotesk";color:#fff}
+.slot .me small{display:block;font:400 1.35cqi/1.35 Inter;color:#eee6ff;margin-top:.4cqi}
+.team{display:grid;grid-template-columns:repeat(5,1fr);gap:1.2cqi}
+.hire{background:#15121e;border:1px solid #2e2a40;border-radius:1.4cqi;padding:1cqi;opacity:0;transform:translateY(2cqi);transition:.5s;text-align:left;display:grid;grid-template-columns:auto 1fr;gap:.4cqi 1cqi;align-items:center;cursor:pointer;position:relative}
+.hire.on{opacity:1;transform:none}
+.hire svg{width:6.2cqi;height:6.2cqi;border-radius:50%;grid-row:span 2}
+.hire b{font:600 1.35cqi/1.15 "Space Grotesk";color:#fff;align-self:end}
+.hire small{font:400 1.1cqi/1.25 Inter;color:var(--mist);align-self:start}
+.hire s{grid-column:1/-1;justify-self:start;text-decoration:none;font:700 1cqi "JetBrains Mono";color:#ff8a8a;border:.18cqi solid #ff8a8a;border-radius:.5cqi;padding:.1cqi .6cqi;background:#1a0f12;transform:rotate(-3deg) scale(1.6);opacity:0;transition:.3s;margin-top:.3cqi}
+.hire.stamp s{opacity:1;transform:rotate(-3deg) scale(1)}
+.hire.act{border-color:var(--p1);box-shadow:0 0 0 .25cqi rgba(143,105,228,.35);transform:translateY(-.8cqi)}
+.hire.ok{border-color:#4d6a12}
+.hire:hover{border-color:var(--p1)}
+.hire .tag{position:absolute;top:-1cqi;right:.8cqi;font:700 .95cqi "JetBrains Mono";background:var(--lav);color:var(--p3);border-radius:999px;padding:.15cqi .6cqi}
 @container (max-width:640px){
-  .bub em{top:-2.2cqi}
-  .board{padding:4.5cqi 4cqi}
-  .cap{font-size:4.6cqi;min-height:12cqi}
-  .gina img{width:11cqi;height:11cqi}.gina div{font-size:3.4cqi}.gina small{font-size:2.6cqi}.gina .cnt{font-size:2.5cqi}
-  .mid{grid-template-columns:1fr;gap:2.4cqi}
-  .col{flex-direction:row;flex-wrap:wrap;justify-content:center;gap:1.6cqi}
-  .col.l,.col.r{align-items:stretch}
-  .bub{max-width:44cqi;font-size:2.6cqi;padding:1.4cqi 2cqi;border-radius:2.4cqi}.bub i{font-size:2.1cqi}.bub em{font-size:2.2cqi}
-  .slot{width:62cqi;height:20cqi;margin:0 auto;order:-1}
-  .slot .me img{width:13cqi;height:13cqi}.slot .me div{font-size:3.6cqi}.slot .me small{font-size:2.6cqi}
-  .roles{grid-template-columns:repeat(3,1fr);gap:2cqi 1.6cqi}
-  .role{padding:1.8cqi 1.8cqi;border-radius:2.2cqi}.role b{font-size:2.8cqi}.role small{display:none}.role s{font-size:2cqi}
-  .bub i{display:none}.mid{margin:2cqi 0}
+  .board{padding:4cqi 4cqi;gap:3cqi}
+  .cap{font-size:5cqi;min-height:17cqi;padding:0}
+  .row1{grid-template-columns:1fr;gap:3cqi;flex:none}
+  .gina img{width:11cqi;height:11cqi}.gina div{font-size:3.6cqi}.gina small{font-size:2.6cqi}
+  .gina{border-radius:3cqi;padding:2cqi}
+  .desk{border-radius:3cqi;padding:2cqi;gap:1.2cqi}
+  .desk-h{font-size:2.2cqi}.clk{font-size:2.4cqi;padding:.4cqi 1.6cqi}
+  .pile{flex-direction:row;flex-wrap:wrap;gap:1.2cqi}
+  .pile li{font-size:2.5cqi;padding:1cqi 1.6cqi;border-radius:1.6cqi}.pile li.fin:after{font-size:2.1cqi}.pile .empty{font-size:2.5cqi}
+  .center{min-height:44cqi}
+  .spot{width:100%;padding:4cqi;border-radius:3.4cqi}
+  .spot .who{font-size:2.6cqi;gap:2cqi}.spot .who svg{width:7cqi;height:7cqi}
+  .spot .task{font-size:5cqi}.spot .cost{font-size:3.4cqi;margin-top:2.6cqi}
+  .slot{width:80cqi;height:26cqi;border-radius:3.4cqi}
+  .slot .me{gap:3cqi;padding:3cqi 4cqi;border-radius:3cqi}.slot .me img{width:17cqi;height:17cqi}.slot .me div{font-size:4.6cqi}.slot .me small{font-size:2.9cqi}
+  .team{grid-template-columns:repeat(3,1fr);gap:2.4cqi 2cqi}
+  .hire{grid-template-columns:1fr;justify-items:center;text-align:center;padding:2cqi 1.4cqi;border-radius:2.6cqi}
+  .hire svg{width:12cqi;height:12cqi;grid-row:auto}
+  .hire b{font-size:2.6cqi;align-self:auto}.hire small{display:none}
+  .hire s{font-size:1.9cqi;justify-self:center}
+  .hire .tag{font-size:1.8cqi;top:-1.8cqi}
 }
-.end .btns{display:flex;gap:1.4cqi;margin-top:3cqi;opacity:0;transition:.6s}
-.end .btns.on{opacity:1}
+.end .btns{display:flex;gap:1.4cqi;margin-top:3cqi;opacity:0;transition:.6s;transition-delay:2s}
+.end.on .btns{opacity:1}
 .end a,.end button{font:600 1.6cqi "Space Grotesk";border-radius:1cqi;padding:1.1cqi 2.2cqi;text-decoration:none;cursor:pointer;border:0}
 .end a{background:#fff;color:var(--ink)}
 .end button{background:transparent;color:#fff;border:1px solid #fff}
 @container (max-width:640px){.end a,.end button{font-size:3.6cqi;padding:2.4cqi 4cqi;border-radius:2cqi}}
+.sc .t-line{transition:.7s}
+.sc.on .t-line{opacity:1;transform:none}
+.stage.snap *,.stage.snap{transition:none!important;animation-duration:0s!important}
+.chaps{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;position:relative}
+.chaps button{background:#15121e;border:1px solid #2e2a40;color:var(--mist);font:500 12.5px Inter;border-radius:999px;padding:6px 12px;cursor:pointer;display:flex;gap:6px;align-items:center}
+.chaps button i{font:600 11px "JetBrains Mono";font-style:normal;color:var(--muted)}
+.chaps button.on{background:#fff;color:var(--ink);border-color:#fff}
+.chaps button.on i{color:var(--p2)}
+.chaps button.seen{color:#fff}
+.hint{font-size:12.5px;color:var(--muted);margin-top:8px;position:relative}
 
 /* letter */
 .letter{display:grid;grid-template-columns:1fr 300px;gap:56px;padding:64px 0 24px;align-items:start}
@@ -220,6 +252,7 @@ td{padding:12px;border-bottom:1px solid var(--line);vertical-align:top;line-heig
     <li><a href="#accounts">Accounts</a></li>
     <li><a href="#abm">ABM page</a></li>
     <li><a href="#ads">Copy</a></li>
+    <li><a href="#posts">Posts</a></li>
     <li><a href="#case">Case study</a></li>
     <li><a href="#deck">Deck</a></li>
     <li><a href="#event">Event</a></li>
@@ -233,32 +266,41 @@ td{padding:12px;border-bottom:1px solid var(--line);vertical-align:top;line-heig
   <div class="wrap">
     <div class="top"><span class="kick">For Gina Dragulin · CMO, DesignVerse</span><div class="ctl"><button id="pp">Pause</button><button id="rp">↻ Replay</button></div></div>
     <div class="stage" id="stage">
-      <div class="sc on" id="s1">
-        <div class="t-line" data-t="200"><small>May 2026</small>DesignVerse raises <b>$5.5M</b>.</div>
+      <div class="sc" id="s1">
+        <div class="t-line"><small>May 2026</small>DesignVerse raises <b>$5.5M</b>.</div>
+        <div class="t-line" style="transition-delay:1.2s;font-size:2.4cqi;margin-top:2cqi;color:var(--mist)">To help big companies build software with AI, the right way.</div>
       </div>
       <div class="sc" id="s2">
-        <div class="t-line" data-t="0"><small>August 2026 · Ai4 Las Vegas</small>The context layer lands <b>in the US</b>.</div>
+        <div class="t-line"><small>August 2026 · Ai4, Las Vegas</small>DesignVerse comes <b>to America</b>.</div>
+        <div class="t-line" style="transition-delay:1.2s;font-size:2.4cqi;margin-top:2cqi;color:var(--mist)">New market. New buyers. A lot more work.</div>
       </div>
       <div class="sc" id="s3">
-        <div class="t-line" data-t="0"><small>Now</small>Five new go-to-market hires.<br>All at once.</div>
+        <div class="t-line"><small>Now</small>Time to grow the team.</div>
+        <div class="t-line" style="transition-delay:1.2s"><b>Five new people.</b> All at once.</div>
       </div>
       <div class="sc board" id="sb">
         <div class="cap" id="cap">&nbsp;</div>
-        <div class="gina" id="gina"><img src="img/gina.jpg" alt="Gina Dragulin"><div>Gina Dragulin<small>CMO, DesignVerse</small></div><span class="cnt mono" id="cnt">0 waiting</span></div>
-        <div class="mid">
-          <div class="col l" id="bl"></div>
-          <div class="slot" id="slot"><span class="q">?</span><div class="me"><img src="../assets/durva-headshot.jpg" alt="Durva Thakkar"><div>Durva Thakkar<small>Marketing Coordinator<br>Your right hand</small></div></div></div>
-          <div class="col r" id="br"></div>
+        <div class="row1">
+          <div class="gcol" id="gcol">
+            <div class="gina"><img src="img/gina.jpg" alt="Gina Dragulin"><div>Gina Dragulin<small>CMO, DesignVerse</small></div></div>
+            <div class="desk"><div class="desk-h"><span>On Gina's desk</span><span class="clk" id="clk">Mon 9:00 am</span></div><ul class="pile" id="pile"><li class="empty">Nothing yet</li></ul></div>
+          </div>
+          <div class="center">
+            <div class="spot" id="spot"><div class="who" id="spWho"></div><div class="task" id="spTask"></div><div class="cost" id="spCost"></div></div>
+            <div class="slot" id="slot"><span class="q">?</span><div class="me"><img src="../assets/durva-headshot.jpg" alt="Durva Thakkar"><div>Durva Thakkar<small>Marketing Coordinator<br>Gina's right hand</small></div></div></div>
+          </div>
         </div>
-        <div class="roles" id="roles"></div>
+        <div class="team" id="team"></div>
       </div>
       <div class="sc end" id="s9">
-        <div class="t-line" data-t="0"><small>Durva Thakkar · Barrie, Ontario</small>Five specialists.<br>One person making sure <b>they ship</b>.</div>
-        <div class="t-line" data-t="1300" style="font-size:2.4cqi;margin-top:2.4cqi;color:var(--mist)">Here are my two cents, and the first month of the work, done.</div>
-        <div class="btns" data-t="2200"><a href="#hi">See the work ↓</a><button id="rp2">↻ Replay</button></div>
+        <div class="t-line"><small>Durva Thakkar · Barrie, Ontario</small>Five experts.<br>One person who makes sure <b>their work ships</b>.</div>
+        <div class="t-line" style="transition-delay:1.2s;font-size:2.4cqi;margin-top:2.4cqi;color:var(--mist)">Here are my two cents, and the first month of the work, already done.</div>
+        <div class="btns"><a href="#hi">See the work ↓</a><button id="rp2">↻ Watch again</button></div>
       </div>
       <div class="prog" id="prog"></div>
     </div>
+    <div class="chaps" id="chaps"></div>
+    <p class="hint">Click a chapter to jump. Click any new hire to see their week-one problem.</p>
   </div>
 </header>
 
@@ -268,7 +310,7 @@ td{padding:12px;border-bottom:1px solid var(--line);vertical-align:top;line-heig
     <h1>Hi Gina. Your five new hires will need <em>one more person</em>.</h1>
     <p>I read all five of your open job posts. Four of them say what the role is <b>not</b>: not ad-ops, not events coordination, not a CRM admin, not spray-and-pray. That’s the right call, because you want senior people building strategy and pipeline.</p>
     <p>But the “not” work doesn’t disappear. Landing page copies, invite lists, UTMs, one-pagers, case study PDFs and follow-ups still have to get done every week, and today they all end up with the same person. That’s you.</p>
-    <p>So here’s my two cents: a <b>Marketing Coordinator</b> who works as your right hand and keeps all five programmes shipping on time. I didn’t want to just describe the role, so below is the first month of it, done for DesignVerse: real accounts, a working ABM page, ads, a case study, a deck, an event kit, a sales kit and the ops behind them.</p>
+    <p>So here’s my two cents: a <b>Marketing Coordinator</b> who works as your right hand and keeps all five programmes shipping on time. I didn’t want to just describe the role, so below is the first month of it, done for DesignVerse: real accounts, a working ABM page, ads, leadership posts, a case study, a deck, an event kit, a sales kit and the ops behind them.</p>
     <p style="color:var(--muted);font-size:15px">Scroll, or jump to whatever you’d check first. Every section says why you’d need it, what happens without it, how I’d do it, and then the work itself.</p>
   </div>
   <aside class="facts">
@@ -328,7 +370,7 @@ td{padding:12px;border-bottom:1px solid var(--line);vertical-align:top;line-heig
     <div class="rmap">
       <a href="#accounts"><span>with SDR + GTM Eng</span><b>Account research</b><p>Briefs on priority accounts, with public signals, the buying committee and an angle sales can use on day one.</p></a>
       <a href="#abm"><span>with Campaign Manager</span><b>ABM pages + launch kits</b><p>A personalised page for each account and persona, with copy, UTMs, a form and QA before launch.</p></a>
-      <a href="#ads"><span>with Content Lead</span><b>Copy that ships</b><p>Thought Leader Ads, LinkedIn and Google ads, all written to character limits and checked.</p></a>
+      <a href="#ads"><span>with Content Lead</span><b>Copy that ships</b><p>Leadership posts for Andrei, Robert and you, plus Thought Leader Ads and LinkedIn and Google ads, all checked before they go out.</p></a>
       <a href="#case"><span>with AE + Content</span><b>Proof and sales material</b><p>Case studies, a first-meeting deck and a one-pager for each vertical, so no deal waits on a PDF.</p></a>
       <a href="#event"><span>with Field & Events</span><b>Events, end to end</b><p>From the invite list to the 48-hour follow-up, with a briefing for sales and a recap for content.</p></a>
       <a href="#ops"><span>with you</span><b>Ops and rhythm</b><p>UTM rules, the launch checklist, a Monday plan and a Friday update you don’t have to ask for.</p></a>
@@ -646,6 +688,55 @@ The model was never the point. Your context is.</div>
 </section>
 
 <style>
+.lp-wrap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:20px;align-items:start}
+@media(max-width:960px){.lp-wrap{grid-template-columns:1fr}}
+.lip{border:1px solid #e0dfe6;border-radius:12px;background:#fff;font:14px/1.5 -apple-system,"Segoe UI",Inter,sans-serif;color:#191919}
+.lip .hd{display:flex;gap:10px;padding:14px 16px 8px;align-items:flex-start}
+.lip .av{width:48px;height:48px;border-radius:50%;flex:none;display:grid;place-items:center;background:var(--grad);color:#fff;font:600 16px "Space Grotesk";overflow:hidden}
+.lip .av img{width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+.lip .hd b{display:block;font-size:14.5px;color:#191919}
+.lip .hd small{display:block;color:#666;font-size:12px;line-height:1.35}
+.lip .fl{margin-left:auto;color:#0a66c2;font:600 14px Inter;flex:none}
+.lip .bd{padding:4px 16px 10px;white-space:pre-wrap;font-size:14.2px;line-height:1.5;position:relative}
+.lip .bd.clamp{max-height:calc(1.5em * 6);overflow:hidden}
+.lip .more{border:0;background:none;color:#666;font:600 13.5px Inter;cursor:pointer;padding:0 16px 10px;display:block;margin-left:auto}
+.lip .more:hover{color:#0a66c2;text-decoration:underline}
+.lip .rx{display:flex;justify-content:space-between;padding:8px 16px;border-top:1px solid #eee;color:#666;font-size:12.5px}
+.lip .ac{display:flex;justify-content:space-around;padding:6px 8px;border-top:1px solid #eee}
+.lip .ac span{color:#666;font:600 13px Inter;padding:8px 10px}
+.lip .cm{border-top:1px solid #eee;padding:12px 16px;display:flex;gap:10px;font-size:13px;background:#fafafa;border-radius:0 0 12px 12px}
+.lip .cm i{width:32px;height:32px;border-radius:50%;flex:none;background:var(--grad);color:#fff;display:grid;place-items:center;font:600 11px "Space Grotesk";font-style:normal;overflow:hidden}
+.lip .cm i img{width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+.lip .cm div{background:#f0f0f0;border-radius:0 10px 10px 10px;padding:8px 12px;flex:1}
+.lip .cm b{display:block;font-size:12.5px}
+.pn{display:flex;flex-direction:column;gap:10px}
+.pn .n{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:#fff;font-size:14px;line-height:1.55}
+.pn .n b{display:block;font:600 11.5px "JetBrains Mono";color:var(--p2);letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px}
+.pn .chk2{display:flex;gap:6px;flex-wrap:wrap}
+</style>
+<section class="sec alt" id="posts">
+  <div class="wrap">
+    <div class="lbl">05 / Leadership posts</div>
+    <h2>Three long LinkedIn posts, one each for Andrei, Robert and you, written to be read to the end.</h2>
+    <p class="lede">Enterprise buyers follow people, not company pages. A CTO at a bank will read a founder's story about a 15-year-old system long before they click an ad. So the leaders need to post, well and often. Here's what that could look like.</p>
+    <div class="why3">
+      <div class="w"><h4>Why you need it</h4><p>The Campaign Manager post asks for founder-led Thought Leader Ads. Those ads can only promote posts that exist, and a CEO and CTO building a company don't have a free afternoon to write one.</p></div>
+      <div class="x"><h4>If nobody owns it</h4><p>The founders post when they find time, which is rarely. When they do, it reads like a press release. The best stories stay in their heads, and the ad budget goes to company posts nobody shares.</p></div>
+      <div class="p"><h4>My plan</h4><ol><li>A 30-minute chat with each leader every month</li><li>One long post each, two weeks apart</li><li>Their voice, plain words, one story per post</li><li>They edit it. Nothing goes out without their yes</li><li>The best post each month becomes a Thought Leader Ad</li></ol></div>
+    </div>
+    <div class="done">
+      <div class="done-h"><h3>The posts</h3><span>✓ Done · drafts for approval</span></div>
+      <div class="tabs" id="lpT"></div>
+      <div class="lp-wrap">
+        <div><div class="lip" id="lipBox"></div></div>
+        <div class="pn" id="lpNotes"></div>
+      </div>
+      <p class="note">Written in each leader's voice using only facts from designverse.ai. The examples in Robert's post are typical engineering rules, not his own codebase. Each post is a draft for that person to change.</p>
+    </div>
+  </div>
+</section>
+
+<style>
 /* case */
 .cs{display:grid;grid-template-columns:1.25fr 1fr;gap:22px}
 @media(max-width:960px){.cs{grid-template-columns:1fr}}
@@ -746,7 +837,7 @@ The model was never the point. Your context is.</div>
 
 <section class="sec alt" id="case">
   <div class="wrap">
-    <div class="lbl">05 / Case study</div>
+    <div class="lbl">06 / Case study</div>
     <h2>EUROCONTROL, written up properly, in four formats sales can use.</h2>
     <p class="lede">Right now the best proof you have sits in a funding post, a quote and a footnote. Every AE deal and every aviation ad needs it as one clean page.</p>
     <div class="why3">
@@ -807,7 +898,7 @@ The model was never the point. Your context is.</div>
 
 <section class="sec" id="deck">
   <div class="wrap">
-    <div class="lbl">06 / Deck</div>
+    <div class="lbl">07 / Deck</div>
     <h2>A seven-slide first-meeting deck for aviation, with talk track.</h2>
     <p class="lede">A first meeting with a technical buyer isn’t a product tour. It’s a conversation about their problem, with one strong proof point and a clear next step. Use the arrows, or your keyboard.</p>
     <div class="why3">
@@ -836,7 +927,7 @@ The model was never the point. Your context is.</div>
 
 <section class="sec alt" id="onepager-sec">
   <div class="wrap">
-    <div class="lbl">07 / One-pager</div>
+    <div class="lbl">08 / One-pager</div>
     <h2>A one-pager for banking, the vertical with the most to lose from drift.</h2>
     <p class="lede">Aviation has the proof, and banking has the budget pressure. Your banking page has the material for a strong leave-behind, so I turned it into one an SDR can attach and a buyer can forward to their CFO.</p>
     <div class="why3">
@@ -870,7 +961,7 @@ The model was never the point. Your context is.</div>
 
 <section class="sec" id="event">
   <div class="wrap">
-    <div class="lbl">08 / Event</div>
+    <div class="lbl">09 / Event</div>
     <h2>An executive roundtable, run end to end: the Ai4 format, made repeatable.</h2>
     <p class="lede">Your Ai4 plan had an executive roundtable on the missing context layer. Here’s that format turned into a kit the Field & Events Lead can run in any city, starting with bank engineering leaders in New York.</p>
     <div class="why3">
@@ -1026,7 +1117,7 @@ We’re doing a smaller version in {next_city} in the spring. Want me to hold a 
 
 <section class="sec alt" id="sdr">
   <div class="wrap">
-    <div class="lbl">09 / Sales kit</div>
+    <div class="lbl">10 / Sales kit</div>
     <h2>Everything the founding SDR and AE need before their first call.</h2>
     <p class="lede">Your SDR post says it plainly: not spray-and-pray. Personal outbound to technical buyers takes research, a story and good answers. I wrote the first version so they start from a draft and make it their own.</p>
     <div class="why3">
@@ -1107,7 +1198,7 @@ WHAT NOT TO DO: {anything they pushed back on}</div>
 
 <section class="sec" id="ops">
   <div class="wrap">
-    <div class="lbl">10 / Ops</div>
+    <div class="lbl">11 / Ops</div>
     <h2>The quiet work that makes attribution true: UTMs, a launch checklist, and one naming rule.</h2>
     <p class="lede">Your GTM Engineer is building closed-loop attribution in HubSpot. That only works if every link that goes out follows the same rules. I’d own that, so they never have to clean it up.</p>
     <div class="why3">
@@ -1156,7 +1247,7 @@ WHAT NOT TO DO: {anything they pushed back on}</div>
 
 <section class="sec alt" id="d90">
   <div class="wrap">
-    <div class="lbl">11 / First 90 days</div>
+    <div class="lbl">12 / First 90 days</div>
     <h2>Useful in week one. Trusted by month three.</h2>
     <p class="lede">The first month is about learning the product and the people, and being useful straight away. After that, it’s about owning the parts nobody else should have to think about.</p>
     <div class="d90">
@@ -1179,7 +1270,7 @@ WHAT NOT TO DO: {anything they pushed back on}</div>
     <h2>I’d love to be your right hand, Gina.</h2>
     <p>I’m Durva, a marketer in Barrie, Ontario, early in my career and happiest when I’m the person who gets things shipped. Your team is about to grow fast, and I’d love to help it move faster. Could we talk for 20 minutes?</p>
     <div class="row"><a class="btn" href="mailto:durvathakker7@gmail.com?subject=DesignVerse%20%C2%B7%20Marketing%20Coordinator">durvathakker7@gmail.com</a><a class="btn ghost" href="https://www.linkedin.com/in/durvathakkar/" target="_blank" rel="noopener">Durva on LinkedIn ↗</a></div>
-    <p class="fine">DesignVerse facts, numbers and quotes come from designverse.ai. Account signals come from the public sources linked in section 02, checked on November 22, 2026. Guests, report numbers and the event date are samples to show the format. The Thought Leader Ad is a draft for Andrei to approve or change.</p>
+    <p class="fine">DesignVerse facts, numbers and quotes come from designverse.ai. Account signals come from the public sources linked in section 02, checked on November 22, 2026. Guests, report numbers and the event date are samples to show the format. The Thought Leader Ad and the leadership posts are drafts for Andrei, Robert and you to approve or change.</p>
   </div>
 </section>
 </main>
@@ -1190,65 +1281,108 @@ const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const toast=t=>{const e=$('#toast');e.textContent=t||'Copied';e.classList.add('on');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('on'),1400)};
 
-/* ---------- hero story ---------- */
-const ROLES=[['Digital Campaign Manager','paid + digital','not ad-ops'],['Global Field & Events Lead','events','not coordination'],['Founding GTM Engineer','HubSpot + Clay','not CRM admin'],['Founding SDR','outbound','not spray-and-pray'],['Founding AE','closing','builds the playbook']];
-const REQS=[['Campaign Mgr','Banking landing page live by Thursday?','Live',0],['Field & Events','Invites, badges, run-of-show for the dinner?','Sent',1],['GTM Engineer','Who named these UTMs? 🙃','Fixed',2],['SDR','Is there an aviation one-pager?','Done',3],['AE','EUROCONTROL story as a PDF, for tomorrow?','Attached',4],['Content','Turn Andrei\'s post into an ad?','Running',null]];
-$('#roles').innerHTML=ROLES.map(r=>`<div class="role"><b>${r[0]}</b><small>${r[1]}</small><s>${r[2]}</s></div>`).join('');
-const bubHTML=(r,i)=>`<div class="bub" data-i="${i}"><i>${r[0]}</i>${esc(r[1])}<em>✓ ${r[2]}</em></div>`;
-$('#bl').innerHTML=REQS.filter((r,i)=>i%2==0).map((r)=>bubHTML(r,REQS.indexOf(r))).join('');
-$('#br').innerHTML=REQS.filter((r,i)=>i%2==1).map((r)=>bubHTML(r,REQS.indexOf(r))).join('');
-const bubs=i=>$(`.bub[data-i="${i}"]`);
-let timers=[],paused=false,t0=0,elapsed=0,TOTAL=30500,raf;
-function cap(html){const c=$('#cap');c.style.opacity=0;setTimeout(()=>{c.innerHTML=html;c.style.opacity=1},250)}
-function show(id){$$('.sc').forEach(s=>s.classList.toggle('on',s.id===id));$$('#'+id+' [data-t]').forEach(el=>{el.classList.remove('on');at(+el.dataset.t,()=>el.classList.add('on'),true)})}
-let base=0;
-function at(ms,fn,rel){const when=(rel?elapsedNow():0)+ms;timers.push({when,fn,done:false})}
+/* ---------- hero story v2 ---------- */
+function avatar(o,mood){
+  const m=mood==='smile'?'M41 64 Q50 72 59 64':mood==='worry'?'M42 67 Q50 62 58 67':'M43 65 L57 65';
+  const brow=mood==='worry'?'<path d="M37 45 L45 47 M63 45 L55 47" stroke="#2a2030" stroke-width="2" stroke-linecap="round"/>':'';
+  const hair={
+    long:`<path d="M27 52 Q25 22 50 20 Q75 22 73 52 L73 78 L63 78 L63 46 Q50 34 37 46 L37 78 L27 78 Z" fill="${o.hair}"/>`,
+    short:`<path d="M31 46 Q30 22 50 21 Q70 22 69 46 Q66 34 50 32 Q36 33 31 46 Z" fill="${o.hair}"/>`,
+    curly:`<g fill="${o.hair}"><circle cx="34" cy="36" r="9"/><circle cx="44" cy="27" r="10"/><circle cx="57" cy="27" r="10"/><circle cx="67" cy="36" r="9"/><circle cx="30" cy="47" r="7"/><circle cx="70" cy="47" r="7"/></g>`,
+    bun:`<g fill="${o.hair}"><circle cx="50" cy="16" r="8"/><path d="M31 47 Q30 23 50 22 Q70 23 69 47 Q64 33 50 32 Q36 33 31 47 Z"/></g>`,
+    side:`<path d="M31 47 Q29 21 52 21 Q71 23 69 44 Q60 30 40 36 Q34 39 31 47 Z" fill="${o.hair}"/>`}[o.style];
+  const glasses=o.glasses?'<g fill="none" stroke="#222" stroke-width="2"><circle cx="42" cy="52" r="5.5"/><circle cx="58" cy="52" r="5.5"/><path d="M47.5 52 L52.5 52"/></g>':'';
+  return `<svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" fill="${o.bg}"/><path d="M18 100 Q20 76 50 74 Q80 76 82 100 Z" fill="${o.shirt}"/><rect x="44" y="62" width="12" height="14" rx="5" fill="${o.skin}"/><ellipse cx="50" cy="50" rx="18" ry="20" fill="${o.skin}"/>${hair}<circle cx="42" cy="52" r="2.2" fill="#2a2030"/><circle cx="58" cy="52" r="2.2" fill="#2a2030"/>${brow}${glasses}<path d="${m}" stroke="#2a2030" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>`}
+const HIRES=[
+ {role:'Campaign Manager',job:'Runs the ads',not:'not ad-ops',q:'“This is not an ad-ops role.”',day:'Monday: the ads.',av:{bg:'#2d2350',skin:'#f1c9a5',hair:'#5a3825',style:'long',shirt:'#8f69e4'},
+  task:'“The bank ad needs 6 sizes and its own landing page. By Thursday.”',cost:'3 hours resizing pictures, instead of testing which ad works.',chip:'6 ad sizes + a landing page',fix:'Live Wed'},
+ {role:'Events Lead',job:'Runs the dinners and big events',not:'not coordination',q:'“This is not an events coordination role.”',day:'Tuesday: the dinner.',av:{bg:'#3a2a14',skin:'#8d5524',hair:'#1b1b1b',style:'curly',shirt:'#e39f3a'},
+  task:'“40 invites. 12 name cards. 1 dinner. And who writes the thank-you emails?”',cost:'The thank-yous go out 8 days late. By then, guests have moved on.',chip:'Dinner invites + thank-yous',fix:'Sent in 48 h'},
+ {role:'GTM Engineer',job:'Builds the data and tools',not:'not CRM admin',q:'“This is not a CRM admin role.”',day:'Wednesday: the data.',av:{bg:'#14302a',skin:'#e0ac69',hair:'#222',style:'short',shirt:'#2f855a',glasses:true},
+  task:'“LinkedIn”, “linkedin” and “li” now count as three different channels.',cost:'The pipeline report is wrong, so nobody trusts the numbers.',chip:'Messy tracking links',fix:'Fixed'},
+ {role:'SDR',job:'Books the first calls',not:'not spray-and-pray',q:'“This is not a high-volume, spray-and-pray SDR role.”',day:'Thursday: the sales call.',av:{bg:'#162a4a',skin:'#f6d3b3',hair:'#d6a756',style:'side',shirt:'#3b82f6'},
+  task:'“My next call is with an airline. Do we have a one-pager for airlines?”',cost:'No. So a whole morning goes on making a PDF, not on calls.',chip:'Airline one-pager',fix:'Done'},
+ {role:'Account Executive',job:'Closes the deals',not:'builds the playbook',q:'“You’ll help build the playbook as we grow.”',day:'Friday: the deal.',av:{bg:'#3a1420',skin:'#c68642',hair:'#3b2416',style:'bun',shirt:'#b6304b'},
+  task:'“The buyer wants the EUROCONTROL story as a PDF. Today.”',cost:'There is no PDF yet. The deal waits until next week.',chip:'Case study PDF',fix:'Attached'}];
+$('#team').innerHTML=HIRES.map((h,i)=>`<div class="hire" data-i="${i}"><span class="tag">NEW</span>${avatar(h.av,'neutral')}<b>${h.role}</b><small>${h.job}</small><s>${h.not}</s></div>`).join('');
+const hire=i=>$$('.hire')[i];
+const mood=(i,m)=>{const el=hire(i);el.querySelector('svg').outerHTML=avatar(HIRES[i].av,m)};
+const CH=[[0,'The news'],[11000,'The team'],[22000,'The job posts'],[30000,'Week one'],[56000,'Late nights'],[63000,'Something\'s missing'],[69000,'Durva'],[80000,'The work']];
+let timers=[],paused=false,t0=0,elapsed=0,TOTAL=84000,raf,lastCh=-1;
+$('#chaps').innerHTML=CH.map((c,i)=>`<button data-i="${i}"><i>${i+1}</i>${c[1]}</button>`).join('');
+let capTimer;function cap(html){const c=$('#cap');if($('#stage').classList.contains('snap')){c.innerHTML='<span>'+html+'</span>';c.style.opacity=1;return}c.style.opacity=0;clearTimeout(capTimer);capTimer=setTimeout(()=>{c.innerHTML='<span>'+html+'</span>';c.style.opacity=1},300)}
+function show(id){$$('.sc').forEach(s=>s.classList.toggle('on',s.id===id))}
+function at(ms,fn){timers.push({when:ms,fn,done:false})}
 function elapsedNow(){return paused?elapsed:elapsed+(performance.now()-t0)}
-function counter(n){const c=$('#cnt');c.classList.add('on');c.textContent=n+(n===1?' request':' requests')+' waiting'}
+function clock(t){$('#clk').textContent=t}
+function spot(i){const h=HIRES[i];$('#spWho').innerHTML=avatar(h.av,'worry')+h.role.toUpperCase();$('#spTask').textContent=h.task;$('#spCost').textContent=h.cost;const s=$('#spot');s.classList.remove('cost-on');s.classList.add('on')}
+function note(who,txt,av){$('#spWho').innerHTML=(av?avatar(av,'neutral'):'')+who;$('#spTask').textContent=txt;$('#spCost').textContent='';const s=$('#spot');s.classList.remove('cost-on');s.classList.add('on')}
+function pileAdd(i){const p=$('#pile');p.querySelector('.empty')?.remove();if(!p.querySelector(`[data-i="${i}"]`))p.insertAdjacentHTML('beforeend',`<li data-i="${i}">${HIRES[i].chip}</li>`)}
 function script(){
   at(0,()=>show('s1'));
-  at(2400,()=>show('s2'));
-  at(4900,()=>show('s3'));
-  at(7200,()=>{show('sb');cap('Meet Gina, the CMO.');$('#gina').classList.add('on')});
-  ROLES.forEach((r,i)=>at(8200+i*380,()=>$$('.role')[i].classList.add('on')));
-  at(9300,()=>cap('Five new specialists, all hired at once.'));
-  at(10600,()=>cap('Each job post says what the role is <b>not</b>.'));
-  ROLES.forEach((r,i)=>at(11000+i*300,()=>$$('.role')[i].classList.add('stamp')));
-  at(12900,()=>{cap('Then week one starts.');});
-  const tally=[3,7,12,16,19,23];
-  REQS.forEach((r,i)=>at(13600+i*620,()=>{bubs(i).classList.add('on');counter(tally[i]);if(i==2)$('#gina').classList.add('busy')}));
-  at(15400,()=>cap('…and every “not” lands on one desk.'));
-  at(17600,()=>cap('Something\'s missing…'));
-  at(18200,()=>$('#slot').classList.add('on'));
-  at(19400,()=>cap('oh.'));
-  at(20100,()=>cap('oh oh.'));
-  at(21000,()=>{$('#slot').classList.add('filled');cap('Hi Gina, I\'m <b>Durva</b>. 👋');$('#gina').classList.remove('busy')});
-  REQS.forEach((r,i)=>at(22300+i*380,()=>{bubs(i).classList.add('fin');counter(Math.max(0,23-Math.round((i+1)*23/6)));if(r[3]!==null)$$('.role')[r[3]].classList.add('ok')}));
-  at(22400,()=>cap('Your right hand. I take the “not” work, so the five of them can do theirs.'));
-  at(24800,()=>$('#gina').classList.add('calm'));
-  at(26600,()=>show('s9'));
+  at(3800,()=>show('s2'));
+  at(7400,()=>show('s3'));
+  // the team
+  at(11000,()=>{show('sb');cap('This is Gina. She runs marketing at DesignVerse.');$('#gcol').classList.add('on')});
+  at(14500,()=>cap('Meet her <b>five new hires</b>.'));
+  HIRES.forEach((h,i)=>at(15200+i*900,()=>hire(i).classList.add('on')));
+  at(19500,()=>{cap('Each one is an expert at one thing.');note('DESIGNVERSE CAREERS PAGE','5 open roles. All in go-to-market. All hiring now.')});
+  // the job posts
+  at(22000,()=>cap('Their job posts are clear. These are <b>big</b> jobs, not admin jobs.'));
+  HIRES.forEach((h,i)=>at(23000+i*1100,()=>{hire(i).classList.add('stamp');$$('.hire').forEach((x,j)=>x.classList.toggle('act',j===i));note('FROM THE '+h.role.toUpperCase()+' JOB POST',h.q,h.av)}));
+  at(28600,()=>{cap('That\'s right. Experts should do expert work.');$('#spot').classList.remove('on');$$('.hire').forEach(x=>x.classList.remove('act'))});
+  // week one
+  at(30000,()=>{cap('Then week one starts. And the small jobs show up.');clock('Mon 9:00 am')});
+  const times=['Mon 10:30 am','Tue 12:15 pm','Wed 2:40 pm','Thu 4:10 pm','Fri 6:05 pm'];
+  HIRES.forEach((h,i)=>{const s=32500+i*4700;
+    at(s,()=>{$$('.hire').forEach((x,j)=>x.classList.toggle('act',j===i));mood(i,'worry');spot(i);cap(h.day);clock(times[i])});
+    at(s+1900,()=>$('#spot').classList.add('cost-on'));
+    at(s+4200,()=>{$('#spot').classList.remove('on');pileAdd(i);hire(i).classList.remove('act')});
+  });
+  // late nights
+  at(56000,()=>cap('Each job is small. Together, they fill <b>a whole week</b>.'));
+  at(59000,()=>{clock('Fri 9:47 pm');$('#gcol').classList.add('late');cap('So Gina does them herself. At night. The big plans wait.')});
+  at(59600,()=>{note('WHAT GINA SHOULD BE DOING','Planning the US launch. Coaching five new people. Setting the strategy.');$('#spCost').textContent='All of it moves to next week.';setTimeout(()=>$('#spot').classList.add('cost-on'),$('#stage').classList.contains('snap')?0:1200)});
+  at(62600,()=>$('#spot').classList.remove('on'));
+  // something's missing
+  at(63000,()=>cap('Something\'s missing…'));
+  at(63800,()=>$('#slot').classList.add('on'));
+  at(65600,()=>cap('oh.'));
+  at(66800,()=>cap('oh oh.'));
+  // durva
+  at(69000,()=>{$('#slot').classList.add('filled');cap('Hi Gina, I\'m <b>Durva</b>. 👋');$('#gcol').classList.remove('late')});
+  at(71500,()=>cap('I take the small jobs. So your experts can do the <b>big ones</b>.'));
+  HIRES.forEach((h,i)=>at(72200+i*800,()=>{const li=$(`#pile [data-i="${i}"]`);if(li)li.classList.add('fin');hire(i).classList.add('ok');mood(i,'smile')}));
+  at(76800,()=>{clock('Fri 4:30 pm');$('#gcol').classList.add('calm');cap('Everything shipped. And Gina is home on time.')});
+  at(80000,()=>show('s9'));
+}
+function resetState(){
+  $$('.hire').forEach((h,i)=>{h.className='hire';mood(i,'neutral')});
+  $('#pile').innerHTML='<li class="empty">Nothing yet</li>';$('#spot').className='spot';$('#slot').className='slot';$('#gcol').className='gcol';$('#cap').innerHTML='&nbsp;';clock('Mon 9:00 am');show('s1');
 }
 function tick(){
   const now=elapsedNow();
   timers.forEach(t=>{if(!t.done&&now>=t.when){t.done=true;t.fn()}});
   $('#prog').style.width=Math.min(100,now/TOTAL*100)+'%';
-  if(now<TOTAL+500&&!paused)raf=requestAnimationFrame(tick);
+  let ci=0;CH.forEach((c,i)=>{if(now>=c[0])ci=i});
+  if(ci!==lastCh){lastCh=ci;$$('#chaps button').forEach((b,i)=>{b.classList.toggle('on',i===ci);if(i<ci)b.classList.add('seen')})}
+  if(now<TOTAL&&!paused)raf=requestAnimationFrame(tick);
 }
-function reset(){
-  cancelAnimationFrame(raf);timers=[];elapsed=0;paused=false;$('#pp').textContent='Pause';
-  $$('.role').forEach(r=>r.className='role');$$('.bub').forEach(b=>b.className='bub');
-  $('#slot').className='slot';$('#gina').className='gina';$('#cnt').className='cnt mono';$('#cap').innerHTML='&nbsp;';
-  t0=performance.now();script();tick();
+function seek(ms,play=true){
+  cancelAnimationFrame(raf);const st=$('#stage');st.classList.add('snap');resetState();timers=[];script();
+  timers.forEach(t=>{if(t.when<=ms){t.done=true;t.fn()}});
+  void st.offsetWidth;st.classList.remove('snap');
+  elapsed=ms;lastCh=-1;paused=!play;$('#pp').textContent=play?'Pause':'Play';t0=performance.now();
+  if(play)tick();else{$('#prog').style.width=Math.min(100,ms/TOTAL*100)+'%';let ci=0;CH.forEach((c,i)=>{if(ms>=c[0])ci=i});$$('#chaps button').forEach((b,i)=>{b.classList.toggle('on',i===ci);b.classList.toggle('seen',i<ci)})}
 }
-$('#pp').onclick=()=>{if(paused){paused=false;t0=performance.now();$('#pp').textContent='Pause';tick()}else{elapsed=elapsedNow();paused=true;$('#pp').textContent='Play'}};
-$('#rp').onclick=reset;$('#rp2').onclick=reset;
+$('#chaps').addEventListener('click',e=>{const b=e.target.closest('button');if(b)seek(CH[+b.dataset.i][0]+1)});
+$('#team').addEventListener('click',e=>{const h=e.target.closest('.hire');if(!h||!$('#sb').classList.contains('on'))return;
+  const i=+h.dataset.i;if(!paused){elapsed=elapsedNow();paused=true;$('#pp').textContent='Play'}
+  $$('.hire').forEach((x,j)=>x.classList.toggle('act',j===i));$('#slot').classList.remove('on');spot(i);setTimeout(()=>$('#spot').classList.add('cost-on'),350);cap(`${HIRES[i].role}, week one:`)});
+$('#pp').onclick=()=>{if(paused){seek(elapsed,true)}else{elapsed=elapsedNow();paused=true;$('#pp').textContent='Play'}};
+$('#rp').onclick=()=>seek(0);$('#rp2').onclick=()=>seek(0);
 const jump=new URLSearchParams(location.search).get('t');
-if(jump!==null){const st=document.createElement('style');st.textContent='#stage *{transition:none!important;animation:none!important}';document.head.appendChild(st);
-  timers=[];elapsed=0;paused=true;script();const J=+jump;timers.sort((x,y)=>x.when-y.when);
-  for(let k=0;k<timers.length;k++){const t=timers[k];if(t.when<=J&&!t.done){t.done=true;t.fn()}}
-  $('#prog').style.width=Math.min(100,J/TOTAL*100)+'%';
-  setTimeout(()=>{timers.forEach(t=>{if(!t.done&&t.when<=J){t.done=true;t.fn()}})},10);
-}else reset();
+if(jump!==null)seek(+jump,false);else seek(0);
 
 /* ---------- calculator ---------- */
 function calc(){const h=+$('#ih').value,w=+$('#iw').value,c=+$('#ic').value;$('#vh').textContent=h;$('#vw').textContent=w;$('#vc').textContent='$'+c;
@@ -1332,6 +1466,137 @@ $('#uCp').onclick=()=>navigator.clipboard?.writeText($('#uOut').textContent).the
 const LC=['Brief approved by the campaign owner','Copy checked against the messaging doc','Every link built with the UTM builder','Landing page tested on phone and desktop','Form submits, and the record lands in HubSpot','Account owner gets the alert','Ads within character limits, visuals in every size','Retargeting audience set up','Founder content approved by Andrei','Added to the launch calendar','Reporting view ready before day one','Post-launch check booked for day three'];
 $('#lc').innerHTML=LC.map(l=>`<label><input type="checkbox"><span>${l}</span></label>`).join('');
 $('#lc').addEventListener('change',e=>e.target.closest('label').classList.toggle('ck',e.target.checked));
+const POSTS=[
+{id:'andrei',name:'Andrei Manolache',title:'Co-founder & CEO, DesignVerse',ini:'AM',topic:'The founder story',
+hook:'Opens with his own past at Oracle, so the lesson feels earned, not pitched.',
+why:'It tells one true story (EUROCONTROL) slowly and well, names the problem in plain words, and only then mentions the product. Engineering leaders forgive a founder for selling if he has taught them something first.',
+when:'Tuesday, 8:00 am Eastern. Europe is at lunch and the US East Coast is starting work.',
+turns:'Thought Leader Ad to tier 1 accounts, with the drift calculator as the link.',
+text:`Before I started DesignVerse, I was a product design lead at Oracle.
+
+That job taught me something I did not expect. The hardest part of building enterprise software was rarely the design, and it was rarely the code. It was the translation in between.
+
+A designer decides how something should work. A document tries to explain it. An engineer reads the document and makes a choice. Another team, a year later, makes a slightly different choice. Nobody is wrong. But slowly, the system stops looking like itself.
+
+Repeat that across twenty teams and ten years, and you get the software most large organisations run on today. It works. It is also very hard to change without breaking something.
+
+When AI coding tools arrived, I hoped they would help with this. In many ways they made it worse. A model can write a thousand lines in a minute, but it has never seen your architecture, your standards, or the rules your best engineers carry in their heads. So it guesses. Every guess is one more thing a person has to review, fix and explain later.
+
+That is the problem Robert and I set out to work on in 2023.
+
+One of our earliest big projects came from a place where guessing is not allowed: air traffic management.
+
+EUROCONTROL needed to modernise a 15-year-old operational application. The usual estimate for that kind of work was about six months. With DesignVerse it took just over one month, and the reliability, safety and security standards stayed exactly where they were.
+
+People ask me what the trick was. There was no trick. We did the slow part first.
+
+Before the model wrote a single line, it was given the context: the existing architecture, the patterns the team already used, the rules they had written down and the ones they had not. The model stopped searching and started building the way the organisation already builds.
+
+I think about that project often, because it changed how I explain our work.
+
+We are not trying to build a smarter model. The models are already very good. What they are missing is knowledge of the place they are working in. The first wave of enterprise AI was about access to better language models. The next wave is about making those models know your organisation.
+
+If you run engineering at a bank, an airline, a hospital or a government department, you will probably recognise the pattern. Fast first drafts. Slow reviews. Rework that never appears as a line in anyone's budget.
+
+We call it engineering drift, and it is eating the time AI was supposed to give back.
+
+We built a small calculator so you can put a number on it for your own team. It takes two minutes, and the inputs are yours. The link is in the first comment.
+
+And if you have modernised an old system with AI, and it went better or worse than you expected, I would like to hear how it went.`},
+{id:'gina',name:'Gina Dragulin',title:'CMO, DesignVerse',ini:'GD',img:'img/gina.jpg',topic:'The hiring post',
+hook:'Starts with something odd and true: the job posts say what the jobs are not.',
+why:'Hiring posts usually read like ads. This one explains a choice, which makes people stop. It sells the company to candidates and to buyers at the same time, because it explains what DesignVerse does in two plain sentences.',
+when:'Wednesday, 7:30 am Eastern, then reshared by each founder the next day.',
+turns:'A pinned post on the careers page, and a short version for the company page.',
+text:`This month we opened five go-to-market roles at DesignVerse, all at the same time.
+
+If you read the job posts closely, you will notice something unusual. Most of them tell you what the job is not.
+
+The Digital Campaign Manager post says it is not an ad-ops role.
+The Field and Events Lead post says it is not an events coordination role.
+The GTM Engineer post says it is not a CRM admin role.
+The SDR post says it is not a high-volume, spray-and-pray role.
+
+We wrote them that way on purpose, and I want to explain why.
+
+It is very easy to hire a good person into a big title and then bury them in small work. The job post promised strategy. The first month delivers spreadsheets, resizing and other people's emergencies. The person is still talented, but they stop doing the thing you hired them for, and after a while they stop believing they will.
+
+We did not want to do that to anyone. So we tried to be honest about what each of these jobs is for.
+
+The Campaign Manager will own a share of our pipeline and will decide where a six-figure paid budget goes, and why.
+
+The Field and Events Lead will design the dinners, roundtables and conferences where we meet the people who run engineering at large organisations, and will be measured on the conversations that come out of them.
+
+The GTM Engineer will build the data and the automation behind all of it, with HubSpot and Clay, and will treat go-to-market as an engineering problem.
+
+The SDR and the Account Executive will be our first. They will write the playbook rather than follow one.
+
+If you are wondering what you would be selling, here it is in two sentences. AI can now write code very fast, but it does not know how a particular company builds software, so large organisations spend the time they saved on review and rework. DesignVerse gives the model that knowledge before it writes anything, and EUROCONTROL used it to modernise a 15-year-old application in about a month.
+
+We are a remote-first team across six countries in Europe and the US. You would work directly with the founders, and with me. We meet in person when it matters, and we travel for events and offsites.
+
+What we ask in return is ownership. These are first-of-their-kind roles. Nobody will hand you a finished process, because there is not one yet. You will build it, and you will be trusted to.
+
+A word on what we look for, since it does not fit in a bullet point. We like people who write clearly, who ask a second question when the first answer is vague, and who would rather show a rough version on Monday than a perfect one on Friday. If that sounds like you, the title on your CV matters less than you think.
+
+All five posts are on our careers page. The link is in the first comment.
+
+If you know someone who would be good at one of these jobs, please send them this post. It would mean a great deal to us.`},
+{id:'robert',name:'Robert Dragutoiu',title:'Co-founder & CTO, DesignVerse',ini:'RD',topic:'The engineer\'s post',
+hook:'A claim every senior engineer will agree with in the first line, so they keep reading.',
+why:'It speaks to architects and platform leads in their own language, with examples they have lived through. It never says "AI-powered". It explains a real problem, and asks a question engineers love to answer.',
+when:'Thursday, 9:00 am Eastern. The comments are the point, so Robert replies to each one that day.',
+turns:'The best replies become a carousel: "Unwritten rules from 50 engineering teams".',
+text:`In more than twenty years of building enterprise systems, the most important rules I learned were never written down.
+
+The coding standards were written down. They lived in a wiki, mostly up to date. I mean the other rules, the ones you only learn by breaking them.
+
+Rules like these:
+
+This service is never called directly from the front end.
+That table is never changed on a Friday.
+Dates in this module are stored in UTC, except in the old reports.
+That library looks unused, but billing depends on it.
+
+Every large codebase has hundreds of them. A new engineer learns them slowly, over months, mostly in code review. A senior colleague leaves a comment, the new engineer fixes it, and the rule passes from one head to another. It is slow, but it works, and it is how good teams keep their systems in one piece.
+
+AI coding tools never get that apprenticeship.
+
+A model reads the code in front of it, makes a reasonable guess, and writes something that compiles. Often it is good code. But it does not know about the Friday rule or the billing library, because nobody ever wrote them down for it to read.
+
+So the rules get enforced in the only place left: review. And review becomes the bottleneck. Senior engineers spend their days correcting code that was produced in seconds, and the speed everyone was promised turns into a longer queue.
+
+I do not think the answer is to slow the models down, or to ban them. Engineers who use them well are faster, and that will not reverse. I also do not think the answer is a longer wiki. Nobody reads the wiki, and the model cannot tell which pages are still true.
+
+The answer we chose at DesignVerse is to treat context as part of the system.
+
+We build it from what already exists: the code, the APIs, the architecture, the documents, and the patterns that teams repeat but never document. Then we apply it before the model writes anything, so the work starts inside the rules instead of being checked against them afterwards.
+
+Two things matter a great deal to the engineers we work with, so I will mention them plainly. It runs inside your own infrastructure, including air-gapped environments. And every prompt is saved, attributable to a person, and can be reverted. A person still reviews backend changes before they reach production.
+
+None of this replaces senior engineers. It gives them their afternoons back, and it means the rules they carry in their heads finally get written down somewhere useful.
+
+If you lead a platform team, try a small test this week. Take the last ten review comments your senior engineers left on AI-written code, and count how many were about rules that exist nowhere in writing. My guess is that it will be more than you expect.
+
+I am curious about your codebase.
+
+What is the one unwritten rule that every new person breaks in their first month? Please share yours in the comments. I will read every one.`}];
+
+/* ---------- leadership posts ---------- */
+const BAD=['—','–','delve','landscape','leverage','unlock','seamless','robust','game-chang','let that sink','genuinely','truly','in today','journey','not just','navigate','elevate','empower','cutting-edge','excited to','thrilled','furthermore','moreover','worth noting','🚀','✨'];
+const FIRST={andrei:{who:'Andrei Manolache',ini:'AM',txt:'The drift calculator I mentioned: designverse.ai/engineering-drift-calculator'},gina:{who:'Gina Dragulin',ini:'GD',img:'img/gina.jpg',txt:'All five roles are here: designverse.ai/careers'},robert:{who:'Robert Dragutoiu',ini:'RD',txt:'I\'ll start the list: never change that table on a Friday. What\'s yours?'}};
+let curP=0;
+$('#lpT').innerHTML=POSTS.map((p,i)=>`<button class="${i?'':'on'}" data-i="${i}">${p.name.split(' ')[0]} · ${p.topic}</button>`).join('');
+function renderPost(i){curP=i;const p=POSTS[i],f=FIRST[p.id];
+  const av=p.img?`<img src="${p.img}" alt="">`:p.ini;
+  $('#lipBox').innerHTML=`<div class="hd"><div class="av">${av}</div><div><b>${p.name}</b><small>${p.title}</small><small>Draft · 🌐</small></div><span class="fl">+ Follow</span></div><div class="bd clamp" id="lipBd">${esc(p.text)}</div><button class="more" id="lipMore">…see more</button><div class="rx"><span>👍 💡 ❤️</span><span>Comments · Reposts</span></div><div class="ac"><span>Like</span><span>Comment</span><span>Repost</span><span>Send</span></div><div class="cm"><i>${f.img?`<img src="${f.img}" alt="">`:f.ini}</i><div><b>${f.who} · first comment</b>${esc(f.txt)}</div></div>`;
+  $('#lipMore').onclick=()=>{const b=$('#lipBd');const c=b.classList.toggle('clamp');$('#lipMore').textContent=c?'…see more':'show less'};
+  const t=p.text,words=t.split(/\s+/).length,sents=t.split(/[.!?](\s|$)/).filter(s=>s&&s.trim().length>1).length,hits=BAD.filter(b=>t.toLowerCase().includes(b));
+  const firstLines=t.split('\n')[0].length;
+  $('#lpNotes').innerHTML=`<div class="n"><b>The hook</b>${esc(p.hook)}</div><div class="n"><b>Why it works</b>${esc(p.why)}</div><div class="n"><b>When to post</b>${esc(p.when)}</div><div class="n"><b>Then it becomes</b>${esc(p.turns)}</div><div class="n"><b>Checked, in code</b><div class="chk2"><span class="chip ${t.length<=3000?'lime':'warn'}">${t.length.toLocaleString()} / 3,000 characters</span><span class="chip">${words} words</span><span class="chip">~${Math.round(words/sents)} words a sentence</span><span class="chip ${firstLines<=140?'lime':'warn'}">first line ${firstLines} chars</span><span class="chip ${hits.length?'warn':'lime'}">${hits.length?'AI tells: '+hits.join(', '):'0 em dashes · 0 buzzwords'}</span></div></div>`;
+  $$('#lpT button').forEach((b,j)=>b.classList.toggle('on',j===i))}
+$('#lpT').addEventListener('click',e=>{const b=e.target.closest('button');if(b)renderPost(+b.dataset.i)});
+renderPost(0);
 </script>
 </body>
 </html>
