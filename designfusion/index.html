@@ -462,6 +462,116 @@ pre.ld{margin-top:12px;background:var(--ink);color:#d6f07e;font-family:var(--mon
 .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:60px;color:#6e6990}
 @media(max-width:900px){.me .grid2{grid-template-columns:1fr}.me img.ph{max-width:260px}.me .facts,.vq{grid-template-columns:1fr}}
 
+
+/* ===== layered creative (cr-) ===== */
+.cr{position:relative;overflow:hidden;background:#0a0816;color:#fff;isolation:isolate;container-type:inline-size;font-family:var(--sans)}
+.cr.r45{aspect-ratio:4/5}.cr.r11{aspect-ratio:1/1}.cr.r165{aspect-ratio:16/5}
+.cr::after{content:"";position:absolute;inset:0;z-index:9;pointer-events:none;opacity:.22;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+.cr .ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.cr .dig{z-index:1;filter:grayscale(1) contrast(1.5) brightness(.62);clip-path:inset(0 0 0 50%)}
+.cr .tint{position:absolute;inset:0;z-index:2;background:#282156;mix-blend-mode:color;clip-path:inset(0 0 0 50%);opacity:.95}
+.cr .mesh{position:absolute;inset:0;z-index:3;clip-path:inset(0 0 0 50%);mix-blend-mode:screen;opacity:.75;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26'%3E%3Cpath d='M0 26L26 0M0 0H26M0 0V26' stroke='%235592ff' stroke-width='.8' fill='none'/%3E%3Ccircle cx='0' cy='0' r='1.3' fill='%23bed361'/%3E%3C/svg%3E");background-size:4.6cqw 4.6cqw}
+.cr .scanl{position:absolute;top:0;bottom:0;left:50%;width:2px;margin-left:-1px;z-index:4;background:var(--green);box-shadow:0 0 14px 3px rgba(190,211,97,.75),0 0 60px 14px rgba(190,211,97,.22)}
+.cr .scanl::before{content:"";position:absolute;top:0;bottom:0;left:-9cqw;width:9cqw;background:linear-gradient(90deg,transparent,rgba(190,211,97,.16))}
+.cr .scanl.anim{animation:crScan 5.5s ease-in-out infinite alternate}
+@keyframes crScan{from{transform:translateX(-4cqw)}to{transform:translateX(4cqw)}}
+.cr .shade{position:absolute;inset:0;z-index:5;background:linear-gradient(180deg,rgba(10,8,22,.94) 0%,rgba(10,8,22,.72) 26%,rgba(10,8,22,0) 50%,rgba(10,8,22,0) 66%,rgba(10,8,22,.92) 100%)}
+.cr .hd{position:absolute;left:7cqw;right:7cqw;top:7cqw;z-index:6}
+.cr .k{font-family:var(--mono);font-size:2.5cqw;letter-spacing:.18em;color:var(--green);display:flex;align-items:center;gap:2cqw}
+.cr .k::before{content:"";width:5cqw;height:1px;background:currentColor}
+.cr h5{font-size:9.4cqw;line-height:.98;letter-spacing:-.045em;font-weight:800;margin-top:3cqw}
+.cr h5 em{font-style:normal;color:var(--green)}
+.cr .ft{position:absolute;left:7cqw;right:7cqw;bottom:6cqw;z-index:6;display:flex;justify-content:space-between;align-items:flex-end;gap:3cqw}
+.cr .ft img{height:4.2cqw;width:auto}
+.cr.ed .ft img{mix-blend-mode:multiply}
+.cr .ft span{font-family:var(--mono);font-size:2.3cqw;letter-spacing:.14em;color:#c9c6dc;text-align:right;line-height:1.5}
+.cr .side{position:absolute;z-index:6;font-family:var(--mono);font-size:2.2cqw;letter-spacing:.2em;padding:1.2cqw 1.8cqw;border-radius:.8cqw;background:rgba(10,8,22,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.22)}
+.cr .side.dg{color:var(--green);border-color:rgba(190,211,97,.5)}
+.cr .call{position:absolute;z-index:6;display:flex;align-items:center;gap:1.6cqw;font-family:var(--mono);font-size:2.1cqw;letter-spacing:.12em;color:#fff;white-space:nowrap}
+.cr .call i{width:2.2cqw;height:2.2cqw;border-radius:50%;border:2px solid var(--green);box-shadow:0 0 0 1.2cqw rgba(190,211,97,.18);flex:none}
+.cr .call b{height:1px;width:7cqw;background:var(--green);flex:none}
+.cr .call span{background:rgba(10,8,22,.72);padding:.9cqw 1.4cqw;border-radius:.6cqw;border:1px solid rgba(190,211,97,.4)}
+.cr .stamp{position:absolute;z-index:6;font-family:var(--mono);font-weight:600;font-size:3.1cqw;letter-spacing:.16em;color:#ff5a4e;border:.6cqw solid #ff5a4e;padding:1cqw 2cqw;border-radius:1cqw;transform:rotate(-11deg);mix-blend-mode:screen;opacity:.9}
+.cr .ok{position:absolute;z-index:6;font-family:var(--mono);font-size:2.4cqw;letter-spacing:.14em;color:var(--ink);background:var(--green);padding:1.2cqw 1.8cqw;border-radius:.8cqw;font-weight:600;box-shadow:0 2cqw 5cqw -1cqw rgba(190,211,97,.5)}
+/* editorial list post */
+.cr.ed{background:var(--green);color:var(--ink)}
+.cr.ed::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(10,8,22,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(10,8,22,.07) 1px,transparent 1px);background-size:5cqw 5cqw}
+.cr.ed .k{color:var(--ink)}
+.cr.ed h5{font-size:8.6cqw}
+.cr.ed h5 em{color:var(--blue)}
+.cr.ed .rows{position:absolute;left:7cqw;right:7cqw;top:33cqw;z-index:6;display:grid;gap:1.8cqw}
+.cr.ed .row{display:grid;grid-template-columns:11cqw 5cqw 1fr;align-items:center;gap:2.2cqw;background:rgba(255,255,255,.55);backdrop-filter:blur(4px);border-radius:2cqw;padding:1.2cqw;box-shadow:0 1.4cqw 3cqw -1.6cqw rgba(40,33,86,.45)}
+.cr.ed .row img,.cr.ed .row .yr{width:11cqw;height:11cqw;object-fit:cover;border-radius:1.4cqw;display:block}
+.cr.ed .row .yr{background:var(--blue);color:var(--green);display:grid;place-items:center;font-family:var(--mono);font-size:2.8cqw;font-weight:600;background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);background-size:2.5cqw 2.5cqw}
+.cr.ed .row .n{font-family:var(--mono);font-size:2.6cqw;color:var(--blue);font-weight:600}
+.cr.ed .row b{display:block;font-size:3.7cqw;letter-spacing:-.02em;line-height:1.08}
+.cr.ed .row small{display:block;font-size:2.4cqw;color:#3b3f2a;margin-top:.5cqw;line-height:1.3}
+.cr.ed .ft span{color:var(--ink)}
+/* broadcast post */
+.cr.bc .ph{filter:grayscale(1) contrast(1.15) brightness(.9)}
+.cr.bc .duo{position:absolute;inset:0;z-index:1;background:linear-gradient(160deg,#352c73,#0a0816 75%);mix-blend-mode:multiply}
+.cr.bc .glow{position:absolute;z-index:2;width:60cqw;height:60cqw;left:30cqw;top:4cqw;background:radial-gradient(circle,rgba(255,154,26,.45),transparent 62%);mix-blend-mode:screen}
+.cr .bar{position:absolute;left:7cqw;right:7cqw;top:7cqw;z-index:6;display:flex;align-items:center;gap:2cqw;font-family:var(--mono);font-size:2.3cqw;letter-spacing:.14em}
+.cr .live{display:inline-flex;align-items:center;gap:1.4cqw;background:#e5392e;color:#fff;padding:1.1cqw 1.8cqw;border-radius:.8cqw;font-weight:600}
+.cr .live::before{content:"";width:1.6cqw;height:1.6cqw;border-radius:50%;background:#fff;animation:crBlink 1.2s steps(2) infinite}
+@keyframes crBlink{50%{opacity:.2}}
+.cr .bar .tc{background:rgba(10,8,22,.55);border:1px solid rgba(255,255,255,.2);padding:1.1cqw 1.8cqw;border-radius:.8cqw}
+.cr.bc .hd{top:20cqw}
+.cr .agenda{position:absolute;left:7cqw;right:7cqw;bottom:22cqw;z-index:6;background:rgba(10,8,22,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.16);border-radius:2.4cqw;padding:3cqw}
+.cr .agenda .row{display:grid;grid-template-columns:7cqw 1fr auto;align-items:center;font-size:3.3cqw;padding:1.5cqw 0;border-top:1px solid rgba(255,255,255,.1)}
+.cr .agenda .row:first-child{border-top:0;padding-top:0}
+.cr .agenda .row i{font-style:normal;font-family:var(--mono);font-size:2.3cqw;color:var(--green)}
+.cr .agenda .row small{font-family:var(--mono);font-size:2.2cqw;color:#9c98b8}
+.cr .tlb{position:absolute;left:7cqw;right:7cqw;bottom:17cqw;z-index:6;height:.8cqw;border-radius:1cqw;background:rgba(255,255,255,.14);overflow:hidden}
+.cr .tlb i{display:block;height:100%;width:34%;background:linear-gradient(90deg,var(--green),var(--orange))}
+.cr .when{font-size:4.4cqw;font-weight:800;letter-spacing:-.02em}
+/* gear ad */
+.cr .cloud{position:absolute;inset:0;z-index:3;mix-blend-mode:screen;
+  background-image:radial-gradient(circle,#bed361 0 1.1px,transparent 1.6px);background-size:1.9cqw 1.9cqw;
+  -webkit-mask-image:radial-gradient(circle at 49% 50%,#000 0 21cqw,transparent 33cqw);mask-image:radial-gradient(circle at 49% 50%,#000 0 21cqw,transparent 33cqw)}
+.cr .ring{position:absolute;z-index:4;left:49%;top:50%;width:62cqw;height:62cqw;transform:translate(-50%,-50%);border:1px dashed rgba(190,211,97,.7);border-radius:50%}
+.cr .ring::before{content:"";position:absolute;inset:-4cqw;border:1px solid rgba(85,146,255,.35);border-radius:50%}
+.cr .dim{position:absolute;z-index:6;font-family:var(--mono);font-size:2.2cqw;letter-spacing:.12em;padding:.9cqw 1.4cqw;border-radius:.6cqw}
+.cr .dim.no{background:rgba(229,57,46,.9);color:#fff}
+.cr .dim.yes{background:var(--green);color:var(--ink);font-weight:600}
+
+/* LinkedIn frames */
+.li .who{position:relative}
+.li .who .fol{margin-left:auto;color:#0a66c2;font-weight:600;font-size:14px}
+.li .who span{display:block}
+.li .acts{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);padding:4px 6px}
+.li .acts span{display:flex;align-items:center;justify-content:center;gap:6px;font-size:13px;font-weight:600;color:#5e5e5e;padding:10px 0;border-radius:4px}
+.li .acts svg{width:18px;height:18px}
+.adf .head{display:flex;gap:10px;align-items:center;padding:14px 16px}
+.adf .head .av{width:42px;height:42px;border-radius:6px;background:var(--ink);display:grid;place-items:center}
+.adf .head .av img{width:34px}
+.adf .head b{font-size:14px;display:block;line-height:1.2}
+.adf .head span{font-size:12px;color:var(--muted)}
+.adf .intro{padding:0 16px 12px;font-size:14px;line-height:1.5}
+.adf .cta{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;background:#f3f2ef}
+.adf .cta b{display:block;font-size:14px;line-height:1.3}
+.adf .cta small{font-size:12px;color:var(--muted)}
+.adf .cta span.btn2{flex:none;font-weight:600;font-size:14px;color:#0a66c2;box-shadow:inset 0 0 0 1px #0a66c2;border-radius:999px;padding:6px 16px}
+.adf{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.ads3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+@media(max-width:980px){.ads3{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.ads3{grid-template-columns:1fr}}
+/* banner */
+.cr.bn .ph{left:40%;width:60%;object-position:50% 50%}
+.cr.bn .dig,.cr.bn .tint,.cr.bn .mesh{left:40%;width:60%;clip-path:inset(0 0 0 50%)}
+.cr.bn .fade{position:absolute;inset:0;z-index:5;background:linear-gradient(90deg,#0a0816 0 40%,rgba(10,8,22,.75) 48%,rgba(10,8,22,0) 62%,rgba(10,8,22,0) 88%,rgba(10,8,22,.6))}
+.cr.bn .scanl{left:70%}
+.cr.bn .hd{left:4.5cqw;top:50%;transform:translateY(-50%);right:auto;width:42cqw}
+.cr.bn .k{font-size:1.15cqw}.cr.bn .k::before{width:2.4cqw}
+.cr.bn h5{font-size:3.6cqw;margin-top:1.4cqw}
+.cr.bn p{font-size:1.35cqw;color:#c9c6dc;margin-top:1.4cqw;max-width:34cqw}
+.cr.bn .go{display:inline-block;margin-top:2cqw;font-size:1.25cqw;font-weight:700;background:var(--green);color:var(--ink);padding:1cqw 1.8cqw;border-radius:.5cqw}
+.cr.bn .side{font-size:.95cqw;padding:.6cqw .9cqw}
+.cr .chips3{position:absolute;left:7cqw;right:7cqw;bottom:19cqw;z-index:6;display:flex;gap:1.6cqw;flex-wrap:wrap}
+.cr .chips3 span{font-family:var(--mono);font-size:2.3cqw;letter-spacing:.12em;padding:1.3cqw 1.8cqw;border-radius:.8cqw;background:rgba(10,8,22,.6);border:1px solid rgba(190,211,97,.45);color:var(--green);backdrop-filter:blur(6px)}
+.bn-cap{display:flex;justify-content:flex-end;margin-top:10px;font-size:13px;color:var(--grey)}
+
 .rv{opacity:0;transform:translateY(16px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.rv{opacity:1;transform:none}}
@@ -848,13 +958,13 @@ pre.ld{margin-top:12px;background:var(--ink);color:#d6f07e;font-family:var(--mon
       <div class="n"><b>05</b>Layer · of 12<i></i></div>
       <div>
         <h2>Posts a plant manager would forward.</h2>
-        <p>Your LinkedIn page and YouTube channels carry the tutorials well. The launch needs posts a plant manager sends to their maintenance lead with "we should do this." Three of them, with the graphics.</p>
+        <p>Your LinkedIn page and YouTube channels carry the tutorials well. The launch needs posts a plant manager sends to their maintenance lead with "we should do this." Three of them, built from your own photography.</p>
         <span class="jd">JD · Create and publish engaging content across social media channels</span>
       </div>
     </div>
     <div class="posts">
       <article class="card li rv">
-        <div class="who"><div class="av"><img src="img/logo-light.png" alt=""></div><div><b>Designfusion</b><span>Promoted on Mon, Nov 30 · 🌐</span></div></div>
+        <div class="who"><div class="av"><img src="img/logo-light.png" alt=""></div><div><b>Designfusion</b><span>Digital manufacturing solutions</span><span>Nov 30 · 🌐</span></div><span class="fol">+ Follow</span></div>
         <div class="cp clip">Somewhere in your plant there's a part with no drawing.
 
 It's run for twenty years. Nobody remembers who designed it. The company that made it is gone.
@@ -871,38 +981,49 @@ Our Creaform HandySCAN 3D PRO captures the part. Our engineers rebuild it in NX 
 Scan data, CAD model or finished part. You pick.
 
 See how it works: designfusion.com/3d-scanning</div>
-        <div class="art-sq g1">
-          <div class="t"><small>NEW AT DESIGNFUSION</small><h5>No drawing.<br>No supplier.<br><span>Still need the part.</span></h5></div>
-          <svg viewBox="0 0 400 220" aria-hidden="true"><path d="M60 210 H340 V185 H245 V120 A60 60 0 1 0 155 120 V185 H60 Z" fill="#282156" stroke="#bed361" stroke-width="2"/><circle cx="200" cy="100" r="24" fill="#0a0816" stroke="#bed361" stroke-width="2"/><rect class="sweep" x="0" y="0" width="400" height="2" fill="#bed361"/></svg>
-          <img class="lg" src="img/logo-light.png" alt="">
+        <div class="cr r45">
+          <img class="ph" src="img/housing.jpg" alt="A printed housing on a workbench, half shown as a 3D scan">
+          <img class="ph dig" src="img/housing.jpg" alt="">
+          <div class="tint"></div><div class="mesh"></div><i class="scanl"></i><div class="shade"></div>
+          <div class="hd"><div class="k">NEW AT DESIGNFUSION</div><h5>No drawing. No supplier. <em>Still need the part.</em></h5></div>
+          <div class="side" style="left:7cqw;top:47cqw">PHYSICAL</div>
+          <div class="side dg" style="right:7cqw;top:47cqw">DIGITAL TWIN</div>
+          <div class="call" style="left:71.9cqw;top:64.9cqw"><i></i><b style="width:3cqw"></b><span>BORE ✓</span></div>
+          <div class="call" style="left:23.9cqw;top:93.9cqw"><i></i><b style="width:3cqw"></b><span>NO DRAWING</span></div>
+          <div class="ft"><img src="img/logo-light.png" alt=""><span>3D SCANNING<br>REVERSE ENGINEERING</span></div>
         </div>
-        <div class="rx"><span>Single image · 1080 × 1350</span><span>Post 1 of 3</span></div>
+        <div class="acts" aria-hidden="true"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 11v9H4v-9h3zm0 0 4-7c1.5 0 2.5 1 2.2 2.6L12.6 10H19a2 2 0 0 1 2 2.3l-1.2 6A2 2 0 0 1 17.8 20H7"/></svg>Like</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v11H9l-5 4V5z"/></svg>Comment</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 7h11l-3-3M17 17H6l3 3M18 7v6M6 17v-6"/></svg>Repost</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 3 10 14M21 3l-7 18-4-7-7-4 18-7z"/></svg>Send</span></div>
       </article>
       <article class="card li rv" style="transition-delay:.08s">
-        <div class="who"><div class="av"><img src="img/logo-light.png" alt=""></div><div><b>Designfusion</b><span>Thu, Dec 3 · 🌐</span></div></div>
+        <div class="who"><div class="av"><img src="img/logo-light.png" alt=""></div><div><b>Designfusion</b><span>Digital manufacturing solutions</span><span>Dec 3 · 🌐</span></div><span class="fol">+ Follow</span></div>
         <div class="cp clip">Not every part needs a 3D scan. Some really do.
 
 If it's a flat plate with three holes, grab a tape measure. Scanning earns its cost on parts with shape:
 
-1. Castings and forgings with curved surfaces
-2. Impellers, fan blades and anything with a twist
-3. Handles, grips and parts shaped around people
-4. Moulds, jigs and fixtures you can't afford to lose
+1. Castings and housings with curved walls
+2. Gears and sprockets, every tooth at once
+3. Parts shaped around people: grips, handles, insoles
+4. Jigs, fixtures and mounts you can't afford to lose
 5. Anything older than your CAD system
 
 Save this for the next time someone asks "do we still have the drawing for that?"
 
 Full guide on the blog: designfusion.com/post/replace-part-with-no-drawing</div>
-        <div class="art-sq g2">
-          <div class="t"><small>SAVE THIS</small><h5>5 parts you should scan, not redraw</h5>
-            <ol><li>Castings and forgings</li><li>Impellers and blades</li><li>Grips and handles</li><li>Moulds and fixtures</li><li>Anything older than your CAD</li></ol>
+        <div class="cr r45 ed">
+          <div class="hd"><div class="k">SAVE THIS ONE</div><h5>5 parts to scan, <em>not redraw.</em></h5></div>
+          <div class="rows">
+            <div class="row"><img src="img/housing.jpg" alt="" style="object-position:55% 50%"><span class="n">01</span><div><b>Castings and housings</b><small>Curved walls calipers can't follow</small></div></div>
+            <div class="row"><img src="img/gear.jpg" alt="" style="object-position:38% 50%"><span class="n">02</span><div><b>Gears and sprockets</b><small>Every tooth, captured at once</small></div></div>
+            <div class="row"><img src="img/insole.jpg" alt="" style="object-position:55% 55%"><span class="n">03</span><div><b>Parts shaped around people</b><small>Grips, handles, insoles</small></div></div>
+            <div class="row"><img src="img/mounts.jpg" alt="" style="object-position:30% 60%"><span class="n">04</span><div><b>Jigs, fixtures and mounts</b><small>The tools you can't afford to lose</small></div></div>
+            <div class="row"><div class="yr">1998</div><span class="n">05</span><div><b>Older than your CAD system</b><small>If the drawing is paper, scan it</small></div></div>
           </div>
-          <img class="lg" src="img/logo-dark.png" alt="">
+          <div class="ft"><img src="img/logo-dark.png" alt=""><span>DESIGNFUSION.COM/3D-SCANNING</span></div>
         </div>
-        <div class="rx"><span>Single image · 1080 × 1350</span><span>Post 2 of 3</span></div>
+        <div class="acts" aria-hidden="true"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 11v9H4v-9h3zm0 0 4-7c1.5 0 2.5 1 2.2 2.6L12.6 10H19a2 2 0 0 1 2 2.3l-1.2 6A2 2 0 0 1 17.8 20H7"/></svg>Like</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v11H9l-5 4V5z"/></svg>Comment</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 7h11l-3-3M17 17H6l3 3M18 7v6M6 17v-6"/></svg>Repost</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 3 10 14M21 3l-7 18-4-7-7-4 18-7z"/></svg>Send</span></div>
       </article>
       <article class="card li rv" style="transition-delay:.16s">
-        <div class="who"><div class="av"><img src="img/logo-light.png" alt=""></div><div><b>Designfusion</b><span>Tue, Dec 8 · 🌐</span></div></div>
+        <div class="who"><div class="av"><img src="img/logo-light.png" alt=""></div><div><b>Designfusion</b><span>Digital manufacturing solutions</span><span>Dec 8 · 🌐</span></div><span class="fol">+ Follow</span></div>
         <div class="cp clip">Tomorrow at 11 am ET we're taking a worn part from scan to CAD to a printable redesign. Live, in 45 minutes.
 
 You'll see what a handheld scan picks up, how the mesh becomes a real NX model, and where Design for Additive Manufacturing makes the new part better than the old one.
@@ -910,16 +1031,26 @@ You'll see what a handheld scan picks up, how the mesh becomes a real NX model, 
 Got a part you'd like us to look at? Add it when you register.
 
 Save your seat: designfusion.com/live-scan</div>
-        <div class="art-sq g3">
-          <div class="t"><span class="live">● LIVE ONLINE</span><h5>Scan to part in 45 minutes.</h5></div>
-          <div class="dt"><div><span>WEDNESDAY</span><b>Dec 9 · 11 am ET</b></div><img class="lg" src="img/logo-light.png" alt=""></div>
+        <div class="cr r45 bc">
+          <img class="ph" src="img/nozzle.jpg" alt="A print head over a part mid-print" style="object-position:50% 40%">
+          <div class="duo"></div><div class="glow"></div>
+          <div class="shade" style="background:linear-gradient(180deg,rgba(10,8,22,.6),rgba(10,8,22,.1) 40%,rgba(10,8,22,.85) 80%)"></div>
+          <div class="bar"><span class="live">LIVE</span><span class="tc">WED DEC 9 · 11:00 AM ET</span></div>
+          <div class="hd"><div class="k">ONLINE · FREE · 45 MIN</div><h5>Scan to part <em>in 45 minutes.</em></h5></div>
+          <div class="agenda">
+            <div class="row"><i>01</i><span>Scan the worn part</span><small>10 MIN</small></div>
+            <div class="row"><i>02</i><span>Mesh to an NX model</span><small>15 MIN</small></div>
+            <div class="row"><i>03</i><span>Redesign it for printing</span><small>10 MIN</small></div>
+          </div>
+          <div class="tlb"><i></i></div>
+          <div class="ft"><img src="img/logo-light.png" alt=""><span>DESIGNFUSION.COM/LIVE-SCAN</span></div>
         </div>
-        <div class="rx"><span>Single image · 1080 × 1350</span><span>Post 3 of 3</span></div>
+        <div class="acts" aria-hidden="true"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 11v9H4v-9h3zm0 0 4-7c1.5 0 2.5 1 2.2 2.6L12.6 10H19a2 2 0 0 1 2 2.3l-1.2 6A2 2 0 0 1 17.8 20H7"/></svg>Like</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v11H9l-5 4V5z"/></svg>Comment</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 7h11l-3-3M17 17H6l3 3M18 7v6M6 17v-6"/></svg>Repost</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 3 10 14M21 3l-7 18-4-7-7-4 18-7z"/></svg>Send</span></div>
       </article>
     </div>
     <div class="card rv" style="margin-top:18px;padding:22px">
-      <span class="tag">YouTube Short · 30 seconds · for @DesignFusion</span>
-      <p style="margin-top:12px;font-size:15px"><b>0–3s</b> Close-up of a cracked part on a bench. Text: <i>"No drawing. Supplier closed."</i> · <b>3–12s</b> Scanner passes over it, the mesh builds on a laptop screen beside it. Text: <i>"Scan it."</i> · <b>12–20s</b> Screen recording, mesh to NX model, fillet added where it cracked. Text: <i>"Fix what broke it."</i> · <b>20–27s</b> Printer timelapse, then the new part fitted. Text: <i>"Make it again."</i> · <b>27–30s</b> Logo and <i>designfusion.com/3d-scanning</i>.</p>
+      <h4 style="font-size:18px">The YouTube Short to go with it</h4>
+      <p style="margin-top:10px;font-size:15px"><b>0–3s</b> Close-up of a cracked part on a bench. Text: <i>"No drawing. Supplier closed."</i> · <b>3–12s</b> Scanner passes over it, the mesh builds on a laptop screen beside it. Text: <i>"Scan it."</i> · <b>12–20s</b> Screen recording, mesh to NX model, fillet added where it cracked. Text: <i>"Fix what broke it."</i> · <b>20–27s</b> Printer timelapse, then the new part fitted. Text: <i>"Make it again."</i> · <b>27–30s</b> Logo and <i>designfusion.com/3d-scanning</i>.</p>
     </div>
   </div>
 </section>
@@ -931,60 +1062,74 @@ Save your seat: designfusion.com/live-scan</div>
       <div class="n"><b>06</b>Layer · of 12<i></i></div>
       <div>
         <h2>Banners, ads and one infographic.</h2>
-        <p>One look across all of it: your indigo, your green, real part shapes and short lines. Each ad has its LinkedIn copy underneath.</p>
+        <p>One look across all of it: your real parts, a scan layer laid over them, your indigo and green, and short lines. The ads are shown the way they'll run in the feed.</p>
         <span class="jd">JD · Produce visual assets including banners, infographics and ad creatives</span>
       </div>
     </div>
-    <div class="va">
-      <div class="asset wide rv">
-        <div class="banner">
-          <div class="t"><small>NEW</small><h5>Bring us the part. We'll bring back the file.</h5><p>3D scanning and reverse engineering, in NX and Solid Edge.</p></div>
-          <svg viewBox="0 0 520 300" preserveAspectRatio="xMaxYMid meet" aria-hidden="true">
-            <defs><pattern id="bm" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M0 16 L16 0 M0 0 H16" stroke="#bed361" stroke-opacity=".35" fill="none"/></pattern><clipPath id="bc"><rect x="0" y="0" width="300" height="300"/></clipPath></defs>
-            <path d="M140 260 H460 V230 H350 V150 A80 80 0 1 0 250 150 V230 H140 Z" fill="#282156"/>
-            <g clip-path="url(#bc)"><path d="M140 260 H460 V230 H350 V150 A80 80 0 1 0 250 150 V230 H140 Z" fill="url(#bm)" stroke="#bed361" stroke-width="1.5"/></g>
-            <circle cx="300" cy="128" r="30" fill="#0a0816" stroke="#bed361" stroke-width="2"/>
-            <line x1="300" y1="20" x2="300" y2="290" stroke="#bed361" stroke-width="2" stroke-dasharray="4 4"/>
-            <text x="230" y="290" font-family="JetBrains Mono" font-size="11" fill="#bed361">SCAN</text><text x="312" y="290" font-family="JetBrains Mono" font-size="11" fill="#c4c0dc">PART</text>
-          </svg>
-        </div>
-        <div class="cap"><span>Homepage banner · 1600 × 500 · links to /3d-scanning</span><span class="tag g">Swap into the hero slider</span></div>
+    <div class="rv">
+      <div class="cr r165 bn" style="border-radius:12px">
+        <img class="ph" src="img/housing.jpg" alt="">
+        <img class="ph dig" src="img/housing.jpg" alt=""><div class="tint"></div><div class="mesh"></div>
+        <div class="fade"></div><i class="scanl"></i>
+        <div class="hd"><div class="k">NEW · 3D SCANNING</div><h5>Bring us the part. <em>We'll bring back the file.</em></h5><p>3D scanning and reverse engineering, rebuilt in NX or Solid Edge, ready to print.</p><span class="go">Book a scan →</span></div>
+        <div class="side" style="left:52cqw;top:2.4cqw">PHYSICAL</div>
+        <div class="side dg" style="right:2.4cqw;top:2.4cqw">DIGITAL TWIN</div>
       </div>
-      <div class="asset rv">
-        <div class="ad g1" style="position:relative">
-          <div class="t"><small>3D SCANNING</small><h5>Your supplier retired. <span>Your part doesn't have to.</span></h5></div>
-          <svg viewBox="0 0 400 220" aria-hidden="true"><path d="M60 210 H340 V185 H245 V120 A60 60 0 1 0 155 120 V185 H60 Z" fill="#282156" stroke="#bed361" stroke-width="2"/><circle cx="200" cy="100" r="24" fill="#0a0816" stroke="#bed361" stroke-width="2"/></svg>
-          <img class="lg" src="img/logo-light.png" alt="">
+      <div class="bn-cap">Homepage hero, linking to /3d-scanning</div>
+    </div>
+
+    <div class="ads3">
+      <article class="card adf rv">
+        <div class="head"><div class="av"><img src="img/logo-light.png" alt=""></div><div><b>Designfusion</b><span>Promoted</span></div></div>
+        <div class="intro">Out-of-production part and no drawing? We scan it, rebuild it in CAD and can make it again.</div>
+        <div class="cr r11">
+          <img class="ph" src="img/housing.jpg" alt="">
+          <img class="ph dig" src="img/housing.jpg" alt=""><div class="tint"></div><div class="mesh"></div><i class="scanl"></i>
+          <div class="shade" style="background:linear-gradient(180deg,rgba(10,8,22,.95) 0,rgba(10,8,22,.6) 38%,rgba(10,8,22,0) 58%,rgba(10,8,22,0) 72%,rgba(10,8,22,.85))"></div>
+          <div class="hd"><div class="k">3D SCANNING</div><h5 style="font-size:8.6cqw">Your supplier retired. <em>Your part doesn't have to.</em></h5></div>
+          <div class="stamp" style="left:8cqw;bottom:20cqw">DISCONTINUED</div>
+          <div class="ok" style="right:7cqw;bottom:20cqw">SCANNED + REBUILT</div>
+          <div class="ft"><img src="img/logo-light.png" alt=""><span>DESIGNFUSION.COM</span></div>
         </div>
-        <div class="copy"><b>Intro text</b>Out-of-production part and no drawing? We scan it, rebuild it in CAD and can make it again.<b>Headline</b>Replace parts nobody makes anymore<b>CTA</b>Learn more</div>
-      </div>
-      <div class="asset rv" style="transition-delay:.06s">
-        <div class="ad g2" style="position:relative">
-          <div class="t"><small>SCAN → CAD → PART</small><h5>Calipers can't measure a curve.</h5>
-            <svg viewBox="0 0 300 150" style="margin-top:14px;width:100%" aria-hidden="true"><path d="M10 130 C 60 20, 140 20, 160 80 S 260 140, 290 30" fill="none" stroke="#0a0816" stroke-width="3"/><g fill="#282156"><circle cx="10" cy="130" r="4"/><circle cx="60" cy="62" r="4"/><circle cx="110" cy="40" r="4"/><circle cx="160" cy="80" r="4"/><circle cx="210" cy="112" r="4"/><circle cx="255" cy="92" r="4"/><circle cx="290" cy="30" r="4"/></g></svg>
-          </div>
-          <img class="lg" src="img/logo-dark.png" alt="">
+        <div class="cta"><div><b>Replace parts nobody makes anymore</b><small>designfusion.com</small></div><span class="btn2">Learn more</span></div>
+      </article>
+      <article class="card adf rv" style="transition-delay:.06s">
+        <div class="head"><div class="av"><img src="img/logo-light.png" alt=""></div><div><b>Designfusion</b><span>Promoted</span></div></div>
+        <div class="intro">Worn, curved and cast parts are hard to redraw by hand. A 3D scan captures the whole shape in a few passes.</div>
+        <div class="cr r11">
+          <img class="ph" src="img/gear.jpg" alt="" style="object-position:30% 50%;filter:contrast(1.08) brightness(.8)">
+          <div class="cloud"></div><div class="ring"></div>
+          <div class="shade" style="background:linear-gradient(180deg,rgba(10,8,22,.95) 0,rgba(10,8,22,.55) 34%,rgba(10,8,22,0) 52%,rgba(10,8,22,0) 70%,rgba(10,8,22,.9))"></div>
+          <div class="hd"><div class="k">SCAN → CAD → PART</div><h5 style="font-size:8.8cqw">Calipers can't measure <em>a curve.</em></h5></div>
+          <div class="dim no" style="left:7cqw;bottom:18cqw">CALIPERS ✕</div>
+          <div class="dim yes" style="right:7cqw;bottom:18cqw">3D SCAN ✓</div>
+          <div class="ft"><img src="img/logo-light.png" alt=""><span>DESIGNFUSION.COM</span></div>
         </div>
-        <div class="copy"><b>Intro text</b>Worn, curved and cast parts are hard to redraw by hand. A 3D scan captures the whole shape in a few passes.<b>Headline</b>Scan it once. Model it right.<b>CTA</b>Learn more</div>
-      </div>
-      <div class="asset rv" style="transition-delay:.12s">
-        <div class="ad g3" style="position:relative">
-          <div class="t"><span class="live">● LIVE · DEC 9</span><h5>Watch a broken part become a new one.</h5></div>
-          <div class="dt"><div><span>45 MIN · ONLINE · FREE</span><b>11 am ET</b></div><img class="lg" src="img/logo-light.png" alt=""></div>
+        <div class="cta"><div><b>Scan it once. Model it right.</b><small>designfusion.com</small></div><span class="btn2">Learn more</span></div>
+      </article>
+      <article class="card adf rv" style="transition-delay:.12s">
+        <div class="head"><div class="av"><img src="img/logo-light.png" alt=""></div><div><b>Designfusion</b><span>Promoted</span></div></div>
+        <div class="intro">One worn part. Scanned, rebuilt in NX and redesigned for 3D printing, live. Bring your questions.</div>
+        <div class="cr r11 bc">
+          <img class="ph" src="img/nozzle.jpg" alt="" style="object-position:50% 35%">
+          <div class="duo"></div><div class="glow" style="top:-2cqw"></div>
+          <div class="shade" style="background:linear-gradient(180deg,rgba(10,8,22,.55),rgba(10,8,22,.1) 40%,rgba(10,8,22,.9) 85%)"></div>
+          <div class="bar"><span class="live">LIVE</span><span class="tc">DEC 9 · 11 AM ET</span></div>
+          <div class="hd"><h5 style="font-size:8.8cqw">Watch a broken part become <em>a new one.</em></h5></div>
+          <div class="chips3"><span>01 SCAN</span><span>02 MESH → NX</span><span>03 REDESIGN</span></div>
+          <div class="ft"><img src="img/logo-light.png" alt=""><span>45 MIN · ONLINE · FREE</span></div>
         </div>
-        <div class="copy"><b>Intro text</b>One worn part. Scanned, rebuilt in NX and redesigned for 3D printing, live. Bring your questions.<b>Headline</b>Live: scan to part in 45 minutes<b>CTA</b>Register</div>
-      </div>
-      <div class="asset wide rv">
-        <div class="infog">
-          <span class="tag">Infographic · for the landing page, emails and sales decks</span>
-          <h5 style="margin-top:12px">From worn part to new part</h5>
-          <div class="row">
-            <div class="st"><svg viewBox="0 0 150 100"><rect x="20" y="60" width="110" height="30" rx="3" fill="#eeedf2" stroke="#282156" stroke-width="2"/><path d="M45 60 V35 H105 V60" fill="#eeedf2" stroke="#282156" stroke-width="2"/><path d="M15 10 L60 50" stroke="#bed361" stroke-width="3"/><rect x="5" y="2" width="22" height="14" rx="3" fill="#282156"/></svg><div class="k">01</div><b>Scan</b><p>On site or at our shop, with a handheld Creaform scanner.</p><span class="out">You get: scan data</span></div>
-            <div class="st"><svg viewBox="0 0 150 100"><g stroke="#282156" stroke-width="1.5" fill="none"><path d="M20 90 L50 20 L80 90 Z M50 20 L110 20 L80 90 M110 20 L130 90 L80 90"/></g><g fill="#bed361"><circle cx="50" cy="20" r="4"/><circle cx="110" cy="20" r="4"/><circle cx="80" cy="90" r="4"/><circle cx="20" cy="90" r="4"/><circle cx="130" cy="90" r="4"/></g></svg><div class="k">02</div><b>Model</b><p>The mesh becomes a parametric model in NX or Solid Edge.</p><span class="out">You get: CAD model</span></div>
-            <div class="st"><svg viewBox="0 0 150 100"><path d="M20 90 H130 V70 H95 V30 H55 V70 H20 Z" fill="#eeedf2" stroke="#282156" stroke-width="2"/><path d="M55 70 Q 55 50 75 50" fill="none" stroke="#ff9a1a" stroke-width="3"/><path d="M95 70 L120 70 L95 45 Z" fill="#bed361"/></svg><div class="k">03 · optional</div><b>Improve</b><p>Fix what broke it. Lighter, stronger, fewer pieces with DfAM.</p><span class="out">You get: a better design</span></div>
-            <div class="st"><svg viewBox="0 0 150 100"><rect x="30" y="8" width="90" height="10" rx="2" fill="#282156"/><path d="M70 18 L75 32 L80 18 Z" fill="#282156"/><g fill="#bed361"><rect x="40" y="80" width="70" height="8"/><rect x="40" y="70" width="70" height="8" opacity=".85"/><rect x="50" y="60" width="50" height="8" opacity=".7"/><rect x="55" y="50" width="40" height="8" opacity=".55"/></g></svg><div class="k">04</div><b>Make</b><p>Printed on Markforged or Formlabs, brokered, or machined by you.</p><span class="out">You get: the part</span></div>
-          </div>
-        </div>
+        <div class="cta"><div><b>Live: scan to part in 45 minutes</b><small>designfusion.com</small></div><span class="btn2">Register</span></div>
+      </article>
+    </div>
+
+    <div class="infog rv" style="margin-top:18px">
+      <h5>From worn part to new part</h5>
+      <div class="row">
+        <div class="st"><svg viewBox="0 0 150 100"><rect x="20" y="60" width="110" height="30" rx="3" fill="#eeedf2" stroke="#282156" stroke-width="2"/><path d="M45 60 V35 H105 V60" fill="#eeedf2" stroke="#282156" stroke-width="2"/><path d="M15 10 L60 50" stroke="#bed361" stroke-width="3"/><rect x="5" y="2" width="22" height="14" rx="3" fill="#282156"/></svg><div class="k">01</div><b>Scan</b><p>On site or at our shop, with a handheld Creaform scanner.</p><span class="out">You get: scan data</span></div>
+        <div class="st"><svg viewBox="0 0 150 100"><g stroke="#282156" stroke-width="1.5" fill="none"><path d="M20 90 L50 20 L80 90 Z M50 20 L110 20 L80 90 M110 20 L130 90 L80 90"/></g><g fill="#bed361"><circle cx="50" cy="20" r="4"/><circle cx="110" cy="20" r="4"/><circle cx="80" cy="90" r="4"/><circle cx="20" cy="90" r="4"/><circle cx="130" cy="90" r="4"/></g></svg><div class="k">02</div><b>Model</b><p>The mesh becomes a parametric model in NX or Solid Edge.</p><span class="out">You get: CAD model</span></div>
+        <div class="st"><svg viewBox="0 0 150 100"><path d="M20 90 H130 V70 H95 V30 H55 V70 H20 Z" fill="#eeedf2" stroke="#282156" stroke-width="2"/><path d="M55 70 Q 55 50 75 50" fill="none" stroke="#ff9a1a" stroke-width="3"/><path d="M95 70 L120 70 L95 45 Z" fill="#bed361"/></svg><div class="k">03 · optional</div><b>Improve</b><p>Fix what broke it. Lighter, stronger, fewer pieces with DfAM.</p><span class="out">You get: a better design</span></div>
+        <div class="st"><svg viewBox="0 0 150 100"><rect x="30" y="8" width="90" height="10" rx="2" fill="#282156"/><path d="M70 18 L75 32 L80 18 Z" fill="#282156"/><g fill="#bed361"><rect x="40" y="80" width="70" height="8"/><rect x="40" y="70" width="70" height="8" opacity=".85"/><rect x="50" y="60" width="50" height="8" opacity=".7"/><rect x="55" y="50" width="40" height="8" opacity=".55"/></g></svg><div class="k">04</div><b>Make</b><p>Printed on Markforged or Formlabs, brokered, or machined by you.</p><span class="out">You get: the part</span></div>
       </div>
     </div>
   </div>
@@ -1466,6 +1611,8 @@ Alex</div>
 /* ---------- reveal ---------- */
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .08 });
 document.querySelectorAll('.rv').forEach(el => io.observe(el));
+(() => { const o = new URLSearchParams(location.search).get('only'); if (o) document.querySelectorAll('header.top,.hero,.plate,section.layer,.me').forEach(el => { if (el.id !== o) el.style.display = 'none'; }); })();
+if (/[?&]shot/.test(location.search)) document.querySelectorAll('.rv').forEach(el => { el.style.transition = 'none'; el.classList.add('in'); });
 
 /* ---------- landing form → Odoo payload ---------- */
 document.getElementById('scanForm').addEventListener('submit', e => {
