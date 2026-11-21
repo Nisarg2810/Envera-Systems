@@ -1,0 +1,1337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Durva Thakkar · for DesignVerse</title>
+<meta name="description" content="Five new go-to-market hires, and the one role that keeps them shipping. A proposal for Gina Dragulin, with the first month of the work already done.">
+<meta property="og:title" content="Five new hires. Something's missing. Durva for DesignVerse.">
+<meta property="og:description" content="A proposed Marketing Coordinator role for DesignVerse, with the work already done: target accounts, an ABM landing page, ads, a case study, a deck, an event kit and more.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://durvathakkar.com/designverse/">
+<meta property="og:image" content="https://durvathakkar.com/designverse/share.jpg?v=1">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://durvathakkar.com/designverse/share.jpg?v=1">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#09080e;--night:#12101c;--card:#191626;--line:#e6e4ee;--dline:#2a2638;--mist:#c9c8d6;--muted:#6d6b85;--text:#24222f;--lav:#ede1ff;--lav2:#f6f1ff;--lime:#b6e63a;--p1:#8f69e4;--p2:#6e58cf;--p3:#39109a;--grad:linear-gradient(218deg,#8f69e4 14%,#6e58cf 42%,#39109a);--r:14px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:#fff;color:var(--text);font:400 16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-family:"Space Grotesk",Inter,sans-serif;color:var(--ink);letter-spacing:-.02em;line-height:1.12}
+a{color:var(--p2)}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+.wrap{width:min(1120px,100% - 32px);margin:0 auto}
+img{max-width:100%;display:block}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(9,8,14,.88);backdrop-filter:blur(12px);border-bottom:1px solid #1e1b2b}
+.nav .wrap{display:flex;align-items:center;gap:18px;height:58px}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font:600 16px "Space Grotesk";white-space:nowrap}
+.brand i{width:26px;height:26px;border-radius:7px;background:var(--grad);display:grid;place-items:center;font:700 14px "Space Grotesk";font-style:normal;color:#fff}
+.brand span{color:var(--mist);font-weight:400}
+.nav ul{display:flex;gap:4px;list-style:none;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.nav ul::-webkit-scrollbar{display:none}
+.nav ul a{display:block;padding:6px 10px;border-radius:8px;color:var(--mist);font:500 13px Inter;text-decoration:none;white-space:nowrap}
+.nav ul a:hover{background:#1e1b2b;color:#fff}
+.nav .cta{background:var(--grad);color:#fff!important;border-radius:10px;padding:8px 14px;font:600 13px "Space Grotesk";text-decoration:none;white-space:nowrap}
+@media(max-width:860px){.nav ul{display:none}.nav .cta{margin-left:auto}}
+
+/* hero */
+.hero{background:radial-gradient(ellipse 70% 60% at 50% 100%,rgba(143,105,228,.28),transparent 70%),var(--ink);color:#fff;padding:34px 0 56px;position:relative;overflow:hidden}
+.hero .top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px;position:relative}
+.kick{font:600 12px "JetBrains Mono";letter-spacing:.08em;color:var(--lime);text-transform:uppercase}
+.hero .ctl{display:flex;gap:8px}
+.hero .ctl button{background:#1b1828;border:1px solid #2e2a40;color:var(--mist);font:500 12px Inter;border-radius:999px;padding:6px 12px;cursor:pointer}
+.hero .ctl button:hover{color:#fff;border-color:var(--p1)}
+
+.stage{position:relative;width:100%;aspect-ratio:16/9;border-radius:22px;background:radial-gradient(ellipse at 50% -10%,#231c3f,#0d0b15 62%);border:1px solid #2a2540;overflow:hidden;container-type:inline-size}
+@media(max-width:700px){.stage{aspect-ratio:9/15}}
+.prog{position:absolute;left:0;bottom:0;height:3px;background:var(--grad);width:0;z-index:9}
+.sc{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:5cqi;opacity:0;visibility:hidden;transition:opacity .5s,visibility 0s .5s}
+.sc.on{opacity:1;visibility:visible;transition:opacity .5s}
+.t-line{font:600 4.6cqi/1.15 "Space Grotesk";color:#fff;letter-spacing:-.03em;opacity:0;transform:translateY(1.4cqi);transition:.6s}
+.t-line.on{opacity:1;transform:none}
+.t-line b{color:var(--lime);font-weight:600}
+.t-line small{display:block;font:400 1.7cqi "JetBrains Mono";color:var(--mist);letter-spacing:.06em;margin-bottom:1.2cqi;text-transform:uppercase}
+@container (max-width:640px){.t-line{font-size:8.4cqi}.t-line small{font-size:3.2cqi}}
+
+/* board */
+.board{justify-content:space-between;padding:3.2cqi 3.4cqi 3cqi}
+.cap{min-height:3.6cqi;font:600 2.5cqi/1.25 "Space Grotesk";color:#fff;transition:opacity .35s;letter-spacing:-.01em}
+.cap b{color:var(--lime);font-weight:600}
+.gina{display:flex;align-items:center;gap:1.6cqi;background:#16131f;border:1px solid #2e2a40;border-radius:999px;padding:.7cqi 2cqi .7cqi .7cqi;opacity:0;transform:scale(.9);transition:.5s}
+.gina.on{opacity:1;transform:none}
+.gina img{width:5.6cqi;height:5.6cqi;border-radius:50%;object-fit:cover;object-position:50% 25%;border:.25cqi solid var(--p1)}
+.gina div{text-align:left;font:600 1.7cqi/1.2 "Space Grotesk";color:#fff}
+.gina small{display:block;font:400 1.25cqi Inter;color:var(--mist)}
+.gina .cnt{margin-left:1.2cqi;font:600 1.25cqi "JetBrains Mono";background:#2a1f12;color:#ffb35c;border-radius:999px;padding:.4cqi 1cqi;opacity:0;transition:.3s}
+.gina .cnt.on{opacity:1}
+.gina.busy{animation:wob .5s infinite}
+.gina.calm .cnt{background:#1d2a0e;color:var(--lime)}
+@keyframes wob{0%,100%{transform:rotate(0)}25%{transform:rotate(-1deg)}75%{transform:rotate(1deg)}}
+.mid{display:grid;grid-template-columns:1fr auto 1fr;gap:2cqi;align-items:center;width:100%;flex:1;margin:1cqi 0}
+.col{display:flex;flex-direction:column;gap:1cqi}
+.col.l{align-items:flex-end}.col.r{align-items:flex-start}
+.bub{max-width:26cqi;background:#1b1828;border:1px solid #332e48;border-radius:1.2cqi;padding:.8cqi 1.2cqi;text-align:left;font:500 1.35cqi/1.35 Inter;color:#e9e6f5;opacity:0;transform:translateY(1cqi) scale(.96);transition:.4s;position:relative}
+.bub.on{opacity:1;transform:none}
+.bub i{display:block;font:600 1.05cqi "JetBrains Mono";font-style:normal;color:var(--p1);margin-bottom:.2cqi;letter-spacing:.03em}
+.bub em{position:absolute;right:-.8cqi;top:-.9cqi;font:700 1.1cqi "JetBrains Mono";font-style:normal;background:var(--lime);color:#111;border-radius:999px;padding:.2cqi .8cqi;opacity:0;transform:scale(.5);transition:.3s}
+.bub.fin{border-color:#4d6a12;background:#141a0b;color:#a9a6bb}
+.bub.fin em{opacity:1;transform:none}
+.slot{width:23cqi;height:11cqi;border:.25cqi dashed #4a4463;border-radius:1.6cqi;display:grid;place-items:center;opacity:0;transform:scale(.85);transition:.5s;position:relative}
+.slot.on{opacity:1;transform:none}
+.slot .q{font:600 5cqi "Space Grotesk";color:#4a4463;animation:pulse 1.2s infinite}
+@keyframes pulse{50%{opacity:.35}}
+.slot .me{position:absolute;inset:0;display:flex;align-items:center;gap:1.2cqi;padding:1cqi 1.4cqi;background:var(--grad);border-radius:1.4cqi;opacity:0;transform:translateY(-8cqi);transition:.6s cubic-bezier(.3,1.5,.5,1)}
+.slot.filled{border-color:transparent}
+.slot.filled .q{display:none}
+.slot.filled .me{opacity:1;transform:none}
+.slot .me img{width:6.4cqi;height:6.4cqi;border-radius:50%;object-fit:cover;object-position:50% 20%;border:.25cqi solid #fff;flex:none}
+.slot .me div{text-align:left;font:600 1.6cqi/1.15 "Space Grotesk";color:#fff}
+.slot .me small{display:block;font:400 1.15cqi/1.3 Inter;color:#eee6ff;margin-top:.3cqi}
+.roles{display:grid;grid-template-columns:repeat(5,1fr);gap:1.2cqi;width:100%}
+.role{background:#15121e;border:1px solid #2e2a40;border-radius:1.2cqi;padding:1.1cqi 1cqi;opacity:0;transform:translateY(2cqi);transition:.45s;position:relative;text-align:left}
+.role.on{opacity:1;transform:none}
+.role b{display:block;font:600 1.45cqi/1.2 "Space Grotesk";color:#fff}
+.role small{display:block;font:400 1.1cqi "JetBrains Mono";color:var(--muted);margin-top:.3cqi}
+.role s{display:inline-block;margin-top:.7cqi;transform:rotate(-3deg) scale(1.6);opacity:0;white-space:nowrap;text-decoration:none;font:700 1.05cqi "JetBrains Mono";color:#ff8a8a;border:.18cqi solid #ff8a8a;border-radius:.5cqi;padding:.1cqi .6cqi;background:#1a0f12;transition:.3s}
+.role.stamp s{opacity:1;transform:rotate(-3deg) scale(1)}
+.role.ok{border-color:#4d6a12}
+@container (max-width:640px){
+  .bub em{top:-2.2cqi}
+  .board{padding:4.5cqi 4cqi}
+  .cap{font-size:4.6cqi;min-height:12cqi}
+  .gina img{width:11cqi;height:11cqi}.gina div{font-size:3.4cqi}.gina small{font-size:2.6cqi}.gina .cnt{font-size:2.5cqi}
+  .mid{grid-template-columns:1fr;gap:2.4cqi}
+  .col{flex-direction:row;flex-wrap:wrap;justify-content:center;gap:1.6cqi}
+  .col.l,.col.r{align-items:stretch}
+  .bub{max-width:44cqi;font-size:2.6cqi;padding:1.4cqi 2cqi;border-radius:2.4cqi}.bub i{font-size:2.1cqi}.bub em{font-size:2.2cqi}
+  .slot{width:62cqi;height:20cqi;margin:0 auto;order:-1}
+  .slot .me img{width:13cqi;height:13cqi}.slot .me div{font-size:3.6cqi}.slot .me small{font-size:2.6cqi}
+  .roles{grid-template-columns:repeat(3,1fr);gap:2cqi 1.6cqi}
+  .role{padding:1.8cqi 1.8cqi;border-radius:2.2cqi}.role b{font-size:2.8cqi}.role small{display:none}.role s{font-size:2cqi}
+  .bub i{display:none}.mid{margin:2cqi 0}
+}
+.end .btns{display:flex;gap:1.4cqi;margin-top:3cqi;opacity:0;transition:.6s}
+.end .btns.on{opacity:1}
+.end a,.end button{font:600 1.6cqi "Space Grotesk";border-radius:1cqi;padding:1.1cqi 2.2cqi;text-decoration:none;cursor:pointer;border:0}
+.end a{background:#fff;color:var(--ink)}
+.end button{background:transparent;color:#fff;border:1px solid #fff}
+@container (max-width:640px){.end a,.end button{font-size:3.6cqi;padding:2.4cqi 4cqi;border-radius:2cqi}}
+
+/* letter */
+.letter{display:grid;grid-template-columns:1fr 300px;gap:56px;padding:64px 0 24px;align-items:start}
+.letter h1{font-size:clamp(32px,4.6vw,52px);margin-bottom:22px}
+.letter h1 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.letter p{font-size:18px;line-height:1.65;margin-bottom:14px;max-width:640px}
+.letter p b{color:var(--ink)}
+.facts{background:var(--lav2);border:1px solid #e3d6fb;border-radius:18px;padding:20px}
+.facts h4{font:600 12px "JetBrains Mono";letter-spacing:.08em;text-transform:uppercase;color:var(--p2);margin-bottom:12px}
+.facts li{list-style:none;display:flex;gap:10px;padding:9px 0;border-top:1px solid #e3d6fb;font-size:14px;line-height:1.45}
+.facts li:first-of-type{border-top:0}
+.facts li b{font:600 15px "Space Grotesk";color:var(--ink);min-width:66px}
+@media(max-width:860px){.letter{grid-template-columns:1fr;gap:28px;padding-top:44px}}
+
+/* sections */
+.sec{padding:80px 0;border-top:1px solid var(--line)}
+.sec.alt{background:#faf9fd}
+.lbl{font:600 12px "JetBrains Mono";letter-spacing:.08em;text-transform:uppercase;color:var(--p2);margin-bottom:14px}
+.sec h2{font-size:clamp(28px,3.6vw,42px);max-width:820px;margin-bottom:14px}
+.lede{font-size:18px;color:#4a4858;max-width:760px;margin-bottom:30px}
+.why3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:30px}
+.why3>div{border:1px solid var(--line);border-radius:var(--r);padding:18px 18px 16px;background:#fff}
+.why3 h4{font:600 12px "JetBrains Mono";letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.why3 h4:before{content:"";width:8px;height:8px;border-radius:50%}
+.why3 .w h4{color:var(--p2)}.why3 .w h4:before{background:var(--p1)}
+.why3 .x h4{color:#c2410c}.why3 .x h4:before{background:#f97316}
+.why3 .p h4{color:#4d7c0f}.why3 .p h4:before{background:var(--lime)}
+.why3 p,.why3 li{font-size:14.5px;line-height:1.55}
+.why3 ol{padding-left:18px}.why3 li{margin-bottom:4px}
+@media(max-width:860px){.why3{grid-template-columns:1fr}}
+.done{border:1px solid #dcd2f3;border-radius:20px;padding:26px;background:#fff;box-shadow:0 20px 50px -30px rgba(57,16,154,.25)}
+.done-h{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.done-h span{font:600 12px "JetBrains Mono";letter-spacing:.06em;text-transform:uppercase;color:#3f6212;background:#eef8d6;border-radius:999px;padding:5px 12px}
+.done-h h3{font-size:22px}
+@media(max-width:600px){.done{padding:18px 14px;border-radius:16px}}
+.note{font-size:13px;color:var(--muted);margin-top:14px;line-height:1.5}
+.src{font-size:12.5px;color:var(--muted)}
+.src a{color:var(--muted)}
+
+/* shared bits */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.tabs button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 14px;font:500 13.5px Inter;color:var(--text);cursor:pointer}
+.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pane{display:none}.pane.on{display:block}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--grad);color:#fff;border:0;border-radius:10px;padding:10px 16px;font:600 14px "Space Grotesk";cursor:pointer;text-decoration:none}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.chip{display:inline-block;font:600 11.5px "JetBrains Mono";border-radius:999px;padding:3px 10px;background:var(--lav);color:var(--p3)}
+.chip.lime{background:#eef8d6;color:#3f6212}
+.chip.warn{background:#fff1e6;color:#c2410c}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font:600 11.5px "JetBrains Mono";letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:12px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.5}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.copy{white-space:pre-wrap;font:400 14.5px/1.65 Inter;background:#faf9fd;border:1px solid var(--line);border-radius:12px;padding:16px 70px 16px 18px;position:relative}
+@media(max-width:600px){.copy{padding:40px 14px 14px}}
+.cp{position:absolute;top:10px;right:10px;font:600 11px "JetBrains Mono";background:#fff;border:1px solid var(--line);border-radius:8px;padding:4px 9px;cursor:pointer;color:var(--muted)}
+.cp:hover{color:var(--ink)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:860px){.g2,.g3{grid-template-columns:1fr}}
+.g2>*,.g3>*{min-width:0}
+
+/* gap table */
+.gap td:first-child{min-width:190px}.gap td:first-child b{font:600 15px "Space Grotesk";color:var(--ink);display:block}
+.gap td:nth-child(2){font-style:italic;color:#4a4858;min-width:170px}
+.gap tr.you td{background:var(--lav2)}
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center;margin-top:26px;background:var(--ink);color:#fff;border-radius:20px;padding:28px}
+.calc h3{color:#fff;font-size:22px;margin-bottom:6px}
+.calc p{color:var(--mist);font-size:14px}
+.calc label{display:block;font:500 13px Inter;color:var(--mist);margin:16px 0 6px}
+.calc label b{color:#fff;float:right;font-family:"JetBrains Mono"}
+.calc input[type=range]{width:100%;accent-color:var(--p1)}
+.calc .out{background:#16131f;border:1px solid #2e2a40;border-radius:16px;padding:22px}
+.calc .big{font:600 44px/1 "Space Grotesk";color:var(--lime);letter-spacing:-.03em}
+.calc .out p{margin-top:10px;font-size:14.5px;color:#e9e6f5}
+.calc .out small{display:block;margin-top:12px;color:var(--muted);font-size:12px}
+@media(max-width:860px){.calc{grid-template-columns:1fr;padding:20px}}
+
+/* role map */
+.rmap{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.rmap a{display:block;border:1px solid var(--line);border-radius:var(--r);padding:16px;text-decoration:none;color:var(--text);background:#fff;transition:.2s}
+.rmap a:hover{border-color:var(--p1);transform:translateY(-2px)}
+.rmap a b{display:block;font:600 16px "Space Grotesk";color:var(--ink);margin:6px 0 4px}
+.rmap a p{font-size:13.5px;line-height:1.5;color:#4a4858}
+.rmap a span{font:600 11px "JetBrains Mono";color:var(--p2)}
+@media(max-width:860px){.rmap{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="#top"><i>D</i>DesignVerse <span>× Durva</span></a>
+  <ul>
+    <li><a href="#gap">The gap</a></li>
+    <li><a href="#accounts">Accounts</a></li>
+    <li><a href="#abm">ABM page</a></li>
+    <li><a href="#ads">Copy</a></li>
+    <li><a href="#case">Case study</a></li>
+    <li><a href="#deck">Deck</a></li>
+    <li><a href="#event">Event</a></li>
+    <li><a href="#sdr">Sales kit</a></li>
+    <li><a href="#ops">Ops</a></li>
+  </ul>
+  <a class="cta" href="#hello">Say hi</a>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="top"><span class="kick">For Gina Dragulin · CMO, DesignVerse</span><div class="ctl"><button id="pp">Pause</button><button id="rp">↻ Replay</button></div></div>
+    <div class="stage" id="stage">
+      <div class="sc on" id="s1">
+        <div class="t-line" data-t="200"><small>May 2026</small>DesignVerse raises <b>$5.5M</b>.</div>
+      </div>
+      <div class="sc" id="s2">
+        <div class="t-line" data-t="0"><small>August 2026 · Ai4 Las Vegas</small>The context layer lands <b>in the US</b>.</div>
+      </div>
+      <div class="sc" id="s3">
+        <div class="t-line" data-t="0"><small>Now</small>Five new go-to-market hires.<br>All at once.</div>
+      </div>
+      <div class="sc board" id="sb">
+        <div class="cap" id="cap">&nbsp;</div>
+        <div class="gina" id="gina"><img src="img/gina.jpg" alt="Gina Dragulin"><div>Gina Dragulin<small>CMO, DesignVerse</small></div><span class="cnt mono" id="cnt">0 waiting</span></div>
+        <div class="mid">
+          <div class="col l" id="bl"></div>
+          <div class="slot" id="slot"><span class="q">?</span><div class="me"><img src="../assets/durva-headshot.jpg" alt="Durva Thakkar"><div>Durva Thakkar<small>Marketing Coordinator<br>Your right hand</small></div></div></div>
+          <div class="col r" id="br"></div>
+        </div>
+        <div class="roles" id="roles"></div>
+      </div>
+      <div class="sc end" id="s9">
+        <div class="t-line" data-t="0"><small>Durva Thakkar · Barrie, Ontario</small>Five specialists.<br>One person making sure <b>they ship</b>.</div>
+        <div class="t-line" data-t="1300" style="font-size:2.4cqi;margin-top:2.4cqi;color:var(--mist)">Here are my two cents, and the first month of the work, done.</div>
+        <div class="btns" data-t="2200"><a href="#hi">See the work ↓</a><button id="rp2">↻ Replay</button></div>
+      </div>
+      <div class="prog" id="prog"></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="wrap letter" id="hi">
+  <div>
+    <h1>Hi Gina. Your five new hires will need <em>one more person</em>.</h1>
+    <p>I read all five of your open job posts. Four of them say what the role is <b>not</b>: not ad-ops, not events coordination, not a CRM admin, not spray-and-pray. That’s the right call, because you want senior people building strategy and pipeline.</p>
+    <p>But the “not” work doesn’t disappear. Landing page copies, invite lists, UTMs, one-pagers, case study PDFs and follow-ups still have to get done every week, and today they all end up with the same person. That’s you.</p>
+    <p>So here’s my two cents: a <b>Marketing Coordinator</b> who works as your right hand and keeps all five programmes shipping on time. I didn’t want to just describe the role, so below is the first month of it, done for DesignVerse: real accounts, a working ABM page, ads, a case study, a deck, an event kit, a sales kit and the ops behind them.</p>
+    <p style="color:var(--muted);font-size:15px">Scroll, or jump to whatever you’d check first. Every section says why you’d need it, what happens without it, how I’d do it, and then the work itself.</p>
+  </div>
+  <aside class="facts">
+    <h4>What I read first</h4>
+    <ul>
+      <li><b>5</b><span>open GTM roles, all reporting to Growth & GTM or working with marketing</span></li>
+      <li><b>6</b><span>priority verticals in the GTM Engineer post, from aviation to public sector</span></li>
+      <li><b>~1 mo</b><span>to modernize a 15-year-old EUROCONTROL app, against an estimated six</span></li>
+      <li><b>$5.5M</b><span>seed, May 2026, co-led by Begin Capital and Gapminder VC</span></li>
+      <li><b>Ai4</b><span>US launch in Las Vegas, August 2026, with a talk, a customer on stage and an executive roundtable</span></li>
+      <li><b>7 hrs</b><span>between Bucharest and Ontario. When Europe signs off at 6pm, it’s 11am here</span></li>
+    </ul>
+  </aside>
+</div>
+
+<section class="sec" id="gap">
+  <div class="wrap">
+    <div class="lbl">00 / The gap</div>
+    <h2>What each new hire will ask for in week one, that isn’t in their job post.</h2>
+    <p class="lede">You have a name for this in engineering: drift. The same thing happens in go-to-market. Every specialist builds their own version of the work around them, and the small tasks pile up between the roles.</p>
+    <div class="done" style="padding:8px 6px">
+      <div class="tw"><table class="gap">
+        <thead><tr><th>Role</th><th>Their post says</th><th>Still needs, every week</th><th>Without a coordinator</th></tr></thead>
+        <tbody>
+          <tr><td><b>Digital Campaign Manager</b><span class="src">six-figure paid budget</span></td><td>“This is not an ad-ops role.”</td><td>Ad variants in every size, UTMs, a Webflow page for each vertical and offer, QA before anything goes live</td><td>Your paid lead spends launch week resizing creative instead of testing offers</td></tr>
+          <tr><td><b>Global Field & Events Lead</b><span class="src">dinners, roundtables, tradeshows</span></td><td>“This is not an events coordination role.”</td><td>Invite lists by account tier, registration pages, badges, run-of-show, a sales briefing, follow-ups within 48 hours</td><td>Follow-ups go out a week late, and the warmest accounts go cold</td></tr>
+          <tr><td><b>Founding GTM Engineer</b><span class="src">HubSpot + Clay</span></td><td>“This is not a CRM admin role.”</td><td>Clean list imports, campaign tags that follow one rule, clear tickets from marketing</td><td>Attribution gets built on messy data, and nobody trusts the numbers</td></tr>
+          <tr><td><b>Founding SDR</b><span class="src">email, LinkedIn, phone</span></td><td>“Not a high-volume, spray-and-pray SDR role.”</td><td>Account briefs, a one-pager per vertical, sequence copy, answers to the same six objections</td><td>Research eats the day, so “personalised” quietly turns into templates</td></tr>
+          <tr><td><b>Founding AE</b><span class="src">full cycle, technical buyers</span></td><td>“You’ll help build the playbook.”</td><td>Case studies, a first-meeting deck, proof by vertical, proposal templates</td><td>Deals wait on a PDF that nobody owns</td></tr>
+          <tr class="you"><td><b>You, Gina</b><span class="src">CMO</span></td><td>One view of everything shipping</td><td>A weekly plan, a Friday update, one launch calendar so nothing collides</td><td>You become the coordinator, and strategy waits until the evening</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="calc">
+      <div>
+        <h3>Your GTM drift, in hours</h3>
+        <p>Like your drift calculator, but for the go-to-market team. Your inputs, not a benchmark.</p>
+        <label>Senior GTM hires <b id="vh">5</b></label><input type="range" id="ih" min="1" max="10" value="5">
+        <label>Hours a week each spends on coordination work <b id="vw">6</b></label><input type="range" id="iw" min="1" max="15" value="6">
+        <label>Loaded cost per senior hour (USD) <b id="vc">$75</b></label><input type="range" id="ic" min="30" max="200" step="5" value="75">
+      </div>
+      <div class="out">
+        <div class="big" id="oh">1,380 hrs</div>
+        <p id="ot">a year of senior time spent on coordination. That’s 0.75 of a full-time person, or about $103,500 at your rate.</p>
+        <small>Hours = hires × weekly hours × 46 working weeks. One full-time person = 1,840 hours. Move the sliders to your own numbers.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt" id="role">
+  <div class="wrap">
+    <div class="lbl">01 / The role I’m proposing</div>
+    <h2>Marketing Coordinator, Growth & GTM. Six things I’d own.</h2>
+    <p class="lede">This isn’t a strategy hire. It’s the person who helps five strategy hires ship faster, reporting to you and working daily with Content, Campaigns, Field, GTM Engineering and Sales. Click any of them to see it done.</p>
+    <div class="rmap">
+      <a href="#accounts"><span>with SDR + GTM Eng</span><b>Account research</b><p>Briefs on priority accounts, with public signals, the buying committee and an angle sales can use on day one.</p></a>
+      <a href="#abm"><span>with Campaign Manager</span><b>ABM pages + launch kits</b><p>A personalised page for each account and persona, with copy, UTMs, a form and QA before launch.</p></a>
+      <a href="#ads"><span>with Content Lead</span><b>Copy that ships</b><p>Thought Leader Ads, LinkedIn and Google ads, all written to character limits and checked.</p></a>
+      <a href="#case"><span>with AE + Content</span><b>Proof and sales material</b><p>Case studies, a first-meeting deck and a one-pager for each vertical, so no deal waits on a PDF.</p></a>
+      <a href="#event"><span>with Field & Events</span><b>Events, end to end</b><p>From the invite list to the 48-hour follow-up, with a briefing for sales and a recap for content.</p></a>
+      <a href="#ops"><span>with you</span><b>Ops and rhythm</b><p>UTM rules, the launch checklist, a Monday plan and a Friday update you don’t have to ask for.</p></a>
+    </div>
+  </div>
+</section>
+
+<style>
+/* accounts */
+.acc{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;margin-bottom:14px}
+.acc>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:14px;padding:20px 22px;align-items:center}
+.acc>summary::-webkit-details-marker{display:none}
+.acc>summary h3{font-size:22px}
+.acc>summary p{font-size:14.5px;color:#4a4858;margin-top:4px}
+.acc>summary .tg{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.acc>summary .tg b{font:600 18px "Space Grotesk";color:var(--p2);transition:.2s;margin-left:6px}
+.acc[open]>summary .tg b{transform:rotate(45deg)}
+.acc .in{padding:0 22px 22px;display:grid;grid-template-columns:1.1fr 1fr;gap:20px}
+.acc h5{font:600 11.5px "JetBrains Mono";letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:14px 0 8px}
+.acc h5:first-child{margin-top:0}
+.sig{list-style:none}
+.sig li{position:relative;padding:8px 0 8px 22px;border-top:1px dashed var(--line);font-size:14.5px;line-height:1.5}
+.sig li:first-child{border-top:0}
+.sig li:before{content:"";position:absolute;left:4px;top:15px;width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 3px #eef8d6}
+.sig li small{display:block;font:500 11.5px "JetBrains Mono";color:var(--muted);margin-top:2px}
+.bc{display:flex;flex-direction:column;gap:6px}
+.bc div{display:grid;grid-template-columns:120px 1fr;gap:10px;font-size:13.5px;line-height:1.45;padding:8px 10px;background:#faf9fd;border-radius:10px}
+.bc div b{font:600 12px "JetBrains Mono";color:var(--p3)}
+.angle{background:var(--ink);color:#fff;border-radius:14px;padding:16px 18px;font:500 17px/1.45 "Space Grotesk"}
+.angle small{display:block;font:600 11px "JetBrains Mono";color:var(--lime);letter-spacing:.06em;margin-bottom:6px;text-transform:uppercase}
+@media(max-width:860px){.acc .in{grid-template-columns:1fr}.acc>summary{grid-template-columns:1fr}.acc>summary .tg{justify-content:flex-start}.bc div{grid-template-columns:1fr}}
+.clay{font:12.5px/1.5 "JetBrains Mono"}
+.clay td,.clay th{padding:8px 10px;white-space:nowrap}
+
+/* abm */
+.abm-ctl{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:16px}
+.abm-ctl>div{display:flex;flex-direction:column;gap:6px}
+.abm-ctl small{font:600 11px "JetBrains Mono";letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+.abm-grid{display:grid;grid-template-columns:1fr 300px;gap:18px;align-items:start}
+@media(max-width:960px){.abm-grid{grid-template-columns:1fr}}
+.browser{border:1px solid #2a2540;border-radius:16px;overflow:hidden;background:var(--ink);min-width:0}
+.bar{display:flex;align-items:center;gap:8px;padding:10px 12px;background:#15121e;border-bottom:1px solid #2a2540}
+.bar i{width:10px;height:10px;border-radius:50%;background:#3a3550;flex:none}
+.bar code{flex:1;min-width:0;font:12px "JetBrains Mono";color:var(--mist);background:#0d0b15;border-radius:8px;padding:6px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lp{color:#fff;padding:34px 30px 28px;background:radial-gradient(ellipse at 80% -20%,rgba(143,105,228,.35),transparent 55%)}
+.lp .nb{display:flex;justify-content:space-between;align-items:center;margin-bottom:34px}
+.lp .nb span{font:600 14px "Space Grotesk";display:flex;gap:8px;align-items:center}
+.lp .nb span i{width:20px;height:20px;border-radius:6px;background:var(--grad);display:grid;place-items:center;font:700 11px "Space Grotesk";font-style:normal}
+.lp .nb a{font:600 12px "Space Grotesk";background:var(--grad);color:#fff;text-decoration:none;border-radius:8px;padding:7px 12px}
+.lp .eb{font:600 12px "JetBrains Mono";color:var(--lime);letter-spacing:.06em;text-transform:uppercase}
+.lp h3{color:#fff;font-size:clamp(26px,3.4vw,40px);margin:12px 0 14px;max-width:640px}
+.lp .sub{color:#d6d3e4;font-size:16px;max-width:600px}
+.lp .ctas{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.lp .ctas a{font:600 14px "Space Grotesk";border-radius:10px;padding:11px 16px;text-decoration:none}
+.lp .ctas a:first-child{background:#fff;color:var(--ink)}
+.lp .ctas a:last-child{border:1px solid #fff;color:#fff}
+.lp .proof{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:30px 0 22px}
+.lp .proof div{border-top:1px solid #2e2a40;padding-top:10px}
+.lp .proof b{display:block;font:600 24px "Space Grotesk";color:#fff}
+.lp .proof small{font-size:12px;color:var(--mist)}
+.lp .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.lp .cards div{background:#16131f;border:1px solid #2e2a40;border-radius:12px;padding:14px}
+.lp .cards b{display:block;font:600 15px "Space Grotesk";margin-bottom:4px}
+.lp .cards p{font-size:13px;color:#bdbacd;line-height:1.5}
+.lp blockquote{margin:22px 0;padding:16px 18px;border-left:3px solid var(--lime);background:#14111d;border-radius:0 12px 12px 0;font:500 15px/1.5 "Space Grotesk";color:#eee}
+.lp blockquote small{display:block;font:400 12px Inter;color:var(--mist);margin-top:8px}
+.lp form{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:8px;background:#16131f;border:1px solid #2e2a40;border-radius:12px;padding:12px}
+.lp form input,.lp form select{background:#0d0b15;border:1px solid #2e2a40;border-radius:8px;color:#fff;padding:10px;font:14px Inter;min-width:0}
+.lp form button{background:var(--grad);border:0;color:#fff;border-radius:8px;padding:10px 14px;font:600 14px "Space Grotesk";cursor:pointer}
+@media(max-width:700px){.lp{padding:22px 16px}.lp .proof{grid-template-columns:1fr 1fr}.lp .cards{grid-template-columns:1fr}.lp form{grid-template-columns:1fr}}
+.payload{display:none;margin-top:10px;font:12px/1.55 "JetBrains Mono";background:#0d0b15;color:var(--lime);border:1px solid #2e2a40;border-radius:10px;padding:12px;white-space:pre-wrap;word-break:break-word}
+.why-side{display:flex;flex-direction:column;gap:10px}
+.why-side .n{border:1px solid var(--line);border-radius:14px;padding:14px;background:#fff;font-size:13.5px;line-height:1.5}
+.why-side .n b{display:block;font:600 11.5px "JetBrains Mono";color:var(--p2);letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px}
+
+/* ads */
+.li{border:1px solid var(--line);border-radius:12px;background:#fff;overflow:hidden;font-size:14px}
+.li .hd{display:flex;gap:10px;padding:12px;align-items:center}
+.li .hd i{width:40px;height:40px;border-radius:8px;background:var(--grad);display:grid;place-items:center;color:#fff;font:700 16px "Space Grotesk";font-style:normal;flex:none}
+.li .hd img{width:40px;height:40px;border-radius:50%;object-fit:cover;flex:none}
+.li .hd b{display:block;font-size:14px;color:#111}
+.li .hd small{color:#666;font-size:12px}
+.li .tx{padding:0 12px 10px;line-height:1.5;color:#222;white-space:pre-line}
+.li .cr{aspect-ratio:1.91/1;background:var(--ink);color:#fff;padding:18px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.li .cr:after{content:"";position:absolute;right:-20%;bottom:-60%;width:80%;height:120%;background:radial-gradient(circle,rgba(143,105,228,.55),transparent 65%)}
+.li .cr small{font:600 10px "JetBrains Mono";color:var(--lime);letter-spacing:.08em;text-transform:uppercase;position:relative}
+.li .cr strong{font:600 clamp(18px,2.2vw,24px)/1.1 "Space Grotesk";letter-spacing:-.02em;position:relative;max-width:85%}
+.li .cr strong em{font-style:normal;color:var(--lime)}
+.li .cr span{font:500 11px Inter;color:var(--mist);position:relative}
+.li .ft{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;background:#f4f3f8}
+.li .ft b{font-size:13.5px;color:#111;line-height:1.3}
+.li .ft a{flex:none;border:1px solid #0a66c2;color:#0a66c2;border-radius:999px;padding:5px 12px;font:600 12.5px Inter;text-decoration:none}
+.meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.rsa{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:860px){.rsa{grid-template-columns:1fr}}
+.rsa ol{list-style:none;counter-reset:h}
+.rsa li{counter-increment:h;display:flex;justify-content:space-between;gap:10px;padding:7px 10px;border-bottom:1px solid var(--line);font-size:14px}
+.rsa li:before{content:counter(h);font:600 11px "JetBrains Mono";color:var(--muted);width:18px;flex:none}
+.rsa li span{flex:1}
+.rsa li code{font:600 11.5px "JetBrains Mono";color:#3f6212;flex:none}
+.rsa li code.bad{color:#c2410c}
+.serp{border:1px solid var(--line);border-radius:12px;padding:16px;font-family:Arial,sans-serif;background:#fff}
+.serp small{font-size:12px;color:#202124}
+.serp a{display:block;font-size:20px;color:#1a0dab;margin:4px 0;line-height:1.3;text-decoration:none}
+.serp p{font-size:14px;color:#4d5156;line-height:1.55}
+</style>
+
+<section class="sec" id="accounts">
+  <div class="wrap">
+    <div class="lbl">02 / Target accounts</div>
+    <h2>Three North American aviation accounts, researched for the US launch.</h2>
+    <p class="lede">Your strongest proof is EUROCONTROL, and your newest market is North America. So I started where those two meet, with accounts that have a public, dated reason to care right now.</p>
+    <div class="why3">
+      <div class="w"><h4>Why you need it</h4><p>The SDR’s first email, the Thought Leader Ad audience and the event invite list all start from the same question: who exactly, and why now? Clay can find the accounts. Someone still has to read the news and write down the reason.</p></div>
+      <div class="x"><h4>If nobody owns it</h4><p>Outbound opens with “Hope this finds you well”. ABM targeting becomes a list of logos with no story, and the AE learns the context on the first call instead of before it.</p></div>
+      <div class="p"><h4>My plan</h4><ol><li>Pick the vertical where proof and market meet: aviation, North America</li><li>Only keep accounts with a public trigger and a date</li><li>Map the buying committee by role</li><li>Write one angle and one first touch</li><li>Turn it into Clay columns so it repeats</li></ol></div>
+    </div>
+
+    <div class="done-h"><h3>Account briefs</h3><span>✓ Done · sources checked Nov 22, 2026</span></div>
+
+    <details class="acc" open>
+      <summary><div><h3>NAV CANADA</h3><p>Canada’s air navigation service provider, already building alongside Europe’s ATM community.</p></div><div class="tg"><span class="chip lime">Tier 1</span><span class="chip">End buyer</span><b>+</b></div></summary>
+      <div class="in">
+        <div>
+          <h5>Public signals</h5>
+          <ul class="sig">
+            <li>Became the first air navigation service provider outside Europe to join the SESAR Joint Undertaking, with work starting September 2026.<small><a href="https://www.navcanada.ca/en/news/news-releases/two-continents-one-sky-nav-canada-becomes-the-first-ansp-beyond-europe-to-join-the-sesar-joint-undertaking.aspx" target="_blank" rel="noopener">navcanada.ca</a></small></li>
+            <li>Part of the iTEC collaboration since 2024, co-developing next-generation ATM systems with European providers.<small>NAV CANADA releases</small></li>
+            <li>Signed a drone traffic management deal with Indra at Airspace World 2026 in Lisbon. DesignVerse was at Airspace World too.<small><a href="https://www.navcanada.ca/en/news/news-releases/nav-canada-selects-indra-group-as-technology-partner-to-deliver-rfims-advancing-canadas-framework-for-the-safe-integration-of-drones.aspx" target="_blank" rel="noopener">navcanada.ca</a></small></li>
+            <li>Revised service charges from September 1, 2026, and talks openly about cost containment while it keeps modernizing.<small>NAV CANADA, 2026</small></li>
+          </ul>
+          <h5>Why now</h5>
+          <p style="font-size:14.5px">They’re adopting European programmes, so EUROCONTROL is proof they already respect. And with costs under pressure, “more output from the same team” is the right promise.</p>
+        </div>
+        <div>
+          <h5>Buying committee, by role</h5>
+          <div class="bc">
+            <div><b>Champion</b>Director, ATM systems engineering</div>
+            <div><b>Economic buyer</b>VP or CTO, operational technology</div>
+            <div><b>Technical</b>Enterprise and solution architects</div>
+            <div><b>Must say yes</b>Safety, certification and security</div>
+            <div><b>Process</b>Procurement</div>
+          </div>
+          <h5>The angle</h5>
+          <div class="angle"><small>First line</small>“You’re already building with Europe. Here’s what Europe built with us: a 15-year-old operational app, modernized in about a month.”</div>
+          <h5>To check before outreach</h5>
+          <p style="font-size:13.5px;color:#4a4858">Who owns software delivery today: in-house teams or vendors? If vendors, this might become a partner play with Indra.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary><div><h3>Peraton</h3><p>Prime integrator for the FAA’s Brand New Air Traffic Control System.</p></div><div class="tg"><span class="chip lime">Tier 1</span><span class="chip">Integrator</span><b>+</b></div></summary>
+      <div class="in">
+        <div>
+          <h5>Public signals</h5>
+          <ul class="sig">
+            <li>Chosen by DOT and the FAA in December 2025 as prime integrator, on a contract that ties profit to hitting deadlines.<small><a href="https://www.faa.gov/newsroom/trumps-transportation-secretary-duffy-faa-administrator-bedford-announce-prime-integrator" target="_blank" rel="noopener">faa.gov</a></small></li>
+            <li>The FAA’s target is a brand-new system by the end of 2028, with a $12.5 billion down payment and about $20 billion more needed.<small><a href="https://www.faa.gov/newsroom/brand-new-air-traffic-control-system-bnatcs-fact-sheet" target="_blank" rel="noopener">FAA fact sheet</a></small></li>
+            <li>Radar (RTX, Indra) and software and AI (Air Space Intelligence, June 2026) contracts are now in motion around it.<small><a href="https://www.nextgov.com/acquisition/2026/06/faa-awards-software-and-ai-contract-part-air-traffic-control-modernization/414354/" target="_blank" rel="noopener">nextgov.com</a></small></li>
+          </ul>
+          <h5>Why now</h5>
+          <p style="font-size:14.5px">A fixed date and pay tied to performance mean every month of rework has a dollar value. Your own aviation page already notes the FAA compressing 15-year programmes into three.</p>
+        </div>
+        <div>
+          <h5>Buying committee, by role</h5>
+          <div class="bc">
+            <div><b>Champion</b>Chief engineer, software integration</div>
+            <div><b>Economic buyer</b>Programme executive, BNATCS</div>
+            <div><b>Technical</b>Enterprise architecture</div>
+            <div><b>Must say yes</b>Security and compliance (US residency, air-gapped)</div>
+            <div><b>Process</b>Contracts and subcontracting</div>
+          </div>
+          <h5>The angle</h5>
+          <div class="angle"><small>First line</small>“2028 is a fixed date. The rework doesn’t have to be.”</div>
+          <h5>To check before outreach</h5>
+          <p style="font-size:13.5px;color:#4a4858">US government security requirements and how they bring in subcontractors. This is likely a longer, partner-style cycle, so it’s an AE plus founder play, not an SDR sequence.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary><div><h3>Indra Group</h3><p>ATM technology vendor, delivering into both the FAA and NAV CANADA at once.</p></div><div class="tg"><span class="chip">Tier 2</span><span class="chip warn">Partner play</span><b>+</b></div></summary>
+      <div class="in">
+        <div>
+          <h5>Public signals</h5>
+          <ul class="sig">
+            <li>Won FAA radar work in January 2026, alongside RTX and working with Peraton.<small><a href="https://www.faa.gov/newsroom/trumps-transportation-secretary-duffy-faa-administrator-bedford-announce-radar-contracts" target="_blank" rel="noopener">faa.gov</a></small></li>
+            <li>Selected by NAV CANADA for drone traffic management, and with Micro Nav for training modernization.<small>NAV CANADA releases, 2026</small></li>
+          </ul>
+          <h5>Why now</h5>
+          <p style="font-size:14.5px">Two big North American customers at the same time, each with its own architecture. The bottleneck is engineering capacity, which is exactly the “same team, up to 3x output” story.</p>
+        </div>
+        <div>
+          <h5>Buying committee, by role</h5>
+          <div class="bc">
+            <div><b>Champion</b>Head of ATM product engineering</div>
+            <div><b>Economic buyer</b>CTO, North America business</div>
+            <div><b>Partnership</b>Alliances and partnerships lead</div>
+          </div>
+          <h5>The angle</h5>
+          <div class="angle"><small>First line</small>“More air traffic programmes than engineers? Ship each one to its customer’s architecture, without rebuilding the context every time.”</div>
+          <h5>To check before outreach</h5>
+          <p style="font-size:13.5px;color:#4a4858">Whether Indra overlaps with any EUROCONTROL work, and if founders would rather approach it as a partner than a customer.</p>
+        </div>
+      </div>
+    </details>
+
+    <div class="done" style="margin-top:22px">
+      <div class="done-h"><h3>So it repeats: the Clay columns I’d hand to your GTM Engineer</h3><span>✓ Spec</span></div>
+      <div class="tw"><table class="clay">
+        <thead><tr><th>Column</th><th>Type</th><th>Example</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>trigger_type</td><td>select</td><td>standards_body_join</td><td>Contract award, programme launch, new CTO, standards body, modernization job posts</td></tr>
+          <tr><td>trigger_date</td><td>date</td><td>2026-09-01</td><td>Signals older than 6 months drop out of tier 1</td></tr>
+          <tr><td>trigger_source</td><td>url</td><td>navcanada.ca/…</td><td>Sales can quote it, and nothing is made up</td></tr>
+          <tr><td>proof_match</td><td>select</td><td>eurocontrol</td><td>Which case study opens the conversation</td></tr>
+          <tr><td>committee_found</td><td>number</td><td>3 / 5</td><td>Tier 1 needs at least 3 roles mapped before outreach</td></tr>
+          <tr><td>angle_id</td><td>select</td><td>build-with-europe</td><td>Ties ads, emails and the ABM page to one message</td></tr>
+          <tr><td>abm_page</td><td>url</td><td>/for/nav-canada</td><td>The page this account sees, tracked by UTM</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt" id="abm">
+  <div class="wrap">
+    <div class="lbl">03 / ABM landing page</div>
+    <h2>One page that changes for every account and every person reading it.</h2>
+    <p class="lede">An architect, a VP of Engineering and a finance lead at the same account want three different things from the same page. Here’s a working version. Switch the account and the reader.</p>
+    <div class="why3">
+      <div class="w"><h4>Why you need it</h4><p>The Campaign Manager’s job post asks for pages built in Webflow for each vertical and offer. Account-based ads that land on the generic homepage waste the personalisation you paid for.</p></div>
+      <div class="x"><h4>If nobody owns it</h4><p>Every new account means a new page request, a design queue and a wait. Or the ads all point to one page, and conversion to demo stays flat.</p></div>
+      <div class="p"><h4>My plan</h4><ol><li>One Webflow CMS template, one item per account</li><li>A headline built from each account’s own trigger</li><li>Proof and CTA swapped by persona</li><li>UTMs and the account ID passed into HubSpot</li><li>QA on mobile before any ad goes live</li></ol></div>
+    </div>
+    <div class="done">
+      <div class="done-h"><h3>Live mock: designverse.ai/for/…</h3><span>✓ Done · try it</span></div>
+      <div class="abm-ctl">
+        <div><small>Account</small><div class="tabs" id="abmA" style="margin:0"><button class="on" data-v="nav">NAV CANADA</button><button data-v="per">Peraton</button><button data-v="ind">Indra</button><button data-v="gen">Any aviation visitor</button></div></div>
+        <div><small>Reader</small><div class="tabs" id="abmP" style="margin:0"><button class="on" data-v="eng">Engineering leader</button><button data-v="arc">Architect</button><button data-v="fin">Finance</button></div></div>
+      </div>
+      <div class="abm-grid">
+        <div class="browser">
+          <div class="bar"><i></i><i></i><i></i><code id="lpUrl"></code></div>
+          <div class="lp">
+            <div class="nb"><span><i>D</i>DesignVerse</span><a href="#abm">Book a demo</a></div>
+            <div class="eb" id="lpEb"></div>
+            <h3 id="lpH"></h3>
+            <p class="sub" id="lpSub"></p>
+            <div class="ctas"><a href="#abm" id="lpCta"></a><a href="#abm">Calculate your cost of drift</a></div>
+            <div class="proof"><div><b>~1 month</b><small>15-year-old EUROCONTROL app, modernized</small></div><div><b>up to 6×</b><small>faster delivery</small></div><div><b>60%</b><small>lower cost to ship vs. generic AI tools</small></div><div><b>Air-gapped</b><small>or private cloud, VPC, on-prem</small></div></div>
+            <div class="cards" id="lpCards"></div>
+            <blockquote>“DesignVerse has supported us in modernizing our software systems at an accelerated pace, without compromising the reliability, safety and security that remain our highest priority.”<small>EUROCONTROL</small></blockquote>
+            <form id="lpForm"><input required placeholder="Full name" value="Sam Example"><input required type="email" placeholder="Work email" value="sam@example.com"><select><option>Engineering leadership</option><option>Platform / Architecture</option><option>Security & Compliance</option><option>Finance / Procurement</option></select><button type="submit">Send</button></form>
+            <pre class="payload" id="lpPay"></pre>
+          </div>
+        </div>
+        <div class="why-side" id="lpWhy"></div>
+      </div>
+      <p class="note">Stats and the quote come from designverse.ai. Account triggers come from the public sources in section 02. The form doesn’t send anything: it shows the record HubSpot would receive.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="ads">
+  <div class="wrap">
+    <div class="lbl">04 / Copy</div>
+    <h2>A Thought Leader Ad, three LinkedIn ads and a Google search set, all within the character limits.</h2>
+    <p class="lede">Andrei’s voice is your best ad. The job post asks for founder-led Thought Leader Ads, so I started there and wrote the paid ads around the same message.</p>
+    <div class="why3">
+      <div class="w"><h4>Why you need it</h4><p>The Campaign Manager is told to bring ideas and test fast. Tests need a steady supply of on-message variants, written to each platform’s limits.</p></div>
+      <div class="x"><h4>If nobody owns it</h4><p>Ad copy gets written at 6pm the day before launch, Andrei’s posts stay organic-only, and every ad says something slightly different about what the product is.</p></div>
+      <div class="p"><h4>My plan</h4><ol><li>One message: context before code</li><li>One idea per persona: speed, control, cost</li><li>Every claim taken from your own site</li><li>Character counts checked in code</li><li>Founder drafts go to Andrei for a yes or edits</li></ol></div>
+    </div>
+    <div class="done">
+      <div class="done-h"><h3>The ads</h3><span>✓ Done</span></div>
+      <div class="tabs" id="adT"><button class="on" data-p="ad1">Thought Leader Ad</button><button data-p="ad2">LinkedIn, by persona</button><button data-p="ad3">Google search</button></div>
+      <div class="pane on" id="ad1">
+        <div class="g2">
+          <div class="li">
+            <div class="hd"><i>A</i><div><b>Andrei Manolache</b><small>Co-founder & CEO, DesignVerse · Promoted</small></div></div>
+            <div class="tx">Six months ago every engineering leader I met asked which model to use.
+
+Now they ask a different question: why does the code look nothing like ours?
+
+The first wave of enterprise AI was about access to better language models. The next wave is about making those models know your organization: your architecture, your standards, the rules nobody wrote down.
+
+At EUROCONTROL, that’s how a 15-year-old operational app was modernized in about a month instead of six.
+
+The model was never the point. Your context is.</div>
+            <div class="cr"><small>Engineering drift</small><strong>The model was never the point. <em>Your context is.</em></strong><span>designverse.ai</span></div>
+          </div>
+          <div>
+            <h4 style="font-size:17px;margin-bottom:8px">Why it’s built this way</h4>
+            <p style="font-size:14.5px;margin-bottom:10px">It opens with something Andrei hears in real meetings, so it reads like a founder talking, not an ad. The middle uses his own line from your drift calculator page, and the proof is the EUROCONTROL number. It ends on your homepage headline, so the ad and the page match.</p>
+            <div class="meta"><span class="chip">Audience: tier 1 + 2 accounts</span><span class="chip">Retarget: engaged → sales list</span><span class="chip warn">Draft for Andrei’s approval</span></div>
+            <p class="note">The first two lines are a suggested hook for Andrei to change. Only he knows what he actually hears in meetings.</p>
+          </div>
+        </div>
+      </div>
+      <div class="pane" id="ad2"><div class="g3" id="liAds"></div></div>
+      <div class="pane" id="ad3">
+        <div class="rsa">
+          <div><h4 style="font-size:16px;margin-bottom:6px">15 headlines · max 30 characters</h4><ol id="rsaH"></ol></div>
+          <div><h4 style="font-size:16px;margin-bottom:6px">4 descriptions · max 90 characters</h4><ol id="rsaD"></ol>
+            <h4 style="font-size:16px;margin:18px 0 8px">How it could show</h4>
+            <div class="serp"><small>Sponsored · designverse.ai/legacy-modernization</small><a href="#ads" id="serpH"></a><p id="serpD"></p></div>
+            <p class="note">Ad group: legacy system modernization AI. Exact and phrase match on “legacy system modernization”, “ai code governance” and “context engineering”. Negatives: “free”, “course”, “jobs”, “tutorial”.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* case */
+.cs{display:grid;grid-template-columns:1.25fr 1fr;gap:22px}
+@media(max-width:960px){.cs{grid-template-columns:1fr}}
+.cs-doc{border:1px solid var(--line);border-radius:16px;padding:28px;background:#fff}
+.cs-doc .tag{font:600 11.5px "JetBrains Mono";color:var(--p2);letter-spacing:.06em;text-transform:uppercase}
+.cs-doc h3{font-size:clamp(24px,2.8vw,32px);margin:8px 0 16px}
+.cs-doc .kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0 20px}
+.cs-doc .kpi div{background:var(--lav2);border-radius:12px;padding:12px}
+.cs-doc .kpi b{display:block;font:600 24px "Space Grotesk";color:var(--p3)}
+.cs-doc .kpi small{font-size:12px;color:#4a4858;line-height:1.35;display:block}
+.cs-doc h4{font-size:16px;margin:18px 0 6px}
+.cs-doc p{font-size:14.5px;line-height:1.65}
+.cs-doc blockquote{margin-top:18px;border-left:3px solid var(--p1);padding:6px 0 6px 16px;font:500 16px/1.5 "Space Grotesk";color:var(--ink)}
+.cs-doc blockquote small{display:block;font:400 12.5px Inter;color:var(--muted);margin-top:6px}
+@media(max-width:600px){.cs-doc{padding:18px}.cs-doc .kpi{grid-template-columns:1fr}}
+.car{display:flex;gap:10px;overflow-x:auto;padding-bottom:8px;scroll-snap-type:x mandatory}
+.car div{flex:none;width:200px;aspect-ratio:4/5;border-radius:12px;padding:16px;display:flex;flex-direction:column;justify-content:space-between;scroll-snap-align:start;background:var(--ink);color:#fff}
+.car div:nth-child(even){background:var(--lav);color:var(--ink)}
+.car small{font:600 10px "JetBrains Mono";letter-spacing:.06em;opacity:.7}
+.car b{font:600 19px/1.15 "Space Grotesk";letter-spacing:-.02em}
+.car b em{font-style:normal;color:var(--lime)}
+.car div:nth-child(even) b em{color:var(--p2)}
+.qs{counter-reset:q;list-style:none}
+.qs li{counter-increment:q;display:flex;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:14px;line-height:1.5}
+.qs li:first-child{border-top:0}
+.qs li:before{content:counter(q,decimal-leading-zero);font:600 12px "JetBrains Mono";color:var(--p2);padding-top:2px}
+
+/* deck */
+.dk{background:var(--ink);border-radius:20px;padding:18px;color:#fff}
+.dk-v{position:relative;width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#0d0b15;container-type:inline-size}
+.sl{position:absolute;inset:0;padding:6cqi 6.5cqi;display:none;flex-direction:column;justify-content:space-between;background:radial-gradient(ellipse at 85% -10%,rgba(143,105,228,.4),transparent 55%),#0d0b15}
+.sl.on{display:flex}
+.sl.light{background:#fff;color:var(--ink)}
+.sl.lav{background:var(--lav);color:var(--ink)}
+.sl .k{font:600 1.4cqi "JetBrains Mono";color:var(--lime);letter-spacing:.08em;text-transform:uppercase}
+.sl.light .k,.sl.lav .k{color:var(--p2)}
+.sl h3{font:600 5cqi/1.05 "Space Grotesk";letter-spacing:-.03em;color:inherit;max-width:80%}
+.sl h3 em{font-style:normal;color:var(--lime)}
+.sl.light h3 em,.sl.lav h3 em{color:var(--p2)}
+.sl p{font-size:1.8cqi;line-height:1.5;color:inherit;opacity:.8;max-width:70%}
+.sl .row{display:grid;grid-template-columns:repeat(3,1fr);gap:2cqi}
+.sl .row.four{grid-template-columns:repeat(4,1fr)}
+.sl .bx{border:1px solid rgba(255,255,255,.15);border-radius:1.4cqi;padding:2cqi}
+.sl.light .bx,.sl.lav .bx{border-color:rgba(9,8,14,.12);background:rgba(255,255,255,.6)}
+.sl .bx b{display:block;font:600 2.1cqi "Space Grotesk";margin-bottom:.6cqi}
+.sl .bx span{font-size:1.45cqi;line-height:1.45;opacity:.8;display:block}
+.sl .big{font:600 13cqi/0.9 "Space Grotesk";letter-spacing:-.05em;color:var(--lime)}
+.sl .flow{display:flex;align-items:center;gap:1.2cqi;flex-wrap:wrap;font:600 1.9cqi "Space Grotesk"}
+.sl .flow span{border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:.8cqi 1.8cqi}
+.sl .flow span.bad{border-color:#ff8a8a;color:#ff8a8a}
+.sl .flow span.ok{border-color:var(--lime);color:var(--lime)}
+.sl .ft{display:flex;justify-content:space-between;font:500 1.3cqi Inter;opacity:.55}
+.dk-c{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px;flex-wrap:wrap}
+.dk-c .dots{display:flex;gap:6px}
+.dk-c .dots i{width:8px;height:8px;border-radius:50%;background:#3a3550;cursor:pointer}
+.dk-c .dots i.on{background:var(--lime)}
+.dk-c button{background:#1b1828;border:1px solid #2e2a40;color:#fff;border-radius:999px;padding:7px 14px;font:500 13px Inter;cursor:pointer}
+.dk-n{margin-top:12px;background:#16131f;border:1px solid #2e2a40;border-radius:12px;padding:14px 16px;font-size:14px;line-height:1.55;color:#d6d3e4}
+.dk-n b{color:var(--lime);font:600 11px "JetBrains Mono";letter-spacing:.06em;text-transform:uppercase;display:block;margin-bottom:4px}
+
+/* one-pager */
+.op{width:100%;max-width:794px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:6px;box-shadow:0 30px 60px -30px rgba(0,0,0,.25);padding:44px 46px;font-size:13.5px;line-height:1.55;color:var(--text)}
+.op .hd{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink);padding-bottom:12px;margin-bottom:22px}
+.op .hd b{font:600 16px "Space Grotesk";display:flex;gap:8px;align-items:center}
+.op .hd b i{width:22px;height:22px;border-radius:6px;background:var(--grad);display:grid;place-items:center;color:#fff;font:700 12px "Space Grotesk";font-style:normal}
+.op .hd span{font:600 11px "JetBrains Mono";color:var(--p2);letter-spacing:.06em;text-transform:uppercase}
+.op h3{font-size:30px;margin-bottom:10px}
+.op .in{font-size:15px;color:#4a4858;margin-bottom:20px}
+.op .st{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:10px;margin-bottom:22px}
+.op .st div{padding:12px 14px;border-left:1px solid var(--line)}
+.op .st div:first-child{border-left:0}
+.op .st b{font:600 24px "Space Grotesk";color:var(--p3);display:block}
+.op .st small{font-size:11.5px;color:#4a4858;line-height:1.35;display:block}
+.op .two{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.op h4{font:600 11.5px "JetBrains Mono";letter-spacing:.06em;text-transform:uppercase;color:var(--p2);margin:0 0 8px}
+.op ul{padding-left:16px}
+.op li{margin-bottom:6px}
+.op .cta{margin-top:22px;background:var(--ink);color:#fff;border-radius:10px;padding:16px 18px;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.op .cta b{font:600 16px "Space Grotesk"}
+.op .cta span{font:600 12px "JetBrains Mono";color:var(--lime);white-space:nowrap}
+@media(max-width:700px){.op{padding:22px 18px}.op .two,.op .st{grid-template-columns:1fr}.op .st div{border-left:0;border-top:1px solid var(--line)}.op .st div:first-child{border-top:0}.op .cta{flex-direction:column;align-items:flex-start}}
+@media print{body *{visibility:hidden}#onepager,#onepager *{visibility:visible}#onepager{position:absolute;left:0;top:0;border:0;box-shadow:none;max-width:none}}
+
+/* event */
+.tl{position:relative;padding-left:22px}
+.tl:before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.tl label{display:grid;grid-template-columns:62px 1fr auto;gap:12px;align-items:start;padding:9px 0;cursor:pointer;position:relative;font-size:14px;line-height:1.45}
+.tl label:before{content:"";position:absolute;left:-21px;top:13px;width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid var(--p1)}
+.tl label.ck:before{background:var(--lime);border-color:#4d7c0f}
+.tl label.ck span{color:var(--muted);text-decoration:line-through}
+.tl code{font:600 12px "JetBrains Mono";color:var(--p2);padding-top:2px}
+.tl input{accent-color:var(--p2);margin-top:3px}
+.tl small{display:block;font-size:12px;color:var(--muted)}
+.prog2{height:6px;background:var(--line);border-radius:999px;overflow:hidden;margin:6px 0 14px}
+.prog2 i{display:block;height:100%;width:0;background:var(--grad);transition:.3s}
+.ros td:first-child{font:600 12.5px "JetBrains Mono";color:var(--p2);white-space:nowrap}
+</style>
+
+<section class="sec alt" id="case">
+  <div class="wrap">
+    <div class="lbl">05 / Case study</div>
+    <h2>EUROCONTROL, written up properly, in four formats sales can use.</h2>
+    <p class="lede">Right now the best proof you have sits in a funding post, a quote and a footnote. Every AE deal and every aviation ad needs it as one clean page.</p>
+    <div class="why3">
+      <div class="w"><h4>Why you need it</h4><p>Enterprise buyers want proof from someone like them before a second meeting. The AE post asks for “strong commercial cases”, and this is the one every aviation deal will lean on.</p></div>
+      <div class="x"><h4>If nobody owns it</h4><p>Each rep retells the story from memory, the numbers drift (“five times? six?”), and a prospect who asks for the PDF waits until Monday.</p></div>
+      <div class="p"><h4>My plan</h4><ol><li>Use only facts you’ve already published</li><li>Write it as challenge, approach, result</li><li>Cut it into an email line, a carousel and a deck slide</li><li>Prepare interview questions to go deeper</li><li>Anything new goes to EUROCONTROL for approval first</li></ol></div>
+    </div>
+    <div class="done">
+      <div class="done-h"><h3>The case study, and its cuts</h3><span>✓ Done · from published facts only</span></div>
+      <div class="cs">
+        <article class="cs-doc">
+          <div class="tag">Customer story · Aviation & ATM · Europe</div>
+          <h3>How EUROCONTROL modernized a 15-year-old operational application in about a month</h3>
+          <div class="kpi"><div><b>~1 month</b><small>to modernize, against an estimated six with conventional development</small></div><div><b>15 years</b><small>age of the operational application</small></div><div><b>Tens of millions</b><small>of passengers a year on journeys the systems support</small></div></div>
+          <h4>The challenge</h4>
+          <p>EUROCONTROL coordinates air traffic management across Europe. Its operational software has to change as traffic grows, but in a sector with no margin for error, speed can never cost reliability, safety or security. Generic AI tools write code fast, but not in the way a safety-critical organization builds it, so the time saved comes back as review and rework.</p>
+          <h4>The approach</h4>
+          <p>DesignVerse built a context layer from EUROCONTROL’s own systems: architecture, standards and the rules teams follow. The model worked inside that context, so new code matched how the organization already builds. The application was modernized step by step against its existing architecture, not rebuilt from scratch.</p>
+          <h4>The result</h4>
+          <p>A 15-year-old operational application was modernized in just over a month, compared with an estimated six months using conventional approaches. Software built through the platform now supports systems used across European airports and air traffic control.</p>
+          <blockquote>“DesignVerse, through its AI platform, has supported us in modernizing our software systems at an accelerated pace, without compromising the reliability, safety and security that remain the highest priority for our sector.”<small>EUROCONTROL</small></blockquote>
+          <p class="note">Facts from DesignVerse’s seed announcement and aviation page. “The approach” describes how the platform works in general. The interview would add details from the project itself.</p>
+        </article>
+        <div>
+          <div class="tabs" id="csT"><button class="on" data-p="cs1">Email line</button><button data-p="cs2">Carousel</button><button data-p="cs3">Interview</button></div>
+          <div class="pane on" id="cs1">
+            <div class="copy"><button class="cp">Copy</button>One reason I thought of you: EUROCONTROL used DesignVerse to modernize a 15-year-old operational app in about a month, against an estimated six, without loosening the safety standards their sector runs on. Happy to send the one-page story if it’s useful.</div>
+            <p class="note">For the SDR and AE. 49 words, one number, no attachment in the first touch.</p>
+          </div>
+          <div class="pane" id="cs2">
+            <div class="car">
+              <div><small>1 / 5 · EUROCONTROL</small><b>15 years old. <em>Modernized in a month.</em></b><small>Swipe →</small></div>
+              <div><small>2 / 5 · The problem</small><b>Fast AI code <em>still needs rework</em> if it doesn’t know how you build.</b><small>designverse.ai</small></div>
+              <div><small>3 / 5 · The approach</small><b>Context first. <em>Architecture, standards and rules</em> before a line is written.</b><small>designverse.ai</small></div>
+              <div><small>4 / 5 · The result</small><b><em>~1 month</em> against an estimated six.</b><small>designverse.ai</small></div>
+              <div><small>5 / 5 · Your turn</small><b>What is drift <em>costing you?</em></b><small>Calculate it in 2 minutes</small></div>
+            </div>
+            <p class="note">LinkedIn document post for the company page, then boosted to tier 1 aviation accounts.</p>
+          </div>
+          <div class="pane" id="cs3">
+            <ol class="qs">
+              <li>What did the team expect the project to take before DesignVerse?</li>
+              <li>Which standards or rules were the hardest to get AI to respect?</li>
+              <li>What did review look like before and after?</li>
+              <li>How did you know the new code matched your architecture?</li>
+              <li>What did the team spend the saved months on?</li>
+              <li>What would you tell another air navigation provider considering this?</li>
+              <li>Who else inside EUROCONTROL noticed the result?</li>
+              <li>What’s the next system you’d like to modernize this way?</li>
+            </ol>
+            <p class="note">For a 30-minute call with the Lead Architect quoted on your homepage, if EUROCONTROL agrees. That turns a quote into a full story.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="deck">
+  <div class="wrap">
+    <div class="lbl">06 / Deck</div>
+    <h2>A seven-slide first-meeting deck for aviation, with talk track.</h2>
+    <p class="lede">A first meeting with a technical buyer isn’t a product tour. It’s a conversation about their problem, with one strong proof point and a clear next step. Use the arrows, or your keyboard.</p>
+    <div class="why3">
+      <div class="w"><h4>Why you need it</h4><p>A founding AE and SDR will be in meetings within weeks. Their posts ask them to help build sales materials, but they shouldn’t start from a blank slide.</p></div>
+      <div class="x"><h4>If nobody owns it</h4><p>Every rep makes their own deck, the story changes from meeting to meeting, and the founders end up redoing slides the night before.</p></div>
+      <div class="p"><h4>My plan</h4><ol><li>Open with their problem, not our logo</li><li>Name it: engineering drift</li><li>One proof, told well</li><li>Answer the security question before they ask</li><li>End with a next step they can say yes to</li></ol></div>
+    </div>
+    <div class="done" style="background:var(--ink);border-color:var(--ink)">
+      <div class="done-h"><h3 style="color:#fff">First meeting · Aviation & ATM</h3><span>✓ Done</span></div>
+      <div class="dk">
+        <div class="dk-v" id="dkv">
+          <div class="sl on"><div class="k">DesignVerse × NAV CANADA · first conversation</div><h3>Modernize the systems that <em>can’t fail</em>, at the speed the programme needs.</h3><div class="ft"><span>designverse.ai</span><span>01</span></div></div>
+          <div class="sl light"><div class="k">The problem</div><h3>AI made code cheap. <em>Rework</em> made it expensive again.</h3><div class="flow"><span>Build</span>→<span>Review</span>→<span class="bad">Drift found</span>→<span class="bad">Rework</span></div><div class="ft"><span>Standards are checked after the code exists, so the fix is a rebuild.</span><span>02</span></div></div>
+          <div class="sl"><div class="k">What drift costs in aviation</div><h3>Here, drift doesn’t just cost rework. <em>It costs re-certification.</em></h3><div class="row"><div class="bx"><b>20+ years</b><span>of legacy still runs critical operations</span></div><div class="bx"><b>15 → 3 years</b><span>the FAA is compressing modernization programmes</span></div><div class="bx"><b>Every deviation</b><span>has to be found, reviewed and traced again</span></div></div><div class="ft"><span>Source: designverse.ai/industries/aviation-and-atm</span><span>03</span></div></div>
+          <div class="sl lav"><div class="k">How it works</div><h3>Context before code.</h3><div class="row"><div class="bx"><b>1 · Import</b><span>Your codebases, APIs, standards and pipelines, plus the patterns teams repeat but never write down</span></div><div class="bx"><b>2 · Reason</b><span>The context layer applies your architecture and approved patterns before the model writes a line</span></div><div class="bx"><b>3 · Ship</b><span>Production-ready code, consistent across teams, fully auditable</span></div></div><div class="ft"><span>designverse.ai</span><span>04</span></div></div>
+          <div class="sl"><div class="k">Proof · EUROCONTROL</div><div style="display:flex;align-items:flex-end;gap:4cqi;flex-wrap:wrap"><div class="big">~1 mo</div><p style="max-width:44%;opacity:.9">to modernize a 15-year-old operational application, against an estimated six with conventional development.</p></div><p style="max-width:86%;font-style:italic">“…at an accelerated pace, without compromising the reliability, safety and security that remain the highest priority for our sector.”</p><div class="ft"><span>EUROCONTROL</span><span>05</span></div></div>
+          <div class="sl light"><div class="k">Control</div><h3>It runs <em>inside your perimeter</em>.</h3><div class="row four"><div class="bx"><b>Your infrastructure</b><span>Private cloud, VPC, on-prem or air-gapped</span></div><div class="bx"><b>Isolated</b><span>Role-based access through your identity provider</span></div><div class="bx"><b>Traceable</b><span>Every prompt hashed, attributable, with revert</span></div><div class="bx"><b>Human review</b><span>A person reviews backend changes before production</span></div></div><div class="ft"><span>designverse.ai</span><span>06</span></div></div>
+          <div class="sl"><div class="k">Next step</div><h3>Pick one system. <em>We’ll put a number on its drift.</em></h3><p>Two minutes with the drift calculator, then a working session on one real system with your architects.</p><div class="ft"><span>Book at designverse.ai/book-a-demo</span><span>07</span></div></div>
+        </div>
+        <div class="dk-c"><button id="dkP">← Back</button><div class="dots" id="dkD"></div><button id="dkN">Next →</button></div>
+        <div class="dk-n" id="dkNote"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt" id="onepager-sec">
+  <div class="wrap">
+    <div class="lbl">07 / One-pager</div>
+    <h2>A one-pager for banking, the vertical with the most to lose from drift.</h2>
+    <p class="lede">Aviation has the proof, and banking has the budget pressure. Your banking page has the material for a strong leave-behind, so I turned it into one an SDR can attach and a buyer can forward to their CFO.</p>
+    <div class="why3">
+      <div class="w"><h4>Why you need it</h4><p>Six priority verticals means six different conversations. Each SDR email and each AE follow-up needs a page that speaks that industry’s language: DORA, settlement, audit findings.</p></div>
+      <div class="x"><h4>If nobody owns it</h4><p>The same generic PDF goes to a bank and an airline, and the champion has to translate it for their boss.</p></div>
+      <div class="p"><h4>My plan</h4><ol><li>Lead with what drift costs in this industry</li><li>Use their regulations, in their words</li><li>Three numbers, no more</li><li>Answer the security question up front</li><li>One template, six verticals</li></ol></div>
+    </div>
+    <div class="done">
+      <div class="done-h"><h3>Banking & Financial Services · A4</h3><span>✓ Done · <a href="#onepager-sec" id="opPrint" style="color:inherit">Print or save as PDF</a></span></div>
+      <div class="op" id="onepager">
+        <div class="hd"><b><i>D</i>DesignVerse</b><span>Banking & Financial Services</span></div>
+        <h3>Ship faster on systems that can’t miss a settlement.</h3>
+        <p class="in">70% of bank IT budgets go to keeping legacy running. AI was meant to change that, but when every team uses it differently, core, payments and channel code drift apart. Under DORA, PCI-DSS and SOX, every inconsistency is something someone has to explain, fix and evidence.</p>
+        <div class="st"><div><b>60%</b><small>lower cost to ship than generic AI tools</small></div><div><b>2×</b><small>less front-end rework in existing deployments</small></div><div><b>Up to 3×</b><small>output from the same team</small></div></div>
+        <div class="two">
+          <div>
+            <h4>Where banks use it</h4>
+            <ul><li><b>Core banking:</b> evolve ledgers step by step, nothing stops settling</li><li><b>Payments:</b> upgrade processing while resilience guarantees hold</li><li><b>Digital channels:</b> faster mobile, onboarding and omnichannel work</li><li><b>Risk and compliance:</b> reporting, fraud monitoring and regulatory change, with a full audit trail</li></ul>
+          </div>
+          <div>
+            <h4>What your risk team will ask</h4>
+            <ul><li><b>Where does it run?</b> Your perimeter: private cloud, VPC, on-prem or air-gapped</li><li><b>Who sees what?</b> Isolated environments, role-based access, EU and US residency</li><li><b>Can we audit it?</b> Every prompt hashed and attributable, with revert</li><li><b>Who signs off?</b> A person reviews backend changes before production</li></ul>
+          </div>
+        </div>
+        <div class="cta"><b>What is drift costing your engineering budget? Put a number on it in two minutes.</b><span>designverse.ai/engineering-drift-calculator</span></div>
+      </div>
+      <p class="note">Every figure and claim comes from designverse.ai/industries/banking-financial-services and the drift calculator page.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="event">
+  <div class="wrap">
+    <div class="lbl">08 / Event</div>
+    <h2>An executive roundtable, run end to end: the Ai4 format, made repeatable.</h2>
+    <p class="lede">Your Ai4 plan had an executive roundtable on the missing context layer. Here’s that format turned into a kit the Field & Events Lead can run in any city, starting with bank engineering leaders in New York.</p>
+    <div class="why3">
+      <div class="w"><h4>Why you need it</h4><p>The Field & Events Lead owns strategy and pipeline from events, across many markets. Every dinner still needs about forty small tasks done on time, and the follow-up is where pipeline is won or lost.</p></div>
+      <div class="x"><h4>If nobody owns it</h4><p>Badges get printed the night before, sales walks in without knowing who’s at the table, and the thank-you email goes out the following week, after the buzz has gone.</p></div>
+      <div class="p"><h4>My plan</h4><ol><li>Invite list built from tier 1 and 2 accounts</li><li>Run every task off a T-minus timeline</li><li>Brief sales on each guest before the night</li><li>Follow up within 48 hours, every time</li><li>Turn the conversation into content</li></ol></div>
+    </div>
+    <div class="done">
+      <div class="done-h"><h3>“Context before scale” · bank engineering leaders · New York, Thu Feb 25, 2027</h3><span>✓ Done · sample event</span></div>
+      <div class="tabs" id="evT"><button class="on" data-p="ev1">Timeline</button><button data-p="ev2">Invite</button><button data-p="ev3">Sales briefing</button><button data-p="ev4">Run of show</button><button data-p="ev5">48-hour follow-up</button></div>
+      <div class="pane on" id="ev1">
+        <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--muted)"><span>Tick them off</span><span id="evPct"></span></div>
+        <div class="prog2"><i id="evBar"></i></div>
+        <div class="tl" id="evTl"></div>
+      </div>
+      <div class="pane" id="ev2">
+        <div class="g2">
+          <div class="copy"><button class="cp">Copy</button>Subject: A private dinner on AI and the core, Feb 25
+
+Hi {first_name},
+
+Most banks we talk to have moved past “should we use AI for code?” The question now is why the code doesn’t look like theirs, and what that does to DORA evidence and audit findings.
+
+On Thursday, February 25 we’re hosting twelve engineering and architecture leaders from banks for dinner in New York. No slides. Gina Dragulin, our CMO, will host a conversation on one question: what has to be true before AI can touch the core?
+
+Would you like a seat? It’s off the record, and we’ll keep the room small.
+
+{sender_name}
+DesignVerse</div>
+          <div>
+            <h4 style="font-size:16px;margin-bottom:8px">Why it’s written this way</h4>
+            <p style="font-size:14.5px;margin-bottom:10px">Senior engineers ignore event marketing. They do say yes to a small room, a sharp question and peers they respect. The email names the question, the size of the room and “no slides”, and it uses language from your banking page so it sounds like DesignVerse.</p>
+            <div class="meta"><span class="chip">Send from the account owner</span><span class="chip">Reminder at T-7 and T-1</span><span class="chip lime">Goal: 12 seats, 3 tier 1 banks</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="pane" id="ev3">
+        <div class="tw"><table>
+          <thead><tr><th>Guest</th><th>Account · tier</th><th>Why they came</th><th>Ask them about</th><th>Seat next to</th><th>Owner</th></tr></thead>
+          <tbody>
+            <tr><td><b>Sample guest A</b><br><span class="src">VP Engineering, Core</span></td><td>Bank 1 · T1</td><td>Core modernization started this year</td><td>How they review AI-written code today</td><td>Andrei</td><td>AE</td></tr>
+            <tr><td><b>Sample guest B</b><br><span class="src">Chief Architect</span></td><td>Bank 2 · T1</td><td>Posted about AI governance last month</td><td>Who owns standards across teams</td><td>Robert</td><td>AE</td></tr>
+            <tr><td><b>Sample guest C</b><br><span class="src">Head of Payments Eng.</span></td><td>Bank 3 · T2</td><td>Payments platform rebuild</td><td>Rework after audits</td><td>Gina</td><td>SDR</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note">Sample rows to show the format. In real life this sheet is built from HubSpot, and each AE gets it at T-2, with one goal per guest.</p>
+      </div>
+      <div class="pane" id="ev4">
+        <div class="tw"><table class="ros">
+          <tbody>
+            <tr><td>18:00</td><td>Arrivals. Name cards with first name and company only. Gina and Andrei greet at the door.</td></tr>
+            <tr><td>18:30</td><td>Seated. Gina opens with one question and one minute of context, no product.</td></tr>
+            <tr><td>18:40</td><td>Round one: “Where has AI-written code already caused rework for you?”</td></tr>
+            <tr><td>19:20</td><td>Round two: “What would your risk team need to see before AI touches the core?”</td></tr>
+            <tr><td>20:00</td><td>Andrei shares the EUROCONTROL story in three minutes, as one example.</td></tr>
+            <tr><td>20:15</td><td>Open conversation. Each AE has one goal per guest from the briefing.</td></tr>
+            <tr><td>21:00</td><td>Close. A printed one-pager and a handwritten thank-you card at every seat.</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+      <div class="pane" id="ev5">
+        <div class="g2">
+          <div class="copy"><button class="cp">Copy</button>Subject: From Thursday’s table
+
+Hi {first_name},
+
+Thank you for coming on Thursday. The point you made about {their_point} was the one people were still talking about at the door.
+
+As promised, here are the three themes from the night, written up without names: {link}
+
+If it helps to see how EUROCONTROL handled the same problem, I’m happy to walk your architects through it for 30 minutes.
+
+{sender_name}</div>
+          <div class="copy"><button class="cp">Copy</button>Subject: We missed you Thursday
+
+Hi {first_name},
+
+We saved your seat on Thursday, and the conversation went somewhere useful: what has to be true before AI can touch the core.
+
+Here’s the short write-up of the three themes, without names: {link}
+
+We’re doing a smaller version in {next_city} in the spring. Want me to hold a place?
+
+{sender_name}</div>
+        </div>
+        <p class="note">Attended (left) and no-show (right). Both go out within 48 hours. {their_point} comes from the AE’s notes on the night, so every email is personal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.seq{display:flex;flex-direction:column;gap:12px}
+.step{display:grid;grid-template-columns:110px 1fr;gap:16px;align-items:start}
+.step .d{font:600 12px "JetBrains Mono";color:var(--p2);padding-top:14px}
+.step .d small{display:block;color:var(--muted);font-weight:400;margin-top:2px}
+@media(max-width:700px){.step{grid-template-columns:1fr;gap:4px}.step .d{padding-top:0}}
+.obj{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:860px){.obj{grid-template-columns:1fr}}
+.obj div{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff}
+.obj b{display:block;font:600 16px "Space Grotesk";color:var(--ink);margin-bottom:6px}
+.obj p{font-size:14px;line-height:1.55}
+.obj small{display:block;margin-top:8px;font:500 11.5px "JetBrains Mono";color:var(--muted)}
+.utm{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:860px){.utm{grid-template-columns:1fr}}
+.utm label{display:flex;flex-direction:column;gap:6px;font:600 11.5px "JetBrains Mono";color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.utm input,.utm select{font:400 14.5px Inter;border:1px solid var(--line);border-radius:10px;padding:10px 12px;color:var(--ink);background:#fff;text-transform:none;letter-spacing:0;min-width:0}
+.utm-out{margin-top:14px;background:var(--ink);color:var(--lime);border-radius:12px;padding:16px;font:13px/1.6 "JetBrains Mono";word-break:break-all;position:relative;padding-right:80px}
+.utm-out .cp{background:#1b1828;border-color:#2e2a40;color:var(--mist)}
+.rules{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.chk{display:grid;grid-template-columns:1fr 1fr;gap:4px 24px}
+@media(max-width:860px){.chk{grid-template-columns:1fr}}
+.chk label{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;cursor:pointer;line-height:1.45}
+.chk input{accent-color:var(--p2);margin-top:3px}
+.chk label.ck span{color:var(--muted);text-decoration:line-through}
+.fri{max-width:720px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+.fri .h{display:flex;gap:10px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line);background:#faf9fd;font-size:13.5px}
+.fri .h img{width:28px;height:28px;border-radius:50%;object-fit:cover;object-position:50% 20%}
+.fri .h b{color:var(--ink)}
+.fri .b{padding:16px 18px;font-size:14.5px;line-height:1.6}
+.fri .b h5{font:600 11.5px "JetBrains Mono";letter-spacing:.06em;text-transform:uppercase;color:var(--p2);margin:14px 0 6px}
+.fri .b h5:first-child{margin-top:0}
+.fri .b ul{padding-left:18px}
+.fri .b li{margin-bottom:3px}
+.d90{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:860px){.d90{grid-template-columns:1fr}}
+.d90>div{border:1px solid var(--line);border-radius:16px;padding:20px;background:#fff}
+.d90 .n{font:600 12px "JetBrains Mono";color:var(--p2);letter-spacing:.06em}
+.d90 h3{font-size:20px;margin:6px 0 10px}
+.d90 ul{padding-left:18px;font-size:14.5px;line-height:1.55}
+.d90 li{margin-bottom:5px}
+.d90 .ok{margin-top:12px;font-size:13px;background:#eef8d6;color:#3f6212;border-radius:10px;padding:10px 12px}
+.rhythm{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}
+@media(max-width:860px){.rhythm{grid-template-columns:1fr 1fr}}
+.rhythm div{background:var(--ink);color:#fff;border-radius:14px;padding:16px}
+.rhythm b{display:block;font:600 15px "Space Grotesk";margin-bottom:4px}
+.rhythm small{font-size:13px;color:var(--mist);line-height:1.45;display:block}
+.rhythm i{font:600 11px "JetBrains Mono";color:var(--lime);font-style:normal;letter-spacing:.06em}
+.hello{background:radial-gradient(ellipse 60% 55% at 50% 0%,rgba(143,105,228,.32),transparent 75%),var(--ink);color:#fff;padding:90px 0;text-align:center;position:relative;overflow:hidden}
+.hello .wrap{position:relative}
+.hello .pair{display:flex;justify-content:center;align-items:center;gap:14px;margin-bottom:26px}
+.hello .pair img{width:120px;height:150px;border-radius:20px;object-fit:cover;object-position:center top;border:2px solid #2e2a40}
+.hello .pair img.g{object-position:50% 22%}
+.hello .pair span{font:600 22px "Space Grotesk";color:var(--lime)}
+.hello h2{color:#fff;font-size:clamp(30px,4.4vw,50px);max-width:760px;margin:0 auto 16px}
+.hello p{color:var(--mist);font-size:17px;max-width:600px;margin:0 auto 26px}
+.hello .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.hello .btn.ghost{background:transparent;color:#fff;border-color:#4a4463}
+.hello .fine{font-size:12.5px;color:var(--muted);max-width:700px;margin:34px auto 0}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--ink);color:#fff;border-radius:999px;padding:10px 18px;font:500 14px Inter;transition:.3s;z-index:99}
+.toast.on{transform:translate(-50%,0)}
+</style>
+
+<section class="sec alt" id="sdr">
+  <div class="wrap">
+    <div class="lbl">09 / Sales kit</div>
+    <h2>Everything the founding SDR and AE need before their first call.</h2>
+    <p class="lede">Your SDR post says it plainly: not spray-and-pray. Personal outbound to technical buyers takes research, a story and good answers. I wrote the first version so they start from a draft and make it their own.</p>
+    <div class="why3">
+      <div class="w"><h4>Why you need it</h4><p>Both posts ask the new hires to help build the outbound playbook and the sales materials. A first draft on day one turns that into editing, which is faster than writing from nothing.</p></div>
+      <div class="x"><h4>If nobody owns it</h4><p>Each rep answers “we already use Copilot” differently, discovery calls miss the security question, and AE handoffs live in Slack threads.</p></div>
+      <div class="p"><h4>My plan</h4><ol><li>One sequence per tier 1 account, built from its brief</li><li>Answers to the six objections a technical buyer will raise</li><li>Discovery questions in order</li><li>One handoff template from SDR to AE</li><li>Update it every month from real call notes</li></ol></div>
+    </div>
+    <div class="done">
+      <div class="done-h"><h3>The kit</h3><span>✓ Done</span></div>
+      <div class="tabs" id="sdT"><button class="on" data-p="sd1">Sequence · NAV CANADA</button><button data-p="sd2">Objections</button><button data-p="sd3">Discovery + handoff</button></div>
+      <div class="pane on" id="sd1">
+        <div class="seq">
+          <div class="step"><div class="d">Day 1<small>Email</small></div><div class="copy"><button class="cp">Copy</button>Subject: SESAR, iTEC, and a 15-year-old app
+
+Hi {first_name},
+
+NAV CANADA joining SESAR caught my eye. You’re now working on the same problems as Europe’s ATM community, often on the same kind of systems.
+
+One of those systems was a 15-year-old operational app at EUROCONTROL. Using DesignVerse, they modernized it in about a month instead of an estimated six, without loosening their safety standards.
+
+Is modernizing older operational software on your team’s list for 2027? If so, I’d be glad to show your architects how it worked.
+
+{sender_name}</div></div>
+          <div class="step"><div class="d">Day 3<small>LinkedIn</small></div><div class="copy"><button class="cp">Copy</button>Hi {first_name}, I work with teams modernizing ATM software. Saw NAV CANADA’s SESAR news and would love to follow your work. Happy to connect.</div></div>
+          <div class="step"><div class="d">Day 6<small>Call</small></div><div class="copy"><button class="cp">Copy</button>“Hi {first_name}, it’s {sender_name} from DesignVerse. You weren’t expecting my call, so I’ll be quick. We helped EUROCONTROL modernize a 15-year-old operational app in about a month. I’m calling because I wanted to ask how your team handles AI-written code today. Is that a fair question?”</div></div>
+          <div class="step"><div class="d">Day 9<small>Email</small></div><div class="copy"><button class="cp">Copy</button>Subject: Re: SESAR, iTEC, and a 15-year-old app
+
+{first_name}, one thing I left out: for ANSPs, the first question is usually where it runs. DesignVerse runs inside your perimeter, including air-gapped, and every AI-assisted change is logged and attributable.
+
+Here’s the one-page EUROCONTROL story if it helps: {link}</div></div>
+          <div class="step"><div class="d">Day 14<small>Email</small></div><div class="copy"><button class="cp">Copy</button>Subject: Should I close the loop?
+
+Hi {first_name}, I haven’t heard back, so I’m guessing timing’s off. If someone else on your team owns modernizing ATM software, I’d be grateful for a name. Otherwise I’ll leave it here and check back in the spring.</div></div>
+        </div>
+      </div>
+      <div class="pane" id="sd2">
+        <div class="obj">
+          <div><b>“We already use Copilot.”</b><p>Good, keep it. DesignVerse works alongside the AI coding tools you already use. It gives them what they’re missing: your architecture, your standards and your rules, before they write a line.</p><small>Source: FAQ, “works alongside your current systems”</small></div>
+          <div><b>“Our code can’t leave our network.”</b><p>It doesn’t have to. It runs in your infrastructure: private cloud, VPC, on-prem or fully air-gapped, with EU and US data residency.</p><small>Source: Control section, industry pages</small></div>
+          <div><b>“Half our standards aren’t written down.”</b><p>That’s normal, and it’s the point. Import covers the patterns your teams repeat but never document, so the unwritten rules get captured too.</p><small>Source: homepage, How it works</small></div>
+          <div><b>“How would we audit what the AI did?”</b><p>Every prompt is saved as a hashed version, attributable to a person, with revert. A person reviews backend changes before production.</p><small>Source: Control section</small></div>
+          <div><b>“We can’t afford a rebuild.”</b><p>You don’t do one. Legacy systems evolve step by step against their existing architecture while they keep running.</p><small>Source: aviation and banking FAQs</small></div>
+          <div><b>“What’s the return?”</b><p>Start with your own number. The drift calculator takes two minutes and gives a figure you can take into budget review. Existing deployments report up to 60% lower operating cost.</p><small>Source: drift calculator page</small></div>
+        </div>
+      </div>
+      <div class="pane" id="sd3">
+        <div class="g2">
+          <div>
+            <h4 style="font-size:16px;margin-bottom:8px">Discovery, in order</h4>
+            <ol class="qs">
+              <li>Where do your teams use AI for code today, and where is it banned?</li>
+              <li>When AI-written code gets rejected in review, what’s usually wrong with it?</li>
+              <li>Where do your standards live? Docs, people, or both?</li>
+              <li>Which system is everyone afraid to touch?</li>
+              <li>What does your security team need before anything new goes live?</li>
+              <li>How do you trace a change today, from requirement to release?</li>
+              <li>Who else would need to see this to make a decision?</li>
+              <li>If this worked, what would you do with the time back?</li>
+            </ol>
+          </div>
+          <div>
+            <h4 style="font-size:16px;margin-bottom:8px">SDR → AE handoff</h4>
+            <div class="copy"><button class="cp">Copy</button>ACCOUNT: NAV CANADA · Tier 1 · angle: build-with-europe
+WHO: {name}, {title} · champion? yes / not yet
+TRIGGER: SESAR membership, work from Sept 2026
+PAIN, IN THEIR WORDS: “{quote from the call}”
+SYSTEM THEY’D START WITH: {system}
+SECURITY NEEDS: air-gapped? residency?
+COMMITTEE KNOWN: {roles found} / 5
+NEXT STEP BOOKED: {date}, {who attends}
+WHAT NOT TO DO: {anything they pushed back on}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="ops">
+  <div class="wrap">
+    <div class="lbl">10 / Ops</div>
+    <h2>The quiet work that makes attribution true: UTMs, a launch checklist, and one naming rule.</h2>
+    <p class="lede">Your GTM Engineer is building closed-loop attribution in HubSpot. That only works if every link that goes out follows the same rules. I’d own that, so they never have to clean it up.</p>
+    <div class="why3">
+      <div class="w"><h4>Why you need it</h4><p>Four teams will be sending links next quarter: paid, field, SDRs and content. One naming rule is the difference between “pipeline by campaign” and a spreadsheet nobody trusts.</p></div>
+      <div class="x"><h4>If nobody owns it</h4><p>“linkedin”, “LinkedIn” and “li” show up as three channels. Event leads come in with no source. The first board report takes a week of cleaning.</p></div>
+      <div class="p"><h4>My plan</h4><ol><li>One rule, lowercase, no spaces</li><li>A builder so nobody types a UTM by hand</li><li>A checklist that runs before every launch</li><li>A weekly check for links that break the rule</li></ol></div>
+    </div>
+    <div class="done">
+      <div class="done-h"><h3>UTM builder</h3><span>✓ Working</span></div>
+      <div class="utm">
+        <label>Channel<select id="uS"><option value="linkedin|paid_social">LinkedIn ads</option><option value="linkedin|tla">Thought Leader Ad</option><option value="google|cpc">Google search</option><option value="hubspot|email">Email</option><option value="event|field">Event</option><option value="sdr|outbound">SDR outbound</option></select></label>
+        <label>Vertical<select id="uV"><option>aviation</option><option>banking</option><option>healthcare</option><option>industrial</option><option>software</option><option>public_sector</option></select></label>
+        <label>Offer<select id="uO"><option value="drift_calc">Drift calculator</option><option value="demo">Demo</option><option value="case_eurocontrol">EUROCONTROL story</option><option value="roundtable">Roundtable</option></select></label>
+        <label>Quarter<select id="uQ"><option>2027q1</option><option>2027q2</option><option>2026q4</option></select></label>
+        <label>Persona · variant<input id="uC" value="architect v2"></label>
+        <label>Account (optional)<input id="uA" value="NAV CANADA"></label>
+      </div>
+      <div class="utm-out"><button class="cp" id="uCp">Copy</button><span id="uOut"></span></div>
+      <div class="rules" id="uRules"></div>
+    </div>
+    <div class="g2" style="margin-top:16px">
+      <div class="done">
+        <div class="done-h"><h3>Before anything goes live</h3><span>✓ Checklist</span></div>
+        <div class="chk" style="grid-template-columns:1fr" id="lc"></div>
+      </div>
+      <div class="done">
+        <div class="done-h"><h3>Friday, in your inbox</h3><span>✓ Sample</span></div>
+        <div class="fri">
+          <div class="h"><img src="../assets/durva-headshot.jpg" alt=""><div><b>Durva</b> → Gina · GTM week of Mar 1</div></div>
+          <div class="b">
+            <h5>Shipped</h5>
+            <ul><li>NAV CANADA ABM page live, with 3 LinkedIn variants in test</li><li>NYC roundtable follow-ups: 11 of 11 sent within 48 hours</li><li>Banking one-pager v2 with sales</li></ul>
+            <h5>Numbers</h5>
+            <ul><li>Demos booked: 6 (4 from tier 1)</li><li>Roundtable: 9 attended of 12, 3 meetings booked</li><li>Architect ad variant at 2× the CTR of the others. Campaign Manager is moving budget Monday</li></ul>
+            <h5>Need from you</h5>
+            <ul><li>Andrei’s OK on Thought Leader Ad #2</li></ul>
+            <h5>Next week</h5>
+            <ul><li>Peraton brief to the AE · aviation one-pager · London invite list</li></ul>
+          </div>
+        </div>
+        <p class="note">All numbers are made up to show the format. Five minutes to read, and nobody has to ask “where are we on…?”</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt" id="d90">
+  <div class="wrap">
+    <div class="lbl">11 / First 90 days</div>
+    <h2>Useful in week one. Trusted by month three.</h2>
+    <p class="lede">The first month is about learning the product and the people, and being useful straight away. After that, it’s about owning the parts nobody else should have to think about.</p>
+    <div class="d90">
+      <div><div class="n">DAYS 1–30</div><h3>Learn, and take things off your desk</h3><ul><li>Sit in on demos and customer calls until I can explain the context layer to an engineer</li><li>Meet each new hire and ask: what are you redoing that you shouldn’t be?</li><li>Ship the UTM rule, the launch checklist and the first Friday note</li><li>Finish briefs for all tier 1 accounts in one vertical</li></ul><div class="ok">Done when: no launch goes out without the checklist</div></div>
+      <div><div class="n">DAYS 31–60</div><h3>Own the launch kit</h3><ul><li>Every campaign gets its ads, page copy and QA from me</li><li>Run the first roundtable kit end to end with the Field Lead</li><li>One-pagers for three verticals, plus the EUROCONTROL story in every format</li><li>A monthly update to the sales kit from call notes</li></ul><div class="ok">Done when: no deal waits on a PDF</div></div>
+      <div><div class="n">DAYS 61–90</div><h3>Make it run without me pushing it</h3><ul><li>Automate the repeat jobs: event follow-ups, report pulls, asset resizing</li><li>One launch calendar for paid, field and content</li><li>The ABM page template covering every tier 1 account</li><li>A quarterly review with you: what to stop, what to scale</li></ul><div class="ok">Done when: you get one clear view of GTM every week, without asking</div></div>
+    </div>
+    <div class="rhythm">
+      <div><i>MONDAY</i><b>One-page plan</b><small>What each programme is shipping this week, and what’s at risk</small></div>
+      <div><i>DAILY</i><b>Async first</b><small>Slack and Loom. When Europe signs off at 6pm, it’s 11am for me, so US follow-ups still go out the same day</small></div>
+      <div><i>WEDNESDAY</i><b>15 minutes with you</b><small>Only decisions. Everything else is written down</small></div>
+      <div><i>FRIDAY</i><b>The update</b><small>Shipped, numbers, what I need, next week</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="hello" id="hello">
+  <div class="wrap">
+    <div class="pair"><img class="g" src="img/gina.jpg" alt="Gina Dragulin"><span>+</span><img src="../assets/durva-headshot.jpg" alt="Durva Thakkar"></div>
+    <h2>I’d love to be your right hand, Gina.</h2>
+    <p>I’m Durva, a marketer in Barrie, Ontario, early in my career and happiest when I’m the person who gets things shipped. Your team is about to grow fast, and I’d love to help it move faster. Could we talk for 20 minutes?</p>
+    <div class="row"><a class="btn" href="mailto:durvathakker7@gmail.com?subject=DesignVerse%20%C2%B7%20Marketing%20Coordinator">durvathakker7@gmail.com</a><a class="btn ghost" href="https://www.linkedin.com/in/durvathakkar/" target="_blank" rel="noopener">Durva on LinkedIn ↗</a></div>
+    <p class="fine">DesignVerse facts, numbers and quotes come from designverse.ai. Account signals come from the public sources linked in section 02, checked on November 22, 2026. Guests, report numbers and the event date are samples to show the format. The Thought Leader Ad is a draft for Andrei to approve or change.</p>
+  </div>
+</section>
+</main>
+<div class="toast" id="toast">Copied</div>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const toast=t=>{const e=$('#toast');e.textContent=t||'Copied';e.classList.add('on');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('on'),1400)};
+
+/* ---------- hero story ---------- */
+const ROLES=[['Digital Campaign Manager','paid + digital','not ad-ops'],['Global Field & Events Lead','events','not coordination'],['Founding GTM Engineer','HubSpot + Clay','not CRM admin'],['Founding SDR','outbound','not spray-and-pray'],['Founding AE','closing','builds the playbook']];
+const REQS=[['Campaign Mgr','Banking landing page live by Thursday?','Live',0],['Field & Events','Invites, badges, run-of-show for the dinner?','Sent',1],['GTM Engineer','Who named these UTMs? 🙃','Fixed',2],['SDR','Is there an aviation one-pager?','Done',3],['AE','EUROCONTROL story as a PDF, for tomorrow?','Attached',4],['Content','Turn Andrei\'s post into an ad?','Running',null]];
+$('#roles').innerHTML=ROLES.map(r=>`<div class="role"><b>${r[0]}</b><small>${r[1]}</small><s>${r[2]}</s></div>`).join('');
+const bubHTML=(r,i)=>`<div class="bub" data-i="${i}"><i>${r[0]}</i>${esc(r[1])}<em>✓ ${r[2]}</em></div>`;
+$('#bl').innerHTML=REQS.filter((r,i)=>i%2==0).map((r)=>bubHTML(r,REQS.indexOf(r))).join('');
+$('#br').innerHTML=REQS.filter((r,i)=>i%2==1).map((r)=>bubHTML(r,REQS.indexOf(r))).join('');
+const bubs=i=>$(`.bub[data-i="${i}"]`);
+let timers=[],paused=false,t0=0,elapsed=0,TOTAL=30500,raf;
+function cap(html){const c=$('#cap');c.style.opacity=0;setTimeout(()=>{c.innerHTML=html;c.style.opacity=1},250)}
+function show(id){$$('.sc').forEach(s=>s.classList.toggle('on',s.id===id));$$('#'+id+' [data-t]').forEach(el=>{el.classList.remove('on');at(+el.dataset.t,()=>el.classList.add('on'),true)})}
+let base=0;
+function at(ms,fn,rel){const when=(rel?elapsedNow():0)+ms;timers.push({when,fn,done:false})}
+function elapsedNow(){return paused?elapsed:elapsed+(performance.now()-t0)}
+function counter(n){const c=$('#cnt');c.classList.add('on');c.textContent=n+(n===1?' request':' requests')+' waiting'}
+function script(){
+  at(0,()=>show('s1'));
+  at(2400,()=>show('s2'));
+  at(4900,()=>show('s3'));
+  at(7200,()=>{show('sb');cap('Meet Gina, the CMO.');$('#gina').classList.add('on')});
+  ROLES.forEach((r,i)=>at(8200+i*380,()=>$$('.role')[i].classList.add('on')));
+  at(9300,()=>cap('Five new specialists, all hired at once.'));
+  at(10600,()=>cap('Each job post says what the role is <b>not</b>.'));
+  ROLES.forEach((r,i)=>at(11000+i*300,()=>$$('.role')[i].classList.add('stamp')));
+  at(12900,()=>{cap('Then week one starts.');});
+  const tally=[3,7,12,16,19,23];
+  REQS.forEach((r,i)=>at(13600+i*620,()=>{bubs(i).classList.add('on');counter(tally[i]);if(i==2)$('#gina').classList.add('busy')}));
+  at(15400,()=>cap('…and every “not” lands on one desk.'));
+  at(17600,()=>cap('Something\'s missing…'));
+  at(18200,()=>$('#slot').classList.add('on'));
+  at(19400,()=>cap('oh.'));
+  at(20100,()=>cap('oh oh.'));
+  at(21000,()=>{$('#slot').classList.add('filled');cap('Hi Gina, I\'m <b>Durva</b>. 👋');$('#gina').classList.remove('busy')});
+  REQS.forEach((r,i)=>at(22300+i*380,()=>{bubs(i).classList.add('fin');counter(Math.max(0,23-Math.round((i+1)*23/6)));if(r[3]!==null)$$('.role')[r[3]].classList.add('ok')}));
+  at(22400,()=>cap('Your right hand. I take the “not” work, so the five of them can do theirs.'));
+  at(24800,()=>$('#gina').classList.add('calm'));
+  at(26600,()=>show('s9'));
+}
+function tick(){
+  const now=elapsedNow();
+  timers.forEach(t=>{if(!t.done&&now>=t.when){t.done=true;t.fn()}});
+  $('#prog').style.width=Math.min(100,now/TOTAL*100)+'%';
+  if(now<TOTAL+500&&!paused)raf=requestAnimationFrame(tick);
+}
+function reset(){
+  cancelAnimationFrame(raf);timers=[];elapsed=0;paused=false;$('#pp').textContent='Pause';
+  $$('.role').forEach(r=>r.className='role');$$('.bub').forEach(b=>b.className='bub');
+  $('#slot').className='slot';$('#gina').className='gina';$('#cnt').className='cnt mono';$('#cap').innerHTML='&nbsp;';
+  t0=performance.now();script();tick();
+}
+$('#pp').onclick=()=>{if(paused){paused=false;t0=performance.now();$('#pp').textContent='Pause';tick()}else{elapsed=elapsedNow();paused=true;$('#pp').textContent='Play'}};
+$('#rp').onclick=reset;$('#rp2').onclick=reset;
+const jump=new URLSearchParams(location.search).get('t');
+if(jump!==null){const st=document.createElement('style');st.textContent='#stage *{transition:none!important;animation:none!important}';document.head.appendChild(st);
+  timers=[];elapsed=0;paused=true;script();const J=+jump;timers.sort((x,y)=>x.when-y.when);
+  for(let k=0;k<timers.length;k++){const t=timers[k];if(t.when<=J&&!t.done){t.done=true;t.fn()}}
+  $('#prog').style.width=Math.min(100,J/TOTAL*100)+'%';
+  setTimeout(()=>{timers.forEach(t=>{if(!t.done&&t.when<=J){t.done=true;t.fn()}})},10);
+}else reset();
+
+/* ---------- calculator ---------- */
+function calc(){const h=+$('#ih').value,w=+$('#iw').value,c=+$('#ic').value;$('#vh').textContent=h;$('#vw').textContent=w;$('#vc').textContent='$'+c;
+  const hrs=h*w*46,fte=hrs/1840,cost=hrs*c;
+  $('#oh').textContent=hrs.toLocaleString('en-US')+' hrs';
+  $('#ot').textContent=`a year of senior time spent on coordination. That's ${fte.toFixed(2)} of a full-time person, or about $${Math.round(cost).toLocaleString('en-US')} at your rate.`}
+['#ih','#iw','#ic'].forEach(s=>$(s).oninput=calc);calc();
+
+/* ---------- tabs + copy ---------- */
+$$('.tabs[id]').forEach(t=>{if(['abmA','abmP'].includes(t.id))return;t.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||!b.dataset.p)return;t.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));const box=t.parentElement;box.querySelectorAll(':scope > .pane').forEach(p=>p.classList.toggle('on',p.id===b.dataset.p))})});
+document.addEventListener('click',e=>{const b=e.target.closest('.cp');if(!b||b.id==='uCp')return;const txt=[...b.parentElement.childNodes].filter(n=>n!==b).map(n=>n.textContent).join('').trim();navigator.clipboard?.writeText(txt).then(()=>toast(),()=>toast('Select and copy'))});
+
+/* ---------- ABM page ---------- */
+const ACC={
+ nav:{slug:'nav-canada',name:'NAV CANADA',eb:'For NAV CANADA engineering teams',h:'You\'re already building with Europe. Here\'s what Europe built with us.',sub:'With SESAR and iTEC, your teams work on the same problems as Europe\'s ATM community. EUROCONTROL used DesignVerse to modernize a 15-year-old operational application in about a month, against an estimated six, without loosening its safety standards.',why:'Opens with their own news (SESAR, iTEC), so the first line proves this page was made for them. EUROCONTROL is the proof they already respect.'},
+ per:{slug:'bnatcs',name:'Peraton',eb:'For the Brand New Air Traffic Control System team',h:'2028 is a fixed date. The rework doesn\'t have to be.',sub:'When delivery is tied to deadlines, every reworked line of AI-written code costs twice. DesignVerse applies your architecture and standards before code is generated, and logs every change so it can be traced.',why:'Their contract ties profit to deadlines. The headline turns that pressure into the problem we solve: rework. The slug avoids the company name, since it\'s a government programme.'},
+ ind:{slug:'indra',name:'Indra',eb:'For Indra\'s ATM engineering teams',h:'More air traffic programmes than engineers?',sub:'With FAA radar work and NAV CANADA programmes running at once, capacity is the constraint. DesignVerse lets the same team ship to each customer\'s architecture, with up to 3× the output, without rebuilding context for every programme.',why:'A partner angle, not a customer pitch. Two big North American customers at once makes capacity the real pain.'},
+ gen:{slug:'aviation',name:'Aviation',eb:'Aviation & ATM · North America',h:'Modernize the systems that can\'t fail, at the speed the programme needs.',sub:'DesignVerse gives AI your architecture, standards and safety rules before it writes a line. EUROCONTROL used it to modernize a 15-year-old operational application in about a month.',why:'The fallback for any aviation visitor without a known account. It keeps the EUROCONTROL proof and drops the account-specific hook.'}};
+const PER={
+ eng:{cta:'Book a 30-minute walkthrough',cards:[['Built from your architecture','Code that fits how your teams already build, not a prototype to redo.'],['Up to 6× faster','A 15-year system modernized in about a month.'],['Same team, up to 3× output','More capacity without adding headcount.']],why:'Engineering leaders care about delivery and headcount, so speed and capacity lead.'},
+ arc:{cta:'See how the context layer works',cards:[['Your approved patterns','Your libraries and patterns, not random dependencies.'],['Traceable','From requirement to release, the traceability DO-178C expects.'],['Fits your toolchain','Works alongside the AI coding tools you already use.']],why:'Architects care about control and consistency. The CTA offers to show how it works, because they won\'t book a sales demo first.'},
+ fin:{cta:'Calculate your cost of drift',cards:[['60% lower cost to ship','Versus generic AI coding tools on equivalent work.'],['Rework becomes a number','Drift hides inside headcount. Now you can see it.'],['Spend you can audit','Every change logged and attributable.']],why:'Finance wants a number, so the main CTA becomes the drift calculator: two minutes and a figure for budget review.'}};
+let A='nav',P='eng';
+function abm(){const a=ACC[A],p=PER[P];
+  $('#lpUrl').textContent=`designverse.ai/for/${a.slug}?utm_source=linkedin&utm_medium=paid_social&utm_campaign=2027q1_aviation_abm&utm_content=${P}_v1`;
+  $('#lpEb').textContent=a.eb;$('#lpH').textContent=a.h;$('#lpSub').textContent=a.sub;$('#lpCta').textContent=p.cta;
+  $('#lpCards').innerHTML=p.cards.map(c=>`<div><b>${esc(c[0])}</b><p>${esc(c[1])}</p></div>`).join('');
+  $('#lpWhy').innerHTML=`<div class="n"><b>Why this headline</b>${esc(a.why)}</div><div class="n"><b>Why this reader view</b>${esc(p.why)}</div><div class="n"><b>Webflow build</b>One CMS collection, "ABM pages": slug, account, eyebrow, headline, sub, proof, persona cards. One template, so a new account takes about 20 minutes.</div><div class="n"><b>Measured by</b>Demo requests per account, time on page, and which persona view converts. Reported weekly.</div>`;
+  $('#lpPay').style.display='none'}
+['#abmA','#abmP'].forEach(id=>$(id).addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$(id).querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));if(id=='#abmA')A=b.dataset.v;else P=b.dataset.v;abm()}));
+$('#lpForm').addEventListener('submit',e=>{e.preventDefault();const f=e.target.elements;const pay={email:f[1].value,firstname:f[0].value.split(' ')[0],lastname:f[0].value.split(' ').slice(1).join(' '),jobfunction:f[2].value,abm_account:ACC[A].name,abm_page:'/for/'+ACC[A].slug,persona_view:P,utm_source:'linkedin',utm_medium:'paid_social',utm_campaign:'2027q1_aviation_abm',utm_content:P+'_v1',lifecyclestage:'marketingqualifiedlead',notify:'account owner + #gtm-alerts'};const el=$('#lpPay');el.textContent='→ HubSpot form submission\n'+JSON.stringify(pay,null,2);el.style.display='block'});
+abm();
+
+/* ---------- LinkedIn ads ---------- */
+const LI=[
+ {p:'Engineering leader',intro:'Your teams adopted AI. Now every team builds differently. DesignVerse gives AI your architecture and standards before it writes a line.',k:'Engineering drift',cr:'Every team. <em>One way of building.</em>',hl:'Same team, up to 3× the output',cta:'Learn more'},
+ {p:'Architect',intro:'Your approved libraries and patterns, not random dependencies. See how the context layer applies your architecture before code is generated.',k:'Context before code',cr:'Your architecture, <em>applied before the first line.</em>',hl:'See how the context layer works',cta:'Learn more'},
+ {p:'Finance',intro:'Rework caused by AI-written code isn\'t a line in your engineering budget. It should be. Put a number on it in two minutes.',k:'Cost of drift',cr:'Rework isn\'t a line item. <em>Yet.</em>',hl:'Calculate your cost of engineering drift',cta:'Calculate'}];
+$('#liAds').innerHTML=LI.map(a=>`<div><div class="li"><div class="hd"><i>D</i><div><b>DesignVerse</b><small>Promoted</small></div></div><div class="tx">${esc(a.intro)}</div><div class="cr"><small>${a.k}</small><strong>${a.cr}</strong><span>designverse.ai</span></div><div class="ft"><b>${esc(a.hl)}</b><a href="#ads">${a.cta}</a></div></div><div class="meta"><span class="chip">${a.p}</span><span class="chip lime">intro ${a.intro.length}/150</span><span class="chip lime">headline ${a.hl.length}/70</span></div></div>`).join('');
+
+/* ---------- RSA ---------- */
+const H=['AI That Follows Your Standards','The Engineering Context Layer','Modernize Legacy Systems Fast','Up to 6x Faster Modernization','Built From Your Architecture','Cut AI Code Rework','Runs On-Prem or Air-Gapped','Trusted by EUROCONTROL','Calculate Your Cost of Drift','Governed AI for Enterprise','Stop Engineering Drift','Same Team, Up to 3x Output','Every AI Change Auditable','Book a DesignVerse Demo','Context Before Code'];
+const D=['Give AI your architecture, standards and rules before it writes code. Ship it right once.','EUROCONTROL modernized a 15-year-old app in ~1 month. See how the context layer works.','Runs in your perimeter: private cloud, VPC, on-prem or air-gapped. Every change is logged.','Put a number on engineering drift in two minutes. Your inputs, a figure for budget review.'];
+$('#rsaH').innerHTML=H.map(h=>`<li><span>${h}</span><code class="${h.length>30?'bad':''}">${h.length}/30</code></li>`).join('');
+$('#rsaD').innerHTML=D.map(h=>`<li><span>${h}</span><code class="${h.length>90?'bad':''}">${h.length}/90</code></li>`).join('');
+let si=0;function serp(){$('#serpH').textContent=[H[(si)%15],H[(si+7)%15],H[(si+3)%15]].join(' | ');$('#serpD').textContent=D[si%4]+' '+D[(si+2)%4];si++}
+serp();setInterval(serp,3500);
+
+/* ---------- deck ---------- */
+const NOTES=['Open with why them: their SESAR and iTEC work. Then ask what they want from the 30 minutes, and write it down.','Don\'t define drift yet. Ask where rework shows up for them, and let them describe it in their own words.','Now name it, using their examples. Ask: how is a change traced today?','60 seconds, no more. If an architect is in the room, they\'ll ask about step one. Let them.','Tell it as a story: what they needed, what changed, the number. Then stop talking.','Answer security before they ask. For air navigation providers, air-gapped is usually the first question.','Agree on the system in the room. The next meeting is with their architects, not another demo.'];
+const SL=$$('#dkv .sl');let di=0;
+$('#dkD').innerHTML=SL.map((s,i)=>`<i data-i="${i}"></i>`).join('');
+function deck(i){di=(i+SL.length)%SL.length;SL.forEach((s,j)=>s.classList.toggle('on',j===di));$$('#dkD i').forEach((d,j)=>d.classList.toggle('on',j===di));$('#dkNote').innerHTML=`<b>Talk track · slide ${di+1} of ${SL.length}</b>${esc(NOTES[di])}`}
+$('#dkP').onclick=()=>deck(di-1);$('#dkN').onclick=()=>deck(di+1);$('#dkD').onclick=e=>{if(e.target.dataset.i)deck(+e.target.dataset.i)};
+$('#dkv').onclick=()=>deck(di+1);
+document.addEventListener('keydown',e=>{const r=$('#deck').getBoundingClientRect();if(r.top>innerHeight||r.bottom<0)return;if(e.key==='ArrowRight')deck(di+1);if(e.key==='ArrowLeft')deck(di-1)});
+deck(0);
+
+/* ---------- one-pager print ---------- */
+$('#opPrint').onclick=e=>{e.preventDefault();window.print()};
+
+/* ---------- event timeline ---------- */
+const EV=[['T-42','Pick the city, venue shortlist and budget with the Field Lead','Thu Jan 14'],['T-41','Build the invite list from tier 1 and 2 accounts in HubSpot: 40 names for 12 seats','Fri Jan 15'],['T-35','Account owners send personal invites','Thu Jan 21'],['T-28','Registration page live with UTMs, RSVPs syncing to HubSpot','Thu Jan 28'],['T-21','Second wave of invites to fill the gaps','Thu Feb 4'],['T-14','Confirm menu and dietary needs. No AV: there are no slides','Thu Feb 11'],['T-10','Thought Leader Ad from Gina to invited accounts','Mon Feb 15'],['T-7','Reminder email and calendar hold','Thu Feb 18'],['T-2','Sales briefing to every AE, one goal per guest','Tue Feb 23'],['T-1','Final reminder. Print name cards, one-pagers, thank-you cards','Wed Feb 24'],['T0','Run of show. AEs log notes the same night','Thu Feb 25'],['T+1','Follow-ups sent to attended and no-shows. Attendance, notes and next steps logged in HubSpot','Fri Feb 26'],['T+7','Themes write-up for content, pipeline report to Gina','Thu Mar 4']];
+$('#evTl').innerHTML=EV.map((e,i)=>`<label><code>${e[0]}</code><span>${e[1]}<small>${e[2]}, 2027</small></span><input type="checkbox" data-i="${i}"></label>`).join('');
+function evp(){const c=$$('#evTl input:checked').length;$('#evPct').textContent=`${c} of ${EV.length} done`;$('#evBar').style.width=(c/EV.length*100)+'%';$$('#evTl input').forEach(i=>i.closest('label').classList.toggle('ck',i.checked))}
+$('#evTl').addEventListener('change',evp);
+$$('#evTl input').slice(0,3).forEach(i=>i.checked=true);evp();
+
+/* ---------- UTM ---------- */
+const slug=s=>s.toLowerCase().trim().replace(/[^a-z0-9]+/g,'_').replace(/^_|_$/g,'');
+function utm(){const [src,med]=$('#uS').value.split('|');const camp=`${$('#uQ').value}_${$('#uV').value}_${$('#uO').value}`;const cont=slug($('#uC').value)||'default';const acc=slug($('#uA').value);
+  const base=$('#uO').value==='drift_calc'?'https://designverse.ai/engineering-drift-calculator':$('#uO').value==='demo'?'https://designverse.ai/book-a-demo':acc?`https://designverse.ai/for/${acc.replace(/_/g,'-')}`:`https://designverse.ai/industries`;
+  const q=new URLSearchParams({utm_source:src,utm_medium:med,utm_campaign:camp,utm_content:cont});if(acc)q.set('utm_term',acc);
+  $('#uOut').textContent=base+'?'+q.toString();
+  const raw=$('#uC').value+$('#uA').value;
+  $('#uRules').innerHTML=[['lowercase',true],['no spaces',true],['campaign = quarter_vertical_offer',true],['account in utm_term',!!acc],[raw!==raw.toLowerCase()||/\s/.test(raw)?'cleaned your input':'input already clean',true]].map(r=>`<span class="chip ${r[1]?'lime':'warn'}">${r[1]?'✓':'·'} ${r[0]}</span>`).join('')}
+['#uS','#uV','#uO','#uQ','#uC','#uA'].forEach(s=>$(s).addEventListener('input',utm));utm();
+$('#uCp').onclick=()=>navigator.clipboard?.writeText($('#uOut').textContent).then(()=>toast(),()=>toast('Select and copy'));
+
+/* ---------- launch checklist ---------- */
+const LC=['Brief approved by the campaign owner','Copy checked against the messaging doc','Every link built with the UTM builder','Landing page tested on phone and desktop','Form submits, and the record lands in HubSpot','Account owner gets the alert','Ads within character limits, visuals in every size','Retargeting audience set up','Founder content approved by Andrei','Added to the launch calendar','Reporting view ready before day one','Post-launch check booked for day three'];
+$('#lc').innerHTML=LC.map(l=>`<label><input type="checkbox"><span>${l}</span></label>`).join('');
+$('#lc').addEventListener('change',e=>e.target.closest('label').classList.toggle('ck',e.target.checked));
+</script>
+</body>
+</html>
