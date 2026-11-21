@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Replace a Part With No Drawing: Scan to CAD | Designfusion</title>
+<meta name="description" content="Part out of production and no drawings left? Here's how 3D scanning and reverse engineering turn a worn part into a new CAD model and a new part.">
+<meta property="og:title" content="Replace a Part With No Drawing: Scan to CAD | Designfusion">
+<meta property="og:description" content="Part out of production and no drawings left? Here's how 3D scanning and reverse engineering turn a worn part into a new CAD model and a new part.">
+<meta property="og:image" content="https://durvathakkar.com/designfusion/share.jpg?v=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=3">
+</head>
+<body>
+<div class="ribbon">Concept redesign of designfusion.com by Durva Thakkar, made for a job application. Not the official site. <a href="../">Back to the pitch</a></div>
+<header class="hdr" id="hdr">
+  <div class="inner">
+    <a class="logo" href="index.html" aria-label="Designfusion home"><img src="../img/logo-ink.png" alt="Designfusion" width="113" height="30"></a>
+    <nav aria-label="Main"><a href="software.html">Software</a><a href="additive.html">3D Printing</a><a href="scanning.html">Scanning<span class=new>NEW</span></a><a href="services.html">Services</a><a href="stories.html">Stories</a><a href="blog.html" class=on>Learn</a><a href="about.html">About</a></nav>
+    <div class="right"><span class="tel">1-888-567-3933</span><a class="fr" href="https://www.designfusion.com/home-fr">FR</a><a class="btn ind" href="contact.html">Talk to an engineer</a></div>
+    <button class="burger" aria-label="Menu" onclick="document.getElementById('hdr').classList.toggle('open')"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<main>
+
+<section class="sec" style="padding-top:clamp(50px,7vw,90px)"><div class="wrap"><article class="article">
+  <div class="meta"><span class="chip">Reverse engineering</span><span class="spec s">6 min read</span></div>
+  <h1 class="h1" style="font-size:clamp(36px,4.6vw,60px)">The part broke and the drawing is gone. Here's how to get it back.</h1>
+  <p class="by">By the Designfusion additive team</p>
+  <div class="fig"><div class="split r169" style="--at:50%">
+  <img src="../img/housing.jpg" alt="" style="object-position:50% 50%"><img class="dig" src="../img/housing.jpg" alt="" style="object-position:50% 50%"><div class="tint"></div><div class="mesh"></div><i class="line"></i>
+  <span class="lab a">THE PART</span><span class="lab b">THE SCAN</span>
+</div></div>
+  <div class="body">
+    <p>Every plant has one. A bracket, an impeller, a housing that has done its job quietly for twenty years. Then it cracks, and someone goes looking for the drawing.</p>
+    <p>Sometimes there isn't one. It was drawn by hand, or the CAD file lived on a computer that was retired long ago. Sometimes the drawing exists but the supplier doesn't. The shop that made it closed, was bought out, or will only run a new batch at a minimum order you'll never use.</p>
+    <p>You have three options. Two of them are expensive.</p>
+    <div class="opt"><b>1. Measure it by hand and redraw it.</b>A good designer with calipers can rebuild a simple part. But curves, worn surfaces and awkward features are hard to measure, and every guess becomes a fit problem on the first prototype.</div>
+    <div class="opt"><b>2. Replace the whole assembly.</b>If you can't get the part, you can buy a machine that doesn't need it. That fixes the problem by spending far more than the problem cost.</div>
+    <div class="opt"><b>3. Scan it, model it, and make it again.</b>A handheld 3D scanner captures the full shape in a few passes, including the curves calipers miss. The scan becomes a clean CAD model, and the model becomes a new part.</div>
+    <h2>How scan to part works</h2>
+    <ol>
+      <li><b>Capture.</b> The part is scanned at your facility or ours. A handheld scanner like the Creaform HandySCAN 3D PRO means it doesn't have to fit on a machine bed.</li>
+      <li><b>Clean up.</b> A raw scan is a mesh, a surface made of millions of tiny triangles. Great for inspection, not much use on the shop floor.</li>
+      <li><b>Rebuild.</b> An engineer uses the mesh as a guide to build a parametric model in Siemens NX or Solid Edge, with real dimensions you can edit.</li>
+      <li><b>Improve, if you want to.</b> Worn parts usually wore for a reason. Thicken a wall, add a rib, or combine two pieces into one. Design for Additive Manufacturing can make the new part lighter or stronger than the old one.</li>
+      <li><b>Make it.</b> Machine it, mould it or print it. For one-offs and short runs, printing in fibre-reinforced or metal materials is often the quickest route.</li>
+    </ol>
+    <h2>When scanning is worth it</h2>
+    <ul><li>The part is out of production, or the supplier is gone.</li><li>There's no usable drawing or CAD file.</li><li>Downtime costs more than the part.</li><li>The part has failed before and you'd like to improve it.</li><li>You need a digital record of tooling, fixtures or older equipment.</li></ul>
+    <h2>When it isn't</h2>
+    <p>If the part is a flat plate with three holes, a tape measure will do. Scanning earns its cost on parts with shape: castings, curved surfaces, worn edges, anything you'd struggle to describe on a drawing.</p>
+    <h2>Five questions to ask a scanning provider</h2>
+    <ol><li>Can you come to us, or do we ship the part?</li><li>Do we get a usable CAD model, or only a scan file?</li><li>Which formats: native NX or Solid Edge, or STEP?</li><li>Can you help improve the design, not just copy it?</li><li>Can you make the part too, or only the file?</li></ol>
+    <h2>How Designfusion does it</h2>
+    <p>We scan with the Creaform HandySCAN 3D PRO, model in NX and Solid Edge, and print the finished part on Markforged and Formlabs systems or through our parts brokerage. You choose how far we go.</p>
+    <p style="margin-top:26px"><a class="btn ind" href="scanning.html">See scanning packages <span class="ar">→</span></a></p>
+  </div>
+</article></div></section>
+</main>
+<footer class="ftr">
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">
+        <img src="../img/logo-light.png" alt="Designfusion">
+        <p>Siemens software, industrial 3D printers and the engineers who know both. From first sketch to finished part, since 2002.</p>
+        <form onsubmit="event.preventDefault();this.innerHTML='<span style=&quot;color:#bed361&quot;>You\'re on the list. One email a month.</span>'"><input type="email" placeholder="Work email" aria-label="Work email"><button class="btn lime" type="submit">Get the monthly email</button></form>
+      </div>
+      <div><h4>Software</h4><ul><li><a href="software.html#nx">NX</a></li><li><a href="software.html#solid-edge">Solid Edge</a></li><li><a href="software.html#teamcenter">Teamcenter</a></li><li><a href="software.html#simcenter">Simcenter</a></li><li><a href="software.html#tecnomatix">Tecnomatix</a></li></ul></div>
+      <div><h4>3D printing</h4><ul><li><a href="additive.html#markforged">Markforged</a></li><li><a href="additive.html#formlabs">Formlabs</a></li><li><a href="additive.html#postpro">Post-processing</a></li><li><a href="additive.html#brokerage">Parts brokerage</a></li><li><a href="scanning.html">3D scanning</a></li></ul></div>
+      <div><h4>Services</h4><ul><li><a href="services.html#plm">PLM implementation</a></li><li><a href="services.html#design">Design services</a></li><li><a href="services.html#cam">CAM services</a></li><li><a href="services.html#automation">Customization</a></li><li><a href="services.html#training">Training</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="stories.html">Customer stories</a></li><li><a href="blog.html">Blog</a></li><li><a href="about.html#careers">Careers</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    </div>
+    <div class="bot"><span>Head office · 305 Milner Ave, Suite 308, Toronto, ON M1B 3V4 · 1-888-567-3933 · info@designfusion.com</span><span>Concept by Durva Thakkar · Not affiliated with Designfusion, Siemens, Markforged or Formlabs</span></div>
+  </div>
+</footer>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+if(/[?&]shot/.test(location.search))document.querySelectorAll('.rv').forEach(el=>{el.style.transition='none';el.classList.add('in')});
+document.querySelectorAll('form[data-demo]').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();const ok=f.querySelector('.ok');if(ok){ok.style.display='block'}f.querySelector('button[type=submit]').textContent='Sent ✓'}));
+</script>
+</body>
+</html>

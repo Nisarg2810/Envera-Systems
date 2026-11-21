@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Designfusion · Brand book (concept)</title>
+<meta name="description" content="A concept brand system for Designfusion: idea, logo, colour, type, the scan line, photography, voice, components and how it shows up on every platform.">
+<meta property="og:image" content="https://durvathakkar.com/designfusion/share.jpg?v=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../site/site.css?v=3">
+<style>
+.bb-nav{position:sticky;top:0;z-index:40;background:rgba(10,8,22,.9);backdrop-filter:blur(12px);color:#fff}
+.bb-nav .inner{display:flex;align-items:center;gap:22px;height:60px;max-width:var(--max);margin:0 auto;padding:0 var(--pad);overflow-x:auto;white-space:nowrap}
+.bb-nav img{height:22px}
+.bb-nav a.s{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#9c98b8}
+.bb-nav a.s:hover{color:var(--lime)}
+.bb-sec{padding:clamp(70px,9vw,120px) 0;border-top:1px solid var(--line)}
+.bb-h{display:grid;grid-template-columns:160px minmax(0,1fr);gap:30px;margin-bottom:clamp(30px,4vw,50px)}
+.bb-h .n{font-family:var(--mono);font-size:13px;color:var(--indigo);padding-top:12px}
+.bb-h p{color:var(--steel);margin-top:14px;max-width:760px;font-size:18px}
+@media(max-width:760px){.bb-h{grid-template-columns:1fr;gap:8px}}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pillar{background:#fff;border-radius:var(--r);padding:26px}
+.pillar b{font-family:var(--display);font-size:24px;letter-spacing:-.02em;display:block;margin-top:8px}
+.pillar p{color:var(--steel);font-size:15.5px;margin-top:8px}
+@media(max-width:860px){.pillars{grid-template-columns:1fr}}
+/* logo */
+.logos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.lg{border-radius:var(--r);aspect-ratio:3/2;display:grid;place-items:center;position:relative}
+.lg img{width:56%}
+.lg small{position:absolute;left:16px;bottom:14px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.lg.clear{background:#fff}
+.lg.clear .box{position:relative;padding:10% 8%;outline:1.5px dashed var(--scan);outline-offset:0}
+.lg.clear .box img{width:100%}
+.donts{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:16px}
+.dont{background:#fff;border-radius:var(--r);aspect-ratio:4/3;display:grid;place-items:center;position:relative;overflow:hidden}
+.dont img{width:62%}
+.dont small{position:absolute;left:14px;bottom:12px;font-size:13px;color:#c0392b;font-weight:600}
+.dont::after{content:"";position:absolute;right:14px;top:14px;width:22px;height:22px;border-radius:50%;background:#e5392e url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M3 3l4 4M7 3L3 7' stroke='white' stroke-width='1.4'/%3E%3C/svg%3E") center/14px no-repeat}
+@media(max-width:860px){.logos{grid-template-columns:1fr}.donts{grid-template-columns:1fr 1fr}}
+/* colour */
+.sw{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.sw div{border-radius:var(--r);overflow:hidden;background:#fff}
+.sw .c{aspect-ratio:1/1.05;padding:14px;display:flex;flex-direction:column;justify-content:flex-end;font-family:var(--mono);font-size:12px;letter-spacing:.06em}
+.sw .m{padding:12px 14px;font-size:13.5px;color:var(--steel)}
+.sw .m b{display:block;color:var(--ink);font-size:15px}
+.ratio{display:flex;height:46px;border-radius:10px;overflow:hidden;margin-top:18px}
+.ratio span{display:flex;align-items:center;padding-left:10px;font-family:var(--mono);font-size:11px;letter-spacing:.08em}
+@media(max-width:980px){.sw{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.sw{grid-template-columns:1fr 1fr}}
+/* type */
+.type{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ty{background:#fff;border-radius:var(--r);padding:26px;display:flex;flex-direction:column;gap:12px}
+.ty .big{font-size:84px;line-height:1;letter-spacing:-.04em}
+.ty p{color:var(--steel);font-size:15px}
+.scale{margin-top:16px;background:#fff;border-radius:var(--r);padding:26px}
+.scale div{display:grid;grid-template-columns:120px 1fr;align-items:baseline;gap:18px;padding:12px 0;border-top:1px solid var(--line)}
+.scale div:first-child{border-top:0}
+.scale small{font-family:var(--mono);font-size:11.5px;color:var(--steel);letter-spacing:.06em}
+@media(max-width:860px){.type{grid-template-columns:1fr}}
+/* rules list */
+.rules{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}
+.rules div{background:#fff;border-radius:12px;padding:16px 18px;font-size:15.5px;display:flex;gap:12px}
+.rules div b{font-family:var(--mono);font-size:12px;color:var(--indigo)}
+@media(max-width:760px){.rules{grid-template-columns:1fr}}
+/* photo dos */
+.photos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ph{border-radius:var(--r);overflow:hidden;background:#fff}
+.ph .im{aspect-ratio:4/3;position:relative;overflow:hidden}
+.ph .im img{width:100%;height:100%;object-fit:cover}
+.ph .t{padding:16px 18px;font-size:15px}
+.ph .t b{display:block;font-family:var(--display);font-size:19px;letter-spacing:-.01em}
+.ph .t span{color:var(--steel)}
+.duo{position:absolute;inset:0;background:linear-gradient(160deg,#352c73,#0a0816 75%);mix-blend-mode:multiply}
+@media(max-width:860px){.photos{grid-template-columns:1fr}}
+/* voice */
+.rw{width:100%;border-collapse:separate;border-spacing:0 10px}
+.rw td{background:#fff;padding:18px 20px;vertical-align:top;font-size:16px}
+.rw td:first-child{border-radius:12px 0 0 12px;color:var(--steel);text-decoration:line-through;text-decoration-color:rgba(229,57,46,.6);width:46%}
+.rw td:last-child{border-radius:0 12px 12px 0;font-weight:600}
+.rw th{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--steel);text-align:left;font-weight:500;padding:0 20px}
+.words{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.words div{background:#fff;border-radius:var(--r);padding:22px}
+.words p{margin-top:10px;font-size:15.5px;line-height:1.9}
+.words .use p span{background:#eef5cf;padding:2px 7px;border-radius:4px;margin-right:4px;white-space:nowrap}
+.words .avoid p span{background:#fde6e4;padding:2px 7px;border-radius:4px;margin-right:4px;text-decoration:line-through;white-space:nowrap}
+@media(max-width:760px){.words{grid-template-columns:1fr}.rw td{display:block;width:auto!important;border-radius:12px!important}.rw tr{display:block;margin-bottom:10px}}
+/* components */
+.comp{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.comp > div{background:#fff;border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.comp .spec{color:var(--steel)}
+@media(max-width:860px){.comp{grid-template-columns:1fr}}
+/* platform table */
+.plt td:first-child{font-weight:700;white-space:nowrap}
+.plt td:nth-child(3){font-family:var(--mono);font-size:13px;white-space:nowrap}
+.tblw{overflow-x:auto}
+/* applications */
+.apps{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.app{grid-column:span 2}
+.app.w3{grid-column:span 3}.app.w6{grid-column:span 6}.app.w4{grid-column:span 4}
+.app .cap{margin-top:10px;display:flex;justify-content:space-between;gap:10px;font-size:14px;color:var(--steel)}
+.app .cap b{color:var(--ink)}
+@media(max-width:980px){.apps{grid-template-columns:1fr 1fr}.app,.app.w3,.app.w4,.app.w6{grid-column:span 2}}
+.mock{border-radius:var(--r);overflow:hidden;position:relative;container-type:inline-size;background:var(--ink);color:#fff}
+/* yt thumb */
+.yt{aspect-ratio:16/9}
+.yt img{position:absolute;right:0;top:0;width:58%;height:100%;object-fit:cover}
+.yt .fd{position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 38%,rgba(10,8,22,.2) 70%)}
+.yt .t{position:absolute;left:5cqw;top:50%;transform:translateY(-50%);width:52cqw}
+.yt h4{font-size:8.5cqw;line-height:.95;letter-spacing:-.04em;margin-top:2cqw}
+.yt .lgo{position:absolute;left:5cqw;bottom:5cqw;height:3.6cqw}
+.yt .chip{font-size:1.8cqw;padding:.8cqw 1.4cqw}
+.yt .dur{position:absolute;right:2cqw;bottom:2cqw;background:rgba(0,0,0,.8);font-size:1.9cqw;font-weight:600;padding:.3cqw .9cqw;border-radius:.6cqw}
+/* email */
+.em{background:var(--mist);padding:4cqw;color:var(--ink)}
+.em .sheet{background:#fff;border-radius:10px;overflow:hidden;max-width:600px;margin:0 auto}
+.em .bar{background:var(--ink);padding:18px 24px;display:flex;justify-content:space-between;align-items:center}
+.em .bar img{height:20px}
+.em .bar span{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--lime)}
+.em .hd{padding:26px 24px 8px}
+.em .hd h4{font-size:30px;margin-top:8px}
+.em .row3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:16px 24px 24px}
+.em .row3 div{background:var(--paper);border-radius:8px;padding:12px;font-size:13px}
+.em .row3 b{display:block;font-size:14.5px;margin:4px 0}
+/* booth */
+.booth{aspect-ratio:10/4;background:var(--ink)}
+.booth .pan{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr}
+.booth .l{padding:5cqw;display:flex;flex-direction:column;justify-content:space-between}
+.booth .l img{height:4cqw;width:auto;align-self:flex-start}
+.booth h4{font-size:6.4cqw;line-height:.95;letter-spacing:-.04em}
+.booth .r{position:relative}
+.booth .r .split{position:absolute;inset:0;border-radius:0;aspect-ratio:auto;height:100%}
+.booth .url{font-family:var(--mono);font-size:1.6cqw;letter-spacing:.14em;color:var(--lime)}
+.floor{height:16px;background:linear-gradient(180deg,#d9d6e6,#efeef4);border-radius:0 0 12px 12px;margin-top:-2px}
+/* card */
+.bcard{aspect-ratio:3.5/2;background:#fff;color:var(--ink);padding:7cqw;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 30px 60px -40px rgba(40,33,86,.6)}
+.bcard img{height:9cqw;width:auto;align-self:flex-start}
+.bcard b{font-family:var(--display);font-size:6.6cqw;letter-spacing:-.02em;display:block}
+.bcard span{font-size:4cqw;color:var(--steel)}
+.bcard .m{font-family:var(--mono);font-size:3.4cqw;line-height:1.6}
+.bcard i{position:absolute;right:0;top:0;bottom:0;width:2.2cqw;background:var(--lime)}
+.bcard.back{background:var(--ink);color:#fff;align-items:flex-start;justify-content:center}
+.bcard.back h4{font-size:9cqw;line-height:.95;letter-spacing:-.04em}
+/* linkedin + ad mini */
+.cr{aspect-ratio:4/5}
+.cr .hd{position:absolute;left:7cqw;right:7cqw;top:7cqw;z-index:3}
+.cr h4{font-size:9.4cqw;line-height:.98;letter-spacing:-.045em;margin-top:3cqw}
+.cr .eyebrow{font-size:2.5cqw}
+.cr .ft{position:absolute;left:7cqw;right:7cqw;bottom:6cqw;display:flex;justify-content:space-between;align-items:flex-end;z-index:3}
+.cr .ft img{height:4.2cqw}
+.cr .ft span{font-family:var(--mono);font-size:2.3cqw;letter-spacing:.14em;color:#c9c6dc}
+.cr .split{position:absolute;inset:0;border-radius:0;aspect-ratio:auto;height:100%}
+.cr .sh{position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(10,8,22,.94),rgba(10,8,22,.6) 28%,transparent 50%,transparent 70%,rgba(10,8,22,.9))}
+.cr.sq{aspect-ratio:1/1}
+.cr.lime{background:var(--lime);color:var(--ink)}
+.cr.lime .ft span{color:var(--ink)}
+.cr.lime .ft img{mix-blend-mode:multiply}
+.cr .big{position:absolute;left:7cqw;right:7cqw;top:40cqw;z-index:3;font-family:var(--display);font-weight:800;font-size:30cqw;letter-spacing:-.06em;line-height:.85;color:var(--indigo)}
+.cr .big small{display:block;font-size:4cqw;letter-spacing:-.01em;color:var(--ink);margin-top:3cqw;font-weight:700}
+</style>
+</head>
+<body>
+<div class="ribbon">Concept brand system for Designfusion by Durva Thakkar, made for a job application. <a href="../">Back to the pitch</a> · <a href="../site/">See the new site</a></div>
+<nav class="bb-nav"><div class="inner"><img src="../img/logo-light.png" alt="Designfusion"><a class="s" href="#idea">01 Idea</a><a class="s" href="#logo">02 Logo</a><a class="s" href="#colour">03 Colour</a><a class="s" href="#type">04 Type</a><a class="s" href="#line">05 Scan line</a><a class="s" href="#photo">06 Photography</a><a class="s" href="#voice">07 Voice</a><a class="s" href="#components">08 Components</a><a class="s" href="#platforms">09 Platforms</a><a class="s" href="#apps">10 In use</a></div></nav>
+
+<section class="phero"><div class="grid"></div><div class="inner">
+  <div><div class="crumbs">Brand book · v1 · concept</div><h1 class="h1">Physical to digital, <em class="l">and back.</em></h1><p class="lede">One idea, one line, one voice, used the same way on the website, LinkedIn, ads, email, video, events and sales material. This is how Designfusion looks and sounds everywhere.</p></div>
+  <div><div class="split r43"><img src="../img/housing.jpg" alt=""><img class="dig" src="../img/housing.jpg" alt=""><div class="tint"></div><div class="mesh"></div><i class="line"></i><span class="lab a">PHYSICAL</span><span class="lab b">DIGITAL</span></div></div>
+</div></section>
+
+<main class="wrap">
+
+<section class="bb-sec" id="idea" style="border-top:0">
+  <div class="bb-h"><span class="n">01 · IDEA</span><div><h2 class="h2">From first sketch <em class="i">to finished part.</em></h2><p>Designfusion is the only partner a manufacturer needs between an idea and a part in hand: Siemens software to design and prove it, scanning to capture what already exists, printers to make it, and engineers who know all three. Everything in the brand points at that road.</p></div></div>
+  <div class="pillars">
+    <div class="pillar"><span class="chip">Pillar 1</span><b>Engineers, not salespeople.</b><p>We talk like the application engineer on the phone: specific, calm, useful. Every page should feel like it was written by someone who has run the software.</p></div>
+    <div class="pillar"><span class="chip">Pillar 2</span><b>Proof over adjectives.</b><p>98% renewal, 2,000+ customers, parts in five business days. A number or a real part beats "world-class" every time.</p></div>
+    <div class="pillar"><span class="chip">Pillar 3</span><b>One partner, idea to part.</b><p>Software, scanning, printing and services are one story. Every piece of content shows where it sits on that road.</p></div>
+  </div>
+</section>
+
+<section class="bb-sec" id="logo">
+  <div class="bb-h"><span class="n">02 · LOGO</span><div><h2 class="h2">Keep the mark. <em class="i">Give it room.</em></h2><p>The wordmark and arc stay exactly as they are. Use the lime-and-white version on Ink, the indigo-and-lime version on Paper and white. Clear space is the height of the arc on every side. Minimum width: 96 px on screen, 25 mm in print.</p></div></div>
+  <div class="logos">
+    <div class="lg" style="background:var(--ink)"><img src="../img/logo-light.png" alt=""><small style="color:#9c98b8">On Ink · primary</small></div>
+    <div class="lg" style="background:var(--paper);box-shadow:inset 0 0 0 1px var(--line)"><img src="../img/logo-ink.png" alt=""><small style="color:var(--steel)">On Paper and white</small></div>
+    <div class="lg clear"><div class="box"><img src="../img/logo-ink.png" alt=""></div><small style="color:var(--scan)">Clear space = arc height</small></div>
+  </div>
+  <div class="donts">
+    <div class="dont"><img src="../img/logo-ink.png" alt="" style="transform:scaleX(1.4)"><small>Don't stretch it</small></div>
+    <div class="dont"><img src="../img/logo-ink.png" alt="" style="filter:hue-rotate(140deg)"><small>Don't recolour it</small></div>
+    <div class="dont"><img src="../img/logo-ink.png" alt="" style="filter:drop-shadow(4px 6px 3px rgba(0,0,0,.5))"><small>Don't add effects</small></div>
+    <div class="dont" style="background:url(../img/gear.jpg) center/cover"><img src="../img/logo-ink.png" alt=""><small style="background:#fff;padding:2px 6px;border-radius:4px">Don't place on busy photos</small></div>
+  </div>
+</section>
+
+<section class="bb-sec" id="colour">
+  <div class="bb-h"><span class="n">03 · COLOUR</span><div><h2 class="h2">Two brand colours, <em class="i">two working colours.</em></h2><p>Indigo and Lime come from the logo. Ink and Paper do most of the work. Signal is only for "new" and "live". Scan blue only appears inside the digital half of the scan line.</p></div></div>
+  <div class="sw">
+    <div><div class="c" style="background:#0a0816;color:#fff">#0A0816</div><div class="m"><b>Ink</b>Backgrounds, type. Heroes, ads.</div></div>
+    <div><div class="c" style="background:#f6f5f0;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)">#F6F5F0</div><div class="m"><b>Paper</b>Page background. Warmer than white.</div></div>
+    <div><div class="c" style="background:#282156;color:#fff">#282156</div><div class="m"><b>Indigo</b>Brand. Buttons, links, headings.</div></div>
+    <div><div class="c" style="background:#bed361;color:var(--ink)">#BED361</div><div class="m"><b>Lime</b>Brand. Scan line, highlights, CTAs on dark.</div></div>
+    <div><div class="c" style="background:#ff9a1a;color:var(--ink)">#FF9A1A</div><div class="m"><b>Signal</b>"New" and "Live" only.</div></div>
+    <div><div class="c" style="background:#5592ff;color:#fff">#5592FF</div><div class="m"><b>Scan blue</b>Mesh and point clouds only.</div></div>
+  </div>
+  <div class="ratio"><span style="width:40%;background:#0a0816;color:#fff">INK 40</span><span style="width:30%;background:#f6f5f0;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)">PAPER 30</span><span style="width:15%;background:#282156;color:#fff">INDIGO 15</span><span style="width:10%;background:#bed361">LIME 10</span><span style="width:3%;background:#ff9a1a"></span><span style="width:2%;background:#5592ff"></span></div>
+  <div class="rules"><div><b>AA</b>Lime text only on Ink or Indigo. Never Lime text on white.</div><div><b>AA</b>Indigo and Ink text pass on Paper, white and Lime.</div></div>
+</section>
+
+<section class="bb-sec" id="type">
+  <div class="bb-h"><span class="n">04 · TYPE</span><div><h2 class="h2">Tight headlines. <em class="i">Plain body. Spec labels.</em></h2><p>Three free Google fonts that work on Webflow, in email and in Canva, so the whole team can use them.</p></div></div>
+  <div class="type">
+    <div class="ty"><span class="spec s">Display · Inter Tight 800</span><span class="big" style="font-family:var(--display);font-weight:800">Aa</span><p>Headlines only. Tracking −3.5%. Line height 1.0. Never all caps.</p></div>
+    <div class="ty"><span class="spec s">Body · Inter 400 / 600</span><span class="big" style="font-family:var(--sans);font-weight:500">Aa</span><p>Everything you read. 17 px on web, 15–16 px in email.</p></div>
+    <div class="ty"><span class="spec s">Spec · JetBrains Mono 500</span><span class="big" style="font-family:var(--mono);font-size:64px">Aa</span><p>Labels, part numbers, dates, chips. Uppercase, tracking +14%.</p></div>
+  </div>
+  <div class="scale">
+    <div><small>H1 · 96 / 1.0</small><span style="font-family:var(--display);font-weight:800;font-size:clamp(40px,5vw,72px);letter-spacing:-.04em;line-height:1">Still need the part.</span></div>
+    <div><small>H2 · 64 / 1.02</small><span style="font-family:var(--display);font-weight:800;font-size:clamp(30px,3.6vw,48px);letter-spacing:-.035em">Printers that earn their floor space.</span></div>
+    <div><small>H3 · 30 / 1.1</small><span style="font-family:var(--display);font-weight:800;font-size:28px;letter-spacing:-.025em">Parts in hand in five business days.</span></div>
+    <div><small>Body · 17 / 1.6</small><span>We scan it at your plant or ours, and hand back exactly what you need.</span></div>
+    <div><small>Spec · 12 / +14%</small><span class="spec i">SCAN → CAD → PART · REV C</span></div>
+  </div>
+</section>
+
+<section class="bb-sec" id="line">
+  <div class="bb-h"><span class="n">05 · THE SCAN LINE</span><div><h2 class="h2">One line that <em class="i">tells the whole story.</em></h2><p>A single lime line splits a real part into its physical half and its digital half. It is Designfusion's signature, and it only means one thing: we work on both sides of it.</p></div></div>
+  <div class="band" style="align-items:start">
+    <div class="split r43" style="--at:46%"><img src="../img/gear.jpg" alt="" style="object-position:32% 50%"><img class="dig" src="../img/gear.jpg" alt="" style="object-position:32% 50%"><div class="tint"></div><div class="mesh"></div><i class="line"></i><span class="lab a">PHYSICAL</span><span class="lab b">DIGITAL</span><div class="call" style="left:52cqw;top:56cqw"><i></i><b></b><span>TOOTH PROFILE ✓</span></div></div>
+    <div class="rules" style="grid-template-columns:1fr;margin-top:0">
+      <div><b>01</b>One line per frame. Vertical, lime, with a soft glow.</div>
+      <div><b>02</b>Physical always on the left. Digital (indigo tint, scan-blue mesh) on the right.</div>
+      <div><b>03</b>Only on real Designfusion parts and products. Never on stock photos or people.</div>
+      <div><b>04</b>Labels in spec type: PHYSICAL / DIGITAL, or what the job actually was.</div>
+      <div><b>05</b>Callouts point at a real feature and say what we did to it.</div>
+    </div>
+  </div>
+</section>
+
+<section class="bb-sec" id="photo">
+  <div class="bb-h"><span class="n">06 · PHOTOGRAPHY</span><div><h2 class="h2">Real parts, <em class="i">real benches.</em></h2><p>Your own photography is the best asset you have. Shoot parts on the workbench and printers mid-job, in natural light, with the shop visible behind. Three treatments cover every use.</p></div></div>
+  <div class="photos">
+    <div class="ph"><div class="im"><img src="../img/mounts.jpg" alt=""></div><div class="t"><b>Straight</b><span>Product pages, case studies, blog headers.</span></div></div>
+    <div class="ph"><div class="im"><div class="split" style="position:absolute;inset:0;border-radius:0;height:100%"><img src="../img/housing.jpg" alt=""><img class="dig" src="../img/housing.jpg" alt=""><div class="tint"></div><div class="mesh"></div><i class="line"></i></div></div><div class="t"><b>Scan split</b><span>Launches, scanning, ads, heroes.</span></div></div>
+    <div class="ph"><div class="im"><img src="../img/nozzle.jpg" alt="" style="filter:grayscale(1)"><div class="duo"></div></div><div class="t"><b>Broadcast duotone</b><span>Webinars, events, anything live.</span></div></div>
+  </div>
+  <div class="rules"><div><b>DO</b>Show the part, the machine or the screen doing the work.</div><div><b>DON'T</b>Use handshakes, generic factories or glowing "AI" robots.</div></div>
+</section>
+
+<section class="bb-sec" id="voice">
+  <div class="bb-h"><span class="n">07 · VOICE</span><div><h2 class="h2">Say it like <em class="i">the engineer on the phone.</em></h2><p>Short sentences. One idea each. The customer's problem first, our product second, a number whenever we have one. Here are lines from the current site, rewritten.</p></div></div>
+  <div class="tblw"><table class="rw">
+    <tr><th>Today</th><th>In the new voice</th></tr>
+    <tr><td>Next generation products for today's engineers.</td><td>From first sketch to finished part.</td></tr>
+    <tr><td>Our dedication to continuous technical support, customization, and project management guarantees a seamless end-to-end experience.</td><td>One team installs it, teaches it and answers the phone when it misbehaves.</td></tr>
+    <tr><td>Designfusion is the #1 choice for companies looking to best enhance their software acquisition.</td><td>98% of our customers renew. That's the ranking we care about.</td></tr>
+    <tr><td>Connect with your account manager today to set up a meeting and review our flexible scanning packages!</td><td>Send us a photo of the part. We'll tell you if scanning makes sense and what it costs.</td></tr>
+    <tr><td>Enrich your manufacturing process with Simcenter's real life testing.</td><td>Test the flow, heat and stress inside the CAD you already use.</td></tr>
+  </table></div>
+  <div class="words">
+    <div class="use"><span class="spec i">Words we use</span><p><span>part</span> <span>shop</span> <span>line</span> <span>drawing</span> <span>revision</span> <span>in five business days</span> <span>we'll tell you</span> <span>on site</span> <span>your team</span></p></div>
+    <div class="avoid"><span class="spec" style="color:#c0392b">Words we avoid</span><p><span>seamless</span> <span>leverage</span> <span>cutting-edge</span> <span>next generation</span> <span>solutions</span> <span>unlock</span> <span>world-class</span> <span>synergy</span></p></div>
+  </div>
+</section>
+
+<section class="bb-sec" id="components">
+  <div class="bb-h"><span class="n">08 · COMPONENTS</span><div><h2 class="h2">The pieces <em class="i">every page uses.</em></h2><p>Built once in Webflow as components, so every new page and landing page is assembled, not designed from scratch.</p></div></div>
+  <div class="comp">
+    <div><span class="spec">Buttons</span><a class="btn ind" href="#components">Talk to an engineer <span class="ar">→</span></a><a class="btn lime" href="#components">Book a scan <span class="ar">→</span></a><a class="btn ghost" href="#components" style="color:var(--indigo)">See packages</a></div>
+    <div><span class="spec">Chips + spec labels</span><span class="chip">Solid Edge</span><span class="chip lime">Most asked for</span><span class="chip new">New</span><span class="spec i">SCAN → CAD → PART</span><span class="eyebrow" style="color:var(--indigo)">Section eyebrow</span></div>
+    <div><span class="spec">Proof stat</span><div><b style="font-family:var(--display);font-size:56px;letter-spacing:-.04em;color:var(--indigo);line-height:1">98%</b><div style="color:var(--steel);font-size:15px;margin-top:6px">of customers renew their support</div></div><span class="spec s">One number, one line, no adjectives.</span></div>
+  </div>
+</section>
+
+<section class="bb-sec" id="platforms">
+  <div class="bb-h"><span class="n">09 · PLATFORMS</span><div><h2 class="h2">What goes <em class="i">where.</em></h2><p>Each channel has one job. Same look, same voice, different purpose.</p></div></div>
+  <div class="tblw"><table class="tbl plt">
+    <tr><th>Channel</th><th>Its job</th><th>Format</th><th>Rhythm</th><th>Look</th></tr>
+    <tr><td>Website</td><td>Turn a search into a conversation. Every page ends in one clear ask.</td><td>Webflow</td><td>New landing page per launch</td><td>Paper pages, Ink heroes, scan split on launches</td></tr>
+    <tr><td>LinkedIn page</td><td>Launches, customer stories, events, hiring. Posts a plant manager would forward.</td><td>1080 × 1350</td><td>3 a week</td><td>Scan split, lime lists, broadcast for events</td></tr>
+    <tr><td>LinkedIn ads</td><td>One problem, one product, one click. Retarget site visitors.</td><td>1200 × 1200</td><td>Per campaign</td><td>Real part + one line + logo</td></tr>
+    <tr><td>YouTube</td><td>Tutorials for people who already own the software. Titles as "Product: task".</td><td>1280 × 720</td><td>Weekly</td><td>Screen on the right, task in Inter Tight on the left</td></tr>
+    <tr><td>Email</td><td>A monthly round-up for customers, plus launch and event sends. French for Quebec.</td><td>600 px</td><td>Monthly + launches</td><td>Ink bar, Paper body, one button</td></tr>
+    <tr><td>Events</td><td>User groups, trade shows, open houses. Draw people to a real part.</td><td>10 ft backdrop</td><td>Per event</td><td>Ink panel + giant scan split</td></tr>
+    <tr><td>Sales</td><td>One-pagers and decks account managers send as themselves.</td><td>Letter / 16:9</td><td>Per product</td><td>Ink cover, Paper body, proof stats</td></tr>
+  </table></div>
+</section>
+
+<section class="bb-sec" id="apps">
+  <div class="bb-h"><span class="n">10 · IN USE</span><div><h2 class="h2">The system, <em class="i">on every surface.</em></h2><p>The same idea, colours, type and line on the website, LinkedIn, ads, YouTube, email, a trade-show backdrop and a business card.</p></div></div>
+  <div class="apps">
+    <div class="app w6"><div class="mock" style="aspect-ratio:auto;background:#fff;border:1px solid var(--line)"><iframe src="../site/index.html" title="New homepage" style="width:100%;height:620px;border:0;display:block" loading="lazy"></iframe></div><div class="cap"><b>Website · homepage</b><a href="../site/" style="color:var(--indigo);font-weight:700">Open the full site →</a></div></div>
+
+    <div class="app"><div class="mock cr"><div class="split r45"><img src="../img/housing.jpg" alt=""><img class="dig" src="../img/housing.jpg" alt=""><div class="tint"></div><div class="mesh"></div><i class="line"></i></div><div class="sh"></div><div class="hd"><span class="eyebrow" style="color:var(--lime)">New at Designfusion</span><h4>No drawing. No supplier. <em class="l">Still need the part.</em></h4></div><div class="ft"><img src="../img/logo-light.png" alt=""><span>3D SCANNING</span></div></div><div class="cap"><b>LinkedIn · launch</b><span>Scan split</span></div></div>
+    <div class="app"><div class="mock cr lime"><div class="hd"><span class="eyebrow">Proof post</span><h4 style="font-size:8cqw">The number we're <em class="i">proudest of.</em></h4></div><div class="big">98%<small>of customers renew their support with us.</small></div><div class="ft"><img src="../img/logo-ink.png" alt=""><span>DESIGNFUSION.COM</span></div></div><div class="cap"><b>LinkedIn · proof</b><span>Lime + one stat</span></div></div>
+    <div class="app"><div class="mock cr sq"><img src="../img/gear.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:30% 50%;filter:brightness(.75)"><div class="sh"></div><div class="hd"><span class="eyebrow" style="color:var(--lime)">3D parts brokerage</span><h4 style="font-size:8.6cqw">Parts in hand <em class="l">in five business days.</em></h4></div><div class="ft"><img src="../img/logo-light.png" alt=""><span>GET A QUOTE</span></div></div><div class="cap"><b>LinkedIn ad</b><span>Real part + one line</span></div></div>
+
+    <div class="app w3"><div class="mock yt"><img src="../img/sw-nx.jpg" alt=""><div class="fd"></div><div class="t"><span class="chip">Solid Edge</span><h4>Assembly zones, <em class="l">explained.</em></h4></div><img class="lgo" src="../img/logo-light.png" alt="" style="position:absolute;width:auto;top:auto;right:auto"></div><div class="cap"><b>YouTube thumbnail</b><span>"Product: task" series</span></div></div>
+    <div class="app w3"><div class="mock em"><div class="sheet"><div class="bar"><img src="../img/logo-light.png" alt=""><span>DECEMBER · MONTHLY</span></div><div class="hd"><span class="spec i">This month at Designfusion</span><h4>Scanning is here. <em class="i">Bring us a part.</em></h4></div><div class="row3"><div><span class="chip new">New</span><b>3D scanning</b>Scan, CAD, print.</div><div><span class="chip">Live</span><b>Dec 9 demo</b>Scan to part in 45 min.</div><div><span class="chip">Tutorial</span><b>Assembly zones</b>Big assemblies, faster.</div></div></div></div><div class="cap"><b>Email · monthly</b><span>Ink bar, one button</span></div></div>
+
+    <div class="app w4"><div class="mock booth"><div class="pan"><div class="l"><img src="../img/logo-light.png" alt=""><h4>Bring us a part. <em class="l">We'll scan it while you watch.</em></h4><span class="url">DESIGNFUSION.COM/3D-SCANNING</span></div><div class="r"><div class="split"><img src="../img/housing.jpg" alt=""><img class="dig" src="../img/housing.jpg" alt=""><div class="tint"></div><div class="mesh"></div><i class="line"></i><span class="lab a">PHYSICAL</span><span class="lab b">DIGITAL</span></div></div></div></div><div class="floor"></div><div class="cap"><b>Trade show · 10 ft backdrop</b><span>User groups, open house</span></div></div>
+    <div class="app"><div class="mock bcard"><img src="../img/logo-ink.png" alt=""><div><b>Alex Morgan</b><span>Account Manager, Ontario</span></div><div class="m">1-888-567-3933<br>info@designfusion.com</div><i></i></div><div class="mock bcard back" style="margin-top:12px"><h4>From first sketch to <em class="l">finished part.</em></h4></div><div class="cap"><b>Business card</b><span>Example name</span></div></div>
+  </div>
+</section>
+</main>
+
+<footer class="ftr" style="padding:50px 0 30px"><div class="wrap"><div class="bot" style="margin-top:0;border-top:0;padding-top:0"><span>Designfusion brand book · concept v1 · by Durva Thakkar</span><span><a href="../site/">Website</a> · <a href="../">The pitch</a></span></div></div></footer>
+</body>
+</html>
