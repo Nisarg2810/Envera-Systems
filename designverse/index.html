@@ -717,12 +717,12 @@ The model was never the point. Your context is.</div>
 <section class="sec alt" id="posts">
   <div class="wrap">
     <div class="lbl">05 / Leadership posts</div>
-    <h2>Three long LinkedIn posts, one each for Andrei, Robert and you, written to be read to the end.</h2>
+    <h2>Three long LinkedIn posts, one each for Andrei, Robert and you. Then the audit, the plan and the rhythm behind them.</h2>
     <p class="lede">Enterprise buyers follow people, not company pages. A CTO at a bank will read a founder's story about a 15-year-old system long before they click an ad. So the leaders need to post, well and often. Here's what that could look like.</p>
     <div class="why3">
       <div class="w"><h4>Why you need it</h4><p>The Campaign Manager post asks for founder-led Thought Leader Ads. Those ads can only promote posts that exist, and a CEO and CTO building a company don't have a free afternoon to write one.</p></div>
       <div class="x"><h4>If nobody owns it</h4><p>The founders post when they find time, which is rarely. When they do, it reads like a press release. The best stories stay in their heads, and the ad budget goes to company posts nobody shares.</p></div>
-      <div class="p"><h4>My plan</h4><ol><li>A 30-minute chat with each leader every month</li><li>One long post each, two weeks apart</li><li>Their voice, plain words, one story per post</li><li>They edit it. Nothing goes out without their yes</li><li>The best post each month becomes a Thought Leader Ad</li></ol></div>
+      <div class="p"><h4>My plan</h4><ol><li>A 30-minute chat with each leader every two weeks</li><li>Two posts a week each: one long, one short</li><li>Their voice, plain words, one story per post</li><li>They edit it. Nothing goes out without their yes</li><li>The best post each month becomes a Thought Leader Ad</li></ol></div>
     </div>
     <div class="done">
       <div class="done-h"><h3>The posts</h3><span>✓ Done · drafts for approval</span></div>
@@ -733,6 +733,126 @@ The model was never the point. Your context is.</div>
       </div>
       <p class="note">Written in each leader's voice using only facts from designverse.ai. The examples in Robert's post are typical engineering rules, not his own codebase. Each post is a draft for that person to change.</p>
     </div>
+
+<style>
+.lx{margin-top:34px}
+.lx h3{font-size:22px;margin-bottom:6px}
+.lx .sub{color:var(--muted);font-size:15px;line-height:1.55;max-width:760px;margin-bottom:18px}
+.lx-k{font:600 11.5px "JetBrains Mono";letter-spacing:.06em;text-transform:uppercase;color:var(--p2);margin-bottom:6px}
+.ag{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.ag .c{border:1px solid var(--line);border-radius:var(--r);background:#fff;padding:16px 18px;display:grid;grid-template-columns:30px 1fr;gap:4px 12px}
+.ag .c i{grid-row:span 3;font:600 13px "JetBrains Mono";font-style:normal;width:28px;height:28px;border-radius:50%;background:var(--lav);color:var(--p3);display:grid;place-items:center}
+.ag .c b{font:600 15.5px "Space Grotesk";color:var(--ink)}
+.ag .c p{font-size:14px;line-height:1.55;color:var(--text);margin:0}
+.ag .c p em{font-style:normal;color:var(--muted)}
+.pl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.pl .c{border:1px solid var(--line);border-radius:var(--r);background:#fff;padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.pl .c b{font:600 16px "Space Grotesk";color:var(--ink)}
+.pl .c p{font-size:14px;line-height:1.55;margin:0}
+.pl .c q{display:block;border-left:3px solid var(--p1);padding:4px 0 4px 10px;font-size:13.5px;color:var(--p3);background:var(--lav2);border-radius:0 8px 8px 0}
+.pl .c q:before,.pl .c q:after{content:none}
+.pl .c small{font:500 12px "JetBrains Mono";color:var(--muted);margin-top:auto}
+.mix{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.et{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:16px;align-items:start}
+.et .box{border:1px solid var(--line);border-radius:var(--r);background:#fff;padding:18px 20px}
+.et ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+.et li{font-size:14.5px;line-height:1.55;padding-left:22px;position:relative}
+.et li:before{content:"→";position:absolute;left:0;color:var(--p1);font-weight:600}
+.et .stat{display:flex;justify-content:space-between;gap:10px;border-top:1px solid var(--line);padding:10px 0;font-size:14px}
+.et .stat:first-of-type{border-top:0;padding-top:0}
+.et .stat span{color:var(--muted)}
+.et .stat b{font:600 14px "Space Grotesk";text-align:right}
+.who{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+.who div{display:flex;gap:10px;align-items:center;font-size:13.5px;line-height:1.4}
+.who .tag{flex:none;font:600 10.5px "JetBrains Mono";padding:3px 8px;border-radius:999px;background:#eef8d6;color:#3f6212}
+.who .tag.l{background:#fff1e6;color:#c2410c}
+.rh{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}
+.rh .c{border:1px solid #dcd2f3;border-radius:var(--r);background:#fff;padding:16px 18px}
+.rh .c b{display:block;font:600 15px "Space Grotesk";margin-bottom:4px}
+.rh .c p{font-size:14px;line-height:1.55;margin:0}
+.rh .c p.y{margin-top:8px;font-size:13px;color:var(--muted)}
+.goal{margin-top:16px;border-radius:var(--r);background:var(--ink);color:#fff;padding:20px 22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.goal b{display:block;font:600 11.5px "JetBrains Mono";letter-spacing:.06em;text-transform:uppercase;color:var(--lime);margin-bottom:6px}
+.goal p{font-size:14px;line-height:1.55;color:var(--mist);margin:0}
+@media(max-width:900px){.pl,.rh,.goal{grid-template-columns:1fr 1fr}.et{grid-template-columns:1fr}}
+@media(max-width:640px){.ag,.pl,.rh,.goal{grid-template-columns:1fr}}
+</style>
+
+<div class="lx" id="li-audit">
+  <div class="lx-k">Week one</div>
+  <h3>Before writing a single post, I&rsquo;d check what LinkedIn is doing for you today.</h3>
+  <p class="sub">I can&rsquo;t see your analytics from the outside, so I won&rsquo;t pretend to know the answers. These are the eight questions I&rsquo;d answer in my first week, how I&rsquo;d answer each one, and why it changes what we post. You&rsquo;d get it back as a one-page audit with the numbers and three fixes.</p>
+  <div class="ag">
+    <div class="c"><i>1</i><b>Who is posting, and how often?</b><p>I&rsquo;d count 90 days of posts on the company page and on your, Andrei&rsquo;s and Robert&rsquo;s profiles.</p><p><em>Why: buyers follow people more than logos. If one profile carries the whole load, the company sounds like one voice, and that voice gets tired.</em></p></div>
+    <div class="c"><i>2</i><b>Is it made for LinkedIn, or moved to LinkedIn?</b><p>I&rsquo;d sort every post into two piles: written for the feed, or reused from somewhere else (a press release, a blog link, an event graphic).</p><p><em>Why: link posts and reused graphics get scrolled past. Posts written for the feed, in plain text, get read.</em></p></div>
+    <div class="c"><i>3</i><b>Who comments, not just how many?</b><p>I&rsquo;d sort posts by comments from engineering leaders, not by likes.</p><p><em>Why: 300 likes from other founders is nice. Three comments from platform leads at a bank is pipeline.</em></p></div>
+    <div class="c"><i>4</i><b>How often has the EUROCONTROL story been told?</b><p>I&rsquo;d count each time and each format: funding post, quote, carousel, video.</p><p><em>Why: it&rsquo;s your best proof, and proof needs repeating. Most people in your market have seen it once, at most.</em></p></div>
+    <div class="c"><i>5</i><b>Is there anything an architect would save?</b><p>I&rsquo;d count the long posts that teach one idea in depth, like how context is built or why reviews slow down.</p><p><em>Why: an engineer saves a post that teaches them something. Saved posts get read again, and they build trust better than announcements do.</em></p></div>
+    <div class="c"><i>6</i><b>Are the right companies already watching?</b><p>I&rsquo;d match the people who engage against the target list in section 02: NAV CANADA, Peraton, Indra and the banks.</p><p><em>Why: someone from a tier 1 account liking a post is a signal. Right now that signal probably isn&rsquo;t reaching sales.</em></p></div>
+    <div class="c"><i>7</i><b>Which new voices could join?</b><p>Five new people start soon. I&rsquo;d ask who wants to post, starting with the AE and the Events Lead.</p><p><em>Why: more credible profiles means more places a buyer bumps into DesignVerse. Nobody should be pushed into it, though.</em></p></div>
+    <div class="c"><i>8</i><b>Does each post lead somewhere?</b><p>I&rsquo;d check where each post sends people: the drift calculator, a roundtable, the careers page, or nowhere.</p><p><em>Why: a warm audience is only useful if there&rsquo;s a clear next step waiting for it.</em></p></div>
+  </div>
+</div>
+
+<div class="lx" id="li-plan">
+  <div class="lx-k">The plan</div>
+  <h3>Six content pillars, each with an owner, a first line and a next step.</h3>
+  <p class="sub">Every pillar comes from something DesignVerse already has: a founder with a real story, a CTO with twenty years of hard lessons, a public win in aviation, and a launch year full of moments. Nothing has to be made up.</p>
+  <div class="pl">
+    <div class="c"><b>1. Context engineering, in plain words</b><p>One clear idea per post. Why AI writes fast code that still needs fixing, and what changes when the model knows how your company builds.</p><q>The models are already smart. What they don&rsquo;t know is your company.</q><small>Andrei · leads to the drift calculator</small></div>
+    <div class="c"><b>2. Proof from places where guessing isn&rsquo;t allowed</b><p>EUROCONTROL first, told as a story, not a stat. New customers only once they say yes in writing. The best of these become Thought Leader Ads.</p><q>Six months was the estimate. It took just over one. Here&rsquo;s what we did first.</q><small>Andrei + company page · leads to the case study</small></div>
+    <div class="c"><b>3. The unwritten rules</b><p>Robert writing for engineers, in their language. Review queues, old systems, the rules nobody wrote down. Built to get comments, so he replies to each one.</p><q>Every codebase has a rule every new person breaks in month one.</q><small>Robert · leads to a carousel of replies</small></div>
+    <div class="c"><b>4. Building DesignVerse</b><p>The seed, the US launch, hiring five people at once, a remote team across six countries. People who buy from startups want to know the team will still be there next year.</p><q>Most of our job posts say what the job is not. Here&rsquo;s why.</q><small>Gina + Andrei · leads to the careers page</small></div>
+    <div class="c"><b>5. Field notes</b><p>Each event gets three posts: who we hope to meet before, one honest moment during, and what we heard after. Roundtable takeaways never name guests without asking.</p><q>Twelve bank engineering leads, one table. Three things they all said.</q><small>Events Lead + Gina · leads to the next invite</small></div>
+    <div class="c"><b>6. One piece, five posts</b><p>Every case study, webinar, roundtable or calculator insight gets cut into three to five LinkedIn posts within 48 hours, each rewritten for the feed rather than pasted in.</p><q>The webinar ran 45 minutes. This was the one minute people asked about.</q><small>Me · keeps every pillar fed</small></div>
+  </div>
+  <div class="mix"><span class="chip">~8 to 10 posts a week, across all profiles</span><span class="chip">1 long post per leader per week</span><span class="chip lime">Every post has a next step</span><span class="chip">Stories · lessons · opinions · proof · reuse</span></div>
+</div>
+
+<div class="lx" id="li-exec">
+  <div class="lx-k">Leadership track</div>
+  <h3>Done for them. I lead, they approve.</h3>
+  <p class="sub">Buying now starts in the feed. A CTO at a bank learns who you are, what you do and who works there long before they fill in a form. Andrei posting is a great start. Robert, you and the new team posting too means DesignVerse starts to feel like it&rsquo;s everywhere in its market. And with so much AI-written filler in the feed, posts from people who actually do the work stand out more than ever.</p>
+  <div class="et">
+    <div class="box">
+      <ul>
+        <li><b>I run the interview.</b> 30 minutes every two weeks. I bring questions about what actually happened that fortnight: a customer call, a design choice, a hire, an argument in a review.</li>
+        <li><b>I do the homework between calls.</b> Their past posts, what landed, and what people at our target accounts are talking about, so the call is spent on substance, not catching up.</li>
+        <li><b>I write every draft in their voice.</b> Andrei should sound like a product designer who became a founder. Robert should sound like an engineer. Nobody should sound like a template.</li>
+        <li><b>I run the calendar.</b> What posts when, what&rsquo;s waiting for edits, what&rsquo;s approved and queued.</li>
+        <li><b>They read and say yes.</b> That&rsquo;s it on their side. No blank page, no calendar, no scheduling tool.</li>
+      </ul>
+    </div>
+    <div class="box">
+      <div class="stat"><span>Their time</span><b>Under 1 hour a week</b></div>
+      <div class="stat"><span>Posts per leader</span><b>2 a week (1 long, 1 short)</b></div>
+      <div class="stat"><span>Who starts</span><b>Andrei, Robert, Gina</b></div>
+      <div class="stat"><span>Who can join later</span><b>AE, Events Lead, anyone who wants to</b></div>
+      <div class="who">
+        <div><span class="tag">Now</span>Andrei · founder story, context engineering, proof</div>
+        <div><span class="tag">Now</span>Robert · the unwritten rules, security, how it&rsquo;s built</div>
+        <div><span class="tag">Now</span>Gina · building the team, the US launch, events</div>
+        <div><span class="tag l">Month 2</span>AE and Events Lead, if they want to: lessons from the field</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lx-k" style="margin-top:26px">Our rhythm</div>
+  <div class="rh">
+    <div class="c"><b>The interview</b><p>30 minutes every two weeks, with the slot held four weeks ahead so it never turns into a scramble for time.</p><p class="y">Booked for mornings in Ontario, which is afternoon for the team in Europe.</p></div>
+    <div class="c"><b>Drafts land together</b><p>All the drafts from one call arrive within two working days, in one batch, so they can be read in one sitting.</p><p class="y">One message, not five.</p></div>
+    <div class="c"><b>Yes or edits in 48 hours</b><p>If there&rsquo;s no reply, the post waits. It doesn&rsquo;t go out by default.</p><p class="y">You sell to aviation and banks. A wrong claim costs more than a late post.</p></div>
+    <div class="c"><b>Fact-checked before you see it</b><p>Every claim is traced to the website, a signed-off case study or the interview notes. Customers are only named with their written okay.</p><p class="y">The same rule I used for every post on this page.</p></div>
+    <div class="c"><b>Two weeks ahead</b><p>If a post goes live on Tuesday, it was written and approved the Tuesday before.</p><p class="y">Travel weeks and launch weeks don&rsquo;t break the calendar.</p></div>
+    <div class="c"><b>One open slot a week</b><p>Kept free for news that can&rsquo;t wait: an FAA update, a NAV CANADA announcement, a moment at Ai4. A quick message moves it up the queue.</p><p class="y">Timely beats perfect, once a week.</p></div>
+  </div>
+
+  <div class="goal">
+    <div><b>Touchpoints</b><p>A buyer sees DesignVerse from four or five real people, not one company page. Every one of those is a reminder that comes for free.</p></div>
+    <div><b>Signals to sales</b><p>Every Friday, the people from target accounts who engaged go to the GTM Engineer, get matched in HubSpot, and reach the SDR as warm names with a reason to write.</p></div>
+    <div><b>Easier selling</b><p>When the roundtable invite or the webinar ad shows up, it reaches people who already know the founders. Thought Leader Ads promote posts that have already worked.</p></div>
+  </div>
+</div>
   </div>
 </section>
 
