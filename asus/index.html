@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Durva Thakkar · Marketing Administrator, ASUS Canada</title>
+<meta name="description" content="The Zenbook 14 wave 2 launch in Canada, organised end to end: GTM tracker, calendar, checklist, status report, budget, POs, POE, asset library and PR tracker.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Zenbook 14, wave 2: already organised. Durva for ASUS Canada.">
+<meta property="og:description" content="A working GTM tracker, launch calendar, budget tracker, POE kit, asset library and PR tracker, plus the Excel workbook and status deck.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://durvathakkar.com/asus/">
+<meta property="og:image" content="https://durvathakkar.com/asus/share.jpg?v=1">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0d0f14;--ink2:#1a1e27;--text:#2a2f3a;--muted:#6b7280;--line:#e3e6eb;--bg:#f5f6f8;--blue:#0a6cff;--blue2:#0049b8;--ice:#e8f1ff;--coral:#ef7a62;--coral2:#fde9e3;--arctic:#9cc3e6;--green:#12a150;--gbg:#e3f6ea;--amber:#d98a00;--abg:#fff3d6;--red:#d93a2b;--rbg:#fde6e3;--r:12px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:400 16px/1.6 Inter,system-ui,sans-serif;color:var(--text);background:#fff;-webkit-font-smoothing:antialiased}
+a{color:var(--blue)}
+button,input,select{font-family:inherit;font-size:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 22px}
+h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);margin:0;line-height:1.1}
+h2{font-weight:800;font-size:clamp(28px,3.6vw,42px);letter-spacing:-.8px}
+h3{font-weight:700;font-size:20px}
+p{margin:0 0 12px}
+.mono{font-family:"JetBrains Mono",monospace}
+.k{font:700 12px "JetBrains Mono",monospace;letter-spacing:1.2px;text-transform:uppercase;color:var(--blue)}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;border:0;border-radius:999px;padding:11px 20px;font-weight:700;font-size:15px;cursor:pointer;text-decoration:none;white-space:nowrap}
+.btn:hover{background:var(--blue2)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn.ghost:hover{background:var(--bg)}
+.btn.sm{padding:7px 14px;font-size:13px}
+.pill{display:inline-block;border-radius:999px;padding:2px 10px;font:600 12px Inter;white-space:nowrap}
+.p-g{background:var(--gbg);color:#0b7a3b}.p-a{background:var(--abg);color:#8a5a00}.p-r{background:var(--rbg);color:#a52a1e}.p-b{background:var(--ice);color:var(--blue2)}.p-n{background:var(--bg);color:var(--muted)}
+.sample{display:inline-block;font:700 10px "JetBrains Mono";letter-spacing:.8px;text-transform:uppercase;color:#8a5a00;background:var(--abg);border-radius:4px;padding:2px 6px;vertical-align:middle}
+.real{display:inline-block;font:700 10px "JetBrains Mono";letter-spacing:.8px;text-transform:uppercase;color:#0b7a3b;background:var(--gbg);border-radius:4px;padding:2px 6px;vertical-align:middle}
+
+/* hero */
+.hero{background:var(--ink);color:#d7dbe3;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding-top:70px;padding-bottom:70px}
+.hero h1{color:#fff;font-weight:900;font-size:clamp(38px,5.4vw,66px);letter-spacing:-1.8px;line-height:1}
+.hero h1 em{font-style:normal;color:var(--coral)}
+.hero .lede{font-size:18px;color:#b9bfcc;margin:22px 0 26px;max-width:560px}
+.hero .top{display:flex;align-items:center;gap:10px;margin-bottom:22px;font:600 13px Inter;color:#9aa1b0}
+.hero .top b{color:#fff}
+.hero .acts{display:flex;gap:10px;flex-wrap:wrap}
+.hero .btn.ghost{color:#fff;box-shadow:inset 0 0 0 1.5px #4a5060}
+.hero .btn.ghost:hover{background:#1d212b}
+.az-stage{position:relative;aspect-ratio:1/0.82}
+.az-lap{position:absolute;inset:0 18% 14% 0;display:flex;align-items:center;justify-content:center}
+.az-swatch{position:absolute;left:0;bottom:0;display:flex;gap:8px;align-items:center;font:600 12px Inter;color:#9aa1b0}
+.az-swatch button{width:26px;height:26px;border-radius:50%;border:2px solid transparent;cursor:pointer;padding:0}
+.az-swatch button.on{border-color:#fff}
+.az-board{position:absolute;right:0;bottom:10%;width:52%;background:#151922;border:1px solid #2a2f3b;border-radius:12px;padding:14px;font-size:12.5px;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.az-board .h{display:flex;justify-content:space-between;color:#fff;font-weight:700;margin-bottom:8px}
+.az-row{display:flex;align-items:center;gap:8px;padding:5px 0;border-top:1px solid #232835;color:#b9bfcc;opacity:0;transform:translateY(6px);transition:.4s}
+.az-row.in{opacity:1;transform:none}
+.az-row i{width:9px;height:9px;border-radius:50%;flex:none}
+.az-row span{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.az-bar{height:6px;background:#232835;border-radius:9px;margin-top:10px;overflow:hidden}
+.az-bar div{height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--coral));transition:width .6s}
+.hero .wrap.sw{display:block;padding-top:0;padding-bottom:0}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #232835}
+.stats div{padding:20px 22px;border-right:1px solid #232835}
+.stats div:last-child{border-right:0}
+.stats b{display:block;font:800 30px "Inter Tight";color:#fff;letter-spacing:-.5px}
+.stats span{font-size:13px;color:#9aa1b0}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding-top:8px;padding-bottom:8px}
+.nav .wrap::-webkit-scrollbar{display:none}
+.nav a{flex:none;text-decoration:none;color:var(--muted);font:600 13px Inter;padding:6px 11px;border-radius:999px}
+.nav a:hover,.nav a.on{background:var(--ink);color:#fff}
+
+/* sections */
+section.s{padding:84px 0;border-bottom:1px solid var(--line)}
+section.s.alt{background:var(--bg)}
+.sh{display:grid;grid-template-columns:1fr 380px;gap:40px;align-items:end;margin-bottom:30px}
+.sh .k{margin-bottom:12px;display:block}
+.sh p{color:var(--muted);margin:0}
+.jd{font-size:13px;color:var(--muted);border-left:3px solid var(--blue);padding:4px 0 4px 12px;margin-top:16px;max-width:760px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{text-align:left;font:700 11px "JetBrains Mono";letter-spacing:.8px;text-transform:uppercase;color:var(--muted);padding:10px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+.tbl td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl tr:last-child td{border-bottom:0}
+.scroll .tbl{min-width:720px}
+.mail .tbl{min-width:0}
+.tbl .n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:#fff}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.chips button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 12px;font-weight:600;font-size:13px;cursor:pointer;color:var(--text)}
+.chips button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.prog{display:flex;align-items:center;gap:12px;margin:0 0 14px;font-size:14px;color:var(--muted)}
+.prog .t{flex:1;height:8px;background:var(--line);border-radius:9px;overflow:hidden}
+.prog .t div{height:100%;background:var(--green);transition:width .3s}
+.st{cursor:pointer;border:0}
+.note{font-size:13px;color:var(--muted);margin-top:12px}
+.dl{display:flex;align-items:center;gap:14px;background:var(--ink);color:#d7dbe3;border-radius:var(--r);padding:18px 20px;margin-top:18px;flex-wrap:wrap}
+.dl b{color:#fff}
+.dl .grow{flex:1;min-width:220px;font-size:14px}
+
+/* calendar */
+.cal-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;gap:10px;flex-wrap:wrap}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.cal .dw{font:700 11px "JetBrains Mono";color:var(--muted);text-align:center;padding:4px 0}
+.cal .d{min-height:96px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px;font-size:12px}
+.cal .d.x{background:transparent;border-color:transparent}
+.cal .d.today{box-shadow:inset 0 0 0 2px var(--blue)}
+.cal .d .num{font-weight:700;color:var(--muted);font-size:12px}
+.cal .ev{display:block;border-radius:5px;padding:2px 5px;margin-top:3px;font-size:11px;line-height:1.3;font-weight:600}
+.ev.launch{background:var(--coral);color:#fff}.ev.meet{background:var(--ice);color:var(--blue2)}.ev.deadline{background:var(--ink);color:#fff}.ev.retail{background:var(--abg);color:#8a5a00}.ev.pr{background:var(--coral2);color:#a6402b}.ev.event{background:var(--gbg);color:#0b7a3b}
+.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:12px}
+.legend span{display:inline-flex;align-items:center;gap:5px}
+.legend i{width:10px;height:10px;border-radius:3px;display:inline-block}
+
+/* checklist */
+.cl h4{font-size:15px;margin-bottom:10px;display:flex;justify-content:space-between}
+.cl label{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-top:1px solid var(--line);font-size:14px;cursor:pointer}
+.cl label.ck span{color:var(--muted);text-decoration:line-through}
+.cl input{margin-top:4px;accent-color:var(--green)}
+
+/* status */
+.rag{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.rag .card{padding:16px}
+.rag .dot{width:12px;height:12px;border-radius:50%;display:inline-block;margin-right:6px}
+.rag b{font-family:"Inter Tight";font-size:16px;color:var(--ink)}
+.rag p{font-size:13px;margin:8px 0 0;color:var(--muted)}
+
+/* docs */
+.doc{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px;font-size:14.5px}
+.doc h4{font-size:17px;margin-bottom:4px}
+.doc .meta{font-size:12.5px;color:var(--muted);margin-bottom:14px}
+.doc ol,.doc ul{margin:0 0 12px;padding-left:20px}
+.doc li{margin:3px 0}
+.doc .lab{font:700 11px "JetBrains Mono";letter-spacing:.8px;text-transform:uppercase;color:var(--blue);margin:14px 0 6px}
+.tabs{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+.tabs button{border:0;background:var(--bg);border-radius:8px;padding:8px 14px;font-weight:700;font-size:14px;cursor:pointer;color:var(--muted)}
+.tabs button.on{background:var(--ink);color:#fff}
+.pane{display:none}.pane.on{display:block}
+.mail{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;font-size:14.5px}
+.mail .mh{background:var(--bg);padding:12px 18px;font-size:13px;color:var(--muted);border-bottom:1px solid var(--line)}
+.mail .mh b{color:var(--ink)}
+.mail .mb{padding:18px}
+
+/* approvals */
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:0;align-items:stretch;margin-bottom:18px}
+.flow .st2{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px;position:relative;margin-right:22px}
+.flow .st2:last-child{margin-right:0}
+.flow .st2:not(:last-child)::after{content:"→";position:absolute;right:-19px;top:50%;transform:translateY(-50%);font-weight:800;color:var(--blue)}
+.flow .who{font:700 11px "JetBrains Mono";color:var(--blue);letter-spacing:.8px;text-transform:uppercase}
+.flow b{display:block;font-family:"Inter Tight";font-size:16px;color:var(--ink);margin:6px 0}
+.flow p{font-size:13px;color:var(--muted);margin:0}
+.flow .sla{display:inline-block;margin-top:10px;font:700 12px "JetBrains Mono";background:var(--ice);color:var(--blue2);padding:2px 7px;border-radius:5px}
+
+/* budget */
+.bud input{width:96px;border:1px solid var(--line);border-radius:6px;padding:5px 7px;text-align:right;font-variant-numeric:tabular-nums}
+.bud tr.over td:first-child{box-shadow:inset 3px 0 0 var(--red)}
+.bud tr.under td:first-child{box-shadow:inset 3px 0 0 var(--amber)}
+.bud tfoot td{font-weight:800;color:var(--ink);border-top:2px solid var(--ink)}
+.flag{background:var(--rbg);border-radius:var(--r);padding:16px 18px;margin-top:16px;font-size:14px}
+.flag b{color:#a52a1e}
+.flag pre{white-space:pre-wrap;font:13px/1.55 Inter;margin:8px 0 0;color:var(--text)}
+
+/* poe */
+.poe-i{display:flex;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--line);font-size:14px}
+.poe-i i{width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-style:normal;font-size:12px;font-weight:800;flex:none}
+.poe-i.y i{background:var(--gbg);color:#0b7a3b}.poe-i.n i{background:var(--rbg);color:#a52a1e}
+
+/* library */
+.tree{font:13.5px/1.75 "JetBrains Mono",monospace;background:var(--ink);color:#c9cfdb;border-radius:var(--r);padding:20px;overflow-x:auto;white-space:pre}
+.tree b{color:#fff;font-weight:700}.tree em{font-style:normal;color:var(--coral)}.tree s{text-decoration:none;color:#6b7385}
+.nb{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:12px}
+.nb label{font-size:12px;font-weight:700;color:var(--muted);display:block}
+.nb select,.nb input{width:100%;margin-top:4px;border:1px solid var(--line);border-radius:8px;padding:8px;background:#fff}
+.fname{font:700 14px "JetBrains Mono";background:var(--ice);color:var(--blue2);border-radius:8px;padding:12px;word-break:break-all}
+
+/* fixes */
+.fix .n{font:800 40px "Inter Tight";color:var(--line);line-height:1}
+.fix h3{margin:6px 0 8px}
+.fix p{font-size:14.5px}
+.fix .gain{font-size:13px;font-weight:700;color:var(--green)}
+
+/* hello */
+.hello{background:var(--ink);color:#c9cfdb;padding:90px 0}
+.hello h2{color:#fff}
+.hello .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.hello .card{background:#151922;border-color:#2a2f3b;color:#c9cfdb}
+.hello .card b{color:#fff}
+footer{background:var(--ink);color:#6b7385;font-size:12.5px;padding:0 0 40px}
+footer .wrap{border-top:1px solid #232835;padding-top:20px}
+
+@media(max-width:960px){
+ .hero .wrap,.sh,.hello .wrap{grid-template-columns:1fr}
+ .grid3{grid-template-columns:1fr 1fr}
+ .rag{grid-template-columns:1fr 1fr}
+ .flow{grid-template-columns:1fr}
+ .flow .st2{margin:0 0 22px}
+ .flow .st2:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-21px;transform:none}
+ .stats{grid-template-columns:1fr 1fr}
+ .stats div:nth-child(2){border-right:0}
+ .stats div{border-bottom:1px solid #232835}
+}
+@media(max-width:640px){
+ .grid2,.grid3,.rag,.nb{grid-template-columns:1fr}
+ section.s{padding:60px 0}
+ .cal .d{min-height:64px;padding:4px}
+ .cal .ev{font-size:0;height:6px;padding:0}
+ .az-board{width:70%}
+ .hero .wrap{padding-top:44px;padding-bottom:44px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero" id="top">
+ <div class="wrap">
+  <div>
+   <div class="top"><b>Durva Thakkar</b> · for the ASUS Canada marketing team · Marketing Administrator</div>
+   <h1>Eight Zenbook 14 models still say <em>“TBA”</em>. I organised their launch.</h1>
+   <p class="lede">The Zenbook 14 reached Canada on October 20. Four models shipped and eight are still listed as coming soon. This page runs that second wave the way the job post describes the work: tracker, calendar, approvals, budget, POs, proof of execution, assets and PR. It all works, so click through anything.</p>
+   <div class="acts">
+    <a class="btn" href="#tracker">Open the launch tracker</a>
+    <a class="btn ghost" href="ASUS-Canada-GTM-Workbook.xlsx" download>Download the Excel workbook</a>
+   </div>
+  </div>
+  <div class="az-stage">
+   <div class="az-lap"><svg id="lap" viewBox="0 0 400 300" width="88%" aria-label="A laptop drawing">
+    <defs><linearGradient id="lid" x1="0" y1="0" x2="1" y2="1"><stop id="l1" offset="0" stop-color="#b7d4ee"/><stop id="l2" offset="1" stop-color="#7fa9cf"/></linearGradient></defs>
+    <path d="M70 40 h260 a10 10 0 0 1 10 10 v170 h-280 v-170 a10 10 0 0 1 10 -10z" fill="url(#lid)"/>
+    <g opacity=".35" stroke="#fff" fill="none"><circle cx="200" cy="130" r="58"/><circle cx="200" cy="130" r="38"/><path d="M142 130 h116 M200 72 v116"/></g>
+    <path d="M30 222 h340 l-14 22 a8 8 0 0 1 -7 4 h-298 a8 8 0 0 1 -7 -4z" fill="#3a404d"/>
+    <rect x="170" y="222" width="60" height="6" rx="3" fill="#252a33"/>
+   </svg></div>
+   <div class="az-board" aria-hidden="true">
+    <div class="h"><span>Wave 2 · this week</span><span id="azPct">0%</span></div>
+    <div id="azRows"></div>
+    <div class="az-bar"><div id="azBar"></div></div>
+   </div>
+   <div class="az-swatch"><button class="on" data-c="arctic" style="background:#9cc3e6" aria-label="Arctic Blue"></button><button data-c="coral" style="background:#ef7a62" aria-label="Komodo Coral"></button><span id="azSw">Arctic Blue</span></div>
+  </div>
+ </div>
+ <div class="wrap sw"><div class="stats">
+  <div><b>Oct 20</b><span>Zenbook 14 wave 1 in Canada</span></div>
+  <div><b>8 of 12</b><span>Canadian models still “TBA”</span></div>
+  <div><b>12</b><span>working documents on this page</span></div>
+  <div><b>2</b><span>files: Excel workbook and status deck</span></div>
+ </div></div>
+</header>
+
+<nav class="nav"><div class="wrap" id="nav"></div></nav>
+
+<section class="s" id="hi"><div class="wrap">
+ <div class="sh"><div><span class="k">Before you scroll</span><h2>What’s real and what’s a sample</h2></div>
+ <p>I used one real launch so the work isn’t generic. I kept the facts honest by labelling every number.</p></div>
+ <div class="grid2">
+  <div class="card"><span class="real">Real</span><p style="margin-top:10px">The 12 Canadian Zenbook 14 models, their prices, and which ones say “TBA”. The October 20 date, the retailers (ASUS Store, Amazon, Best Buy Canada, Canada Computers) and the three months of Google AI Pro offer. All of it comes from ASUS’s own Canadian release, dated Toronto, October 20, 2026. The iPhone in Canada coverage in the PR log is real too.</p></div>
+  <div class="card"><span class="sample">Sample</span><p style="margin-top:10px">Every date after today (November 24), every dollar in the budget, every PO and invoice, owner names, vendors and outlets. I don’t know your internal plan, so I made a believable one to show how I’d run it. On day one I’d swap my numbers for yours and keep the system.</p></div>
+ </div>
+</div></section>
+
+<section class="s alt" id="tracker"><div class="wrap">
+ <div class="sh"><div><span class="k">01 · GTM tracker</span><h2>Fifteen tasks, five teams, one place to look</h2></div>
+ <p>Each task has an owner, a due date and whatever it’s waiting on. Click a status to move it along, or filter by team.</p></div>
+ <div class="jd">From the job post: “Coordinate go-to-market activities for product launches and campaigns, including timelines, task tracking, deliverables, and follow-ups.”</div>
+ <div style="height:18px"></div>
+ <div class="chips" id="trF"></div>
+ <div class="prog"><span id="trTxt"></span><div class="t"><div id="trBar"></div></div></div>
+ <div class="scroll"><table class="tbl"><thead><tr><th>ID</th><th>Task</th><th>Team</th><th>Owner</th><th>Due</th><th>Waits on</th><th>Status</th></tr></thead><tbody id="trB"></tbody></table></div>
+ <p class="note">Rule I’d keep: if a task is blocked for 48 hours, it goes in the weekly status report with a name next to it. Nothing stalls quietly.</p>
+</div></section>
+
+<section class="s" id="calendar"><div class="wrap">
+ <div class="sh"><div><span class="k">02 · Marketing calendar</span><h2>Launch dates next to the retail dates they compete with</h2></div>
+ <p>Black Friday, Cyber Monday and Boxing Day are on the same calendar as the embargo, so nobody books a media briefing on a flyer weekend.</p></div>
+ <div class="jd">“Maintain the GTM and marketing calendars.”</div>
+ <div style="height:18px"></div>
+ <div class="cal-h"><h3 id="calT"></h3><div class="chips" style="margin:0"><button id="calP">‹ Prev</button><button id="calN">Next ›</button></div></div>
+ <div class="cal" id="cal"></div>
+ <div class="legend"><span><i style="background:var(--coral)"></i>Launch</span><span><i style="background:var(--ink)"></i>Deadline</span><span><i style="background:var(--ice)"></i>Meeting</span><span><i style="background:var(--coral2)"></i>PR</span><span><i style="background:var(--gbg)"></i>Event</span><span><i style="background:var(--abg)"></i>Retail moment</span></div>
+</div></section>
+
+<section class="s alt" id="checklist"><div class="wrap">
+ <div class="sh"><div><span class="k">03 · Launch checklist</span><h2>The list that makes sure nothing gets forgotten</h2></div>
+ <p>Four phases. The French and Quebec items sit inside the list rather than at the end, because that’s where they usually get dropped.</p></div>
+ <div class="jd">“Launch checklists … help ensure campaign assets and messaging are delivered on schedule.”</div>
+ <div style="height:18px"></div>
+ <div class="prog"><span id="clTxt"></span><div class="t"><div id="clBar"></div></div></div>
+ <div class="grid2" id="cl"></div>
+</div></section>
+
+<section class="s" id="status"><div class="wrap">
+ <div class="sh"><div><span class="k">04 · Status report</span><h2>Friday’s update, readable in one minute</h2></div>
+ <p>Red, amber or green for each team, the one decision needed, and what’s next. The same report comes as a 5-slide PowerPoint.</p></div>
+ <div class="jd">“Program trackers, and status reports.”</div>
+ <div style="height:18px"></div>
+ <div class="rag" id="rag"></div>
+ <div class="grid2">
+  <div class="doc"><h4>Decision needed this week</h4><div class="meta">Fri Nov 27 report · for the Product Marketing Team Lead · by Wed Dec 2</div><p>Amazon.ca placements are C$5,400 under plan and co-op flyers are C$5,400 over. <b>Option:</b> move C$5,400 from Amazon to the flyers, so the total stays on plan. I’ve put the numbers in tab 4 of the workbook.</p></div>
+  <div class="doc"><h4>Next week</h4><div class="meta">Dec 1 to Dec 5</div><ul><li>Review loans ship Dec 2 (8 outlets, forms signed first)</li><li>Release draft goes to approvals Dec 3</li><li>Sell sheets final Dec 4, EN and FR</li><li>Store staff training invites out Dec 4</li></ul></div>
+ </div>
+ <div class="dl"><div class="grow"><b>ASUS-Zenbook14-Wave2-Status.pptx</b><br>5 slides: summary, team status, timeline, budget, decisions. Editable, in plain PowerPoint.</div><a class="btn" href="ASUS-Zenbook14-Wave2-Status.pptx" download>Download the deck</a></div>
+</div></section>
+
+<section class="s alt" id="meetings"><div class="wrap">
+ <div class="sh"><div><span class="k">05 · Meetings</span><h2>Agenda before, minutes after, actions with names</h2></div>
+ <p>A 30-minute weekly launch sync. The agenda goes out the day before and the minutes go out within two hours.</p></div>
+ <div class="jd">“Prepare meeting agendas, minutes, and action-item summaries.”</div>
+ <div style="height:18px"></div>
+ <div class="tabs" data-t="mt"><button class="on" data-p="mt1">Agenda</button><button data-p="mt2">Minutes</button><button data-p="mt3">Action items email</button></div>
+ <div class="pane on" id="mt1"><div class="doc"><h4>Zenbook 14 wave 2 · weekly launch sync</h4><div class="meta">Tue Dec 1 · 10:00 to 10:30 · Teams · PMM, PR, Channel, Sales, Finance <span class="sample">Sample</span></div>
+  <ol><li><b>Last week’s actions</b> (5 min). Done or not, and who’s on it.</li><li><b>Stock and ship dates by retailer</b> (5 min). Sales.</li><li><b>Release and embargo plan</b> (5 min). PR. Approvals due Dec 3.</li><li><b>Co-op flyers and budget</b> (5 min). Channel and Finance. Over-spend decision.</li><li><b>Review loans</b> (5 min). 8 outlets, one unit overdue.</li><li><b>Risks and decisions</b> (5 min).</li></ol>
+  <p class="note">Pre-read: the status report and tracker link. If an item has no update, it drops off the agenda.</p></div></div>
+ <div class="pane" id="mt2"><div class="doc"><h4>Minutes · launch sync, Dec 1</h4><div class="meta">Present: PMM lead, PR lead, Channel lead, Sales lead, Finance · Notes: Durva <span class="sample">Sample</span></div>
+  <div class="lab">Decisions</div><ul><li>C$5,400 moves from Amazon.ca placements to co-op flyers. Approved by the PMM lead.</li><li>Embargo stays at Dec 9, 9:00 ET.</li></ul>
+  <div class="lab">Updates</div><ul><li>Komodo Coral stock confirmed for Best Buy and the ASUS Store. Canada Computers is still to confirm.</li><li>French release is with the translator and comes back Dec 2.</li><li>Loan L-012 is overdue (due Nov 18). The outlet has been chased twice.</li></ul>
+  <div class="lab">Risks</div><ul><li>If Canada Computers stock slips, its flyer slot (Dec 11) shows a model it can’t sell. Fallback: swap in the Arctic Blue model.</li></ul></div></div>
+ <div class="pane" id="mt3"><div class="mail"><div class="mh"><b>Subject:</b> Wave 2 sync, Dec 1: 2 decisions, 5 actions<br><b>To:</b> launch team</div><div class="mb">
+  <p>Hi all, here’s the short version of today.</p>
+  <p><b>Decided:</b> C$5,400 moves from Amazon to flyers. Embargo stays Dec 9, 9:00 ET.</p>
+  <table class="tbl"><thead><tr><th>Action</th><th>Who</th><th>By</th></tr></thead><tbody>
+  <tr><td>Confirm Canada Computers Komodo Coral stock</td><td>Sales lead</td><td>Dec 2</td></tr>
+  <tr><td>Send French release for review</td><td>PR lead</td><td>Dec 3</td></tr>
+  <tr><td>Update the co-op PO and budget tracker</td><td>Durva</td><td>Dec 2</td></tr>
+  <tr><td>Third reminder on loan L-012, then escalate</td><td>Durva</td><td>Dec 2</td></tr>
+  <tr><td>Approve sell sheets</td><td>PMM lead</td><td>Dec 4</td></tr></tbody></table>
+  <p style="margin-top:12px">The tracker is updated. Shout if I got anything wrong.<br>Durva</p></div></div></div>
+</div></section>
+
+<section class="s" id="events"><div class="wrap">
+ <div class="sh"><div><span class="k">06 · Events, briefings, training</span><h2>The media briefing and the store training, planned to the minute</h2></div>
+ <p>Registration, vendors, the day itself and the follow-up, for a press briefing and a virtual training for retail staff.</p></div>
+ <div class="jd">“Support the planning and logistics of product launches, events, webinars, media briefings, training sessions, and partner programs, including registrations, vendor coordination, and post-event follow-up.”</div>
+ <div style="height:18px"></div>
+ <div class="tabs" data-t="ev"><button class="on" data-p="ev1">Media briefing run sheet</button><button data-p="ev2">Training registration</button><button data-p="ev3">Follow-up email</button></div>
+ <div class="pane on" id="ev1"><div class="scroll"><table class="tbl"><thead><tr><th>Time</th><th>What happens</th><th>Who</th><th>Check</th></tr></thead><tbody>
+  <tr><td class="mono">Dec 4</td><td>Final headcount to the venue, AV spec confirmed, dietary list sent</td><td>Durva</td><td>Venue PO-26-1185</td></tr>
+  <tr><td class="mono">Dec 6</td><td>Demo units charged, imaged and labelled by SKU. Two spares.</td><td>Durva + product team</td><td>12 units, 2 spares</td></tr>
+  <tr><td class="mono">08:30</td><td>Set up: demo tables by chip (Snapdragon, Intel, AMD), both colours side by side</td><td>Durva</td><td>Lighting near the coral units</td></tr>
+  <tr><td class="mono">09:15</td><td>Check-in desk: name badges, press kit USB, embargo card</td><td>Durva</td><td>RSVP list printed</td></tr>
+  <tr><td class="mono">09:30</td><td>Welcome and the wave 2 story (10 min)</td><td>PMM lead</td><td>Slides on the laptop and a USB backup</td></tr>
+  <tr><td class="mono">09:40</td><td>Hands-on time, then one-to-one interviews (40 min)</td><td>PMM + PR</td><td>Interview slots on a sheet</td></tr>
+  <tr><td class="mono">10:20</td><td>Review loan sign-outs at the door</td><td>Durva</td><td>Loan form signed before a unit leaves</td></tr>
+  <tr><td class="mono">+2 h</td><td>Thank-you email with assets link and embargo reminder</td><td>Durva</td><td>See the follow-up tab</td></tr>
+ </tbody></table></div></div>
+ <div class="pane" id="ev2"><div class="grid2">
+  <div class="doc"><h4>Retail staff training · Zenbook 14 wave 2</h4><div class="meta">Thu Dec 10 · 30 min · Teams webinar · for Best Buy, Canada Computers and Staples floor staff <span class="sample">Sample</span></div>
+   <ol><li>Channel team shares the invite link with each retailer’s training contact by <b>Dec 4</b>.</li><li>Registration form asks for name, store, retailer and preferred language (EN/FR).</li><li>If 15 or more register for French, a second session runs in French.</li><li>Reminder 24 hours before, then again 1 hour before.</li><li>Recording and a one-page cheat sheet go to everyone, including those who missed it.</li><li>Attendance by store goes back to the Channel team for partner program credit.</li></ol></div>
+  <div class="doc"><h4>The one-page cheat sheet</h4><div class="meta">What staff need at the shelf</div>
+   <div class="lab">Three things to say</div><ul><li>Ceraluminum lid, exclusive to Zenbook, from 1.10 kg.</li><li>14-inch OLED, 100% DCI-P3.</li><li>Up to 18 hours of web browsing on Snapdragon models (ASUS figure).</li></ul>
+   <div class="lab">The offer</div><p>Three months of Google AI Pro with 5TB of storage, redeemed through the MyASUS app. Eligibility and deadlines apply.</p>
+   <div class="lab">Which one?</div><p>Battery first: Snapdragon. Touch and power: Intel Core Ultra 7 or 9. Value with touch: AMD Ryzen AI 7.</p></div>
+ </div></div>
+ <div class="pane" id="ev3"><div class="mail"><div class="mh"><b>Subject:</b> Thanks for coming: Zenbook 14 images, specs and your loan details<br><b>To:</b> briefing attendees (BCC)</div><div class="mb">
+  <p>Hi {first name},</p>
+  <p>Thanks for coming to see the new Zenbook 14 models this morning. Everything you need is in one folder: [press kit link]. It has the release in English and French, the spec sheet, Canadian pricing and hi-res images of both colours.</p>
+  <p>A reminder that the news is under embargo until <b>Wednesday, December 9 at 9:00 ET</b>.</p>
+  <p>If you took a review unit, your loan form is attached. The return date is on it, and I’ll send a prepaid label a week before.</p>
+  <p>Any questions, just reply here.</p>
+  <p>Durva Thakkar<br>Marketing Administrator, ASUS Canada</p></div></div></div>
+</div></section>
+
+<section class="s alt" id="approvals"><div class="wrap">
+ <div class="sh"><div><span class="k">07 · Approvals and handoffs</span><h2>Who signs off on what, and how long they have</h2></div>
+ <p>Most launch delays come from waiting on approvals. Each handoff below has an owner and a time limit.</p></div>
+ <div class="jd">“Coordinate approvals and handoffs between Product Marketing, PR, and Channel Marketing.”</div>
+ <div style="height:18px"></div>
+ <div class="flow">
+  <div class="st2"><span class="who">Product Marketing</span><b>Brief and key messages</b><p>Three messages, approved claims, spec table.</p><span class="sla">2 days</span></div>
+  <div class="st2"><span class="who">PR</span><b>Release, EN and FR</b><p>Built from the brief. Legal and global marketing check the claims.</p><span class="sla">3 days</span></div>
+  <div class="st2"><span class="who">Channel Marketing</span><b>Retail assets</b><p>Sell sheets, flyer art and spec cards in partner sizes.</p><span class="sla">2 days</span></div>
+  <div class="st2"><span class="who">Sales</span><b>Partner check</b><p>Pricing, stock and promo dates match what retailers were told.</p><span class="sla">1 day</span></div>
+  <div class="st2"><span class="who">Durva</span><b>Lock and share</b><p>Final version filed, old ones archived, link sent to everyone.</p><span class="sla">Same day</span></div>
+ </div>
+ <div class="scroll"><table class="tbl"><thead><tr><th>Item</th><th>Drafts</th><th>Approves</th><th>Must also see</th><th>Time</th></tr></thead><tbody>
+  <tr><td>Key messages and claims</td><td>PMM</td><td>PMM Team Lead</td><td>Global / regional marketing</td><td>2 days</td></tr>
+  <tr><td>Press release</td><td>PR</td><td>PR lead + PMM Team Lead</td><td>Legal (claims, battery footnotes)</td><td>3 days</td></tr>
+  <tr><td>French versions</td><td>Agency</td><td>French-speaking reviewer</td><td>PR</td><td>2 days</td></tr>
+  <tr><td>Retailer flyer art</td><td>Channel</td><td>Channel lead</td><td>Sales (price, dates)</td><td>2 days</td></tr>
+  <tr><td>Promo and pricing copy</td><td>Channel</td><td>Sales lead</td><td>Finance</td><td>1 day</td></tr>
+ </tbody></table></div>
+ <p class="note">If time runs out, I don’t treat it as a yes. I chase the approver once, then raise it at the next sync. Nothing with a price or a claim goes out unapproved.</p>
+</div></section>
+
+<section class="s" id="budget"><div class="wrap">
+ <div class="sh"><div><span class="k">08 · Budget tracker</span><h2>Plan, committed, actual, and a flag when they drift</h2></div>
+ <p>Type into any “Actual” cell. A line more than 10% over turns red, and more than 25% under turns amber. The note to the Team Lead writes itself.</p></div>
+ <div class="jd">“Maintain the marketing budget tracker, monitoring spend against plan and flagging variances to the Product Marketing Team Lead.”</div>
+ <div style="height:18px"></div>
+ <div class="scroll bud"><table class="tbl"><thead><tr><th>Line <span class="sample">Sample</span></th><th>Team</th><th class="n">Plan</th><th class="n">Committed</th><th class="n">Actual</th><th class="n">Variance</th><th></th></tr></thead><tbody id="budB"></tbody><tfoot><tr><td>Total</td><td></td><td class="n" id="bP"></td><td class="n" id="bC"></td><td class="n" id="bA"></td><td class="n" id="bV"></td><td></td></tr></tfoot></table></div>
+ <div class="flag" id="flag"></div>
+</div></section>
+
+<section class="s alt" id="po"><div class="wrap">
+ <div class="sh"><div><span class="k">09 · POs, invoices, expenses</span><h2>Every invoice matched to a PO before anyone pays it</h2></div>
+ <p>A simple three-way check: the PO, the invoice and proof the work was delivered. If any of the three is missing or the amounts differ, the row stops.</p></div>
+ <div class="jd">“Assist with purchase requests, purchase orders, invoice processing, and expense reconciliation.”</div>
+ <div style="height:18px"></div>
+ <div class="scroll"><table class="tbl"><thead><tr><th>PO</th><th>Vendor</th><th>For</th><th class="n">PO amount</th><th>Invoice</th><th class="n">Invoiced</th><th>Received</th><th>Check</th></tr></thead><tbody id="poB"></tbody></table></div>
+ <div class="grid3" style="margin-top:18px">
+  <div class="card"><h3>Purchase request</h3><p class="note" style="margin-top:6px">What, why, which budget line, amount with tax and the vendor quote attached. It goes to the budget owner before a PO is raised.</p></div>
+  <div class="card"><h3>Month-end reconcile</h3><p class="note" style="margin-top:6px">Card expenses and invoices matched to budget lines by the 3rd working day. Anything without a receipt gets one reminder, then goes to the Team Lead.</p></div>
+  <div class="card"><h3>Open commitments</h3><p class="note" style="margin-top:6px">POs raised but not yet invoiced are counted as spent in the tracker, so the budget never looks better than it really is.</p></div>
+ </div>
+</div></section>
+
+<section class="s" id="poe"><div class="wrap">
+ <div class="sh"><div><span class="k">10 · Proof of execution</span><h2>A co-op claim that gets paid the first time</h2></div>
+ <p>A POE pack is easy to build while the campaign runs and painful to rebuild afterwards. The folder opens on launch day and fills up as things happen.</p></div>
+ <div class="jd">“Coordinate proof-of-execution (POE) reports for campaigns, events, and partner programs … and supporting claim and reimbursement submissions.”</div>
+ <div style="height:18px"></div>
+ <div class="grid2">
+  <div class="doc"><h4 id="poeT"></h4><div class="meta" id="poeM"></div><div id="poeI"></div><p class="note" id="poeS"></p></div>
+  <div class="doc"><h4>The POE report, one page per activity</h4><div class="meta">What goes to the partner or the regional team</div>
+   <ol><li><b>Activity:</b> what ran, where, and on which dates</li><li><b>Proof:</b> dated screenshots and photos, one per placement</li><li><b>Money:</b> agreed amount, invoice and PO number</li><li><b>Results:</b> sell-through in the window against the 4 weeks before</li><li><b>Sign-off:</b> the channel lead’s name and date</li></ol>
+   <div class="lab">Filing rule</div><p class="mono" style="font-size:12.5px">POE / 2026-Q4 / CanadaComputers / ZB14-W2-Flyer / 01_artwork.pdf</p>
+   <div class="lab">Deadline I’d track</div><p>Q4 claims cut-off, Dec 31. The calendar sends a reminder 10 days before.</p></div>
+ </div>
+</div></section>
+
+<section class="s alt" id="library"><div class="wrap">
+ <div class="sh"><div><span class="k">11 · Asset library</span><h2>One folder structure, one naming rule, one current version</h2></div>
+ <p>When a partner asks for “the latest spec sheet”, the answer should be a link, not a search through old email.</p></div>
+ <div class="jd">“Organize and maintain marketing asset libraries, shared folders, product collateral, press materials, and promotional materials, ensuring current versions are available.”</div>
+ <div style="height:18px"></div>
+ <div class="grid2">
+  <div class="tree"><b>ASUS-CA-Marketing/</b>
+├── <b>01_Products/</b>
+│   └── <b>Zenbook-14-2026/</b>
+│       ├── <em>_CURRENT/</em>      <s>← the only folder partners get</s>
+│       │   ├── Images/  Arctic-Blue · Komodo-Coral
+│       │   ├── Spec-sheets/  EN · FR
+│       │   ├── Sell-sheets/  EN · FR
+│       │   └── Retail-art/  BestBuy · CanadaComputers · Amazon
+│       └── <s>_ARCHIVE/</s>      <s>← old versions, never deleted</s>
+├── <b>02_PR/</b>  Releases · Press-kits · Coverage · Loans
+├── <b>03_Channel/</b>  Co-op · Partner-programs · Training
+├── <b>04_Events/</b>  2026-12-07_Media-briefing
+├── <b>05_POE/</b>  2026-Q4/…
+└── <b>06_Finance/</b>  POs · Invoices · Budget</div>
+  <div>
+   <div class="card"><h3 style="margin-bottom:12px">File name builder</h3>
+    <div class="nb">
+     <label>Product<select id="nP"><option>ZB14-2026</option><option>Googlebook14</option><option>ProArt-P16</option><option>ROG-G1000</option></select></label>
+     <label>Asset<select id="nA"><option>SpecSheet</option><option>SellSheet</option><option>FlyerArt</option><option>PressRelease</option><option>Image</option></select></label>
+     <label>Partner or use<select id="nU"><option>ALL</option><option>BestBuy</option><option>CanadaComputers</option><option>Amazon</option><option>Staples</option><option>Press</option></select></label>
+     <label>Language<select id="nL"><option>EN</option><option>FR</option></select></label>
+     <label>Version<input id="nV" type="number" value="2" min="1"></label>
+     <label>Date<input id="nD" type="date" value="2026-12-04"></label>
+    </div>
+    <div class="fname" id="nOut"></div></div>
+   <div class="card" style="margin-top:14px"><h3>Three rules</h3><ul style="margin:8px 0 0;padding-left:18px;font-size:14.5px"><li>Only <span class="mono">_CURRENT</span> is shared. When a file is replaced, the old one moves to <span class="mono">_ARCHIVE</span> the same day.</li><li>Every English file has a French twin or a note saying why not.</li><li>On the first Monday of the month I check that links still work and the prices are still right.</li></ul></div>
+  </div>
+ </div>
+</div></section>
+
+<section class="s" id="pr"><div class="wrap">
+ <div class="sh"><div><span class="k">12 · PR tracker</span><h2>Media requests, coverage and review units, all in one place</h2></div>
+ <p>The loans tab works out what’s overdue from today’s date, so a $1,500 laptop doesn’t sit on a reviewer’s desk for months.</p></div>
+ <div class="jd">“Support PR by tracking media requests, press releases, coverage, and review samples and product loans.”</div>
+ <div style="height:18px"></div>
+ <div class="tabs" data-t="pr"><button class="on" data-p="pr1">Review loans</button><button data-p="pr2">Media requests</button><button data-p="pr3">Coverage</button></div>
+ <div class="pane on" id="pr1"><div class="scroll"><table class="tbl"><thead><tr><th>Loan</th><th>Model</th><th>Outlet</th><th>Out</th><th>Due back</th><th>Status</th></tr></thead><tbody id="lnB"></tbody></table></div><p class="note">Loan rules: form signed before a unit leaves, 4 weeks by default, prepaid return label sent a week before it’s due, two reminders, then the PR lead takes over.</p></div>
+ <div class="pane" id="pr2"><div class="scroll"><table class="tbl"><thead><tr><th>Received</th><th>From</th><th>Asked for</th><th>What we did</th><th>Status</th></tr></thead><tbody id="mdB"></tbody></table></div></div>
+ <div class="pane" id="pr3"><div class="scroll"><table class="tbl"><thead><tr><th>Date</th><th>Outlet</th><th>Headline</th><th>Note</th></tr></thead><tbody id="cvB"></tbody></table></div><p class="note">Each wave 2 story gets logged the same day it runs: link, screenshot, which model, and whether the price and the offer were right.</p></div>
+</div></section>
+
+<section class="s alt" id="better"><div class="wrap">
+ <div class="sh"><div><span class="k">13 · Making it better</span><h2>Three small fixes I’d suggest in the first month</h2></div>
+ <p>None of these need new software. They work in Excel, Teams and the folders you already have.</p></div>
+ <div class="jd">“Identify opportunities to improve marketing processes and tools.”</div>
+ <div style="height:18px"></div>
+ <div class="grid3">
+  <div class="card fix"><div class="n">1</div><h3>One launch template</h3><p>Every launch starts as a copy of the same tracker, checklist and folder. Wave 3 of anything takes an hour to set up, not a week.</p><span class="gain">Faster kickoffs</span></div>
+  <div class="card fix"><div class="n">2</div><h3>POE folder on day one</h3><p>The proof folder opens on the day the campaign starts. Screenshots are filed as things go live, so claims don’t miss the cut-off.</p><span class="gain">Fewer rejected claims</span></div>
+  <div class="card fix"><div class="n">3</div><h3>A Friday status habit</h3><p>Every Friday at noon, one page goes out: red, amber or green, one decision, what’s next. Meetings get shorter because everyone already knows.</p><span class="gain">Shorter syncs</span></div>
+ </div>
+</div></section>
+
+<section class="hello" id="hello"><div class="wrap">
+ <div><span class="k" style="color:var(--coral)">Hello</span><h2 style="margin:12px 0 16px">I’d love to run the real one.</h2>
+  <p>I’m Durva, and I’m applying for the Marketing Administrator role. I like the part of marketing where things have to arrive on time and add up. This page is how I’d approach your next launch, and I’d be glad to walk you through any of it.</p>
+  <div class="acts" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px"><a class="btn" href="mailto:durvathakker7@gmail.com?subject=ASUS%20Canada%20Marketing%20Administrator">Email me</a><a class="btn ghost" style="color:#fff;box-shadow:inset 0 0 0 1.5px #4a5060" href="https://durvathakkar.com/">About me</a></div></div>
+ <div class="card"><b>The two files</b><p style="margin:10px 0 14px;font-size:14px">The workbook has 8 tabs: read me, GTM tracker, calendar, budget, POs and invoices, POE log, PR requests and review loans. The deck has 5 slides.</p>
+  <div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn sm" href="ASUS-Canada-GTM-Workbook.xlsx" download>Workbook (.xlsx)</a><a class="btn sm" href="ASUS-Zenbook14-Wave2-Status.pptx" download>Status deck (.pptx)</a></div></div>
+</div></section>
+<footer><div class="wrap">Made by Durva Thakkar for the ASUS Canada marketing team. Product facts come from ASUS’s Canadian Zenbook 14 release (Toronto, Oct 20, 2026). Dates after Nov 24, 2026, budgets, POs, vendors, owners and outlets are samples. ASUS and Zenbook are trademarks of ASUSTeK Computer Inc. This is an unofficial job application page.</div></footer>
+
+<script>
+const D={"SKUS": [["UX3480QA-BH51-CB", "Snapdragon X", "8GB", "256GB", "Arctic Blue", 1299.99, "Oct 20, 2026"], ["UX3480QA-BH52-CB", "Snapdragon X", "16GB", "256GB", "Arctic Blue", 1499.99, "Oct 20, 2026"], ["UX3480QA-AH53-CA", "Snapdragon X", "16GB", "512GB", "Arctic Blue", 1599.0, "Oct 20, 2026"], ["UX3480AA-DH71T-CA", "Intel Core Ultra 7 355, touch", "24GB", "512GB", "", 2099.99, "Oct 20, 2026"], ["UX3480QA-AH51-CA", "Snapdragon X", "8GB", "256GB", "Komodo Coral", 1299.99, "TBA"], ["UX3480QA-AH52-CA", "Snapdragon X", "16GB", "256GB", "Komodo Coral", 1499.99, "TBA"], ["UX3480QA-DH51-CA", "Snapdragon X", "16GB", "", "Komodo Coral", 1599.0, "TBA"], ["UX3480KA-BH51-CB", "AMD Ryzen AI 5 330", "16GB", "256GB", "Arctic Blue", 1599.0, "TBA"], ["UX3480KA-DH51T-CA", "AMD Ryzen AI 7 345, touch", "16GB", "256GB", "", 1699.0, "TBA"], ["UX3480KA-BH72-CB", "AMD", "16GB", "512GB", "", 1799.0, "TBA"], ["UX3480KA-RS71T-CA", "AMD Ryzen AI 7 345, touch", "16GB", "512GB", "", 1899.0, "TBA"], ["UX3480AA-DH91T-CA", "Intel Core Ultra 9 386H, touch", "24GB", "512GB", "", 2499.99, "TBA"]], "TASKS": [["T01", "Confirm wave 2 SKUs, ship dates and stock by retailer", "Product Marketing", "PMM lead", "2026-11-26", "In progress", ""], ["T02", "Lock final CAD pricing and promo windows with sales", "Sales", "Sales lead", "2026-11-27", "In progress", "T01"], ["T03", "Brief: Komodo Coral and AMD story, three key messages", "Product Marketing", "PMM lead", "2026-11-30", "Not started", "T01"], ["T04", "Press release draft, EN and FR", "PR", "PR lead", "2026-12-03", "Not started", "T03"], ["T05", "Review sample list and loan forms for 8 outlets", "PR", "Durva (admin)", "2026-12-02", "Not started", "T01"], ["T06", "Retailer sell sheets and spec cards, EN and FR", "Channel Marketing", "Channel lead", "2026-12-04", "Not started", "T03"], ["T07", "Co-op flyer slots booked: Best Buy, Canada Computers, Amazon", "Channel Marketing", "Channel lead", "2026-12-01", "In progress", "T02"], ["T08", "Asset pack in the shared library, version 1 locked", "Product Marketing", "Durva (admin)", "2026-12-05", "Not started", "T06"], ["T09", "Store staff training session booked and invites out", "Channel Marketing", "Durva (admin)", "2026-12-04", "Not started", "T06"], ["T10", "Media briefing: venue, run sheet, RSVP list", "PR", "Durva (admin)", "2026-12-07", "Not started", "T04"], ["T11", "POs raised for agency, printing and shipping", "Finance", "Durva (admin)", "2026-12-01", "Not started", "T02"], ["T12", "ASUS Store and retailer pages live with Google AI Pro offer copy", "Product Marketing", "Web team", "2026-12-08", "Not started", "T08"], ["T13", "Embargo lifts, release goes out", "PR", "PR lead", "2026-12-09", "Not started", "T04"], ["T14", "POE folder opened for every co-op activity", "Channel Marketing", "Durva (admin)", "2026-12-09", "Not started", "T07"], ["T15", "Week-one coverage and sell-through report", "Product Marketing", "Durva (admin)", "2026-12-16", "Not started", "T13"]], "EVENTS": [["2026-10-20", "Zenbook 14 wave 1 in Canada (real)", "launch"], ["2026-11-24", "Wave 2 kickoff sync", "meet"], ["2026-11-26", "SKU and stock lock", "deadline"], ["2026-11-27", "Black Friday", "retail"], ["2026-11-30", "Cyber Monday", "retail"], ["2026-12-01", "Weekly launch sync", "meet"], ["2026-12-02", "Review loans shipped", "pr"], ["2026-12-03", "Release draft to approvals", "deadline"], ["2026-12-04", "Sell sheets final", "deadline"], ["2026-12-07", "Media briefing, Toronto", "pr"], ["2026-12-08", "Weekly launch sync", "meet"], ["2026-12-09", "Embargo lifts, wave 2 live", "launch"], ["2026-12-10", "Store staff training (virtual)", "event"], ["2026-12-15", "Weekly launch sync", "meet"], ["2026-12-16", "Week-one report", "deadline"], ["2026-12-26", "Boxing Day", "retail"], ["2026-12-31", "Q4 POE and claims cut-off", "deadline"]], "BUDGET": [["Retail co-op flyers (Best Buy, Canada Computers)", "Channel Marketing", 45000, 45000, 50400], ["Amazon.ca sponsored placements", "Channel Marketing", 18000, 18000, 12600], ["Paid social, launch week", "Product Marketing", 20000, 20000, 21000], ["Media briefing (venue, AV, food)", "PR", 8000, 7400, 7400], ["Review sample shipping and insurance", "PR", 2500, 2300, 2300], ["Store staff training (platform, prizes)", "Channel Marketing", 6000, 5000, 0], ["French adaptation of all retail assets", "Product Marketing", 7000, 7000, 6200], ["Point-of-sale printing", "Channel Marketing", 9000, 9000, 9800], ["Contingency", "Product Marketing", 5000, 0, 0]], "POS": [["PO-26-1184", "Print vendor (sample)", "Point-of-sale printing", 9000, "INV-55102", 9800, "Yes"], ["PO-26-1185", "Venue (sample)", "Media briefing", 7400, "INV-2093", 7400, "Yes"], ["PO-26-1186", "Courier (sample)", "Review sample shipping", 2300, "INV-77310", 2300, "Yes"], ["PO-26-1187", "Creative agency (sample)", "French adaptation", 7000, "INV-0418", 6200, "Yes"], ["PO-26-1188", "Training platform (sample)", "Store staff training", 5000, "", 0, "No"]], "POE": {"program": "Canada Computers holiday flyer, Zenbook 14 wave 2", "partner": "Canada Computers (sample claim)", "dates": "Dec 11 to Dec 24, 2026", "claim": "C$12,000", "items": [["Final approved flyer artwork (PDF)", true], ["Dated photo or screenshot of the flyer in market", true], ["Store or web placement screenshots, with date and URL", true], ["Partner invoice matching the agreed amount", true], ["Signed co-op agreement or email approval", true], ["Proof the promo price ran (receipt or price screenshot)", false], ["Sell-through numbers for the promo window", false]]}, "MEDIA": [["2026-11-20", "Tech site (sample)", "Spec sheet and hi-res images, Komodo Coral", "Sent same day", "Done"], ["2026-11-23", "Lifestyle magazine (sample)", "Gift guide: price and retailers in Canada", "Waiting on final price", "Open"], ["2026-11-24", "YouTube reviewer (sample)", "Review unit, AMD touch model", "Added to loan list", "Open"]], "COVERAGE": [["2026-10-05", "iPhone in Canada", "Googlebook 14 now available in Canada", "Real coverage of an ASUS Canada launch, logged as the example"], ["2026-12-09", "(wave 2 coverage goes here)", "", ""]], "LOANS": [["L-014", "UX3480QA-AH52-CA", "Tech site (sample)", "2026-11-03", "2026-12-01", "Out"], ["L-015", "UX3480KA-RS71T-CA", "YouTube reviewer (sample)", "2026-11-10", "2026-12-08", "Out"], ["L-012", "UX3480QA-BH52-CB", "Podcast host (sample)", "2026-10-21", "2026-11-18", "Out"], ["L-011", "UX3480AA-DH71T-CA", "Newspaper tech desk (sample)", "2026-10-20", "2026-11-17", "Returned"]]};
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const TODAY=new Date('2026-11-24T12:00:00');
+const fmt=d=>new Date(d+'T12:00:00').toLocaleDateString('en-CA',{month:'short',day:'numeric'});
+const money=n=>'C$'+Math.round(n).toLocaleString('en-CA');
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* nav */
+const NAV=[['hi','Real vs sample'],['tracker','01 Tracker'],['calendar','02 Calendar'],['checklist','03 Checklist'],['status','04 Status'],['meetings','05 Meetings'],['events','06 Events'],['approvals','07 Approvals'],['budget','08 Budget'],['po','09 POs'],['poe','10 POE'],['library','11 Assets'],['pr','12 PR'],['better','13 Fixes'],['hello','Hello']];
+$('#nav').innerHTML=NAV.map(([i,t])=>`<a href="#${i}">${t}</a>`).join('');
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){$$('#nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}}),{rootMargin:'-45% 0px -50% 0px'});
+NAV.forEach(([i])=>{const el=document.getElementById(i);if(el)io.observe(el)});
+
+/* hero */
+const SW={arctic:['#b7d4ee','#7fa9cf','Arctic Blue'],coral:['#f5a08c','#e0684f','Komodo Coral']};
+$$('.az-swatch button').forEach(b=>b.onclick=()=>{$$('.az-swatch button').forEach(x=>x.classList.remove('on'));b.classList.add('on');const c=SW[b.dataset.c];$('#l1').setAttribute('stop-color',c[0]);$('#l2').setAttribute('stop-color',c[1]);$('#azSw').textContent=c[2]});
+const HR=[['SKU and stock lock','#12a150'],['Pricing with sales','#12a150'],['Release, EN and FR','#d98a00'],['Review loans, 8 outlets','#d98a00'],['Co-op flyer slots','#12a150'],['POs raised','#0a6cff'],['Media briefing Dec 7','#0a6cff']];
+$('#azRows').innerHTML=HR.map(([t,c])=>`<div class="az-row"><i style="background:${c}"></i><span>${t}</span></div>`).join('');
+let hi=0;const rows=$$('.az-row');
+(function step(){if(hi<rows.length){rows[hi].classList.add('in');hi++;const p=Math.round(hi/rows.length*100);$('#azBar').style.width=p+'%';$('#azPct').textContent=p+'%';setTimeout(step,450)}else{setTimeout(()=>{const b=$$('.az-swatch button');b[b[0].classList.contains('on')?1:0].click()},900)}})();
+
+/* tabs */
+$$('.tabs').forEach(t=>t.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;t.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));const sec=t.parentElement;sec.querySelectorAll('.pane').forEach(p=>{if(p.id.startsWith(t.dataset.t))p.classList.toggle('on',p.id===b.dataset.p)})}));
+
+/* tracker */
+const ST=['Not started','In progress','Blocked','Done'],STC={'Not started':'p-n','In progress':'p-b','Blocked':'p-r','Done':'p-g'};
+const tasks=D.TASKS.map(t=>({id:t[0],task:t[1],team:t[2],owner:t[3],due:t[4],st:t[5],dep:t[6]}));
+let tf='All';
+function drawTr(){const teams=['All',...new Set(tasks.map(t=>t.team))];$('#trF').innerHTML=teams.map(t=>`<button class="${t===tf?'on':''}">${t}</button>`).join('');
+ const L=tasks.filter(t=>tf==='All'||t.team===tf);
+ $('#trB').innerHTML=L.map(t=>{const late=t.st!=='Done'&&new Date(t.due+'T12:00:00')<TODAY;return`<tr><td class="mono">${t.id}</td><td>${esc(t.task)}</td><td>${t.team}</td><td>${t.owner}</td><td class="mono" style="${late?'color:var(--red);font-weight:700':''}">${fmt(t.due)}</td><td class="mono">${t.dep||'·'}</td><td><button class="pill st ${STC[t.st]}" data-id="${t.id}">${t.st}</button></td></tr>`}).join('');
+ const d=tasks.filter(t=>t.st==='Done').length;$('#trTxt').textContent=`${d} of ${tasks.length} done · ${tasks.filter(t=>t.st==='Blocked').length} blocked`;$('#trBar').style.width=d/tasks.length*100+'%'}
+$('#trF').onclick=e=>{if(e.target.tagName==='BUTTON'){tf=e.target.textContent;drawTr()}};
+$('#trB').onclick=e=>{const b=e.target.closest('.st');if(!b)return;const t=tasks.find(x=>x.id===b.dataset.id);t.st=ST[(ST.indexOf(t.st)+1)%ST.length];drawTr()};
+drawTr();
+
+/* calendar */
+let cm=new Date(2026,10,1);
+function drawCal(){const y=cm.getFullYear(),m=cm.getMonth();$('#calT').textContent=cm.toLocaleDateString('en-CA',{month:'long',year:'numeric'});
+ const first=(new Date(y,m,1).getDay()+6)%7,days=new Date(y,m+1,0).getDate();let h=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].map(d=>`<div class="dw">${d}</div>`).join('');
+ for(let i=0;i<first;i++)h+='<div class="d x"></div>';
+ for(let d=1;d<=days;d++){const k=`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;const ev=D.EVENTS.filter(e=>e[0]===k);const today=k==='2026-11-24';h+=`<div class="d ${today?'today':''}"><div class="num">${d}${today?' · today':''}</div>${ev.map(e=>`<span class="ev ${e[2]}" title="${esc(e[1])}">${esc(e[1])}</span>`).join('')}</div>`}
+ $('#cal').innerHTML=h}
+$('#calP').onclick=()=>{cm=new Date(cm.getFullYear(),cm.getMonth()-1,1);if(cm<new Date(2026,9,1))cm=new Date(2026,9,1);drawCal()};
+$('#calN').onclick=()=>{cm=new Date(cm.getFullYear(),cm.getMonth()+1,1);if(cm>new Date(2026,11,1))cm=new Date(2026,11,1);drawCal()};
+drawCal();
+
+/* checklist */
+const CL=[['Before kickoff',['SKUs, colours and ship dates confirmed by retailer','CAD pricing and promo windows signed off by Sales','Budget lines opened and POs requested','Launch folder copied from the template']],
+['Assets',['Key messages approved by the PMM Team Lead','Spec sheet and sell sheet in English and French','Retail art in each partner’s sizes','Google AI Pro offer wording checked against the terms','French packaging and in-store signs checked for Quebec','Everything filed in _CURRENT, old versions archived']],
+['Launch week',['Release approved and scheduled for embargo time','ASUS Store and retailer pages live and prices right','Review loans out with signed forms','Store staff training delivered, recording shared','POE folder opened for every co-op activity']],
+['After launch',['Coverage logged with links and screenshots','Week-one sell-through report sent','Budget reconciled against invoices','POE packs submitted before the Q4 cut-off','Loans back, or chased twice and escalated','Short “what we’d change” note for the next launch']]];
+const pre=[0,1,2,3,6];
+$('#cl').innerHTML=CL.map(([h,items],gi)=>`<div class="card cl"><h4>${h}<span class="note" style="margin:0" data-g="${gi}"></span></h4>${items.map((t,ii)=>`<label><input type="checkbox" data-g="${gi}"><span>${t}</span></label>`).join('')}</div>`).join('');
+const cbs=$$('#cl input');pre.forEach(i=>cbs[i].checked=true);
+function drawCl(){cbs.forEach(c=>c.closest('label').classList.toggle('ck',c.checked));const d=cbs.filter(c=>c.checked).length;$('#clTxt').textContent=`${d} of ${cbs.length} ticked`;$('#clBar').style.width=d/cbs.length*100+'%';$$('#cl h4 .note').forEach(n=>{const g=cbs.filter(c=>c.dataset.g===n.dataset.g);n.textContent=`${g.filter(c=>c.checked).length}/${g.length}`})}
+$('#cl').addEventListener('change',drawCl);drawCl();
+
+/* status */
+const RAG=[['Product Marketing','#d98a00','Amber','Brief for the Komodo Coral and AMD story is 1 day behind. Due Nov 30.'],['PR','#12a150','Green','Release outline agreed. Review loan list drafted, 8 outlets.'],['Channel Marketing','#d93a2b','Red','Canada Computers hasn’t confirmed Komodo Coral stock. Flyer slot is Dec 11.'],['Sales and Finance','#12a150','Green','Pricing locked for 6 of 8 models. POs ready to raise Dec 1.']];
+$('#rag').innerHTML=RAG.map(([t,c,s,p])=>`<div class="card"><span class="dot" style="background:${c}"></span><b>${t}</b><span class="note" style="margin-left:6px">${s}</span><p>${p}</p></div>`).join('');
+
+/* budget */
+const bud=D.BUDGET.map(b=>({line:b[0],team:b[1],plan:b[2],com:b[3],act:b[4]}));
+function drawBud(){$('#budB').innerHTML=bud.map((b,i)=>{const v=b.act-b.plan,pct=b.plan?v/b.plan:0;const cls=b.act>0&&pct>.10?'over':(b.com>0&&b.act>0&&pct<-.25?'under':'');return`<tr class="${cls}"><td>${esc(b.line)}</td><td>${b.team}</td><td class="n">${money(b.plan)}</td><td class="n">${money(b.com)}</td><td class="n"><input type="number" value="${b.act}" data-i="${i}" aria-label="Actual for ${esc(b.line)}"></td><td class="n" style="color:${v>0?'var(--red)':v<0?'#0b7a3b':'inherit'}">${b.act?(v>0?'+':v<0?'-':'')+money(Math.abs(v))+' ('+(pct*100).toFixed(0)+'%)':'·'}</td><td>${cls==='over'?'<span class="pill p-r">Over</span>':cls==='under'?'<span class="pill p-a">Under</span>':''}</td></tr>`}).join('');
+ const P=bud.reduce((a,b)=>a+b.plan,0),C=bud.reduce((a,b)=>a+b.com,0),A=bud.reduce((a,b)=>a+b.act,0);$('#bP').textContent=money(P);$('#bC').textContent=money(C);$('#bA').textContent=money(A);$('#bV').textContent=`${money(P-Math.max(A,C))} left`;
+ const ov=bud.filter(b=>b.act>0&&(b.act-b.plan)/b.plan>.10),un=bud.filter(b=>b.com>0&&b.act>0&&(b.act-b.plan)/b.plan<-.25);
+ if(!ov.length&&!un.length){$('#flag').style.background='var(--gbg)';$('#flag').innerHTML='<b style="color:#0b7a3b">All lines within range.</b> No note needed this week.';return}
+ $('#flag').style.background='var(--rbg)';
+ const lines=[...ov.map(b=>`• ${b.line}: ${money(b.act)} against a plan of ${money(b.plan)}, ${money(b.act-b.plan)} over (${Math.round((b.act-b.plan)/b.plan*100)}%).`),...un.map(b=>`• ${b.line}: ${money(b.act)} against ${money(b.plan)}, ${money(b.plan-b.act)} under. This could cover the overage.`)];
+ $('#flag').innerHTML=`<b>Variance note, ready to send to the Product Marketing Team Lead</b><pre>Hi, a quick budget flag for Zenbook 14 wave 2:\n${lines.join('\n')}\nTotal committed is ${money(C)} of ${money(P)}. Happy to move funds if you approve. The workbook has the detail.\nDurva</pre>`}
+$('#budB').addEventListener('input',e=>{const i=e.target.dataset.i;if(i==null)return;bud[i].act=+e.target.value||0;const pos=e.target.selectionStart;drawBud();const n=$(`#budB input[data-i="${i}"]`);n.focus();try{n.setSelectionRange(pos,pos)}catch(_){}});
+drawBud();
+
+/* POs */
+$('#poB').innerHTML=D.POS.map(p=>{let c,cl;if(!p[4]){c='Waiting on invoice';cl='p-n'}else if(p[6]!=='Yes'){c='Hold: not received';cl='p-a'}else if(p[5]!==p[3]){c=`Hold: ${money(Math.abs(p[5]-p[3]))} ${p[5]>p[3]?'over':'under'} PO`;cl=p[5]>p[3]?'p-r':'p-a'}else{c='Matched, OK to pay';cl='p-g'}return`<tr><td class="mono">${p[0]}</td><td>${p[1]}</td><td>${p[2]}</td><td class="n">${money(p[3])}</td><td class="mono">${p[4]||'·'}</td><td class="n">${p[4]?money(p[5]):'·'}</td><td>${p[6]}</td><td><span class="pill ${cl}">${c}</span></td></tr>`}).join('');
+
+/* POE */
+const P=D.POE;$('#poeT').textContent=P.program;$('#poeM').innerHTML=`${esc(P.partner)} · ${P.dates} · claim ${P.claim} <span class="sample">Sample</span>`;
+$('#poeI').innerHTML=P.items.map(([t,ok])=>`<div class="poe-i ${ok?'y':'n'}"><i>${ok?'✓':'!'}</i>${t}</div>`).join('');
+const miss=P.items.filter(i=>!i[1]).length;$('#poeS').innerHTML=`<b>${P.items.length-miss} of ${P.items.length} in the folder.</b> ${miss} still to collect before this claim can go in. Each one has an owner and a reminder in the tracker.`;
+
+/* naming */
+function nm(){const d=($('#nD').value||'2026-12-04').replace(/-/g,'');$('#nOut').textContent=`${$('#nP').value}_${$('#nA').value}_${$('#nU').value}_${$('#nL').value}_v${$('#nV').value||1}_${d}.pdf`}
+['#nP','#nA','#nU','#nL','#nV','#nD'].forEach(s=>$(s).addEventListener('input',nm));nm();
+
+/* PR */
+$('#lnB').innerHTML=D.LOANS.map(l=>{const due=new Date(l[4]+'T12:00:00'),days=Math.round((TODAY-due)/864e5);let s,c;if(l[5]==='Returned'){s='Returned';c='p-g'}else if(days>0){s=`Overdue ${days} days`;c='p-r'}else{s=`Due in ${-days} days`;c=-days<=7?'p-a':'p-b'}return`<tr><td class="mono">${l[0]}</td><td class="mono">${l[1]}</td><td>${l[2]}</td><td class="mono">${fmt(l[3])}</td><td class="mono">${fmt(l[4])}</td><td><span class="pill ${c}">${s}</span></td></tr>`}).join('');
+$('#mdB').innerHTML=D.MEDIA.map(m=>`<tr><td class="mono">${fmt(m[0])}</td><td>${m[1]}</td><td>${m[2]}</td><td>${m[3]}</td><td><span class="pill ${m[4]==='Done'?'p-g':'p-a'}">${m[4]}</span></td></tr>`).join('');
+$('#cvB').innerHTML=D.COVERAGE.map(c=>`<tr><td class="mono">${fmt(c[0])}</td><td>${c[1]}${c[0]==='2026-10-05'?' <span class="real">Real</span>':''}</td><td>${c[2]||'·'}</td><td>${c[3]||'·'}</td></tr>`).join('');
+</script>
+</body>
+</html>
