@@ -1701,7 +1701,7 @@ function renderPost(i){curP=i;const p=POSTS[i],f=FIRST[p.id];
   $('#lipMore').onclick=()=>{const b=$('#lipBd');const c=b.classList.toggle('clamp');$('#lipMore').textContent=c?'…see more':'show less'};
   const t=p.text,words=t.split(/\s+/).length,sents=t.split(/[.!?](\s|$)/).filter(s=>s&&s.trim().length>1).length,hits=BAD.filter(b=>t.toLowerCase().includes(b));
   const firstLines=t.split('\n')[0].length;
-  $('#lpNotes').innerHTML=`<div class="n"><b>The hook</b>${esc(p.hook)}</div><div class="n"><b>Why it works</b>${esc(p.why)}</div><div class="n"><b>When to post</b>${esc(p.when)}</div><div class="n"><b>Then it becomes</b>${esc(p.turns)}</div><div class="n"><b>Checked, in code</b><div class="chk2"><span class="chip ${t.length<=3000?'lime':'warn'}">${t.length.toLocaleString()} / 3,000 characters</span><span class="chip">${words} words</span><span class="chip">~${Math.round(words/sents)} words a sentence</span><span class="chip ${firstLines<=140?'lime':'warn'}">first line ${firstLines} chars</span><span class="chip ${hits.length?'warn':'lime'}">${hits.length?'AI tells: '+hits.join(', '):'0 em dashes · 0 buzzwords'}</span></div></div>`;
+  $('#lpNotes').innerHTML=`<div class="n"><b>The hook</b>${esc(p.hook)}</div><div class="n"><b>Why it works</b>${esc(p.why)}</div><div class="n"><b>When to post</b>${esc(p.when)}</div><div class="n"><b>Then it becomes</b>${esc(p.turns)}</div>`;
   $$('#lpT button').forEach((b,j)=>b.classList.toggle('on',j===i))}
 $('#lpT').addEventListener('click',e=>{const b=e.target.closest('button');if(b)renderPost(+b.dataset.i)});
 renderPost(0);
