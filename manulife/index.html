@@ -141,7 +141,7 @@ footer{padding:26px 0;font-size:12.5px;color:var(--muted)}
   <div>
    <div class="top"><b style="color:var(--ink)">Durva Thakkar</b> · for the AdminAdvantage team · Marketing Assistant - AdminAdvantage</div>
    <h1>Benefits are confusing. <em>The email shouldn’t be.</em></h1>
-   <p class="lede">Members only read about their benefits when something changes: a new plan, enrolment, a leave, a mistake. That’s when one clear email matters most. So I wrote the ones this role sends, and showed how I’d check them.</p>
+   <p class="lede">Members only read about their benefits when something changes: a new plan, enrolment, a leave, a mistake. That’s when a clear email helps the most. So I wrote the ones this role sends, and showed how I’d check them.</p>
    <div class="acts"><a class="btn" href="#implement">See the emails</a><a class="btn ghost" href="#qa">Try the pre-send check</a></div>
   </div>
   <div class="phone" aria-label="A sample member inbox">
@@ -176,9 +176,9 @@ footer{padding:26px 0;font-size:12.5px;color:var(--muted)}
   <div class="card side" id="impSide"></div>
  </div>
  <div class="think"><b>My thinking</b><ul>
-  <li>A member doesn’t care who administers their plan. They care whether their prescription still works on June 1. So that answer goes near the top.</li>
-  <li>One email, one job. The first says what’s changing, the second asks for one action, the third says “you’re covered”. Three short emails get read. One long one doesn’t.</li>
-  <li>Everything client-specific is a merge field, so the same three emails work for the next client with a few changes, not a rewrite.</li>
+  <li>Most members won’t think much about who administers their plan. They want to know if their prescription still works on June 1, so that answer goes near the top.</li>
+  <li>Each email has one job: the first explains what’s changing, the second asks for one action, and the third confirms they’re covered. Short emails are more likely to be read to the end.</li>
+  <li>Everything client-specific is a merge field, so the same three emails can be reused for the next client with small changes.</li>
  </ul></div>
 </div></section>
 
@@ -193,9 +193,9 @@ footer{padding:26px 0;font-size:12.5px;color:var(--muted)}
   <div class="card side" id="enrSide"></div>
  </div>
  <div class="think"><b>My thinking</b><ul>
-  <li>The fastest way to make members ignore you is to remind someone who already enrolled. So emails 2 and 3 go only to members who haven’t finished.</li>
-  <li>Subject lines say the deadline, not the brand. “Enrolment closes Friday” gets opened. “Important benefits information” doesn’t.</li>
-  <li>Every email says what happens if they do nothing. For most people that’s the real question.</li>
+  <li>A reminder to someone who already enrolled can make them think it didn’t save, and teaches them to skip our emails. So emails 2 and 3 go only to members who haven’t finished.</li>
+  <li>Subject lines lead with the deadline. “Enrolment closes Friday” tells members what to do before they even open it.</li>
+  <li>Every email says what happens if they do nothing, because many members want to know that first.</li>
  </ul></div>
 </div></section>
 
@@ -211,13 +211,13 @@ footer{padding:26px 0;font-size:12.5px;color:var(--muted)}
    <li><b>Fixed:</b> greeting, what this letter is, who to call. Approved once.</li>
    <li><b>Swaps by leave type:</b> the one middle block. Reviewed per client, because plans differ.</li>
    <li><b>Merge fields:</b> name, dates, client contact.</li>
-   <li><b>Never guessed:</b> what coverage continues. That comes from the client’s plan, so it sits in a field, not in my wording.</li>
+   <li><b>Never guessed:</b> what coverage continues. That comes from the client’s plan, so it goes in a merge field and is filled in from the plan.</li>
   </ul></div>
  </div>
  <div class="think"><b>My thinking</b><ul>
   <li>Someone on parental or disability leave is tired, busy or unwell. The letter has to be readable in under a minute.</li>
-  <li>Warm, but not chatty. “Congratulations” fits parental leave and is wrong for disability leave, so tone changes with the block too.</li>
-  <li>The part that changes most between clients is coverage. I’d never write it from memory. It comes from the plan, and it’s checked every time.</li>
+  <li>The tone is warm and short. “Congratulations” fits parental leave but would be wrong for disability leave, so the tone changes with the middle block.</li>
+  <li>Coverage details change the most between clients, so they always come from the client’s plan and are checked for each client.</li>
  </ul></div>
 </div></section>
 
@@ -239,32 +239,32 @@ footer{padding:26px 0;font-size:12.5px;color:var(--muted)}
  </div>
  <div class="think"><b>My thinking</b><ul>
   <li>The member wants to know two things: is my money okay, and do I have to do anything? So both answers are in the subject and the first lines.</li>
-  <li>Say what happened in one plain sentence. “Unforeseen technical difficulties” sounds like hiding. “A system error held up some claims” sounds honest.</li>
-  <li>“Any inconvenience this may have caused” makes it sound like it maybe didn’t. If it was late, it was late. Own it once, and move to the fix.</li>
-  <li>Wording like this would always go through compliance and the client before it’s sent. Plain doesn’t mean unreviewed.</li>
+  <li>One plain sentence explains what happened. “A system error held up some claims” is clearer than “unforeseen technical difficulties”.</li>
+  <li>“Any inconvenience this may have caused” sounds unsure. If the claim was late, the email should say so once and then explain the fix.</li>
+  <li>Wording like this would always go through compliance and the client before it’s sent. Plain wording still gets the full review.</li>
  </ul></div>
 </div></section>
 
 <!-- 05 FAQ -->
 <section class="s alt" id="faq"><div class="wrap">
  <div class="sh"><div><span class="k">05 · Client-specific FAQs</span><h2>An FAQ that only answers that client’s questions</h2></div>
- <p>Tick what the client’s plan includes. The FAQ builds itself from approved answers, and anything that doesn’t apply drops out.</p></div>
+ <p>Tick what the client’s plan includes. The FAQ is put together from answers that are already approved, and anything that doesn’t apply is left out.</p></div>
  <div class="jd">“Client-specific and member-friendly FAQs.”</div>
  <div class="grid2">
   <div class="card chk"><h4>Northfield Manufacturing’s plan includes <span class="sample">Sample</span></h4><div id="faqOpts"></div><p class="note">Each answer is written once, approved once, and reused across clients.</p></div>
   <div class="card faq"><h4 id="faqT"></h4><div id="faqOut"></div></div>
  </div>
  <div class="think"><b>My thinking</b><ul>
-  <li>A generic FAQ answers questions members don’t have, and skips the ones they do. If a client has no flex plan, a flex question only confuses people.</li>
-  <li>Questions are written the way a member would ask them: “Can I add my partner?”, not “Dependent eligibility”.</li>
-  <li>The best FAQ list comes from the phones. I’d check what members are actually calling about and add those first.</li>
+  <li>A generic FAQ often answers questions a client’s members don’t have. If a client has no flex plan, a flex question only confuses people.</li>
+  <li>Questions use a member’s own words, like “Can I add my partner?” instead of “Dependent eligibility”.</li>
+  <li>The most useful FAQ questions come from member calls. I’d check what members are calling about and add those first.</li>
  </ul></div>
 </div></section>
 
 <!-- 06 QA -->
 <section class="s" id="qa"><div class="wrap">
  <div class="sh"><div><span class="k">06 · Pre-send quality check</span><h2>Nothing goes out with a <span style="font-family:'JetBrains Mono',monospace;font-size:.8em">{{blank}}</span> in it</h2></div>
- <p>Paste any member email, or try the sample. It catches what a tired second read misses. Then the human checklist covers the rest.</p></div>
+ <p>Paste any member email, or try the sample. It catches the small errors that are easy to miss on a second read. Then a person works through the checklist.</p></div>
  <div class="jd">“Perform quality checks to ensure all communications are accurate, complete, and client-approved prior to distribution.” · “Deploy templated email communications, ensuring accuracy, consistency, and alignment with brand and compliance guidelines.”</div>
  <div class="grid2">
   <div>
@@ -285,9 +285,9 @@ The Benefits Team</textarea>
   </div>
  </div>
  <div class="think"><b>My thinking</b><ul>
-  <li>The worst mistakes in templated email are the boring ones: a blank merge field, the wrong client name, last year’s date. A machine can catch those every time, so a person doesn’t have to.</li>
-  <li>The tool doesn’t decide if it’s right. It makes a list. The client approval box is the only thing that makes it “ready”.</li>
-  <li>Plain language is a quality check too. If a member needs a dictionary for “adjudication”, the email failed, even if every fact is right.</li>
+  <li>The most common mistakes in templated email are small ones: a blank merge field, the wrong client name, last year’s date. A simple check can catch those, which leaves more time for a person to check the rest.</li>
+  <li>The check only makes a list of things to look at. A person still decides, and an email is only ready once the client has approved it.</li>
+  <li>Plain language is part of quality too. If a member has to look up “adjudication”, the email hasn’t done its job, even if every fact is right.</li>
  </ul></div>
 </div></section>
 
@@ -300,9 +300,9 @@ The Benefits Team</textarea>
  <div class="scroll"><table class="tbl"><thead><tr><th>Language</th><th>Members <span class="sample">Sample</span></th><th>Partner</th><th>Sent</th><th>Due back</th><th>Reviewer</th><th>Status</th></tr></thead><tbody id="trB"></tbody></table></div>
  <p class="note" id="trNote"></p>
  <div class="think"><b>My thinking</b><ul>
-  <li>Translation only starts once the English is locked. Every change after that has to be made in every language, and that’s where mistakes and costs come from.</li>
+  <li>Translation only starts once the English is locked. Any change after that has to be made in every language, which adds cost and room for mistakes.</li>
   <li>Merge fields and dates are marked “do not translate” before sending, so <span class="mf">{{first_name}}</span> doesn’t come back translated.</li>
-  <li>Each language gets a second reader who speaks it, even a colleague. A translation nobody checked is a guess.</li>
+  <li>Each language gets a second reader who speaks it, even a colleague, so mistakes are caught before members see them.</li>
   <li>The due date for translations is set from the send date backwards, so the slowest language decides when English has to be final.</li>
  </ul></div>
 </div></section>
@@ -310,12 +310,12 @@ The Benefits Team</textarea>
 <!-- 08 TIMELINES -->
 <section class="s" id="timeline"><div class="wrap">
  <div class="sh"><div><span class="k">08 · Timelines and updates</span><h2>Every communication, where it is, and what it’s waiting on</h2></div>
- <p>One tracker for all client comms. Anything late turns red on its own, counted from today’s date in the sample (Nov 26, 2026).</p></div>
+ <p>One tracker for all client comms. Anything late turns red automatically, counted from today’s date in the sample (Nov 26, 2026).</p></div>
  <div class="jd">“Track timelines, manage updates, and support documentation to ensure communications are delivered on schedule.”</div>
  <div class="scroll"><table class="tbl"><thead><tr><th>Communication</th><th>Client <span class="sample">Sample</span></th><th>Stage</th><th>Waiting on</th><th>Stage due</th><th>Send date</th><th>Status</th></tr></thead><tbody id="tlB"></tbody></table></div>
  <div class="think"><b>My thinking</b><ul>
-  <li>Most comms slip while waiting for a client to approve. So “Waiting on” is a name, and the stage has its own due date, not just the send date.</li>
-  <li>Every change after approval gets logged: what changed, who asked, the date. When a client asks “why does it say that?”, the answer takes a minute.</li>
+  <li>Most comms slip while waiting for a client to approve. So “Waiting on” is a person’s name, and each stage has its own due date as well as the send date.</li>
+  <li>Every change after approval gets logged: what changed, who asked, and the date. If a client asks why something changed, the answer is easy to find.</li>
   <li>I use the same weekly rhythm I use with my own clients: drafts out on a fixed day, review by a fixed time, so nobody has to ask “where is it?”</li>
  </ul></div>
 </div></section>
@@ -328,12 +328,12 @@ The Benefits Team</textarea>
  <div class="grid3">
   <div class="card fix"><div class="n">1</div><h3>A plain-language swap list</h3><p>One shared list of words members don’t use, and what to say instead. Everyone writes the same way, and reviews get faster.</p></div>
   <div class="card fix"><div class="n">2</div><h3>Blocks, not whole templates</h3><p>Greeting, deadline, “what to do”, contact. Approved once as blocks in Stensul, then put together per client, so one fix updates every email.</p></div>
-  <div class="card fix"><div class="n">3</div><h3>A member question log</h3><p>The top questions from calls and emails each month, fed into the FAQs and the next campaign. Fewer calls is the proof it’s working.</p></div>
+  <div class="card fix"><div class="n">3</div><h3>A member question log</h3><p>The top questions from calls and emails each month, added to the FAQs and the next campaign. Fewer calls on the same topic would show it’s working.</p></div>
  </div>
  <div class="card" style="margin-top:18px"><h4>The swap list, to start</h4><div class="gl" id="gl"></div></div>
  <div class="think"><b>My thinking</b><ul>
   <li>I’d spend the first month learning the templates and the compliance rules before suggesting anything. Some odd wording is there for a reason.</li>
-  <li>These are small on purpose. A small fix that ships beats a big idea that waits.</li>
+  <li>These are small on purpose. Small changes are easier to get approved and quicker to put in place.</li>
  </ul></div>
 </div></section>
 
@@ -374,13 +374,13 @@ function tabbed(list,tabsSel,hdSel,bdSel,sideSel,timeline){
 tabbed([
  {t:'What’s changing',when:'4 weeks before',job:'Tell them, calmly.',to:'All {{client_name}} members',s:'Your benefits are moving on {{start_date}}. Here’s what that means.',pre:'Your coverage stays. A few things get easier.',
   b:`<p>Hi {{first_name}},</p><p>On {{start_date}}, {{client_name}} is moving your group benefits administration to AdminAdvantage.</p><p><b>What stays the same:</b> your coverage. Your plan is set by {{client_name}}, and this change doesn’t reduce it.</p><p><b>What changes:</b></p><ul><li>You’ll get a new benefits card by {{card_date}}.</li><li>You’ll submit claims and check your coverage in a new place.</li><li>There’s a new number for questions: {{support_phone}}.</li></ul><p>You don’t need to do anything today. We’ll email you again in two weeks with the one thing to set up.</p><p>{{client_contact_name}}<br>{{client_name}} HR</p>`,
-  side:`<h4>Why it’s built like this</h4><ul><li>Sent from the client’s HR, not from us. Members trust their employer’s name.</li><li>“What stays the same” comes first. People’s first fear is losing coverage.</li><li>Ends with what happens next, so they don’t call to ask.</li></ul>`},
+  side:`<h4>Why it’s built like this</h4><ul><li>Sent from the client’s HR team, because members trust their employer’s name.</li><li>“What stays the same” comes first. People’s first fear is losing coverage.</li><li>Ends with what happens next, so they don’t call to ask.</li></ul>`},
  {t:'One thing to do',when:'2 weeks before',job:'Ask for one action.',to:'{{client_name}} members who haven’t registered',s:'Set up your benefits account (5 minutes)',pre:'Do this before {{start_date}} so your first claim is easy.',
   b:`<p>Hi {{first_name}},</p><p>Your new benefits start on {{start_date}}. There’s one thing to do before then:</p><p><b>Set up your online account.</b> It takes about 5 minutes. You’ll need your member ID: <b>{{member_id}}</b>.</p><a class="cta">Set up my account</a><p>Once you’re in, check that your dependants are listed correctly. If someone is missing, you can add them there.</p><p>Questions? Call {{support_phone}}, Monday to Friday, {{support_hours}}.</p>`,
   side:`<h4>Why it’s built like this</h4><ul><li>One action, one button. Everything else waits for the next email.</li><li>The time it takes is in the subject. “5 minutes” gets done. “Register now” gets saved for later.</li><li>Only sent to members who haven’t registered yet.</li></ul>`},
  {t:'You’re covered',when:'Start date',job:'Confirm and reassure.',to:'All {{client_name}} members',s:'You’re covered. Here’s how to use your new benefits.',pre:'Your card, your app and who to call.',
   b:`<p>Hi {{first_name}},</p><p>Your benefits with AdminAdvantage start today. You’re covered.</p><ul><li><b>At the pharmacy or dentist:</b> show your new card. Your old one stops working on {{old_card_end}}.</li><li><b>To submit a claim:</b> use your online account.</li><li><b>If you get stuck:</b> call {{support_phone}}. Mention you’re with {{client_name}}.</li></ul><p>Keep this email. It has everything you need in one place.</p>`,
-  side:`<h4>Why it’s built like this</h4><ul><li>Starts with the reassurance: “You’re covered.”</li><li>Organised by situation (“at the pharmacy”), not by feature.</li><li>“Keep this email” turns it into a reference card.</li></ul>`}
+  side:`<h4>Why it’s built like this</h4><ul><li>Starts with the reassurance: “You’re covered.”</li><li>Organised by situation, like “at the pharmacy”, because that’s how members look for answers.</li><li>“Keep this email” turns it into a reference card.</li></ul>`}
 ],null,'#impHd','#impBd','#impSide','#impTl');
 
 /* 02 enrolment */
@@ -390,7 +390,7 @@ tabbed([
   side:`<h4>Sent to</h4><ul><li>Every eligible member</li></ul><h4>Watch</h4><ul><li>Opens and clicks by the end of week 1</li><li>Calls about “how do I log in?” If they spike, the next email gets a login line.</li></ul>`},
  {t:'2 · Halfway',to:'Members who haven’t enrolled',s:'One week left to choose your benefits',pre:'You haven’t enrolled yet. It takes about 10 minutes.',
   b:`<p>Hi {{first_name}},</p><p>You haven’t chosen your {{plan_year}} benefits yet. You have until <b>{{close_date}}</b>.</p><a class="cta">Finish enrolment</a><p>Not sure what to pick? The most common question is about coverage for a partner or kids. {{help_link}} answers it in two minutes.</p><p><b>If you do nothing,</b> {{default_rule}}.</p>`,
-  side:`<h4>Sent to</h4><ul><li>Only members with enrolment <b>not started</b> or <b>not finished</b></li><li>Suppressed: everyone who’s done</li></ul><h4>Why</h4><ul><li>A reminder to someone who already enrolled makes them doubt it saved. That’s a call we caused.</li></ul>`},
+  side:`<h4>Sent to</h4><ul><li>Only members with enrolment <b>not started</b> or <b>not finished</b></li><li>Suppressed: everyone who’s done</li></ul><h4>Why</h4><ul><li>A reminder to someone who already enrolled can make them doubt it saved, and some of them will call to check.</li></ul>`},
  {t:'3 · Last day',to:'Members who haven’t enrolled',s:'Enrolment closes today at {{close_time}}',pre:'Last chance to choose your benefits for {{plan_year}}.',
   b:`<p>Hi {{first_name}},</p><p>Enrolment closes <b>today at {{close_time}}</b>.</p><a class="cta">Enrol now</a><p><b>If you do nothing,</b> {{default_rule}}. You can only change it later if you have a life event, like a new baby or marriage.</p>`,
   side:`<h4>Sent to</h4><ul><li>Only members still not finished, pulled the same morning</li></ul><h4>After it closes</h4><ul><li>Completion rate, and how many got the default</li><li>Top 3 questions from calls, into next year’s FAQ</li></ul>`}
