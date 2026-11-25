@@ -218,6 +218,37 @@ footer .wrap{border-top:1px solid #232835;padding-top:20px}
  .az-board{width:70%}
  .hero .wrap{padding-top:44px;padding-bottom:44px}
 }
+
+.think{background:#fff;border:1.5px solid var(--line,#e3e6eb);border-left:4px solid var(--coral);border-radius:0 12px 12px 0;padding:16px 20px;margin-top:22px;max-width:820px}
+.think b{font:700 12px "JetBrains Mono",monospace;letter-spacing:1.2px;text-transform:uppercase;color:var(--coral)}
+.think ul{list-style:none;margin:10px 0 0;padding:0}
+.think li{position:relative;padding-left:26px;margin:7px 0;line-height:1.5}
+.think li::before{content:"\2192";position:absolute;left:0;color:var(--coral);font-weight:700}
+.s.alt .think{background:#fff}
+.hero h1{max-width:13ch}
+/* workbook mock */
+.xl{background:#fff;border:1.5px solid #d5d9e0;border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(20,24,33,.08)}
+.xl-top{display:flex;align-items:center;gap:10px;background:#1f6f43;color:#fff;padding:8px 14px;font:600 13px system-ui}
+.xl-top i{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.5);display:inline-block}
+.xl-fx{display:flex;border-bottom:1px solid #e3e6eb;font:13px "JetBrains Mono",monospace}
+.xl-fx span{padding:8px 12px;border-right:1px solid #e3e6eb;min-width:64px;color:#555;background:#f7f8fa}
+.xl-fx em{font-style:normal;padding:8px 12px;color:#1c1c1c;overflow-x:auto;white-space:nowrap}
+.xl-grid{overflow-x:auto}
+.xl-grid table{border-collapse:collapse;width:100%;min-width:760px;font:13px system-ui}
+.xl-grid th{background:#f2f4f7;color:#555;font-weight:600;border:1px solid #e3e6eb;padding:6px 8px;text-align:left}
+.xl-grid td{border:1px solid #eceef2;padding:6px 8px;cursor:pointer;white-space:nowrap}
+.xl-grid td.in{color:#0000ff}
+.xl-grid td.f{color:#1c1c1c}
+.xl-grid td.n{text-align:right}
+.xl-grid td.sel{outline:2px solid #1f6f43;outline-offset:-2px;background:#eaf5ee}
+.xl-grid td.over{color:#c62828;font-weight:700}
+.xl-grid td.hold{color:#c62828;font-weight:700}
+.xl-grid td.ok{color:#1f6f43;font-weight:700}
+.xl-tabs{display:flex;gap:2px;background:#f2f4f7;border-top:1px solid #e3e6eb;padding:0 8px;overflow-x:auto}
+.xl-tabs button{border:0;background:transparent;padding:8px 12px;font:600 12.5px system-ui;color:#555;cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent}
+.xl-tabs button.on{background:#fff;color:#1f6f43;border-bottom-color:#1f6f43}
+.xl-tabs button:disabled{opacity:.45;cursor:default}
+.xl-note{padding:14px 16px;font-size:14px;color:var(--muted);border-top:1px solid #eceef2}
 </style>
 </head>
 <body>
@@ -226,11 +257,11 @@ footer .wrap{border-top:1px solid #232835;padding-top:20px}
  <div class="wrap">
   <div>
    <div class="top"><b>Durva Thakkar</b> · for the ASUS Canada marketing team · Marketing Administrator</div>
-   <h1>Eight Zenbook 14 models still say <em>“TBA”</em>. I organised their launch.</h1>
-   <p class="lede">The Zenbook 14 reached Canada on October 20. Four models shipped and eight are still listed as coming soon. This page runs that second wave the way the job post describes the work: tracker, calendar, approvals, budget, POs, proof of execution, assets and PR. It all works, so click through anything.</p>
+   <h1>Nothing launches on time <em>by accident.</em></h1>
+   <p class="lede">Eight Zenbook 14 models in Canada still say “TBA”. When they launch, someone has to keep five teams, three retail peaks and every dollar in line. I planned how I’d do it, and why.</p>
    <div class="acts">
-    <a class="btn" href="#tracker">Open the launch tracker</a>
-    <a class="btn ghost" href="ASUS-Canada-GTM-Workbook.xlsx" download>Download the Excel workbook</a>
+    <a class="btn" href="#tracker">See how I’d run it</a>
+    <a class="btn ghost" href="#workbook">See the workbook</a>
    </div>
   </div>
   <div class="az-stage">
@@ -252,8 +283,8 @@ footer .wrap{border-top:1px solid #232835;padding-top:20px}
  <div class="wrap sw"><div class="stats">
   <div><b>Oct 20</b><span>Zenbook 14 wave 1 in Canada</span></div>
   <div><b>8 of 12</b><span>Canadian models still “TBA”</span></div>
-  <div><b>12</b><span>working documents on this page</span></div>
-  <div><b>2</b><span>files: Excel workbook and status deck</span></div>
+  <div><b>5</b><span>teams that have to move together</span></div>
+  <div><b>3</b><span>retail peaks in six weeks</span></div>
  </div></div>
 </header>
 
@@ -261,7 +292,7 @@ footer .wrap{border-top:1px solid #232835;padding-top:20px}
 
 <section class="s" id="hi"><div class="wrap">
  <div class="sh"><div><span class="k">Before you scroll</span><h2>What’s real and what’s a sample</h2></div>
- <p>I used one real launch so the work isn’t generic. I kept the facts honest by labelling every number.</p></div>
+ <p>I used one real launch so this isn’t generic, and I labelled every number so you know which is which.</p></div>
  <div class="grid2">
   <div class="card"><span class="real">Real</span><p style="margin-top:10px">The 12 Canadian Zenbook 14 models, their prices, and which ones say “TBA”. The October 20 date, the retailers (ASUS Store, Amazon, Best Buy Canada, Canada Computers) and the three months of Google AI Pro offer. All of it comes from ASUS’s own Canadian release, dated Toronto, October 20, 2026. The iPhone in Canada coverage in the PR log is real too.</p></div>
   <div class="card"><span class="sample">Sample</span><p style="margin-top:10px">Every date after today (November 24), every dollar in the budget, every PO and invoice, owner names, vendors and outlets. I don’t know your internal plan, so I made a believable one to show how I’d run it. On day one I’d swap my numbers for yours and keep the system.</p></div>
@@ -269,51 +300,53 @@ footer .wrap{border-top:1px solid #232835;padding-top:20px}
 </div></section>
 
 <section class="s alt" id="tracker"><div class="wrap">
- <div class="sh"><div><span class="k">01 · GTM tracker</span><h2>Fifteen tasks, five teams, one place to look</h2></div>
+ <div class="sh"><div><span class="k">01 · GTM tracker</span><h2>Every task has one owner and one date</h2></div>
  <p>Each task has an owner, a due date and whatever it’s waiting on. Click a status to move it along, or filter by team.</p></div>
  <div class="jd">From the job post: “Coordinate go-to-market activities for product launches and campaigns, including timelines, task tracking, deliverables, and follow-ups.”</div>
  <div style="height:18px"></div>
  <div class="chips" id="trF"></div>
  <div class="prog"><span id="trTxt"></span><div class="t"><div id="trBar"></div></div></div>
  <div class="scroll"><table class="tbl"><thead><tr><th>ID</th><th>Task</th><th>Team</th><th>Owner</th><th>Due</th><th>Waits on</th><th>Status</th></tr></thead><tbody id="trB"></tbody></table></div>
- <p class="note">Rule I’d keep: if a task is blocked for 48 hours, it goes in the weekly status report with a name next to it. Nothing stalls quietly.</p>
+ <p class="note">Rule I’d keep: if a task is blocked for 48 hours, it goes in the Friday report with a name next to it.</p><div class="think"><b>My thinking</b><ul><li>Launches rarely slip on the big tasks. They slip on the small one nobody owned.</li><li>So every row has a person, not a team. You can’t chase “Channel”. You can chase a name.</li><li>“Waits on” is the column I’d watch most. It shows which task is holding up the next one, before it’s late.</li></ul></div>
 </div></section>
 
 <section class="s" id="calendar"><div class="wrap">
- <div class="sh"><div><span class="k">02 · Marketing calendar</span><h2>Launch dates next to the retail dates they compete with</h2></div>
- <p>Black Friday, Cyber Monday and Boxing Day are on the same calendar as the embargo, so nobody books a media briefing on a flyer weekend.</p></div>
+ <div class="sh"><div><span class="k">02 · Marketing calendar</span><h2>Our dates sit next to the retail dates</h2></div>
+ <p>Black Friday, Cyber Monday and Boxing Day are on the same calendar as the embargo and the briefing.</p></div>
  <div class="jd">“Maintain the GTM and marketing calendars.”</div>
  <div style="height:18px"></div>
  <div class="cal-h"><h3 id="calT"></h3><div class="chips" style="margin:0"><button id="calP">‹ Prev</button><button id="calN">Next ›</button></div></div>
  <div class="cal" id="cal"></div>
  <div class="legend"><span><i style="background:var(--coral)"></i>Launch</span><span><i style="background:var(--ink)"></i>Deadline</span><span><i style="background:var(--ice)"></i>Meeting</span><span><i style="background:var(--coral2)"></i>PR</span><span><i style="background:var(--gbg)"></i>Event</span><span><i style="background:var(--abg)"></i>Retail moment</span></div>
+<div class="think"><b>My thinking</b><ul><li>Wave 2 lands in the busiest six weeks of the retail year.</li><li>A media briefing in Black Friday week gets little coverage. A flyer that misses Boxing Day misses the year.</li><li>Putting retail dates on our calendar means clashes show up before anyone books anything.</li></ul></div>
 </div></section>
 
 <section class="s alt" id="checklist"><div class="wrap">
- <div class="sh"><div><span class="k">03 · Launch checklist</span><h2>The list that makes sure nothing gets forgotten</h2></div>
+ <div class="sh"><div><span class="k">03 · Launch checklist</span><h2>The list for the things that get forgotten</h2></div>
  <p>Four phases. The French and Quebec items sit inside the list rather than at the end, because that’s where they usually get dropped.</p></div>
  <div class="jd">“Launch checklists … help ensure campaign assets and messaging are delivered on schedule.”</div>
  <div style="height:18px"></div>
  <div class="prog"><span id="clTxt"></span><div class="t"><div id="clBar"></div></div></div>
  <div class="grid2" id="cl"></div>
+<div class="think"><b>My thinking</b><ul><li>In Canada, French can’t be the last step. When it’s at the end, it’s the first thing cut when time runs short.</li><li>So each French item sits right next to its English one, in the same phase, with the same due date.</li><li>The list is split by phase, so on any day you only look at what matters that week.</li></ul></div>
 </div></section>
 
 <section class="s" id="status"><div class="wrap">
- <div class="sh"><div><span class="k">04 · Status report</span><h2>Friday’s update, readable in one minute</h2></div>
- <p>Red, amber or green for each team, the one decision needed, and what’s next. The same report comes as a 5-slide PowerPoint.</p></div>
+ <div class="sh"><div><span class="k">04 · Status report</span><h2>Friday’s update, on one page</h2></div>
+ <p>Red, amber or green for each team, the one decision needed, and what’s next.</p></div>
  <div class="jd">“Program trackers, and status reports.”</div>
  <div style="height:18px"></div>
  <div class="rag" id="rag"></div>
  <div class="grid2">
-  <div class="doc"><h4>Decision needed this week</h4><div class="meta">Fri Nov 27 report · for the Product Marketing Team Lead · by Wed Dec 2</div><p>Amazon.ca placements are C$5,400 under plan and co-op flyers are C$5,400 over. <b>Option:</b> move C$5,400 from Amazon to the flyers, so the total stays on plan. I’ve put the numbers in tab 4 of the workbook.</p></div>
+  <div class="doc"><h4>Decision needed this week</h4><div class="meta">Fri Nov 27 report · for the Product Marketing Team Lead · by Wed Dec 2</div><p>Amazon.ca placements are C$5,400 under plan and co-op flyers are C$5,400 over. <b>Option:</b> move C$5,400 from Amazon to the flyers, so the total stays on plan. The numbers are in the budget tab of the workbook.</p></div>
   <div class="doc"><h4>Next week</h4><div class="meta">Dec 1 to Dec 5</div><ul><li>Review loans ship Dec 2 (8 outlets, forms signed first)</li><li>Release draft goes to approvals Dec 3</li><li>Sell sheets final Dec 4, EN and FR</li><li>Store staff training invites out Dec 4</li></ul></div>
  </div>
- <div class="dl"><div class="grow"><b>ASUS-Zenbook14-Wave2-Status.pptx</b><br>5 slides: summary, team status, timeline, budget, decisions. Editable, in plain PowerPoint.</div><a class="btn" href="ASUS-Zenbook14-Wave2-Status.pptx" download>Download the deck</a></div>
+ <div class="think"><b>My thinking</b><ul><li>Busy people skim an update for one thing: “Do you need me?”</li><li>So the decision goes first, with the option I’d pick and what it costs.</li><li>Colours show the state at a glance. The detail is there for anyone who wants it.</li></ul></div>
 </div></section>
 
 <section class="s alt" id="meetings"><div class="wrap">
- <div class="sh"><div><span class="k">05 · Meetings</span><h2>Agenda before, minutes after, actions with names</h2></div>
- <p>A 30-minute weekly launch sync. The agenda goes out the day before and the minutes go out within two hours.</p></div>
+ <div class="sh"><div><span class="k">05 · Meetings</span><h2>Agenda before, minutes after</h2></div>
+ <p>A 30-minute weekly launch sync. The agenda goes out the day before, and the minutes within two hours.</p></div>
  <div class="jd">“Prepare meeting agendas, minutes, and action-item summaries.”</div>
  <div style="height:18px"></div>
  <div class="tabs" data-t="mt"><button class="on" data-p="mt1">Agenda</button><button data-p="mt2">Minutes</button><button data-p="mt3">Action items email</button></div>
@@ -334,6 +367,7 @@ footer .wrap{border-top:1px solid #232835;padding-top:20px}
   <tr><td>Third reminder on loan L-012, then escalate</td><td>Durva</td><td>Dec 2</td></tr>
   <tr><td>Approve sell sheets</td><td>PMM lead</td><td>Dec 4</td></tr></tbody></table>
   <p style="margin-top:12px">The tracker is updated. Shout if I got anything wrong.<br>Durva</p></div></div></div>
+<div class="think"><b>My thinking</b><ul><li>A meeting with no minutes usually happens twice.</li><li>Every action gets one name and one date, or it doesn’t go in the email.</li><li>If an agenda item has no update, it drops off. Thirty minutes stays thirty minutes.</li></ul></div>
 </div></section>
 
 <section class="s" id="events"><div class="wrap">
@@ -367,10 +401,11 @@ footer .wrap{border-top:1px solid #232835;padding-top:20px}
   <p>If you took a review unit, your loan form is attached. The return date is on it, and I’ll send a prepaid label a week before.</p>
   <p>Any questions, just reply here.</p>
   <p>Durva Thakkar<br>Marketing Administrator, ASUS Canada</p></div></div></div>
+<div class="think"><b>My thinking</b><ul><li>For a media briefing, most of the risk is in the days before: headcount, demo units, the embargo card.</li><li>Store training is where a launch is won at the shelf. Staff sell what they can explain in one sentence, so the cheat sheet has three lines, not ten.</li><li>Registration asks for language up front, so a French session is planned, not scrambled.</li></ul></div>
 </div></section>
 
 <section class="s alt" id="approvals"><div class="wrap">
- <div class="sh"><div><span class="k">07 · Approvals and handoffs</span><h2>Who signs off on what, and how long they have</h2></div>
+ <div class="sh"><div><span class="k">07 · Approvals and handoffs</span><h2>Who signs off, and how long they have</h2></div>
  <p>Most launch delays come from waiting on approvals. Each handoff below has an owner and a time limit.</p></div>
  <div class="jd">“Coordinate approvals and handoffs between Product Marketing, PR, and Channel Marketing.”</div>
  <div style="height:18px"></div>
@@ -389,19 +424,21 @@ footer .wrap{border-top:1px solid #232835;padding-top:20px}
   <tr><td>Promo and pricing copy</td><td>Channel</td><td>Sales lead</td><td>Finance</td><td>1 day</td></tr>
  </tbody></table></div>
  <p class="note">If time runs out, I don’t treat it as a yes. I chase the approver once, then raise it at the next sync. Nothing with a price or a claim goes out unapproved.</p>
+<div class="think"><b>My thinking</b><ul><li>Most launch delays are someone waiting for a yes.</li><li>A time limit on each approval makes the wait visible, and easy to chase without it feeling personal.</li><li>Silence is not a yes. Anything with a price or a claim waits until someone signs.</li></ul></div>
 </div></section>
 
 <section class="s" id="budget"><div class="wrap">
- <div class="sh"><div><span class="k">08 · Budget tracker</span><h2>Plan, committed, actual, and a flag when they drift</h2></div>
- <p>Type into any “Actual” cell. A line more than 10% over turns red, and more than 25% under turns amber. The note to the Team Lead writes itself.</p></div>
+ <div class="sh"><div><span class="k">08 · Budget tracker</span><h2>Plan, committed and actual, side by side</h2></div>
+ <p>Type into any “Actual” cell. A line more than 10% over turns red, and more than 25% under turns amber. The note to the Team Lead updates with it.</p></div>
  <div class="jd">“Maintain the marketing budget tracker, monitoring spend against plan and flagging variances to the Product Marketing Team Lead.”</div>
  <div style="height:18px"></div>
  <div class="scroll bud"><table class="tbl"><thead><tr><th>Line <span class="sample">Sample</span></th><th>Team</th><th class="n">Plan</th><th class="n">Committed</th><th class="n">Actual</th><th class="n">Variance</th><th></th></tr></thead><tbody id="budB"></tbody><tfoot><tr><td>Total</td><td></td><td class="n" id="bP"></td><td class="n" id="bC"></td><td class="n" id="bA"></td><td class="n" id="bV"></td><td></td></tr></tfoot></table></div>
  <div class="flag" id="flag"></div>
+<div class="think"><b>My thinking</b><ul><li>Plan vs. actual alone shows a problem too late. Once a PO is raised, that money is gone, even before the invoice comes.</li><li>So I track committed as well. The gap between committed and actual is where surprises hide.</li><li>When one line runs over, I first look for one running under. The best fix keeps the total the same, so the Team Lead only has to say yes.</li></ul></div>
 </div></section>
 
 <section class="s alt" id="po"><div class="wrap">
- <div class="sh"><div><span class="k">09 · POs, invoices, expenses</span><h2>Every invoice matched to a PO before anyone pays it</h2></div>
+ <div class="sh"><div><span class="k">09 · POs, invoices, expenses</span><h2>No invoice gets paid until it matches</h2></div>
  <p>A simple three-way check: the PO, the invoice and proof the work was delivered. If any of the three is missing or the amounts differ, the row stops.</p></div>
  <div class="jd">“Assist with purchase requests, purchase orders, invoice processing, and expense reconciliation.”</div>
  <div style="height:18px"></div>
@@ -411,11 +448,12 @@ footer .wrap{border-top:1px solid #232835;padding-top:20px}
   <div class="card"><h3>Month-end reconcile</h3><p class="note" style="margin-top:6px">Card expenses and invoices matched to budget lines by the 3rd working day. Anything without a receipt gets one reminder, then goes to the Team Lead.</p></div>
   <div class="card"><h3>Open commitments</h3><p class="note" style="margin-top:6px">POs raised but not yet invoiced are counted as spent in the tracker, so the budget never looks better than it really is.</p></div>
  </div>
+<div class="think"><b>My thinking</b><ul><li>Paying an invoice that doesn’t match is easy to do and hard to undo.</li><li>So money moves only when three things agree: what we ordered, what they billed, and what arrived.</li><li>Open POs count as spent in the budget, so it never looks better than it is.</li></ul></div>
 </div></section>
 
 <section class="s" id="poe"><div class="wrap">
  <div class="sh"><div><span class="k">10 · Proof of execution</span><h2>A co-op claim that gets paid the first time</h2></div>
- <p>A POE pack is easy to build while the campaign runs and painful to rebuild afterwards. The folder opens on launch day and fills up as things happen.</p></div>
+ <p>A POE pack is easy to build while the campaign runs and hard to rebuild afterwards. The folder opens on launch day and fills up as things happen.</p></div>
  <div class="jd">“Coordinate proof-of-execution (POE) reports for campaigns, events, and partner programs … and supporting claim and reimbursement submissions.”</div>
  <div style="height:18px"></div>
  <div class="grid2">
@@ -425,11 +463,12 @@ footer .wrap{border-top:1px solid #232835;padding-top:20px}
    <div class="lab">Filing rule</div><p class="mono" style="font-size:12.5px">POE / 2026-Q4 / CanadaComputers / ZB14-W2-Flyer / 01_artwork.pdf</p>
    <div class="lab">Deadline I’d track</div><p>Q4 claims cut-off, Dec 31. The calendar sends a reminder 10 days before.</p></div>
  </div>
+<div class="think"><b>My thinking</b><ul><li>Co-op claims get rejected for missing proof, not missing work.</li><li>Saving a dated screenshot takes ten seconds on the day. Finding it in January takes hours.</li><li>One file name pattern means anyone on the team can find the pack, not only me.</li></ul></div>
 </div></section>
 
 <section class="s alt" id="library"><div class="wrap">
- <div class="sh"><div><span class="k">11 · Asset library</span><h2>One folder structure, one naming rule, one current version</h2></div>
- <p>When a partner asks for “the latest spec sheet”, the answer should be a link, not a search through old email.</p></div>
+ <div class="sh"><div><span class="k">11 · Asset library</span><h2>Every file has one home and one current version</h2></div>
+ <p>When a partner asks for “the latest spec sheet”, I should be able to send a link in a minute.</p></div>
  <div class="jd">“Organize and maintain marketing asset libraries, shared folders, product collateral, press materials, and promotional materials, ensuring current versions are available.”</div>
  <div style="height:18px"></div>
  <div class="grid2">
@@ -461,22 +500,24 @@ footer .wrap{border-top:1px solid #232835;padding-top:20px}
    <div class="card" style="margin-top:14px"><h3>Three rules</h3><ul style="margin:8px 0 0;padding-left:18px;font-size:14.5px"><li>Only <span class="mono">_CURRENT</span> is shared. When a file is replaced, the old one moves to <span class="mono">_ARCHIVE</span> the same day.</li><li>Every English file has a French twin or a note saying why not.</li><li>On the first Monday of the month I check that links still work and the prices are still right.</li></ul></div>
   </div>
  </div>
+<div class="think"><b>My thinking</b><ul><li>The most dangerous file is an old one that looks current.</li><li>One _CURRENT folder means a partner can never grab last month’s price.</li><li>Old files move to _ARCHIVE, never the bin. If someone asks what changed, we can show them.</li></ul></div>
 </div></section>
 
 <section class="s" id="pr"><div class="wrap">
  <div class="sh"><div><span class="k">12 · PR tracker</span><h2>Media requests, coverage and review units, all in one place</h2></div>
- <p>The loans tab works out what’s overdue from today’s date, so a $1,500 laptop doesn’t sit on a reviewer’s desk for months.</p></div>
+ <p>The loans tab works out what’s overdue from today’s date, so a laptop doesn’t sit on a reviewer’s desk for months.</p></div>
  <div class="jd">“Support PR by tracking media requests, press releases, coverage, and review samples and product loans.”</div>
  <div style="height:18px"></div>
  <div class="tabs" data-t="pr"><button class="on" data-p="pr1">Review loans</button><button data-p="pr2">Media requests</button><button data-p="pr3">Coverage</button></div>
  <div class="pane on" id="pr1"><div class="scroll"><table class="tbl"><thead><tr><th>Loan</th><th>Model</th><th>Outlet</th><th>Out</th><th>Due back</th><th>Status</th></tr></thead><tbody id="lnB"></tbody></table></div><p class="note">Loan rules: form signed before a unit leaves, 4 weeks by default, prepaid return label sent a week before it’s due, two reminders, then the PR lead takes over.</p></div>
  <div class="pane" id="pr2"><div class="scroll"><table class="tbl"><thead><tr><th>Received</th><th>From</th><th>Asked for</th><th>What we did</th><th>Status</th></tr></thead><tbody id="mdB"></tbody></table></div></div>
  <div class="pane" id="pr3"><div class="scroll"><table class="tbl"><thead><tr><th>Date</th><th>Outlet</th><th>Headline</th><th>Note</th></tr></thead><tbody id="cvB"></tbody></table></div><p class="note">Each wave 2 story gets logged the same day it runs: link, screenshot, which model, and whether the price and the offer were right.</p></div>
+<div class="think"><b>My thinking</b><ul><li>A review laptop is stock sitting on someone else’s desk.</li><li>The tracker counts the days for me, so reminders go out on time and stay friendly.</li><li>Every piece of coverage gets checked for the right price and offer. A wrong price in a review is worth a quick, polite fix.</li></ul></div>
 </div></section>
 
 <section class="s alt" id="better"><div class="wrap">
  <div class="sh"><div><span class="k">13 · Making it better</span><h2>Three small fixes I’d suggest in the first month</h2></div>
- <p>None of these need new software. They work in Excel, Teams and the folders you already have.</p></div>
+ <p>None of these need new software. They work in Excel, Teams and the folders you already use.</p></div>
  <div class="jd">“Identify opportunities to improve marketing processes and tools.”</div>
  <div style="height:18px"></div>
  <div class="grid3">
@@ -486,12 +527,24 @@ footer .wrap{border-top:1px solid #232835;padding-top:20px}
  </div>
 </div></section>
 
+<section class="s" id="workbook"><div class="wrap">
+ <div class="sh"><div><span class="k">14 · Behind the page</span><h2>The workbook that runs it</h2></div>
+ <p>Everything above also lives in one Excel workbook, with real formulas. Click any cell to see what’s behind it, or switch tabs.</p></div>
+ <div class="xl">
+  <div class="xl-top"><i></i><i></i><i></i><span style="margin-left:6px">ASUS-Canada-GTM-Workbook.xlsx</span></div>
+  <div class="xl-fx"><span id="xlRef">F2</span><em id="xlFx"></em></div>
+  <div class="xl-grid"><table><thead id="xlH"></thead><tbody id="xlB"></tbody></table></div>
+  <div class="xl-note" id="xlNote"></div>
+  <div class="xl-tabs" id="xlTabs"></div>
+ </div>
+ <div class="think"><b>My thinking</b><ul><li>Blue numbers are typed in. Black numbers are worked out by Excel. Anyone can see what’s safe to change.</li><li>Flags like OVER and HOLD come from formulas. The sheet spots the problem, and I take it to the right person.</li><li>Plain Excel on purpose. Nobody needs a new login or a new tool to use it on day one.</li></ul></div>
+</div></section>
+
 <section class="hello" id="hello"><div class="wrap">
  <div><span class="k" style="color:var(--coral)">Hello</span><h2 style="margin:12px 0 16px">I’d love to run the real one.</h2>
   <p>I’m Durva, and I’m applying for the Marketing Administrator role. I like the part of marketing where things have to arrive on time and add up. This page is how I’d approach your next launch, and I’d be glad to walk you through any of it.</p>
   <div class="acts" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px"><a class="btn" href="mailto:durvathakker7@gmail.com?subject=ASUS%20Canada%20Marketing%20Administrator">Email me</a><a class="btn ghost" style="color:#fff;box-shadow:inset 0 0 0 1.5px #4a5060" href="https://durvathakkar.com/">About me</a></div></div>
- <div class="card"><b>The two files</b><p style="margin:10px 0 14px;font-size:14px">The workbook has 8 tabs: read me, GTM tracker, calendar, budget, POs and invoices, POE log, PR requests and review loans. The deck has 5 slides.</p>
-  <div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn sm" href="ASUS-Canada-GTM-Workbook.xlsx" download>Workbook (.xlsx)</a><a class="btn sm" href="ASUS-Zenbook14-Wave2-Status.pptx" download>Status deck (.pptx)</a></div></div>
+ <div class="card"><b>Happy to share the files</b><p style="margin:10px 0 0;font-size:14px">The workbook (9 tabs, real formulas) and a 5-slide status deck are ready. Ask, and I’ll send them over or walk you through them on a call.</p></div>
 </div></section>
 <footer><div class="wrap">Made by Durva Thakkar for the ASUS Canada marketing team. Product facts come from ASUS’s Canadian Zenbook 14 release (Toronto, Oct 20, 2026). Dates after Nov 24, 2026, budgets, POs, vendors, owners and outlets are samples. ASUS and Zenbook are trademarks of ASUSTeK Computer Inc. This is an unofficial job application page.</div></footer>
 
@@ -504,7 +557,7 @@ const money=n=>'C$'+Math.round(n).toLocaleString('en-CA');
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
 /* nav */
-const NAV=[['hi','Real vs sample'],['tracker','01 Tracker'],['calendar','02 Calendar'],['checklist','03 Checklist'],['status','04 Status'],['meetings','05 Meetings'],['events','06 Events'],['approvals','07 Approvals'],['budget','08 Budget'],['po','09 POs'],['poe','10 POE'],['library','11 Assets'],['pr','12 PR'],['better','13 Fixes'],['hello','Hello']];
+const NAV=[['hi','Real vs sample'],['tracker','01 Tracker'],['calendar','02 Calendar'],['checklist','03 Checklist'],['status','04 Status'],['meetings','05 Meetings'],['events','06 Events'],['approvals','07 Approvals'],['budget','08 Budget'],['po','09 POs'],['poe','10 POE'],['library','11 Assets'],['pr','12 PR'],['better','13 Fixes'],['workbook','14 Workbook'],['hello','Hello']];
 $('#nav').innerHTML=NAV.map(([i,t])=>`<a href="#${i}">${t}</a>`).join('');
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){$$('#nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}}),{rootMargin:'-45% 0px -50% 0px'});
 NAV.forEach(([i])=>{const el=document.getElementById(i);if(el)io.observe(el)});
@@ -586,6 +639,39 @@ function nm(){const d=($('#nD').value||'2026-12-04').replace(/-/g,'');$('#nOut')
 $('#lnB').innerHTML=D.LOANS.map(l=>{const due=new Date(l[4]+'T12:00:00'),days=Math.round((TODAY-due)/864e5);let s,c;if(l[5]==='Returned'){s='Returned';c='p-g'}else if(days>0){s=`Overdue ${days} days`;c='p-r'}else{s=`Due in ${-days} days`;c=-days<=7?'p-a':'p-b'}return`<tr><td class="mono">${l[0]}</td><td class="mono">${l[1]}</td><td>${l[2]}</td><td class="mono">${fmt(l[3])}</td><td class="mono">${fmt(l[4])}</td><td><span class="pill ${c}">${s}</span></td></tr>`}).join('');
 $('#mdB').innerHTML=D.MEDIA.map(m=>`<tr><td class="mono">${fmt(m[0])}</td><td>${m[1]}</td><td>${m[2]}</td><td>${m[3]}</td><td><span class="pill ${m[4]==='Done'?'p-g':'p-a'}">${m[4]}</span></td></tr>`).join('');
 $('#cvB').innerHTML=D.COVERAGE.map(c=>`<tr><td class="mono">${fmt(c[0])}</td><td>${c[1]}${c[0]==='2026-10-05'?' <span class="real">Real</span>':''}</td><td>${c[2]||'·'}</td><td>${c[3]||'·'}</td></tr>`).join('');
+
+/* 14 workbook mock */
+(function(){
+ const TODAY=new Date('2026-11-24'),days=s=>Math.round((TODAY-new Date(s))/864e5);
+ const C=n=>(n<0?'-':'')+'C$'+Math.abs(Math.round(n)).toLocaleString('en-CA');
+ const md=s=>new Date(s+'T12:00').toLocaleDateString('en-CA',{month:'short',day:'numeric'});
+ const L='ABCDEFGHI';
+ const TABS={
+  'Read me':{note:'The first tab explains the colours and holds one input: the report date in B10. Every “late” and “overdue” formula in the workbook counts from that date, so the whole file updates when it changes.',h:['A','B'],cols:'AB',rn:[10,11,12,13],rows:[[{v:'Report date'},{v:'Nov 24, 2026',c:'in',f:'Typed input. Change it and every overdue check updates.'}],[{v:'Blue text'},{v:'Typed by a person'}],[{v:'Black text'},{v:'Worked out by Excel'}],[{v:'Yellow cells'},{v:'Update these weekly'}]]},
+  'GTM tracker':{note:'Status is a drop-down (Not started, In progress, Blocked, Done). The “Late?” column checks each due date against the report date, and late rows turn red on their own.',h:['ID','Task','Owner','Due','Status','Late?'],cols:'ABDEGH',
+   rows:D.TASKS.slice(0,8).map((t,i)=>{const r=i+2,late=t[5]!=='Done'&&new Date(t[4])<TODAY;return[{v:t[0]},{v:t[1]},{v:t[3]},{v:md(t[4]),c:'in'},{v:t[5],c:'in',f:'Drop-down: Not started, In progress, Blocked, Done'},{v:late?'LATE':'',c:'f'+(late?' over':''),f:`=IF(AND(G${r}<>"Done",E${r}<'Read me'!$B$10),"LATE","")`}]})},
+  'Budget':{note:'Only plan, committed and actual are typed. Variance, % and the flag are formulas. A line more than 10% over says OVER; more than 25% under says UNDER, and the note column writes the sentence for the Team Lead.',h:['Line','Plan','Committed','Actual','Variance','Var %','Flag'],cols:'ACDEFGH',
+   rows:D.BUDGET.map((b,i)=>{const r=i+2,F=b[4]===0?0:b[4]-b[2],G=(b[2]===0||b[4]===0)?0:F/b[2],H=G>0.1?'OVER':(b[3]>0&&b[4]>0&&G<-0.25?'UNDER':'');
+    return[{v:b[0]},{v:C(b[2]),c:'in n'},{v:C(b[3]),c:'in n'},{v:C(b[4]),c:'in n',f:'Typed input, updated weekly from invoices'},{v:F?C(F):'-',c:'f n'+(F>0?' over':''),f:`=IF(E${r}=0,0,E${r}-C${r})`},{v:G?(G<0?'-':'')+Math.round(Math.abs(G)*100)+'%':'-',c:'f n'+(G>0.1?' over':''),f:`=IF(OR(C${r}=0,E${r}=0),0,F${r}/C${r})`},{v:H,c:'f'+(H==='OVER'?' over':''),f:`=IF(G${r}>0.1,"OVER",IF(AND(D${r}>0,E${r}>0,G${r}<-0.25),"UNDER",""))`}]})},
+  'POs & invoices':{note:'The Check column is the three-way match. No invoice yet: waiting. Goods not received: HOLD. Amount differs from the PO: HOLD, with the gap. Only when all three agree does it say OK to pay.',h:['PO','For','PO amount','Invoiced','Received?','Check'],cols:'ACDFGH',
+   rows:D.POS.map((p,i)=>{const r=i+2,chk=!p[4]?'Waiting on invoice':p[6]!=='Yes'?'HOLD: not received':p[5]!==p[3]?'HOLD: '+(p[5]-p[3]).toLocaleString('en-CA')+' vs PO':'Matched, OK to pay';
+    return[{v:p[0]},{v:p[2]},{v:C(p[3]),c:'in n'},{v:p[4]?C(p[5]):'',c:'in n'},{v:p[6],c:'in'},{v:chk,c:'f '+(chk.startsWith('HOLD')?'hold':chk.startsWith('Matched')?'ok':''),f:`=IF(E${r}="","Waiting on invoice",IF(G${r}<>"Yes","HOLD: not received",IF(F${r}<>D${r},"HOLD: "&TEXT(F${r}-D${r},"#,##0")&" vs PO","Matched, OK to pay")))`}]})},
+  'Review loans':{note:'Days overdue counts from the report date, so nobody has to do date maths. Overdue rows turn red, and that’s my list for the morning’s reminders.',h:['Loan','Model','Outlet','Due back','Returned?','Days overdue','Status'],cols:'ABCEFGH',
+   rows:D.LOANS.map((l,i)=>{const r=i+2,ret=l[5]==='Returned',od=ret?0:Math.max(0,days(l[4])),st=ret?'Returned':od>0?'OVERDUE':'Out';
+    return[{v:l[0]},{v:l[1]},{v:l[2]},{v:md(l[4]),c:'in'},{v:ret?'Yes':'No',c:'in'},{v:od,c:'f n'+(od>0?' over':''),f:`=IF(F${r}="Yes",0,MAX(0,'Read me'!$B$10-E${r}))`},{v:st,c:'f'+(st==='OVERDUE'?' over':''),f:`=IF(F${r}="Yes","Returned",IF(G${r}>0,"OVERDUE","Out"))`}]})}
+ };
+ const names=Object.keys(TABS);let cur='Budget';
+ function sel(td){$$('#xlB td').forEach(x=>x.classList.remove('sel'));td.classList.add('sel');$('#xlRef').textContent=td.dataset.ref;$('#xlFx').textContent=td.dataset.f||td.textContent}
+ function draw(){const T=TABS[cur];
+  $('#xlH').innerHTML='<tr><th></th>'+T.h.map((h,i)=>`<th>${T.cols[i]} · ${h}</th>`).join('')+'</tr>';
+  $('#xlB').innerHTML=T.rows.map((row,ri)=>`<tr><th>${T.rn?T.rn[ri]:ri+2}</th>`+row.map((c,ci)=>`<td class="${c.c||''}" data-ref="${T.cols[ci]}${T.rn?T.rn[ri]:ri+2}" data-f="${(c.f||'').replace(/"/g,'&quot;')}">${c.v}</td>`).join('')+'</tr>').join('');
+  $('#xlNote').textContent=T.note;
+  $('#xlTabs').innerHTML=names.map(n=>`<button class="${n===cur?'on':''}">${n}</button>`).join('')+'<button disabled>Calendar</button><button disabled>POE log</button><button disabled>PR requests</button><button disabled>Models</button>';
+  $$('#xlTabs button:not([disabled])').forEach(b=>b.onclick=()=>{cur=b.textContent;draw()});
+  $$('#xlB td').forEach(td=>td.onclick=()=>sel(td));
+  const first=$('#xlB td.f')||$('#xlB td');if(first)sel(first)}
+ draw();
+})();
 </script>
 </body>
 </html>
